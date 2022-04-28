@@ -1,13 +1,129 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+    body {
+        @apply text-sm bg-white text-black;
+    }
+
+    article {
+        @apply opacity-80 cursor-pointer;
+    }
+
+    button {
+        @apply opacity-80 cursor-pointer;
+    }
+
+    .m-button {
+        @apply  py-[10px] px-[20px] bg-black text-white rounded-full font-medium;
+    }
+
+    .l-button {
+        @apply py-[10px] px-[20px] bg-white text-black rounded-full font-medium border-2 border-black;
+    }
+
+    .m-article {
+        @apply ;
+    }
+
+    .l-article {
+        @apply p-[10px] ;
+    }
+
+    .m-main {
+        @apply ;
+    }
+
+    .l-main {
+        @apply  ;
+    }
+
+    .m-section {
+        @apply m-[20px]  ;
+    }
+
+    .l-section {
+        @apply m-[10px] ;
+    }
+
+    .m-input {
+        @apply w-full text-base p-[10px];
+    }
+
+    .l-input {
+        @apply w-full text-base p-[20px]  ;
+    }
+
+    .m-span {
+        @apply  ;
+    }
+
+    .l-span {
+        @apply  ;
+    }
+
+    .m-h1 {
+        @apply text-xs font-medium;
+    }
+
+    .l-h1 {
+        @apply text-xs text-gray-500 font-light;
+    }
+
+    .m-h2 {
+        @apply text-sm font-medium;
+    }
+
+    .l-h2 {
+        @apply text-sm text-gray-500 font-light;
+    }
+
+    .m-h3 {
+        @apply text-base font-medium;
+    }
+
+    .l-h3 {
+        @apply text-base text-gray-500 font-light;
+    }
+
+    .m-h4 {
+        @apply text-lg font-medium;
+    }
+
+    .l-h4 {
+        @apply text-lg text-gray-500 font-light;
+    }
+
+    .m-h5 {
+        @apply text-xl font-medium;
+    }
+
+    .l-h5 {
+        @apply text-xl  text-gray-500 font-light;
+    }
+
+    .m-h6 {
+        @apply text-2xl  font-medium;
+    }
+
+    .l-h6 {
+        @apply text-2xl  text-gray-500 font-light;
+    }
+
+    .m-figure {
+        @apply p-[30px] ;
+    }
+
+    .l-figure {
+        @apply p-[20px]  ;
+    }
+
+    .m-figcaption {
+        @apply p-[30px] ;
+    }
+
+    .l-figcaption {
+        @apply p-[20px] ;
+    }
 }
