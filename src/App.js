@@ -6,7 +6,10 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import NavMain from './component/nav/NavMain';
 import {ContextMain} from './context/contextmain'
+import HomeMain from './page/home/HomeMain';
 import PostIndex from './page/post/PostIndex';
+import SearchIndex from './page/search/SearchIndex';
+import SearchMain from './page/search/SearchMain';
 
 export default function App() {
   const {appmainstate} = useContext(ContextMain)
@@ -27,7 +30,7 @@ export default function App() {
     const appmain = (
     <div className="App">
       <main className="">
-      <section className="">
+      <section className="sticky top-0 left-0 z-20">
         <NavMain />
       </section>
       
@@ -35,7 +38,13 @@ export default function App() {
       <Routes>
         {/* <Route path='/' element={<HomeMain />} />  */}
 
+        <Route path='/' element={<HomeMain />} /> 
+
         <Route path='/:id' element={<PostIndex />} /> 
+
+        <Route path='/search/searchmain' element={<SearchMain />} /> 
+        <Route path='/search/searchindex' element={<SearchIndex />} /> 
+
       </Routes> 
       </section>
 

@@ -1,32 +1,65 @@
 
 import React, { createContext, useEffect, useState } from 'react'
+import LoadMain from '../component/load/LoadMain'
 
-// import { client } from '../sanity'
+import { client } from '../lib/sanity'
 
 export const ContextMain = createContext()
 
 export const Provider = ({ children }) => {
+
     const [appmainstate, setappmainstate] = useState('appmain')
-    // const [userindex, setuserindex] = useState()
+    const [postindexstate, setpostindexstate] = useState()
+    const [searchmainstate, setsearchmainstate] = useState('postupdatedat')
+    const [searchinputstate, setsearchinputstate] = useState('')
+    
+    const [userindex, setuserindex] = useState()
+    const [postcreatedat, setpostcreatedat] = useState()
+    const [postupdatedat, setpostupdatedat] = useState()
+    const [postpostcount, setpostpostcount] = useState()
+    const [postcategoryid, setpostcategoryid] = useState()
+    console.log('postcategoryid :>> ', postcategoryid);
 
-    // useEffect(() => {
-    //     pp()
-    // }, [])
+    useEffect(() => {
+        pp()
+    }, [])
 
-    // const pp = async (p) => {
-    //         const appLocal = window.localStorage.getItem('user') !== 'undefined' ? JSON.parse(window.localStorage.getItem('user')) : window.localStorage.clear();
-    //           const query = `*[_type == 'user' && userid == '${appLocal.googleId}']`;
-    //           client.fetch(query) 
-    //           .then((data) => {
-    //               setuserindex(data[0]);
-    //           })
-    //     }
+    const pp = async () => {
+              const query = `*[_type == 'user' && userid == 'hayaker']{
+                ...,
+
+                'postcreatedat': *[_type == 'post'] | order(_createdAt desc),
+                'postupdatedat': *[_type == 'post'] | order(_updatedAt desc),
+                
+                'postpostcount': *[_type == 'post'] | order(postcount desc),
+                'postcategoryid': *[_type == 'post' && categoryid == ^.categoryid],
+              }[0]`;
+              client.fetch(query) 
+              .then((data) => {
+                  setuserindex(data)
+                  setpostcreatedat(data.postcreatedat);
+                  setpostupdatedat(data.postupdatedat);
+                  setpostpostcount(data.postpostcount);
+                  setpostcategoryid(data.postcategoryid);
+              })
+        }
+
+    if(!postupdatedat) return <LoadMain />
 
     return (
       <ContextMain.Provider value={{
-appmainstate, setappmainstate
+        appmainstate, setappmainstate,
+        postindexstate, setpostindexstate,
+        searchmainstate, setsearchmainstate,
+        searchinputstate, setsearchinputstate,
 
-}} >
+        userindex,
+        postcreatedat,
+        postupdatedat,
+        postpostcount,
+        postcategoryid,
+
+        }} >
         {children}
       </ContextMain.Provider>
     )

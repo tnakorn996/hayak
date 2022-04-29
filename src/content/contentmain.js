@@ -1,8 +1,27 @@
-export const planfigcaption = [
+export const categorymain = [
     {
-        planfigcaptionid: 0,
-        planfigcaptionname: 'Join Bioly today, and claim PRO membership for FREE.',
-        planfigcaptionclassname: '!text-indogo-800',
-        planfigcaptionredirect: 'planfigure',
+        categorymainid: 'food',
+        categorymaintitle: 'Food & Drink',
+        categorymaindirect: '/category/one',
+
     },
+    {
+        categorymainid: 'travel',
+        categorymaintitle: 'travel',
+        categorymaindirect: '/category/two',
+
+    },
+    {
+        categorymainid: 'inspiration',
+        categorymaintitle: 'inspiration',
+        categorymaindirect: '/category/three',
+
+    },
+    {
+        categorymainid: 'resource',
+        categorymaintitle: 'Resources',
+        categorymaindirect: '/category/three',
+
+    },
+    
 ]
