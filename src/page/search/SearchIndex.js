@@ -34,11 +34,11 @@ function SearchIndex() {
   return (
     <div>
         <main className="">
-            <section className="max-w-[900px] mx-auto flex flex-col md:grid md:grid-cols-3 justify-items-center">
+            <section className="p-[60px] max-w-[900px] mx-auto flex flex-col md:grid md:grid-cols-3 justify-items-center gap-1">
                 {searchindexmap?.map(data => (<>
                     <VerticleMain onlick={() => {
                         navigate(`/${data?.postid}`)
-                    }} key={data?.postid} createdat={data?._createdAt} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
+                    }} key={data?.postid} createdat={data?._createdAt} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} />
                 </>))}
             </section>
         </main>

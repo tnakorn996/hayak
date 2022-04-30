@@ -1,27 +1,28 @@
 export const categorymain = [
     {
         categorymainid: 'food',
-        categorymaintitle: 'Food & Drink',
-        categorymaindirect: '/category/one',
+        categorymaintitle: '🥘 Food & Drink',
+        categorymaindirect: 'food',
 
     },
     {
         categorymainid: 'travel',
-        categorymaintitle: 'travel',
-        categorymaindirect: '/category/two',
+        categorymaintitle: '✈️ Travel',
+        categorymaindirect: 'travel',
 
     },
     {
         categorymainid: 'inspiration',
-        categorymaintitle: 'inspiration',
-        categorymaindirect: '/category/three',
+        categorymaintitle: '💚 Inspiration',
+        categorymaindirect: 'inspiration',
 
     },
     {
         categorymainid: 'resource',
-        categorymaintitle: 'Resources',
-        categorymaindirect: '/category/three',
+        categorymaintitle: '📣 Resources',
+        categorymaindirect: 'resource',
 
     },
     
 ]
+

@@ -4,7 +4,7 @@ import { RiContrastDropLine } from 'react-icons/ri'
 function LoadMain({title}) {
   return (
     <div>
-        <main className="w-screen h-screen flex justify-center items-center">
+        <main className="w-screen h-screen flex justify-center items-center  bg-white">
             <div className="">
                 <figure className="">
                     <RiContrastDropLine className='text-3xl  animate-bounce' />

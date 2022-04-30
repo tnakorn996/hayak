@@ -41,14 +41,16 @@ function NavMain() {
                     <h1 className="l-h3">Blog</h1>
                 </figcaption>
             </section>
-            <section className="p-[20px] md:px-[60px] md:py-[30px] col-span-6 flex justify-end gap-2 ">
-                <button className="l-button">About</button>
-                <button className="m-button">Contact</button>
+            <section className="p-[20px] md:px-[60px] md:py-[30px] col-span-6 flex justify-end gap-2">
+                <button className="hidden md:block  l-button">Subscribe</button>
+                <button className="m-button">Chat with Us</button>
             </section>
             <section className="mx-[20px] md:mx-[60px] col-span-12 grid grid-cols-12   border-y-2 border-black">
                 <figcaption className="p-[5px] col-span-12 md:col-span-7 grid grid-cols-4 justify-items-center text-center">
                 {categorymain?.map(data => (<>
-                <article className="py-[10px]">
+                <article onClick={() => {
+                    navigate(`/category/${data?.categorymaindirect}`)
+                }} className="py-[10px]">
                     <h1 className="l-h2  first-letter:uppercase">{data?.categorymaintitle}</h1>
                 </article>
                 </>))}

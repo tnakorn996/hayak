@@ -28,29 +28,28 @@ function HomeMain() {
             homemainid: 'postupdatedat',
             homemainmap: postupdatedat,
             homemaintitle: '📈 Trending Blog',
-            homemainredirect: '/category/train'
+            homemaindirect: '/search/searchmain'
         },
         {
             homemainid: 'postcategoryid',
             homemainmap: postcategoryid,
-            homemaintitle: '💡 For You',
-            homemainredirect: '/category/train'
+            homemaintitle: '💡 Blog For You',
+            homemaindirect: '/search/searchmain',
         },
         {
             homemainid: 'postpostcount',
             homemainmap: postpostcount,
             homemaintitle: '🔥 Hottest Blog',
-            homemainredirect: '/category/train'
+            homemaindirect: '/search/searchmain'
         },
         {
             homemainid: 'postcreatedat',
             homemainmap: postcreatedat,
             homemaintitle: '✨ New Blog',
-            homemainredirect: '/category/train'
+            homemaindirect: '/search/searchmain'
         }
     ]
 
-   
     useEffect(() => {
       if(postupdatedat && postpostcount && postcategoryid && postcreatedat){
         sethomemainmap(homemain)
@@ -63,14 +62,15 @@ function HomeMain() {
                 sethomemainsliceone(homemainsliceone + 1)
                 sethomemainslicetwo(homemainslicetwo + 1)
             }
-            if(homemainslicetwo > data.homemainmap.length ){
-                sethomemainsliceone(homemainsliceone - 1)
-                sethomemainslicetwo(homemainslicetwo - 1)
+            if(homemainslicetwo >= data.homemainmap.length ){
+                sethomemainsliceone(0)
+                sethomemainslicetwo(4)
             }
-            console.log( homemainsliceone, homemainslicetwo)
         })
     }
-  return (
+    // console.log(' :>> ',homemainsliceone, homemainslicetwo);
+
+    return (
     <div>
         <main className="">
             <section className="relative">
@@ -83,14 +83,17 @@ function HomeMain() {
                 <br />
                 <figcaption className="max-w-[1200px] mx-auto  px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
                     <h1 className="m-h5">{data?.homemaintitle}</h1>
-                    <h1 className="l-h2">See all</h1>
+                    <h1 onClick={() => {
+                        navigate(data?.homemaindirect)
+                    }} className="l-h2">See all</h1>
                 </figcaption>
                 <figure className="max-w-[1200px] mx-auto overflow-y-auto sm:overflow-y-hidden no-scrollbar">
-                    <div className="w-[1200px] py-[20px] px-[20px] md:px-[60px] grid grid-cols-4 gap-1">
+                    
+                    <div className="w-[1200px] py-[20px] px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
                     {data?.homemainmap?.slice(homemainsliceone, homemainslicetwo).map(dat => (<>
                         <VerticleMain onlick={() => {
                             navigate(`/${dat?.postid}`)
-                        }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} />
+                        }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} />
                     </>))}
                     </div>
                 </figure>

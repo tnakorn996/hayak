@@ -117,8 +117,8 @@ function PostIndex() {
               }[0]`;
               client.fetch(query) 
               .then((data) => {
-                  setpostpostid(data);
-                  setpostcategoryid(data.postcategoryid);
+                    setpostpostid(data);
+                    setpostcategoryid(data.postcategoryid);
                 })
             }
 
