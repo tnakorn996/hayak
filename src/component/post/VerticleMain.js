@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { RiContrastDropLine } from 'react-icons/ri'
+import { motion } from 'framer-motion'
 
 import { categorymain } from '../../content/contentmain'
 

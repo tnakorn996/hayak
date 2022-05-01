@@ -6,8 +6,7 @@ import { RiChat3Line, RiEyeLine, RiMore2Fill } from 'react-icons/ri'
 import { useNavigate, useParams } from 'react-router-dom'
 import HorizonMain from '../../component/post/HorizonMain'
 import { ContextMain } from '../../context/contextmain'
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+import { motion } from 'framer-motion'
 
 import { client } from '../../lib/sanity'
 
@@ -93,7 +92,6 @@ function PostIndex() {
     ]
 
     useEffect(() => {
-        Aos.init({duration: 500, once: true})
             ll()
             setpostindexstate({
                 postindexid: param.id,
@@ -176,7 +174,7 @@ function PostIndex() {
 
   return (
     <div>
-        <main className="grid grid-cols-12 max-w-[900px] mx-auto">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="grid grid-cols-12 max-w-[900px] mx-auto">
             <figcaption className="col-span-12 md:col-span-8 max-w-[500px] mx-auto">
                 <section className="">
                     <figcaption className="m-section">
@@ -197,10 +195,7 @@ function PostIndex() {
                         <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                         <br />
                     </figcaption>
-                    <figure data-aos="fade-zoom-in"
-                  data-aos-easing="ease-in-back"
-                  data-aos-delay="0"
-                  data-aos-offset="0" className="md:m-section">
+                    <figure className="md:m-section">
                         <img src={postpostid?.posthero} alt="" className="" />
                     </figure>
                     <figcaption className=" m-section">
@@ -252,7 +247,7 @@ function PostIndex() {
 
 
 
-        </main>
+        </motion.main>
     </div>
   )
 }

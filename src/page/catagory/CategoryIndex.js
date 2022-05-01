@@ -4,8 +4,9 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { useNavigate, useParams } from 'react-router-dom'
-import ImpulseMain from '../../component/inpulse/ImpulseMain'
+import { motion } from 'framer-motion'
 
+import ImpulseMain from '../../component/inpulse/ImpulseMain'
 import VerticleMain from '../../component/post/VerticleMain'
 import { categorymain } from '../../content/contentmain'
 
@@ -99,7 +100,7 @@ function CategoryIndex() {
 
   return (
     <div>
-        <main className="">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="">
             <section className="max-w-[1200px] mx-auto px-[20px] md:px-[60px] py-[20px]">
                 <ImpulseMain />
             </section>
@@ -129,7 +130,7 @@ function CategoryIndex() {
                 </>))}
                 <br /><br />
             </section>
-        </main>
+        </motion.main>
     </div>
   )
 }

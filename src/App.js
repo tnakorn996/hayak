@@ -1,6 +1,7 @@
 
 import React, {useState, useRef, useEffect, useContext} from 'react'
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import {AnimatePresence} from 'framer-motion'
 
 // import HomeMain from './home/HomeMain'
 import './App.css';
@@ -19,6 +20,7 @@ export default function App() {
     loadmainstate,
   
   } = useContext(ContextMain)
+  const location = useLocation()
 
     const ll = (appmainstate)  => {
       switch(appmainstate) {
@@ -41,7 +43,8 @@ export default function App() {
         </section>
 
         <section className="">
-        <Routes>
+        <AnimatePresence>
+        <Routes key={location.pathname} location={location}>
           {/* <Route path='/' element={<HomeMain />} />  */}
 
           <Route path='/' element={<HomeMain />} /> 
@@ -54,6 +57,7 @@ export default function App() {
           <Route path='/category/:id' element={<CategoryIndex />} /> 
 
         </Routes> 
+        </AnimatePresence>
         </section>
 
       </main>

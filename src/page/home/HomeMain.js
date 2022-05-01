@@ -4,8 +4,7 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+import {motion} from 'framer-motion'
 
 import VerticleMain from '../../component/post/VerticleMain'
 import { ContextMain } from '../../context/contextmain'
@@ -59,7 +58,6 @@ function HomeMain() {
     ]
 
     useEffect(() => {
-        Aos.init({duration: 300, once: true})
         if(postupdatedat && postpostcount && postcategoryid && postcreatedat){
             sethomemainmap(homemain)
         }
@@ -113,11 +111,8 @@ function HomeMain() {
 
     return (
     <div>
-        <main className="">
-            <section data-aos="fade-zoom-in"
-                  data-aos-easing="ease-in-back"
-                  data-aos-delay="0"
-                  data-aos-offset="300" className="">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="">
+            <section className="">
                 <br />
                 {homemainmap?.map(data => (<>
                 <br />
@@ -190,7 +185,7 @@ function HomeMain() {
             </section>
 
 
-        </main>
+        </motion.main>
     </div>
   )
 }
