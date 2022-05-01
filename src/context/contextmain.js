@@ -27,11 +27,11 @@ export const Provider = ({ children }) => {
               const query = `*[_type == 'user' && userid == 'hayaker']{
                 ...,
 
-                'postcreatedat': *[_type == 'post'] | order(_createdAt desc) [0..5],
-                'postupdatedat': *[_type == 'post'] | order(_updatedAt desc) [0..5],
+                'postcreatedat': *[_type == 'post'] | order(_createdAt desc) ,
+                'postupdatedat': *[_type == 'post'] | order(_updatedAt desc) ,
                 
-                'postpostcount': *[_type == 'post'] | order(postcount desc) [0..5],
-                'postcategoryid': *[_type == 'post' && categoryid == ^.categoryid][0..5],
+                'postpostcount': *[_type == 'post'] | order(postcount desc) ,
+                'postcategoryid': *[_type == 'post' && categoryid == ^.categoryid] | order(_createdAt desc),
               }[0]`;
               client.fetch(query) 
               .then((data) => {

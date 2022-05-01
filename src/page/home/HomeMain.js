@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 import VerticleMain from '../../component/post/VerticleMain'
 import { ContextMain } from '../../context/contextmain'
@@ -20,6 +22,12 @@ function HomeMain() {
     const navigate = useNavigate()
     const [homemainsliceone, sethomemainsliceone] = useState(0)
     const [homemainslicetwo, sethomemainslicetwo] = useState(4)
+    const [homemainslicethree, sethomemainslicethree] = useState(0)
+    const [homemainslicefour, sethomemainslicefour] = useState(4)
+    const [homemainslicefive, sethomemainslicefive] = useState(0)
+    const [homemainslicesix, sethomemainslicesix] = useState(4)
+    const [homemainsliceseven, sethomemainsliceseven] = useState(0)
+    const [homemainsliceeight, sethomemainsliceeight] = useState(4)
 
     const [homemainmap, sethomemainmap] = useState()
 
@@ -51,33 +59,65 @@ function HomeMain() {
     ]
 
     useEffect(() => {
-      if(postupdatedat && postpostcount && postcategoryid && postcreatedat){
-        sethomemainmap(homemain)
-      }
+        Aos.init({duration: 300, once: true})
+        if(postupdatedat && postpostcount && postcategoryid && postcreatedat){
+            sethomemainmap(homemain)
+        }
     }, [postupdatedat, postpostcount, postcategoryid, postcreatedat])
 
-    function ll() {
-        homemainmap.forEach(data => {
-            if(homemainslicetwo < data.homemainmap.length){
+    function ll(first = this.props.first) {
+            if(homemainslicetwo < first){
                 sethomemainsliceone(homemainsliceone + 1)
                 sethomemainslicetwo(homemainslicetwo + 1)
             }
-            if(homemainslicetwo >= data.homemainmap.length ){
+            if(homemainslicetwo >= first){
                 sethomemainsliceone(0)
                 sethomemainslicetwo(4)
             }
-        })
     }
+
+    function kk(first = this.props.first) {
+            if(homemainslicefour < first){
+                sethomemainslicethree(homemainslicethree + 1)
+                sethomemainslicefour(homemainslicefour + 1)
+            }
+            if(homemainslicefour >= first){
+                sethomemainslicethree(0)
+                sethomemainslicefour(4)
+            }
+    }
+
+    function jj(first = this.props.first) {
+            if(homemainslicesix < first){
+                sethomemainslicefive(homemainslicefive + 1)
+                sethomemainslicesix(homemainslicesix + 1)
+            }
+            if(homemainslicesix >= first){
+                sethomemainslicefive(0)
+                sethomemainslicesix(4)
+            }
+    }
+
+    function hh(first = this.props.first) {
+            if(homemainsliceeight < first){
+                sethomemainsliceseven(homemainsliceseven + 1)
+                sethomemainsliceeight(homemainsliceeight + 1)
+            }
+            if(homemainsliceeight >= first){
+                sethomemainsliceseven(0)
+                sethomemainsliceeight(4)
+            }
+    }
+
     // console.log(' :>> ',homemainsliceone, homemainslicetwo);
 
     return (
     <div>
         <main className="">
-            <section className="relative">
-                <button onClick={() => ll()} className="hidden md:flex md:fixed z-20 bottom-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                    <RiArrowRightSLine className='text-5xl' />
-                </button>
-                <button className="hidden md:flex md:fixed z-10 bottom-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black" />
+            <section data-aos="fade-zoom-in"
+                  data-aos-easing="ease-in-back"
+                  data-aos-delay="0"
+                  data-aos-offset="300" className="">
                 <br />
                 {homemainmap?.map(data => (<>
                 <br />
@@ -87,14 +127,62 @@ function HomeMain() {
                         navigate(data?.homemaindirect)
                     }} className="l-h2">See all</h1>
                 </figcaption>
-                <figure className="max-w-[1200px] mx-auto overflow-y-auto sm:overflow-y-hidden no-scrollbar">
+                <figure className="relative max-w-[1200px] mx-auto overflow-auto md:overflow-hidden no-scrollbar">
+
+                    <div className="group w-[1200px] py-[20px] px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
                     
-                    <div className="w-[1200px] py-[20px] px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
-                    {data?.homemainmap?.slice(homemainsliceone, homemainslicetwo).map(dat => (<>
-                        <VerticleMain onlick={() => {
-                            navigate(`/${dat?.postid}`)
-                        }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} />
-                    </>))}
+                    {data?.homemainid === 'postupdatedat' && (<>
+                    <button onClick={() => {
+                        ll(data?.homemainmap?.length)
+                    }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                        <RiArrowRightSLine className='text-5xl' />
+                    </button>
+                        {data?.homemainmap?.slice(homemainsliceone, homemainslicetwo).map(dat => (<>
+                                <VerticleMain onlick={() => {
+                                    navigate(`/${dat?.postid}`)
+                                }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} />
+                        </>))}
+                    </>)}
+
+                    {data?.homemainid === 'postcategoryid' && (<>
+                    <button onClick={() => {
+                        kk(data?.homemainmap?.length)
+                    }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                        <RiArrowRightSLine className='text-5xl' />
+                    </button>
+                        {data?.homemainmap?.slice(homemainslicethree, homemainslicefour).map(dat => (<>
+                                <VerticleMain onlick={() => {
+                                    navigate(`/${dat?.postid}`)
+                                }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} />
+                        </>))}
+                    </>)}
+
+                    {data?.homemainid === 'postpostcount' && (<>
+                    <button onClick={() => {
+                        jj(data?.homemainmap?.length)
+                    }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                        <RiArrowRightSLine className='text-5xl' />
+                    </button>
+                        {data?.homemainmap?.slice(homemainslicefive, homemainslicesix).map(dat => (<>
+                                <VerticleMain onlick={() => {
+                                    navigate(`/${dat?.postid}`)
+                                }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} />
+                        </>))}
+                    </>)}
+
+                    {data?.homemainid === 'postcreatedat' && (<>
+                    <button onClick={() => {
+                        hh(data?.homemainmap?.length)
+                    }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                        <RiArrowRightSLine className='text-5xl' />
+                    </button>
+                        {data?.homemainmap?.slice(homemainsliceseven, homemainsliceeight).map(dat => (<>
+                                <VerticleMain onlick={() => {
+                                    navigate(`/${dat?.postid}`)
+                                }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} />
+                        </>))}
+                    </>)}
+
                     </div>
                 </figure>
                 </>))}

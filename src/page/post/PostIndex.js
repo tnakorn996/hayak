@@ -6,6 +6,8 @@ import { RiChat3Line, RiEyeLine, RiMore2Fill } from 'react-icons/ri'
 import { useNavigate, useParams } from 'react-router-dom'
 import HorizonMain from '../../component/post/HorizonMain'
 import { ContextMain } from '../../context/contextmain'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 import { client } from '../../lib/sanity'
 
@@ -91,6 +93,7 @@ function PostIndex() {
     ]
 
     useEffect(() => {
+        Aos.init({duration: 500, once: true})
             ll()
             setpostindexstate({
                 postindexid: param.id,
@@ -194,7 +197,10 @@ function PostIndex() {
                         <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                         <br />
                     </figcaption>
-                    <figure className="md:m-section">
+                    <figure data-aos="fade-zoom-in"
+                  data-aos-easing="ease-in-back"
+                  data-aos-delay="0"
+                  data-aos-offset="0" className="md:m-section">
                         <img src={postpostid?.posthero} alt="" className="" />
                     </figure>
                     <figcaption className=" m-section">

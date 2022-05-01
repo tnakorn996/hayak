@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { useNavigate, useParams } from 'react-router-dom'
+import ImpulseMain from '../../component/inpulse/ImpulseMain'
 
 import VerticleMain from '../../component/post/VerticleMain'
 import { categorymain } from '../../content/contentmain'
@@ -83,7 +84,7 @@ function CategoryIndex() {
                 setcategoryindexsliceone(categoryindexsliceone + 1)
                 setcategoryindexslicetwo(categoryindexslicetwo + 1)
             }
-            if(categoryindexslicetwo > data.categoryindexmap.length ){
+            if(categoryindexslicetwo >= data.categoryindexmap.length ){
                 setcategoryindexsliceone(0)
                 setcategoryindexslicetwo(4)
             }
@@ -100,13 +101,16 @@ function CategoryIndex() {
     <div>
         <main className="">
             <section className="max-w-[1200px] mx-auto px-[20px] md:px-[60px] py-[20px]">
-                <h1 className="text-4xl  m-h6 first-letter:uppercase">{categoryindextitle} </h1>
+                <ImpulseMain />
             </section>
-            <section className="relative">
-                <button onClick={() => kk()} className="hidden md:flex md:fixed z-20 bottom-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+            {/* <section className="max-w-[1200px] mx-auto px-[20px] md:px-[60px] py-[20px]">
+                <h1 className=" m-h6 first-letter:uppercase">{categoryindextitle} </h1>
+            </section> */}
+            <section className="relative group">
+                <button onClick={() => kk()} className="hidden group-hover:flex fixed z-20 top-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                     <RiArrowRightSLine className='text-5xl' />
                 </button>
-                <button className="hidden md:flex md:fixed z-10 bottom-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black" />
+                <button className="hidden md:flex md:fixed z-10 top-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black" />
                 <br />
                 {categoryindexstate?.map(data => (<>
                 <br />
