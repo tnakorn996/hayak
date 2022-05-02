@@ -12,6 +12,8 @@ export const Provider = ({ children }) => {
     const [postindexstate, setpostindexstate] = useState()
     const [searchmainstate, setsearchmainstate] = useState('postupdatedat')
     const [searchinputstate, setsearchinputstate] = useState('')
+    const [planformstate, setplanformstate] = useState()
+    const [ontromainstate, setontromainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postcreatedat, setpostcreatedat] = useState()
@@ -51,6 +53,8 @@ export const Provider = ({ children }) => {
         postindexstate, setpostindexstate,
         searchmainstate, setsearchmainstate,
         searchinputstate, setsearchinputstate,
+        planformstate, setplanformstate,
+        ontromainstate, setontromainstate,
 
         userindex,
         postcreatedat,

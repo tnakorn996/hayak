@@ -24,11 +24,11 @@
     }
 
     .m-article {
-        @apply ;
+        @apply p-[20px]  border rounded-md;
     }
 
     .l-article {
-        @apply p-[10px] ;
+        @apply p-[10px]  border rounded-md;
     }
 
     .m-main {
@@ -48,11 +48,11 @@
     }
 
     .m-input {
-        @apply w-full text-base p-[10px];
+        @apply text-base p-[10px]  bg-transparent border-b-2;
     }
 
     .l-input {
-        @apply w-full text-base p-[20px]  ;
+        @apply text-base p-[20px]  bg-transparent border-b-2;
     }
 
     .m-span {

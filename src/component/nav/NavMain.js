@@ -4,11 +4,13 @@ import {BiFoodTag} from 'react-icons/bi'
 import {RiContrastDropLine, RiSearch2Line, RiCloseFill} from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 
-import { categorymain } from '../../content/contentmain'
+import { categorymain, navmain } from '../../content/contentmain'
 import { ContextMain } from '../../context/contextmain'
 
 function NavMain() {
     const {
+        setappmainstate,
+        setontromainstate,
         postindexstate,
         searchinputstate, setsearchinputstate,
         
@@ -42,8 +44,13 @@ function NavMain() {
                 </figcaption>
             </section>
             <section className="p-[20px] md:px-[60px] md:py-[30px] col-span-6 flex justify-end gap-2">
-                <button className="hidden md:block  l-button">Subscribe</button>
-                <button className="m-button">Chat with Us</button>
+                {navmain?.map(data => (<>
+                    <button onClick={() => {
+                        setontromainstate(data?.navmainref)
+                        setappmainstate(data?.navmainredirect)
+                    }} className={` m-button ${data?.navmainid === 'contact' && 'hidden md:block l-button'}`}>{data?.navmaintitle}</button>
+                </>
+                ))}
             </section>
             <section className="mx-[20px] md:mx-[60px] col-span-12 grid grid-cols-12   border-y-2 border-black">
                 <figcaption className="p-[5px] col-span-12 md:col-span-7 grid grid-cols-4 justify-items-center text-center">

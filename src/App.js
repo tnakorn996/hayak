@@ -13,6 +13,8 @@ import HomeMain from './page/home/HomeMain';
 import PostIndex from './page/post/PostIndex';
 import SearchIndex from './page/search/SearchIndex';
 import SearchMain from './page/search/SearchMain';
+import PlanMain from './page/plan/PlanMain';
+import OntroMain from './component/ontro.js/OntroMain';
 
 export default function App() {
   const {
@@ -27,8 +29,11 @@ export default function App() {
         default: 
         return appmain
 
-        // case 'signupmain': 
-        // return <SignupMain />
+        case 'ontromain': 
+        return <OntroMain />
+
+        case 'planmain': 
+        return <PlanMain />
 
         case 'appmain': 
         return appmain
