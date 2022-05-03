@@ -7,7 +7,6 @@ function PlanMain() {
     <div>
       <main className="">
         <PlanForm />
-        
       </main>
     </div>
   )

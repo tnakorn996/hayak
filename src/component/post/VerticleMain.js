@@ -5,6 +5,7 @@ import { RiContrastDropLine } from 'react-icons/ri'
 import { motion } from 'framer-motion'
 
 import { categorymain } from '../../content/contentmain'
+import LoadingMain from '../load/LoadingMain'
 
 function VerticleMain({onlick, createdat, posthero, posttitle, postsubtitle,  categoryid, priceid}) {
 
@@ -24,7 +25,7 @@ function VerticleMain({onlick, createdat, posthero, posttitle, postsubtitle,  ca
         <main className="">
           <article onClick={onlick} className="relative flex flex-col justify-center  hover:scale-105 duration-200">
                 {priceid === 'pro' && (<>
-                <figure className="absolute top-2 left-2">
+                <figure className="z-10 absolute top-2 left-2">
                   <RiContrastDropLine className='m-h6 text-gray-300  !opacity-100' />
                 </figure>
                 </>)}

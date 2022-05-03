@@ -20,7 +20,7 @@
     }
 
     .l-button {
-        @apply py-[10px] px-[20px] bg-white text-black rounded-full font-medium border-2 border-black;
+        @apply py-[10px] px-[20px] bg-white text-black rounded-full font-medium;
     }
 
     .m-article {
@@ -48,11 +48,11 @@
     }
 
     .m-input {
-        @apply text-base p-[10px]  bg-transparent border-b-2;
+        @apply text-base p-[10px]  bg-transparent border-b border-white;
     }
 
     .l-input {
-        @apply text-base p-[20px]  bg-transparent border-b-2;
+        @apply text-base p-[20px]  bg-transparent border-b border-white;
     }
 
     .m-span {

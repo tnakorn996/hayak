@@ -108,7 +108,7 @@ function CategoryIndex() {
                 <h1 className=" m-h6 first-letter:uppercase">{categoryindextitle} </h1>
             </section> */}
             <section className="relative group">
-                <button onClick={() => kk()} className="hidden group-hover:flex fixed z-20 top-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                <button onClick={() => kk()} className="hidden group-hover:flex fixed z-20 top-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                     <RiArrowRightSLine className='text-5xl' />
                 </button>
                 <button className="hidden md:flex md:fixed z-10 top-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black" />

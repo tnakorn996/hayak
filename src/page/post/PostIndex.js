@@ -133,7 +133,7 @@ function PostIndex() {
                     const findtwo = data.markDefs.find(da => da._key === dat.marks[0])
                     const findthree = posth1.find(da => da.posth1id === dat.marks[0])
                     return (<>
-                        <figcaption className='text-base flex flex-row  font-serif'  >
+                        <figcaption className='text-base flex flex-row   font-serif'  >
                             
                             {findfour !== undefined && (<>
                             <div className="pr-[7px] flex flex-row">
@@ -142,13 +142,13 @@ function PostIndex() {
                             </div>
                             </>)}
 
-                            <a href={findtwo && findtwo.href} className={` ${findtwo && '!text-blue-500'}`}>
                             {dat.text !== '' ? (<>
-                                <h1 className={` ${find.postfigcaptiontitle} ${findthree && findthree.posth1title} !leading-relaxed`}>{dat.text }</h1>
+                                <h1 onClick={() => window.open(findtwo && findtwo.href)} className={` ${find.postfigcaptiontitle} ${findtwo && '!text-blue-500 !cursor-pointer'} ${findthree && findthree.posth1title} leading-relaxed`}>{dat.text}</h1>
                             </>) : (<>
-                                <br />
-                                </>)}
-                            </a>
+                                <h1 className="">
+                                    <br />
+                                </h1>
+                            </>)}
 
                         </figcaption>
                     </>)
@@ -174,8 +174,8 @@ function PostIndex() {
 
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="grid grid-cols-12 max-w-[900px] mx-auto">
-            <figcaption className="col-span-12 md:col-span-8 max-w-[500px] mx-auto">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="grid grid-cols-12 max-w-[1200px] gap-3 mx-auto">
+            <figcaption className="col-span-12 md:col-span-8 max-w-[600px] mx-auto">
                 <section className="">
                     <figcaption className="m-section">
                         <br />
@@ -238,7 +238,7 @@ function PostIndex() {
                 </section>
                 
             </figcaption>
-            <figure className="hidden md:block col-span-3 max-w-[200px] mx-auto">
+            <figure className="hidden md:block col-span-3 max-w-[300px] mx-auto">
                 <br /><br />
                 <img src="https://static.wixstatic.com/media/72c0b2_78011f70f85b49c495e470da8932279c~mv2.png/v1/fill/w_251,h_451,al_c,lg_1,q_85,enc_auto/Make_an_Impact_Online.png" alt="" className="" />
             </figure>

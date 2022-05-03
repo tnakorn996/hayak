@@ -15,25 +15,40 @@ import SearchIndex from './page/search/SearchIndex';
 import SearchMain from './page/search/SearchMain';
 import PlanMain from './page/plan/PlanMain';
 import OntroMain from './component/ontro.js/OntroMain';
+import AboutMain from './page/about/AboutMain';
+import ExtroMain from './component/extro/ExtroMain';
+import ContactMain from './page/contact/ContactMain';
 
 export default function App() {
   const {
     appmainstate,
     loadmainstate,
+
+    setappmainstate,
+    setextromainstate,
   
   } = useContext(ContextMain)
   const location = useLocation()
 
     const ll = (appmainstate)  => {
-      switch(appmainstate) {
+      switch(appmainstate.appmainredirect) {
         default: 
         return appmain
 
         case 'ontromain': 
         return <OntroMain />
 
+        case 'extromain': 
+        return <ExtroMain />
+
+        case 'aboutmain': 
+        return <AboutMain />
+
         case 'planmain': 
         return <PlanMain />
+
+        case 'contactmain': 
+        return <ContactMain />
 
         case 'appmain': 
         return appmain
@@ -60,6 +75,8 @@ export default function App() {
           <Route path='/search/searchindex' element={<SearchIndex />} /> 
 
           <Route path='/category/:id' element={<CategoryIndex />} /> 
+
+          <Route path='/about/aboutmain' element={<AboutMain />} /> 
 
         </Routes> 
         </AnimatePresence>

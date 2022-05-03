@@ -122,14 +122,14 @@ function HomeMain() {
                         navigate(data?.homemaindirect)
                     }} className="l-h2">See all</h1>
                 </figcaption>
-                <figure className="relative max-w-[1200px] mx-auto overflow-auto md:overflow-hidden no-scrollbar">
+                <figure className="relative max-w-[1200px] mx-auto overflow-hidden no-scrollbar">
 
                     <div className="group w-[1200px] py-[20px] px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
                     
                     {data?.homemainid === 'postupdatedat' && (<>
                     <button onClick={() => {
                         ll(data?.homemainmap?.length)
-                    }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                    }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                         <RiArrowRightSLine className='text-5xl' />
                     </button>
                         {data?.homemainmap?.slice(homemainsliceone, homemainslicetwo).map(dat => (<>
@@ -142,7 +142,7 @@ function HomeMain() {
                     {data?.homemainid === 'postcategoryid' && (<>
                     <button onClick={() => {
                         kk(data?.homemainmap?.length)
-                    }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                    }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                         <RiArrowRightSLine className='text-5xl' />
                     </button>
                         {data?.homemainmap?.slice(homemainslicethree, homemainslicefour).map(dat => (<>
@@ -155,7 +155,7 @@ function HomeMain() {
                     {data?.homemainid === 'postpostcount' && (<>
                     <button onClick={() => {
                         jj(data?.homemainmap?.length)
-                    }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                    }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                         <RiArrowRightSLine className='text-5xl' />
                     </button>
                         {data?.homemainmap?.slice(homemainslicefive, homemainslicesix).map(dat => (<>
@@ -168,7 +168,7 @@ function HomeMain() {
                     {data?.homemainid === 'postcreatedat' && (<>
                     <button onClick={() => {
                         hh(data?.homemainmap?.length)
-                    }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                    }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                         <RiArrowRightSLine className='text-5xl' />
                     </button>
                         {data?.homemainmap?.slice(homemainsliceseven, homemainsliceeight).map(dat => (<>

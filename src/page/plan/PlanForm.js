@@ -3,13 +3,16 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 import { ContextMain } from '../../context/contextmain';
 import { v4 as uuidv4 } from 'uuid'
 import { planform, planmain } from '../../content/contentmain';
+import ExitMain from '../../component/exit/ExitMain';
 
 function PlanForm() {
     const {
+        appmainstate, setappmainstate,
         planformstate,
 
     } = useContext(ContextMain)
@@ -31,25 +34,23 @@ function PlanForm() {
     useEffect(() => {
         setinvoiceformid(uuidv4())
         setinvoicedateexpire(new Date(new Date().setFullYear(new Date().getFullYear() + 1)),)
-        
-        // planmainid: planmainid,
     }, [])
 
     useEffect(() => {
-        if(planformstate){
-            const filter = planmain.filter((data) => data.planmainid === planformstate)
+        if(appmainstate){
+            const filter = planmain.filter((data) => data.planmainid === appmainstate.appmainid)
                 for(const dat of filter){
                     setinvoicedescription(dat.planmaintitle)
                     setinvoicecurrency(dat.planmaincurrency)
 
                     setplanmainid(dat.planmainid)
-                    // ll()
+                    ll()
                 }
         }
     }, []);
 
     useEffect(() => {
-        if(planformboolean === true && planformstate === 'once'){
+        if(planformboolean === true && appmainstate.appmainid === 'once'){
             window.paypal.Buttons({
 
                 createOrder: (data, actions, err) => {
@@ -70,18 +71,18 @@ function PlanForm() {
                 onApprove: async (data, actions) => {
                     const order = await actions.order.capture();
                     console.log(order);
-                    // kk()
+                    kk()
                 },
 
                 onError: (err) => {
                     console.log('err', err);
-                    // jj()
+                    jj()
                 },
 
             }).render(paypal.current);
         }
 
-        if(planformboolean === true && planformstate === 'month'){
+        if(planformboolean === true && appmainstate.appmainid === 'month'){
             window.paypal.Buttons({
 
                 createSubscription: (data, actions) => {
@@ -121,13 +122,38 @@ function PlanForm() {
         document.body.appendChild(script);
     }
 
+    function kk() {
+        setappmainstate({
+              appmainid: 'plansummary',
+              appmainboolean: true,
+
+              appmainref: 'once',
+              appmainredirect: 'extromain',
+            })
+    }
+
+    function jj() {
+        setappmainstate({
+              appmainid: 'plansummary',
+              appmainboolean: false,
+
+              appmainref: 'once',
+              appmainredirect: 'extromain',
+            })
+    }
+
   return (
     <div>
-        <main className="p-[30px] w-screen min-h-screen  bg-orange-700 text-white">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="p-[30px] w-screen min-h-screen  bg-orange-700 text-white">
+            <ExitMain appmainid={appmainstate.appmainid} />
             <section className="max-w-[500px] mx-auto">
                 <figcaption className="">
-                    <h1 className="text-4xl  m-h6 font-serif">Support us with an {invoicedescription} donation</h1>
+                    {/* <ExitMain /> */}
+                    <div className="">
+                        <br /><br /><br />
+                        <h1 className="text-4xl  m-h6 font-serif">Support us with an {invoicedescription} donation</h1>
                     <br />
+                    </div>
                 </figcaption>
                 <figure className="flex justify-center">
                     <img src="https://everybodyeats.nz/assets/elements/coins-white.png" alt="" className="max-h-[200px]" />
@@ -155,7 +181,7 @@ function PlanForm() {
                 </figure>
                 <br />
             </section>
-        </main>
+        </motion.main>
     </div>
   )
 }

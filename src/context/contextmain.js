@@ -14,6 +14,7 @@ export const Provider = ({ children }) => {
     const [searchinputstate, setsearchinputstate] = useState('')
     const [planformstate, setplanformstate] = useState()
     const [ontromainstate, setontromainstate] = useState()
+    const [extromainstate, setextromainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postcreatedat, setpostcreatedat] = useState()
@@ -55,6 +56,7 @@ export const Provider = ({ children }) => {
         searchinputstate, setsearchinputstate,
         planformstate, setplanformstate,
         ontromainstate, setontromainstate,
+        extromainstate, setextromainstate,
 
         userindex,
         postcreatedat,

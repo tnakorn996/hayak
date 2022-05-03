@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
+
 import BadgeMain from '../../component/badge/BadgeMain'
 import HorizonMain from '../../component/post/HorizonMain'
 import { categorymain } from '../../content/contentmain'
@@ -11,6 +13,7 @@ import { ContextMain } from '../../context/contextmain'
 
 function SearchMain() {
     const {
+        appmainstate, setappmainstate,
         searchmainstate, setsearchmainstate,
 
         postupdatedat,
@@ -34,14 +37,14 @@ function SearchMain() {
     ]
 
     useEffect(() => {
-      if(searchmainstate && postupdatedat && postpostcount){
-          const filter = searchselect.filter(data => data.searchselectid === searchmainstate)
+      if(appmainstate){
+          const filter = searchselect.filter(data => data.searchselectid === appmainstate.appmainid ? appmainstate.appmainid : 'postupdatedat')
           setsearchselectmap({
                 searchselecttitle: filter[0].searchselecttitle,
                 searchselectmap: filter[0].searchselectmap
           });
       }
-    }, [searchmainstate, postupdatedat, postpostcount])
+    }, [appmainstate, postupdatedat, postpostcount])
 
     // function ll(first= this.props.first) {
     //     if(first && categorymain) {
@@ -52,7 +55,7 @@ function SearchMain() {
     
   return (
     <div>
-        <main className="flex flex-col-reverse md:grid md:grid-cols-12 max-w-[900px] mx-auto">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="flex flex-col-reverse md:grid md:grid-cols-12 max-w-[900px] mx-auto">
             <section className="col-span-12 md:col-span-8 flex flex-col ">
                 <figcaption className="m-section">
                     <br />
@@ -71,14 +74,23 @@ function SearchMain() {
                 <br />
                 <div className="grid grid-flow-col gap-1 items-center">
                     <h1 className="">Sorted By:</h1>
-                    <select value={searchmainstate} onChange={(p) => setsearchmainstate(p.target.value)} className="m-input">
+                    <select value={appmainstate.appmainid} 
+                        onChange={(p) => setappmainstate(
+                        {
+                            appmainid: p.target.value
+                        })}
+                        className="m-input">
                         {searchselect?.map(data => (<>
                             <option value={data?.searchselectid} className="">{data?.searchselecttitle}</option>
                         </>))}
                     </select> 
                 </div>
+                <figure className="hidden md:block">
+                    <br />
+                    <img src="https://static.wixstatic.com/media/72c0b2_78011f70f85b49c495e470da8932279c~mv2.png/v1/fill/w_251,h_451,al_c,lg_1,q_85,enc_auto/Make_an_Impact_Online.png" alt="" className="" />
+                </figure>
             </section>
-        </main>
+        </motion.main>
     </div>
   )
 }
