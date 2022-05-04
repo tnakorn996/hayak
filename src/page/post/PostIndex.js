@@ -12,6 +12,7 @@ import { client } from '../../lib/sanity'
 
 function PostIndex() {
     const {
+        setappmainstate,
         setpostindexstate,
         setsearchindexstate,
 
@@ -132,7 +133,7 @@ function PostIndex() {
                 return data.children.map((dat, datindex) => {
                     const findtwo = data.markDefs.find(da => da._key === dat.marks[0])
                     const findthree = posth1.find(da => da.posth1id === dat.marks[0])
-                    return (<>
+                    return (
                         <figcaption className='text-base flex flex-row   font-serif'  >
                             
                             {findfour !== undefined && (<>
@@ -151,7 +152,7 @@ function PostIndex() {
                             </>)}
 
                         </figcaption>
-                    </>)
+                    )
                 })
             })
             return ref
@@ -186,8 +187,17 @@ function PostIndex() {
                                 <h1 className="l-h1">·</h1>
                                 <h1 className="l-h1">12 min read</h1>
                             </figcaption>
-                            <figure className="">
+                            <figure onClick={() => {
+                                setappmainstate({
+                                    appmainid: 'sharesection',
+                                    appmainidtwo: 'modalmain',
+                                    appmainparam: param.id,
+                                    appmainboolean: true,
+                                })
+                            }} className="">
+                                <article className="">
                                 <RiMore2Fill className='m-h3' />
+                                </article>
                             </figure>
                         </div>
                         <br />

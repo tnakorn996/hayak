@@ -130,12 +130,12 @@ function HomeMain() {
                     <button onClick={() => {
                         ll(data?.homemainmap?.length)
                     }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                        <RiArrowRightSLine className='text-5xl' />
+                        <RiArrowRightSLine className='text-5xl  bg-white rounded-full border' />
                     </button>
                         {data?.homemainmap?.slice(homemainsliceone, homemainslicetwo).map(dat => (<>
                                 <VerticleMain onlick={() => {
                                     navigate(`/${dat?.postid}`)
-                                }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} />
+                                }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
                         </>))}
                     </>)}
 
@@ -143,12 +143,12 @@ function HomeMain() {
                     <button onClick={() => {
                         kk(data?.homemainmap?.length)
                     }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                        <RiArrowRightSLine className='text-5xl' />
+                        <RiArrowRightSLine className='text-5xl  bg-white rounded-full border' />
                     </button>
                         {data?.homemainmap?.slice(homemainslicethree, homemainslicefour).map(dat => (<>
                                 <VerticleMain onlick={() => {
                                     navigate(`/${dat?.postid}`)
-                                }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} />
+                                }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
                         </>))}
                     </>)}
 
@@ -156,12 +156,12 @@ function HomeMain() {
                     <button onClick={() => {
                         jj(data?.homemainmap?.length)
                     }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                        <RiArrowRightSLine className='text-5xl' />
+                        <RiArrowRightSLine className='text-5xl  bg-white rounded-full border' />
                     </button>
                         {data?.homemainmap?.slice(homemainslicefive, homemainslicesix).map(dat => (<>
                                 <VerticleMain onlick={() => {
                                     navigate(`/${dat?.postid}`)
-                                }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} />
+                                }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
                         </>))}
                     </>)}
 
@@ -174,7 +174,7 @@ function HomeMain() {
                         {data?.homemainmap?.slice(homemainsliceseven, homemainsliceeight).map(dat => (<>
                                 <VerticleMain onlick={() => {
                                     navigate(`/${dat?.postid}`)
-                                }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} />
+                                }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
                         </>))}
                     </>)}
 

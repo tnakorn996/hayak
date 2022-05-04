@@ -123,7 +123,7 @@ function CategoryIndex() {
                     {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
                         <VerticleMain onlick={() => {
                             navigate(`/${dat?.postid}`)
-                        }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} />
+                        }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid}  param={dat?.postid} />
                     </>))}
                     </div>
                 </figure>

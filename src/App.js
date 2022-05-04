@@ -5,7 +5,6 @@ import {AnimatePresence} from 'framer-motion'
 
 // import HomeMain from './home/HomeMain'
 import './App.css';
-import LoadMain from './component/load/LoadMain';
 import NavMain from './component/nav/NavMain';
 import {ContextMain} from './context/contextmain'
 import CategoryIndex from './page/catagory/CategoryIndex';
@@ -18,6 +17,7 @@ import OntroMain from './component/ontro.js/OntroMain';
 import AboutMain from './page/about/AboutMain';
 import ExtroMain from './component/extro/ExtroMain';
 import ContactMain from './page/contact/ContactMain';
+import BackdropMain from './component/modal/BackdropMain';
 
 export default function App() {
   const {
@@ -28,6 +28,7 @@ export default function App() {
     setextromainstate,
   
   } = useContext(ContextMain)
+  console.log('appmainstate :>> ', appmainstate);
   const location = useLocation()
 
     const ll = (appmainstate)  => {
@@ -81,6 +82,10 @@ export default function App() {
         </Routes> 
         </AnimatePresence>
         </section>
+
+        {appmainstate?.appmainboolean && (<>
+        <BackdropMain />
+        </>)}
 
       </main>
     </div>

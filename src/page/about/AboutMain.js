@@ -15,12 +15,12 @@ function AboutMain() {
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="w-screen min-w-screen  overflow-hidden">
           {/* <ExitMain /> */}
-            <section className=" bg-black text-white">
+            <section className=" bg-orange-700 text-white">
               <div className="min-h-screen max-w-[900px] mx-auto flex flex-col md:grid md:grid-cols-12 items-center">
               <figcaption className="p-[30px] min-h-[30vh] md:col-span-8 flex items-center">
-                <h1 className="text-5xl md:text-8xl  m-h6 font-serif">New Zealand  <span className="text-orange-700">New Story</span></h1>
+                <h1 className="text-5xl md:text-8xl  m-h6 font-serif">New Zealand  <span className=" font-sans">⎼ New Story</span></h1>
               </figcaption>
-              <figure className="w-[300px] h-[300px] min-h-[40vh] md:col-span-4 flex flex-row justify-center items-center gap-5  overflow-hidden bg-orange-700 rounded-full">
+              <figure className="w-[300px] h-[300px] min-h-[40vh] md:col-span-4 flex flex-row justify-center items-center gap-5  overflow-hidden bg-orange-800 rounded-full">
                 {/* <h1 className="text-3xl">→</h1> */}
                 {/* <img src="https://static.wixstatic.com/media/0e0314_0a37b8770f5342f58fbad16bf83bc330~mv2.png" alt="" className="" /> */}
                 <RiContrastDropLine className='text-9xl' />
@@ -38,7 +38,7 @@ function AboutMain() {
               <figcaption className="p-[30px] min-h-[50vh] md:col-span-12 flex items-center text-center">
                 <div className="">
                 <br />
-                <h1 className="text-6xl  m-h6 font-serif">A living story of 🥝 Kiwi's mind </h1>
+                <h1 className="text-6xl  m-h6 font-serif">A living story of Kiwi's mind </h1>
                 <br /><br />
                 <h1 className="l-h3">Welcome to Hayak, a project born out of my love of food and New Zealand. The idea here is to review some of my favourite chefs, products, manufacturers and ingredients you can find in the beautiful Aoteora. I hope you enjoy it. And remember, this is only my opinion!</h1>
                 <br />
@@ -54,8 +54,8 @@ function AboutMain() {
                 </div>
               </figcaption>
               <figure className="md:p-[30px] min-h-[50vh] md:col-span-12 flex flex-row items-center gap-5  overflow-hidden">
-                <h1 className="hidden md:block text-3xl">→</h1>
-                <img src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" className="" />
+                <h1 className="text-3xl">→</h1>
+                <img src="https://media.istockphoto.com/photos/eating-mixed-paella-picture-id468744586?k=20&m=468744586&s=170667a&w=0&h=JqZ3gKZuHLNcowfEt3zm7fz9PakN8awe4LDKpHEFPoQ=" alt="" className="w-[900px]" />
               </figure>
               </div>
             </section>

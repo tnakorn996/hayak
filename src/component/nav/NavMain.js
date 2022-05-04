@@ -67,7 +67,7 @@ function NavMain() {
                         })
                     }} className="hidden md:block m-button ">{navmain[2].navmaintitle}</button>
             </section>
-            <section className="mx-[20px] md:mx-[60px] col-span-12 grid grid-cols-12   border-y-2 border-black">
+            <section className="mx-[20px] md:mx-[60px] col-span-12 grid grid-cols-12   border-y border-black">
                 <figcaption className="p-[5px] col-span-12 md:col-span-7 grid grid-cols-4 justify-items-center text-center">
                 {categorymain?.map(data => (<>
                 <article onClick={() => {
@@ -77,7 +77,7 @@ function NavMain() {
                 </article>
                 </>))}
                 </figcaption>
-                <figure className="p-[5px] hidden md:block col-span-12 md:col-span-5  border-l-2 border-black">
+                <figure className="p-[5px] hidden md:block col-span-12 md:col-span-5  border-l border-black">
                     <div className="flex flex-row gap-1 items-center">
                         <RiSearch2Line className='m-h6' />
                         <input 
