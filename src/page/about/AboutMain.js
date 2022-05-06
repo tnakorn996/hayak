@@ -15,7 +15,7 @@ function AboutMain() {
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="w-screen min-w-screen  overflow-hidden">
           {/* <ExitMain /> */}
-            <section className=" bg-orange-700 text-white">
+            <section className=" bg-orange-900 text-white">
               <div className="min-h-screen max-w-[900px] mx-auto flex flex-col md:grid md:grid-cols-12 items-center">
               <figcaption className="p-[30px] min-h-[30vh] md:col-span-8 flex items-center">
                 <h1 className="text-5xl md:text-8xl  m-h6 font-serif">New Zealand  <span className=" font-sans">⎼ New Story</span></h1>
@@ -59,7 +59,7 @@ function AboutMain() {
               </figure>
               </div>
             </section>
-            <section className=" bg-orange-700 text-white">
+            <section className=" bg-orange-800 text-white">
               <div className="min-h-screen max-w-[900px] mx-auto flex flex-col md:grid md:grid-cols-12 items-center">
               <figure className="p-[30px] min-h-[50vh] md:col-span-5 flex flex-col items-center gap-5  overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1628919350249-eb45d8829629?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" alt="" className="shadow-2xl" />
@@ -125,7 +125,7 @@ function AboutMain() {
               </figure>
               </div>
             </section>
-            <section className="bg-orange-700 text-white">
+            <section className="bg-orange-800 text-white">
               <div className="min-h-screen max-w-[900px] mx-auto flex flex-col md:grid md:grid-cols-12 items-center text-center">
               <figcaption className="p-[30px] min-h-[50vh] md:col-span-4 flex flex-col justify-center items-center">
                 <div className="">

@@ -12,6 +12,9 @@ import '../home/homemain.css'
 
 function HomeMain() {
     const {
+        setappmainstate,
+
+
         postupdatedat,
         postpostcount,
         postcreatedat,
@@ -58,6 +61,15 @@ function HomeMain() {
     ]
 
     useEffect(() => {
+      setTimeout(setappmainstate({
+            appmainidtwo: 'previewmain',
+            appmainid: 'contactarticle',
+            appmainboolean: true,
+        }), 15000);
+    }, [])
+
+    useEffect(() => {
+        
         if(postupdatedat && postpostcount && postcategoryid && postcreatedat){
             sethomemainmap(homemain)
         }

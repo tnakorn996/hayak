@@ -15,6 +15,8 @@ export const Provider = ({ children }) => {
     const [planformstate, setplanformstate] = useState()
     const [ontromainstate, setontromainstate] = useState()
     const [extromainstate, setextromainstate] = useState()
+    const [slidemainpage, setslidemainpage] = useState(Math.random() * (0 - 99 + 1) + 99)
+    const [sheetmainpage, setsheetmainpage] = useState(0)
     
     const [userindex, setuserindex] = useState()
     const [postcreatedat, setpostcreatedat] = useState()
@@ -57,6 +59,8 @@ export const Provider = ({ children }) => {
         planformstate, setplanformstate,
         ontromainstate, setontromainstate,
         extromainstate, setextromainstate,
+        slidemainpage, setslidemainpage,
+        sheetmainpage, setsheetmainpage,
 
         userindex,
         postcreatedat,

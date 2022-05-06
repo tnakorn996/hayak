@@ -42,7 +42,7 @@ function OntroMain() {
 
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="w-screen min-h-screen bg-orange-700 text-white">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="w-screen min-h-screen bg-pink-900 text-white">
             <section className="p-[30px] max-w-[600px] mx-auto flex flex-col md:flex-row justify-center">
                 <ExitMain />
                 <figcaption className="">

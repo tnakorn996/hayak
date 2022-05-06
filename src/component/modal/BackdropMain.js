@@ -37,7 +37,7 @@ function BackdropMain() {
 
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="z-20 w-screen h-screen top-0 left-0 fixed flex justify-center items-start  bg-black bg-opacity-10 overflow-y-auto no-scrollbar">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="z-20 w-screen h-screen top-0 left-0 fixed flex justify-center items-end md:items-start  bg-white bg-opacity-80 overflow-y-auto no-scrollbar">
             {backdropmainrender && backdropmainrender}
         </motion.main>
     </div>

@@ -31,7 +31,7 @@ function VerticleMain({onlick, createdat, posthero, posttitle, postsubtitle,  ca
   return (
     <div>
         <main className="">
-          <article className="relative flex flex-col justify-center  hover:scale-105 duration-200">
+          <article className="relative flex flex-col justify-center">
                 <figure onClick={() => {
                       setappmainstate({
                         appmainid: 'postarticle',
@@ -45,7 +45,7 @@ function VerticleMain({onlick, createdat, posthero, posttitle, postsubtitle,  ca
                       <RiContrastDropLine className='m-h6 text-gray-300  !opacity-100' />
                     </figure>
                     </>)}
-                    <img src={posthero} alt="" className="w-full h-full" />
+                    <img src={posthero} alt="" className="w-full h-full  hover:scale-110 duration-1000" />
                 </figure>
                 <figure className="flex flex-row py-[7px] gap-2 justify-end items-center">
                     {/* <figure onClick={() => {

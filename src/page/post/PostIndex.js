@@ -93,6 +93,11 @@ function PostIndex() {
     ]
 
     useEffect(() => {
+        setTimeout(setappmainstate({
+            appmainid: 'overlay',
+            appmainidtwo: 'toastmain',
+            appmainidthree: 'planfigcaption',
+        }), 15000);
             ll()
             setpostindexstate({
                 postindexid: param.id,
@@ -179,7 +184,6 @@ function PostIndex() {
             <figcaption className="col-span-12 md:col-span-8 max-w-[600px] mx-auto">
                 <section className="">
                     <figcaption className="m-section">
-                        <br />
                         <br />
                         <div className="flex flex-row gap-2 justify-between">
                             <figcaption className="flex flex-row gap-2">

@@ -18,23 +18,23 @@ import AboutMain from './page/about/AboutMain';
 import ExtroMain from './component/extro/ExtroMain';
 import ContactMain from './page/contact/ContactMain';
 import BackdropMain from './component/modal/BackdropMain';
+import SlideMain from './component/slide/SlideMain';
+import Overlay from './component/overlay/Overlay';
+import SheetMain from './component/sheet/SheetMain';
 
 export default function App() {
   const {
-    appmainstate,
-    loadmainstate,
+    appmainstate, setappmainstate,
 
-    setappmainstate,
     setextromainstate,
   
   } = useContext(ContextMain)
-  console.log('appmainstate :>> ', appmainstate);
   const location = useLocation()
 
-    const ll = (appmainstate)  => {
+    const app = (appmainstate)  => {
       switch(appmainstate.appmainredirect) {
         default: 
-        return appmain
+        return dashboard
 
         case 'ontromain': 
         return <OntroMain />
@@ -51,16 +51,23 @@ export default function App() {
         case 'contactmain': 
         return <ContactMain />
 
+        case 'slidemain': 
+        return <SlideMain />
+        
+        case 'sheetmain': 
+        return <SheetMain />
+
         case 'appmain': 
-        return appmain
+        return dashboard
       }
     }  
 
-    const appmain = (
+    const dashboard = (
     <div className="App">
       <main className="">
         <section className="sticky top-0 left-0 z-20">
           <NavMain />
+          
         </section>
 
         <section className="">
@@ -87,10 +94,14 @@ export default function App() {
         <BackdropMain />
         </>)}
 
+        {appmainstate?.appmainid === 'overlay' && (<>
+        <Overlay />
+        </>)}
+
       </main>
     </div>
 
   );
 
-  return <div className="">{ll(appmainstate)}</div>
+  return <div className="">{app(appmainstate)}</div>
 }

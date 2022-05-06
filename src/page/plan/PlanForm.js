@@ -144,7 +144,7 @@ function PlanForm() {
 
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="p-[30px] w-screen min-h-screen  bg-orange-700 text-white">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="p-[30px] w-screen min-h-screen  bg-orange-800 text-white">
             <ExitMain appmainid={appmainstate.appmainid} />
             <section className="max-w-[500px] mx-auto">
                 <figcaption className="">

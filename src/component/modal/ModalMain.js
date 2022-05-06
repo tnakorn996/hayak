@@ -74,7 +74,7 @@ function ModalMain() {
   return (
     <div>
         <br />
-        <main className="w-screen md:max-w-[500px] bg-white rounded-3xl shadow-2xl">
+        <main className="w-screen md:max-w-[500px] bg-white border shadow-2xl">
             <section className="p-[20px] text-center">
                 <h1 className="m-h4">{modalmaintitle}</h1>
             </section>
@@ -94,7 +94,6 @@ function ModalMain() {
                 }} className="m-button">{modalmainentitle}</button>
             </section>
         </main>
-        <br />
     </div>
   )
 }

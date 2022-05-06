@@ -30,7 +30,7 @@ function ExtroMain() {
     
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="p-[20px] w-screen min-h-screen  bg-orange-700 text-white">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="p-[20px] w-screen min-h-screen  bg-orange-800 text-white">
             <section className="h-[30vh] max-w-[900px] mx-auto flex justify-center text-center">
                 <figure className="">
                     <br />
