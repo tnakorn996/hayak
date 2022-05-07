@@ -160,11 +160,11 @@ function HomeMain() {
             <br />
             <section className="max-w-[1200px] mx-auto py-[20px] px-[20px] md:px-[60px]  flex flex-col md:grid md:grid-cols-12">
                 <figcaption className="md:col-span-5 max-w-[300px] flex flex-col justify-between">
-                    <h1 className="text-5xl  font-serif m-h6">{postpostcount[0]?.posttitle}</h1>
+                    <h1 className="text-5xl  font-serif m-h6">{postpostcount && postpostcount[0]?.posttitle}</h1>
                     <hr />
                 </figcaption>
                 <figure className="md:col-span-7 max-h-[350px] flex items-center overflow-hidden">
-                    <img src={postpostcount[0]?.posthero} alt="" className="w-full" />
+                    <img src={postpostcount && postpostcount[0]?.posthero} alt="" className="w-full" />
                 </figure>
             </section>
             <br />
