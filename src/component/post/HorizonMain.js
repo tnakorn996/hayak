@@ -16,7 +16,7 @@ function HorizonMain({onlick, posthero, posttitle, postsubtitle,  createdat, par
             <article className="grid grid-cols-12 items-center">
                 <section onClick={onlick} className="col-span-3">
                     <figure className=" h-[100px] flex items-center  overflow-hidden">
-                        <img src={posthero} alt="" className="w-full" />
+                        <img loading='lazy' src={posthero} alt="" className="w-full" />
                     </figure>
                 </section>
                 <section className="col-span-9">

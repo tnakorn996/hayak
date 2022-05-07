@@ -19,10 +19,14 @@ export const Provider = ({ children }) => {
     const [sheetmainpage, setsheetmainpage] = useState(0)
     
     const [userindex, setuserindex] = useState()
+    const [postplaceproduct, setpostplaceproduct] = useState()
     const [postcreatedat, setpostcreatedat] = useState()
     const [postupdatedat, setpostupdatedat] = useState()
+    const [productcreatedat, setproductcreatedat] = useState()
+    const [placecreatedat, setplacecreatedat] = useState()
     const [postpostcount, setpostpostcount] = useState()
     const [postcategoryid, setpostcategoryid] = useState()
+    const [postpriceid, setpostpriceid] = useState()
 
     useEffect(() => {
         pp()
@@ -32,22 +36,50 @@ export const Provider = ({ children }) => {
               const query = `*[_type == 'user' && userid == 'hayaker']{
                 ...,
 
-                'postcreatedat': *[_type == 'post'] | order(_createdAt desc) ,
-                'postupdatedat': *[_type == 'post'] | order(_updatedAt desc) ,
+                'postplaceproduct': *[_type == 'post' || _type == 'place' || _type == 'product'] {
+                  ...,
+
+                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
+                } | order(_createdAt desc) ,
+                'postcreatedat': *[_type == 'post'] {
+                  ...,
+
+                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
+                } | order(_createdAt desc) ,
+                'postupdatedat': *[_type == 'post'] {
+                  ...,
+
+                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
+                } | order(_updatedAt desc) ,
+                'placecreatedat': *[_type == 'place'] {
+                  ...,
+
+                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
+                } | order(_createdAt desc),
+                'productcreatedat': *[_type == 'product'] {
+                  ...,
+
+                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
+                } | order(_createdAt desc),
                 
-                'postpostcount': *[_type == 'post'] | order(postcount desc) ,
+                'postpostcount': *[_type == 'post' && postcount > 0] | order(postcount desc) ,
                 'postcategoryid': *[_type == 'post' && categoryid == ^.categoryid] | order(_createdAt desc),
+                'postpriceid': *[_type == 'post' && priceid == 'pro'] | order(_createdAt desc),
               }[0]`;
-              client.fetch(query) 
+              await client.fetch(query) 
               .then((data) => {
                   setuserindex(data)
+                  setpostplaceproduct(data.postplaceproduct)
                   setpostcreatedat(data.postcreatedat);
                   setpostupdatedat(data.postupdatedat);
+                  setplacecreatedat(data.placecreatedat);
+                  setproductcreatedat(data.productcreatedat);
                   setpostpostcount(data.postpostcount);
                   setpostcategoryid(data.postcategoryid);
+                  setpostpriceid(data.postpriceid);
               })
         }
-
+        console.log('productcreatedat :>> ', productcreatedat);
     if(!postupdatedat) return <LoadMain />
 
     return (
@@ -63,10 +95,14 @@ export const Provider = ({ children }) => {
         sheetmainpage, setsheetmainpage,
 
         userindex,
+        postplaceproduct,
         postcreatedat,
         postupdatedat,
+        placecreatedat,
+        productcreatedat, 
         postpostcount,
         postcategoryid,
+        postpriceid,
 
         }} >
         {children}

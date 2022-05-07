@@ -10,20 +10,19 @@ import { useContext } from 'react'
 import { ContextMain } from '../../context/contextmain'
 import { useNavigate } from 'react-router-dom'
 
-function VerticleMain({onlick, createdat, posthero, posttitle, postsubtitle,  categoryid, priceid, param}) {
+function VerticleMain({onlick, createdat, posthero, posticon, posttitle, postsubtitle,  categoryid, priceid, param, placepostid}) {
   const {
     setappmainstate,
 
   } = useContext(ContextMain)
   const navigate = useNavigate()
-
   const [verticledivstate, setverticledivstate] = useState()
   
   useEffect(() => {
     if(categoryid){
         const filter = categorymain.filter(data => data.categorymainid === categoryid)
         setverticledivstate({
-          verticledivtitle: filter[0].categorymaintitle,
+          verticledivtitle: filter[0]?.categorymaintitle,
         })
     }
   }, [categoryid])
@@ -45,19 +44,19 @@ function VerticleMain({onlick, createdat, posthero, posttitle, postsubtitle,  ca
                       <RiContrastDropLine className='m-h6 text-gray-300  !opacity-100' />
                     </figure>
                     </>)}
-                    <img src={posthero} alt="" className="w-full h-full  hover:scale-110 duration-1000" />
+                    <img loading='lazy' src={posthero} alt="" className="w-full h-full  hover:scale-110 duration-1000" />
                 </figure>
-                <figure className="flex flex-row py-[7px] gap-2 justify-end items-center">
-                    {/* <figure onClick={() => {
-                      setappmainstate({
-                        appmainid: 'postarticle',
-                        appmainidtwo: 'previewmain',
-                        appmainparam: param,
-                        appmainboolean: true,
-                      })
-                    }} className="">
-                      <RiArrowDownSLine className='text-2xl l-m3' />
-                    </figure> */}
+                <figure className="relative flex flex-row py-[7px] gap-2 justify-end items-center">
+                    {placepostid && (<>
+                    <div className="absolute -top-11 left-3 w-[30px] h-[30px] flex items-center  bg-white rounded-full overflow-hidden border-2 border-white shadow">
+                        <img src={placepostid?.posticon} alt="" className="" />
+                    </div>
+                    </>)}
+                    {posticon && (<>
+                    <div className="absolute -top-20 left-3 w-[100px] h-[100px] flex items-center  bg-white rounded-full overflow-hidden border-4 border-white shadow">
+                        <img src={posticon} alt="" className="" />
+                    </div>
+                    </>)}
                     <figure onClick={() => {
                         setappmainstate({
                         appmainid: 'sharesection',
@@ -66,22 +65,20 @@ function VerticleMain({onlick, createdat, posthero, posttitle, postsubtitle,  ca
                         appmainboolean: true,
                       })
                     }} className="">
-                      <RiShareLine className='text-md l-m3' />
+                      <RiMore2Fill className='my-[7px]  text-md l-m3' />
                     </figure>
                 </figure>
                 <figcaption onClick={onlick} className="row-span-3 h-[100px]">
-                  {/* <br /><br /> */}
-                    <div className="flex flex-row gap-2 items-center">
-                      <h1 className="l-h1 truncate">{createdat?.slice(0, 10)}</h1>
+                    {/* <div className="flex flex-row gap-2 items-center">
+                      <h1 className="text-[9px]  l-h1 truncate">{createdat?.slice(0, 10)}</h1>
                       <h1 className="l-h1 truncate">|</h1>
-                      <h1 className="l-h1 truncate">5 min read</h1>
+                      <h1 className="text-[9px]  l-h1 truncate">5 min</h1>
                       <h1 className="l-h1 truncate">|</h1>
                       {verticledivstate && <h1 onClick={() => {
-                        navigate(`/catagory/${verticledivstate.verticledivtitle}`)
-                      }} className="px-[7px]  text-gray-500 uppercase text-[8px] bg-gray-200 rounded-full">{verticledivstate.verticledivtitle}</h1>}
-                    </div>
-                    <br />
-                    <h1 className="l-h3 text-gray-900">{posttitle}</h1>
+                        navigate(`/catagory/${verticledivstate?.verticledivtitle || null}`)
+                      }} className="px-[7px]  text-gray-500 uppercase text-[8px] bg-gray-200 rounded-full">{verticledivstate?.verticledivtitle || null}</h1>}
+                    </div> */}
+                    <h1 className="l-h2 text-gray-900">{posttitle}</h1>
                     {/* <h1 className="l-h2">{postsubtitle}</h1> */}
                     {/* {ll(data?.categoryid)} */}
                 </figcaption>

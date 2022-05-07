@@ -13,7 +13,7 @@ function PostArticle() {
 
       setappmainstate, appmainstate,
 
-      postupdatedat,
+      postplaceproduct,
 
   } = useContext(ContextMain)
   const navigate = useNavigate()
@@ -23,8 +23,8 @@ function PostArticle() {
   // const [previewmainpage, setpreviewmainpage] = useState(3)
 
   useEffect(() => {
-    const filter = postupdatedat?.filter(data => data.postid === appmainstate.appmainparam)
-    const filtertwo = postupdatedat?.filter(data => data.postid !== appmainstate.appmainparam)
+    const filter = postplaceproduct?.filter(data => data.postid === appmainstate.appmainparam)
+    const filtertwo = postplaceproduct?.filter(data => data.postid !== appmainstate.appmainparam)
     const ref = filter[0]
     setpostarticlestate(ref)
     setpostarticlestatetwo(filtertwo)
@@ -34,12 +34,12 @@ function PostArticle() {
     <div>
         <main className="">
                 <section className="">
-                    <figure className="relative max-h-[60vh] flex items-center  overflow-hidden">
+                    <figure className="relative max-h-[40vh] md:max-h-[55vh] flex items-center  overflow-hidden">
                         <div className="absolute bottom-0 left-0 min-h-[35vh] md:min-h-[30vh] w-full  bg-gradient-to-b from-transparent to-white" />
                         <div className="absolute bottom-0 left-8 max-w-[70%] md:max-w-[60%] ">
                             <h1 className="md:text-3xl  m-h6 font-serif">{postarticlestate?.posttitle}</h1>
                         </div>
-                        {postarticlestate?.priceid === 'pro' &&<RiContrastDropLine className="absolute top-8 left-8 text-4xl  m-h5 text-gray-700" />}
+                        {postarticlestate?.priceid === 'pro' &&<RiContrastDropLine className="absolute top-8 left-8 text-4xl  m-h5 text-gray-300" />}
                         <img src={postarticlestate?.posthero} alt="" className="w-full" />
                     </figure>
                 </section>
@@ -52,9 +52,9 @@ function PostArticle() {
                                         appmainboolean: false,
                                     })
                                     navigate(`/${postarticlestate?.postid}`)
-                                }} className="m-button">→ Read</button>
+                                }} className="m-button">→ Read more</button>
                                 {postarticlestate?.priceid === 'pro' &&<RiContrastDropLine className="m-h5 text-gray-700" />}
-                                <h1 className="l-h5">{postarticlestate?.postblock?.length} min</h1>
+                                <h1 className="l-h5">{postarticlestate?.postblock?.length || 5} min</h1>
                                 <div className="flex flex-row items-center gap-1">
                                 <RiEyeLine className='m-h5' />
                                 <h1 className="l-h5">{postarticlestate?.postcount}</h1>

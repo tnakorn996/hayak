@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
+import { motion } from 'framer-motion'
 
 import { ContextMain } from '../../context/contextmain'
 import ToastMain from '../toast/ToastMain'
@@ -29,12 +30,12 @@ function Overlay() {
 
   return (
     <div>
-        <main className="">
+        <motion.main   initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="">
             <section className="">
                 {overlayrender && overlayrender}
             </section>
 
-        </main>
+        </motion.main>
     </div>
   )
 }

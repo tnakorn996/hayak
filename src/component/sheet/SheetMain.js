@@ -1,21 +1,35 @@
 import React from 'react'
+import { useRef } from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 import { ContextMain } from '../../context/contextmain'
-import MailForm from '../../page/mail/MailForm'
+import { client } from '../../lib/sanity'
+// import MailForm from '../../page/mail/MailForm'
+import ExitMain from '../exit/ExitMain'
 
 function SheetMain() {
     const {
         appmainstate, setappmainstate,
 
     } = useContext(ContextMain)
-    const [sheetmainpage, setsheetmainpage] = useState(0)
+    const ref = useRef(null)
+    const reftwo = useRef(null)
 
+    const [sheetmainpage, setsheetmainpage] = useState(0)
     const [sheetmainrender, setsheetmainrender] = useState()
     const [sheetmainimage, setsheetmainimage] = useState()
     const [sheetmainlength, setsheetmainlength] = useState()
+
+    const [sheetmainvalue, setsheetmainvalue] = useState()
+    const [sheetmainvalueone, setsheetmainvalueone] = useState()
+    console.log('sheetmainvalueone :>> ', sheetmainvalueone);
+    const [sheetmainvaluetwo, setsheetmainvaluetwo] = useState()
+    console.log('sheetmainvaluetwo :>> ', sheetmainvaluetwo);
+    const [sheetmainvaluethree, setsheetmainvaluethree] = useState()
+    const [sheetmainvaluefour, setsheetmainvaluefour] = useState()
 
     const mailform = [
         {
@@ -23,15 +37,29 @@ function SheetMain() {
             sheetmainrender: [
                 {
                     sheetmaintitle: "First up, what's your name?",
-                    
+                    sheetmainvalue: <input ref={ref} className="l-input" />,
                 },
                 {
                     sheetmaintitle: "And your surname?",
-                    
+                    sheetmainvalue: <input ref={reftwo} className="l-input" />,
                 },
-                // {
-                //     mailformtitle: "Great! Now what's your email, _____?",
-                // },
+                {
+                    sheetmaintitle: "Great! Now what's your email, _____?",
+                    sheetmainvalue: <input ref={ref} className="l-input" />,
+                    sheetmainentitle: 'Get weekly mail',
+                    sheetmainaction: async () => {
+                        setsheetmainvalue(uuidv4())
+                        const doc = {
+                            _id: sheetmainvalue,
+                            _type: 'mail',
+                            mailid: sheetmainvalue,
+                            mailfullname: sheetmainvalueone,
+                            mailemail: sheetmainvaluetwo,
+                        }
+                        await client.createOrReplace(doc).then(() => {
+                        });
+                    }
+                },
                 // {
                 //     mailformtitle: "Finally, do you accept our Privacy Policy?",
                 // },
@@ -57,21 +85,31 @@ function SheetMain() {
             setsheetmainrender(filterthree[0])
             setsheetmainimage(filtertwo[0].sheetmainimage)
             setsheetmainlength(filtertwo[0].sheetmainrender.length)
-            
         }
-    }, [])
-    // console.log('sheetmainonchange :>> ', sheetmainonchange);
+    }, [appmainstate, sheetmainpage])
 
   return (
     <div>
         <main className="w-screen flex flex-col md:grid md:grid-cols-12  bg-gray-900 text-white">
-            <section className="relative h-screen md:col-span-7 flex items-center justify-center">
-                <div className="">
-                <h1 className="m-h6">{sheetmainpage + 1}/{sheetmainlength}</h1>
-                <br />
-                <h1 className="text-3xl  l-h6 font-serif text-white">{sheetmainrender?.mailformtitle}</h1>
-                <br />
-                {/* <input onChange={sheetmainonchange} value={sheetmainvalue} className="l-input" /> */}
+            <section className="relative h-screen md:col-span-7 ">
+                <ExitMain />
+                <div className="h-full flex flex-col items-center justify-center">
+                    <figcaption className="">
+                        <h1 className="m-h6">{sheetmainpage + 1}/{sheetmainlength}</h1>
+                        <br />
+                        <h1 className="text-3xl  l-h6 font-serif text-white">{sheetmainrender?.sheetmaintitle}</h1>
+                        <br />
+                        <article className="">
+                        {sheetmainrender?.sheetmainvalue}
+                        </article>
+                    </figcaption>
+                    <figure className="">
+                        {sheetmainpage < sheetmainlength ? (<>
+                            <button className="w-full  m-button">Next</button>
+                        </>) : (<>
+                            <button onClick={sheetmainrender?.sheetmainaction} className="w-full  l-button">{sheetmainrender?.sheetmainentitle}</button>
+                        </>)}
+                    </figure>
                 </div>
                 <div className="absolute bottom-0 right-0">
                     <button onClick={() => setsheetmainpage(sheetmainpage - 1)} className="m-button">-</button>                    

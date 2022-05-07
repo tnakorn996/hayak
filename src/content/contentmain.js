@@ -7,21 +7,21 @@ export const categorymain = [
 
     },
     {
-        categorymainid: 'travel',
-        categorymaintitle: '✈️ Travel',
-        categorymaindirect: 'travel',
+        categorymainid: 'coffee',
+        categorymaintitle: '☕️ Coffee',
+        categorymaindirect: 'coffee',
 
     },
     {
-        categorymainid: 'inspiration',
-        categorymaintitle: '💚 Inspiration',
-        categorymaindirect: 'inspiration',
+        categorymainid: 'manu',
+        categorymaintitle: '💚 Manufacturer',
+        categorymaindirect: 'manu',
 
     },
     {
-        categorymainid: 'resource',
-        categorymaintitle: '📣 Resources',
-        categorymaindirect: 'resource',
+        categorymainid: 'retail',
+        categorymaintitle: '📣 Retails',
+        categorymaindirect: 'retail',
 
     },
     

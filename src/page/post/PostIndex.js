@@ -118,7 +118,7 @@ function PostIndex() {
     
 
     const ll = async () => {
-              const query = `*[_type == 'post' && postid == '${param.id}']{
+              const query = `*[ postid == '${param.id}']{
                   ...,
                   'postcategoryid': *[_type == 'post' && categoryid == ^.categoryid][0..3],
               }[0]`;

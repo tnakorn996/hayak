@@ -15,9 +15,9 @@ import { client } from '../../lib/sanity'
 
 function CategoryIndex() {
     const {
+        setappmainstate,
   
         loadmainstate, setloadmainstate,
-
 
     } = useContext(ContextMain)
     const param = useParams()
@@ -51,6 +51,14 @@ function CategoryIndex() {
     ]
 
     useEffect(() => {
+      setappmainstate({
+            appmainidtwo: 'previewmain',
+            appmainid: 'menuarticle',
+            appmainboolean: true,
+        })
+    }, [])
+
+    useEffect(() => {
         if(param){
             ll()
             jj()
@@ -66,12 +74,12 @@ function CategoryIndex() {
     const ll = async () => {
               const query = `*[_type == 'user' && userid == 'hayaker']{
                 ...,
-                'postcategoryidcreatedat': *[_type == 'post' && categoryid == '${param.id}'] | order(_createdAt desc),
-                'postcategoryidupdatedat': *[_type == 'post' && categoryid == '${param.id}'] | order(_updatedAt desc),
+                'postcategoryidcreatedat': *[_type != 'user' && categoryid == '${param.id}'] | order(_createdAt desc),
+                'postcategoryidupdatedat': *[_type != 'user' && categoryid == '${param.id}'] | order(_updatedAt desc),
                 
-                'postcategoryidpostcount': *[_type == 'post' && categoryid == '${param.id}'] | order(postcount desc),
+                'postcategoryidpostcount': *[_type != 'user' && categoryid == '${param.id}'] | order(postcount desc),
               }[0]`;
-              client.fetch(query) 
+              await client.fetch(query) 
               .then((data) => {
                     setpostcategoryidcreatedat(data.postcategoryidcreatedat)
                     setpostcategoryidupdatedat(data.postcategoryidupdatedat)
@@ -91,7 +99,6 @@ function CategoryIndex() {
             }
         })
     }
-    console.log(categoryindexsliceone, categoryindexslicetwo)
 
     function jj() {
         const filter = categorymain.filter(data => data.categorymainid === param.id)

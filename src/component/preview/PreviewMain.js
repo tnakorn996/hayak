@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { ContextMain } from '../../context/contextmain'
 import ContactArticle from '../../page/contact/ContactArticle'
+import MenuArticle from '../../page/menu/MenuArticle'
 import PostArticle from '../../page/post/PostArticle'
 import HorizonMain from '../post/HorizonMain'
 
@@ -35,6 +36,13 @@ function PreviewMain() {
         }
     ]
 
+    const menuarticle = [
+        {
+            previewmainindex: 0,
+            previewmainrender: <MenuArticle />,
+        }
+    ]
+
     const previewmain = [
         {
             previewmainid: 'postarticle',
@@ -43,6 +51,10 @@ function PreviewMain() {
         {
             previewmainid: 'contactarticle',
             previewmaindata: contactarticle, 
+        },
+        {
+            previewmainid: 'menuarticle',
+            previewmaindata: menuarticle, 
         },
     ]
 
