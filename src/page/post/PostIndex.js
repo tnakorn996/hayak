@@ -9,20 +9,29 @@ import { ContextMain } from '../../context/contextmain'
 import { motion } from 'framer-motion'
 
 import { client } from '../../lib/sanity'
+import BreadMain from '../../component/bread/BreadMain'
+import VerticleMain from '../../component/post/VerticleMain'
+import AlertMain from '../../component/alert/AlertMain'
+import LoadingMain from '../../component/load/LoadingMain'
 
 function PostIndex() {
     const {
         setappmainstate,
-        setpostindexstate,
-        setsearchindexstate,
+        // setpostindexstate,
+        breadmainstate, setbreadmainstate,
+        alertmainstate, setalertmainstate,
 
         userindex,
+        postcreatedat,
 
     } = useContext(ContextMain)
     const param = useParams()
     const navigate = useNavigate()
 
     const [postpostid, setpostpostid] = useState()
+    const [placepostid, setplacepostid] = useState()
+    const [productplaceid, setproductplaceid] = useState()
+    const [postplaceid, setpostplaceid] = useState()
     const [postcategoryid, setpostcategoryid] = useState()
 
     const postfigcaption = [
@@ -92,39 +101,68 @@ function PostIndex() {
         }
     ]
 
+    // window.onscroll = function () {
+    //     const ref =  window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    //     if (ref > 700) {
+    //         setappmainstate({
+    //             appmainid: 'overlay',
+    //             appmainidtwo: 'toastmain',
+    //             appmainidthree: 'postfigcaption',
+    //         })
+    //     } 
+    //     if (ref <= 700) {
+    //         setappmainstate('')
+    //         console.log('appmainstate :>>' )
+    //     }
+    // }
+
     useEffect(() => {
-        setTimeout(setappmainstate({
-            appmainid: 'overlay',
-            appmainidtwo: 'toastmain',
-            appmainidthree: 'planfigcaption',
-        }), 15000);
-            ll()
-            setpostindexstate({
-                postindexid: param.id,
-            })
+        // setTimeout(setappmainstate({
+        //     appmainid: 'overlay',
+        //     appmainidtwo: 'toastmain',
+        //     appmainidthree: 'planfigcaption',
+        // }), 15000);
+        // setpostindexstate({
+            //     postindexid: param.id,
+            // })
+        ll()
     }, [])
 
     useEffect(() => {
       if(postpostid){
-            jj()
+            // jj()
+            setbreadmainstate({
+                breadmainid: postpostid?._type,
+                breadmainidtwo: postpostid?.categoryid,
+                breadmainidthree: postpostid?.posttitle,
+            })
+            setalertmainstate({
+                alertmainid: 'postcaption',
+            })
       }
     }, [postpostid])
 
-    useEffect(() => {
-      if(postpostid && userindex){
-            hh()
-      }
-    }, [userindex, postpostid])
+    // useEffect(() => {
+    //   if(postpostid && userindex){
+    //         hh()
+    //   }
+    // }, [userindex, postpostid])
     
-
     const ll = async () => {
               const query = `*[ postid == '${param.id}']{
                   ...,
-                  'postcategoryid': *[_type == 'post' && categoryid == ^.categoryid][0..3],
+                  'placepostid': *[_type == 'place' && postid == ^.placeid],
+                  'productplaceid': *[_type == 'product' && postid != ^.postid && placeid == ^.placeid ] ,
+
               }[0]`;
-              client.fetch(query) 
+              await client.fetch(query) 
               .then((data) => {
                     setpostpostid(data);
+
+                    setplacepostid(data.placepostid)
+                    setproductplaceid(data.productplaceid)
+                    // setpostplaceid(data.postplaceid)
+
                     setpostcategoryid(data.postcategoryid);
                 })
             }
@@ -164,63 +202,61 @@ function PostIndex() {
         }
     }
 
-    const  jj = async () => {
-            await client  
-            .patch(postpostid._id)
-            .set({postcount: postpostid.postcount + 1 || 0}) 
-            .commit()
-    }
+    // const  jj = async () => {
+    //         await client  
+    //         .patch(postpostid._id)
+    //         .set({postcount: postpostid.postcount + 1 || 0}) 
+    //         .commit()
+    // }
 
-    const  hh = async () => {
-            await client  
-            .patch(userindex._id)
-            .set({categoryid: postpostid.categoryid}) 
-            .commit()
-    }
+    // const  hh = async () => {
+    //         await client  
+    //         .patch(userindex._id)
+    //         .set({categoryid: postpostid.categoryid}) 
+    //         .commit()
+    // }
 
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="grid grid-cols-12 max-w-[1200px] gap-3 mx-auto">
-            <figcaption className="col-span-12 md:col-span-8 max-w-[600px] mx-auto">
-                <section className="">
-                    <figcaption className="m-section">
-                        <br />
-                        <div className="flex flex-row gap-2 justify-between">
-                            <figcaption className="flex flex-row gap-2">
-                                <h1 className="l-h1">{postpostid?._createdAt?.slice(0, 10)}</h1>
-                                <h1 className="l-h1">·</h1>
-                                <h1 className="l-h1">12 min read</h1>
-                            </figcaption>
-                            <figure onClick={() => {
-                                setappmainstate({
-                                    appmainid: 'sharesection',
-                                    appmainidtwo: 'modalmain',
-                                    appmainparam: param.id,
-                                    appmainboolean: true,
-                                })
-                            }} className="">
-                                <article className="">
-                                <RiMore2Fill className='m-h3' />
-                                </article>
-                            </figure>
-                        </div>
-                        <br />
-                        <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
-                        <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
-                        <br />
-                    </figcaption>
-                    <figure className="md:m-section">
-                        <img src={postpostid?.posthero} alt="" className="" />
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="px-[20px] md:px-[60px] flex flex-col md:grid md:grid-cols-12 gap-3">
+            <figcaption className="col-span-12 ">
+                <br />
+                <div className="flex justify-between items-center gap-5">
+                    <BreadMain />
+                    <figure onClick={() => {
+                        setappmainstate({
+                            appmainid: 'sharesection',
+                            appmainidtwo: 'modalmain',
+                            appmainparam: param.id,
+                            appmainboolean: true,
+                        })
+                    }} className="">
+                        <article className="">
+                            <RiMore2Fill className='m-h3' />
+                        </article>
                     </figure>
-                    <figcaption className=" m-section">
+                </div>
+                <br />
+            </figcaption>
+            <figure className="col-span-12 md:col-span-7">
+                <section className="">
+                    <figure className="min-h-[50vh] grid items-center justify-items-center">
+                        <LoadingMain />
+                        <img src={postpostid?.posthero} alt="" className="z-10 w-full" />
+                    </figure>
+                    <figcaption className="">
                         <br />
                         <h1 className="text-base  italic  text-black font-serif">This article was last updated on {postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                 </section>
                 <section className="p-[20px]">
                     {kk()}
+                    <h1 className="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit voluptates odio, cumque qui porro facilis esse numquam pariatur ea consequuntur quisquam. Atque obcaecati, assumenda consectetur nihil officiis repellendus doloribus ab tempore dicta velit quas repudiandae ea nesciunt nostrum pariatur impedit.</h1>
+                    <br />
+                    <h1 className="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit voluptates odio, cumque qui porro facilis esse numquam pariatur ea consequuntur quisquam. Atque obcaecati, assumenda consectetur nihil officiis repellendus doloribus ab tempore dicta velit quas repudiandae ea nesciunt nostrum pariatur impedit.</h1>
+                    <AlertMain />
                 </section>
-                <section className="m-section flex justify-between">
+                <section className="flex justify-between">
                     <div className="flex flex-row gap-5 items-center ">
                         <div className="flex flex-row gap-2 items-center  m-h4">
                             <figure className="">
@@ -239,28 +275,71 @@ function PostIndex() {
                             </figcaption>
                         </div>
                     </div>
-                        <figure className="">
-                                <RiMore2Fill className='m-h3' />
-                        </figure>
+                    <figure onClick={() => {
+                        setappmainstate({
+                                    appmainid: 'sharesection',
+                                    appmainidtwo: 'modalmain',
+                                    appmainparam: param.id,
+                                    appmainboolean: true,
+                                })
+                        }} className="">
+                        <article className="">
+                        <RiMore2Fill className='m-h3' />
+                        </article>
+                    </figure>
+                </section>
+            </figure>
+            <figcaption className="p-0 md:p-[30px] md:col-span-5">
+                <section className="">
+                        <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
+                        <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
+                        <br />
+                        <button className="m-h3 w-full m-button">🔗 Seller website</button>
+                        <br /><br />
+                        <button className="m-h3 w-full l-button  border border-black">Check avability product</button>
                 </section>
                 <section className="">
-                    {postcategoryid?.map(data => (<>
-                        <HorizonMain onlick={() => {
-                            navigate(`/${data?.postid}`)
-                        }} key={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
+                    <br />
+                    <br />
+                    <h1 className="m-h6">Place location</h1>
+                    <br />
+                    <div className="flex flex-col gap-2">
+                    {placepostid?.map(data => (<>
+                    <HorizonMain onlick={() => {
+                        navigate(`/${data?.postid}`)
+                    }} key={data?.postid} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
                     </>))}
+                    </div>
                 </section>
-                
+                <section className="">
+                    <br />
+                    <br />
+                    <h1 className="m-h6">Related product</h1>
+                    <br />
+                    <div className="flex flex-col gap-2">
+                    {productplaceid?.map(data => (<>
+                    <HorizonMain onlick={() => {
+                        navigate(`/${data?.postid}`)
+                    }} key={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
+                    </>))}
+                    </div>
+                </section>
             </figcaption>
-            <figure className="hidden md:block col-span-3 max-w-[300px] mx-auto">
-                <br /><br />
-                <img src="https://static.wixstatic.com/media/72c0b2_78011f70f85b49c495e470da8932279c~mv2.png/v1/fill/w_251,h_451,al_c,lg_1,q_85,enc_auto/Make_an_Impact_Online.png" alt="" className="" />
+            <figure className="col-span-12">
+                <section className="">
+                <br />
+                <br />
+                <h1 className="m-h6"> You may also like</h1>
+                <br />
+                <div className="grid grid-cols-5 gap-3">
+                {postcreatedat?.slice(0, 5)?.map(data => (<>
+                    <VerticleMain onlick={() => {
+                                    navigate(`/${data?.postid}`)
+                                }} key={data?.postid} createdat={data?._createdAt} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} priceid={data?.priceid} param={data?.postid} />
+                    </>))}
+                </div>
+                </section>
             </figure>
-
-
-
-
-
         </motion.main>
     </div>
   )

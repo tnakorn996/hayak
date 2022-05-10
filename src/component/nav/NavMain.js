@@ -10,28 +10,13 @@ import { ContextMain } from '../../context/contextmain'
 function NavMain() {
     const {
         setappmainstate,
-        setontromainstate,
-        postindexstate,
-        searchinputstate, setsearchinputstate,
         
     } = useContext(ContextMain)
-
     const navigate = useNavigate()
-
-    function ll(first = this.props.first) {
-        if(first === ''){
-            setsearchinputstate(first)
-            navigate('/search/searchmain')
-        }
-        if(first !== ''){
-            setsearchinputstate(first)
-            navigate('/search/searchindex')
-        }
-    }
 
   return (
     <div>
-        <main className=" max-w-[1200px] mx-auto grid grid-cols-12 items-center  bg-white bg-opacity-95 backdrop-blur">
+        <main className="mx-auto grid grid-cols-12 items-center  bg-white bg-opacity-95 backdrop-blur">
             <section onClick={() => {
                 navigate('/')
             }} className="p-[20px] md:px-[60px] md:py-[30px] col-span-4 flex flex-row items-center">
@@ -96,23 +81,20 @@ function NavMain() {
                     <div className="flex flex-row gap-1 items-center">
                         <RiSearch2Line className='m-h6' />
                         <input 
-                        value={searchinputstate}
 
                         onFocus={() => {
-                            setsearchinputstate('')
-                            setappmainstate({
-                                appmainid: 'postupdatedat',
-                                appmainstate: '',
-                            })
-                            navigate('/search/searchmain')
+                            setappmainstate(
+                                {
+                                    appmainid: 'searchdialog',
+                                    appmainidtwo: 'sideboardmain',
+                                    appmainboolean: true,
+                                }
+                            )
                         }} 
 
-                        onChange={(p) => ll(p.target.value)}
+                        // onChange={(p) => ll(p.target.value)}
+
                         placeholder='Search...' className="w-full  m-input focus:outline-none" />
-                        <RiCloseFill onClick={() => {
-                            setsearchinputstate('')
-                            navigate(postindexstate?.postindexid)
-                        }} className="m-h6" />
                     </div>
                 </figure>
             </section>

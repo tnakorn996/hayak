@@ -38,22 +38,23 @@ function VerticleMain({onlick, createdat, posthero, posticon, posttitle, postsub
                         appmainparam: param,
                         appmainboolean: true,
                       })
-                    }} className="relative row-span-3 overflow-hidden max-h-[120px] flex items-center">
+                    }} className="relative row-span-3 overflow-hidden max-h-[120px] flex items-center  border">
                     {priceid === 'pro' && (<>
-                    <figure className="z-10 absolute top-2 left-2">
-                      <RiContrastDropLine className='m-h6 text-gray-300  !opacity-100' />
+                    <figure className="z-20 absolute top-2 left-2">
+                      <RiContrastDropLine className='m-h6 text-white  !opacity-100' />
                     </figure>
                     </>)}
-                    <img loading='lazy' src={posthero} alt="" className="w-full h-full  hover:scale-110 duration-1000" />
+                    {/* <div className="absolute top-0 left-0 z-10 w-full h-full  bg-black opacity-10" /> */}
+                    <img loading='lazy' src={posthero} alt="" className=" hover:scale-110 duration-1000" />
                 </figure>
                 <figure className="relative flex flex-row py-[7px] gap-2 justify-end items-center">
                     {placepostid && (<>
-                    <div className="absolute -top-11 left-3 w-[30px] h-[30px] flex items-center  bg-white rounded-full overflow-hidden border-2 border-white shadow">
+                    <div className="z-10 absolute -top-11 left-3 w-[30px] h-[30px] flex items-center  bg-white rounded-full overflow-hidden border-2 border-white shadow">
                         <img src={placepostid?.posticon} alt="" className="" />
                     </div>
                     </>)}
                     {posticon && (<>
-                    <div className="absolute -top-20 left-3 w-[100px] h-[100px] flex items-center  bg-white rounded-full overflow-hidden border-4 border-white shadow">
+                    <div className="z-10 absolute -top-20 left-3 w-[100px] h-[100px] flex items-center  bg-white rounded-full overflow-hidden border-4 border-white shadow">
                         <img src={posticon} alt="" className="" />
                     </div>
                     </>)}

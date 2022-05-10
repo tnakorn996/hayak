@@ -9,7 +9,7 @@ export const ContextMain = createContext()
 export const Provider = ({ children }) => {
 
     const [appmainstate, setappmainstate] = useState('appmain')
-    const [postindexstate, setpostindexstate] = useState()
+    // const [postindexstate, setpostindexstate] = useState()
     const [searchmainstate, setsearchmainstate] = useState('postupdatedat')
     const [searchinputstate, setsearchinputstate] = useState('')
     const [planformstate, setplanformstate] = useState()
@@ -17,9 +17,14 @@ export const Provider = ({ children }) => {
     const [extromainstate, setextromainstate] = useState()
     const [slidemainpage, setslidemainpage] = useState(Math.random() * (0 - 99 + 1) + 99)
     const [sheetmainpage, setsheetmainpage] = useState(0)
+    const [categorypicturestate, setcategorypicturestate] = useState()
+    const [categoryindextrigger, setcategoryindextrigger] = useState('')
+    const [breadmainstate, setbreadmainstate] = useState()
+    const [alertmainstate, setalertmainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
+    console.log('postplaceproduct :>> ', postplaceproduct);
     const [postcreatedat, setpostcreatedat] = useState()
     const [postupdatedat, setpostupdatedat] = useState()
     const [productcreatedat, setproductcreatedat] = useState()
@@ -38,27 +43,26 @@ export const Provider = ({ children }) => {
 
                 'postplaceproduct': *[_type == 'post' || _type == 'place' || _type == 'product'] {
                   ...,
-
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_createdAt desc) ,
+
                 'postcreatedat': *[_type == 'post'] {
                   ...,
-
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_createdAt desc) ,
+
                 'postupdatedat': *[_type == 'post'] {
                   ...,
-
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_updatedAt desc) ,
+
                 'placecreatedat': *[_type == 'place'] {
                   ...,
-
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_createdAt desc),
+
                 'productcreatedat': *[_type == 'product'] {
                   ...,
-
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_createdAt desc),
                 
@@ -79,13 +83,12 @@ export const Provider = ({ children }) => {
                   setpostpriceid(data.postpriceid);
               })
         }
-        console.log('productcreatedat :>> ', productcreatedat);
     if(!postupdatedat) return <LoadMain />
 
     return (
       <ContextMain.Provider value={{
         appmainstate, setappmainstate,
-        postindexstate, setpostindexstate,
+        // postindexstate, setpostindexstate,
         searchmainstate, setsearchmainstate,
         searchinputstate, setsearchinputstate,
         planformstate, setplanformstate,
@@ -93,6 +96,10 @@ export const Provider = ({ children }) => {
         extromainstate, setextromainstate,
         slidemainpage, setslidemainpage,
         sheetmainpage, setsheetmainpage,
+        categorypicturestate, setcategorypicturestate,
+        categoryindextrigger, setcategoryindextrigger,
+        breadmainstate, setbreadmainstate,
+        alertmainstate, setalertmainstate,
 
         userindex,
         postplaceproduct,

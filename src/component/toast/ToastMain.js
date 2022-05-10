@@ -24,10 +24,25 @@ function ToastMain() {
         }
     ]
 
+     const postfigcaption = [
+        {
+            toastmaintitle: 'Want to chat with seller?',
+            toastmainsubtitle: 'Check thier product through their website', 
+            toastmainentitle: 'Explre website', 
+            toastmainaction: () => {
+                window.open(`/www.google.com`, '_blank').focus()
+            }
+        }
+    ]
+
     const toastmain = [
         {
             toastmainid: 'planfigcaption',
             toastmainref: planfigcaption,
+        },
+        {
+            toastmainid: 'postfigcaption',
+            toastmainref: postfigcaption,
         }
     ]
 

@@ -1,31 +1,5 @@
 
-export const categorymain = [
-    {
-        categorymainid: 'food',
-        categorymaintitle: '🥘 Food & Drink',
-        categorymaindirect: 'food',
 
-    },
-    {
-        categorymainid: 'coffee',
-        categorymaintitle: '☕️ Coffee',
-        categorymaindirect: 'coffee',
-
-    },
-    {
-        categorymainid: 'manu',
-        categorymaintitle: '💚 Manufacturer',
-        categorymaindirect: 'manu',
-
-    },
-    {
-        categorymainid: 'retail',
-        categorymaintitle: '📣 Retails',
-        categorymaindirect: 'retail',
-
-    },
-    
-]
 
 export const navmain = [
     {
@@ -50,7 +24,7 @@ export const navmain = [
         navmainid: 'about',
         navmaintitle: 'Our story',
         navmainsubtitle: `If you find our articles helpful, please consider to support us ❤️ in paying for web hosting and CDN to keep the site running.`,
-        navmainimage: 'https://everybodyeats.nz/assets/elements/forks-spoons.png',
+        navmainimage: '',
         navmainredirect: 'aboutmain' ,
         navmaindirect: '' ,
         navmainref: '' ,
@@ -59,14 +33,14 @@ export const navmain = [
         navmainid: 'donate',
         navmaintitle: 'Donate',
         navmainsubtitle: `If you find our articles helpful, please consider to support us ❤️ in paying for web hosting and CDN to keep the site running.`,
-        navmainimage: 'https://everybodyeats.nz/assets/elements/forks-spoons.png',
+        navmainimage: '',
         navmainredirect: 'ontromain' ,
         navmaindirect: '',
         navmainref: 'plansummary' ,
     },
     {
         navmainid: 'contact',
-        navmaintitle: 'Chat with Us',
+        navmaintitle: 'List my business',
         navmainsubtitle: 'Hayak Blog is a rare and unique experience site for readers. Any enquiries, please contact us.',
         navmainimage: 'https://everybodyeats.nz/assets/elements/forks-spoons.png',
         navmainredirect: 'contactmain' ,
@@ -147,5 +121,330 @@ export const extromain = [
     {
         extromainid: 'plansummary',
         extromainref: plansummary,
+    },
+]
+
+
+
+
+export const collectionmain = [
+    {
+        collectionmainref: [
+            {
+                collectionmainid: 'recipe',
+                collectionmaintitle: 'Recipes',
+                collectionmainsubtitle: 'recipe',
+            },
+            {
+                collectionmainid: 'review',
+                collectionmaintitle: 'Review',
+                collectionmainsubtitle: 'review',
+            },
+            {
+                collectionmainid: 'interview',
+                collectionmaintitle: 'Interview',
+                collectionmainsubtitle: 'interview',
+            },
+        ],
+
+        categorymainid: 'post',
+    },
+    {
+        collectionmainref: [
+            {
+                collectionmainid: 'meat',
+                collectionmaintitle: 'Meat',
+                collectionmainsubtitle: 'meat',
+            },
+            {
+                collectionmainid: 'coffee',
+                collectionmaintitle: 'Coffee',
+                collectionmainsubtitle: 'coffee',
+            },
+            {
+                collectionmainid: 'alcohol',
+                collectionmaintitle: 'Acohol',
+                collectionmainsubtitle: 'alcohol',
+            },
+            {
+                collectionmainid: 'dairy',
+                collectionmaintitle: 'Dairy',
+                collectionmainsubtitle: 'dairy',
+            },
+            {
+                collectionmainid: 'vegetable',
+                collectionmaintitle: 'Vegetable',
+                collectionmainsubtitle: 'vegetable',
+            },
+        ],
+        categorymainid: 'product',
+    },
+    {
+        collectionmainref: [
+            {
+                collectionmainid: 'retail',
+                collectionmaintitle: 'Retails',
+                collectionmainsubtitle: 'Coffeeee',
+
+            },
+            {
+                collectionmainid: 'manufacturer',
+                collectionmaintitle: 'Manufacturer',
+                collectionmainsubtitle: 'Coffeeee',
+
+            },
+            {
+                collectionmainid: 'restaurant',
+                collectionmaintitle: "Chef's Restaurant",
+                collectionmainsubtitle: 'Coffeeee',
+
+            },
+        ],
+
+        categorymainid: 'place',
+    },
+  ]
+
+
+export const categorymain = [
+    {
+        categorymainid: 'post',
+        categorymaintitle: 'Blog',
+        categorymaindirect: 'post',
+    },
+    {
+        categorymainid: 'place',
+        categorymaintitle: 'Locals & Location',
+        categorymaindirect: 'place',
+    },
+    {
+        categorymainid: 'product',
+        categorymaintitle: 'Products',
+        categorymaindirect: 'product',
+    },
+]
+
+
+// export const categoryul = [
+//             {
+//                 breadmainidtwo: 'recipe',
+//                 breadmaintitle: 'Recipes',
+//                 collectionmainsubtitle: 'recipe',
+//             },
+//             {
+//                 breadmainidtwo: 'review',
+//                 collectionmaintitle: 'Review',
+//                 collectionmainsubtitle: 'review',
+//             },
+//             {
+//                 breadmainidtwo: 'interview',
+//                 collectionmaintitle: 'Interview',
+//                 collectionmainsubtitle: 'interview',
+//             },
+
+//             {
+//                 breadmainidtwo: 'meat',
+//                 collectionmaintitle: 'Meat',
+//                 collectionmainsubtitle: 'meat',
+//             },
+//             {
+//                 breadmainidtwo: 'coffee',
+//                 collectionmaintitle: 'Coffee',
+//                 collectionmainsubtitle: 'coffee',
+//             },
+//             {
+//                 breadmainidtwo: 'alcohol',
+//                 collectionmaintitle: 'Acohol',
+//                 collectionmainsubtitle: 'alcohol',
+//             },
+//             {
+//                 breadmainidtwo: 'dairy',
+//                 collectionmaintitle: 'Dairy',
+//                 collectionmainsubtitle: 'dairy',
+//             },
+//             {
+//                 breadmainidtwo: 'vegetable',
+//                 collectionmaintitle: 'Vegetable',
+//                 collectionmainsubtitle: 'vegetable',
+//             },
+
+//             {
+//                 breadmainidtwo: 'retail',
+//                 collectionmaintitle: 'Retails',
+//                 collectionmainsubtitle: 'Coffeeee',
+
+//             },
+//             {
+//                 breadmainidtwo: 'manufacturer',
+//                 collectionmaintitle: 'Manufacturer',
+//                 collectionmainsubtitle: 'Coffeeee',
+
+//             },
+//             {
+//                 breadmainidtwo: 'restaurant',
+//                 collectionmaintitle: "Chef's Restaurant",
+//                 collectionmainsubtitle: 'Coffeeee',
+//             },
+// ]
+
+
+// export const categoryli = [
+//             {
+//                 breadmainidtwo: 'recipe',
+//                 breadmaintitle: 'Recipes',
+//                 collectionmainsubtitle: 'recipe',
+//             },
+//             {
+//                 breadmainidtwo: 'review',
+//                 collectionmaintitle: 'Review',
+//                 collectionmainsubtitle: 'review',
+//             },
+//             {
+//                 breadmainidtwo: 'interview',
+//                 collectionmaintitle: 'Interview',
+//                 collectionmainsubtitle: 'interview',
+//             },
+
+//             {
+//                 breadmainidtwo: 'meat',
+//                 collectionmaintitle: 'Meat',
+//                 collectionmainsubtitle: 'meat',
+//             },
+//             {
+//                 breadmainidtwo: 'coffee',
+//                 collectionmaintitle: 'Coffee',
+//                 collectionmainsubtitle: 'coffee',
+//             },
+//             {
+//                 breadmainidtwo: 'alcohol',
+//                 collectionmaintitle: 'Acohol',
+//                 collectionmainsubtitle: 'alcohol',
+//             },
+//             {
+//                 breadmainidtwo: 'dairy',
+//                 collectionmaintitle: 'Dairy',
+//                 collectionmainsubtitle: 'dairy',
+//             },
+//             {
+//                 breadmainidtwo: 'vegetable',
+//                 collectionmaintitle: 'Vegetable',
+//                 collectionmainsubtitle: 'vegetable',
+//             },
+
+//             {
+//                 breadmainidtwo: 'retail',
+//                 collectionmaintitle: 'Retails',
+//                 collectionmainsubtitle: 'Coffeeee',
+
+//             },
+//             {
+//                 breadmainidtwo: 'manufacturer',
+//                 collectionmaintitle: 'Manufacturer',
+//                 collectionmainsubtitle: 'Coffeeee',
+
+//             },
+//             {
+//                 breadmainidtwo: 'restaurant',
+//                 collectionmaintitle: "Chef's Restaurant",
+//                 collectionmainsubtitle: 'Coffeeee',
+//             },
+// ]
+
+export const breadmain = [
+    {
+        breadmainid: 'post',
+        breadmaintitle: 'Blog',
+        // breadmainref: categoryul,
+    },
+    {
+        breadmainid: 'place',
+        breadmaintitle: 'Locals & Location',
+        // breadmainref: categoryul,
+    },
+    {
+        breadmainid: 'product',
+        breadmaintitle: 'Products',
+        // breadmainref: categoryul,
+    },
+]
+
+export const crummain = [
+    {
+        crummainid: 'recipe',
+        crummaintitle: 'Recipe',
+        // crummainref: categoryli,
+        breadmainid: 'post',
+    },
+    {
+        crummainid: 'review',
+        crummaintitle: 'Review',
+        // crummainref: categoryli,
+        breadmainid: 'post',
+
+    },
+    {
+        crummainid: 'interview',
+        crummaintitle: 'Interview',
+        // crummainref: categoryli,
+        breadmainid: 'post',
+
+    },
+
+    {
+        crummainid: 'meat',
+        crummaintitle: 'Meat',
+        // crummainref: categoryli,
+        breadmainid: 'product',
+
+    },
+    {
+        crummainid: 'coffee',
+        crummaintitle: 'Coffee',
+        // crummainref: categoryli,
+        breadmainid: 'product',
+
+    },
+    {
+        crummainid: 'alcohol',
+        crummaintitle: 'Alcohol',
+        // crummainref: categoryli,
+        breadmainid: 'product',
+
+    },
+    {
+        crummainid: 'daily',
+        crummaintitle: 'Daily',
+        // crummainref: categoryli,
+        breadmainid: 'product',
+
+    },
+    {
+        crummainid: 'vegetable',
+        crummaintitle: 'Vegetable',
+        // crummainref: categoryli,
+        breadmainid: 'product',
+
+    },
+    
+    {
+        crummainid: 'retail',
+        crummaintitle: 'Retail',
+        // crummainref: categoryli,
+        breadmainid: 'place',
+
+    },
+    {
+        crummainid: 'manufacturer',
+        crummaintitle: 'Manufacturer',
+        // crummainref: categoryli,
+        breadmainid: 'place',
+
+    },
+    {
+        crummainid: 'restaurant',
+        crummaintitle: "Chef's Restaurant",
+        // crummainref: categoryli,
+        breadmainid: 'place',
+
     },
 ]

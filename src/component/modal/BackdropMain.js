@@ -8,6 +8,7 @@ import { ContextMain } from '../../context/contextmain'
 import PreviewMain from '../preview/PreviewMain'
 import ModalMain from './ModalMain'
 import '../modal/backdropmain.css'
+import SideboardMain from '../sideboard/SideboardMain'
 
 function BackdropMain() {
   const {
@@ -23,6 +24,10 @@ function BackdropMain() {
     {
       backdropmainid: 'previewmain',
       backdropmainrender: <PreviewMain />
+    },
+    {
+      backdropmainid: 'sideboardmain',
+      backdropmainrender: <SideboardMain />
     },
   ]
 

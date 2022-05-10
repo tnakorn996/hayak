@@ -29,7 +29,7 @@ function HomeMain() {
     const [homemainsliceone, sethomemainsliceone] = useState(0)
     const [homemainslicetwo, sethomemainslicetwo] = useState(4)
     const [homemainslicethree, sethomemainslicethree] = useState(0)
-    const [homemainslicefour, sethomemainslicefour] = useState(4)
+    const [homemainslicefour, sethomemainslicefour] = useState(6)
     const [homemainslicefive, sethomemainslicefive] = useState(0)
     const [homemainslicesix, sethomemainslicesix] = useState(4)
     const [homemainsliceseven, sethomemainsliceseven] = useState(0)
@@ -49,7 +49,7 @@ function HomeMain() {
         {
             homemainid: 'placecreatedat',
             homemainmap: placecreatedat,
-            homemaintitle: '📍 Top Destination',
+            homemaintitle: '📍 Top Location',
             homemaindirect: '/search/searchmain',
         },
                 {
@@ -85,13 +85,13 @@ function HomeMain() {
         }
     ]
 
-    useEffect(() => {
-      setTimeout(setappmainstate({
-            appmainidtwo: 'previewmain',
-            appmainid: 'contactarticle',
-            appmainboolean: true,
-        }), 15000);
-    }, [])
+    // useEffect(() => {
+    //   setTimeout(setappmainstate({
+    //         appmainidtwo: 'previewmain',
+    //         appmainid: 'contactarticle',
+    //         appmainboolean: true,
+    //     }), 15000);
+    // }, [])
 
     useEffect(() => {
         if(postupdatedat && postpostcount && postcategoryid && postcreatedat && postcreatedat && postpriceid){
@@ -117,7 +117,7 @@ function HomeMain() {
             }
             if(homemainslicefour >= first){
                 sethomemainslicethree(0)
-                sethomemainslicefour(4)
+                sethomemainslicefour(6)
             }
     }
 
@@ -158,27 +158,34 @@ function HomeMain() {
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="">
             <br />
-            <section className="max-w-[1200px] mx-auto py-[20px] px-[20px] md:px-[60px]  flex flex-col md:grid md:grid-cols-12">
-                <figcaption className="md:col-span-5 max-w-[300px] flex flex-col justify-between">
+            <section className="py-[20px] px-[20px] md:px-[60px] h-[70vh]  flex flex-col md:grid md:grid-cols-12">
+                <figcaption className="md:col-span-5 max-w-[300px] flex flex-col justify-between items-start">
                     <h1 className="text-5xl  font-serif m-h6">{postpostcount && postpostcount[0]?.posttitle}</h1>
-                    <hr />
+                    <button onClick={() => {
+                      setappmainstate({
+                        appmainid: 'postarticle',
+                        appmainidtwo: 'previewmain',
+                        appmainparam: postpostcount && postpostcount[0]?.postid,
+                        appmainboolean: true,
+                      })
+                    }} className="  l-button">Read more</button>
                 </figcaption>
-                <figure className="md:col-span-7 max-h-[350px] flex items-center overflow-hidden">
+                <figure className="md:col-span-7 flex items-center overflow-hidden">
                     <img src={postpostcount && postpostcount[0]?.posthero} alt="" className="w-full" />
                 </figure>
             </section>
             <br />
             <section className="">
                 {homemainmap?.map(data => (<>
-                <figcaption className="max-w-[1200px] mx-auto py-[20px] px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
+                <figcaption className=" py-[20px] px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
                     <h1 className="m-h5">{data?.homemaintitle}</h1>
                     <h1 onClick={() => {
                         navigate(data?.homemaindirect)
                     }} className="l-h2">See all</h1>
                 </figcaption>
-                <figure className="relative max-w-[1200px] mx-auto overflow-hidden no-scrollbar">
+                <figure className="relative overflow-hidden no-scrollbar">
 
-                    <div className="group w-[1200px] px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
+                    <div className="group px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
                     
                     {data?.homemainid === 'postupdatedat' && (<>
                     <button onClick={() => {
@@ -204,7 +211,7 @@ function HomeMain() {
                                     navigate(`/${dat?.postid}`)
                                 }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
                         </>))}
-                    </>)} */}
+                    </>)}
 
                     {data?.homemainid === 'postpostcount' && (<>
                     <button onClick={() => {
@@ -243,11 +250,11 @@ function HomeMain() {
                                     navigate(`/${dat?.postid}`)
                                 }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
                         </>))}
-                    </>)}
+                    </>)} */}
                     </div>
 
                     
-                    <div className="group w-[1200px] px-[20px] md:px-[60px] grid grid-cols-3 gap-5">
+                    <div className="group px-[20px] md:px-[60px] grid grid-cols-3 gap-5">
                         {data?.homemainid === 'placecreatedat' && (<>
                         <button onClick={() => {
                             kk(data?.homemainmap?.length)
@@ -262,7 +269,7 @@ function HomeMain() {
                         </>)}
                     </div>
 
-                    <div className="group w-[1200px] px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
+                    <div className="group px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
                         {data?.homemainid === 'productcreatedat' && (<>
                         <button onClick={() => {
                             kk(data?.homemainmap?.length)

@@ -8,7 +8,7 @@
     }
 
     article {
-        @apply opacity-80 hover:opacity-100 cursor-pointer;
+        @apply opacity-80 hover:opacity-100 cursor-pointer duration-1000;
     }
 
     button {
@@ -16,11 +16,11 @@
     }
 
     .m-button {
-        @apply  py-[10px] px-[20px] bg-black text-white rounded-full font-medium;
+        @apply  py-[10px] px-[20px] bg-black text-white font-medium;
     }
 
     .l-button {
-        @apply py-[10px] px-[20px] bg-white text-black rounded-full font-medium;
+        @apply py-[10px] px-[20px] bg-white text-black font-medium;
     }
 
     .m-article {
@@ -48,11 +48,11 @@
     }
 
     .m-input {
-        @apply text-base p-[10px]  bg-transparent border-b border-white;
+        @apply text-base p-[10px]  bg-transparent border-b border-white focus:outline-none;
     }
 
     .l-input {
-        @apply text-base p-[20px]  bg-transparent border-b border-white;
+        @apply text-base p-[20px]  bg-transparent border-b border-white focus:outline-none;
     }
 
     .m-span {

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
@@ -9,7 +10,6 @@ import { ContextMain } from '../../context/contextmain'
 import ContactArticle from '../../page/contact/ContactArticle'
 import MenuArticle from '../../page/menu/MenuArticle'
 import PostArticle from '../../page/post/PostArticle'
-import HorizonMain from '../post/HorizonMain'
 
 function PreviewMain() {
     const {
@@ -43,6 +43,7 @@ function PreviewMain() {
         }
     ]
 
+
     const previewmain = [
         {
             previewmainid: 'postarticle',
@@ -56,10 +57,11 @@ function PreviewMain() {
             previewmainid: 'menuarticle',
             previewmaindata: menuarticle, 
         },
+
     ]
 
     useEffect(() => {
-        if(appmainstate && appmainstate.appmainidtwo === 'previewmain'){
+        if(appmainstate.appmainidtwo === 'previewmain' || appmainstate.appmainredirect === 'previewmain'){
         const filter = previewmain.filter(data => data.previewmainid === appmainstate.appmainid)
         const filtertwo = filter[0].previewmaindata.filter(data => data.previewmainindex === 0)
         setpreviewmainrender(filtertwo[0].previewmainrender)
@@ -69,14 +71,14 @@ function PreviewMain() {
   return (
     <div>
         <br />
-        <main className="relative max-w-[900px] mx-auto bg-white overflow-hidden shadow-2xl">
+        <motion.main  initial={{y: 100}} animate={{ y: 0}} exit={{y: 0}}  className="relative md:w-[900px] mx-auto bg-white overflow-hidden shadow-2xl">
             <RiCloseFill onClick={() => {
                 setappmainstate({
                     appmainboolean: false
                 })
             }} className="z-10 absolute top-3 right-3 text-4xl  text-white bg-black rounded-full" />
             {previewmainrender && previewmainrender}
-        </main>
+        </motion.main>
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
@@ -5,10 +6,12 @@ import { useEffect } from 'react'
 import { RiContrastDropLine, RiFileCopyLine } from 'react-icons/ri'
 
 import { ContextMain } from '../../context/contextmain'
+import CategorySection from '../../page/catagory/CategorySection'
 
 function ModalMain() {
     const {
         appmainstate, setappmainstate,
+        setcategoryindextrigger,
 
     } = useContext(ContextMain)
     const [modalmainstate, setmodalmainstate] = useState()
@@ -49,13 +52,28 @@ function ModalMain() {
             },
             modalmainentitle: 'Copy URL'
         },
+    ]
 
+    const categorysection = [
+        {
+            modalmainindex: 0,
+            modalmaintitle: 'Choose Category',
+            modalmainrender: <CategorySection />,
+            modalmainaction: () => {
+                // setcategoryindextrigger()
+            },
+            modalmainentitle: 'Apply'
+        },
     ]
 
     const modalmain = [
         {
             modalmainid: 'sharesection',
             modalmaindata: sharesection,
+        },
+        {
+            modalmainid: 'categorysection',
+            modalmaindata: categorysection,
         },
     ]
 
@@ -74,7 +92,7 @@ function ModalMain() {
   return (
     <div>
         <br />
-        <main className="w-screen md:max-w-[500px] bg-white border shadow-2xl">
+        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white border shadow-2xl">
             <section className="p-[20px] text-center">
                 <h1 className="m-h4">{modalmaintitle}</h1>
             </section>
@@ -93,7 +111,7 @@ function ModalMain() {
                     modalmainaction()
                 }} className="m-button">{modalmainentitle}</button>
             </section>
-        </main>
+        </motion.main>
     </div>
   )
 }

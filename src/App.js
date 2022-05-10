@@ -21,6 +21,9 @@ import BackdropMain from './component/modal/BackdropMain';
 import SlideMain from './component/slide/SlideMain';
 import Overlay from './component/overlay/Overlay';
 import SheetMain from './component/sheet/SheetMain';
+import PromoMain from './component/promo/PromoMain';
+import TopMain from './component/top/TopMain';
+// import PreviewMain from './component/preview/PreviewMain';
 
 export default function App() {
   const {
@@ -57,6 +60,9 @@ export default function App() {
         case 'sheetmain': 
         return <SheetMain />
 
+        case 'promomain': 
+        return <PromoMain />
+
         case 'appmain': 
         return dashboard
       }
@@ -72,6 +78,7 @@ export default function App() {
 
         <section className="">
         <AnimatePresence>
+          <TopMain />
         <Routes key={location.pathname} location={location}>
           {/* <Route path='/' element={<HomeMain />} />  */}
 
