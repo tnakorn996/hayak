@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import React from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
@@ -42,9 +41,9 @@ function BackdropMain() {
 
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="z-20 w-screen h-screen top-0 left-0 fixed flex justify-center items-end md:items-start  bg-white bg-opacity-80 overflow-y-auto no-scrollbar">
+        <main className="z-20 w-screen h-screen top-0 left-0 fixed flex justify-center items-end md:items-start  bg-white bg-opacity-80 overflow-y-auto no-scrollbar">
             {backdropmainrender && backdropmainrender}
-        </motion.main>
+        </main>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 
 import React, { createContext, useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import LoadMain from '../component/load/LoadMain'
 
 import { client } from '../lib/sanity'
@@ -7,6 +8,7 @@ import { client } from '../lib/sanity'
 export const ContextMain = createContext()
 
 export const Provider = ({ children }) => {
+    const location = useLocation()
 
     const [appmainstate, setappmainstate] = useState('appmain')
     // const [postindexstate, setpostindexstate] = useState()
@@ -21,22 +23,26 @@ export const Provider = ({ children }) => {
     const [categoryindextrigger, setcategoryindextrigger] = useState('')
     const [breadmainstate, setbreadmainstate] = useState()
     const [alertmainstate, setalertmainstate] = useState()
+    const [dropdownmainstate, setdropdownmainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
-    console.log('postplaceproduct :>> ', postplaceproduct);
-    const [postcreatedat, setpostcreatedat] = useState()
     const [postupdatedat, setpostupdatedat] = useState()
+    const [placeupdatedat, setplaceupdatedat] = useState()
+    const [productupdatedat, setproductupdatedat] = useState()
     const [productcreatedat, setproductcreatedat] = useState()
     const [placecreatedat, setplacecreatedat] = useState()
-    const [postpostcount, setpostpostcount] = useState()
-    const [postcategoryid, setpostcategoryid] = useState()
-    const [postpriceid, setpostpriceid] = useState()
 
     useEffect(() => {
         pp()
     }, [])
 
+    useEffect(() => {
+      if(location){
+        setappmainstate('')
+      }
+    }, [location])
+    
     const pp = async () => {
               const query = `*[_type == 'user' && userid == 'hayaker']{
                 ...,
@@ -46,12 +52,15 @@ export const Provider = ({ children }) => {
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_createdAt desc) ,
 
-                'postcreatedat': *[_type == 'post'] {
+                'postupdatedat': *[_type == 'post'] {
                   ...,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
-                } | order(_createdAt desc) ,
-
-                'postupdatedat': *[_type == 'post'] {
+                } | order(_updatedAt desc) ,
+                'placeupdatedat': *[_type == 'place'] {
+                  ...,
+                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
+                } | order(_updatedAt desc) ,
+                'productupdatedat': *[_type == 'product'] {
                   ...,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_updatedAt desc) ,
@@ -60,57 +69,50 @@ export const Provider = ({ children }) => {
                   ...,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_createdAt desc),
-
                 'productcreatedat': *[_type == 'product'] {
                   ...,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_createdAt desc),
                 
-                'postpostcount': *[_type == 'post' && postcount > 0] | order(postcount desc) ,
-                'postcategoryid': *[_type == 'post' && categoryid == ^.categoryid] | order(_createdAt desc),
-                'postpriceid': *[_type == 'post' && priceid == 'pro'] | order(_createdAt desc),
               }[0]`;
               await client.fetch(query) 
               .then((data) => {
                   setuserindex(data)
                   setpostplaceproduct(data.postplaceproduct)
-                  setpostcreatedat(data.postcreatedat);
+
                   setpostupdatedat(data.postupdatedat);
+                  setplaceupdatedat(data.placeupdatedat);
+                  setproductupdatedat(data.productupdatedat);
                   setplacecreatedat(data.placecreatedat);
                   setproductcreatedat(data.productcreatedat);
-                  setpostpostcount(data.postpostcount);
-                  setpostcategoryid(data.postcategoryid);
-                  setpostpriceid(data.postpriceid);
               })
         }
     if(!postupdatedat) return <LoadMain />
 
     return (
       <ContextMain.Provider value={{
-        appmainstate, setappmainstate,
-        // postindexstate, setpostindexstate,
-        searchmainstate, setsearchmainstate,
-        searchinputstate, setsearchinputstate,
-        planformstate, setplanformstate,
-        ontromainstate, setontromainstate,
-        extromainstate, setextromainstate,
-        slidemainpage, setslidemainpage,
-        sheetmainpage, setsheetmainpage,
-        categorypicturestate, setcategorypicturestate,
-        categoryindextrigger, setcategoryindextrigger,
-        breadmainstate, setbreadmainstate,
-        alertmainstate, setalertmainstate,
+          appmainstate, setappmainstate,
+          // postindexstate, setpostindexstate,
+          searchmainstate, setsearchmainstate,
+          searchinputstate, setsearchinputstate,
+          planformstate, setplanformstate,
+          ontromainstate, setontromainstate,
+          extromainstate, setextromainstate,
+          slidemainpage, setslidemainpage,
+          sheetmainpage, setsheetmainpage,
+          categorypicturestate, setcategorypicturestate,
+          categoryindextrigger, setcategoryindextrigger,
+          breadmainstate, setbreadmainstate,
+          alertmainstate, setalertmainstate,
+          dropdownmainstate, setdropdownmainstate,
 
-        userindex,
-        postplaceproduct,
-        postcreatedat,
-        postupdatedat,
-        placecreatedat,
-        productcreatedat, 
-        postpostcount,
-        postcategoryid,
-        postpriceid,
-
+          userindex,
+          postplaceproduct,
+          postupdatedat,
+          placeupdatedat,
+          productupdatedat,
+          placecreatedat,
+          productcreatedat, 
         }} >
         {children}
       </ContextMain.Provider>

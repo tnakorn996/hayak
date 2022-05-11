@@ -17,19 +17,15 @@ function HomeMain() {
 
 
         postupdatedat,
-        postpostcount,
-        postcreatedat,
-        postcategoryid,
-        postpriceid,
-        placecreatedat,
-        productcreatedat,
+        placeupdatedat,
+        productupdatedat,
 
     } = useContext(ContextMain)
     const navigate = useNavigate()
     const [homemainsliceone, sethomemainsliceone] = useState(0)
     const [homemainslicetwo, sethomemainslicetwo] = useState(4)
     const [homemainslicethree, sethomemainslicethree] = useState(0)
-    const [homemainslicefour, sethomemainslicefour] = useState(6)
+    const [homemainslicefour, sethomemainslicefour] = useState(3)
     const [homemainslicefive, sethomemainslicefive] = useState(0)
     const [homemainslicesix, sethomemainslicesix] = useState(4)
     const [homemainsliceseven, sethomemainsliceseven] = useState(0)
@@ -47,15 +43,15 @@ function HomeMain() {
             homemaindirect: '/search/searchmain'
         },
         {
-            homemainid: 'placecreatedat',
-            homemainmap: placecreatedat,
-            homemaintitle: '📍 Top Location',
+            homemainid: 'placeupdatedat',
+            homemainmap: placeupdatedat,
+            homemaintitle: '📍 Hot Location',
             homemaindirect: '/search/searchmain',
         },
                 {
-            homemainid: 'productcreatedat',
-            homemainmap: productcreatedat,
-            homemaintitle: '🥑 Top Items',
+            homemainid: 'productupdatedat',
+            homemainmap: productupdatedat,
+            homemaintitle: '🥑 New Items',
             homemaindirect: '/search/searchmain',
         },
 
@@ -65,24 +61,24 @@ function HomeMain() {
         //     homemaintitle: '💡 Blog For You',
         //     homemaindirect: '/search/searchmain',
         // },
-        {
-            homemainid: 'postpostcount',
-            homemainmap: postpostcount,
-            homemaintitle: '🔥 Hottest Blog',
-            homemaindirect: '/search/searchmain'
-        },
-        {
-            homemainid: 'postcreatedat',
-            homemainmap: postcreatedat,
-            homemaintitle: '✨ New Blog',
-            homemaindirect: '/search/searchmain'
-        },
-        {
-            homemainid: 'postpriceid',
-            homemainmap: postpriceid,
-            homemaintitle: 'We Just Love These',
-            homemaindirect: '/search/searchmain'
-        }
+        // {
+        //     homemainid: 'postpostcount',
+        //     homemainmap: postpostcount,
+        //     homemaintitle: '🔥 Hottest Blog',
+        //     homemaindirect: '/search/searchmain'
+        // },
+        // {
+        //     homemainid: 'postcreatedat',
+        //     homemainmap: postcreatedat,
+        //     homemaintitle: '✨ New Blog',
+        //     homemaindirect: '/search/searchmain'
+        // },
+        // {
+        //     homemainid: 'postpriceid',
+        //     homemainmap: postpriceid,
+        //     homemaintitle: 'We Just Love These',
+        //     homemaindirect: '/search/searchmain'
+        // }
     ]
 
     // useEffect(() => {
@@ -94,10 +90,10 @@ function HomeMain() {
     // }, [])
 
     useEffect(() => {
-        if(postupdatedat && postpostcount && postcategoryid && postcreatedat && postcreatedat && postpriceid){
+        if(postupdatedat && placeupdatedat && productupdatedat){
             sethomemainmap(homemain)
         }
-    }, [postupdatedat, postpostcount, postcategoryid, postcreatedat, postpriceid])
+    }, [postupdatedat, placeupdatedat, productupdatedat])
 
     function ll(first = this.props.first) {
             if(homemainslicetwo < first){
@@ -117,7 +113,7 @@ function HomeMain() {
             }
             if(homemainslicefour >= first){
                 sethomemainslicethree(0)
-                sethomemainslicefour(6)
+                sethomemainslicefour(3)
             }
     }
 
@@ -132,60 +128,72 @@ function HomeMain() {
             }
     }
 
-    function hh(first = this.props.first) {
-            if(homemainsliceeight < first){
-                sethomemainsliceseven(homemainsliceseven + 1)
-                sethomemainsliceeight(homemainsliceeight + 1)
-            }
-            if(homemainsliceeight >= first){
-                sethomemainsliceseven(0)
-                sethomemainsliceeight(4)
-            }
-    }
+    // function hh(first = this.props.first) {
+    //         if(homemainsliceeight < first){
+    //             sethomemainsliceseven(homemainsliceseven + 1)
+    //             sethomemainsliceeight(homemainsliceeight + 1)
+    //         }
+    //         if(homemainsliceeight >= first){
+    //             sethomemainsliceseven(0)
+    //             sethomemainsliceeight(4)
+    //         }
+    // }
 
-    function gg(first = this.props.first) {
-            if(homemainsliceten < first){
-                sethomemainslicenine(homemainslicenine + 1)
-                sethomemainsliceten(homemainsliceten + 1)
-            }
-            if(homemainsliceten >= first){
-                sethomemainslicenine(0)
-                sethomemainsliceten(4)
-            }
-    }
+    // function gg(first = this.props.first) {
+    //         if(homemainsliceten < first){
+    //             sethomemainslicenine(homemainslicenine + 1)
+    //             sethomemainsliceten(homemainsliceten + 1)
+    //         }
+    //         if(homemainsliceten >= first){
+    //             sethomemainslicenine(0)
+    //             sethomemainsliceten(4)
+    //         }
+    // }
+
+    // window.onscroll = function (){
+    //     if ((window.innerHeight + document.documentElement.scrollTop) > (document.documentElement.offsetHeight) * 70 /100) {
+    //         setappmainstate({
+    //             appmainid: 'overlay',
+    //             appmainidtwo: 'toastmain',
+    //             appmainidthree: 'planfigcaption',
+    //         })
+    //     } else {
+    //         setappmainstate('')
+    //     }
+    // }
 
     return (
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="">
             <br />
             <section className="py-[20px] px-[20px] md:px-[60px] h-[70vh]  flex flex-col md:grid md:grid-cols-12">
+                <figure className="md:col-span-7 flex items-center overflow-hidden">
+                    <img src={postupdatedat && postupdatedat[0]?.posthero} alt="" className="w-full" />
+                </figure>
                 <figcaption className="md:col-span-5 max-w-[300px] flex flex-col justify-between items-start">
-                    <h1 className="text-5xl  font-serif m-h6">{postpostcount && postpostcount[0]?.posttitle}</h1>
+                    <h1 className="text-7xl  font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>
                     <button onClick={() => {
                       setappmainstate({
                         appmainid: 'postarticle',
                         appmainidtwo: 'previewmain',
-                        appmainparam: postpostcount && postpostcount[0]?.postid,
+                        appmainparam: postupdatedat && postupdatedat[0]?.postid,
                         appmainboolean: true,
                       })
-                    }} className="  l-button">Read more</button>
+                    }} className="l-button">Read more</button>
                 </figcaption>
-                <figure className="md:col-span-7 flex items-center overflow-hidden">
-                    <img src={postpostcount && postpostcount[0]?.posthero} alt="" className="w-full" />
-                </figure>
             </section>
             <br />
             <section className="">
                 {homemainmap?.map(data => (<>
-                <figcaption className=" py-[20px] px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
+                <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
                     <h1 className="m-h5">{data?.homemaintitle}</h1>
                     <h1 onClick={() => {
                         navigate(data?.homemaindirect)
                     }} className="l-h2">See all</h1>
                 </figcaption>
-                <figure className="relative overflow-hidden no-scrollbar">
+                <figure className="relative w-[1200px] md:w-full  overflow-hidden no-scrollbar">
 
-                    <div className="group px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
+                    <div className="group py-[20px] px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
                     
                     {data?.homemainid === 'postupdatedat' && (<>
                     <button onClick={() => {
@@ -252,10 +260,8 @@ function HomeMain() {
                         </>))}
                     </>)} */}
                     </div>
-
-                    
                     <div className="group px-[20px] md:px-[60px] grid grid-cols-3 gap-5">
-                        {data?.homemainid === 'placecreatedat' && (<>
+                        {data?.homemainid === 'placeupdatedat' && (<>
                         <button onClick={() => {
                             kk(data?.homemainmap?.length)
                         }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
@@ -270,13 +276,13 @@ function HomeMain() {
                     </div>
 
                     <div className="group px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
-                        {data?.homemainid === 'productcreatedat' && (<>
+                        {data?.homemainid === 'productupdatedat' && (<>
                         <button onClick={() => {
-                            kk(data?.homemainmap?.length)
+                            ll(data?.homemainmap?.length)
                         }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                             <RiArrowRightSLine className='text-5xl  bg-white rounded-full border' />
                         </button>
-                            {data?.homemainmap?.slice(homemainslicethree, homemainslicefour).map(dat => (<>
+                            {data?.homemainmap?.slice(homemainslicefive, homemainslicesix).map(dat => (<>
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)
                                     }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} placepostid={dat?.placepostid} />

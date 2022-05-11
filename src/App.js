@@ -10,8 +10,6 @@ import {ContextMain} from './context/contextmain'
 import CategoryIndex from './page/catagory/CategoryIndex';
 import HomeMain from './page/home/HomeMain';
 import PostIndex from './page/post/PostIndex';
-import SearchIndex from './page/search/SearchIndex';
-import SearchMain from './page/search/SearchMain';
 import PlanMain from './page/plan/PlanMain';
 import OntroMain from './component/ontro.js/OntroMain';
 import AboutMain from './page/about/AboutMain';
@@ -71,7 +69,7 @@ export default function App() {
     const dashboard = (
     <div className="App">
       <main className="">
-        <section className="sticky top-0 left-0 z-20">
+        <section className="">
           <NavMain />
           
         </section>
@@ -85,9 +83,6 @@ export default function App() {
           <Route path='/' element={<HomeMain />} /> 
 
           <Route path='/:id' element={<PostIndex />} /> 
-
-          <Route path='/search/searchmain' element={<SearchMain />} /> 
-          <Route path='/search/searchindex' element={<SearchIndex />} /> 
 
           <Route path='/category/:id' element={<CategoryIndex />} /> 
 

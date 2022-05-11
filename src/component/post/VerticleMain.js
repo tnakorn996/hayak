@@ -38,7 +38,7 @@ function VerticleMain({onlick, createdat, posthero, posticon, posttitle, postsub
                         appmainparam: param,
                         appmainboolean: true,
                       })
-                    }} className="relative row-span-3 overflow-hidden max-h-[120px] flex items-center  border">
+                    }} className="relative row-span-3 overflow-hidden h-[20vh] flex items-center  border">
                     {priceid === 'pro' && (<>
                     <figure className="z-20 absolute top-2 left-2">
                       <RiContrastDropLine className='m-h6 text-white  !opacity-100' />

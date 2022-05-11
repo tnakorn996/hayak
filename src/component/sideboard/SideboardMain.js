@@ -3,9 +3,11 @@ import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
-import { RiContrastDropLine } from 'react-icons/ri'
+import { RiCloseFill, RiContrastDropLine } from 'react-icons/ri'
+import { useLocation } from 'react-router-dom'
 
 import { ContextMain } from '../../context/contextmain'
+import PostDialog from '../../page/post/PostDialog'
 import SearchDialog from '../../page/search/SearchDialog'
 
 function SideboardMain() {
@@ -14,6 +16,7 @@ function SideboardMain() {
 
 
   } = useContext(ContextMain)
+  const location = useLocation()
   const [sideboardmainrender, setsideboardmainrender] = useState()
 
   useEffect(() => {
@@ -28,12 +31,22 @@ function SideboardMain() {
       sideboardrender: <SearchDialog />,
     },
   ]
+
+  const postdialog = [
+    {
+      sideboardrender: <PostDialog />,
+    },
+  ]
     
   const sideboardmain = [
     {
       sideboardmainid: 'searchdialog',
       sideboardmainref: searchdialog,
-    }
+    },
+    {
+      sideboardmainid: 'postdialog',
+      sideboardmainref: postdialog,
+    },
   ]
 
   useEffect(() => {
@@ -47,8 +60,8 @@ function SideboardMain() {
 
   return (
     <div>
-        <motion.main initial={{x: -100}} animate={{ x:-10}} exit={{x: -100}} className="h-screen w-screen md:max-w-[55vw] fixed top-0 left-0 flex flex-col justify-start items-center bg-black text-white">
-            <section className="p-[50px] h-[10vh] w-full flex flex-row justify-between items-center">
+        <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="h-screen w-[95vw] md:max-w-[55vw] fixed top-0 left-0 flex flex-col justify-start items-center bg-black text-white shadow-2xl">
+            <section className="h-[10vh] px-[50px] w-full flex flex-row justify-between items-center">
               <figure className="">
                 <article className=" flex flex-row gap-1 items-center">
                 <figure className="">
@@ -61,12 +74,14 @@ function SideboardMain() {
                 </article>
               </figure>
               <figcaption className="">
-                <button onClick={() => {
-                  setappmainstate('')
-                }} className="l-button">close</button>
+                <RiCloseFill onClick={() => {
+                setappmainstate({
+                    appmainboolean: false
+                })
+                }} className="z-10 absolute top-3 right-3 text-4xl  text-white bg-black rounded-full" />
               </figcaption>
             </section>
-            <section className="p-[50px] h-[90vh] w-full">
+            <section className="h-[90vh] w-full">
               {sideboardmainrender && sideboardmainrender}
             </section>
         </motion.main>

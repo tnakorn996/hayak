@@ -21,9 +21,6 @@ function CategoryIndex() {
         categoryindextrigger, setcategoryindextrigger,
 
         postplaceproduct,
-        // postcreatedat,
-        // postupdatedat,
-        // postpostcount,
 
     } = useContext(ContextMain)
     const param = useParams()
@@ -41,17 +38,17 @@ function CategoryIndex() {
     const categoryindex = [
         {
             categoryindexid: 'postcategoryidcreatedat',
-            categoryindexmap: postcategoryidcreatedat,
+            categoryindexmap: postcategoryidcreatedat?.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt)),
             categoryindextitle: 'New',
         },
         {
             categoryindexid: 'postcategoryidupdatedat',
-            categoryindexmap: postcategoryidupdatedat,
+            categoryindexmap: postcategoryidupdatedat?.sort((a, b) => new Date(b._updatedAt) - new Date(a._updatedAt)),
             categoryindextitle: 'Trending',
         },
         {
             categoryindexid: 'postcategoryidpostcount',
-            categoryindexmap: postcategoryidpostcount,
+            categoryindexmap: postcategoryidpostcount?.sort((a, b) => b.postcount - a.postcount),
             categoryindextitle: 'Hottest',
         },
     ]
@@ -87,10 +84,10 @@ function CategoryIndex() {
     }, [postplaceproduct])
 
     useEffect(() => {
-        if(!breadmainstate) {
+        if(breadmainstate === '') {
             ll()
         } 
-        if(breadmainstate){
+        if(breadmainstate !== ''){
             kk()
         }
     }, [breadmainstate])
@@ -105,6 +102,9 @@ function CategoryIndex() {
             const filter = postplaceproduct.filter(data => data._type === param.id)
             const filtertwo = postplaceproduct.filter(data => data._type === param.id)
             const filterthree = postplaceproduct.filter(data => data._type === param.id)
+            // const ref = filter.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
+            // const reftwo = filtertwo.sort((a, b) => new Date(b._updatedAt) - new Date(a._updatedAt));
+            // const refthree = filterthree.sort((a, b) => b.postcount - a.postcount);
             setpostcategoryidcreatedat(filter)
             setpostcategoryidupdatedat(filtertwo)
             setpostcategoryidpostcount(filterthree)
@@ -157,7 +157,7 @@ function CategoryIndex() {
                 <h1 className=" m-h6 first-letter:uppercase">{categoryindextitle} </h1>
             </section> */}
             <section className="px-[20px] md:px-[60px] py-[20px] flex justify-end">
-                {breadmainstate?.breadmainidtwo && <button onClick={() => setbreadmainstate()} className="flex flex-row items-center gap-3  l-button border border-black"> <span className="m-h2">╳</span>  {breadmainstate?.breadmainidtwo}</button>}
+                {breadmainstate?.breadmainidtwo && <button onClick={() => setbreadmainstate('')} className="flex flex-row items-center gap-3  l-button border border-black"> <span className="m-h2">╳</span>  {breadmainstate?.breadmainidtwo}</button>}
                 <button onClick={() => {
                     setappmainstate({
                         appmainid: 'categorysection',
@@ -172,9 +172,7 @@ function CategoryIndex() {
                     <RiArrowRightSLine className='text-5xl' />
                 </button>
                 <button className="hidden md:flex md:fixed z-10 top-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black" />
-                <br />
                 {categoryindexrender?.map(data => (<>
-                <br />
                 <figcaption className=" px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
                     <h1 className="m-h5">{data?.categoryindextitle} {categoryindextitle}</h1>
                 </figcaption>

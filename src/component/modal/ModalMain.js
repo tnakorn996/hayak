@@ -49,6 +49,13 @@ function ModalMain() {
             },
             modalmainaction: () => {
                 navigator.clipboard.writeText(`https://hayak.vercel.app/${appmainstate?.appmainparam}`) 
+                // setappmainstate({
+                //     appmainid: 'overlay',
+                //     appmainidtwo: 'toastmain',
+                //     appmainidthree: 'planfigcaption',
+                //     appmainidfour: 1,
+                // })
+                // console.log(' :>> ', );
             },
             modalmainentitle: 'Copy URL'
         },

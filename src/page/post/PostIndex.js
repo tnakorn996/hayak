@@ -22,7 +22,7 @@ function PostIndex() {
         alertmainstate, setalertmainstate,
 
         userindex,
-        postcreatedat,
+        postupdatedat,
 
     } = useContext(ContextMain)
     const param = useParams()
@@ -101,21 +101,6 @@ function PostIndex() {
         }
     ]
 
-    // window.onscroll = function () {
-    //     const ref =  window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    //     if (ref > 700) {
-    //         setappmainstate({
-    //             appmainid: 'overlay',
-    //             appmainidtwo: 'toastmain',
-    //             appmainidthree: 'postfigcaption',
-    //         })
-    //     } 
-    //     if (ref <= 700) {
-    //         setappmainstate('')
-    //         console.log('appmainstate :>>' )
-    //     }
-    // }
-
     useEffect(() => {
         // setTimeout(setappmainstate({
         //     appmainid: 'overlay',
@@ -130,7 +115,7 @@ function PostIndex() {
 
     useEffect(() => {
       if(postpostid){
-            // jj()
+            jj()
             setbreadmainstate({
                 breadmainid: postpostid?._type,
                 breadmainidtwo: postpostid?.categoryid,
@@ -202,18 +187,30 @@ function PostIndex() {
         }
     }
 
-    // const  jj = async () => {
-    //         await client  
-    //         .patch(postpostid._id)
-    //         .set({postcount: postpostid.postcount + 1 || 0}) 
-    //         .commit()
-    // }
+    const  jj = async () => {
+            await client  
+            .patch(postpostid._id)
+            .set({postcount: postpostid.postcount + 1 || 0}) 
+            .commit()
+    }
 
     // const  hh = async () => {
     //         await client  
     //         .patch(userindex._id)
     //         .set({categoryid: postpostid.categoryid}) 
     //         .commit()
+    // }
+
+    // window.onscroll = function (){
+    //     if ((window.innerHeight + document.documentElement.scrollTop) > (document.documentElement.offsetHeight) * 70 /100) {
+    //         setappmainstate({
+    //             appmainid: 'overlay',
+    //             appmainidtwo: 'toastmain',
+    //             appmainidthree: 'postfigcaption',
+    //         })
+    //     } else {
+    //         setappmainstate('')
+    //     }
     // }
 
   return (
@@ -240,9 +237,11 @@ function PostIndex() {
             </figcaption>
             <figure className="col-span-12 md:col-span-7">
                 <section className="">
-                    <figure className="min-h-[50vh] grid items-center justify-items-center">
-                        <LoadingMain />
+                    <figure className="relative min-h-[50vh] grid items-center justify-items-center">
                         <img src={postpostid?.posthero} alt="" className="z-10 w-full" />
+                        <div className="absolute">
+                        <LoadingMain />
+                        </div>
                     </figure>
                     <figcaption className="">
                         <br />
@@ -266,7 +265,13 @@ function PostIndex() {
                                 {postpostid?.postcount || 0}
                             </figcaption>
                         </div>
-                        <div className="flex flex-row gap-2 items-center  m-h4">
+                        <div onClick={() => {
+                            setappmainstate({
+                                appmainid: 'postdialog',
+                                appmainidtwo: 'sideboardmain',
+                                appmainboolean: true,
+                            })
+                        }} className="flex flex-row gap-2 items-center  m-h4">
                             <figure className="">
                                 <RiChat3Line />
                             </figure>
@@ -332,7 +337,7 @@ function PostIndex() {
                 <h1 className="m-h6"> You may also like</h1>
                 <br />
                 <div className="grid grid-cols-5 gap-3">
-                {postcreatedat?.slice(0, 5)?.map(data => (<>
+                {postupdatedat?.slice(0, 4)?.map(data => (<>
                     <VerticleMain onlick={() => {
                                     navigate(`/${data?.postid}`)
                                 }} key={data?.postid} createdat={data?._createdAt} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} priceid={data?.priceid} param={data?.postid} />
