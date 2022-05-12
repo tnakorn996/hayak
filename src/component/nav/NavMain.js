@@ -61,7 +61,7 @@ function NavMain() {
                             appmainid: navmain[3]?.navmainref,
                             appmainredirect:  navmain[3]?.navmainredirect
                         })
-                    }} className="l-button">{navmain[3].navmaintitle}</button>
+                    }} className="hidden md:block l-button ">{navmain[3].navmaintitle}</button>
 
                     <button 
                     onClick={() => {
@@ -69,7 +69,7 @@ function NavMain() {
                             appmainid: navmain[4]?.navmainref,
                             appmainredirect:  navmain[4]?.navmainredirect
                         })
-                    }} className="hidden md:block m-button ">{navmain[4].navmaintitle}</button>
+                    }} className="m-button">{navmain[4].navmaintitle}</button>
             </section>
             <section className="mx-[20px] md:mx-[60px] col-span-12 grid grid-cols-12   border-y border-black">
                 <figcaption className="p-[5px] col-span-10 md:col-span-7 flex flex-row justify-around">
@@ -89,7 +89,7 @@ function NavMain() {
                     }} 
                     
                     className='' >
-                        <h1 className={`p-[10px] flex justify-around  first-letter:uppercase l-h2 ${dropdownmainstate?.dropdownmainidtwo ===  data?.categorymainid && 'border-b border-black text-black'}`}>{data?.categorymaintitle}</h1>
+                        <h1 className={`p-[10px] flex justify-around  first-letter:uppercase text-[10px] md:m-h3 ${dropdownmainstate?.dropdownmainidtwo ===  data?.categorymainid && 'border-b border-black text-black'}`}>{data?.categorymaintitle}</h1>
                     </article>
                     </>))}
                 </figcaption>

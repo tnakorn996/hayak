@@ -120,14 +120,14 @@ function SearchDialog() {
   return (
     <div>
         <main className="">
-            <section className="h-[20vh] px-[50px] grid grid-flow-row items-center">
+            <section className="h-[20vh] px-[20px] md:px-[50px] grid grid-flow-row items-center">
                 <div className="w-full relative flex items-center">
                     {searchdialogload === true ? <div className="absolute"><LoadingMain /></div>  : <RiSearch2Line className='absolute  m-h6' />}
                     <input onChange={(p) => setsearchdialogvalue(p.target.value)} value={searchdialogvalue} className="w-full pl-[40px]  l-input" placeholder='Search...' />
                 </div>
                 <h1 className="l-h2 italic">Try coffee, kitchen, gift card..</h1>
             </section>
-            <section className="h-[70vh] px-[50px]  overflow-y-scroll">
+            <section className="h-[70vh] px-[20px] md:px-[50px]  overflow-y-scroll">
                 {/* {searchdialogvalue !== '' && (<>
                 <figure className="">
                 <br />
@@ -143,9 +143,9 @@ function SearchDialog() {
                     {data?.searchdialogrender?.slice(0, 3)?.map(dat => (<>
                         <article onClick={() => {
                             navigate(`/${dat?.postid}`)
-                        }} className="p-[10px] flex flex-row gap-3 items-center">
+                        }} className="p-[10px] grid grid-flow-col gap-3 items-center justify-start">
                             <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white">{data.searchdialogicon}</span>
-                            <h1 className="md:text-4xl  l-h6 text-white truncate font-serif">{dat?.posttitle}</h1>
+                            <h1 className="text-xl md:text-4xl  l-h6 text-white truncate font-serif">{dat?.posttitle}</h1>
                         </article>
                     </>))}
                 </figcaption>

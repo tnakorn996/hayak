@@ -24,6 +24,8 @@ export const Provider = ({ children }) => {
     const [breadmainstate, setbreadmainstate] = useState()
     const [alertmainstate, setalertmainstate] = useState()
     const [dropdownmainstate, setdropdownmainstate] = useState()
+    const [ctamainstate, setctamainstate] = useState()
+    const [rtamainstate, setrtamainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -105,6 +107,8 @@ export const Provider = ({ children }) => {
           breadmainstate, setbreadmainstate,
           alertmainstate, setalertmainstate,
           dropdownmainstate, setdropdownmainstate,
+          ctamainstate, setctamainstate,
+          rtamainstate, setrtamainstate,
 
           userindex,
           postplaceproduct,

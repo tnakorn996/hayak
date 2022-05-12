@@ -13,26 +13,34 @@ import BreadMain from '../../component/bread/BreadMain'
 import VerticleMain from '../../component/post/VerticleMain'
 import AlertMain from '../../component/alert/AlertMain'
 import LoadingMain from '../../component/load/LoadingMain'
+import CtaMain from '../../component/ctamain/CtaMain'
+import RtaMain from '../../component/rta/RtaMain'
 
 function PostIndex() {
     const {
         setappmainstate,
         // setpostindexstate,
+        setctamainstate,
+        setrtamainstate,
         breadmainstate, setbreadmainstate,
         alertmainstate, setalertmainstate,
 
-        userindex,
         postupdatedat,
+        placeupdatedat,
+        productupdatedat,
 
     } = useContext(ContextMain)
     const param = useParams()
     const navigate = useNavigate()
 
+    const [postindexrender, setpostindexrender] = useState()
+    const [postindexrendertwo, setpostindexrendertwo] = useState()
+    const [postindexrenderthree, setpostindexrenderthree] = useState()
+    const [postindexrenderfour, setpostindexrenderfour] = useState()
     const [postpostid, setpostpostid] = useState()
-    const [placepostid, setplacepostid] = useState()
+    const [placeplaceid, setplaceplaceid] = useState()
     const [productplaceid, setproductplaceid] = useState()
-    const [postplaceid, setpostplaceid] = useState()
-    const [postcategoryid, setpostcategoryid] = useState()
+    const [productpostid, setproductpostid] = useState()
 
     const postfigcaption = [
         {
@@ -101,6 +109,30 @@ function PostIndex() {
         }
     ]
 
+    const postindex = [
+        {
+            postindexid: 'post',
+            // postindexrender: <CtaMain />,
+            // postindexrendertwo: ,
+            // postindexrenderthree:'',
+            postindexrenderfour: postupdatedat,
+        },
+        {
+            postindexid: 'place',
+            // postindexrender: <CtaMain />,
+            // postindexrendertwo: ,
+            // postindexrenderthree: '',
+            postindexrenderfour: placeupdatedat,
+        },
+        {
+            postindexid: 'product',
+            // postindexrender: <CtaMain />,
+            // postindexrendertwo: ,
+            // postindexrenderthree: '',
+            postindexrenderfour: productupdatedat,
+        }
+    ]
+
     useEffect(() => {
         // setTimeout(setappmainstate({
         //     appmainid: 'overlay',
@@ -124,8 +156,42 @@ function PostIndex() {
             setalertmainstate({
                 alertmainid: 'postcaption',
             })
+
+            const filterfour = postindex.filter(data => data.postindexid === postpostid._type)
+            setpostindexrenderfour(filterfour[0].postindexrenderfour)
       }
     }, [postpostid])
+
+    useEffect(() => {
+        if(placeplaceid || productplaceid || productpostid){
+                if(placeplaceid && productplaceid && productpostid?.length > 0){
+                    setctamainstate({
+                        ctamainid: postpostid?._type,
+                        ctamainidtwo: true,
+                    })
+                    setrtamainstate({
+                        rtamainid: postpostid?._type,
+                        ctamainidtwo: true,
+                        rtamaindata: placeplaceid,
+                        rtamaindatatwo: productpostid,
+                    })
+                } 
+
+                if(placeplaceid && productplaceid && productpostid?.length === 0){
+                    setctamainstate({
+                        ctamainid: postpostid?._type,
+                    })
+                    setrtamainstate({
+                        rtamainid: postpostid?._type,
+                        rtamaindata: placeplaceid,
+                        rtamaindatatwo: productplaceid,
+                    })
+                } 
+                
+
+        }
+    },[ placeplaceid, productplaceid, productpostid])
+    
 
     // useEffect(() => {
     //   if(postpostid && userindex){
@@ -133,22 +199,26 @@ function PostIndex() {
     //   }
     // }, [userindex, postpostid])
     
+
+
+    
     const ll = async () => {
+        // 'placepostid': *[_type == 'place' && postid == ^.placeid],
+        // 'productplaceid': *[_type == 'product' && postid != ^.postid && placeid == ^.placeid ] ,
               const query = `*[ postid == '${param.id}']{
                   ...,
-                  'placepostid': *[_type == 'place' && postid == ^.placeid],
+                  'placeplaceid': *[_type == 'place' && postid == ^.placeid],
                   'productplaceid': *[_type == 'product' && postid != ^.postid && placeid == ^.placeid ] ,
 
+                  'productpostid': *[ postid match ^.productid || postid match ^.productidtwo || postid match ^.productidthree ] ,
               }[0]`;
               await client.fetch(query) 
               .then((data) => {
                     setpostpostid(data);
 
-                    setplacepostid(data.placepostid)
+                    setplaceplaceid(data.placeplaceid)
                     setproductplaceid(data.productplaceid)
-                    // setpostplaceid(data.postplaceid)
-
-                    setpostcategoryid(data.postcategoryid);
+                    setproductpostid(data.productpostid)
                 })
             }
 
@@ -171,13 +241,13 @@ function PostIndex() {
                             </div>
                             </>)}
 
-                            {dat.text !== '' ? (<>
+                            {/* {dat.text !== '' ? (<> */}
                                 <h1 onClick={() => window.open(findtwo && findtwo.href)} className={` ${find.postfigcaptiontitle} ${findtwo && '!text-blue-500 !cursor-pointer'} ${findthree && findthree.posth1title} leading-relaxed`}>{dat.text}</h1>
-                            </>) : (<>
-                                <h1 className="">
-                                    <br />
-                                </h1>
-                            </>)}
+                            {/* </>) : (<> */}
+                                {/* <h1 className=""> */}
+                                    {/* <br /> */}
+                                {/* </h1> */}
+                            {/* </>)} */}
 
                         </figcaption>
                     )
@@ -250,9 +320,7 @@ function PostIndex() {
                 </section>
                 <section className="p-[20px]">
                     {kk()}
-                    <h1 className="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit voluptates odio, cumque qui porro facilis esse numquam pariatur ea consequuntur quisquam. Atque obcaecati, assumenda consectetur nihil officiis repellendus doloribus ab tempore dicta velit quas repudiandae ea nesciunt nostrum pariatur impedit.</h1>
                     <br />
-                    <h1 className="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit voluptates odio, cumque qui porro facilis esse numquam pariatur ea consequuntur quisquam. Atque obcaecati, assumenda consectetur nihil officiis repellendus doloribus ab tempore dicta velit quas repudiandae ea nesciunt nostrum pariatur impedit.</h1>
                     <AlertMain />
                 </section>
                 <section className="flex justify-between">
@@ -298,22 +366,20 @@ function PostIndex() {
                 <section className="">
                         <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
                         <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
-                        <br />
-                        <button className="m-h3 w-full m-button">🔗 Seller website</button>
-                        <br /><br />
-                        <button className="m-h3 w-full l-button  border border-black">Check avability product</button>
+                        {<CtaMain />}
                 </section>
-                <section className="">
+                {<RtaMain />}
+                {/* <section className="">
                     <br />
                     <br />
                     <h1 className="m-h6">Place location</h1>
                     <br />
                     <div className="flex flex-col gap-2">
-                    {placepostid?.map(data => (<>
-                    <HorizonMain onlick={() => {
-                        navigate(`/${data?.postid}`)
-                    }} key={data?.postid} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
-                    </>))}
+                        {placeplaceid?.map(data => (<>
+                        <HorizonMain onlick={() => {
+                            navigate(`/${data?.postid}`)
+                        }} key={data?.postid} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
+                        </>))}
                     </div>
                 </section>
                 <section className="">
@@ -322,22 +388,22 @@ function PostIndex() {
                     <h1 className="m-h6">Related product</h1>
                     <br />
                     <div className="flex flex-col gap-2">
-                    {productplaceid?.map(data => (<>
-                    <HorizonMain onlick={() => {
-                        navigate(`/${data?.postid}`)
-                    }} key={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
-                    </>))}
+                        {productplaceid?.map(data => (<>
+                        <HorizonMain onlick={() => {
+                            navigate(`/${data?.postid}`)
+                        }} key={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
+                        </>))}
                     </div>
-                </section>
+                </section> */}
             </figcaption>
             <figure className="col-span-12">
-                <section className="">
                 <br />
                 <br />
                 <h1 className="m-h6"> You may also like</h1>
                 <br />
-                <div className="grid grid-cols-5 gap-3">
-                {postupdatedat?.slice(0, 4)?.map(data => (<>
+                <section className="overflow-y-scroll">
+                <div className="w-[1000px] md:w-full grid grid-cols-5 gap-3">
+                {postindexrenderfour?.slice(0, 5)?.map(data => (<>
                     <VerticleMain onlick={() => {
                                     navigate(`/${data?.postid}`)
                                 }} key={data?.postid} createdat={data?._createdAt} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} priceid={data?.priceid} param={data?.postid} />

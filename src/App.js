@@ -75,7 +75,7 @@ export default function App() {
         </section>
 
         <section className="">
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           <TopMain />
         <Routes key={location.pathname} location={location}>
           {/* <Route path='/' element={<HomeMain />} />  */}

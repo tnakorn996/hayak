@@ -167,7 +167,7 @@ function CategoryIndex() {
                     })
                 }} className="l-button">Category</button>
             </section>
-            <section className="w-[1200px] md:w-full mx-auto relative group">
+            <section className="w-[1000px] md:w-full mx-auto relative group">
                 <button onClick={() => jj()} className="hidden group-hover:flex fixed z-20 top-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                     <RiArrowRightSLine className='text-5xl' />
                 </button>
@@ -177,7 +177,7 @@ function CategoryIndex() {
                     <h1 className="m-h5">{data?.categoryindextitle} {categoryindextitle}</h1>
                 </figcaption>
                 <figure className="overflow-y-auto sm:overflow-y-hidden no-scrollbar">
-                    <div className="py-[20px] px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
+                    <div className="py-[20px] px-[20px] md:px-[60px] grid grid-cols-4 gap-3">
                     {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
                         <VerticleMain onlick={() => {
                             navigate(`/${dat?.postid}`)

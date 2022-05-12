@@ -38,7 +38,7 @@ function BreadMain() {
                     setbreadmainstate()
                     navigate(`/category/${data?.breadmainid}`)
                 }} className="">
-                <h1 className="">{data?.breadmaintitle}</h1>
+                <h1 className="truncate">{data?.breadmaintitle}</h1>
                 </article>
                 {breadmainsubtitle?.map(dat => (<>
                     <article onClick={() => {
@@ -48,7 +48,7 @@ function BreadMain() {
                         })
                         navigate(`/category/${dat?.breadmainid}`)
                     }} className="">
-                    <h1 className="">/ {dat?.crummaintitle}</h1>
+                    <h1 className="truncate">/ {dat?.crummaintitle}</h1>
                     </article>
                 </>))}
             <h1 className="truncate">/ {breadmainmoretitle}</h1>

@@ -40,19 +40,19 @@ function HomeMain() {
             homemainid: 'postupdatedat',
             homemainmap: postupdatedat,
             homemaintitle: '📈 Trending Blog',
-            homemaindirect: '/search/searchmain'
+            homemaindirect: '/category/post'
         },
         {
             homemainid: 'placeupdatedat',
             homemainmap: placeupdatedat,
             homemaintitle: '📍 Hot Location',
-            homemaindirect: '/search/searchmain',
+            homemaindirect: '/category/place',
         },
                 {
             homemainid: 'productupdatedat',
             homemainmap: productupdatedat,
             homemaintitle: '🥑 New Items',
-            homemaindirect: '/search/searchmain',
+            homemaindirect: '/category/product',
         },
 
         // {
@@ -164,7 +164,7 @@ function HomeMain() {
 
     return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="w-screen  overflow-hidden">
             <br />
             <section className="py-[20px] px-[20px] md:px-[60px] h-[70vh]  flex flex-col md:grid md:grid-cols-12">
                 <figure className="md:col-span-7 flex items-center overflow-hidden">
@@ -183,17 +183,17 @@ function HomeMain() {
                 </figcaption>
             </section>
             <br />
-            <section className="">
+            <section className="w-[1000px] md:w-full">
                 {homemainmap?.map(data => (<>
-                <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
+                <figcaption className="w-screen md:w-full px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
                     <h1 className="m-h5">{data?.homemaintitle}</h1>
                     <h1 onClick={() => {
                         navigate(data?.homemaindirect)
                     }} className="l-h2">See all</h1>
                 </figcaption>
-                <figure className="relative w-[1200px] md:w-full  overflow-hidden no-scrollbar">
+                <figure className="relative  overflow-y-hidden no-scrollbar">
 
-                    <div className="group py-[20px] px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
+                    <div className="group py-[20px] px-[20px] md:px-[60px] grid grid-cols-4 gap-3">
                     
                     {data?.homemainid === 'postupdatedat' && (<>
                     <button onClick={() => {
@@ -260,7 +260,7 @@ function HomeMain() {
                         </>))}
                     </>)} */}
                     </div>
-                    <div className="group px-[20px] md:px-[60px] grid grid-cols-3 gap-5">
+                    <div className="group px-[20px] md:px-[60px] grid grid-cols-3 gap-3">
                         {data?.homemainid === 'placeupdatedat' && (<>
                         <button onClick={() => {
                             kk(data?.homemainmap?.length)
@@ -275,7 +275,7 @@ function HomeMain() {
                         </>)}
                     </div>
 
-                    <div className="group px-[20px] md:px-[60px] grid grid-cols-4 gap-5">
+                    <div className="group px-[20px] md:px-[60px] grid grid-cols-4 gap-3">
                         {data?.homemainid === 'productupdatedat' && (<>
                         <button onClick={() => {
                             ll(data?.homemainmap?.length)
