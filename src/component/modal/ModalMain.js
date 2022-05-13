@@ -7,10 +7,12 @@ import { RiContrastDropLine, RiFileCopyLine } from 'react-icons/ri'
 
 import { ContextMain } from '../../context/contextmain'
 import CategorySection from '../../page/catagory/CategorySection'
+import StateMain from '../state/StateMain'
 
 function ModalMain() {
     const {
         appmainstate, setappmainstate,
+        setstatemainstate,
         setcategoryindextrigger,
 
     } = useContext(ContextMain)
@@ -47,18 +49,29 @@ function ModalMain() {
                 </section>
                 </>)
             },
-            modalmainaction: () => {
-                navigator.clipboard.writeText(`https://hayak.vercel.app/${appmainstate?.appmainparam}`) 
-                // setappmainstate({
-                //     appmainid: 'overlay',
-                //     appmainidtwo: 'toastmain',
-                //     appmainidthree: 'planfigcaption',
-                //     appmainidfour: 1,
-                // })
-                // console.log(' :>> ', );
-            },
-            modalmainentitle: 'Copy URL'
+            modalmainaction: <button onClick={() => {
+                    navigator.clipboard.writeText(`https://hayak.vercel.app/${appmainstate?.appmainparam}`) 
+                    setstatemainstate({
+                        statemainid: 'sharedl',
+                        statemainidtwo: 'success',
+                    })
+                    setappmainstate({
+                        appmainid: 'sharesection',
+                        appmainidtwo: 'modalmain',
+                        appmainidthree: 1,
+                        appmainboolean: true,
+
+                    })
+                }} className="m-button">Copy to clipboard</button>,
+
         },
+        {
+            modalmainindex: 1,
+            modalmaintitle: 'Share Post',
+            modalmainrender: <StateMain />,
+            modalmainaction: '',
+        },
+        
     ]
 
     const categorysection = [
@@ -69,7 +82,15 @@ function ModalMain() {
             modalmainaction: () => {
                 // setcategoryindextrigger()
             },
-            modalmainentitle: 'Apply'
+        },
+    ]
+
+    const commentsection = [
+        {
+            modalmainindex: 0,
+            modalmaintitle: 'Comment Status',
+            modalmainrender: <StateMain />,
+            modalmainaction: '',
         },
     ]
 
@@ -82,12 +103,16 @@ function ModalMain() {
             modalmainid: 'categorysection',
             modalmaindata: categorysection,
         },
+        {
+            modalmainid: 'commentsection',
+            modalmaindata: commentsection,
+        },
     ]
 
     useEffect(() => {
         if(appmainstate && appmainstate.appmainidtwo === 'modalmain'){
             const filter = modalmain.filter(data => data.modalmainid === appmainstate.appmainid)
-            const filtertwo = filter[0].modalmaindata.filter(data => data.modalmainindex === modalmainindex)
+            const filtertwo = filter[0].modalmaindata.filter(data => data.modalmainindex === appmainstate.appmainidthree)
             setmodalmaintitle(filtertwo[0].modalmaintitle)
             setmodalmainrender(filtertwo[0].modalmainrender)
             setmodalmainaction(filtertwo[0].modalmainaction)
@@ -108,15 +133,13 @@ function ModalMain() {
                 <h1 className="">{modalmainrender}</h1>
             </section>
             <hr />
-            <section className="p-[20px] grid grid-cols-2">
+            <section className="p-[20px] grid grid-flow-col">
                 <button onClick={() => {
                     setappmainstate({
                         appmainboolean: false,
                     })
                 }} className="l-button">Cancel</button>
-                <button onClick={() => {
-                    modalmainaction()
-                }} className="m-button">{modalmainentitle}</button>
+                {modalmainaction && modalmainaction}
             </section>
         </motion.main>
     </div>

@@ -26,6 +26,8 @@ export const Provider = ({ children }) => {
     const [dropdownmainstate, setdropdownmainstate] = useState()
     const [ctamainstate, setctamainstate] = useState()
     const [rtamainstate, setrtamainstate] = useState()
+    const [portmainstate, setportmainstate] = useState()
+    const [statemainstate, setstatemainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -109,6 +111,8 @@ export const Provider = ({ children }) => {
           dropdownmainstate, setdropdownmainstate,
           ctamainstate, setctamainstate,
           rtamainstate, setrtamainstate,
+          portmainstate, setportmainstate,
+          statemainstate, setstatemainstate,
 
           userindex,
           postplaceproduct,

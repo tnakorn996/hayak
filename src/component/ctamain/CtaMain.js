@@ -27,6 +27,7 @@ function CtaMain() {
                 setappmainstate({
                             appmainid: 'sharesection',
                             appmainidtwo: 'modalmain',
+                            appmainidthree: 0,
                             appmainparam: param.id,
                             appmainboolean: true,
                         })

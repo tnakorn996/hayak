@@ -66,6 +66,7 @@ function PostArticle() {
                                     setappmainstate({
                                         appmainid: 'sharesection',
                                         appmainidtwo: 'modalmain',
+                                        appmainidthree: 0,
                                         appmainparam: postarticlestate?.postid,
                                         appmainboolean: true,
                                     })

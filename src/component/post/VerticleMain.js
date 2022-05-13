@@ -38,7 +38,7 @@ function VerticleMain({onlick, createdat, posthero, posticon, posttitle, postsub
                         appmainparam: param,
                         appmainboolean: true,
                       })
-                    }} className="relative row-span-3 overflow-hidden h-[20vh] flex items-center  border">
+                    }} className="relative row-span-3 overflow-hidden h-[20vh] flex items-center">
                     {priceid === 'pro' && (<>
                     <figure className="z-20 absolute top-2 left-2">
                       <RiContrastDropLine className='m-h6 text-white  !opacity-100' />
@@ -62,6 +62,7 @@ function VerticleMain({onlick, createdat, posthero, posticon, posttitle, postsub
                         setappmainstate({
                         appmainid: 'sharesection',
                         appmainidtwo: 'modalmain',
+                        appmainidthree: 0,
                         appmainparam: param,
                         appmainboolean: true,
                       })
@@ -69,7 +70,7 @@ function VerticleMain({onlick, createdat, posthero, posticon, posttitle, postsub
                       <RiMore2Fill className='my-[7px]  text-md l-m3' />
                     </figure>
                 </figure>
-                <figcaption onClick={onlick} className="row-span-3 h-[100px]">
+                <figcaption onClick={onlick} className="row-span-3 h-[10vh]">
                     {/* <div className="flex flex-row gap-2 items-center">
                       <h1 className="text-[9px]  l-h1 truncate">{createdat?.slice(0, 10)}</h1>
                       <h1 className="l-h1 truncate">|</h1>
@@ -79,7 +80,7 @@ function VerticleMain({onlick, createdat, posthero, posticon, posttitle, postsub
                         navigate(`/catagory/${verticledivstate?.verticledivtitle || null}`)
                       }} className="px-[7px]  text-gray-500 uppercase text-[8px] bg-gray-200 rounded-full">{verticledivstate?.verticledivtitle || null}</h1>}
                     </div> */}
-                    <h1 className="l-h2 text-gray-900">{posttitle}</h1>
+                    <button className="l-h3 text-black">{posttitle}</button>
                     {/* <h1 className="l-h2">{postsubtitle}</h1> */}
                     {/* {ll(data?.categoryid)} */}
                 </figcaption>

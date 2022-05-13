@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
-import { RiArrowRightSLine } from 'react-icons/ri'
+import { RiArrowRightSLine , RiFilter3Fill} from 'react-icons/ri'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
@@ -52,14 +52,6 @@ function CategoryIndex() {
             categoryindextitle: 'Hottest',
         },
     ]
-
-    // useEffect(() => {
-    //   setappmainstate({
-    //         appmainidtwo: 'previewmain',
-    //         appmainid: 'menuarticle',
-    //         appmainboolean: true,
-    //     })
-    // }, [])
 
     useEffect(() => {
         if(breadmain && crummain){
@@ -162,22 +154,26 @@ function CategoryIndex() {
                     setappmainstate({
                         appmainid: 'categorysection',
                         appmainidtwo: 'modalmain',
+                        appmainidthree: 0,
                         appmainparam: param.id,
                         appmainboolean: true,
                     })
-                }} className="l-button">Category</button>
+                }} className="flex flex-row items-center gap-2  l-button"><RiFilter3Fill /> Filter</button>
             </section>
-            <section className="w-[1000px] md:w-full mx-auto relative group">
+            <section className="px-[20px] md:px-[60px] w-[1200px] md:w-full mx-auto relative group">
                 <button onClick={() => jj()} className="hidden group-hover:flex fixed z-20 top-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                     <RiArrowRightSLine className='text-5xl' />
                 </button>
                 <button className="hidden md:flex md:fixed z-10 top-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black" />
                 {categoryindexrender?.map(data => (<>
-                <figcaption className=" px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
+                <figcaption className="  flex flex-row justify-between items-center ">
                     <h1 className="m-h5">{data?.categoryindextitle} {categoryindextitle}</h1>
                 </figcaption>
+                <br />
+                <hr />
+                <br />
                 <figure className="overflow-y-auto sm:overflow-y-hidden no-scrollbar">
-                    <div className="py-[20px] px-[20px] md:px-[60px] grid grid-cols-4 gap-3">
+                    <div className="grid grid-cols-4 gap-3">
                     {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
                         <VerticleMain onlick={() => {
                             navigate(`/${dat?.postid}`)

@@ -12,7 +12,8 @@ function MenuArticle() {
   return (
     <div>
         <main className="">
-            <section className="w-full md:min-w-[900px] p-[30px] text-center  ">
+            <section className="w-full h-[50vh] md:min-w-[900px] p-[30px] text-center grid items-center  ">
+                <div className="">
                 <h1 className="text-3xl m-h6 font-serif">Get Our Best Menu Evey Night</h1>
                 <br />
                 <h1 className="l-h5 ">Struggle to find out what to eat? Here are some cool ideas for your dinner!</h1>
@@ -23,6 +24,7 @@ function MenuArticle() {
                         appmainredirect: 'slidemain',
                     })
                 }} className="m-button">GET THE MENU</button>
+                </div>
             </section>
 
         </main>

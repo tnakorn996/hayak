@@ -89,7 +89,7 @@ function NavMain() {
                     }} 
                     
                     className='' >
-                        <h1 className={`p-[10px] flex justify-around  first-letter:uppercase text-[10px] md:m-h3 ${dropdownmainstate?.dropdownmainidtwo ===  data?.categorymainid && 'border-b border-black text-black'}`}>{data?.categorymaintitle}</h1>
+                        <h1 className={`p-[10px] flex justify-around  first-letter:uppercase text-[10px] md:m-h1 ${dropdownmainstate?.dropdownmainidtwo ===  data?.categorymainid && 'border-b border-black text-black'}`}>{data?.categorymaintitle}</h1>
                     </article>
                     </>))}
                 </figcaption>

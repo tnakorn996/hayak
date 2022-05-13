@@ -7,7 +7,7 @@ import { RiCloseFill, RiContrastDropLine } from 'react-icons/ri'
 import { useLocation } from 'react-router-dom'
 
 import { ContextMain } from '../../context/contextmain'
-import PostDialog from '../../page/post/PostDialog'
+import CommentDialog from '../../page/comment/CommentDialog'
 import SearchDialog from '../../page/search/SearchDialog'
 
 function SideboardMain() {
@@ -32,9 +32,9 @@ function SideboardMain() {
     },
   ]
 
-  const postdialog = [
+  const commentdialog = [
     {
-      sideboardrender: <PostDialog />,
+      sideboardrender: <CommentDialog />,
     },
   ]
     
@@ -44,8 +44,8 @@ function SideboardMain() {
       sideboardmainref: searchdialog,
     },
     {
-      sideboardmainid: 'postdialog',
-      sideboardmainref: postdialog,
+      sideboardmainid: 'commentdialog',
+      sideboardmainref: commentdialog,
     },
   ]
 

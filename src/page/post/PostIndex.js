@@ -15,6 +15,7 @@ import AlertMain from '../../component/alert/AlertMain'
 import LoadingMain from '../../component/load/LoadingMain'
 import CtaMain from '../../component/ctamain/CtaMain'
 import RtaMain from '../../component/rta/RtaMain'
+import PortMain from '../../component/port/PortMain'
 
 function PostIndex() {
     const {
@@ -22,8 +23,9 @@ function PostIndex() {
         // setpostindexstate,
         setctamainstate,
         setrtamainstate,
-        breadmainstate, setbreadmainstate,
-        alertmainstate, setalertmainstate,
+        setbreadmainstate,
+        setalertmainstate,
+        setportmainstate,
 
         postupdatedat,
         placeupdatedat,
@@ -134,11 +136,6 @@ function PostIndex() {
     ]
 
     useEffect(() => {
-        // setTimeout(setappmainstate({
-        //     appmainid: 'overlay',
-        //     appmainidtwo: 'toastmain',
-        //     appmainidthree: 'planfigcaption',
-        // }), 15000);
         // setpostindexstate({
             //     postindexid: param.id,
             // })
@@ -155,6 +152,11 @@ function PostIndex() {
             })
             setalertmainstate({
                 alertmainid: 'postcaption',
+            })
+            setportmainstate({
+                portmainid: 'posttfoot',
+                portmainidtwo: 'breadmain',
+                portmainidthree: postpostid?._type,
             })
 
             const filterfour = postindex.filter(data => data.postindexid === postpostid._type)
@@ -186,8 +188,7 @@ function PostIndex() {
                         rtamaindata: placeplaceid,
                         rtamaindatatwo: productplaceid,
                     })
-                } 
-                
+                }                 
 
         }
     },[ placeplaceid, productplaceid, productpostid])
@@ -294,6 +295,7 @@ function PostIndex() {
                         setappmainstate({
                             appmainid: 'sharesection',
                             appmainidtwo: 'modalmain',
+                            appmainidthree: 0,
                             appmainparam: param.id,
                             appmainboolean: true,
                         })
@@ -335,7 +337,7 @@ function PostIndex() {
                         </div>
                         <div onClick={() => {
                             setappmainstate({
-                                appmainid: 'postdialog',
+                                appmainid: 'commentdialog',
                                 appmainidtwo: 'sideboardmain',
                                 appmainboolean: true,
                             })
@@ -352,6 +354,7 @@ function PostIndex() {
                         setappmainstate({
                                     appmainid: 'sharesection',
                                     appmainidtwo: 'modalmain',
+                                    appmainidthree: 0,
                                     appmainparam: param.id,
                                     appmainboolean: true,
                                 })
@@ -364,11 +367,15 @@ function PostIndex() {
             </figure>
             <figcaption className="p-0 md:p-[30px] md:col-span-5">
                 <section className="">
-                        <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
-                        <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
-                        {<CtaMain />}
+                    <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
+                    <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                 </section>
-                {<RtaMain />}
+                <section className="">
+                    {<CtaMain />}
+                </section>
+                <section className="">
+                    {<RtaMain />}
+                </section>
                 {/* <section className="">
                     <br />
                     <br />
@@ -400,6 +407,8 @@ function PostIndex() {
                 <br />
                 <br />
                 <h1 className="m-h6"> You may also like</h1>
+                <br />
+                <hr />
                 <br />
                 <section className="overflow-y-scroll">
                 <div className="w-[1000px] md:w-full grid grid-cols-5 gap-3">

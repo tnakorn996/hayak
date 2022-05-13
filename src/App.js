@@ -21,16 +21,26 @@ import Overlay from './component/overlay/Overlay';
 import SheetMain from './component/sheet/SheetMain';
 import PromoMain from './component/promo/PromoMain';
 import TopMain from './component/top/TopMain';
+import PortMain from './component/port/PortMain';
 // import PreviewMain from './component/preview/PreviewMain';
 
 export default function App() {
   const {
-    appmainstate, setappmainstate,
+    appmainstate, 
+    setportmainstate,
 
     setextromainstate,
   
   } = useContext(ContextMain)
   const location = useLocation()
+
+  useEffect(() => {
+    setportmainstate({
+      portmainid: 'posttfoot',
+      portmainidtwo: 'breadmain',
+      portmainidthree: 'place',
+    })
+  }, [])
 
     const app = (appmainstate)  => {
       switch(appmainstate.appmainredirect) {
@@ -74,31 +84,39 @@ export default function App() {
           
         </section>
 
-        <section className="">
-        <AnimatePresence exitBeforeEnter>
+        <section className="min-h-screen">
+        <AnimatePresence exitBeforeEnter >
           <TopMain />
-        <Routes key={location.pathname} location={location}>
-          {/* <Route path='/' element={<HomeMain />} />  */}
+          <Routes key={location.pathname} location={location}>
+            {/* <Route path='/' element={<HomeMain />} />  */}
 
-          <Route path='/' element={<HomeMain />} /> 
+            <Route path='/' element={<HomeMain />} /> 
 
-          <Route path='/:id' element={<PostIndex />} /> 
+            <Route path='/:id' element={<PostIndex />} /> 
 
-          <Route path='/category/:id' element={<CategoryIndex />} /> 
+            <Route path='/category/:id' element={<CategoryIndex />} /> 
 
-          <Route path='/about/aboutmain' element={<AboutMain />} /> 
+            <Route path='/about/aboutmain' element={<AboutMain />} /> 
 
-        </Routes> 
+          </Routes> 
         </AnimatePresence>
         </section>
 
+        <section className="">
+        <PortMain />
+        </section>
+
+        <section className="">
         {appmainstate?.appmainboolean && (<>
         <BackdropMain />
         </>)}
+        </section>
 
+        <section className="">
         {appmainstate?.appmainid === 'overlay' && (<>
         <Overlay />
         </>)}
+        </section>
 
       </main>
     </div>

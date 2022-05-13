@@ -224,147 +224,69 @@ export const categorymain = [
     },
 ]
 
-
-// export const categoryul = [
-//             {
-//                 breadmainidtwo: 'recipe',
-//                 breadmaintitle: 'Recipes',
-//                 collectionmainsubtitle: 'recipe',
-//             },
-//             {
-//                 breadmainidtwo: 'review',
-//                 collectionmaintitle: 'Review',
-//                 collectionmainsubtitle: 'review',
-//             },
-//             {
-//                 breadmainidtwo: 'interview',
-//                 collectionmaintitle: 'Interview',
-//                 collectionmainsubtitle: 'interview',
-//             },
-
-//             {
-//                 breadmainidtwo: 'meat',
-//                 collectionmaintitle: 'Meat',
-//                 collectionmainsubtitle: 'meat',
-//             },
-//             {
-//                 breadmainidtwo: 'coffee',
-//                 collectionmaintitle: 'Coffee',
-//                 collectionmainsubtitle: 'coffee',
-//             },
-//             {
-//                 breadmainidtwo: 'alcohol',
-//                 collectionmaintitle: 'Acohol',
-//                 collectionmainsubtitle: 'alcohol',
-//             },
-//             {
-//                 breadmainidtwo: 'dairy',
-//                 collectionmaintitle: 'Dairy',
-//                 collectionmainsubtitle: 'dairy',
-//             },
-//             {
-//                 breadmainidtwo: 'vegetable',
-//                 collectionmaintitle: 'Vegetable',
-//                 collectionmainsubtitle: 'vegetable',
-//             },
-
-//             {
-//                 breadmainidtwo: 'retail',
-//                 collectionmaintitle: 'Retails',
-//                 collectionmainsubtitle: 'Coffeeee',
-
-//             },
-//             {
-//                 breadmainidtwo: 'manufacturer',
-//                 collectionmaintitle: 'Manufacturer',
-//                 collectionmainsubtitle: 'Coffeeee',
-
-//             },
-//             {
-//                 breadmainidtwo: 'restaurant',
-//                 collectionmaintitle: "Chef's Restaurant",
-//                 collectionmainsubtitle: 'Coffeeee',
-//             },
-// ]
-
-
-// export const categoryli = [
-//             {
-//                 breadmainidtwo: 'recipe',
-//                 breadmaintitle: 'Recipes',
-//                 collectionmainsubtitle: 'recipe',
-//             },
-//             {
-//                 breadmainidtwo: 'review',
-//                 collectionmaintitle: 'Review',
-//                 collectionmainsubtitle: 'review',
-//             },
-//             {
-//                 breadmainidtwo: 'interview',
-//                 collectionmaintitle: 'Interview',
-//                 collectionmainsubtitle: 'interview',
-//             },
-
-//             {
-//                 breadmainidtwo: 'meat',
-//                 collectionmaintitle: 'Meat',
-//                 collectionmainsubtitle: 'meat',
-//             },
-//             {
-//                 breadmainidtwo: 'coffee',
-//                 collectionmaintitle: 'Coffee',
-//                 collectionmainsubtitle: 'coffee',
-//             },
-//             {
-//                 breadmainidtwo: 'alcohol',
-//                 collectionmaintitle: 'Acohol',
-//                 collectionmainsubtitle: 'alcohol',
-//             },
-//             {
-//                 breadmainidtwo: 'dairy',
-//                 collectionmaintitle: 'Dairy',
-//                 collectionmainsubtitle: 'dairy',
-//             },
-//             {
-//                 breadmainidtwo: 'vegetable',
-//                 collectionmaintitle: 'Vegetable',
-//                 collectionmainsubtitle: 'vegetable',
-//             },
-
-//             {
-//                 breadmainidtwo: 'retail',
-//                 collectionmaintitle: 'Retails',
-//                 collectionmainsubtitle: 'Coffeeee',
-
-//             },
-//             {
-//                 breadmainidtwo: 'manufacturer',
-//                 collectionmaintitle: 'Manufacturer',
-//                 collectionmainsubtitle: 'Coffeeee',
-
-//             },
-//             {
-//                 breadmainidtwo: 'restaurant',
-//                 collectionmaintitle: "Chef's Restaurant",
-//                 collectionmainsubtitle: 'Coffeeee',
-//             },
-// ]
-
 export const breadmain = [
     {
         breadmainid: 'post',
         breadmaintitle: 'Blog',
+        breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+        breadmainentitle: 'Find more blogs',
+        breadmainaction: `/category/post`,
         // breadmainref: categoryul,
     },
     {
         breadmainid: 'place',
         breadmaintitle: 'Locals & Location',
+        breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+        breadmainentitle: 'Find more places',
+        breadmainaction: `/category/place`,
         // breadmainref: categoryul,
     },
     {
         breadmainid: 'product',
         breadmaintitle: 'Products',
+        breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+        breadmainentitle: 'Find more products',
+        breadmainaction: `/category/product`,
         // breadmainref: categoryul,
+    },
+    
+]
+
+export const statemain = [
+    {
+        statemainid: 'commentdl',
+        statemainref: [
+            {
+                statemainidtwo: 'success',
+                statemainimage: '✅',
+                statemaintitle: 'Successfully Post',
+            },
+            {
+                statemainidtwo: 'fail',
+                statemainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
+                statemaintitle: 'Fail to Post at the moment.',
+            },
+            {
+                statemainidtwo: 'break',
+                statemainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
+                statemaintitle: 'Apologies for the inconvenience! We’ll be back within the hour.',
+            },
+        ],
+    },
+    {
+        statemainid: 'sharedl',
+        statemainref: [
+            {
+                statemainidtwo: 'success',
+                statemainimage: 'https://images.blush.design/dmXzODu_CVTPyqip6i-s?w=500&auto=compress&cs=srgb',
+                statemaintitle: 'Successfully Copy to clipboard',
+            },
+            {
+                statemainidtwo: 'fail',
+                statemainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
+                statemaintitle: 'Fail to Post at the moment.',
+            },
+        ],
     },
 ]
 
