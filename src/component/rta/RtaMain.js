@@ -1,129 +1,57 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom';
+
+import { sheetmain, spreadmain } from '../../content/contentmain';
 import { ContextMain } from '../../context/contextmain'
-
-import HorizonMain from '../post/HorizonMain'
-
+import HorizonMain from '../post/HorizonMain';
 
 function RtaMain() {
-    const {
-        rtamainstate,
+  const {
+    spreadmainstate,
+    setbreadmainstate,
 
+  } = useContext(ContextMain)
+  const navigate = useNavigate()
 
-    } = useContext(ContextMain)
-    const navigate = useNavigate()
-
-    const [rtamaindata, setrtamaindata] = useState()
-
-    const postcanvas = [
-        {
-            rtamaindata: [
-                {
-                    rtamaintitle: 'Place Location',
-                    rtamainrender: rtamainstate?.rtamaindata,
-                },
-                {
-                    rtamaintitle: 'Related Products',
-                    rtamainrender: rtamainstate?.rtamaindatatwo,
-                }
-            ]
-        },
-        {
-            rtamaindata: [
-                {
-                    rtamaintitle: 'Written By',
-                    rtamainrender: rtamainstate?.rtamaindata,
-                },
-                {
-                    rtamaintitle: 'In this article',
-                    rtamainrender: rtamainstate?.rtamaindatatwo,
-                },
-            ]
-        },
-    ]
-
-    const placecanvas = [
-        {
-            rtamaindata: [
-                {
-                    rtamaintitle: 'Place Location',
-                    rtamainrender: rtamainstate?.rtamaindata,
-                },
-                {
-                    rtamaintitle: 'Related Products',
-                    rtamainrender: rtamainstate?.rtamaindatatwo,
-                }
-            ]
-        },
-    ]
-
-    const productcanvas = [
-        {
-            rtamaindata: [
-                {
-                    rtamaintitle: 'Place Location',
-                    rtamainrender: rtamainstate?.rtamaindata,
-                },
-                {
-                    rtamaintitle: 'Related Products',
-                    rtamainrender: rtamainstate?.rtamaindatatwo,
-                }
-            ]
-        },
-    ]
-
-    const rtamain = [
-        {
-            rtamainid: 'post',
-            rtamainref: postcanvas,
-        },
-        {
-            rtamainid: 'place',
-            rtamainref: placecanvas,
-        },
-        {
-            rtamainid: 'product',
-            rtamainref: productcanvas,
-        },
-    ]
-
-    useEffect(() => {
-        if(rtamainstate){
-            console.log('rtamainstate :>> ', rtamainstate);
-            if(rtamainstate.rtamainidtwo  === true) {
-                const filter = rtamain.filter(data => data.rtamainid === rtamainstate.rtamainid)
-                const filtertwo = filter[0].rtamainref.filter(data => filter[0].rtamainref.indexOf(data) === 1)
-                setrtamaindata(filtertwo[0].rtamaindata)
-            } else {
-                const filter = rtamain.filter(data => data.rtamainid === rtamainstate.rtamainid)
-                const filtertwo = filter[0].rtamainref.filter(data => filter[0].rtamainref.indexOf(data) === 0)
-                setrtamaindata(filtertwo[0].rtamaindata)
-            }
+  const [rtamainrender, setrtamainrender] = useState()
+  
+  useEffect(() => {
+    if(spreadmainstate){
+      const empty = []
+      sheetmain.forEach(data  => {
+        for(const dat of spreadmainstate){
+          if(data.sheetmainid === dat.spreadmainidtwo && dat.spreadmainid === 'success'){
+            const filter = spreadmain.filter(da => da.spreadmainid === dat.spreadmainid && da.spreadmainid === 'success')
+            empty.push({
+              rtamainrender: filter,
+              rtamainrendertwo: [data],
+              rtamainrenderthree: dat.spreadmainrender,
+            })
+            setrtamainrender(empty)
+          }
         }
-    }, [rtamainstate])
-
+      })
+    }
+  }, [spreadmainstate])
 
   return (
     <div>
         <main className="">
-            {rtamaindata?.map(dat => (<>
-            <section className="">
-                    <br />
-                    <br />
-                    <h1 className="m-h6">{dat?.rtamaintitle}</h1>
-                    <br />
-                    <div className="flex flex-col gap-2">
-                        {dat?.rtamainrender?.map(data => (<>
-                        <HorizonMain onlick={() => {
-                            navigate(`/${data?.postid}`)
-                        }} key={data?.postid} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
-                        </>))}
-                    </div>
-            </section>
+          {rtamainrender?.map(data => (<>
+            {data?.rtamainrendertwo?.map(dat => (<>
+                <br /><br />
+                <h1 className="m-h6">{dat?.sheetmainsubtitle}</h1>
+                <br />
             </>))}
+            {data?.rtamainrenderthree?.map(da => (<>
+                <HorizonMain onlick={() => {
+                  navigate(`/${da?.postid}`)
+                }} key={da?.postid} createdat={da?._createdAt} posticon={da?.posticon} posthero={da?.posthero} posttitle={da?.posttitle} postsubtitle={da?.postsubtitle} categoryid={da?.categoryid} priceid={da?.priceid} param={da?.postid} />
+            </>))}
+          </>))}
         </main>
     </div>
   )

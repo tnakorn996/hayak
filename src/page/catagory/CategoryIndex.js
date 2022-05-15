@@ -8,10 +8,8 @@ import { motion } from 'framer-motion'
 
 import ImpulseMain from '../../component/inpulse/ImpulseMain'
 import VerticleMain from '../../component/post/VerticleMain'
-import { breadmain, categorymain, collectionmain, crummain } from '../../content/contentmain'
-
+import { breadmain, crummain } from '../../content/contentmain'
 import { ContextMain } from '../../context/contextmain'
-import { client } from '../../lib/sanity'
 import BreadMain from '../../component/bread/BreadMain'
 
 function CategoryIndex() {
@@ -166,11 +164,11 @@ function CategoryIndex() {
                 </button>
                 <button className="hidden md:flex md:fixed z-10 top-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black" />
                 {categoryindexrender?.map(data => (<>
+                <hr />
+                <br />
                 <figcaption className="  flex flex-row justify-between items-center ">
                     <h1 className="m-h5">{data?.categoryindextitle} {categoryindextitle}</h1>
                 </figcaption>
-                <br />
-                <hr />
                 <br />
                 <figure className="overflow-y-auto sm:overflow-y-hidden no-scrollbar">
                     <div className="grid grid-cols-4 gap-3">
@@ -181,8 +179,8 @@ function CategoryIndex() {
                     </>))}
                     </div>
                 </figure>
+                <br />
                 </>))}
-                <br /><br />
             </section>
         </motion.main>
     </div>

@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { ContextMain } from '../../context/contextmain'
 import ToastMain from '../toast/ToastMain'
 import { useState } from 'react'
+import SnackbarMain from '../snackbar/SnackbarMain'
 
 function Overlay() {
     const {
@@ -17,6 +18,10 @@ function Overlay() {
         {
             overlayid: 'toastmain',
             overlayrender: <ToastMain />,
+        },
+        {
+            overlayid: 'snackbarmain',
+            overlayrender: <SnackbarMain />,
         }
     ]
 

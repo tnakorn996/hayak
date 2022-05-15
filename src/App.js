@@ -88,7 +88,6 @@ export default function App() {
         <AnimatePresence exitBeforeEnter >
           <TopMain />
           <Routes key={location.pathname} location={location}>
-            {/* <Route path='/' element={<HomeMain />} />  */}
 
             <Route path='/' element={<HomeMain />} /> 
 

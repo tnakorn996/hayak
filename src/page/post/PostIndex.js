@@ -4,10 +4,10 @@ import { useContext } from 'react'
 import { useEffect } from 'react'
 import { RiChat3Line, RiEyeLine, RiMore2Fill } from 'react-icons/ri'
 import { useNavigate, useParams } from 'react-router-dom'
-import HorizonMain from '../../component/post/HorizonMain'
-import { ContextMain } from '../../context/contextmain'
 import { motion } from 'framer-motion'
+import {PortableText, PortableTextComponentsProvider} from '@portabletext/react'
 
+import { ContextMain } from '../../context/contextmain'
 import { client } from '../../lib/sanity'
 import BreadMain from '../../component/bread/BreadMain'
 import VerticleMain from '../../component/post/VerticleMain'
@@ -15,7 +15,8 @@ import AlertMain from '../../component/alert/AlertMain'
 import LoadingMain from '../../component/load/LoadingMain'
 import CtaMain from '../../component/ctamain/CtaMain'
 import RtaMain from '../../component/rta/RtaMain'
-import PortMain from '../../component/port/PortMain'
+import SpreadMain from '../../component/spread/SpreadMain'
+import { breadmain } from '../../content/contentmain'
 
 function PostIndex() {
     const {
@@ -26,6 +27,7 @@ function PostIndex() {
         setbreadmainstate,
         setalertmainstate,
         setportmainstate,
+        setspreadmainstate,
 
         postupdatedat,
         placeupdatedat,
@@ -135,16 +137,29 @@ function PostIndex() {
         }
     ]
 
+    const postindextwo = [
+        {
+            postindextwoid: 'placedi',
+            postindextworender: placeplaceid,
+        },
+        {
+            postindextwoid: 'productdi',
+            postindextworender: productplaceid,
+        },
+        {
+            postindextwoid: 'pickdi',
+            postindextworender: productpostid,
+        }
+    ]
+
     useEffect(() => {
-        // setpostindexstate({
-            //     postindexid: param.id,
-            // })
         ll()
     }, [])
 
     useEffect(() => {
       if(postpostid){
-            jj()
+            // kk()
+            // jj()
             setbreadmainstate({
                 breadmainid: postpostid?._type,
                 breadmainidtwo: postpostid?.categoryid,
@@ -166,46 +181,60 @@ function PostIndex() {
 
     useEffect(() => {
         if(placeplaceid || productplaceid || productpostid){
-                if(placeplaceid && productplaceid && productpostid?.length > 0){
+                if(placeplaceid && productplaceid && postpostid.categoryid === 'recipe'){
                     setctamainstate({
                         ctamainid: postpostid?._type,
                         ctamainidtwo: true,
                     })
-                    setrtamainstate({
-                        rtamainid: postpostid?._type,
-                        ctamainidtwo: true,
-                        rtamaindata: placeplaceid,
-                        rtamaindatatwo: productpostid,
-                    })
+                    // setrtamainstate({
+                    //     rtamainid: postpostid?._type,
+                    //     rtamainidtwo: true,
+                    //     rtamaindata: placeplaceid,
+                    //     rtamaindatatwo: productpostid,
+                    // })
+
                 } 
 
-                if(placeplaceid && productplaceid && productpostid?.length === 0){
+                if(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe'){
                     setctamainstate({
                         ctamainid: postpostid?._type,
                     })
-                    setrtamainstate({
-                        rtamainid: postpostid?._type,
-                        rtamaindata: placeplaceid,
-                        rtamaindatatwo: productplaceid,
-                    })
-                }                 
+                    // setrtamainstate({
+                    //     rtamainid: postpostid?._type,
+                    //     rtamaindata: placeplaceid,
+                    //     rtamaindatatwo: productplaceid,
+                    // })
+                }     
 
+                const empty = []
+                postindextwo?.forEach(data => {
+                    if (data?.postindextworender?.length <= 0){
+                        empty.push({
+                            spreadmainid: 'break',
+                            spreadmainidtwo: data.postindextwoid,
+                            spreadmainrender: data.postindextworender,
+                        })
+                        setspreadmainstate(empty)
+                    }
+                    if (data?.postindextworender?.length > 0) {
+                        empty.push({
+                            spreadmainid: 'success',
+                            spreadmainidtwo: data.postindextwoid,
+                            spreadmainrender: data.postindextworender,
+                        })
+                        setspreadmainstate(empty)
+                    }
+                })
         }
     },[ placeplaceid, productplaceid, productpostid])
     
-
     // useEffect(() => {
     //   if(postpostid && userindex){
     //         hh()
     //   }
     // }, [userindex, postpostid])
     
-
-
-    
     const ll = async () => {
-        // 'placepostid': *[_type == 'place' && postid == ^.placeid],
-        // 'productplaceid': *[_type == 'product' && postid != ^.postid && placeid == ^.placeid ] ,
               const query = `*[ postid == '${param.id}']{
                   ...,
                   'placeplaceid': *[_type == 'place' && postid == ^.placeid],
@@ -222,48 +251,85 @@ function PostIndex() {
                     setproductpostid(data.productpostid)
                 })
             }
+    
 
-    function kk() {
-        if(postpostid && postpostid.postblock){
+    // function kk() {
+    //     if(postpostid && postpostid.postblock){
             
-            const ref = postpostid.postblock.map((data, dataindex) => {
-                const find = postfigcaption.find(dat => dat.postfigcaptionid === data.style)
-                const findfour = postdiv.find(dat => dat.postdivid === data.listItem)
-                return data.children.map((dat, datindex) => {
-                    const findtwo = data.markDefs.find(da => da._key === dat.marks[0])
-                    const findthree = posth1.find(da => da.posth1id === dat.marks[0])
-                    return (
-                        <figcaption className='text-base flex flex-row   font-serif'  >
+    //         const ref = postpostid.postblock.map((data, dataindex) => {
+    //             const find = postfigcaption.find(dat => dat.postfigcaptionid === data.style)
+    //             const findfour = postdiv.find(dat => dat.postdivid === data.listItem)
+    //             return data.children.map((dat, datindex) => {
+    //                 const findtwo = data.markDefs.find(da => da._key === dat.marks[0])
+    //                 const findthree = posth1.find(da => da.posth1id === dat.marks[0])
+    //                 const target = (findtwo?.href || '').startsWith('http') ? '_blank' : undefined
+    //                 return (<>
+    //                     <figcaption className={`text-base inline-block font-serif`}  >
                             
-                            {findfour !== undefined && (<>
-                            <div className="pr-[7px] flex flex-row">
-                                {findfour.postdivid === 'number' && <h1 className="">{dataindex}</h1>}
-                                {findfour.postdivtitle}
-                            </div>
-                            </>)}
+    //                         {findfour !== undefined && (<>
+    //                         <div className=" inline-block pr-[7px]">
+    //                             {findfour.postdivid === 'number' && <h1 className="">{dataindex}</h1>}
+    //                             {findfour.postdivtitle}
+    //                         </div>
+    //                         </>)}
 
-                            {/* {dat.text !== '' ? (<> */}
-                                <h1 onClick={() => window.open(findtwo && findtwo.href)} className={` ${find.postfigcaptiontitle} ${findtwo && '!text-blue-500 !cursor-pointer'} ${findthree && findthree.posth1title} leading-relaxed`}>{dat.text}</h1>
-                            {/* </>) : (<> */}
-                                {/* <h1 className=""> */}
-                                    {/* <br /> */}
-                                {/* </h1> */}
-                            {/* </>)} */}
+    //                         <a href={findtwo && findtwo.href} target={target} rel={target === '_blank' && 'noindex nofollow'} className={`px-[3px] inline-block ${find.postfigcaptiontitle} ${findtwo && '!text-blue-500 !cursor-pointer'} ${findthree && findthree.posth1title} leading-relaxed`}>{dat.text}</a>
+    //                         {dat.text.length === 0 && (<>
+    //                             <h1 className="inline-block  bg-red-500">s<br /></h1>
+    //                         </>)}
 
-                        </figcaption>
-                    )
-                })
-            })
-            return ref
-        }
+    //                     </figcaption>
+    //                 </>)
+    //             })
+    //         })
+    //         return ref
+    //     }
+    // }
+
+    const component = {
+        text: {
+            undefined: <br></br>
+        },
+
+        block: {
+            normal: ({children}) => <h1 className="">{children}</h1>,
+            h1: ({children}) => <h1 className='!text-base'>{children}</h1>,
+            h2: ({children}) => <h1 className='text-4xl  !m-h1' >{children}</h1>,
+            h3: ({children}) => <h1 className='text-3xl  !m-h2' >{children}</h1>,
+            h4: ({children}) => <h1 className='text-xl !m-h4' >{children}</h1>,
+            h5: ({children}) => <h1 className='text-lg  !m-h5' >{children}</h1>,
+            h6: ({children}) => <h1 className='text-md  !m-h6' >{children}</h1>,
+            blockquote: ({children}) => <h1 className='!pl-[20px]  border-l-2 border-gray-600 italic' >{children}</h1>,
+        },
+
+        listitem: {
+            bullet: ({children}) => <h1 className='' >✔️ {children}</h1>,
+            number: ({children}) => <h1 className='' >✔️ {children}</h1>,
+        },
+
+        marks: {
+            strong: ({children}) => <h1 className="inline-block font-bold">{children}</h1>,
+            em: ({children}) => <h1 className="inline-block italic">{children}</h1>,
+            underline: ({children}) => <h1 className="inline-block underline">{children}</h1>,
+            strikeThrought: ({children}) => <h1 className="inline-block line-through">{children}</h1>,
+
+            link: ({value, children}) => {
+                const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
+                return (
+                    <a href={value?.href} target={target} rel={target === '_blank' && 'noindex nofollow'} className='inline-block  text-blue-700'>
+                    {children}
+                    </a>
+                )}
+        },
+
     }
 
-    const  jj = async () => {
-            await client  
-            .patch(postpostid._id)
-            .set({postcount: postpostid.postcount + 1 || 0}) 
-            .commit()
-    }
+    // const  jj = async () => {
+    //         await client  
+    //         .patch(postpostid._id)
+    //         .set({postcount: postpostid.postcount + 1 || 0}) 
+    //         .commit()
+    // }
 
     // const  hh = async () => {
     //         await client  
@@ -317,14 +383,22 @@ function PostIndex() {
                     </figure>
                     <figcaption className="">
                         <br />
+                        <br />
                         <h1 className="text-base  italic  text-black font-serif">This article was last updated on {postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                 </section>
-                <section className="p-[20px]">
-                    {kk()}
+                <section className="md:text-lg  text-gray-700 font-serif">
+                    {/* {kk()} */}
                     <br />
-                    <AlertMain />
+                    <PortableTextComponentsProvider components={component}  >
+                        {postpostid?.postblock?.map(data => (<>
+                        <PortableText value={data} />
+                        <br />
+                        </>))}
+                    </PortableTextComponentsProvider>
+                    <br />
                 </section>
+                <AlertMain />
                 <section className="flex justify-between">
                     <div className="flex flex-row gap-5 items-center ">
                         <div className="flex flex-row gap-2 items-center  m-h4">
@@ -360,7 +434,7 @@ function PostIndex() {
                                 })
                         }} className="">
                         <article className="">
-                        <RiMore2Fill className='m-h3' />
+                            <RiMore2Fill className='m-h3' />
                         </article>
                     </figure>
                 </section>
@@ -376,32 +450,9 @@ function PostIndex() {
                 <section className="">
                     {<RtaMain />}
                 </section>
-                {/* <section className="">
-                    <br />
-                    <br />
-                    <h1 className="m-h6">Place location</h1>
-                    <br />
-                    <div className="flex flex-col gap-2">
-                        {placeplaceid?.map(data => (<>
-                        <HorizonMain onlick={() => {
-                            navigate(`/${data?.postid}`)
-                        }} key={data?.postid} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
-                        </>))}
-                    </div>
-                </section>
                 <section className="">
-                    <br />
-                    <br />
-                    <h1 className="m-h6">Related product</h1>
-                    <br />
-                    <div className="flex flex-col gap-2">
-                        {productplaceid?.map(data => (<>
-                        <HorizonMain onlick={() => {
-                            navigate(`/${data?.postid}`)
-                        }} key={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
-                        </>))}
-                    </div>
-                </section> */}
+                    {<SpreadMain />}
+                </section>
             </figcaption>
             <figure className="col-span-12">
                 <br />
@@ -411,14 +462,15 @@ function PostIndex() {
                 <hr />
                 <br />
                 <section className="overflow-y-scroll">
-                <div className="w-[1000px] md:w-full grid grid-cols-5 gap-3">
-                {postindexrenderfour?.slice(0, 5)?.map(data => (<>
+                <div className="w-[1000px] md:w-full grid grid-cols-4 gap-3">
+                {postindexrenderfour?.slice(0, 4)?.map(data => (<>
                     <VerticleMain onlick={() => {
                                     navigate(`/${data?.postid}`)
                                 }} key={data?.postid} createdat={data?._createdAt} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} priceid={data?.priceid} param={data?.postid} />
                     </>))}
                 </div>
                 </section>
+                <br />
             </figure>
         </motion.main>
     </div>

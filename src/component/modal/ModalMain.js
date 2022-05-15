@@ -13,7 +13,7 @@ function ModalMain() {
     const {
         appmainstate, setappmainstate,
         setstatemainstate,
-        setcategoryindextrigger,
+        setspreadmainstate,
 
     } = useContext(ContextMain)
     const [modalmainstate, setmodalmainstate] = useState()
@@ -51,27 +51,17 @@ function ModalMain() {
             },
             modalmainaction: <button onClick={() => {
                     navigator.clipboard.writeText(`https://hayak.vercel.app/${appmainstate?.appmainparam}`) 
-                    setstatemainstate({
-                        statemainid: 'sharedl',
-                        statemainidtwo: 'success',
+                    setspreadmainstate({
+                        spreadmainid: 'success',
+                        spreadmainidtwo: 'sharedi',
                     })
                     setappmainstate({
-                        appmainid: 'sharesection',
-                        appmainidtwo: 'modalmain',
-                        appmainidthree: 1,
-                        appmainboolean: true,
-
+                        appmainid: 'overlay',
+                        appmainidtwo: 'snackbarmain',
                     })
                 }} className="m-button">Copy to clipboard</button>,
 
         },
-        {
-            modalmainindex: 1,
-            modalmaintitle: 'Share Post',
-            modalmainrender: <StateMain />,
-            modalmainaction: '',
-        },
-        
     ]
 
     const categorysection = [
@@ -85,13 +75,15 @@ function ModalMain() {
         },
     ]
 
-    const commentsection = [
+    const statesection = [
         {
             modalmainindex: 0,
-            modalmaintitle: 'Comment Status',
+            modalmaintitle: 'HAYAK Blog',
             modalmainrender: <StateMain />,
-            modalmainaction: '',
-        },
+            modalmainaction: <button onClick={() => {
+                    setappmainstate('')
+                }} className="m-button">Continue</button>,
+        }
     ]
 
     const modalmain = [
@@ -104,8 +96,8 @@ function ModalMain() {
             modalmaindata: categorysection,
         },
         {
-            modalmainid: 'commentsection',
-            modalmaindata: commentsection,
+            modalmainid: 'statesection',
+            modalmaindata: statesection,
         },
     ]
 

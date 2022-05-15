@@ -30,7 +30,7 @@ function VerticleMain({onlick, createdat, posthero, posticon, posttitle, postsub
   return (
     <div>
         <main className="">
-          <article className="relative flex flex-col justify-center">
+          <article className="relative flex flex-col justify-center  border border-black">
                 <figure onClick={() => {
                       setappmainstate({
                         appmainid: 'postarticle',
@@ -70,7 +70,7 @@ function VerticleMain({onlick, createdat, posthero, posticon, posttitle, postsub
                       <RiMore2Fill className='my-[7px]  text-md l-m3' />
                     </figure>
                 </figure>
-                <figcaption onClick={onlick} className="row-span-3 h-[10vh]">
+                <figcaption onClick={onlick} className="px-[20px] row-span-3 h-[10vh]">
                     {/* <div className="flex flex-row gap-2 items-center">
                       <h1 className="text-[9px]  l-h1 truncate">{createdat?.slice(0, 10)}</h1>
                       <h1 className="l-h1 truncate">|</h1>
@@ -80,7 +80,7 @@ function VerticleMain({onlick, createdat, posthero, posticon, posttitle, postsub
                         navigate(`/catagory/${verticledivstate?.verticledivtitle || null}`)
                       }} className="px-[7px]  text-gray-500 uppercase text-[8px] bg-gray-200 rounded-full">{verticledivstate?.verticledivtitle || null}</h1>}
                     </div> */}
-                    <button className="l-h3 text-black">{posttitle}</button>
+                    <button className="m-h3 text-black">{posttitle}</button>
                     {/* <h1 className="l-h2">{postsubtitle}</h1> */}
                     {/* {ll(data?.categoryid)} */}
                 </figcaption>

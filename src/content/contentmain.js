@@ -1,5 +1,5 @@
 
-
+import {RiCheckboxFill, RiCloseCircleLine, RiInformationLine} from 'react-icons/ri'
 
 export const navmain = [
     {
@@ -93,8 +93,6 @@ export const planform = [
     },
 ]
 
-//summary
-
 export const plansummary = [
                 {
                     ontromainindex: 0,
@@ -123,8 +121,6 @@ export const extromain = [
         extromainref: plansummary,
     },
 ]
-
-
 
 
 export const collectionmain = [
@@ -224,6 +220,120 @@ export const categorymain = [
     },
 ]
 
+
+export const statemain = [
+    {
+        statemainid: 'commentdl',
+        statemainref: [
+            {
+                statemainidtwo: 'success',
+                statemainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
+                statemainicon: <RiCheckboxFill />,
+                statemaintitle: 'Successfully Post',
+                statemainstyle: '!bg-green-500 !text-green-800 !border-green-700',
+            },
+            {
+                statemainidtwo: 'fail',
+                statemainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
+                statemainicon: <RiCloseCircleLine />,
+                statemaintitle: 'Fail to Post at the moment.',
+                statemainstyle: '!bg-red-500 !text-red-800 !border-red-700',
+
+            },
+            {
+                statemainidtwo: 'break',
+                statemainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
+                statemainicon: <RiInformationLine />,
+                statemaintitle: 'Apologies for the inconvenience! We’ll be back within the hour.',
+                statemainstyle: '!bg-green-500 !text-green-800 !border-green-700',
+
+            },
+        ],
+    },
+    {
+        statemainid: 'sharedl',
+        statemainref: [
+            {
+                statemainidtwo: 'success',
+                statemainimage: 'https://images.blush.design/dmXzODu_CVTPyqip6i-s?w=500&auto=compress&cs=srgb',
+                statemainicon: <RiCheckboxFill />,
+                statemaintitle: 'Successfully Copy to clipboard',
+            },
+            {
+                statemainidtwo: 'fail',
+                statemainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
+                statemainicon: <RiCloseCircleLine />,
+                statemaintitle: 'Fail to Post at the moment.',
+            },
+        ],
+    },
+]
+
+export const spreadmain = [
+    {
+                spreadmainid: 'success',
+                spreadmainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
+                spreadmainicon: <RiCheckboxFill />,
+                spreadmaintitle: 'Successfull',
+                spreadmainstyle: '!bg-green-100 !text-green-800 !border-green-700',
+            },
+            {
+                spreadmainid: 'fail',
+                spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
+                spreadmainicon: <RiCloseCircleLine />,
+                spreadmaintitle: 'Fail',
+                spreadmainstyle: '!bg-red-100 !text-red-800 !border-red-700',
+
+            },
+            {
+                spreadmainid: 'break',
+                spreadmainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
+                spreadmainicon: <RiInformationLine />,
+                spreadmaintitle: 'Apologies',
+                spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
+
+            },
+]
+
+export const sheetmain = [
+    {
+        sheetmainid: 'commentdi',
+        sheetmaintitle: 'Sending a comment to server',
+        sheetmainsubtitle: 'Related Comments',
+        sheetmainaction: '',
+
+    },
+    {
+        sheetmainid: 'sharedi',
+        sheetmaintitle: 'Copy to clipboard',
+        sheetmainsubtitle: 'Related Links',
+        sheetmainaction: '',
+
+    },
+    {
+        sheetmainid: 'placedi',
+        sheetmaintitle: 'Find sellers',
+        sheetmainsubtitle: 'Place Location',
+        sheetmainaction: `/category/place`,
+
+    },
+    {
+        sheetmainid: 'productdi',
+        sheetmaintitle: 'Find products',
+        sheetmainsubtitle: 'Related Products',
+        sheetmainaction: `/category/product`,
+
+    },
+    {
+        sheetmainid: 'pickdi',
+        sheetmaintitle: 'Find products',
+        sheetmainsubtitle: `What You'll Need`,
+        sheetmainaction: `/category/product`,
+
+    },
+]
+
+
 export const breadmain = [
     {
         breadmainid: 'post',
@@ -252,48 +362,11 @@ export const breadmain = [
     
 ]
 
-export const statemain = [
-    {
-        statemainid: 'commentdl',
-        statemainref: [
-            {
-                statemainidtwo: 'success',
-                statemainimage: '✅',
-                statemaintitle: 'Successfully Post',
-            },
-            {
-                statemainidtwo: 'fail',
-                statemainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-                statemaintitle: 'Fail to Post at the moment.',
-            },
-            {
-                statemainidtwo: 'break',
-                statemainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
-                statemaintitle: 'Apologies for the inconvenience! We’ll be back within the hour.',
-            },
-        ],
-    },
-    {
-        statemainid: 'sharedl',
-        statemainref: [
-            {
-                statemainidtwo: 'success',
-                statemainimage: 'https://images.blush.design/dmXzODu_CVTPyqip6i-s?w=500&auto=compress&cs=srgb',
-                statemaintitle: 'Successfully Copy to clipboard',
-            },
-            {
-                statemainidtwo: 'fail',
-                statemainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-                statemaintitle: 'Fail to Post at the moment.',
-            },
-        ],
-    },
-]
-
 export const crummain = [
     {
         crummainid: 'recipe',
         crummaintitle: 'Recipe',
+        crummainstyle: 'bg-gray-900 text-white',
         crummainimage: 'https://images.unsplash.com/photo-1506368083636-6defb67639a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
         // crummainref: categoryli,
         breadmainid: 'post',
@@ -301,10 +374,10 @@ export const crummain = [
     {
         crummainid: 'review',
         crummaintitle: 'Review',
+        crummainstyle: 'bg-gray-900 text-white',
         crummainimage: 'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
         // crummainref: categoryli,
         breadmainid: 'post',
-
     },
     {
         crummainid: 'interview',

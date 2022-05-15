@@ -9,6 +9,7 @@ function CommentDialog() {
     const {
         setappmainstate,
         setstatemainstate,
+        setspreadmainstate,
 
     } = useContext(ContextMain)
 
@@ -34,11 +35,20 @@ function CommentDialog() {
                         statemainidtwo: 'fail',
                     })
                     setappmainstate({
-                        appmainid: 'commentsection',
+                        appmainid: 'statesection',
                         appmainidtwo: 'modalmain',
                         appmainidthree: 0,
                         appmainboolean: true,
                     })
+                    // setspreadmainstate({
+                    //     spreadmainid: 'fail',
+                    //     spreadmainidtwo: 'commentdi',
+                    // })
+                    // setappmainstate({
+                    //     appmainid: 'overlay',
+                    //     appmainidtwo: 'snackbarmain',
+                    //     appmainidthree: 'commenttbody',
+                    // })
                 }} className="l-button">Post comments</button>
             </section>
             <section className="">

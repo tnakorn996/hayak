@@ -1,18 +1,23 @@
 import React from 'react'
 import { RiContrastDropLine } from 'react-icons/ri'
+import LoadingMain from './LoadingMain'
 
 function LoadMain({title}) {
   return (
     <div>
-        <main className="w-screen h-screen flex justify-center items-center  bg-white">
-            <div className="">
+        <main className="w-screen h-screen flex flex-col justify-center items-center  bg-white">
+            <div className="h-[15vh]">
                 <figure className="">
-                    <RiContrastDropLine className='text-3xl  animate-bounce' />
+                    <RiContrastDropLine className='text-6xl' />
                 </figure>
                 <figcaption className="">
                     <h1 className="l-h3">{title}</h1>
                 </figcaption>
+                <br />
             </div>
+            <figure className="">
+                <LoadingMain />
+            </figure>
         </main>
     </div>
   )

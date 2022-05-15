@@ -9,12 +9,14 @@ import {motion} from 'framer-motion'
 import VerticleMain from '../../component/post/VerticleMain'
 import { ContextMain } from '../../context/contextmain'
 import '../home/homemain.css'
+import WireMain from '../../component/wire/WireMain'
 // import LandscapeMain from '../../component/place/LandscapeMain'
 
 function HomeMain() {
     const {
         setappmainstate,
-
+        breadmainstate,
+        setwiremainstate,
 
         postupdatedat,
         placeupdatedat,
@@ -82,10 +84,15 @@ function HomeMain() {
     ]
 
     useEffect(() => {
-      setappmainstate({
+        setappmainstate({
             appmainidtwo: 'previewmain',
             appmainid: 'menuarticle',
             appmainboolean: true,
+        })
+        setwiremainstate({
+            wiremainid: 'hometr',
+            wiremainidtwo: 'crummain',
+            wiremainpage: 2,
         })
     }, [])
 
@@ -168,7 +175,7 @@ function HomeMain() {
             <br />
             <section className="py-[20px] px-[20px] md:px-[60px] h-screen md:h-[70vh] flex flex-col md:grid md:grid-cols-12">
                 <figcaption className="md:col-span-5 max-w-[300px] flex flex-col justify-between items-start  border-b border-black">
-                    <h1 className="text-7xl  font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>
+                    <h1 className="text-5xl  font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>
                     <button onClick={() => {
                       setappmainstate({
                         appmainid: 'postarticle',
@@ -178,21 +185,24 @@ function HomeMain() {
                       })
                     }} className="m-h3">Read more →</button>
                 </figcaption>
-                <figure className="md:col-span-7 h-full flex items-center overflow-hidden ">
+                <figure className="md:col-span-7 h-full flex items-center jus  overflow-hidden ">
                     <img src={postupdatedat && postupdatedat[0]?.posthero} alt="" className="max-h-full" />
                 </figure>
             </section>
-            <br /><br /><br /><br /><br />
+            {/* <section className="w-[1200px] md:w-full px-[20px] md:px-[60px]">
+                <WireMain />
+            </ section> */}
             <section className="w-[1200px] md:w-full px-[20px] md:px-[60px]">
                 {homemainmap?.map(data => (<>
+                <br />
+                <hr />
+                <br />
                 <figcaption className="w-screen md:w-full flex flex-row justify-between items-center">
                     <h1 className="m-h5">{data?.homemaintitle}</h1>
                     <button onClick={() => {
                         navigate(data?.homemaindirect)
                     }} className="l-h2">See all</button>
                 </figcaption>
-                <br />
-                <hr />
                 <br />
                 <figure className="relative  overflow-y-hidden no-scrollbar">
 

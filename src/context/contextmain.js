@@ -1,6 +1,6 @@
 
 import React, { createContext, useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import LoadMain from '../component/load/LoadMain'
 
 import { client } from '../lib/sanity'
@@ -28,6 +28,8 @@ export const Provider = ({ children }) => {
     const [rtamainstate, setrtamainstate] = useState()
     const [portmainstate, setportmainstate] = useState()
     const [statemainstate, setstatemainstate] = useState()
+    const [spreadmainstate, setspreadmainstate] = useState()
+    const [wiremainstate, setwiremainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -42,9 +44,11 @@ export const Provider = ({ children }) => {
     }, [])
 
     useEffect(() => {
-      if(location){
+      if (location) {
         setappmainstate('')
+        setspreadmainstate('')
       }
+
     }, [location])
     
     const pp = async () => {
@@ -113,6 +117,8 @@ export const Provider = ({ children }) => {
           rtamainstate, setrtamainstate,
           portmainstate, setportmainstate,
           statemainstate, setstatemainstate,
+          spreadmainstate, setspreadmainstate,
+          wiremainstate, setwiremainstate,
 
           userindex,
           postplaceproduct,

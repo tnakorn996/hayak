@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -127,7 +128,7 @@ function SearchDialog() {
                 </div>
                 <h1 className="l-h2 italic">Try coffee, kitchen, gift card..</h1>
             </section>
-            <section className="h-[70vh] px-[20px] md:px-[50px]  overflow-y-scroll">
+            <motion.section initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{ duration: 0.5 }} className="h-[70vh] px-[20px] md:px-[50px]  overflow-y-scroll">
                 {/* {searchdialogvalue !== '' && (<>
                 <figure className="">
                 <br />
@@ -150,7 +151,7 @@ function SearchDialog() {
                     </>))}
                 </figcaption>
                 </>))}
-            </section>
+            </motion.section>
         </main>
     </div>
   )
