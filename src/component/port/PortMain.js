@@ -48,7 +48,7 @@ function PortMain() {
 
   return (
     <div>
-        <main className="p-[20px] md:px-[60px] bg-gray-50">
+        <main className="p-[20px] md:px-[60px] bg-gray-100 text-black">
             <br />
             {portmaindata?.map(data => (<>
             <article onClick={() => {

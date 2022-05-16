@@ -66,7 +66,7 @@ function DropdownMain() {
           setdropdownmaintitle(filtertwo[0].dropdownmaintitle)
           setdropdownmainimage(filtertwo[0].dropdownmainimage)
           setdropdownmainparam(filtertwo[0].dropdownmainidtwo)
-          setdropdownmainheight('!h-[80vh]')
+          setdropdownmainheight('!h-[90vh]')
       } else {
           setdropdownmainheight(null)
       }
@@ -74,11 +74,11 @@ function DropdownMain() {
 
   return (
     <div>
-        <motion.main layout className={`w-screen h-0  overflow-hidden ${dropdownmainheight && dropdownmainheight} `}>
-            <section className="p-[20px] md:p-[60px] h-full relative flex flex-col md:grid md:grid-cols-12">
-                <figcaption className="col-span-7 flex flex-col justify-between">
+        <motion.main layout className={`w-screen h-0  overflow-hidden border-b border-black bg-black text-white ${dropdownmainheight && dropdownmainheight} `}>
+            <section className="h-full relative flex flex-col md:grid md:grid-cols-12">
+                <figcaption className="p-[60px] col-span-7 flex flex-col justify-between">
                     <div className="">
-                        <h1 className="l-h6 underline text-black">{dropdownmaintitle && dropdownmaintitle} Collections</h1>
+                        <h1 className="l-h6 underline text-white">{dropdownmaintitle && dropdownmaintitle} Collections</h1>
                         <br />
                         {dropdownmainrender && dropdownmainrender?.map(data => (<>
                         <article 
@@ -107,9 +107,9 @@ function DropdownMain() {
                     </article>
                 </figcaption>
                 <figure className="hidden md:flex col-span-5 items-center justify-center   overflow-hidden">
-                    <img src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-fit scale-50" />
+                    <img src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-fit" />
                 </figure>
-                <article className='w-[70px] h-[70px] text-5xl absolute flex justify-center items-center top-3 right-3 md:top-16 md:right-16  bg-white' >
+                <article className='w-[70px] h-[70px] text-5xl absolute flex justify-center items-center top-3 right-3 md:top-16 md:right-16  bg-black' >
                     <RiCloseFill onClick={() => {
                         setdropdownmainstate('')
                     }} />

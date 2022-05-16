@@ -15,7 +15,6 @@ import WireMain from '../../component/wire/WireMain'
 function HomeMain() {
     const {
         setappmainstate,
-        breadmainstate,
         setwiremainstate,
 
         postupdatedat,
@@ -84,15 +83,14 @@ function HomeMain() {
     ]
 
     useEffect(() => {
-        setappmainstate({
-            appmainidtwo: 'previewmain',
-            appmainid: 'menuarticle',
-            appmainboolean: true,
-        })
+        // setappmainstate({
+        //     appmainidtwo: 'previewmain',
+        //     appmainid: 'menuarticle',
+        //     appmainboolean: true,
+        // })
+        
         setwiremainstate({
             wiremainid: 'hometr',
-            wiremainidtwo: 'crummain',
-            wiremainpage: 2,
         })
     }, [])
 
@@ -173,50 +171,48 @@ function HomeMain() {
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="w-screen  overflow-hidden">
             <br />
-            <section className="py-[20px] px-[20px] md:px-[60px] h-screen md:h-[70vh] flex flex-col md:grid md:grid-cols-12">
-                <figcaption className="md:col-span-5 max-w-[300px] flex flex-col justify-between items-start  border-b border-black">
-                    <h1 className="text-5xl  font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>
-                    <button onClick={() => {
+            <section onClick={() => {
                       setappmainstate({
                         appmainid: 'postarticle',
                         appmainidtwo: 'previewmain',
                         appmainparam: postupdatedat && postupdatedat[0]?.postid,
                         appmainboolean: true,
                       })
-                    }} className="m-h3">Read more →</button>
+                      window.history.replaceState(null, "" , postupdatedat[0]?.postid)
+                    }} className="py-[20px] px-[20px] md:px-[60px] h-screen md:h-[80vh] flex flex-col md:grid md:grid-cols-12">
+                <figcaption className="md:col-span-5 max-w-[300px] flex flex-col justify-between items-start  border-b border-black">
+                    <h1 className="text-5xl  font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>
+                    <button className="m-h3">Read more →</button>
                 </figcaption>
-                <figure className="md:col-span-7 h-full flex items-center jus  overflow-hidden ">
-                    <img src={postupdatedat && postupdatedat[0]?.posthero} alt="" className="max-h-full" />
+                <figure className="md:col-span-7 h-full flex items-center justify-center  overflow-hidden border border-black">
+                    <img src={postupdatedat && postupdatedat[0]?.posthero} alt="" className="max-h-fit" />
                 </figure>
             </section>
-            {/* <section className="w-[1200px] md:w-full px-[20px] md:px-[60px]">
-                <WireMain />
-            </ section> */}
-            <section className="w-[1200px] md:w-full px-[20px] md:px-[60px]">
+
+            <section className="w-[1200px] md:w-full">
                 {homemainmap?.map(data => (<>
                 <br />
-                <hr />
                 <br />
-                <figcaption className="w-screen md:w-full flex flex-row justify-between items-center">
-                    <h1 className="m-h5">{data?.homemaintitle}</h1>
+                <figcaption className="px-[20px] md:px-[60px] w-screen md:w-full flex flex-row justify-between items-center">
+                    <h1 className="m-h5 font-serif">{data?.homemaintitle}</h1>
                     <button onClick={() => {
                         navigate(data?.homemaindirect)
                     }} className="l-h2">See all</button>
                 </figcaption>
                 <br />
-                <figure className="relative  overflow-y-hidden no-scrollbar">
+                <figure className="px-[20px] md:px-[60px] w-screen relative  overflow-hidden no-scrollbar">
 
-                    <div className="group grid grid-cols-4 gap-3">
+                    <div className="w-[1200px] md:w-full group grid grid-cols-4 gap-5">
                         {data?.homemainid === 'postupdatedat' && (<>
                         <button onClick={() => {
                             ll(data?.homemainmap?.length)
-                        }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-5xl  bg-white rounded-full border' />
+                        }} className="flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                            <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
                         </button>
                             {data?.homemainmap?.slice(homemainsliceone, homemainslicetwo).map(dat => (<>
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)
-                                    }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
+                                    }} key={dat?.postid} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
                             </>))}
                         </>)}
 
@@ -273,32 +269,32 @@ function HomeMain() {
                         </>)} */}
                     </div>
 
-                    <div className="group grid grid-cols-3 gap-3">
+                    <div className="w-[1000px] md:w-full group grid grid-cols-3 gap-5">
                         {data?.homemainid === 'placeupdatedat' && (<>
                         <button onClick={() => {
                             kk(data?.homemainmap?.length)
-                        }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-5xl  bg-white rounded-full border' />
+                        }} className="flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                            <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
                         </button>
                             {data?.homemainmap?.slice(homemainslicethree, homemainslicefour).map(dat => (<>
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)
-                                    }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
+                                    }} key={dat?.postid} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
                             </>))}
                         </>)}
                     </div>
 
-                    <div className="group grid grid-cols-4 gap-3">
+                    <div className="w-[1000px] md:w-full group grid grid-cols-4 gap-5">
                         {data?.homemainid === 'productupdatedat' && (<>
                         <button onClick={() => {
                             jj(data?.homemainmap?.length)
-                        }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-5xl  bg-white rounded-full border' />
+                        }} className="flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                            <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
                         </button>
                             {data?.homemainmap?.slice(homemainslicefive, homemainslicesix).map(dat => (<>
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)
-                                    }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} placepostid={dat?.placepostid} />
+                                    }} key={dat?.postid} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} placepostid={dat?.placepostid} />
                             </>))}
                         </>)}
                     </div>
@@ -307,6 +303,13 @@ function HomeMain() {
                 </>))}
                 <br />
             </section>
+            <br />
+            <br />
+            <section className="px-[20px] md:px-[60px]">
+                <WireMain />
+            </ section>
+            <br />
+            <br />
 
 
         </motion.main>

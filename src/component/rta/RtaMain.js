@@ -8,7 +8,7 @@ import { sheetmain, spreadmain } from '../../content/contentmain';
 import { ContextMain } from '../../context/contextmain'
 import HorizonMain from '../post/HorizonMain';
 
-function RtaMain() {
+function RtaMain({type}) {
   const {
     spreadmainstate,
     setbreadmainstate,

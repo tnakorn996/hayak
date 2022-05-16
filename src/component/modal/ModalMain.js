@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useMotionValue } from 'framer-motion'
 import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
@@ -14,6 +14,7 @@ function ModalMain() {
         appmainstate, setappmainstate,
         setstatemainstate,
         setspreadmainstate,
+        setsnackbarmainstate,
 
     } = useContext(ContextMain)
     const [modalmainstate, setmodalmainstate] = useState()
@@ -51,9 +52,10 @@ function ModalMain() {
             },
             modalmainaction: <button onClick={() => {
                     navigator.clipboard.writeText(`https://hayak.vercel.app/${appmainstate?.appmainparam}`) 
-                    setspreadmainstate({
-                        spreadmainid: 'success',
-                        spreadmainidtwo: 'sharedi',
+                    setsnackbarmainstate({
+                        snackbarmainid: 'sharefooter',
+                        snackbarmainidtwo: 'success',
+                        snackbarmainidthree: 'sharedi',
                     })
                     setappmainstate({
                         appmainid: 'overlay',
@@ -116,7 +118,7 @@ function ModalMain() {
   return (
     <div>
         <br />
-        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white border shadow-2xl">
+        <motion.main drag="y" dragConstraints={{ left: 0, right: 0 }} initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white border shadow-2xl border-black">
             <section className="p-[20px] text-center">
                 <h1 className="m-h4">{modalmaintitle}</h1>
             </section>

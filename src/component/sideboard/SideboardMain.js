@@ -4,20 +4,25 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
 import { RiCloseFill, RiContrastDropLine } from 'react-icons/ri'
-import { useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+// import { useLocation } from 'react-router-dom'
+import { breadmain, crummain } from '../../content/contentmain'
 
 import { ContextMain } from '../../context/contextmain'
 import CommentDialog from '../../page/comment/CommentDialog'
 import SearchDialog from '../../page/search/SearchDialog'
+import PortMain from '../port/PortMain'
 
 function SideboardMain() {
   const {
     appmainstate, setappmainstate,
+    setbreadmainstate,
 
 
   } = useContext(ContextMain)
-  const location = useLocation()
+  const [sideboardmainpage, setsideboardmainpage] = useState(0)
   const [sideboardmainrender, setsideboardmainrender] = useState()
+  const navigate = useNavigate()
 
   useEffect(() => {
     if(appmainstate && appmainstate.appmainid){
@@ -37,6 +42,60 @@ function SideboardMain() {
       sideboardrender: <CommentDialog />,
     },
   ]
+
+  const navdialog = [
+    {
+      sideboardrender: () => {
+        return <main className="h-full flex flex-col justify-between">
+          <section className="">
+            {breadmain?.map(data => (<>
+              <article onClick={() => {
+                setappmainstate({
+                            appmainid: 'navdialog',
+                            appmainidtwo: 'sideboardmain',
+                            appmainidthree: data.breadmainid,
+                            appmainboolean: true,
+                })
+                setsideboardmainpage(1)
+              }} className="p-[20px] flex flex-row items-start justify-between">
+                <h1 className="m-h6 text-2xl  font-serif">{data?.breadmaintitle}</h1>
+                <h1 className="m-h6 text-2xl  font-serif">→</h1>
+              </article>
+            </>))}
+          </section>
+          <section className="!bg-black">
+            <PortMain />
+          </section>
+        </main>
+        }
+    },
+    {
+      sideboardrender: () => {
+        const filter = crummain.filter(data => data.breadmainid === appmainstate.appmainidthree)
+        return <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="">
+          <section className="">
+            <button onClick={() => {
+              setsideboardmainpage(0)
+            }} className='m-button'>← Main menu</button>
+          </section>
+          <section className="">
+            {filter.map(data => (<>
+            <article onClick={() => {
+              setbreadmainstate({
+                            breadmainid: data?.breadmainid,
+                            breadmainidtwo: data?.crummainid,
+              })
+              navigate(`/category/${data?.breadmainid}`)
+            }} className="p-[20px]">
+                <h1 className="m-h6 text-2xl  font-serif">{data?.crummaintitle}</h1>
+                <h1 className="l-h5">{data?.crummainsubtitle}</h1>
+            </article>
+            </>))}
+          </section>
+        </motion.main>
+      }
+    },
+  ]
     
   const sideboardmain = [
     {
@@ -47,16 +106,28 @@ function SideboardMain() {
       sideboardmainid: 'commentdialog',
       sideboardmainref: commentdialog,
     },
+    {
+      sideboardmainid: 'navdialog',
+      sideboardmainref: navdialog,
+    },
   ]
 
   useEffect(() => {
     if(appmainstate && appmainstate.appmainidtwo === 'sideboardmain'){
-      const filter = sideboardmain.filter(data => data.sideboardmainid === appmainstate.appmainid)
-      const filtertwo = filter[0].sideboardmainref.filter(data => filter[0].sideboardmainref.indexOf(data) === 0)
-      setsideboardmainrender(filtertwo[0].sideboardrender) 
+        const filter = sideboardmain.filter(data => data.sideboardmainid === appmainstate.appmainid)
+        const filtertwo = filter[0].sideboardmainref.filter(data => filter[0].sideboardmainref.indexOf(data) === sideboardmainpage)
+        setsideboardmainrender(filtertwo[0].sideboardrender) 
     }
+  }, [appmainstate, sideboardmainpage])
 
-  }, [appmainstate])
+  // useEffect(() => {
+  //   if(sideboardmainpage){
+  //     console.log('object :>> ');
+  //     const filter = sideboardmain.filter(data => data.sideboardmainid === appmainstate.appmainid)
+  //     const filtertwo = filter[0].sideboardmainref.filter(data => filter[0].sideboardmainref.indexOf(data) === sideboardmainpage)
+  //     setsideboardmainrender(filtertwo[0].sideboardrender) 
+  //   }
+  // }, [sideboardmainpage])
 
   return (
     <div>
@@ -81,8 +152,12 @@ function SideboardMain() {
                 }} className="z-10 absolute top-3 right-3 text-4xl  text-white bg-black rounded-full" />
               </figcaption>
             </section>
-            <section className="h-[90vh] w-full">
+            <section className="h-[80vh] w-full">
               {sideboardmainrender && sideboardmainrender}
+            </section>
+            <section className="h-[10vh] w-full p-[20px] grid grid-flow-col  border-t border-gray-700">
+              <button className="m-button">Our story</button>
+              <button className="l-button">List your business</button>
             </section>
         </motion.main>
     </div>

@@ -13,14 +13,14 @@ function AboutMain() {
   } = useContext(ContextMain)
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="w-screen min-w-screen  overflow-hidden">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="overflow-hidden">
           {/* <ExitMain /> */}
-            <section className=" bg-orange-900 text-white">
+            <section className=" bg-gray-900 text-white">
               <div className="min-h-screen max-w-[900px] mx-auto flex flex-col md:grid md:grid-cols-12 items-center">
               <figcaption className="p-[30px] min-h-[30vh] md:col-span-8 flex items-center">
                 <h1 className="text-5xl md:text-8xl  m-h6 font-serif">New Zealand  <span className=" font-sans">⎼ New Story</span></h1>
               </figcaption>
-              <figure className="w-[300px] h-[300px] min-h-[40vh] md:col-span-4 flex flex-row justify-center items-center gap-5  overflow-hidden bg-orange-800 rounded-full">
+              <figure className="">
                 {/* <h1 className="text-3xl">→</h1> */}
                 {/* <img src="https://static.wixstatic.com/media/0e0314_0a37b8770f5342f58fbad16bf83bc330~mv2.png" alt="" className="" /> */}
                 <RiContrastDropLine className='text-9xl' />
@@ -33,9 +33,9 @@ function AboutMain() {
               </figure>
               </div>
             </section>
-            <section className=" bg-orange-100">
-              <div className="min-h-screen max-w-[900px] mx-auto flex flex-col md:grid md:grid-cols-12 items-center justify-items-center ">
-              <figcaption className="p-[30px] min-h-[50vh] md:col-span-12 flex items-center text-center">
+            <section className=" bg-gray-100">
+              <div className="min-h-screen flex flex-col md:grid md:grid-cols-12 items-center justify-items-center ">
+              <figcaption className=" max-w-[900px] mx-auto p-[30px] min-h-[50vh] md:col-span-12 flex items-center text-center">
                 <div className="">
                 <br />
                 <h1 className="text-6xl  m-h6 font-serif">A living story of Kiwi's mind </h1>
@@ -53,13 +53,13 @@ function AboutMain() {
                 <br />
                 </div>
               </figcaption>
-              <figure className="md:p-[30px] min-h-[50vh] md:col-span-12 flex flex-row items-center gap-5  overflow-hidden">
+              <figure className="col-span-12 w-full">
                 <h1 className="text-3xl">→</h1>
                 <img src="https://media.istockphoto.com/photos/eating-mixed-paella-picture-id468744586?k=20&m=468744586&s=170667a&w=0&h=JqZ3gKZuHLNcowfEt3zm7fz9PakN8awe4LDKpHEFPoQ=" alt="" className="w-[900px]" />
               </figure>
               </div>
             </section>
-            <section className=" bg-orange-800 text-white">
+            <section className=" bg-gray-800 text-white">
               <div className="min-h-screen max-w-[900px] mx-auto flex flex-col md:grid md:grid-cols-12 items-center">
               <figure className="p-[30px] min-h-[50vh] md:col-span-5 flex flex-col items-center gap-5  overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1628919350249-eb45d8829629?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" alt="" className="shadow-2xl" />
@@ -91,7 +91,7 @@ function AboutMain() {
                 <h1 className="text-6xl  m-h6 font-serif">Objectives</h1>
                 <h1 className="text-3xl">→</h1>
                 </div>
-                <div className="p-[20px]  bg-orange-200">
+                <div className="p-[20px]  bg-gray-200">
                   <h1 className="l-h3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, temporibus explicabo! Exercitationem commodi quia labore sit consectetur ducimus nostrum explicabo.</h1>
                 </div>
               </figure>
@@ -108,7 +108,7 @@ function AboutMain() {
                 </div>
               </figcaption>
             </section>
-            <section className="  bg-orange-100">
+            <section className="  bg-gray-100">
               <div className="min-h-screen max-w-[900px] mx-auto flex flex-col md:grid md:grid-cols-12 items-center">
               <figcaption className="p-[30px] min-h-[50vh] md:col-span-6 flex flex-col justify-center items-center">
                 <div className="">
@@ -125,7 +125,7 @@ function AboutMain() {
               </figure>
               </div>
             </section>
-            <section className="bg-orange-800 text-white">
+            <section className="bg-gray-800 text-white">
               <div className="min-h-screen max-w-[900px] mx-auto flex flex-col md:grid md:grid-cols-12 items-center text-center">
               <figcaption className="p-[30px] min-h-[50vh] md:col-span-4 flex flex-col justify-center items-center">
                 <div className="">

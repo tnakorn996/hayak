@@ -17,6 +17,7 @@ import CtaMain from '../../component/ctamain/CtaMain'
 import RtaMain from '../../component/rta/RtaMain'
 import SpreadMain from '../../component/spread/SpreadMain'
 import { breadmain } from '../../content/contentmain'
+import LoadMain from '../../component/load/LoadMain'
 
 function PostIndex() {
     const {
@@ -185,46 +186,59 @@ function PostIndex() {
                     setctamainstate({
                         ctamainid: postpostid?._type,
                         ctamainidtwo: true,
+                        ctamainrender: postpostid,
                     })
-                    // setrtamainstate({
-                    //     rtamainid: postpostid?._type,
-                    //     rtamainidtwo: true,
-                    //     rtamaindata: placeplaceid,
-                    //     rtamaindatatwo: productpostid,
-                    // })
+                    const empty = []
+                    postindextwo?.forEach(data => {
+                        if (data?.postindextworender?.length <= 0){
+                            empty.push({
+                                spreadmainid: 'break',
+                                spreadmainidtwo: data.postindextwoid,
+                                spreadmainrender: data.postindextworender,
+                            })
+                            setspreadmainstate(empty)
+                        }
+                        if (data?.postindextworender?.length > 0) {
+                            empty.push({
+                                spreadmainid: 'success',
+                                spreadmainidtwo: data.postindextwoid,
+                                spreadmainrender: data.postindextworender,
+                            })
+                            setspreadmainstate(empty)
+                        }
+                    })
+
 
                 } 
 
                 if(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe'){
                     setctamainstate({
                         ctamainid: postpostid?._type,
+                        ctamainrender: postpostid,
                     })
-                    // setrtamainstate({
-                    //     rtamainid: postpostid?._type,
-                    //     rtamaindata: placeplaceid,
-                    //     rtamaindatatwo: productplaceid,
-                    // })
+                    const empty = []
+                    const filter = postindextwo.filter(data => data.postindextwoid !== 'pickdi')
+                    filter?.forEach(data => {
+                        if (data?.postindextworender?.length <= 0){
+                            empty.push({
+                                spreadmainid: 'break',
+                                spreadmainidtwo: data.postindextwoid,
+                                spreadmainrender: data.postindextworender,
+                            })
+                            setspreadmainstate(empty)
+                        }
+                        if (data?.postindextworender?.length > 0) {
+                            empty.push({
+                                spreadmainid: 'success',
+                                spreadmainidtwo: data.postindextwoid,
+                                spreadmainrender: data.postindextworender,
+                            })
+                            setspreadmainstate(empty)
+                        }
+                    })
+                    
                 }     
 
-                const empty = []
-                postindextwo?.forEach(data => {
-                    if (data?.postindextworender?.length <= 0){
-                        empty.push({
-                            spreadmainid: 'break',
-                            spreadmainidtwo: data.postindextwoid,
-                            spreadmainrender: data.postindextworender,
-                        })
-                        setspreadmainstate(empty)
-                    }
-                    if (data?.postindextworender?.length > 0) {
-                        empty.push({
-                            spreadmainid: 'success',
-                            spreadmainidtwo: data.postindextwoid,
-                            spreadmainrender: data.postindextworender,
-                        })
-                        setspreadmainstate(empty)
-                    }
-                })
         }
     },[ placeplaceid, productplaceid, productpostid])
     
@@ -350,6 +364,8 @@ function PostIndex() {
     //     }
     // }
 
+    if(!postpostid) return <LoadMain />
+
   return (
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="px-[20px] md:px-[60px] flex flex-col md:grid md:grid-cols-12 gap-3">
@@ -374,9 +390,14 @@ function PostIndex() {
                 <br />
             </figcaption>
             <figure className="col-span-12 md:col-span-7">
+                <section className="block md:hidden">
+                    <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
+                    <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
+                    <br />
+                </section>
                 <section className="">
-                    <figure className="relative min-h-[50vh] grid items-center justify-items-center">
-                        <img src={postpostid?.posthero} alt="" className="z-10 w-full" />
+                    <figure className="relative min-h-[20vh] md:min-h-[50vh] grid items-center justify-items-center">
+                        <img src={postpostid?.posthero} alt="" className="z-10 w-full " />
                         <div className="absolute">
                         <LoadingMain />
                         </div>
@@ -440,7 +461,7 @@ function PostIndex() {
                 </section>
             </figure>
             <figcaption className="p-0 md:p-[30px] md:col-span-5">
-                <section className="">
+                <section className="hidden md:block">
                     <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                 </section>
@@ -462,7 +483,7 @@ function PostIndex() {
                 <hr />
                 <br />
                 <section className="overflow-y-scroll">
-                <div className="w-[1000px] md:w-full grid grid-cols-4 gap-3">
+                <div className="w-[1200px] md:w-full grid grid-cols-4 gap-3">
                 {postindexrenderfour?.slice(0, 4)?.map(data => (<>
                     <VerticleMain onlick={() => {
                                     navigate(`/${data?.postid}`)

@@ -30,6 +30,7 @@ export const Provider = ({ children }) => {
     const [statemainstate, setstatemainstate] = useState()
     const [spreadmainstate, setspreadmainstate] = useState()
     const [wiremainstate, setwiremainstate] = useState()
+    const [snackbarmainstate, setsnackbarmainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -119,6 +120,7 @@ export const Provider = ({ children }) => {
           statemainstate, setstatemainstate,
           spreadmainstate, setspreadmainstate,
           wiremainstate, setwiremainstate,
+          snackbarmainstate, setsnackbarmainstate,
 
           userindex,
           postplaceproduct,

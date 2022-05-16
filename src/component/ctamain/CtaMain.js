@@ -19,8 +19,16 @@ function CtaMain() {
 
     const postembed = [
         {
-            ctamainrender: <button className="m-h3 w-full m-button">Seller website</button>,
-            ctamainrendertwo: <button className="m-h3 w-full l-button  border border-black">Check avability product</button>,
+            ctamainrender: <button onClick={() => {
+                setappmainstate({
+                            appmainid: 'sharesection',
+                            appmainidtwo: 'modalmain',
+                            appmainidthree: 0,
+                            appmainparam: param.id,
+                            appmainboolean: true,
+                        })
+            }} className="m-h3 w-full m-button">Share post</button>,
+            ctamainrendertwo: <button className="m-h3 w-full l-button  border border-black">Check avability comments</button>,
         },
         {
             ctamainrender: <button onClick={() => {
@@ -32,21 +40,27 @@ function CtaMain() {
                             appmainboolean: true,
                         })
             }} className="m-h3 w-full m-button">Share recipes</button>,
-            ctamainrendertwo: <button className="m-h3 w-full l-button  border border-black">Check avability reviews</button>,
+            ctamainrendertwo: <button className="m-h3 w-full l-button  border border-black">Check avability comments</button>,
         },
     ]
 
     const placeembed = [
         {
-            ctamainrender: <button className="m-h3 w-full m-button">Seller website</button>,
-            ctamainrendertwo: <button className="m-h3 w-full l-button  border border-black">Check avability product</button>,
+            ctamainrender: <button onClick={() => {
+                window.open(ctamainstate?.ctamainrender?.postplaceurl, '_blank').focus();
+            }} className="m-h3 w-full m-button">Seller website</button>,
+            ctamainrendertwo: <button className="m-h3 w-full l-button  border border-black">Check avability reviews</button>,
         },
     ]
 
     const productembed = [
         {
-            ctamainrender: <button className="m-h3 w-full m-button">Seller website</button>,
-            ctamainrendertwo: <button className="m-h3 w-full l-button  border border-black">Check avability product</button>,
+            ctamainrender: <button onClick={() => {
+                window.open(ctamainstate?.ctamainrender?.placeplaceid[0]?.postplaceurl, '_blank').focus();
+            }} className="m-h3 w-full m-button">Seller website</button>,
+            ctamainrendertwo: <button onClick={() => {
+                window.open(ctamainstate?.ctamainrender?.postproducturl, '_blank').focus();
+            }} className="m-h3 w-full l-button  border border-black">Check avability product</button>,
         },
     ]
 

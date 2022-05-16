@@ -318,19 +318,19 @@ export const sheetmain = [
 
     },
     {
+        sheetmainid: 'pickdi',
+        sheetmaintitle: 'Find products',
+        sheetmainsubtitle: `What You'll Need`,
+        sheetmainaction: `/category/product`,
+    },
+    {
         sheetmainid: 'productdi',
         sheetmaintitle: 'Find products',
         sheetmainsubtitle: 'Related Products',
         sheetmainaction: `/category/product`,
 
     },
-    {
-        sheetmainid: 'pickdi',
-        sheetmaintitle: 'Find products',
-        sheetmainsubtitle: `What You'll Need`,
-        sheetmainaction: `/category/product`,
 
-    },
 ]
 
 
@@ -366,6 +366,7 @@ export const crummain = [
     {
         crummainid: 'recipe',
         crummaintitle: 'Recipe',
+        crummainsubtitle: 'adfasfsadfsadfsfd',
         crummainstyle: 'bg-gray-900 text-white',
         crummainimage: 'https://images.unsplash.com/photo-1506368083636-6defb67639a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
         // crummainref: categoryli,
@@ -374,6 +375,7 @@ export const crummain = [
     {
         crummainid: 'review',
         crummaintitle: 'Review',
+        crummainsubtitle: 'adfasfsadfsadfsfd',
         crummainstyle: 'bg-gray-900 text-white',
         crummainimage: 'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
         // crummainref: categoryli,
@@ -382,6 +384,9 @@ export const crummain = [
     {
         crummainid: 'interview',
         crummaintitle: 'Interview',
+        crummainsubtitle: 'adfasfsadfsadfsfd',
+        crummainstyle: 'bg-gray-900 text-white',
+
         crummainimage: 'https://images.unsplash.com/photo-1529395045262-dc9665365b0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1978&q=80',
         // crummainref: categoryli,
         breadmainid: 'post',
@@ -391,6 +396,9 @@ export const crummain = [
     {
         crummainid: 'meat',
         crummaintitle: 'Meat',
+        crummainsubtitle: 'adfasfsadfsadfsfd',
+        crummainstyle: 'bg-gray-900 text-white',
+
         crummainimage: 'https://images.unsplash.com/photo-1513615147033-3ed2afaaae8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
         // crummainref: categoryli,
         breadmainid: 'product',
@@ -399,6 +407,9 @@ export const crummain = [
     {
         crummainid: 'coffee',
         crummaintitle: 'Coffee',
+        crummainsubtitle: 'adfasfsadfsadfsfd',
+        crummainstyle: 'bg-gray-900 text-white',
+
         crummainimage: 'https://images.unsplash.com/photo-1623593721974-f39b78528626?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
         // crummainref: categoryli,
         breadmainid: 'product',
@@ -407,6 +418,9 @@ export const crummain = [
     {
         crummainid: 'alcohol',
         crummaintitle: 'Alcohol',
+        crummainsubtitle: 'adfasfsadfsadfsfd',
+        crummainstyle: 'bg-gray-900 text-white',
+
         crummainimage: 'https://images.unsplash.com/photo-1623593688280-a5aec8ac4ae7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
         // crummainref: categoryli,
         breadmainid: 'product',
@@ -415,6 +429,9 @@ export const crummain = [
     {
         crummainid: 'daily',
         crummaintitle: 'Daily',
+        crummainsubtitle: 'adfasfsadfsadfsfd',
+        crummainstyle: 'bg-gray-900 text-white',
+
         crummainimage: 'https://images.unsplash.com/photo-1600379097298-0217be1203c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
         // crummainref: categoryli,
         breadmainid: 'product',
@@ -423,6 +440,9 @@ export const crummain = [
     {
         crummainid: 'vegetable',
         crummaintitle: 'Vegetable',
+        crummainsubtitle: 'adfasfsadfsadfsfd',
+        crummainstyle: 'bg-gray-900 text-white',
+
         crummainimage: 'https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80',
         // crummainref: categoryli,
         breadmainid: 'product',
@@ -432,6 +452,9 @@ export const crummain = [
     {
         crummainid: 'retail',
         crummaintitle: 'Retail',
+        crummainsubtitle: 'adfasfsadfsadfsfd',
+        crummainstyle: 'bg-gray-900 text-white',
+
         crummainimage: 'https://images.unsplash.com/photo-1616715320643-b6d9214b9946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
         // crummainref: categoryli,
         breadmainid: 'place',
@@ -440,6 +463,9 @@ export const crummain = [
     {
         crummainid: 'manufacturer',
         crummaintitle: 'Manufacturer',
+        crummainsubtitle: 'adfasfsadfsadfsfd',
+        crummainstyle: 'bg-gray-900 text-white',
+
         crummainimage: 'https://images.unsplash.com/photo-1522643628976-0a170f6722ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2016&q=80',
         // crummainref: categoryli,
         breadmainid: 'place',
@@ -448,6 +474,9 @@ export const crummain = [
     {
         crummainid: 'restaurant',
         crummaintitle: "Chef's Restaurant",
+        crummainsubtitle: 'adfasfsadfsadfsfd',
+        crummainstyle: 'bg-gray-900 text-white',
+
         crummainimage: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
         // crummainref: categoryli,
         breadmainid: 'place',

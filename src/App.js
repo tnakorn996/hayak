@@ -79,7 +79,7 @@ export default function App() {
     const dashboard = (
     <div className="App">
       <main className="">
-        <section className="">
+        <section className="sticky z-30 top-0 left-0">
           <NavMain />
           
         </section>
@@ -105,13 +105,13 @@ export default function App() {
         <PortMain />
         </section>
 
-        <section className="">
-        {appmainstate?.appmainboolean && (<>
+        <section className="z-30 sticky">
+        {appmainstate?.appmainboolean === true && (<>
         <BackdropMain />
         </>)}
         </section>
 
-        <section className="">
+        <section className="z-30 sticky">
         {appmainstate?.appmainid === 'overlay' && (<>
         <Overlay />
         </>)}

@@ -20,7 +20,8 @@ function SpreadMain() {
   const [spreadmainrendertwo, setspreadmainrendertwo] = useState()
 
   useEffect(() => {
-    if(spreadmainstate){
+    // console.log('spreadmainstate :>> ', spreadmainstate);
+    if(spreadmainstate && spreadmainstate.spreadmainrender !== null){
       const empty = []
       sheetmain.forEach(data  => {
         for(const dat of spreadmainstate){
@@ -58,14 +59,14 @@ function SpreadMain() {
               <section className="col-span-1">
                 <h1 className="l-m3">{da?.spreadmainicon}</h1>
               </section>
-              <section className="col-span-7">
+              <section className="col-span-6">
                 <h1 className="l-m3">{da?.spreadmaintitle}</h1>
                 <h1 className="l-m3">{dat?.sheetmaintitle}</h1>
               </section>
               <section onClick={() => {
                 setbreadmainstate('')
                 navigate(`${dat?.sheetmainaction}`)
-              }} className="col-span-4">
+              }} className="col-span-5">
                 <button className="w-full  l-button">See more</button>
               </section>
             </figure>

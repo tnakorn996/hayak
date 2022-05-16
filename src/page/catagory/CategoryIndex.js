@@ -164,14 +164,13 @@ function CategoryIndex() {
                 </button>
                 <button className="hidden md:flex md:fixed z-10 top-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black" />
                 {categoryindexrender?.map(data => (<>
-                <hr />
                 <br />
                 <figcaption className="  flex flex-row justify-between items-center ">
-                    <h1 className="m-h5">{data?.categoryindextitle} {categoryindextitle}</h1>
+                    <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle}</h1>
                 </figcaption>
                 <br />
                 <figure className="overflow-y-auto sm:overflow-y-hidden no-scrollbar">
-                    <div className="grid grid-cols-4 gap-3">
+                    <div className="grid grid-cols-4 gap-5">
                     {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
                         <VerticleMain onlick={() => {
                             navigate(`/${dat?.postid}`)
