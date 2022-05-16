@@ -38,14 +38,14 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
                         appmainboolean: true,
                       })
                       window.history.replaceState(null, "" , postid)
-                    }} className="relative row-span-3 overflow-hidden h-[20vh] flex items-center   border border-black">
+                    }} className="relative row-span-3 overflow-hidden h-[60vh] flex justify-center items-center   border border-black">
                     {priceid === 'pro' && (<>
                     <figure className="z-20 absolute top-2 left-2">
                       <RiContrastDropLine className='m-h6 text-white  !opacity-100' />
                     </figure>
                     </>)}
                     {/* <div className="absolute top-0 left-0 z-10 w-full h-full  bg-black opacity-10" /> */}
-                    <img src={posthero} alt="" className=" hover:scale-110 duration-1000" />
+                    <img src={posthero} alt="" className="max-w-[100ch] h-full hover:scale-110 duration-1000" />
                 </figure>
                 <figure className="relative flex flex-row py-[7px] gap-2 justify-end items-center">
                     {placepostid && (<>

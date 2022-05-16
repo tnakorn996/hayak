@@ -48,24 +48,22 @@ function PortMain() {
 
   return (
     <div>
-        <main className="p-[20px] md:px-[60px] bg-gray-100 text-black">
-            <br />
+        <main className="h-[80vh] p-[20px] md:px-[60px] flex justify-center items-center  bg-gray-100 text-black">
             {portmaindata?.map(data => (<>
             <article onClick={() => {
                         setbreadmainstate('')
                         navigate(data?.breadmainaction)
                     }} className="">
-                <section className="max-w-[500px] mx-auto">
+                <section className="flex-col mx-auto h-[30vh] flex md:flex-row justify-center text-center items-center gap-3">
                     <h1 className="flex flex-row items-center  m-h6 font-serif"><RiContrastDropLine className='' />{data?.breadmaintitle}</h1>
                     <h1 className="m-h4 text-gray-500">{data?.breadmainsubtitle}</h1>
                 </section>
                 <br />
-                <section className="max-w-[500px] mx-auto">
+                <section className="max-w-[500px] mx-auto h-[20vh] flex justify-center items-center">
                     <button className="m-h3  ">{data?.breadmainentitle} →</button>
                 </section>
             </article>
             </>))}
-            <br />
         </main>
     </div>
   )

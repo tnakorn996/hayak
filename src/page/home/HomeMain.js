@@ -179,13 +179,13 @@ function HomeMain() {
                         appmainboolean: true,
                       })
                       window.history.replaceState(null, "" , postupdatedat[0]?.postid)
-                    }} className="py-[20px] px-[20px] md:px-[60px] h-screen md:h-[80vh] flex flex-col md:grid md:grid-cols-12">
-                <figcaption className="md:col-span-5 max-w-[300px] flex flex-col justify-between items-start  border-b border-black">
-                    <h1 className="text-5xl  font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>
-                    <button className="m-h3">Read more →</button>
+                    }} className="py-[20px] px-[20px] md:px-[60px] h-[80vh] flex flex-col md:grid md:grid-flow-col gap-3">
+                <figcaption className="max-w-[50vw] flex flex-col justify-between items-start  border-b border-black">
+                    <h1 className="text-6xl font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>
+                    <button className="m-button">Read more →</button>
                 </figcaption>
-                <figure className="md:col-span-7 h-full flex items-center justify-center  overflow-hidden border border-black">
-                    <img src={postupdatedat && postupdatedat[0]?.posthero} alt="" className="max-h-fit" />
+                <figure className="flex items-center justify-center  overflow-hidden border border-black">
+                    <img src={postupdatedat && postupdatedat[0]?.posthero} alt="" className="max-h-[100ch] w-full" />
                 </figure>
             </section>
 
@@ -193,8 +193,8 @@ function HomeMain() {
                 {homemainmap?.map(data => (<>
                 <br />
                 <br />
-                <figcaption className="px-[20px] md:px-[60px] w-screen md:w-full flex flex-row justify-between items-center">
-                    <h1 className="m-h5 font-serif">{data?.homemaintitle}</h1>
+                <figcaption className="h-[10vh] px-[20px] md:px-[60px] w-screen md:w-full flex flex-row justify-between items-center">
+                    <h1 className="m-h5  font-serif">{data?.homemaintitle}</h1>
                     <button onClick={() => {
                         navigate(data?.homemaindirect)
                     }} className="l-h2">See all</button>

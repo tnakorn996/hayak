@@ -20,7 +20,7 @@ function WireMain() {
       {
         wiremainrender: () => {
           const filter = crummain.filter(data => data.breadmainid !== breadmainstate?.breadmainid)
-          return <section className="grid grid-cols-2 md:grid-cols-6 gap-5">
+          return <section className="grid grid-cols-2 gap-5">
           {filter.slice(0, 6).map(data => (<>
             <article onClick={() => {
               setbreadmainstate({
@@ -29,10 +29,10 @@ function WireMain() {
               })
               navigate(`/category/${data?.breadmainid}`)
             }} className={` ${data?.crummainstyle} !bg-black border border-black`}>
-              <figure className="relative h-[300px] flex items-center justify-center  overflow-hidden">
+              <figure className="relative h-[40vh] md:h-[80vh] flex items-center justify-center  overflow-hidden">
                 <img src={data?.crummainimage} alt="" className="max-w-fit scale-50" />
-                <div className="absolute bottom-0 h-[10vh] w-full  bg-gradient-to-b from-transparent to-black" />
-                <h1 className="absolute bottom-0 p-[20px] w-full  m-h6 font-serif truncate">{data.crummaintitle}</h1>
+                <div className="absolute bottom-0 h-[10vh] md:h-[50vh] w-full  bg-gradient-to-b from-transparent to-black" />
+                <h1 className="absolute bottom-0 p-[20px] md:text-8xl w-full  m-h6 font-serif truncate">{data.crummaintitle}</h1>
               </figure>
             </article>
             </>))}
