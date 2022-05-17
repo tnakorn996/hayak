@@ -6,10 +6,10 @@ function ContactMain() {
   return (
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="w-screen min-h-screen flex flex-col md:grid md:grid-cols-12 items-center  bg-black text-white">
-            <section className="col-span-7 p-[40px] max-w-[500px] mx-auto  ">
+            <section className="col-span-7 p-[40px] max-w-[700px] mx-auto  ">
                 <ExitMain />
                 <br /><br />
-                <h1 className="text-5xl  m-h6 font-serif">Contact us by sending an enquiry below.</h1>
+                <h1 className="text-5xl  m-h6 font-serif">Want to be part of Hayak? Drop us a line!</h1>
                 <br />
                 <input className="w-full  l-input focus:outline-none" placeholder='Name' />
                 <br /><br />

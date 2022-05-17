@@ -54,7 +54,7 @@ function PortMain() {
                         setbreadmainstate('')
                         navigate(data?.breadmainaction)
                     }} className="">
-                <section className="flex-col mx-auto h-[30vh] flex md:flex-row justify-center text-center items-center gap-3">
+                <section className="flex-col mx-auto h-[30vh] flex justify-center text-center items-center gap-3">
                     <h1 className="flex flex-row items-center  m-h6 font-serif"><RiContrastDropLine className='' />{data?.breadmaintitle}</h1>
                     <h1 className="m-h4 text-gray-500">{data?.breadmainsubtitle}</h1>
                 </section>

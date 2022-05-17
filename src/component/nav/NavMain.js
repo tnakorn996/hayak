@@ -4,7 +4,7 @@ import {BiFoodTag} from 'react-icons/bi'
 import {RiContrastDropLine, RiSearch2Line, RiCloseFill, RiMenuLine} from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 
-import { categorymain, navmain } from '../../content/contentmain'
+import { breadmain, categorymain, navmain } from '../../content/contentmain'
 import { ContextMain } from '../../context/contextmain'
 import DropdownMain from '../dropdown/DropdownMain'
 
@@ -23,13 +23,13 @@ function NavMain() {
         <main className="z-20 mx-auto grid grid-cols-11 items-center   bg-white bg-opacity-95 backdrop-blur">
             <section className="hidden p-[20px] md:px-[60px] md:py-[30px] col-span-5 md:flex flex-row justify-start gap-1">
                     <div className="flex flex-row">
-                        {categorymain?.map(data => (<>
+                        {breadmain?.map(data => (<>
                         <article 
                         
                         onMouseEnter={() => {
                             setdropdownmainstate({
                                 dropdownmainid: 'navoption',
-                                dropdownmainidtwo: data?.categorymainid,
+                                dropdownmainidtwo: data?.breadmainid,
                             })
                         }} 
                         
@@ -39,7 +39,7 @@ function NavMain() {
                         // }} 
                         
                         className='l-button' >
-                            <h1 className={` first-letter:uppercase ${dropdownmainstate?.dropdownmainidtwo ===  data?.categorymainid && 'border-b border-black text-black'}`}>{data?.categorymaintitle}</h1>
+                            <h1 className={` first-letter:uppercase ${dropdownmainstate?.dropdownmainidtwo ===  data?.breadmainid && 'border-b border-black text-black'}`}>{data?.breadmaintitle}</h1>
                         </article>
                         </>))}
                     </div>

@@ -18,7 +18,11 @@ function AlertMain() {
         {
             alertmainicon: <RiInformationLine />,
             alertmaintitle: `DISCLAIMER: The views and opinions expressed in this presentation are those of the author and do not represent the perspectives of any organization.`,
-        }
+        },
+        {
+            alertmainicon: <RiInformationLine />,
+            alertmaintitle: `DISCLAIMER: The photos owned by ${alertmainstate?.alertmainfullname}`,
+        },
     ]
     const alertmain = [
         {
@@ -30,7 +34,7 @@ function AlertMain() {
     useEffect(() => {
       if(alertmainstate){
           const filter = alertmain.filter(data => data.alertmainid === alertmainstate.alertmainid)
-          const filtertwo = filter[0].alertmainref.filter(data => filter[0].alertmainref.indexOf(data) === 0)
+          const filtertwo = filter[0].alertmainref.filter(data => filter[0].alertmainref.indexOf(data) === alertmainstate.alertmainpage)
             setalertmainicon(filtertwo[0].alertmainicon)
             setalertmaintitle(filtertwo[0].alertmaintitle)
       }
@@ -40,7 +44,6 @@ function AlertMain() {
     <div>
         <main className="">
             <section className="">
-                <br />
                 <article className="p-[20px] flex flex-row gap-1 items-start  bg-gray-50">
                     <div className="">
                     <h1 className="">{alertmainicon && alertmainicon}</h1>
@@ -49,7 +52,6 @@ function AlertMain() {
                     <h1 className="">{alertmaintitle && alertmaintitle}</h1>
                     </div>
                 </article>
-                <br />
             </section>
         </main>
     </div>

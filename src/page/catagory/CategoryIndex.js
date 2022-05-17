@@ -6,7 +6,6 @@ import { RiArrowRightSLine , RiFilter3Fill} from 'react-icons/ri'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-import ImpulseMain from '../../component/inpulse/ImpulseMain'
 import VerticleMain from '../../component/post/VerticleMain'
 import { breadmain, crummain } from '../../content/contentmain'
 import { ContextMain } from '../../context/contextmain'
@@ -26,6 +25,7 @@ function CategoryIndex() {
 
     const [categoryindexrender, setcategoryindexrender] = useState()
     const [categoryindextitle, setcategoryindextitle] = useState()
+    const [categoryindexdetail, setcategoryindexdetail] = useState()
     const [categoryindexsliceone, setcategoryindexsliceone] = useState(0)
     const [categoryindexslicetwo, setcategoryindexslicetwo] = useState(4)
 
@@ -55,6 +55,7 @@ function CategoryIndex() {
         if(breadmain && crummain){
             const filter = breadmain.filter(data => data.breadmainid === param.id)
             setcategoryindextitle(filter[0]?.breadmaintitle)
+            setcategoryindexdetail(filter[0]?.breadmaindetail)
         }
     }, [])
     
@@ -140,12 +141,14 @@ function CategoryIndex() {
   return (
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="overflow-hidden">
-            {/* <section className="max-w-[1200px] mx-auto px-[20px] md:px-[60px] py-[20px]">
-                <ImpulseMain />
-            </section> */}
-            {/* <section className="max-w-[1200px] mx-auto px-[20px] md:px-[60px] py-[20px]">
-                <h1 className=" m-h6 first-letter:uppercase">{categoryindextitle} </h1>
-            </section> */}
+            <section className="px-[20px] md:px-[60px] w-full mx-auto h-[30vh] flex items-center">
+                <div className="">
+                <h1 className="text-3xl font-serif m-h6 first-letter:uppercase">{categoryindextitle} </h1>
+                <br />
+                <h1 className="md:max-w-[900px] l-h2 first-letter:uppercase">{categoryindexdetail} </h1>
+                </div>
+            </section>
+            <hr />
             <section className="px-[20px] md:px-[60px] py-[20px] flex justify-end">
                 {breadmainstate?.breadmainidtwo && <button onClick={() => setbreadmainstate('')} className="flex flex-row items-center gap-3  l-button border border-black"> <span className="m-h2">╳</span>  {breadmainstate?.breadmainidtwo}</button>}
                 <button onClick={() => {
@@ -158,6 +161,7 @@ function CategoryIndex() {
                     })
                 }} className="flex flex-row items-center gap-2  l-button"><RiFilter3Fill /> Filter</button>
             </section>
+            <hr />
             <section className="px-[20px] md:px-[60px] w-[1200px] md:w-full mx-auto relative group">
                 <button onClick={() => jj()} className="hidden group-hover:flex fixed z-20 top-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                     <RiArrowRightSLine className='text-5xl' />

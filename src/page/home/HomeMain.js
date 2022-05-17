@@ -46,7 +46,7 @@ function HomeMain() {
         {
             homemainid: 'placeupdatedat',
             homemainmap: placeupdatedat,
-            homemaintitle: 'Hot Location',
+            homemaintitle: 'Hot Places',
             homemaindirect: '/category/place',
         },
                 {
@@ -91,6 +91,7 @@ function HomeMain() {
         
         setwiremainstate({
             wiremainid: 'hometr',
+            wiremainindex: 0,
         })
     }, [])
 
@@ -156,12 +157,14 @@ function HomeMain() {
     // }
 
     // window.onscroll = function (){
-    //     if ((window.innerHeight + document.documentElement.scrollTop) > (document.documentElement.offsetHeight) * 70 /100) {
+    //     if ((window.innerHeight + document.documentElement.scrollTop) > (document.documentElement.offsetHeight) * 50 /100) {
     //         setappmainstate({
     //             appmainid: 'overlay',
     //             appmainidtwo: 'toastmain',
     //             appmainidthree: 'planfigcaption',
     //         })
+
+
     //     } else {
     //         setappmainstate('')
     //     }
@@ -175,17 +178,18 @@ function HomeMain() {
                       setappmainstate({
                         appmainid: 'postarticle',
                         appmainidtwo: 'previewmain',
+                        appmainpage: 0,
                         appmainparam: postupdatedat && postupdatedat[0]?.postid,
                         appmainboolean: true,
                       })
-                      window.history.replaceState(null, "" , postupdatedat[0]?.postid)
-                    }} className="py-[20px] px-[20px] md:px-[60px] h-[80vh] flex flex-col md:grid md:grid-flow-col gap-3">
-                <figcaption className="max-w-[50vw] flex flex-col justify-between items-start  border-b border-black">
+                    //   window.history.replaceState(null, "" , postupdatedat[0]?.postid)
+                    }} className="py-[20px] px-[20px] md:px-[60px] h-[80vh] flex flex-col gap-3">
+                <figcaption className="flex flex-col justify-between items-center  border-b border-black">
                     <h1 className="text-6xl font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>
-                    <button className="m-button">Read more →</button>
+                    <button className="m-h3">Read more →</button>
                 </figcaption>
                 <figure className="flex items-center justify-center  overflow-hidden border border-black">
-                    <img src={postupdatedat && postupdatedat[0]?.posthero} alt="" className="max-h-[100ch] w-full" />
+                    <img src={postupdatedat && postupdatedat[0]?.posthero} alt="" className="max-h-[200ch] w-full" />
                 </figure>
             </section>
 
@@ -207,7 +211,8 @@ function HomeMain() {
                         <button onClick={() => {
                             ll(data?.homemainmap?.length)
                         }} className="flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
+                            {/* <h1 className="w-[50px] h-[50px] flex items-center justify-center  m-h6 bg-white rounded-full border border-gray-400">→</h1> */}
+                            <RiArrowRightSLine className='text-7xl  bg-white rounded-full border border-black' />
                         </button>
                             {data?.homemainmap?.slice(homemainsliceone, homemainslicetwo).map(dat => (<>
                                     <VerticleMain onlick={() => {
@@ -274,7 +279,8 @@ function HomeMain() {
                         <button onClick={() => {
                             kk(data?.homemainmap?.length)
                         }} className="flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
+                            {/* <h1 className="w-[50px] h-[50px] flex items-center justify-center  m-h6 bg-white rounded-full border border-gray-400">→</h1> */}
+                            <RiArrowRightSLine className='text-7xl  bg-white rounded-full border border-black' />
                         </button>
                             {data?.homemainmap?.slice(homemainslicethree, homemainslicefour).map(dat => (<>
                                     <VerticleMain onlick={() => {
@@ -289,7 +295,8 @@ function HomeMain() {
                         <button onClick={() => {
                             jj(data?.homemainmap?.length)
                         }} className="flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
+                            {/* <h1 className="w-[50px] h-[50px] flex items-center justify-center  m-h6 bg-white rounded-full border border-gray-400">→</h1> */}
+                            <RiArrowRightSLine className='text-7xl  bg-white rounded-full border border-black' />
                         </button>
                             {data?.homemainmap?.slice(homemainslicefive, homemainslicesix).map(dat => (<>
                                     <VerticleMain onlick={() => {

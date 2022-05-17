@@ -10,6 +10,7 @@ import { ContextMain } from '../../context/contextmain'
 import ContactArticle from '../../page/contact/ContactArticle'
 import MenuArticle from '../../page/menu/MenuArticle'
 import PostArticle from '../../page/post/PostArticle'
+import AlertMain from '../alert/AlertMain'
 
 function PreviewMain() {
     const {
@@ -19,6 +20,7 @@ function PreviewMain() {
 
     } = useContext(ContextMain)
     const navigate = useNavigate()
+    const [previewmainpage, setpreviewmainpage] = useState(0)
 
     const [previewmainrender, setpreviewmainrender] = useState()
 
@@ -26,6 +28,21 @@ function PreviewMain() {
         {
             previewmainindex: 0,
             previewmainrender: <PostArticle />,
+        },
+        {
+            previewmainindex: 1,
+            previewmainrender: () => {
+                return <section className="">
+                    <figure className="p-[20px] flex flex-col justify-center">
+                        <img src={appmainstate?.appmainrender} alt="" className="" />
+                        <AlertMain 
+                            alertmainid={'postcaption'}
+                            alertmainfullname={'Unsplash.com'}
+                            alertmainpage={1}
+                         />
+                    </figure>
+                </section>
+            },
         }
     ]
 
@@ -63,7 +80,7 @@ function PreviewMain() {
     useEffect(() => {
         if(appmainstate.appmainidtwo === 'previewmain' || appmainstate.appmainredirect === 'previewmain'){
         const filter = previewmain.filter(data => data.previewmainid === appmainstate.appmainid)
-        const filtertwo = filter[0].previewmaindata.filter(data => data.previewmainindex === 0)
+        const filtertwo = filter[0].previewmaindata.filter(data => data.previewmainindex === appmainstate.appmainpage)
         setpreviewmainrender(filtertwo[0].previewmainrender)
       }
     }, [appmainstate])

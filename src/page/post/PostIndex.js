@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
-import { RiChat3Line, RiEyeLine, RiMore2Fill } from 'react-icons/ri'
+import { RiChat3Line, RiEyeLine, RiMore2Fill, RiInformationLine } from 'react-icons/ri'
 import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {PortableText, PortableTextComponentsProvider} from '@portabletext/react'
@@ -16,8 +16,6 @@ import LoadingMain from '../../component/load/LoadingMain'
 import CtaMain from '../../component/ctamain/CtaMain'
 import RtaMain from '../../component/rta/RtaMain'
 import SpreadMain from '../../component/spread/SpreadMain'
-import { breadmain } from '../../content/contentmain'
-import LoadMain from '../../component/load/LoadMain'
 
 function PostIndex() {
     const {
@@ -168,6 +166,8 @@ function PostIndex() {
             })
             setalertmainstate({
                 alertmainid: 'postcaption',
+                alertmainfullname: 'Unsplash.com',
+                alertmainpage: 0,
             })
             setportmainstate({
                 portmainid: 'posttfoot',
@@ -338,12 +338,12 @@ function PostIndex() {
 
     }
 
-    // const  jj = async () => {
-    //         await client  
-    //         .patch(postpostid._id)
-    //         .set({postcount: postpostid.postcount + 1 || 0}) 
-    //         .commit()
-    // }
+    const  jj = async () => {
+            await client  
+            .patch(postpostid._id)
+            .set({postcount: postpostid.postcount + 1 || 0}) 
+            .commit()
+    }
 
     // const  hh = async () => {
     //         await client  
@@ -364,7 +364,7 @@ function PostIndex() {
     //     }
     // }
 
-    if(!postpostid) return <LoadMain />
+    // if(!postpostid) return <LoadMain />
 
   return (
     <div>
@@ -396,10 +396,26 @@ function PostIndex() {
                     <br />
                 </section>
                 <section className="">
-                    <figure className="relative min-h-[20vh] md:min-h-[50vh] grid items-center justify-items-center">
-                        <img src={postpostid?.posthero} alt="" className="z-10 w-full " />
+                    <figure className="group relative min-h-[20vh] md:min-h-[50vh] grid items-center justify-items-center">
+                        <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={postpostid?.posthero} alt="" className="z-10 w-full " />
                         <div className="absolute">
                         <LoadingMain />
+                        </div>
+                        <div onClick={() => {
+                            setalertmainstate({
+                                alertmainid: 'postcaption',
+                                alertmainfullname: 'Unsplash.com',
+                                alertmainpage: 1,
+                            })
+                            setappmainstate({
+                                appmainidtwo: 'previewmain',
+                                appmainid: 'postarticle',
+                                appmainpage: 1,
+                                appmainrender: postpostid?.posthero,
+                                appmainboolean: true,
+                            })
+                        }}  className="hidden group-hover:block absolute top-3 left-3 z-20 p-[10px]  ">
+                            <button className="l-button opacity-100 border border-black">View image</button>
                         </div>
                     </figure>
                     <figcaption className="">
@@ -419,7 +435,10 @@ function PostIndex() {
                     </PortableTextComponentsProvider>
                     <br />
                 </section>
+                <section className="">
                 <AlertMain />
+                <br />
+                </section>
                 <section className="flex justify-between">
                     <div className="flex flex-row gap-5 items-center ">
                         <div className="flex flex-row gap-2 items-center  m-h4">

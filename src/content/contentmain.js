@@ -339,14 +339,16 @@ export const breadmain = [
         breadmainid: 'post',
         breadmaintitle: 'Blog',
         breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+        breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
         breadmainentitle: 'Find more blogs',
         breadmainaction: `/category/post`,
         // breadmainref: categoryul,
     },
     {
         breadmainid: 'place',
-        breadmaintitle: 'Locals & Location',
+        breadmaintitle: 'Places',
         breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+        breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
         breadmainentitle: 'Find more places',
         breadmainaction: `/category/place`,
         // breadmainref: categoryul,
@@ -355,6 +357,7 @@ export const breadmain = [
         breadmainid: 'product',
         breadmaintitle: 'Products',
         breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+        breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
         breadmainentitle: 'Find more products',
         breadmainaction: `/category/product`,
         // breadmainref: categoryul,
@@ -365,7 +368,7 @@ export const breadmain = [
 export const crummain = [
     {
         crummainid: 'recipe',
-        crummaintitle: 'Recipe',
+        crummaintitle: 'Recipes',
         crummainsubtitle: 'adfasfsadfsadfsfd',
         crummainstyle: 'bg-gray-900 text-white',
         crummainimage: 'https://images.unsplash.com/photo-1506368083636-6defb67639a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
@@ -374,7 +377,7 @@ export const crummain = [
     },
     {
         crummainid: 'review',
-        crummaintitle: 'Review',
+        crummaintitle: 'Reviews',
         crummainsubtitle: 'adfasfsadfsadfsfd',
         crummainstyle: 'bg-gray-900 text-white',
         crummainimage: 'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
@@ -383,7 +386,7 @@ export const crummain = [
     },
     {
         crummainid: 'interview',
-        crummaintitle: 'Interview',
+        crummaintitle: 'Interviews',
         crummainsubtitle: 'adfasfsadfsadfsfd',
         crummainstyle: 'bg-gray-900 text-white',
 
@@ -427,8 +430,8 @@ export const crummain = [
 
     },
     {
-        crummainid: 'daily',
-        crummaintitle: 'Daily',
+        crummainid: 'dairy',
+        crummaintitle: 'Dairy',
         crummainsubtitle: 'adfasfsadfsadfsfd',
         crummainstyle: 'bg-gray-900 text-white',
 
@@ -438,8 +441,8 @@ export const crummain = [
 
     },
     {
-        crummainid: 'vegetable',
-        crummaintitle: 'Vegetable',
+        crummainid: 'etc',
+        crummaintitle: 'Veggies, fruit, etc',
         crummainsubtitle: 'adfasfsadfsadfsfd',
         crummainstyle: 'bg-gray-900 text-white',
 
@@ -451,7 +454,7 @@ export const crummain = [
     
     {
         crummainid: 'retail',
-        crummaintitle: 'Retail',
+        crummaintitle: 'Retailers',
         crummainsubtitle: 'adfasfsadfsadfsfd',
         crummainstyle: 'bg-gray-900 text-white',
 
@@ -462,7 +465,7 @@ export const crummain = [
     },
     {
         crummainid: 'manufacturer',
-        crummaintitle: 'Manufacturer',
+        crummaintitle: 'Manufacturers',
         crummainsubtitle: 'adfasfsadfsadfsfd',
         crummainstyle: 'bg-gray-900 text-white',
 
@@ -473,7 +476,7 @@ export const crummain = [
     },
     {
         crummainid: 'restaurant',
-        crummaintitle: "Chef's Restaurant",
+        crummaintitle: "Chefs / Restaurants",
         crummainsubtitle: 'adfasfsadfsadfsfd',
         crummainstyle: 'bg-gray-900 text-white',
 

@@ -10,8 +10,10 @@ import HorizonMain from '../post/HorizonMain';
 
 function RtaMain({type}) {
   const {
+    setappmainstate,
     spreadmainstate,
     setbreadmainstate,
+    setstackmainstate,
 
   } = useContext(ContextMain)
   const navigate = useNavigate()
@@ -43,7 +45,24 @@ function RtaMain({type}) {
           {rtamainrender?.map(data => (<>
             {data?.rtamainrendertwo?.map(dat => (<>
                 <br /><br />
+                <div className="flex items-center justify-between">
                 <h1 className="m-h6">{dat?.sheetmainsubtitle}</h1>
+                {data?.rtamainrenderthree?.length > 0 && (<>
+                  <article onClick={() => {
+                    setstackmainstate({
+                      stackmainid: 'rtatd',
+                      stackmainindex: 0,
+                      stackmaindata: data?.rtamainrenderthree,
+                    })
+                    setappmainstate({
+                            appmainid: 'rtasection',
+                            appmainidtwo: 'modalmain',
+                            appmainidthree: 0,
+                            appmainboolean: true,
+                        })
+                  }} className="l-h2">See all</article>
+                </>)}
+                </div>
                 <br />
             </>))}
             {data?.rtamainrenderthree?.map(da => (<>

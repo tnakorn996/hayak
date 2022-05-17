@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { crummain } from '../../content/contentmain'
 
 import { ContextMain } from '../../context/contextmain'
+import HorizonMain from '../post/HorizonMain'
 
 function WireMain() {
     const {
@@ -18,10 +19,10 @@ function WireMain() {
 
     const hometr = [
       {
+        wiremainindex: 0,
         wiremainrender: () => {
           const filter = crummain.filter(data => data.breadmainid !== breadmainstate?.breadmainid)
-          return <section className="grid grid-cols-2 gap-5">
-          {filter.slice(0, 6).map(data => (<>
+          return filter.slice(0, 6).map(data => (<>
             <article onClick={() => {
               setbreadmainstate({
                 breadmainid: data?.breadmainid,
@@ -35,8 +36,20 @@ function WireMain() {
                 <h1 className="absolute bottom-0 p-[20px] md:text-8xl w-full  m-h6 font-serif truncate">{data.crummaintitle}</h1>
               </figure>
             </article>
-            </>))}
-            </section>
+            </>))
+        },
+      },
+    ]
+
+    const rtatr = [
+      {
+        wiremainindex: 0,
+        wiremainrender: () => {
+          return wiremainstate?.wiremaindata?.map(data => (<>
+              <HorizonMain onlick={() => {
+                  navigate(`/${data?.postid}`)
+                }} key={data?.postid} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} priceid={data?.priceid} param={data?.postid} />
+              </>))
         },
       },
     ]
@@ -45,14 +58,18 @@ function WireMain() {
         {
             wiremain: 'hometr',
             wireref: hometr,
-        }
+        },
+        {
+            wiremain: 'rtatr',
+            wireref: rtatr,
+        },
 
     ]
     
     useEffect(() => {
       if(wiremainstate) {
             const filter = wiremain.filter(data => data.wiremain === wiremainstate.wiremainid)
-            const filtertwo = filter[0].wireref.filter(data => filter[0].wireref.indexOf(data) === 0)
+            const filtertwo = filter[0].wireref.filter(data => data.wiremainindex === wiremainstate.wiremainindex)
             setwiremainrender(filtertwo[0].wiremainrender)
       }
     }, [wiremainstate])
@@ -60,7 +77,7 @@ function WireMain() {
   return (
     <div>
         <main className="">
-            <section className="">
+            <section className="grid grid-cols-2 gap-5">
               {wiremainrender && wiremainrender}
             </section>
         </main>

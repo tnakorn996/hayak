@@ -7,6 +7,7 @@ import { RiContrastDropLine, RiFileCopyLine } from 'react-icons/ri'
 
 import { ContextMain } from '../../context/contextmain'
 import CategorySection from '../../page/catagory/CategorySection'
+import StackMain from '../Stack/StackMain'
 import StateMain from '../state/StateMain'
 
 function ModalMain() {
@@ -80,8 +81,23 @@ function ModalMain() {
     const statesection = [
         {
             modalmainindex: 0,
-            modalmaintitle: 'HAYAK Blog',
+            modalmaintitle: 'Hayak',
             modalmainrender: <StateMain />,
+            modalmainaction: <button onClick={() => {
+                    setappmainstate('')
+                }} className="m-button">Continue</button>,
+        }
+    ]
+
+    const rtasection = [
+        {
+            modalmainindex: 0,
+            modalmaintitle: 'Hayak',
+            modalmainrender: () => {
+                return <section className="">
+                    <StackMain />
+                </section>
+            },
             modalmainaction: <button onClick={() => {
                     setappmainstate('')
                 }} className="m-button">Continue</button>,
@@ -101,6 +117,10 @@ function ModalMain() {
             modalmainid: 'statesection',
             modalmaindata: statesection,
         },
+        {
+            modalmainid: 'rtasection',
+            modalmaindata: rtasection,
+        },
     ]
 
     useEffect(() => {
@@ -118,7 +138,7 @@ function ModalMain() {
   return (
     <div>
         <br />
-        <motion.main drag="y" dragConstraints={{ left: 0, right: 0 }} initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white border shadow-2xl border-black">
+        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white border shadow-2xl border-black">
             <section className="p-[20px] text-center">
                 <h1 className="m-h4">{modalmaintitle}</h1>
             </section>

@@ -28,6 +28,7 @@ function SearchDialog() {
     const [place, setplace] = useState()
     const [product, setproduct] = useState()
 
+
     const searchdialog = [
         {
             searchdialogid: 'one',
@@ -121,10 +122,10 @@ function SearchDialog() {
   return (
     <div>
         <main className="">
-            <section className="h-[20vh] px-[20px] md:px-[50px] grid grid-flow-row items-center">
+            <section autoFocus className="h-[20vh] px-[20px] md:px-[50px] grid grid-flow-row items-center">
                 <div className="w-full relative flex items-center">
                     {searchdialogload === true ? <div className="absolute"><LoadingMain /></div>  : <RiSearch2Line className='absolute  m-h6' />}
-                    <input onChange={(p) => setsearchdialogvalue(p.target.value)} value={searchdialogvalue} className="w-full pl-[40px]  l-input" placeholder='Search...' />
+                    <input autoFocus onChange={(p) => setsearchdialogvalue(p.target.value)} value={searchdialogvalue} className="md:text-4xl w-full pl-[40px]  l-input" placeholder='Search...' />
                 </div>
                 <h1 className="l-h2 italic">Try coffee, kitchen, gift card..</h1>
             </section>

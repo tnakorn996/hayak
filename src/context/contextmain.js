@@ -1,7 +1,8 @@
 
 import React, { createContext, useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import LoadMain from '../component/load/LoadMain'
+import ProgressBar from "@badrap/bar-of-progress";
 
 import { client } from '../lib/sanity'
 
@@ -31,6 +32,7 @@ export const Provider = ({ children }) => {
     const [spreadmainstate, setspreadmainstate] = useState()
     const [wiremainstate, setwiremainstate] = useState()
     const [snackbarmainstate, setsnackbarmainstate] = useState()
+    const [stackmainstate, setstackmainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -44,11 +46,24 @@ export const Provider = ({ children }) => {
         pp()
     }, [])
 
+    const progress = new ProgressBar({
+      size: 4,
+      color: 'rgb(55 65 81)',
+      className: 'z-50',
+      delay: 100,
+    })
+
     useEffect(() => {
       if (location) {
         setappmainstate('')
         setspreadmainstate('')
       }
+
+      progress.start();
+
+      setTimeout(() => {
+        progress.finish();
+      }, 1000);
 
     }, [location])
     
@@ -121,6 +136,7 @@ export const Provider = ({ children }) => {
           spreadmainstate, setspreadmainstate,
           wiremainstate, setwiremainstate,
           snackbarmainstate, setsnackbarmainstate,
+          stackmainstate, setstackmainstate,
 
           userindex,
           postplaceproduct,
