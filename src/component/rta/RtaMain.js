@@ -60,15 +60,15 @@ function RtaMain({type}) {
                             appmainidthree: 0,
                             appmainboolean: true,
                         })
-                  }} className="l-h2">See all</article>
-                </>)}
-                </div>
-                <br />
-            </>))}
-            {data?.rtamainrenderthree?.map(da => (<>
-                <HorizonMain onlick={() => {
-                  navigate(`/${da?.postid}`)
-                }} key={da?.postid} createdat={da?._createdAt} posticon={da?.posticon} posthero={da?.posthero} posttitle={da?.posttitle} postsubtitle={da?.postsubtitle} categoryid={da?.categoryid} priceid={da?.priceid} param={da?.postid} />
+                    }} className="l-h2">See all</article>
+                  </>)}
+                  </div>
+                  <br />
+              </>))}
+              {data?.rtamainrenderthree?.map(da => (<>
+                  <HorizonMain onlick={() => {
+                    navigate(`/${da?.postid}`)
+                  }} key={da?.postid} createdat={da?._createdAt} posticon={da?.posticon} posthero={da?.posthero} posttitle={da?.posttitle} postsubtitle={da?.postsubtitle} categoryid={da?.categoryid} priceid={da?.priceid} param={da?.postid} />
             </>))}
           </>))}
         </main>

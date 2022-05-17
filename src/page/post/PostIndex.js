@@ -41,6 +41,7 @@ function PostIndex() {
     const [postindexrenderthree, setpostindexrenderthree] = useState()
     const [postindexrenderfour, setpostindexrenderfour] = useState()
     const [postpostid, setpostpostid] = useState()
+    const [postplaceid, setpostplaceid] = useState()
     const [placeplaceid, setplaceplaceid] = useState()
     const [productplaceid, setproductplaceid] = useState()
     const [productpostid, setproductpostid] = useState()
@@ -137,6 +138,10 @@ function PostIndex() {
     ]
 
     const postindextwo = [
+        {
+            postindextwoid: 'postdi',
+            postindextworender: postplaceid,
+        },
         {
             postindextwoid: 'placedi',
             postindextworender: placeplaceid,
@@ -251,15 +256,17 @@ function PostIndex() {
     const ll = async () => {
               const query = `*[ postid == '${param.id}']{
                   ...,
+                  'postplaceid': *[_type == 'post' && postid != ^.postid && placeid == ^.placeid ] ,
                   'placeplaceid': *[_type == 'place' && postid == ^.placeid],
                   'productplaceid': *[_type == 'product' && postid != ^.postid && placeid == ^.placeid ] ,
 
                   'productpostid': *[ postid match ^.productid || postid match ^.productidtwo || postid match ^.productidthree ] ,
               }[0]`;
-              await client.fetch(query) 
+              await client.fetch(query)
               .then((data) => {
                     setpostpostid(data);
 
+                    setpostplaceid(data.postplaceid)
                     setplaceplaceid(data.placeplaceid)
                     setproductplaceid(data.productplaceid)
                     setproductpostid(data.productpostid)
@@ -404,7 +411,7 @@ function PostIndex() {
                         <div onClick={() => {
                             setalertmainstate({
                                 alertmainid: 'postcaption',
-                                alertmainfullname: 'Unsplash.com',
+                                alertmainfullname: postpostid?.postherosource,
                                 alertmainpage: 1,
                             })
                             setappmainstate({
@@ -506,7 +513,7 @@ function PostIndex() {
                 {postindexrenderfour?.slice(0, 4)?.map(data => (<>
                     <VerticleMain onlick={() => {
                                     navigate(`/${data?.postid}`)
-                                }} key={data?.postid} createdat={data?._createdAt} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} priceid={data?.priceid} param={data?.postid} />
+                                }} key={data?.postid} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} priceid={data?.priceid} param={data?.postid} />
                     </>))}
                 </div>
                 </section>

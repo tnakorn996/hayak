@@ -152,7 +152,7 @@ function SideboardMain() {
                 }} className="z-10 absolute top-3 right-3 text-4xl  text-white bg-black rounded-full" />
               </figcaption>
             </section>
-            <section className="h-[80vh] w-full">
+            <section className="h-[80vh] w-full  overflow-hidden">
               {sideboardmainrender && sideboardmainrender}
             </section>
             <section className="h-[10vh] w-full p-[20px] grid grid-flow-col  border-t border-gray-700">

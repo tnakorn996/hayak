@@ -63,7 +63,7 @@ export const Provider = ({ children }) => {
 
       setTimeout(() => {
         progress.finish();
-      }, 1000);
+      }, 5000);
 
     }, [location])
     

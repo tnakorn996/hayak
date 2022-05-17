@@ -318,6 +318,13 @@ export const sheetmain = [
 
     },
     {
+        sheetmainid: 'postdi',
+        sheetmaintitle: 'Find blogs',
+        sheetmainsubtitle: 'Related Blog',
+        sheetmainaction: `/category/post`,
+
+    },
+    {
         sheetmainid: 'pickdi',
         sheetmaintitle: 'Find products',
         sheetmainsubtitle: `What You'll Need`,
