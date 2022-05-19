@@ -9,6 +9,7 @@ import { ContextMain } from '../../context/contextmain'
 import CategorySection from '../../page/catagory/CategorySection'
 import StackMain from '../Stack/StackMain'
 import StateMain from '../state/StateMain'
+import OpendeskMain from '../opendesk/OpendeskMain'
 
 function ModalMain() {
     const {
@@ -81,7 +82,7 @@ function ModalMain() {
     const statesection = [
         {
             modalmainindex: 0,
-            modalmaintitle: 'Hayak',
+            modalmaintitle: '',
             modalmainrender: <StateMain />,
             modalmainaction: <button onClick={() => {
                     setappmainstate('')
@@ -92,7 +93,7 @@ function ModalMain() {
     const rtasection = [
         {
             modalmainindex: 0,
-            modalmaintitle: 'Hayak',
+            modalmaintitle: '',
             modalmainrender: () => {
                 return <section className="">
                     <StackMain />
@@ -101,6 +102,16 @@ function ModalMain() {
             modalmainaction: <button onClick={() => {
                     setappmainstate('')
                 }} className="m-button">Continue</button>,
+        }
+    ]
+
+    const postsection = [
+        {
+            modalmainindex: 0,
+            modalmaintitle: '',
+            modalmainrender: () => {
+                return <OpendeskMain />
+            }
         }
     ]
 
@@ -121,6 +132,10 @@ function ModalMain() {
             modalmainid: 'rtasection',
             modalmaindata: rtasection,
         },
+        {
+            modalmainid: 'postsection',
+            modalmaindata: postsection,
+        },
     ]
 
     useEffect(() => {
@@ -140,7 +155,7 @@ function ModalMain() {
         <br />
         <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white border shadow-2xl border-black">
             <section className="p-[20px] text-center">
-                <h1 className="m-h4">{modalmaintitle}</h1>
+                <h1 className="m-h4">{modalmaintitle && modalmaintitle}</h1>
             </section>
             <hr />
             <section className="p-[20px]">

@@ -13,6 +13,8 @@ import LoadingMain from '../load/LoadingMain'
 function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle, postsubtitle,  categoryid, priceid, param, placepostid}) {
   const {
     setappmainstate,
+    settabmainstate,
+    setopendeskmainstate,
 
   } = useContext(ContextMain)
   const navigate = useNavigate()
@@ -31,7 +33,20 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
     <div>
         <main className="">
           <article className="relative flex flex-col justify-center">
-                <figure onClick={() => {
+                <figure 
+
+                    // onMouseEnter={() => {
+                    //   setTimeout(
+                    //   setappmainstate({
+                    //     appmainid: 'postarticle',
+                    //     appmainidtwo: 'previewmain',
+                    //     appmainpage: 0,
+                    //     appmainparam: param,
+                    //     appmainboolean: true,
+                    //   }), 100000);
+                    // }}
+                
+                    onClick={() => {
                       setappmainstate({
                         appmainid: 'postarticle',
                         appmainidtwo: 'previewmain',
@@ -64,12 +79,16 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
                     </div>
                     </>)}
                     <figure onClick={() => {
+                        settabmainstate({
+                          tabmainid: 'postoption',
+                          tabmainparam: param,
+                          tabmainimage: posthero,
+                          tabmaintitle: posttitle,
+                        })
                         setappmainstate({
-                        appmainid: 'sharesection',
-                        appmainidtwo: 'modalmain',
-                        appmainidthree: 0,
-                        appmainparam: param,
-                        appmainboolean: true,
+                          appmainid: 'postoption',
+                          appmainidtwo: 'opendeskmain',
+                          appmainboolean: true,
                       })
                     }} className="">
                       <RiMore2Fill className='my-[7px]  text-md l-m3' />

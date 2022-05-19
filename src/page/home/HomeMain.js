@@ -196,8 +196,7 @@ function HomeMain() {
             <section className="w-[1200px] md:w-full">
                 {homemainmap?.map(data => (<>
                 <br />
-                <br />
-                <figcaption className="h-[10vh] px-[20px] md:px-[60px] w-screen md:w-full flex flex-row justify-between items-center">
+                <figcaption className="md:h-[10vh] px-[20px] md:px-[60px] w-screen md:w-full flex flex-row justify-between items-center">
                     <h1 className="m-h5  font-serif">{data?.homemaintitle}</h1>
                     <button onClick={() => {
                         navigate(data?.homemaindirect)
@@ -212,7 +211,7 @@ function HomeMain() {
                             ll(data?.homemainmap?.length)
                         }} className="flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                             {/* <h1 className="w-[50px] h-[50px] flex items-center justify-center  m-h6 bg-white rounded-full border border-gray-400">→</h1> */}
-                            <RiArrowRightSLine className='text-7xl  bg-white rounded-full border border-black' />
+                            <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
                         </button>
                             {data?.homemainmap?.slice(homemainsliceone, homemainslicetwo).map(dat => (<>
                                     <VerticleMain onlick={() => {
@@ -280,7 +279,7 @@ function HomeMain() {
                             kk(data?.homemainmap?.length)
                         }} className="flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                             {/* <h1 className="w-[50px] h-[50px] flex items-center justify-center  m-h6 bg-white rounded-full border border-gray-400">→</h1> */}
-                            <RiArrowRightSLine className='text-7xl  bg-white rounded-full border border-black' />
+                            <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
                         </button>
                             {data?.homemainmap?.slice(homemainslicethree, homemainslicefour).map(dat => (<>
                                     <VerticleMain onlick={() => {
@@ -290,13 +289,13 @@ function HomeMain() {
                         </>)}
                     </div>
 
-                    <div className="w-[1000px] md:w-full group grid grid-cols-4 gap-5">
+                    <div className="w-[1200px] md:w-full group grid grid-cols-4 gap-5">
                         {data?.homemainid === 'productupdatedat' && (<>
                         <button onClick={() => {
                             jj(data?.homemainmap?.length)
                         }} className="flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                             {/* <h1 className="w-[50px] h-[50px] flex items-center justify-center  m-h6 bg-white rounded-full border border-gray-400">→</h1> */}
-                            <RiArrowRightSLine className='text-7xl  bg-white rounded-full border border-black' />
+                            <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
                         </button>
                             {data?.homemainmap?.slice(homemainslicefive, homemainslicesix).map(dat => (<>
                                     <VerticleMain onlick={() => {

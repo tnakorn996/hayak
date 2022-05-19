@@ -33,6 +33,8 @@ export const Provider = ({ children }) => {
     const [wiremainstate, setwiremainstate] = useState()
     const [snackbarmainstate, setsnackbarmainstate] = useState()
     const [stackmainstate, setstackmainstate] = useState()
+    const [tabmainstate, settabmainstate] = useState()
+    const [opendeskmainstate, setopendeskmainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -137,7 +139,9 @@ export const Provider = ({ children }) => {
           wiremainstate, setwiremainstate,
           snackbarmainstate, setsnackbarmainstate,
           stackmainstate, setstackmainstate,
-
+          tabmainstate, settabmainstate,
+          opendeskmainstate, setopendeskmainstate,
+          
           userindex,
           postplaceproduct,
           postupdatedat,

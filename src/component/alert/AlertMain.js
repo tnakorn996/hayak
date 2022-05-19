@@ -1,16 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
-import { useContext } from 'react'
 import { useEffect } from 'react'
 import { RiInformationLine } from 'react-icons/ri'
 
-import { ContextMain } from '../../context/contextmain'
+function AlertMain({
+    alertmainid,
+    alertmainpage,
+    alertmainfullname,
 
-function AlertMain() {
-    const {
-        alertmainstate
-
-    } = useContext(ContextMain)
+}) {
     const [alertmainicon, setalertmainicon] = useState()
     const [alertmaintitle, setalertmaintitle] = useState()
 
@@ -21,9 +19,10 @@ function AlertMain() {
         },
         {
             alertmainicon: <RiInformationLine />,
-            alertmaintitle: `DISCLAIMER: The photos owned by ${alertmainstate?.alertmainfullname}`,
+            alertmaintitle: `DISCLAIMER: The photos owned by ${alertmainfullname}`,
         },
     ]
+
     const alertmain = [
         {
             alertmainid: 'postcaption',
@@ -32,13 +31,13 @@ function AlertMain() {
     ]
 
     useEffect(() => {
-      if(alertmainstate){
-          const filter = alertmain.filter(data => data.alertmainid === alertmainstate.alertmainid)
-          const filtertwo = filter[0].alertmainref.filter(data => filter[0].alertmainref.indexOf(data) === alertmainstate.alertmainpage)
+      if(alertmainid){
+          const filter = alertmain.filter(data => data.alertmainid === alertmainid)
+          const filtertwo = filter[0].alertmainref.filter(data => filter[0].alertmainref.indexOf(data) === alertmainpage)
             setalertmainicon(filtertwo[0].alertmainicon)
             setalertmaintitle(filtertwo[0].alertmaintitle)
       }
-    }, [alertmainstate])
+    }, [alertmainid, alertmainpage])
 
   return (
     <div>

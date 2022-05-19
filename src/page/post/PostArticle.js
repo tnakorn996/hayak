@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useContext } from 'react'
 import { RiContrastDropLine, RiEyeLine, RiShareFill } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
+import LoadingMain from '../../component/load/LoadingMain'
 
 import HorizonMain from '../../component/post/HorizonMain'
 import { ContextMain } from '../../context/contextmain'
@@ -35,13 +36,16 @@ function PostArticle() {
     <div>
         <main className="">
                 <section className="">
-                    <figure className="relative max-h-[40vh] md:max-h-[60vh] flex items-center  overflow-hidden">
-                        <div className="absolute bottom-0 left-0 min-h-[35vh] md:min-h-[30vh] w-full  bg-gradient-to-b from-transparent to-white" />
-                        <div className="absolute bottom-0 left-8 md:left-14 max-w-[70%] md:max-w-[60%] ">
+                    <figure className="relative max-h-[40vh] md:min-h-[60vh] flex items-center justify-center  overflow-hidden">
+                        <div className="z-10 absolute bottom-0 left-0 min-h-[35vh] md:min-h-[30vh] w-full  bg-gradient-to-b from-transparent to-white" />
+                        <div className="z-10 absolute bottom-0 left-8 md:left-14 max-w-[70%] md:max-w-[60%] ">
                             <h1 className="md:text-3xl  m-h6 font-serif">{postarticlestate?.posttitle}</h1>
                         </div>
                         {postarticlestate?.priceid === 'pro' &&<RiContrastDropLine className="absolute top-8 left-8 text-4xl  m-h5 text-gray-300" />}
-                        <img src={postarticlestate?.posthero} alt="" className="w-full" />
+                        <div className="absolute">
+                            <LoadingMain />
+                        </div>
+                        <img src={postarticlestate?.posthero} alt="" className="z-0 w-full" />
                     </figure>
                 </section>
                 <section className="p-[30px] md:p-[60px] flex flex-col md:grid md:grid-cols-12 gap-5">

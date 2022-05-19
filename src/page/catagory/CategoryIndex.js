@@ -7,15 +7,16 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 import VerticleMain from '../../component/post/VerticleMain'
-import { breadmain, crummain } from '../../content/contentmain'
+// import { breadmain, crummain } from '../../content/contentmain'
 import { ContextMain } from '../../context/contextmain'
-import BreadMain from '../../component/bread/BreadMain'
+import { breadmain, categoryul, crummain } from '../../content/contentmantwo'
+import ChipMain from '../../component/chip/ChipMain'
 
 function CategoryIndex() {
     const {
         setappmainstate, appmainstate,
         breadmainstate, setbreadmainstate,
-        categoryindextrigger, setcategoryindextrigger,
+        settabmainstate,
 
         postplaceproduct,
 
@@ -26,12 +27,16 @@ function CategoryIndex() {
     const [categoryindexrender, setcategoryindexrender] = useState()
     const [categoryindextitle, setcategoryindextitle] = useState()
     const [categoryindexdetail, setcategoryindexdetail] = useState()
+    const [categoryindeximage, setcategoryindeximage] = useState()
+    const [categoryindexaction, setcategoryindexaction] = useState()
     const [categoryindexsliceone, setcategoryindexsliceone] = useState(0)
     const [categoryindexslicetwo, setcategoryindexslicetwo] = useState(4)
 
     const [postcategoryidcreatedat, setpostcategoryidcreatedat] = useState()
     const [postcategoryidupdatedat, setpostcategoryidupdatedat] = useState()
     const [postcategoryidpostcount, setpostcategoryidpostcount] = useState()
+
+    ///////////////////////
 
     const categoryindex = [
         {
@@ -53,21 +58,19 @@ function CategoryIndex() {
 
     useEffect(() => {
         if(breadmain && crummain){
-            const filter = breadmain.filter(data => data.breadmainid === param.id)
-            setcategoryindextitle(filter[0]?.breadmaintitle)
-            setcategoryindexdetail(filter[0]?.breadmaindetail)
+            const filter = breadmain.filter(data => data.breadmainid === 'categoryul')
+            const filtertwo = filter[0].breadmainref.filter(data => data.breadmainid === param.id)
+            setcategoryindextitle(filtertwo[0]?.breadmaintitle)
+            setcategoryindexdetail(filtertwo[0]?.breadmaindetail)
+            setcategoryindeximage(filtertwo[0]?.breadmainimage)
+            setcategoryindexaction(filtertwo[0]?.breadmainaction)
+
+            // const filter = breadmain.filter(data => data.breadmainid === param.id)
+            // setcategoryindextitle(filter[0]?.breadmaintitle)
+            // setcategoryindexdetail(filter[0]?.breadmaindetail)
         }
     }, [])
     
-    // useEffect(() => {
-    //     if(breadmainstate){
-    //         const filter = breadmain.filter(data => data.breadmainid === breadmainstate.breadmainid)
-    //         const filtertwo = crummain.filter(data => data.crummainid === breadmainstate.breadmainidtwo)
-    //         setcategoryindextitle(filter[0]?.breadmaintitle)
-    //         setcategoryindextrigger(filtertwo[0]?.crummainid)
-    //     }
-    // }, [breadmainstate])
-
     useEffect(() => {
         if(postplaceproduct){
             ll()
@@ -93,9 +96,6 @@ function CategoryIndex() {
             const filter = postplaceproduct.filter(data => data._type === param.id)
             const filtertwo = postplaceproduct.filter(data => data._type === param.id)
             const filterthree = postplaceproduct.filter(data => data._type === param.id)
-            // const ref = filter.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
-            // const reftwo = filtertwo.sort((a, b) => new Date(b._updatedAt) - new Date(a._updatedAt));
-            // const refthree = filterthree.sort((a, b) => b.postcount - a.postcount);
             setpostcategoryidcreatedat(filter)
             setpostcategoryidupdatedat(filtertwo)
             setpostcategoryidpostcount(filterthree)
@@ -103,23 +103,9 @@ function CategoryIndex() {
             }
 
     const kk = async () => {
-            //   const query = `*[_type == 'user' && userid == 'hayaker']{
-            //     ...,
-            //     'postcategoryidcreatedat': *[_type != 'user' && _type  == '${param.id}' && categoryid == '${categoryindextrigger}'] | order(_createdAt desc),
-            //     'postcategoryidupdatedat': *[_type != 'user' && _type  == '${param.id}' && categoryid == '${categoryindextrigger}'] | order(_updatedAt desc),
-                
-            //     'postcategoryidpostcount': *[_type != 'user' && _type  == '${param.id}' && categoryid == '${categoryindextrigger}'] | order(postcount desc),
-            //   }[0]`;
-            //   await client.fetch(query) 
-            //   .then((data) => {
-            //         setpostcategoryidcreatedat(data.postcategoryidcreatedat)
-            //         setpostcategoryidupdatedat(data.postcategoryidupdatedat)
-            //         setpostcategoryidpostcount(data.postcategoryidpostcount)
-            //     })
-
-            const filter = postplaceproduct.filter(data => data.categoryid === breadmainstate.breadmainidtwo && data._type === param.id)
-            const filtertwo = postplaceproduct.filter(data => data.categoryid === breadmainstate.breadmainidtwo && data._type === param.id)
-            const filterthree = postplaceproduct.filter(data => data.categoryid === breadmainstate.breadmainidtwo && data._type === param.id)
+            const filter = postplaceproduct.filter(data => data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo)
+            const filtertwo = postplaceproduct.filter(data => data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo)
+            const filterthree = postplaceproduct.filter(data => data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo)
             setpostcategoryidcreatedat(filter)
             setpostcategoryidupdatedat(filtertwo)
             setpostcategoryidpostcount(filterthree)
@@ -145,13 +131,29 @@ function CategoryIndex() {
                 <div className="">
                 <h1 className="text-3xl font-serif m-h6 first-letter:uppercase">{categoryindextitle} </h1>
                 <br />
-                <h1 className="md:max-w-[900px] l-h2 first-letter:uppercase">{categoryindexdetail} </h1>
+                <h1 className="md:max-w-[900px] l-h3 first-letter:uppercase leading-relaxed">{categoryindexdetail} </h1>
                 </div>
             </section>
             <hr />
             <section className="px-[20px] md:px-[60px] py-[20px] flex justify-end">
-                {breadmainstate?.breadmainidtwo && <button onClick={() => setbreadmainstate('')} className="flex flex-row items-center gap-3  l-button border border-black"> <span className="m-h2">╳</span>  {breadmainstate?.breadmainidtwo}</button>}
+                {/* {breadmainstate?.breadmainidtwo && <button onClick={() => setbreadmainstate('')} className="flex flex-row items-center gap-3  l-button border border-black"> <span className="m-h2">╳</span>  {breadmainstate?.breadmainidtwo}</button>} */}
+                <ChipMain />
+                
                 <button onClick={() => {
+                    settabmainstate({
+                            tabmainparam: param.id,
+                            tabmainimage: categoryindeximage,
+                            tabmainaction: categoryindexaction,
+                        })
+                        setappmainstate({
+                            appmainid: 'categoryoption',
+                            appmainidtwo: 'opendeskmain',
+                            appmainparam: param.id,
+                            appmainboolean: true,
+                        })
+                }} className="flex flex-row items-center gap-2  l-button"><RiFilter3Fill /> Filter</button>
+
+                {/* <button onClick={() => {
                     setappmainstate({
                         appmainid: 'categorysection',
                         appmainidtwo: 'modalmain',
@@ -159,7 +161,7 @@ function CategoryIndex() {
                         appmainparam: param.id,
                         appmainboolean: true,
                     })
-                }} className="flex flex-row items-center gap-2  l-button"><RiFilter3Fill /> Filter</button>
+                }} className="flex flex-row items-center gap-2  l-button"><RiFilter3Fill /> Filter</button> */}
             </section>
             <hr />
             <section className="px-[20px] md:px-[60px] w-[1200px] md:w-full mx-auto relative group">

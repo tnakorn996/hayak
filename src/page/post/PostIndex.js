@@ -169,11 +169,11 @@ function PostIndex() {
                 breadmainidtwo: postpostid?.categoryid,
                 breadmainidthree: postpostid?.posttitle,
             })
-            setalertmainstate({
-                alertmainid: 'postcaption',
-                alertmainfullname: 'Unsplash.com',
-                alertmainpage: 0,
-            })
+            // setalertmainstate({
+            //     alertmainid: 'postcaption',
+            //     alertmainfullname: 'Unsplash.com',
+            //     alertmainpage: 0,
+            // })
             setportmainstate({
                 portmainid: 'posttfoot',
                 portmainidtwo: 'breadmain',
@@ -443,7 +443,7 @@ function PostIndex() {
                     <br />
                 </section>
                 <section className="">
-                <AlertMain />
+                <AlertMain alertmainid={'postcaption'} alertmainpage={0} />
                 <br />
                 </section>
                 <section className="flex justify-between">

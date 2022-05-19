@@ -37,7 +37,7 @@ function PreviewMain() {
                         <img src={appmainstate?.appmainrender} alt="" className="" />
                         <AlertMain 
                             alertmainid={'postcaption'}
-                            alertmainfullname={'Unsplash.com'}
+                            alertmainfullname={'instagram.com'}
                             alertmainpage={1}
                          />
                     </figure>

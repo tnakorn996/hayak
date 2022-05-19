@@ -8,6 +8,7 @@ import PreviewMain from '../preview/PreviewMain'
 import ModalMain from './ModalMain'
 import '../modal/backdropmain.css'
 import SideboardMain from '../sideboard/SideboardMain'
+import OpendeskMain from '../opendesk/OpendeskMain'
 
 function BackdropMain() {
   const {
@@ -27,6 +28,10 @@ function BackdropMain() {
     {
       backdropmainid: 'sideboardmain',
       backdropmainrender: <SideboardMain />
+    },
+    {
+      backdropmainid: 'opendeskmain',
+      backdropmainrender: <OpendeskMain />
     },
   ]
 

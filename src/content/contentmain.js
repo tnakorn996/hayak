@@ -1,4 +1,3 @@
-
 import {RiCheckboxFill, RiCloseCircleLine, RiInformationLine} from 'react-icons/ri'
 
 export const navmain = [
@@ -62,8 +61,6 @@ export const planmain = [
         planmaincurrency: 'USD',
     },
 ]
-
-//form
 
 export const planform = [
     {
@@ -269,78 +266,6 @@ export const statemain = [
     },
 ]
 
-export const spreadmain = [
-    {
-                spreadmainid: 'success',
-                spreadmainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
-                spreadmainicon: <RiCheckboxFill />,
-                spreadmaintitle: 'Successfull',
-                spreadmainstyle: '!bg-green-100 !text-green-800 !border-green-700',
-            },
-            {
-                spreadmainid: 'fail',
-                spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-                spreadmainicon: <RiCloseCircleLine />,
-                spreadmaintitle: 'Fail',
-                spreadmainstyle: '!bg-red-100 !text-red-800 !border-red-700',
-
-            },
-            {
-                spreadmainid: 'break',
-                spreadmainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
-                spreadmainicon: <RiInformationLine />,
-                spreadmaintitle: 'Apologies',
-                spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
-
-            },
-]
-
-export const sheetmain = [
-    {
-        sheetmainid: 'commentdi',
-        sheetmaintitle: 'Sending a comment to server',
-        sheetmainsubtitle: 'Related Comments',
-        sheetmainaction: '',
-
-    },
-    {
-        sheetmainid: 'sharedi',
-        sheetmaintitle: 'Copy to clipboard',
-        sheetmainsubtitle: 'Related Links',
-        sheetmainaction: '',
-
-    },
-    {
-        sheetmainid: 'placedi',
-        sheetmaintitle: 'Find sellers',
-        sheetmainsubtitle: 'Place Location',
-        sheetmainaction: `/category/place`,
-
-    },
-    {
-        sheetmainid: 'postdi',
-        sheetmaintitle: 'Find blogs',
-        sheetmainsubtitle: 'Related Blog',
-        sheetmainaction: `/category/post`,
-
-    },
-    {
-        sheetmainid: 'pickdi',
-        sheetmaintitle: 'Find products',
-        sheetmainsubtitle: `What You'll Need`,
-        sheetmainaction: `/category/product`,
-    },
-    {
-        sheetmainid: 'productdi',
-        sheetmaintitle: 'Find products',
-        sheetmainsubtitle: 'Related Products',
-        sheetmainaction: `/category/product`,
-
-    },
-
-]
-
-
 export const breadmain = [
     {
         breadmainid: 'post',
@@ -493,3 +418,89 @@ export const crummain = [
 
     },
 ]
+
+export const spreadmain = [
+    {
+                spreadmainid: 'success',
+                spreadmainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
+                spreadmainicon: <RiCheckboxFill />,
+                spreadmaintitle: 'Successfull',
+                spreadmainstyle: '!bg-green-100 !text-green-800 !border-green-700',
+            },
+            {
+                spreadmainid: 'fail',
+                spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
+                spreadmainicon: <RiCloseCircleLine />,
+                spreadmaintitle: 'Fail',
+                spreadmainstyle: '!bg-red-100 !text-red-800 !border-red-700',
+
+            },
+            {
+                spreadmainid: 'break',
+                spreadmainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
+                spreadmainicon: <RiInformationLine />,
+                spreadmaintitle: 'Apologies',
+                spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
+
+            },
+            {
+                spreadmainid: 'new',
+                spreadmainimage: '',
+                spreadmainicon: <RiInformationLine />,
+                spreadmaintitle: 'NEW',
+                spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
+
+            },
+]
+
+export const sheetmain = [
+    {
+        sheetmainid: 'commentdi',
+        sheetmaintitle: 'Sending a comment to server',
+        sheetmainsubtitle: 'Related Comments',
+        sheetmainaction: '',
+
+    },
+    {
+        sheetmainid: 'sharedi',
+        sheetmaintitle: 'Copy to clipboard',
+        sheetmainsubtitle: 'Related Links',
+        sheetmainaction: '',
+    },
+    {
+        sheetmainid: 'feedbackdi',
+        sheetmaintitle: 'Give to feedbacks',
+        sheetmainsubtitle: 'Related reports',
+        sheetmainaction: '',
+    },
+
+    {
+        sheetmainid: 'placedi',
+        sheetmaintitle: 'Find sellers',
+        sheetmainsubtitle: 'Place Location',
+        sheetmainaction: `/category/place`,
+
+    },
+    {
+        sheetmainid: 'pickdi',
+        sheetmaintitle: 'Find products',
+        sheetmainsubtitle: `What You'll Need`,
+        sheetmainaction: `/category/product`,
+    },
+    {
+        sheetmainid: 'postdi',
+        sheetmaintitle: 'Find blogs',
+        sheetmainsubtitle: 'Related Blog',
+        sheetmainaction: `/category/post`,
+
+    },
+    {
+        sheetmainid: 'productdi',
+        sheetmaintitle: 'Find products',
+        sheetmainsubtitle: 'Related Products',
+        sheetmainaction: `/category/product`,
+
+    },
+
+]
+
