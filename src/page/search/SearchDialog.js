@@ -39,7 +39,7 @@ function SearchDialog() {
                     searchdialogrender: postupdatedat,
                 },
                 {
-                    searchdialogtitle: 'Local trends',
+                    searchdialogtitle: 'Place trends',
                     searchdialogicon: <MdShowChart />,
                     searchdialogrender: placeupdatedat,
                 },
@@ -54,12 +54,12 @@ function SearchDialog() {
             searchdialogid: 'two',
             searchdialogref: [
                 {
-                    searchdialogtitle: 'Blogs',
+                    searchdialogtitle: 'Blog',
                     searchdialogicon: <RiNewspaperLine />,
                     searchdialogrender: post,
                 },
                 {
-                    searchdialogtitle: 'Locals',
+                    searchdialogtitle: 'Places',
                     searchdialogicon: <RiMapPin3Line />,
                     searchdialogrender: place,
                 },
@@ -130,13 +130,6 @@ function SearchDialog() {
                 <h1 className="l-h2 italic">Try coffee, kitchen, gift card..</h1>
             </section>
             <motion.section initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{ duration: 0.5 }} className="h-[60vh] px-[20px] md:px-[50px]  overflow-y-scroll">
-                {/* {searchdialogvalue !== '' && (<>
-                <figure className="">
-                <br />
-                <h1 className="m-h6">{postplaceproductlength && postplaceproductlength} SEARCH RESULTS "{searchdialogvalue}"</h1>
-                <br />
-                </figure>
-                </>)} */}
                 {searchdialogrender?.map(data => (<>
                 <figcaption className="">
                 <br /><br />
@@ -147,7 +140,7 @@ function SearchDialog() {
                             navigate(`/${dat?.postid}`)
                         }} className="p-[10px] grid grid-flow-col gap-3 items-center justify-start">
                             <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white">{data.searchdialogicon}</span>
-                            <h1 className="text-xl md:text-4xl  l-h6 text-white truncate font-serif">{dat?.posttitle}</h1>
+                            <h1 className="l-h6 text-white truncate font-serif">{dat?.posttitle}</h1>
                         </article>
                     </>))}
                 </figcaption>

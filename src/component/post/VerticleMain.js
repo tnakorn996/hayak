@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { categorymain } from '../../content/contentmain'
 import { useContext } from 'react'
 import { ContextMain } from '../../context/contextmain'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import LoadingMain from '../load/LoadingMain'
 
 function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle, postsubtitle,  categoryid, priceid, param, placepostid}) {
@@ -17,7 +17,7 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
     setopendeskmainstate,
 
   } = useContext(ContextMain)
-  const navigate = useNavigate()
+  // const location = useLocation()
   const [verticledivstate, setverticledivstate] = useState()
   
   useEffect(() => {
@@ -82,6 +82,7 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
                         settabmainstate({
                           tabmainid: 'postoption',
                           tabmainparam: param,
+                          // tabmainlocation: location.pathname,
                           tabmainimage: posthero,
                           tabmaintitle: posttitle,
                         })

@@ -16,17 +16,21 @@ import LoadingMain from '../../component/load/LoadingMain'
 import CtaMain from '../../component/ctamain/CtaMain'
 import RtaMain from '../../component/rta/RtaMain'
 import SpreadMain from '../../component/spread/SpreadMain'
+import StepMain from '../../component/step/StepMain'
 
 function PostIndex() {
     const {
         setappmainstate,
         // setpostindexstate,
+        setwiremainstate,
         setctamainstate,
         setrtamainstate,
         setbreadmainstate,
         setalertmainstate,
         setportmainstate,
         setspreadmainstate,
+        settabmainstate,
+        setstepmainstate,
 
         postupdatedat,
         placeupdatedat,
@@ -174,10 +178,25 @@ function PostIndex() {
             //     alertmainfullname: 'Unsplash.com',
             //     alertmainpage: 0,
             // })
+            setwiremainstate({
+                wiremainid: 'blocktr',
+                wiremainindex: 0,
+            })
             setportmainstate({
                 portmainid: 'posttfoot',
                 portmainidtwo: 'breadmain',
                 portmainidthree: postpostid?._type,
+            })
+            // settabmainstate({
+            //     tabmainid: 'blockselect',
+            //     tabmainidtwo: 'blocklink',
+            //     tabmainidthree: 'description',
+            //     tabmainparam: param.id,
+            // })
+            setstepmainstate({
+                stepmainid: 'postdatalist',
+                stepmainrender: postpostid,
+                stepmainindex: 0,
             })
 
             const filterfour = postindex.filter(data => data.postindexid === postpostid._type)
@@ -213,8 +232,7 @@ function PostIndex() {
                         }
                     })
 
-
-                } 
+                }
 
                 if(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe'){
                     setctamainstate({
@@ -431,7 +449,7 @@ function PostIndex() {
                         <h1 className="text-base  italic  text-black font-serif">This article was last updated on {postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                 </section>
-                <section className="md:text-lg  text-gray-700 font-serif">
+                <section className="md:text-lg  text-gray-700 font-extralight">
                     {/* {kk()} */}
                     <br />
                     <PortableTextComponentsProvider components={component}  >
@@ -443,7 +461,7 @@ function PostIndex() {
                     <br />
                 </section>
                 <section className="">
-                <AlertMain alertmainid={'postcaption'} alertmainpage={0} />
+                <AlertMain alertmainid={'disclaim'} alertmainidtwo={'postdl'}  />
                 <br />
                 </section>
                 <section className="flex justify-between">
@@ -499,6 +517,10 @@ function PostIndex() {
                 </section>
                 <section className="">
                     {<SpreadMain />}
+                </section>
+                <section className="">
+                    {/* <TableMain /> */}
+                    {/* <StepMain /> */}
                 </section>
             </figcaption>
             <figure className="col-span-12">

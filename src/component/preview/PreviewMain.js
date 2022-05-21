@@ -16,10 +16,8 @@ function PreviewMain() {
     const {
         appmainstate, setappmainstate,
 
-        postupdatedat,
-
     } = useContext(ContextMain)
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const [previewmainpage, setpreviewmainpage] = useState(0)
 
     const [previewmainrender, setpreviewmainrender] = useState()
@@ -35,11 +33,7 @@ function PreviewMain() {
                 return <section className="">
                     <figure className="p-[20px] flex flex-col justify-center">
                         <img src={appmainstate?.appmainrender} alt="" className="" />
-                        <AlertMain 
-                            alertmainid={'postcaption'}
-                            alertmainfullname={'instagram.com'}
-                            alertmainpage={1}
-                         />
+                        <AlertMain alertmainid={'credit'} alertmainidtwo={'postdl'} alertmain={'postdl'}  />
                     </figure>
                 </section>
             },

@@ -1,15 +1,20 @@
 
 import React, { createContext, useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import LoadMain from '../component/load/LoadMain'
 import ProgressBar from "@badrap/bar-of-progress";
 
 import { client } from '../lib/sanity'
+import { RiFeedbackFill, RiShareFill } from 'react-icons/ri';
+import StackMain from '../component/Stack/StackMain';
+import WireMain from '../component/wire/WireMain';
 
 export const ContextMain = createContext()
 
 export const Provider = ({ children }) => {
     const location = useLocation()
+    // const param = useParams()
+    // console.log('location :>> ', location);
 
     const [appmainstate, setappmainstate] = useState('appmain')
     // const [postindexstate, setpostindexstate] = useState()
@@ -35,6 +40,7 @@ export const Provider = ({ children }) => {
     const [stackmainstate, setstackmainstate] = useState()
     const [tabmainstate, settabmainstate] = useState()
     const [opendeskmainstate, setopendeskmainstate] = useState()
+    const [stepmainstate, setstepmainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -69,6 +75,407 @@ export const Provider = ({ children }) => {
 
     }, [location])
     
+    const postselect = [
+        {
+            tabmainid: 'share',
+            tabmaintitle: 'Share',
+            tabmainicon: <RiShareFill />,
+        },
+        {
+            tabmainid: 'feedback',
+            tabmaintitle: 'Feedback',
+            tabmainicon: <RiFeedbackFill />,
+        },
+    ]
+
+    const postlink = [
+        {
+            blemainid: 'url',
+            blemaintitle: 'Scan with QR code',
+            blemainaction:  () => {
+                setappmainstate({
+                    appmainid: 'sharesection',
+                    appmainidtwo: 'modalmain',
+                    appmainidthree: 0,
+                    appmainparam: location.pathname,
+                    appmainboolean: true,
+                })
+            },
+
+            tabmainid: 'share',
+            spreadmainid: 'new',
+        },
+
+
+        {
+            blemainid: 'ask',
+            blemaintitle: 'Ask question',
+            blemainaction:  () => {
+            },
+
+            tabmainid: 'feedback',
+        },
+        {
+            blemainid: 'edit',
+            blemaintitle: 'Suggest an edit',
+            blemainaction:  () => {
+            },
+
+            tabmainid: 'feedback',
+        },
+        {
+            blemainid: 'report',
+            blemaintitle: 'Report an issue',
+            blemainaction:  () => {
+            },
+
+            tabmainid: 'feedback',
+        }
+    ]
+
+    const categoryselect = [
+        {
+            tabmainid: appmainstate?.appmainparam,
+            tabmaintitle: 'category',
+        },
+        {
+            tabmainid: 'genre',
+            tabmaintitle: 'Genres',
+        },
+    ]
+
+    const categorylink = [
+         {
+            blemainid: 'recipe',
+            blemaintitle: 'Recipes',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'recipe',
+                })
+            },
+
+            tabmainid: 'post',
+        },
+        {
+            blemainid: 'review',
+            blemaintitle: 'Reviews',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'review',
+                })
+            },
+
+            tabmainid: 'post',
+        },
+        {
+            blemainid: 'interview',
+            blemaintitle: 'Interviews',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'interview',
+                })
+            },
+
+            tabmainid: 'post',
+
+        },
+
+        {
+            blemainid: 'meat',
+            blemaintitle: 'Meat',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'meat',
+                })
+            },
+
+            tabmainid: 'product',
+
+        },
+        {
+            blemainid: 'coffee',
+            blemaintitle: 'Coffee',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'coffee',
+                })
+            },
+
+            tabmainid: 'product',
+
+        },
+        {
+            blemainid: 'alcohol',
+            blemaintitle: 'Alcohol',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'alcohol',
+                })
+            },
+
+            tabmainid: 'product',
+
+        },
+        {
+            blemainid: 'dairy',
+            blemaintitle: 'Dairy',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'dairy',
+                })
+            },
+
+            tabmainid: 'product',
+
+        },
+        {
+            blemainid: 'etc',
+            blemaintitle: 'Veggies, fruit, etc',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'etc',
+                })
+            },
+
+            tabmainid: 'product',
+
+        },
+        
+        {
+            blemainid: 'retail',
+            blemaintitle: 'Retailers',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'retail',
+                })
+            },
+
+            tabmainid: 'place',
+
+        },
+        {
+            blemainid: 'manufacturer',
+            blemaintitle: 'Manufacturers',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'manufacturer',
+                })
+            },
+
+            tabmainid: 'place',
+
+        },
+        {
+            blemainid: 'restaurant',
+            blemaintitle: "Chefs / Restaurants",
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'restaurant',
+                })
+            },
+            
+            tabmainid: 'place',
+        },
+
+        {
+            blemainid: 'excite',
+            blemaintitle: "Exciting",
+            blemainaction:  () => {
+                // setbreadmainstate({
+                //     breadmainidtwo: 'restaurant',
+                // })
+            },
+            
+            tabmainid: 'genre',
+        },
+        {
+            blemainid: 'recommend',
+            blemaintitle: "Recommended",
+            blemainaction:  () => {
+                // setbreadmainstate({
+                //     breadmainidtwo: 'restaurant',
+                // })
+            },
+            
+            tabmainid: 'genre',
+        },
+    ]
+
+    const searchselect = [
+         {
+            tabmainid: 'post',
+            tabmaintitle: 'Blog',
+            // tabmainaction: `/category/post`,
+        },
+        {
+            tabmainid: 'place',
+            tabmaintitle: 'Places',
+            // tabmainaction: `/category/place`,
+        },
+        {
+            tabmainid: 'product',
+            tabmaintitle: 'Products',
+            // tabmainaction: `/category/product`,
+        },
+    ]
+
+    const searchlink = [
+         {
+            blemainid: 'recipe',
+            blemaintitle: 'Recipes',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'recipe',
+                })
+            },
+
+            tabmainid: 'post',
+        },
+        {
+            blemainid: 'review',
+            blemaintitle: 'Reviews',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'review',
+                })
+            },
+
+            tabmainid: 'post',
+        },
+        {
+            blemainid: 'interview',
+            blemaintitle: 'Interviews',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'interview',
+                })
+            },
+
+            tabmainid: 'post',
+
+        },
+
+        {
+            blemainid: 'meat',
+            blemaintitle: 'Meat',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'meat',
+                })
+            },
+
+            tabmainid: 'product',
+
+        },
+        {
+            blemainid: 'coffee',
+            blemaintitle: 'Coffee',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'coffee',
+                })
+            },
+
+            tabmainid: 'product',
+
+        },
+        {
+            blemainid: 'alcohol',
+            blemaintitle: 'Alcohol',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'alcohol',
+                })
+            },
+
+            tabmainid: 'product',
+
+        },
+        {
+            blemainid: 'dairy',
+            blemaintitle: 'Dairy',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'dairy',
+                })
+            },
+
+            tabmainid: 'product',
+
+        },
+        {
+            blemainid: 'etc',
+            blemaintitle: 'Veggies, fruit, etc',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'etc',
+                })
+            },
+
+            tabmainid: 'product',
+
+        },
+        
+        {
+            blemainid: 'retail',
+            blemaintitle: 'Retailers',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'retail',
+                })
+            },
+
+            tabmainid: 'place',
+
+        },
+        {
+            blemainid: 'manufacturer',
+            blemaintitle: 'Manufacturers',
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'manufacturer',
+                })
+            },
+
+            tabmainid: 'place',
+
+        },
+        {
+            blemainid: 'restaurant',
+            blemaintitle: "Chefs / Restaurants",
+            blemainaction:  () => {
+                setbreadmainstate({
+                    breadmainidtwo: 'restaurant',
+                })
+            },
+            
+            tabmainid: 'place',
+        },
+
+        {
+            blemainid: 'excite',
+            blemaintitle: "Exciting",
+            blemainaction:  () => {
+                // setbreadmainstate({
+                //     breadmainidtwo: 'restaurant',
+                // })
+            },
+            
+            tabmainid: 'genre',
+        },
+        {
+            blemainid: 'recommend',
+            blemaintitle: "Recommended",
+            blemainaction:  () => {
+                // setbreadmainstate({
+                //     breadmainidtwo: 'restaurant',
+                // })
+            },
+            
+            tabmainid: 'genre',
+        },
+    ]
+
     const pp = async () => {
               const query = `*[_type == 'user' && userid == 'hayaker']{
                 ...,
@@ -113,10 +520,16 @@ export const Provider = ({ children }) => {
                   setproductcreatedat(data.productcreatedat);
               })
         }
+
+
     if(!postupdatedat) return <LoadMain />
 
     return (
       <ContextMain.Provider value={{
+          postselect, postlink,
+          categoryselect, categorylink,
+          searchselect, searchlink,
+
           appmainstate, setappmainstate,
           // postindexstate, setpostindexstate,
           searchmainstate, setsearchmainstate,
@@ -141,6 +554,7 @@ export const Provider = ({ children }) => {
           stackmainstate, setstackmainstate,
           tabmainstate, settabmainstate,
           opendeskmainstate, setopendeskmainstate,
+          stepmainstate, setstepmainstate,
           
           userindex,
           postplaceproduct,

@@ -67,7 +67,7 @@ function NavMain() {
                         <RiContrastDropLine className='text-3xl' />
                     </figure>
                     <figcaption className="flex flex-row gap-1">
-                        <h1 className='m-h6 font-bold'>HAYAK</h1>
+                        <h1 className='m-h6 font-bold font-serif'>HAYAK</h1>
                         {/* <h1 className="l-h3">Blog</h1> */}
                     </figcaption>
                 </article>

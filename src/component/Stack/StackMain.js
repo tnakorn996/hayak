@@ -7,7 +7,10 @@ import { useNavigate } from 'react-router-dom'
 import { ContextMain } from '../../context/contextmain'
 import HorizonMain from '../post/HorizonMain'
 
-function StackMain() {
+function StackMain({
+  stackmainid, stackmainindex,
+
+}) {
     const {
         stackmainstate,
 

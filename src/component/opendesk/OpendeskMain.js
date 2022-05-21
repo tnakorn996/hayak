@@ -4,12 +4,16 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
 import { RiFeedbackFill, RiShareFill } from 'react-icons/ri'
-import { useParams } from 'react-router-dom'
+
 import { ContextMain } from '../../context/contextmain'
 import HorizonMain from '../post/HorizonMain'
 
 function OpendeskMain() {
     const {
+        postselect, postlink,
+        categoryselect, categorylink,
+        searchselect, searchlink,
+
         setappmainstate, appmainstate,
         opendeskmainstate, setopendeskmainstate,
         tabmainstate, settabmainstate,
@@ -20,235 +24,10 @@ function OpendeskMain() {
     const [opendeskmaintitle, setopendeskmaintitle] = useState()
     const [opendeskmainimage, setopendeskmainimage] = useState()
     const [opendeskmainparam, setopendeskmainparam] = useState()
+    const [opendeskmainlocation, setopendeskmainlocation] = useState()
 
     const [opendeskmainrender, setopendeskmainrender] = useState()
     const [opendeskmainrendertwo, setopendeskmainrendertwo] = useState()
-
-    const postselect = [
-        {
-            tabmainid: 'share',
-            tabmaintitle: 'Share',
-            tabmainicon: <RiShareFill />,
-        },
-        {
-            tabmainid: 'feedback',
-            tabmaintitle: 'Feedback',
-            tabmainicon: <RiFeedbackFill />,
-        },
-    ]
-
-    const postlink = [
-        {
-            blemainid: 'url',
-            blemaintitle: 'Scan with QR code',
-            blemainaction:  () => {
-                setappmainstate({
-                    appmainid: 'sharesection',
-                    appmainidtwo: 'modalmain',
-                    appmainidthree: 0,
-                    appmainparam: opendeskmainparam,
-                    appmainboolean: true,
-                })
-            },
-
-            tabmainid: 'share',
-            spreadmainid: 'new',
-        },
-
-
-        {
-            blemainid: 'ask',
-            blemaintitle: 'Ask question',
-            blemainaction:  () => {
-            },
-
-            tabmainid: 'feedback',
-        },
-        {
-            blemainid: 'edit',
-            blemaintitle: 'Suggest an edit',
-            blemainaction:  () => {
-            },
-
-            tabmainid: 'feedback',
-        },
-        {
-            blemainid: 'report',
-            blemaintitle: 'Report an issue',
-            blemainaction:  () => {
-            },
-
-            tabmainid: 'feedback',
-        }
-    ]
-
-    const categoryselect = [
-        {
-            tabmainid: appmainstate?.appmainparam,
-            tabmaintitle: 'category',
-        },
-        {
-            tabmainid: 'genre',
-            tabmaintitle: 'Genres',
-        },
-    ]
-
-    const categorylink = [
-         {
-            blemainid: 'recipe',
-            blemaintitle: 'Recipes',
-            blemainaction:  () => {
-                setbreadmainstate({
-                    breadmainidtwo: 'recipe',
-                })
-            },
-
-            tabmainid: 'post',
-        },
-        {
-            blemainid: 'review',
-            blemaintitle: 'Reviews',
-            blemainaction:  () => {
-                setbreadmainstate({
-                    breadmainidtwo: 'review',
-                })
-            },
-
-            tabmainid: 'post',
-        },
-        {
-            blemainid: 'interview',
-            blemaintitle: 'Interviews',
-            blemainaction:  () => {
-                setbreadmainstate({
-                    breadmainidtwo: 'interview',
-                })
-            },
-
-            tabmainid: 'post',
-
-        },
-
-        {
-            blemainid: 'meat',
-            blemaintitle: 'Meat',
-            blemainaction:  () => {
-                setbreadmainstate({
-                    breadmainidtwo: 'meat',
-                })
-            },
-
-            tabmainid: 'product',
-
-        },
-        {
-            blemainid: 'coffee',
-            blemaintitle: 'Coffee',
-            blemainaction:  () => {
-                setbreadmainstate({
-                    breadmainidtwo: 'coffee',
-                })
-            },
-
-            tabmainid: 'product',
-
-        },
-        {
-            blemainid: 'alcohol',
-            blemaintitle: 'Alcohol',
-            blemainaction:  () => {
-                setbreadmainstate({
-                    breadmainidtwo: 'alcohol',
-                })
-            },
-
-            tabmainid: 'product',
-
-        },
-        {
-            blemainid: 'dairy',
-            blemaintitle: 'Dairy',
-            blemainaction:  () => {
-                setbreadmainstate({
-                    breadmainidtwo: 'dairy',
-                })
-            },
-
-            tabmainid: 'product',
-
-        },
-        {
-            blemainid: 'etc',
-            blemaintitle: 'Veggies, fruit, etc',
-            blemainaction:  () => {
-                setbreadmainstate({
-                    breadmainidtwo: 'etc',
-                })
-            },
-
-            tabmainid: 'product',
-
-        },
-        
-        {
-            blemainid: 'retail',
-            blemaintitle: 'Retailers',
-            blemainaction:  () => {
-                setbreadmainstate({
-                    breadmainidtwo: 'retail',
-                })
-            },
-
-            tabmainid: 'place',
-
-        },
-        {
-            blemainid: 'manufacturer',
-            blemaintitle: 'Manufacturers',
-            blemainaction:  () => {
-                setbreadmainstate({
-                    breadmainidtwo: 'manufacturer',
-                })
-            },
-
-            tabmainid: 'place',
-
-        },
-        {
-            blemainid: 'restaurant',
-            blemaintitle: "Chefs / Restaurants",
-            blemainaction:  () => {
-                setbreadmainstate({
-                    breadmainidtwo: 'restaurant',
-                })
-            },
-            
-            tabmainid: 'place',
-        },
-
-        {
-            blemainid: 'excite',
-            blemaintitle: "Exciting",
-            blemainaction:  () => {
-                // setbreadmainstate({
-                //     breadmainidtwo: 'restaurant',
-                // })
-            },
-            
-            tabmainid: 'genre',
-        },
-        {
-            blemainid: 'recommend',
-            blemaintitle: "Recommended",
-            blemainaction:  () => {
-                // setbreadmainstate({
-                //     breadmainidtwo: 'restaurant',
-                // })
-            },
-            
-            tabmainid: 'genre',
-        },
-    ]
 
     ////////////////////////////////
 
@@ -275,6 +54,17 @@ function OpendeskMain() {
         },
     ]
 
+    const searchoption = [
+        {
+            opendeskmainindex: 0,
+            opendeskmainrender: searchselect,
+        },
+        {
+            opendeskmainindex: 1,
+            opendeskmainrender: searchlink.filter(data => data.tabmainid === tabmainstate?.tabmainidtwo),
+        },
+    ]
+
     const opendeskmain = [
         {
             opendeskmainid: 'postoption',
@@ -284,6 +74,10 @@ function OpendeskMain() {
             opendeskmainid: 'categoryoption',
             opendeskmainref: categoryoption,
         },
+        {
+            opendeskmainid: 'searchoption',
+            opendeskmainref: searchoption,
+        },
     ]
 
     useEffect(() => {
@@ -291,12 +85,13 @@ function OpendeskMain() {
           setopendeskmainimage(tabmainstate?.tabmainimage)
           setopendeskmaintitle(tabmainstate?.tabmaintitle)
           setopendeskmainparam(tabmainstate?.tabmainparam)
+          setopendeskmainlocation(tabmainstate?.tabmainlocation)
       }
     }, [])
 
     useEffect(() => {
         if(tabmainstate){
-            const filter = opendeskmain.filter(data => data.opendeskmainid === appmainstate.appmainid)
+            const filter = opendeskmain.filter(data => data.opendeskmainid === tabmainstate.tabmainid)
             const filtertwo = filter[0].opendeskmainref.filter(data => data.opendeskmainindex === opendeskmainindex)
             if(opendeskmainindex === 0) {
                 setopendeskmainrender(filtertwo[0].opendeskmainrender)
@@ -306,41 +101,19 @@ function OpendeskMain() {
         }
     }, [tabmainstate])
 
-    // useEffect(() => {
-    //   if(opendeskmainrendertwo){
-    //       opendeskmainrendertwo.forEach(data => {
-    //           if(data.spreadmainid === spreadmain.spreadmainid)
-    //       })
-    //   }
-    // }, [opendeskmainrendertwo])
-    
-
   return (
     <div>
-        <br />
-        <motion.main initial={{y: 100}} animate={{ y:0}} exit={{y: 100}} className="w-screen md:max-w-[500px] p-[20px]  bg-white border border-black overflow-hidden">
-            <section className="">
+        <motion.main initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="fixed bottom-0 md:top-0 right-0 w-screen md:h-screen md:max-w-[500px] p-[20px]  bg-white border border-black overflow-hidden">
+            <section className="md:h-[10vh]">
+            {(opendeskmainlocation || opendeskmainparam) && (<>
                 <HorizonMain
-                posthero={opendeskmainimage} posttitle={opendeskmaintitle} postsubtitle={`https://hayak.vercel.app/${opendeskmainparam}`} />
-                <br />
-                {opendeskmainindex !== 0 && (<>
-                <div className="grid grid-cols-11 items-center text-center">
-                    <button onClick={() => {
-                        settabmainstate({
-                            tabmainid: tabmainstate?.tabmainid,
-                            tabmainidtwo: null,
-                        })
-                        setopendeskmainindex(0)
-                    }} className="col-span-2  l-button border">←</button>
-                    <h1 className="col-span-9  uppercase l-button border">{opendeskmainrendertwo && opendeskmainrendertwo[0]?.tabmainid}</h1>
-                </div>
+                posthero={opendeskmainimage} posttitle={opendeskmaintitle} postsubtitle={`https://hayak.vercel.app${opendeskmainlocation || '/' + opendeskmainparam}`} />
             </>)}
-            <br />
             </section>
 
-            <section className="relative h-[40vh]">
-
-                {opendeskmainrender?.map(data => (<>
+            <section className="h-[50vh] md:h-[80vh]">
+                <br />
+                {opendeskmainindex === 0 && opendeskmainrender?.map(data => (<>
                 <div className="">
                     <article onClick={() => {
                         settabmainstate({
@@ -358,7 +131,18 @@ function OpendeskMain() {
                 </>))}
 
                 {opendeskmainindex !== 0 && (<>
-                    <motion.div initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="w-full h-full absolute z-30 top-3 left-0  bg-white">
+                    <div className="grid grid-cols-11 items-center text-center">
+                        <button onClick={() => {
+                            settabmainstate({
+                                tabmainid: tabmainstate?.tabmainid,
+                                tabmainidtwo: null,
+                            })
+                            setopendeskmainindex(0)
+                        }} className="col-span-2  l-button border">←</button>
+                        <h1 className="col-span-9  uppercase l-button border">{opendeskmainrendertwo && opendeskmainrendertwo[0]?.tabmainid}</h1>
+                    </div>
+                    <br />
+                    <motion.div initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="">
                     {opendeskmainrendertwo?.map(data => (<>
 
                     <article onClick={data?.blemainaction} className="grid grid-cols-12 items-center p-[20px]">
@@ -371,8 +155,7 @@ function OpendeskMain() {
                 </>)}
 
             </section>
-            <br />
-            <section className="">
+            <section className="md:h-[10vh]">
                 <button onClick={() => {
                     setappmainstate('')
                 }} className=" w-full  m-button">Cancel</button>

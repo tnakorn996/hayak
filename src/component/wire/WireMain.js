@@ -54,6 +54,19 @@ function WireMain() {
       },
     ]
 
+
+    const blocktr = [
+      {
+        wiremainindex: 0,
+        wiremainrender: () => {
+          return <section className="">
+            ff
+          </section>
+        },
+      },
+
+    ]
+
     const wiremain = [
         {
             wiremain: 'hometr',
@@ -62,6 +75,10 @@ function WireMain() {
         {
             wiremain: 'rtatr',
             wireref: rtatr,
+        },
+        {
+            wiremain: 'blocktr',
+            wireref: blocktr,
         },
 
     ]

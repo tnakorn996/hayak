@@ -7,7 +7,6 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 import VerticleMain from '../../component/post/VerticleMain'
-// import { breadmain, crummain } from '../../content/contentmain'
 import { ContextMain } from '../../context/contextmain'
 import { breadmain, categoryul, crummain } from '../../content/contentmantwo'
 import ChipMain from '../../component/chip/ChipMain'
@@ -22,6 +21,7 @@ function CategoryIndex() {
 
     } = useContext(ContextMain)
     const param = useParams()
+    const location = useLocation()
     const navigate = useNavigate()
 
     const [categoryindexrender, setcategoryindexrender] = useState()
@@ -140,7 +140,9 @@ function CategoryIndex() {
                 <ChipMain />
                 
                 <button onClick={() => {
-                    settabmainstate({
+                        settabmainstate({
+                            tabmainid: 'categoryoption',
+                            tabmainlocation: location.pathname,
                             tabmainparam: param.id,
                             tabmainimage: categoryindeximage,
                             tabmainaction: categoryindexaction,
@@ -148,6 +150,7 @@ function CategoryIndex() {
                         setappmainstate({
                             appmainid: 'categoryoption',
                             appmainidtwo: 'opendeskmain',
+                            tabmainlocation: location.pathname,
                             appmainparam: param.id,
                             appmainboolean: true,
                         })

@@ -22,14 +22,13 @@ import SheetMain from './component/sheet/SheetMain';
 import PromoMain from './component/promo/PromoMain';
 import TopMain from './component/top/TopMain';
 import PortMain from './component/port/PortMain';
+import SearchMain from './page/search/SearchMain';
 // import PreviewMain from './component/preview/PreviewMain';
 
 export default function App() {
   const {
     appmainstate, 
     setportmainstate,
-
-    setextromainstate,
   
   } = useContext(ContextMain)
   const location = useLocation()
@@ -96,6 +95,8 @@ export default function App() {
             <Route path='/category/:id' element={<CategoryIndex />} /> 
 
             <Route path='/about/aboutmain' element={<AboutMain />} /> 
+
+            <Route path='/search/' element={<SearchMain />} /> 
 
           </Routes> 
         </AnimatePresence>

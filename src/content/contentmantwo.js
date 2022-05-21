@@ -1,3 +1,4 @@
+import { RiInformationLine } from "react-icons/ri"
 
     export const categoryul = [
          {
@@ -160,6 +161,210 @@
             crummainimage: '',
 
             breadmainid: '',
+        },
+    ]
+
+    export const postul = [
+        {
+            breadmainid: 'description',
+            breadmaintitle: 'Descriptions',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'Find more info',
+            breadmainaction: `/category/post`,
+            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+        },
+        {
+            breadmainid: 'comment',
+            breadmaintitle: 'Comments',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'Find more comments',
+            breadmainaction: `/category/post`,
+            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+        }
+    ]
+
+    export const postui = [
+        {
+            crummainid: 'name',
+            crummaintitle: 'PROUDLY OWNED BY',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'description',
+        },
+        {
+            crummainid: 'type',
+            crummaintitle: 'BUSINESS TYPE',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'description',
+        },
+        {
+            crummainid: 'name',
+            crummaintitle: 'TIME COOK',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'detail',
+        },
+        {
+            crummainid: 'type',
+            crummaintitle: 'RECIPE',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'detail',
+        },
+     
+
+
+        {
+            crummainid: 'top',
+            crummaintitle: 'top',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'comment',
+        },
+    ]
+
+    export const categorydi = [
+        {
+            spreadmainid: 'success',
+            spreadmaintitle: 'Successfully', 
+            spreadmainicon: <RiInformationLine />,
+            spreadmainstyle: '!bg-emerald-50 !text-emerald-800',
+        },
+        {
+            spreadmainid: 'fail',
+            spreadmaintitle: 'Oops', 
+            spreadmainicon: <RiInformationLine />,
+            spreadmainstyle: '!bg-red-50 !text-red-800',
+        },
+        {
+            spreadmainid: 'inform',
+            spreadmaintitle: 'This', 
+            spreadmainicon: <RiInformationLine />,
+            spreadmainstyle: '!bg-gray-50 !text-gray-800',
+        },
+        {
+            spreadmainid: 'disclaim',
+            spreadmaintitle: 'This', 
+            spreadmainicon: <RiInformationLine />,
+            spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
+        },
+        {
+            spreadmainid: 'credit',
+            spreadmaintitle: 'This', 
+            spreadmainicon: <RiInformationLine />,
+            spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
+        },
+    ]
+
+    export const categorydl = [
+        {
+            sheetmainid: 'placedi',
+            sheetmaintitle: 'Find sellers',
+            sheetmainsubtitle: 'Place Location',
+            sheetmainaction: `/category/place`,
+
+        },
+        {
+            sheetmainid: 'pickdi',
+            sheetmaintitle: 'Find products',
+            sheetmainsubtitle: `What You'll Need`,
+            sheetmainaction: `/category/product`,
+        },
+        {
+            sheetmainid: 'postdi',
+            sheetmaintitle: 'Find blogs',
+            sheetmainsubtitle: 'Related Blog',
+            sheetmainaction: `/category/post`,
+
+        },
+        {
+            sheetmainid: 'productdi',
+            sheetmaintitle: 'Find products',
+            sheetmainsubtitle: 'Related Products',
+            sheetmainaction: `/category/product`,
+        },
+
+    ]
+
+    export const searchdl= [
+        {
+            sheetmaintitle: 'Find more results',
+            sheetmainaction: `/search/`,
+            sheetmainentitle: 'Filter search',
+
+            spreadmainid: 'success'
+        },
+        {
+            sheetmaintitle: "We couldn't find results",
+            sheetmainaction: `/search/searchmain`,
+            sheetmainentitle: 'Filter search',
+
+            spreadmainid: 'fail'
+        },
+        {
+            sheetmaintitle: "Can't find result?",
+            sheetmainaction: `/search/searchmain`,
+            sheetmainentitle: 'See more',
+
+            spreadmainid: 'inform'
+        },
+    ]
+
+    export const postdl= [
+        {
+            sheetmaintitle: 'Disclaimer: ',
+            sheetmainaction: `/term/termmain`,
+            sheetmainentitle: 'Learn more',
+
+            spreadmainid: 'disclaim'
+        },
+        {
+            sheetmaintitle: "Image from ",
+            sheetmainaction: `/term/termmain`,
+            sheetmainentitle: 'Learn more',
+
+            spreadmainid: 'credit'
+        },
+    ]
+
+/////////////////////////////////////////////////////
+
+    export const spreadmain = [
+        {
+            spreadmainid: 'categorydi',
+            spreadmainref: categorydi,
+        },
+        // {
+        //     spreadmainid: 'searchdi',
+        //     spreadmainref: searchdl,
+        // }
+    ]
+
+    export const sheetmain = [
+        {
+            sheetmainid: 'categorydl',
+            sheetmainref: searchdl,
+        },
+        {
+            sheetmainid: 'searchdl',
+            sheetmainref: searchdl,
+        },
+        {
+            sheetmainid: 'postdl',
+            sheetmainref: postdl,
         },
     ]
 

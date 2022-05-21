@@ -8,7 +8,7 @@ import { Provider } from '../src/context/contextmain';
 ReactDOM.render(
    <Router>
     <Provider>
-    <App />
+        <App />
     </Provider>
   </Router>,
   document.getElementById('root')

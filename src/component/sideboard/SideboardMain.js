@@ -10,8 +10,9 @@ import { breadmain, crummain } from '../../content/contentmain'
 
 import { ContextMain } from '../../context/contextmain'
 import CommentDialog from '../../page/comment/CommentDialog'
-import SearchDialog from '../../page/search/SearchDialog'
+import AlertMain from '../alert/AlertMain'
 import PortMain from '../port/PortMain'
+import ZoomMain from '../zoom/ZoomMain'
 
 function SideboardMain() {
   const {
@@ -30,10 +31,9 @@ function SideboardMain() {
     }
   }, [appmainstate])
 
-
   const searchdialog = [
     {
-      sideboardrender: <SearchDialog />,
+      sideboardrender: <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />,
     },
   ]
 
@@ -120,15 +120,6 @@ function SideboardMain() {
     }
   }, [appmainstate, sideboardmainpage])
 
-  // useEffect(() => {
-  //   if(sideboardmainpage){
-  //     console.log('object :>> ');
-  //     const filter = sideboardmain.filter(data => data.sideboardmainid === appmainstate.appmainid)
-  //     const filtertwo = filter[0].sideboardmainref.filter(data => filter[0].sideboardmainref.indexOf(data) === sideboardmainpage)
-  //     setsideboardmainrender(filtertwo[0].sideboardrender) 
-  //   }
-  // }, [sideboardmainpage])
-
   return (
     <div>
         <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="h-screen w-[95vw] md:max-w-[55vw] fixed top-0 left-0 flex flex-col justify-start items-center bg-black text-white shadow-2xl">
@@ -152,8 +143,11 @@ function SideboardMain() {
                 }} className="z-10 absolute top-3 right-3 text-4xl  text-white bg-black rounded-full" />
               </figcaption>
             </section>
-            <section className="h-[80vh] w-full  overflow-hidden">
+            <section className="h-[80vh] w-full  overflow-y-scroll">
               {sideboardmainrender && sideboardmainrender}
+              {appmainstate?.appmainid === 'searchdialog' && (<>
+                <AlertMain alertmainid={'inform'} alertmainidtwo={'searchdl'} />
+              </>)}
             </section>
             <section className="h-[10vh] w-full p-[20px] grid grid-flow-col  border-t border-gray-700">
               <button className="m-button">Our story</button>
