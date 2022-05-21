@@ -8,7 +8,7 @@ import { ContextMain } from '../../context/contextmain'
 function TableMain() {
     const {
         // postselect, postlink,
-        blockselect, blocklink,
+        // blockselect, blocklink,
 
         tabmainstate, settabmainstate,
 
@@ -16,33 +16,13 @@ function TableMain() {
     const [tablemainrender, settablemainrender] = useState()
     const [tablemainrendertwo, settablemainrendertwo] = useState()
 
-    const tabmain = [
-        // {
-        //     tabmainid: 'postselect',
-        //     tabmainref: postselect,
-        // },
-        {
-            tabmainid: 'blockselect',
-            tabmainref: blockselect,
-        },
-    ]
-
-    const blemain = [
-        {
-            blemainid: 'blocklink',
-            blemainref: blocklink,
-        },
-    ]
-
     useEffect(() => {
-        // console.log('tabmainstate :>> ', tabmainstate);
       if(tabmainstate){
-          const filter = tabmain.filter(data => data?.tabmainid === tabmainstate.tabmainid)
-          const filtertwo = blemain.filter(data => data?.blemainid === tabmainstate.tabmainidtwo)
-          const filterthree = filtertwo[0].blemainref.filter(data => data?.tabmainid === tabmainstate.tabmainidthree)
-            settablemainrender(filter[0].tabmainref)
-            settablemainrendertwo(filterthree)
-            // settablemainrenderthree(filterthree)
+        //   const filter = tabmain.filter(data => data?.tabmainid === tabmainstate.tabmainid)
+        //   const filtertwo = blemain.filter(data => data?.blemainid === tabmainstate.tabmainidtwo)
+        //   const filterthree = filtertwo[0].blemainref.filter(data => data?.tabmainid === tabmainstate.tabmainidthree)
+        //     settablemainrender(filter[0].tabmainref)
+        //     settablemainrendertwo(filterthree)
       }
     }, [tabmainstate])
 

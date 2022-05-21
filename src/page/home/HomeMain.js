@@ -203,13 +203,13 @@ function HomeMain() {
                     }} className="l-h2">See all</button>
                 </figcaption>
                 <br />
-                <figure className="px-[20px] md:px-[60px] w-screen relative  overflow-hidden no-scrollbar">
+                <figure className="px-[20px] md:px-[60px] w-screen relative  overflow-y-scroll no-scrollbar">
 
                     <div className="w-[1200px] md:w-full group grid grid-cols-4 gap-5">
                         {data?.homemainid === 'postupdatedat' && (<>
                         <button onClick={() => {
                             ll(data?.homemainmap?.length)
-                        }} className="flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                        }} className="hidden md:flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                             {/* <h1 className="w-[50px] h-[50px] flex items-center justify-center  m-h6 bg-white rounded-full border border-gray-400">→</h1> */}
                             <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
                         </button>
@@ -277,7 +277,7 @@ function HomeMain() {
                         {data?.homemainid === 'placeupdatedat' && (<>
                         <button onClick={() => {
                             kk(data?.homemainmap?.length)
-                        }} className="flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                        }} className="hidden md:flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                             {/* <h1 className="w-[50px] h-[50px] flex items-center justify-center  m-h6 bg-white rounded-full border border-gray-400">→</h1> */}
                             <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
                         </button>
@@ -293,7 +293,7 @@ function HomeMain() {
                         {data?.homemainid === 'productupdatedat' && (<>
                         <button onClick={() => {
                             jj(data?.homemainmap?.length)
-                        }} className="flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                        }} className="hidden md:flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                             {/* <h1 className="w-[50px] h-[50px] flex items-center justify-center  m-h6 bg-white rounded-full border border-gray-400">→</h1> */}
                             <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
                         </button>

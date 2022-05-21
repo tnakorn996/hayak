@@ -62,7 +62,7 @@ function AboutMain() {
             <section className=" bg-gray-800 text-white">
               <div className="min-h-screen max-w-[900px] mx-auto flex flex-col md:grid md:grid-cols-12 items-center">
               <figure className="p-[30px] min-h-[50vh] md:col-span-5 flex flex-col items-center gap-5  overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1628919350249-eb45d8829629?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" alt="" className="shadow-2xl" />
+                <img src="https://images.unsplash.com/photo-1628919350249-eb45d8829629?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" alt="" className="" />
                 <h1 className="text-3xl">→</h1>
               </figure>
               <figcaption className="p-[30px] min-h-[50vh] md:col-span-7 flex justify-center items-center  ">

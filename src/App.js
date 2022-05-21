@@ -96,7 +96,7 @@ export default function App() {
 
             <Route path='/about/aboutmain' element={<AboutMain />} /> 
 
-            <Route path='/search/' element={<SearchMain />} /> 
+            <Route path='/search/searchmain' element={<SearchMain />} /> 
 
           </Routes> 
         </AnimatePresence>

@@ -153,7 +153,7 @@ function ModalMain() {
   return (
     <div>
         <br />
-        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white border shadow-2xl border-black">
+        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white borderborder-black">
             <section className="p-[20px] text-center">
                 <h1 className="m-h4">{modalmaintitle && modalmaintitle}</h1>
             </section>

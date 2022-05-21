@@ -167,19 +167,19 @@ function CategoryIndex() {
                 }} className="flex flex-row items-center gap-2  l-button"><RiFilter3Fill /> Filter</button> */}
             </section>
             <hr />
-            <section className="px-[20px] md:px-[60px] w-[1200px] md:w-full mx-auto relative group">
+            <section className="w-[1200px] md:w-full mx-auto relative group">
                 <button onClick={() => jj()} className="hidden group-hover:flex fixed z-20 top-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                     <RiArrowRightSLine className='text-5xl' />
                 </button>
                 <button className="hidden md:flex md:fixed z-10 top-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black" />
                 {categoryindexrender?.map(data => (<>
                 <br />
-                <figcaption className="  flex flex-row justify-between items-center ">
+                <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
                     <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle}</h1>
                 </figcaption>
                 <br />
-                <figure className="overflow-y-auto sm:overflow-y-hidden no-scrollbar">
-                    <div className="grid grid-cols-4 gap-5">
+                <figure className="px-[20px] md:px-[60px] w-screen  overflow-y-scroll no-scrollbar">
+                    <div className="w-[1200px] md:w-full grid grid-cols-4 gap-5">
                     {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
                         <VerticleMain onlick={() => {
                             navigate(`/${dat?.postid}`)

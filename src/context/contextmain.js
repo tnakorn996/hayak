@@ -476,6 +476,20 @@ export const Provider = ({ children }) => {
         },
     ]
 
+    const tabmain = [
+        // {
+        //     tabmainid: 'blockselect',
+        //     tabmainref: blockselect,
+        // },
+    ]
+
+    const blemain = [
+        // {
+        //     blemainid: 'blocklink',
+        //     blemainref: blocklink,
+        // },
+    ]
+
     const pp = async () => {
               const query = `*[_type == 'user' && userid == 'hayaker']{
                 ...,
