@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
 import { RiChat3Line, RiEyeLine, RiMore2Fill, RiInformationLine } from 'react-icons/ri'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {PortableText, PortableTextComponentsProvider} from '@portabletext/react'
 
@@ -17,6 +17,8 @@ import CtaMain from '../../component/ctamain/CtaMain'
 import RtaMain from '../../component/rta/RtaMain'
 import SpreadMain from '../../component/spread/SpreadMain'
 import StepMain from '../../component/step/StepMain'
+import SocialMain from '../social/SocialMain'
+import CardMain from '../../component/card/CardMain'
 
 function PostIndex() {
     const {
@@ -420,8 +422,8 @@ function PostIndex() {
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                     <br />
                 </section>
-                <section className="">
-                    <figure className="group relative min-h-[20vh] md:min-h-[50vh] grid items-center justify-items-center">
+                <section className="border border-black">
+                    <figure className="group relative min-h-[20vh] md:min-h-[50vh] grid items-center justify-items-center  border border-black">
                         <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={postpostid?.posthero} alt="" className="z-10 w-full " />
                         <div className="absolute">
                         <LoadingMain />
@@ -443,92 +445,87 @@ function PostIndex() {
                             <button className="l-button opacity-100 border border-black">View image</button>
                         </div>
                     </figure>
-                    <figcaption className="">
-                        <br />
-                        <br />
-                        <h1 className="text-base  italic  text-black font-serif">This article was last updated on {postpostid?._updatedAt?.slice(0, 10)}</h1>
-                    </figcaption>
-                </section>
-                <section className="md:text-lg  text-gray-700 font-extralight">
-                    {/* {kk()} */}
-                    <br />
-                    <PortableTextComponentsProvider components={component}  >
-                        {postpostid?.postblock?.map(data => (<>
-                        <PortableText value={data} />
-                        <br />
-                        </>))}
-                    </PortableTextComponentsProvider>
-                    <br />
-                </section>
-                <section className="">
-                <AlertMain alertmainid={'disclaim'} alertmainidtwo={'postdl'}  />
-                <br />
-                </section>
-                <section className="flex justify-between">
-                    <div className="flex flex-row gap-5 items-center ">
-                        <div className="flex flex-row gap-2 items-center  m-h4">
-                            <figure className="">
-                                <RiEyeLine />
-                            </figure>
-                            <figcaption className="">
-                                {postpostid?.postcount || 0}
-                            </figcaption>
+                    <figure className="p-[10px] flex justify-between items-center">
+                        <div className="flex flex-row gap-5 items-center ">
+                            <div className="flex flex-row gap-2 items-center  m-h4">
+                                <figure className="">
+                                    <RiEyeLine />
+                                </figure>
+                                <figcaption className="">
+                                    {postpostid?.postcount || 0}
+                                </figcaption>
+                            </div>
+                            <div onClick={() => {
+                                setappmainstate({
+                                    appmainid: 'commentdialog',
+                                    appmainidtwo: 'sideboardmain',
+                                    appmainboolean: true,
+                                })
+                            }} className="flex flex-row gap-2 items-center  m-h4">
+                                <figure className="">
+                                    <RiChat3Line />
+                                </figure>
+                                <figcaption className="">
+                                    {postpostid?.postcount || 0}
+                                </figcaption>
+                            </div>
                         </div>
-                        <div onClick={() => {
-                            setappmainstate({
-                                appmainid: 'commentdialog',
-                                appmainidtwo: 'sideboardmain',
-                                appmainboolean: true,
-                            })
-                        }} className="flex flex-row gap-2 items-center  m-h4">
-                            <figure className="">
-                                <RiChat3Line />
-                            </figure>
-                            <figcaption className="">
-                                {postpostid?.postcount || 0}
-                            </figcaption>
-                        </div>
-                    </div>
-                    <figure onClick={() => {
-                        setappmainstate({
+                        <div className="">
+                        <SocialMain param={`/` + param.id} />
+                            {/* <figure onClick={() => {
+                                setappmainstate({
                                     appmainid: 'sharesection',
                                     appmainidtwo: 'modalmain',
                                     appmainidthree: 0,
                                     appmainparam: param.id,
                                     appmainboolean: true,
                                 })
-                        }} className="">
-                        <article className="">
+                            }} className="">
+                            <article className="">
                             <RiMore2Fill className='m-h3' />
-                        </article>
+                            </article>
+                        </figure> */}
+                        </div>
                     </figure>
+                </section>
+                <br />
+                <section className="p-[20px] border border-black">
+                    <figcaption className="">
+                        <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on` + postpostid?._updatedAt?.slice(0, 10)}</h1>
+                    </figcaption>
+                    <br />
+                    <figcaption className="md:text-lg  text-gray-700 font-light">
+                    <PortableTextComponentsProvider components={component}  >
+                        {postpostid?.postblock?.map(data => (<>
+                        <PortableText value={data} />
+                        <br />
+                        </>))}
+                    </PortableTextComponentsProvider>
+                    </figcaption>
+                </section>
+                <br />
+                <section className="">
+                <CardMain />
+                <br />
                 </section>
             </figure>
             <figcaption className="p-0 md:p-[30px] md:col-span-5">
                 <section className="hidden md:block">
                     <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
-                </section>
-                <section className="">
                     {<CtaMain />}
                 </section>
                 <section className="">
                     {<RtaMain />}
-                </section>
-                <section className="">
                     {<SpreadMain />}
-                </section>
-                <section className="">
                     {/* <TableMain /> */}
                     {/* <StepMain /> */}
+                    <AlertMain alertmainid={'disclaim'} alertmainidtwo={'postdl'}  />
                 </section>
             </figcaption>
             <figure className="col-span-12">
                 <br />
-                <br />
-                <h1 className="m-h6"> You may also like</h1>
-                <br />
-                <hr />
+                <h1 className="m-h6 font-serif"> You may also like</h1>
                 <br />
                 <section className="overflow-y-scroll">
                 <div className="w-[1200px] md:w-full grid grid-cols-4 gap-3">

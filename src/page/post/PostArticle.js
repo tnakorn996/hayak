@@ -36,7 +36,7 @@ function PostArticle() {
     <div>
         <main className="">
                 <section className="">
-                    <figure className="relative max-h-[40vh] md:min-h-[60vh] flex items-center justify-center  overflow-hidden">
+                    <figure className="relative max-h-[40vh] md:min-h-[65vh] flex items-center justify-center  overflow-hidden">
                         <div className="z-10 absolute bottom-0 left-0 min-h-[35vh] md:min-h-[30vh] w-full  bg-gradient-to-b from-transparent to-white" />
                         <div className="z-10 absolute bottom-0 left-8 md:left-14 max-w-[70%] md:max-w-[60%] ">
                             <h1 className="md:text-3xl  m-h6 font-serif">{postarticlestate?.posttitle}</h1>

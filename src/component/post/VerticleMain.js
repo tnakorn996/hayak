@@ -47,6 +47,7 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
                     // }}
                 
                     onClick={() => {
+                      window.history.replaceState(null, "" , postid)
                       setappmainstate({
                         appmainid: 'postarticle',
                         appmainidtwo: 'previewmain',
@@ -54,7 +55,6 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
                         appmainparam: param,
                         appmainboolean: true,
                       })
-                      // window.history.replaceState(null, "" , postid)
                     }} className="relative row-span-3 overflow-hidden h-[20vh] md:h-[60vh] flex justify-center items-center   border border-black">
                     {priceid === 'pro' && (<>
                     <figure className="z-20 absolute top-2 left-2">

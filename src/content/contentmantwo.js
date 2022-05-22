@@ -236,6 +236,30 @@ import { RiInformationLine } from "react-icons/ri"
         },
     ]
 
+    export const commentul = [
+        {
+            breadmainid: 'comment',
+            breadmaintitle: 'Comments',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'See all comments',
+            breadmainaction: `/comment/commentmain`,
+            breadmainimage: '',
+        },
+    ]
+
+    export const commentui = [
+        {
+            crummainid: 'all',
+            crummaintitle: 'Find this post helpful?',
+            crummainsubtitle: `Help improve Product Hunt by sharing a review with others.`,
+            crummainstyle: '',
+            crummainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+
+            breadmainid: 'comment',
+        },
+    ]
+
     export const categorydi = [
         {
             spreadmainid: 'success',

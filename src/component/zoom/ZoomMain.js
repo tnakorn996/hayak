@@ -106,16 +106,14 @@ function ZoomMain({
                 const empty = []
                 for(const data of filtertwo[0].zoommaindata){
                     if(data.zoommainrender.length !== 0){
-                        empty.push(data)
-                        setzoommaindata(empty)
+                            empty.push(data)
+                            setzoommaindata(empty)
                     } 
                 }
             setzoommaintitle(filtertwo[0].zoommaintitle)
             setzoommainicon(filtertwo[0].zoommainicon)
         }
     }, [zoommainid, zoommainindex, zoommainkey])
-
-    console.log('breadmainstate :>> ', breadmainstate);
 
   return (
     <div>
@@ -136,15 +134,15 @@ function ZoomMain({
                     {data?.zoommainrender?.slice(0, zoommainslice)?.map(dat => (<>
                         <motion.article initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} onClick={() => {
                             navigate(`/${dat?.postid}`)
-                        }} className="p-[10px] grid grid-cols-12 gap-3 items-center justify-between">
-                            <span className="col-span-2 md:col-span-1  l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white">{data.zoommainicon}</span>
-                            <figcaption className="col-span-10 md:col-span-8">
+                        }} className="p-[10px] grid grid-cols-12 items-center justify-between">
+                            <span className="col-span-1  l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white">{data.zoommainicon}</span>
+                            <figcaption className="col-span-8 md:col-span-8">
                             <div className="">
                             <h1 className="md:l-h6 leading-loose !text-gray-400 truncate font-serif">{dat?.posttitle}</h1>
                             <h1 className="l-h3 truncate">{dat?.postsubtitle}</h1>
                             </div>
                             </figcaption>
-                            <figure className="hidden col-span-3 md:flex justify-end">
+                            <figure className="hidden col-span-3 justify-end">
                                 <img src={dat?.posticon || dat?.posthero} alt="" className="w-[80px] h-[80px]  border border-black" />
                             </figure>
                         </motion.article>

@@ -105,6 +105,21 @@ export const Provider = ({ children }) => {
             tabmainid: 'share',
             spreadmainid: 'new',
         },
+        {
+            blemainid: 'url',
+            blemaintitle: 'Scan with other platforms',
+            blemainaction:  () => {
+                setappmainstate({
+                    appmainid: 'sharesection',
+                    appmainidtwo: 'modalmain',
+                    appmainidthree: 1,
+                    appmainparam: location.pathname,
+                    appmainboolean: true,
+                })
+            },
+
+            tabmainid: 'share',
+        },
 
 
         {
@@ -476,6 +491,30 @@ export const Provider = ({ children }) => {
         },
     ]
 
+    const commentselect = [
+         {
+            tabmainid: 'comment',
+            tabmaintitle: 'comment',
+            // tabmainaction: `/category/post`,
+        },
+    ]
+
+    const commentlink = [
+         {
+            blemainid: 'all',
+            blemaintitle: 'All comments',
+            blemainaction:  () => {
+                setappmainstate({
+                    appmainid: 'commentdialog',
+                    appmainidtwo: 'sideboardmain',
+                    appmainboolean: true,
+                })
+            },
+
+            tabmainid: 'comment',
+        },
+    ]
+
     const tabmain = [
         // {
         //     tabmainid: 'blockselect',
@@ -543,6 +582,7 @@ export const Provider = ({ children }) => {
           postselect, postlink,
           categoryselect, categorylink,
           searchselect, searchlink,
+          commentselect, commentlink,
 
           appmainstate, setappmainstate,
           // postindexstate, setpostindexstate,

@@ -10,6 +10,7 @@ import CategorySection from '../../page/catagory/CategorySection'
 import StackMain from '../Stack/StackMain'
 import StateMain from '../state/StateMain'
 import OpendeskMain from '../opendesk/OpendeskMain'
+import SocialMain from '../../page/social/SocialMain'
 
 function ModalMain() {
     const {
@@ -19,7 +20,6 @@ function ModalMain() {
         setsnackbarmainstate,
 
     } = useContext(ContextMain)
-    const [modalmainstate, setmodalmainstate] = useState()
     const [modalmainindex, setmodalmainindex] = useState(0)
     const [modalmaintitle, setmodalmaintitle] = useState()
     const [modalmainrender, setmodalmainrender] = useState()
@@ -65,6 +65,12 @@ function ModalMain() {
                     })
                 }} className="m-button">Copy to clipboard</button>,
 
+        },
+        {
+            modalmainindex: 1,
+            modalmaintitle: 'Share Post',
+            modalmainrender: <SocialMain param={appmainstate.appmainparam} />,
+            modalmainaction: '',
         },
     ]
 
@@ -153,7 +159,7 @@ function ModalMain() {
   return (
     <div>
         <br />
-        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white borderborder-black">
+        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white border border-black">
             <section className="p-[20px] text-center">
                 <h1 className="m-h4">{modalmaintitle && modalmaintitle}</h1>
             </section>

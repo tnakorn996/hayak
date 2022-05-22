@@ -175,6 +175,7 @@ function HomeMain() {
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="w-screen  overflow-hidden">
             <br />
             <section onClick={() => {
+                    window.history.replaceState(null, "" , postupdatedat[0]?.postid)
                       setappmainstate({
                         appmainid: 'postarticle',
                         appmainidtwo: 'previewmain',
@@ -182,7 +183,6 @@ function HomeMain() {
                         appmainparam: postupdatedat && postupdatedat[0]?.postid,
                         appmainboolean: true,
                       })
-                    //   window.history.replaceState(null, "" , postupdatedat[0]?.postid)
                     }} className="py-[20px] px-[20px] md:px-[60px] h-[80vh] flex flex-col gap-3">
                 <figcaption className="flex flex-col justify-between items-center  border-b border-black">
                     <h1 className="text-6xl font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>

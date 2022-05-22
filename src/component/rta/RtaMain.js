@@ -46,7 +46,7 @@ function RtaMain({type}) {
             {data?.rtamainrendertwo?.map(dat => (<>
                 <br /><br />
                 <div className="flex items-center justify-between">
-                <h1 className="m-h6">{dat?.sheetmainsubtitle}</h1>
+                <h1 className="m-h6 font-serif">{dat?.sheetmainsubtitle}</h1>
                 {data?.rtamainrenderthree?.length > 0 && (<>
                   <article onClick={() => {
                     setstackmainstate({
