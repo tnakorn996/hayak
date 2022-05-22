@@ -15,6 +15,7 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
     setappmainstate,
     settabmainstate,
     setopendeskmainstate,
+    setsharemainstate,
 
   } = useContext(ContextMain)
   // const location = useLocation()
@@ -28,7 +29,7 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
         })
     }
   }, [categoryid])
-  
+
   return (
     <div>
         <main className="">
@@ -47,7 +48,7 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
                     // }}
                 
                     onClick={() => {
-                      window.history.replaceState(null, "" , postid)
+                      // window.history.replaceState(null, "" , postid)
                       setappmainstate({
                         appmainid: 'postarticle',
                         appmainidtwo: 'previewmain',
@@ -55,7 +56,7 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
                         appmainparam: param,
                         appmainboolean: true,
                       })
-                    }} className="relative row-span-3 overflow-hidden h-[20vh] md:h-[60vh] flex justify-center items-center   border border-black">
+                    }} className="relative row-span-3 overflow-hidden h-[40vh] md:h-[60vh] flex justify-center items-center   border-2 border-black">
                     {priceid === 'pro' && (<>
                     <figure className="z-20 absolute top-2 left-2">
                       <RiContrastDropLine className='m-h6 text-white  !opacity-100' />
@@ -65,16 +66,16 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
                     <LoadingMain />
                     </div>
                     {/* <div className="absolute top-0 left-0 z-10 w-full h-full  bg-black opacity-10" /> */}
-                    <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={posthero} alt="" className="md:max-w-[100ch] z-10 md:h-full hover:scale-110 duration-1000" />
+                    <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={posthero} alt="" className="max-w-[100ch] z-10 h-full hover:scale-110 duration-1000" />
                 </figure>
                 <figure className="relative flex flex-row py-[7px] gap-2 justify-end items-center">
                     {placepostid && (<>
-                    <div className="z-10 absolute -top-11 left-3 w-[30px] h-[30px] flex items-center  bg-white rounded-full overflow-hidden border border-black">
+                    <div className="z-10 absolute -top-11 left-3 w-[30px] h-[30px] flex items-center  bg-white rounded-full overflow-hidden border-2 border-black">
                         <img src={placepostid?.posticon} alt="" className="" />
                     </div>
                     </>)}
                     {posticon && (<>
-                    <div className="z-10 absolute -top-20 left-3 w-[100px] h-[100px] flex items-center  bg-white rounded-full overflow-hidden border border-black">
+                    <div className="z-10 absolute -top-20 left-3 w-[100px] h-[100px] flex items-center  bg-white rounded-full overflow-hidden border-2 border-black">
                         <img src={posticon} alt="" className="" />
                     </div>
                     </>)}
@@ -89,8 +90,12 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
                         setappmainstate({
                           appmainid: 'postoption',
                           appmainidtwo: 'opendeskmain',
+                          appmainparam: param,
                           appmainboolean: true,
-                      })
+                        })
+                        setsharemainstate({
+                          sharemainparam: param,
+                        })
                     }} className="">
                       <RiMore2Fill className='my-[7px]  text-md l-m3' />
                     </figure>
@@ -105,7 +110,7 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
                         navigate(`/catagory/${verticledivstate?.verticledivtitle || null}`)
                       }} className="px-[7px]  text-gray-500 uppercase text-[8px] bg-gray-200 rounded-full">{verticledivstate?.verticledivtitle || null}</h1>}
                     </div> */}
-                    <button className="m-h3 uppercase text-black">{posttitle}</button>
+                    <h1 className="m-h3 uppercase text-black truncate">{posttitle}</h1>
                     {/* <h1 className="l-h2">{postsubtitle}</h1> */}
                     {/* {ll(data?.categoryid)} */}
                 </figcaption>

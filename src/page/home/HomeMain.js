@@ -273,7 +273,7 @@ function HomeMain() {
                         </>)} */}
                     </div>
 
-                    <div className="w-[1000px] md:w-full group grid grid-cols-3 gap-5">
+                    <div className="w-[700px] md:w-full group grid grid-cols-3 gap-5">
                         {data?.homemainid === 'placeupdatedat' && (<>
                         <button onClick={() => {
                             kk(data?.homemainmap?.length)

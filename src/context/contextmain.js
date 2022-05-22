@@ -41,6 +41,7 @@ export const Provider = ({ children }) => {
     const [tabmainstate, settabmainstate] = useState()
     const [opendeskmainstate, setopendeskmainstate] = useState()
     const [stepmainstate, setstepmainstate] = useState()
+    const [sharemainstate, setsharemainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -97,7 +98,7 @@ export const Provider = ({ children }) => {
                     appmainid: 'sharesection',
                     appmainidtwo: 'modalmain',
                     appmainidthree: 0,
-                    appmainparam: location.pathname,
+                    appmainparam: `/` + sharemainstate.sharemainparam,
                     appmainboolean: true,
                 })
             },
@@ -113,7 +114,7 @@ export const Provider = ({ children }) => {
                     appmainid: 'sharesection',
                     appmainidtwo: 'modalmain',
                     appmainidthree: 1,
-                    appmainparam: location.pathname,
+                    appmainparam: `/` + sharemainstate.sharemainparam,
                     appmainboolean: true,
                 })
             },
@@ -609,6 +610,7 @@ export const Provider = ({ children }) => {
           tabmainstate, settabmainstate,
           opendeskmainstate, setopendeskmainstate,
           stepmainstate, setstepmainstate,
+          sharemainstate, setsharemainstate,
           
           userindex,
           postplaceproduct,

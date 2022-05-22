@@ -422,8 +422,8 @@ function PostIndex() {
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                     <br />
                 </section>
-                <section className="border border-black">
-                    <figure className="group relative min-h-[20vh] md:min-h-[50vh] grid items-center justify-items-center  border border-black">
+                <section className="border-2 border-black">
+                    <figure className="group relative min-h-[20vh] md:min-h-[50vh] grid items-center justify-items-center  border-b-2 border-black">
                         <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={postpostid?.posthero} alt="" className="z-10 w-full " />
                         <div className="absolute">
                         <LoadingMain />
@@ -489,7 +489,7 @@ function PostIndex() {
                     </figure>
                 </section>
                 <br />
-                <section className="p-[20px] border border-black">
+                <section className="p-[20px] min-h-[50vh]  border-2 border-black">
                     <figcaption className="">
                         <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>

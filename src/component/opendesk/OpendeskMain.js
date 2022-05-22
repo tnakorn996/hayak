@@ -101,7 +101,7 @@ function OpendeskMain() {
 
   return (
     <div>
-        <motion.main initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="fixed bottom-0 md:top-0 right-0 w-screen md:h-screen md:max-w-[500px] p-[20px]  bg-white border border-black overflow-hidden">
+        <motion.main initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="fixed bottom-0 md:top-0 right-0 w-screen md:h-screen md:max-w-[500px] p-[20px]  bg-white border-2 border-black overflow-hidden">
             <section className="md:h-[10vh]">
             {(opendeskmainlocation || opendeskmainparam) && (<>
                 <HorizonMain

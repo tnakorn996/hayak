@@ -24,7 +24,7 @@ function CardMain({
             cardmainrender: commentui.filter(data => data.crummainid === 'all'),
             cardmainaction: () => {
                 const filter = commentlink.filter(data => data.blemainid === 'all');
-                return <button onClick={filter[0].blemainaction} className="w-full  border border-black l-button">Leave a review</button>
+                return <button onClick={filter[0].blemainaction} className="w-full  border-2 border-black l-button">Leave a review</button>
             } 
         }
     ]
@@ -46,7 +46,7 @@ function CardMain({
 
   return (
     <div>
-        <main className="p-[20px] flex flex-col  md:grid md:grid-cols-12  border border-black">
+        <main className="p-[20px] flex flex-col  md:grid md:grid-cols-12  border-2 border-black">
             {cardmainrender?.map(data => (<>
             <section className="col-span-9">
                 <h1 className="m-h3">{data?.crummaintitle}</h1>

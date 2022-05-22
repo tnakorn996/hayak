@@ -25,7 +25,7 @@ function ModalMain() {
     const [modalmainrender, setmodalmainrender] = useState()
     const [modalmainaction, setmodalmainaction] = useState()
     const [modalmainentitle, setmodalmainentitle] = useState()
-
+    
     const sharesection = [
         {
             modalmainindex: 0,
@@ -159,7 +159,7 @@ function ModalMain() {
   return (
     <div>
         <br />
-        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white border border-black">
+        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white border-2 border-black">
             <section className="p-[20px] text-center">
                 <h1 className="m-h4">{modalmaintitle && modalmaintitle}</h1>
             </section>

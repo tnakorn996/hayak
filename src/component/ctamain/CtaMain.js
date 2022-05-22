@@ -28,7 +28,7 @@ function CtaMain() {
                             appmainboolean: true,
                         })
             }} className="m-h3 w-full m-button">Share post</button>,
-            ctamainrendertwo: <button className="m-h3 w-full l-button  border border-black">Check avability comments</button>,
+            ctamainrendertwo: <button className="m-h3 w-full l-button  border-2 border-black">Check avability comments</button>,
         },
         {
             ctamainrender: <button onClick={() => {
@@ -40,7 +40,7 @@ function CtaMain() {
                             appmainboolean: true,
                         })
             }} className="m-h3 w-full m-button">Share recipes</button>,
-            ctamainrendertwo: <button className="m-h3 w-full l-button  border border-black">Check avability comments</button>,
+            ctamainrendertwo: <button className="m-h3 w-full l-button  border-2 border-black">Check avability comments</button>,
         },
     ]
 
@@ -49,7 +49,7 @@ function CtaMain() {
             ctamainrender: <button onClick={() => {
                 window.open(ctamainstate?.ctamainrender?.postplaceurl, '_blank').focus();
             }} className="m-h3 w-full m-button">Seller website</button>,
-            ctamainrendertwo: <button className="m-h3 w-full l-button  border border-black">Check avability reviews</button>,
+            ctamainrendertwo: <button className="m-h3 w-full l-button  border-2 border-black">Check avability reviews</button>,
         },
     ]
 
@@ -60,7 +60,7 @@ function CtaMain() {
             }} className="m-h3 w-full m-button">Seller website</button>,
             ctamainrendertwo: <button onClick={() => {
                 window.open(ctamainstate?.ctamainrender?.postproducturl, '_blank').focus();
-            }} className="m-h3 w-full l-button  border border-black">Check avability product</button>,
+            }} className="m-h3 w-full l-button  border-2 border-black">Check avability product</button>,
         },
     ]
 
