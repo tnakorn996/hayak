@@ -28,7 +28,13 @@ function CtaMain() {
                             appmainboolean: true,
                         })
             }} className="m-h3 w-full m-button">Share post</button>,
-            ctamainrendertwo: <button className="m-h3 w-full l-button  border-2 border-black">Check avability comments</button>,
+            ctamainrendertwo: <button onClick={() => {
+                setappmainstate({
+                            appmainid: 'commentdialog',
+                            appmainidtwo: 'sideboardmain',
+                            appmainboolean: true,
+                })
+            }} className="m-h3 w-full l-button  border-2 border-black">Check avability comments</button>,
         },
         {
             ctamainrender: <button onClick={() => {
@@ -40,7 +46,13 @@ function CtaMain() {
                             appmainboolean: true,
                         })
             }} className="m-h3 w-full m-button">Share recipes</button>,
-            ctamainrendertwo: <button className="m-h3 w-full l-button  border-2 border-black">Check avability comments</button>,
+            ctamainrendertwo: <button onClick={() => {
+                setappmainstate({
+                            appmainid: 'commentdialog',
+                            appmainidtwo: 'sideboardmain',
+                            appmainboolean: true,
+                })
+            }} className="m-h3 w-full l-button  border-2 border-black">Check avability comments</button>,
         },
     ]
 
@@ -49,7 +61,13 @@ function CtaMain() {
             ctamainrender: <button onClick={() => {
                 window.open(ctamainstate?.ctamainrender?.postplaceurl, '_blank').focus();
             }} className="m-h3 w-full m-button">Seller website</button>,
-            ctamainrendertwo: <button className="m-h3 w-full l-button  border-2 border-black">Check avability reviews</button>,
+            ctamainrendertwo: <button onClick={() => {
+                setappmainstate({
+                            appmainid: 'commentdialog',
+                            appmainidtwo: 'sideboardmain',
+                            appmainboolean: true,
+                })
+            }} className="m-h3 w-full l-button  border-2 border-black">Check avability reviews</button>,
         },
     ]
 

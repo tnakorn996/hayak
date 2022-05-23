@@ -121,7 +121,7 @@ function ZoomMain({
             <section autoFocus className="h-[20vh] px-[20px] md:px-[50px] grid grid-flow-row items-center">
                 <div className="w-full relative flex items-center">
                     {/* {searchdialogload === true ? <div className="absolute"><LoadingMain /></div>  : <RiSearch2Line className='absolute  m-h6' />} */}
-                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey} className="md:text-4xl w-full pl-[40px]  l-input border border-gray-600" placeholder='Search...' />
+                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey} className="md:text-4xl w-full pl-[40px]  l-input border-2 border-gray-600" placeholder='Search...' />
                 </div>
                 <h1 className="l-h2 italic">Try coffee, kitchen, gift card..</h1>
             </section>
@@ -143,7 +143,7 @@ function ZoomMain({
                             </div>
                             </figcaption>
                             <figure className="hidden col-span-3 justify-end">
-                                <img src={dat?.posticon || dat?.posthero} alt="" className="w-[80px] h-[80px]  border border-black" />
+                                <img src={dat?.posticon || dat?.posthero} alt="" className="w-[80px] h-[80px]  border-2 border-black" />
                             </figure>
                         </motion.article>
                         <div className="w-full  border-b border-gray-600" />

@@ -1,58 +1,113 @@
 import React from 'react'
+import { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
+import CardMain from '../../component/card/CardMain'
 
 import StateMain from '../../component/state/StateMain'
 import { ContextMain } from '../../context/contextmain'
+import { client } from '../../lib/sanity'
 
 function CommentDialog() {
     const {
         setappmainstate,
         setstatemainstate,
-        setspreadmainstate,
 
     } = useContext(ContextMain)
+    const location = useLocation()
+    const [commentdialogrender, setcommentdialogrender] = useState()
+    const [commentdialogrendertwo, setcommentdialogrendertwo] = useState()
+
+    const [commentdialogtitle, setcommentdialogtitle] = useState('')
+    const [commentdialogsubtitle, setcommentdialogsubtitle] = useState('')
 
     useEffect(() => {
         setstatemainstate({
             statemainid: 'commentdl',
             statemainidtwo: 'break',
         })
+        ll()
     }, [])
+
+    const ll = async () => {
+            const query = `*[ postid == '${location.pathname?.slice(1, location.pathname.length)}' && commentboolean == true]`;
+            await client.fetch(query) 
+            .then((data) => {
+                setcommentdialogrendertwo(data)
+            })
+    }
+
+    const kk = async () => {
+        if(commentdialogsubtitle !== ''){
+            const doc = {
+                _id: uuidv4(),
+                _type: 'comment',
+                commentid:  uuidv4(),
+                commenttitle: commentdialogtitle,
+                commentsubtitle: commentdialogsubtitle,
+                commentboolean: false,
+
+                postid: location.pathname?.slice(1, location.pathname.length),
+            }
+            await client.createOrReplace(doc).then(() => {
+                setcommentdialogrender(<CardMain     
+                cardmainid={'commentimg'}
+                cardmainidtwo={'success'}
+                cardmainidthree={'feedback'}
+                cardmainindex={0} 
+                />)
+            });
+        } else {
+            setcommentdialogrender(<CardMain     
+                cardmainid={'commentimg'}
+                cardmainidtwo={'fail'}
+                cardmainidthree={'feedback'}
+                cardmainindex={0} 
+                />)
+        }
+    }
+
 
   return (
     <div>
         <main className="p-[20px]">
             <section className="">
                 <figcaption className="">
-                    <h1 className="m-h6 font-serif">Responses (0)</h1>
+                    <h1 className="m-h6 font-serif">Responses ({commentdialogrendertwo?.length || 0})</h1>
+                    <br />
                 </figcaption>
-                <textarea rows="3" placeholder='What are your thoughts?' className='w-full  l-input' />
+                <textarea onChange={p => setcommentdialogsubtitle(p.target.value)} rows="3" placeholder='What are your thoughts?' className='w-full  l-input border-2 border-gray-700' />
                 <br /><br />
                 <button onClick={() => {
-                    setstatemainstate({
-                        statemainid: 'commentdl',
-                        statemainidtwo: 'fail',
-                    })
-                    setappmainstate({
-                        appmainid: 'statesection',
-                        appmainidtwo: 'modalmain',
-                        appmainidthree: 0,
-                        appmainboolean: true,
-                    })
-                    // setspreadmainstate({
-                    //     spreadmainid: 'fail',
-                    //     spreadmainidtwo: 'commentdi',
+
+                    kk()
+
+                    // setstatemainstate({
+                    //     statemainid: 'commentdl',
+                    //     statemainidtwo: 'fail',
                     // })
                     // setappmainstate({
-                    //     appmainid: 'overlay',
-                    //     appmainidtwo: 'snackbarmain',
-                    //     appmainidthree: 'commenttbody',
+                    //     appmainid: 'statesection',
+                    //     appmainidtwo: 'modalmain',
+                    //     appmainidthree: 0,
+                    //     appmainboolean: true,
                     // })
                 }} className="l-button">Post comments</button>
             </section>
             <section className="">
-                <StateMain />
+                {commentdialogrender && commentdialogrender}
+            </section>
+            <br />
+            <section className="">
+                {/* <StateMain /> */}
+                {commentdialogrendertwo?.map(data => (<>
+                <br />
+                    <article className="p-[20px]  border border-gray-700">
+                        <h1 className="m-h3">{data?.commentsubtitle}</h1>
+                    </article>
+                </>))}
             </section>
         </main>
     </div>

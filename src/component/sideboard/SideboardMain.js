@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 // import { useLocation } from 'react-router-dom'
 import { breadmain, crummain } from '../../content/contentmain'
 
+import '../sideboard/sideboardmain.css'
 import { ContextMain } from '../../context/contextmain'
 import CommentDialog from '../../page/comment/CommentDialog'
 import AlertMain from '../alert/AlertMain'
@@ -143,7 +144,7 @@ function SideboardMain() {
                 }} className="z-10 absolute top-3 right-3 text-4xl  text-white bg-black rounded-full" />
               </figcaption>
             </section>
-            <section className="h-[80vh] w-full  overflow-y-scroll">
+            <section className="h-[80vh] w-full  overflow-y-scroll no-scrollbar ">
               {sideboardmainrender && sideboardmainrender}
               {appmainstate?.appmainid === 'searchdialog' && (<>
                 <AlertMain alertmainid={'inform'} alertmainidtwo={'searchdl'} />

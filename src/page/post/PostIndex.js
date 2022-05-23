@@ -494,7 +494,7 @@ function PostIndex() {
                         <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                     <br />
-                    <figcaption className="md:text-lg  text-gray-700 font-light">
+                    <figcaption className="md:text-lg  font-light">
                     <PortableTextComponentsProvider components={component}  >
                         {postpostid?.postblock?.map(data => (<>
                         <PortableText value={data} />
@@ -505,8 +505,20 @@ function PostIndex() {
                 </section>
                 <br />
                 <section className="">
-                <CardMain />
-                <br />
+                <CardMain     
+                cardmainid={'commentimg'}
+                cardmainidtwo={'inform'}
+                cardmainidthree={'all'}
+                cardmainindex={0} 
+                />
+                {/* <br />
+                <CardMain     
+                cardmainid={'commentimg'}
+                cardmainidtwo={'fail'}
+                cardmainidthree={'all'}
+                cardmainindex={0} 
+                /> */}
+                
                 </section>
             </figure>
             <figcaption className="p-0 md:p-[30px] md:col-span-5">
@@ -520,7 +532,7 @@ function PostIndex() {
                     {<SpreadMain />}
                     {/* <TableMain /> */}
                     {/* <StepMain /> */}
-                    <AlertMain alertmainid={'disclaim'} alertmainidtwo={'postdl'}  />
+                    {/* <AlertMain alertmainid={'disclaim'} alertmainidtwo={'postdl'}  /> */}
                 </section>
             </figcaption>
             <figure className="col-span-12">

@@ -1,37 +1,5 @@
 import { RiInformationLine } from "react-icons/ri"
 
-    export const categoryul = [
-         {
-            breadmainid: 'post',
-            breadmaintitle: 'Blog',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
-            breadmainentitle: 'Find more blogs',
-            breadmainaction: `/category/post`,
-            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
-            // breadmainref: categoryul,
-        },
-        {
-            breadmainid: 'place',
-            breadmaintitle: 'Places',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
-            breadmainentitle: 'Find more places',
-            breadmainaction: `/category/place`,
-            breadmainimage: 'https://images.unsplash.com/photo-1612020187640-c1d6bb844ab4?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388',
-            // breadmainref: categoryul,
-        },
-        {
-            breadmainid: 'product',
-            breadmaintitle: 'Products',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
-            breadmainentitle: 'Find more products',
-            breadmainaction: `/category/product`,
-            breadmainimage: 'https://images.unsplash.com/photo-1590194360930-4866613967b0?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2034',
-            // breadmainref: categoryul,
-        },
-    ]
 
     export const categoryui = [
         {
@@ -143,6 +111,39 @@ import { RiInformationLine } from "react-icons/ri"
         },
     ]
 
+    export const categoryul = [
+         {
+            breadmainid: 'post',
+            breadmaintitle: 'Blog',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: `The blog is a place where we take the liberty to explore our places and products a bit more. Less informative, more in depth and hopefully, more creative, here you'll find recipes,  reviews, interviews from some of our favorite NZ food!`,
+            breadmainentitle: 'Find more blogs',
+            breadmainaction: `/category/post`,
+            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+            // breadmainref: categoryul,
+        },
+        {
+            breadmainid: 'place',
+            breadmaintitle: 'Places',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: `Here you can find where to get some of the best NZ kai. Retailers specialized in great food, great chefs and their restaurants or the manufacturers themselves, they're all here. Have a look at our list to find the right places to get the food you love`,
+            breadmainentitle: 'Find more places',
+            breadmainaction: `/category/place`,
+            breadmainimage: 'https://images.unsplash.com/photo-1612020187640-c1d6bb844ab4?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388',
+            // breadmainref: categoryul,
+        },
+        {
+            breadmainid: 'product',
+            breadmaintitle: 'Products',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: `Looking for a specific item? Here you can find anything to quench your thirst or to fill your stomach!`,
+            breadmainentitle: 'Find more products',
+            breadmainaction: `/category/product`,
+            breadmainimage: 'https://images.unsplash.com/photo-1590194360930-4866613967b0?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2034',
+            // breadmainref: categoryul,
+        },
+    ]
+
     export const genreui = [
         {
             crummainid: 'excite',
@@ -164,26 +165,6 @@ import { RiInformationLine } from "react-icons/ri"
         },
     ]
 
-    export const postul = [
-        {
-            breadmainid: 'description',
-            breadmaintitle: 'Descriptions',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
-            breadmainentitle: 'Find more info',
-            breadmainaction: `/category/post`,
-            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
-        },
-        {
-            breadmainid: 'comment',
-            breadmaintitle: 'Comments',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
-            breadmainentitle: 'Find more comments',
-            breadmainaction: `/category/post`,
-            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
-        }
-    ]
 
     export const postui = [
         {
@@ -236,16 +217,25 @@ import { RiInformationLine } from "react-icons/ri"
         },
     ]
 
-    export const commentul = [
+    export const postul = [
+        {
+            breadmainid: 'description',
+            breadmaintitle: 'Descriptions',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'Find more info',
+            breadmainaction: `/category/post`,
+            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+        },
         {
             breadmainid: 'comment',
             breadmaintitle: 'Comments',
             breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
             breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
-            breadmainentitle: 'See all comments',
-            breadmainaction: `/comment/commentmain`,
-            breadmainimage: '',
-        },
+            breadmainentitle: 'Find more comments',
+            breadmainaction: `/category/post`,
+            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+        }
     ]
 
     export const commentui = [
@@ -259,6 +249,20 @@ import { RiInformationLine } from "react-icons/ri"
             breadmainid: 'comment',
         },
     ]
+
+    export const commentul = [
+        {
+            breadmainid: 'comment',
+            breadmaintitle: 'Comments',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'See all comments',
+            breadmainaction: `/comment/commentmain`,
+            breadmainimage: '',
+        },
+    ]
+
+    //////////////////////////////////////////
 
     export const categorydi = [
         {
@@ -364,17 +368,58 @@ import { RiInformationLine } from "react-icons/ri"
         },
     ]
 
+    export const commentdi= [
+        {
+            sheetmaintitle: `Successfully sent your comments:`,
+            sheetmainsubtitle: `It will take upto three days for us to review.`,
+
+            spreadmainid: 'success',
+            breadmainid: 'comment'
+        },
+        {
+            sheetmaintitle: `There are some issues:`,
+            sheetmainsubtitle: `That's all we know.`,
+
+            spreadmainid: 'fail',
+            breadmainid: 'comment'
+        },
+        {
+            sheetmaintitle: `Find this post helpful?`,
+            sheetmainsubtitle: `Help improve Product Hunt by sharing a review with others.`,
+
+            spreadmainid: 'inform',
+            breadmainid: 'comment'
+        },
+
+    ]
+
 /////////////////////////////////////////////////////
+
+
+
+    export const breadmain = [
+        {
+            breadmainid: 'categoryul',
+            breadmainref: categoryul,
+        },
+    ]
+
+    export const crummain = [
+        {
+            crummainid: 'categoryui',
+            crummainref: categoryui,
+        },
+    ]
 
     export const spreadmain = [
         {
             spreadmainid: 'categorydi',
             spreadmainref: categorydi,
         },
-        // {
-        //     spreadmainid: 'searchdi',
-        //     spreadmainref: searchdl,
-        // }
+        {
+            spreadmainid: 'commentdi',
+            spreadmainref: commentdi,
+        }
     ]
 
     export const sheetmain = [
@@ -389,19 +434,5 @@ import { RiInformationLine } from "react-icons/ri"
         {
             sheetmainid: 'postdl',
             sheetmainref: postdl,
-        },
-    ]
-
-    export const breadmain = [
-        {
-            breadmainid: 'categoryul',
-            breadmainref: categoryul,
-        },
-    ]
-
-    export const crummain = [
-        {
-            crummainid: 'categoryui',
-            crummainref: categoryui,
         },
     ]

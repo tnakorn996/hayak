@@ -98,7 +98,7 @@ export const Provider = ({ children }) => {
                     appmainid: 'sharesection',
                     appmainidtwo: 'modalmain',
                     appmainidthree: 0,
-                    appmainparam: `/` + sharemainstate.sharemainparam,
+                    appmainparam: sharemainstate.sharemainparam,
                     appmainboolean: true,
                 })
             },
@@ -503,7 +503,6 @@ export const Provider = ({ children }) => {
     const commentlink = [
          {
             blemainid: 'all',
-            blemaintitle: 'All comments',
             blemainaction:  () => {
                 setappmainstate({
                     appmainid: 'commentdialog',
@@ -511,8 +510,43 @@ export const Provider = ({ children }) => {
                     appmainboolean: true,
                 })
             },
+            blemainentitle: 'Leave a review',
 
             tabmainid: 'comment',
+        },
+
+        {
+            blemainid: 'feedback',
+            blemainaction:  () => {
+                setappmainstate({
+                    appmainid: 'commentdialog',
+                    appmainidtwo: 'sideboardmain',
+                    appmainboolean: true,
+                })
+            },
+            blemainentitle: 'Give a feedback',
+
+            tabmainid: 'feedback',
+        },
+    ]
+
+    const feedbackselect = [
+         {
+            tabmainid: 'complain',
+            tabmaintitle: 'complain',
+            // tabmainaction: `/category/post`,
+        },
+    ]
+
+    const feedbacklink = [
+         {
+            blemainid: 'design',
+            blemainaction:  () => {
+
+            },
+            blemainentitle: 'Give a feedback',
+
+            tabmainid: 'complain',
         },
     ]
 
@@ -584,6 +618,7 @@ export const Provider = ({ children }) => {
           categoryselect, categorylink,
           searchselect, searchlink,
           commentselect, commentlink,
+          feedbackselect, feedbacklink,
 
           appmainstate, setappmainstate,
           // postindexstate, setpostindexstate,

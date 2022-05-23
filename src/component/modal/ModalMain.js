@@ -11,6 +11,7 @@ import StackMain from '../Stack/StackMain'
 import StateMain from '../state/StateMain'
 import OpendeskMain from '../opendesk/OpendeskMain'
 import SocialMain from '../../page/social/SocialMain'
+import CardMain from '../card/CardMain'
 
 function ModalMain() {
     const {
@@ -161,7 +162,7 @@ function ModalMain() {
         <br />
         <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white border-2 border-black">
             <section className="p-[20px] text-center">
-                <h1 className="m-h4">{modalmaintitle && modalmaintitle}</h1>
+                <h1 className="m-h4 font-serif">{modalmaintitle && modalmaintitle}</h1>
             </section>
             <hr />
             <section className="p-[20px]">

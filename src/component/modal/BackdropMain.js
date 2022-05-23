@@ -46,7 +46,7 @@ function BackdropMain() {
 
   return (
     <div>
-        <main className="z-20 w-screen h-screen top-0 left-0 fixed flex justify-center items-end md:items-start  bg-black bg-opacity-10 overflow-y-auto no-scrollbar">
+        <main className="z-20 w-screen h-screen top-0 left-0 fixed flex justify-center items-end md:items-start  bg-white bg-opacity-30 overflow-y-auto no-scrollbar">
             {backdropmainrender && backdropmainrender}
         </main>
     </div>
