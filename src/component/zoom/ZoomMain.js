@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { MdShowChart } from 'react-icons/md'
-import { RiMapPin3Line, RiNewspaperLine, RiShoppingBag2Line } from 'react-icons/ri'
+import { RiChat4Fill, RiChat4Line, RiMapPin3Fill, RiMapPin3Line, RiNewspaperFill, RiNewspaperLine, RiShoppingBag2Fill, RiShoppingBag2Line } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 import { categoryul } from '../../content/contentmantwo'
 
@@ -15,6 +15,8 @@ function ZoomMain({
 
 }) {
     const {
+        feedbacklink,
+
         breadmainstate,
 
         postupdatedat,
@@ -59,23 +61,46 @@ function ZoomMain({
                 {
                     zoommaintitle: 'Blog',
                     zoommainrender: (postupdatedat.filter(data => data.posttitle.toLowerCase().match(zoommainkey) || data.postsubtitle.toLowerCase().match(zoommainkey))),
-                    zoommainicon: <RiNewspaperLine />,
+                    zoommainicon: <RiNewspaperFill />,
                     // .filter(data => data._type === breadmainstate.breadmainidtwo),
 
                 },
                 {
                     zoommaintitle: 'Places',
                     zoommainrender: (placeupdatedat.filter(data => data.posttitle.toLowerCase().match(zoommainkey) || data.postsubtitle.toLowerCase().match(zoommainkey))),
-                    zoommainicon: <RiMapPin3Line />,
+                    zoommainicon: <RiMapPin3Fill />,
 
                 },
                 {
                     zoommaintitle: 'Products',
                     zoommainrender: (productupdatedat.filter(data => data.posttitle.toLowerCase().match(zoommainkey) || data.postsubtitle.toLowerCase().match(zoommainkey))),
-                    zoommainicon: <RiShoppingBag2Line />,
+                    zoommainicon: <RiShoppingBag2Fill />,
 
                 },
             ],
+        },
+    ]
+
+    const feedbackinput = [
+        {
+            zoommainindex: 0,
+            zoommaindata: [
+                {
+                    zoommaintitle: 'Give us feedback',
+                    zoommainrender: feedbacklink,
+                    zoommainicon: <RiChat4Fill />,
+                },
+            ]
+        },
+        {
+            zoommainindex: 1,
+            zoommaindata: [
+                {
+                    zoommaintitle: 'Give us feedback',
+                    zoommainrender: (feedbacklink.filter(data => data.blemaintitle.toLowerCase().match(zoommainkey) || data.blemainid.toLowerCase().match(zoommainkey))),
+                    zoommainicon: <RiChat4Fill />,
+                },
+            ]
         },
     ]
 
@@ -85,8 +110,8 @@ function ZoomMain({
             zoommainref: searchinput,
         },
         {
-            zoommainid: 'postinput',
-            zoommainref: searchinput,
+            zoommainid: 'feedbackinput',
+            zoommainref: feedbackinput,
         },
     ]
 
@@ -123,7 +148,7 @@ function ZoomMain({
                     {/* {searchdialogload === true ? <div className="absolute"><LoadingMain /></div>  : <RiSearch2Line className='absolute  m-h6' />} */}
                     <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey} className="md:text-4xl w-full pl-[40px]  l-input border-2 border-gray-600" placeholder='Search...' />
                 </div>
-                <h1 className="l-h2 italic">Try coffee, kitchen, gift card..</h1>
+                {/* <h1 className="l-h2 italic">Try coffee, kitchen, gift card..</h1> */}
             </section>
             <section className="px-[20px] md:px-[50px]">
                 {zoommaindata?.map(data => (<>
@@ -132,20 +157,21 @@ function ZoomMain({
                 <h1 className="m-h2">{data?.zoommaintitle} ({data?.zoommainrender?.length})</h1>
                 <br />
                     {data?.zoommainrender?.slice(0, zoommainslice)?.map(dat => (<>
-                        <motion.article initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} onClick={() => {
-                            navigate(`/${dat?.postid}`)
-                        }} className="p-[10px] grid grid-cols-12 items-center justify-between">
-                            <span className="col-span-1  l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white">{data.zoommainicon}</span>
-                            <figcaption className="col-span-8 md:col-span-8">
-                            <div className="">
-                            <h1 className="md:l-h6 leading-loose !text-gray-400 truncate font-serif">{dat?.posttitle}</h1>
-                            <h1 className="l-h3 truncate">{dat?.postsubtitle}</h1>
-                            </div>
+                        <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="p-[10px] grid grid-flow-col md:flex md:flex-row items-center justify-start gap-3">
+                            <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white">{data.zoommainicon}</span>
+                            <figcaption className="">
+                                <div className=" hover:cursor-pointer">
+                                <h1 onClick={() => {
+                                    navigate(`/${dat?.postid}`)
+                                }} className="md:l-h6 leading-loose !text-gray-400 truncate font-serif">{dat?.posttitle}</h1>
+                                <h1 onClick={dat?.blemainaction} className="md:l-h6 leading-loose !text-gray-400 truncate font-serif">{dat?.blemaintitle}</h1>
+                                {/* <h1 className="l-h3 truncate">{dat?.postsubtitle}</h1> */}
+                                </div>
                             </figcaption>
-                            <figure className="hidden col-span-3 justify-end">
+                            {/* <figure className="hidden md:flex col-span-3 justify-end">
                                 <img src={dat?.posticon || dat?.posthero} alt="" className="w-[80px] h-[80px]  border-2 border-black" />
-                            </figure>
-                        </motion.article>
+                            </figure> */}
+                        </motion.figure>
                         <div className="w-full  border-b border-gray-600" />
                     </>))}
                 </figcaption>

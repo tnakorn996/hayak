@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
+import ButtonMain from '../../component/button/ButtonMain'
 import CardMain from '../../component/card/CardMain'
 
 import StateMain from '../../component/state/StateMain'
@@ -19,6 +20,7 @@ function CommentDialog() {
     const location = useLocation()
     const [commentdialogrender, setcommentdialogrender] = useState()
     const [commentdialogrendertwo, setcommentdialogrendertwo] = useState()
+    const [commentdialogload, setcommentdialogload] = useState(false)
 
     const [commentdialogtitle, setcommentdialogtitle] = useState('')
     const [commentdialogsubtitle, setcommentdialogsubtitle] = useState('')
@@ -41,6 +43,7 @@ function CommentDialog() {
 
     const kk = async () => {
         if(commentdialogsubtitle !== ''){
+            setcommentdialogload(true)
             const doc = {
                 _id: uuidv4(),
                 _type: 'comment',
@@ -58,6 +61,7 @@ function CommentDialog() {
                 cardmainidthree={'feedback'}
                 cardmainindex={0} 
                 />)
+                setcommentdialogload(false)
             });
         } else {
             setcommentdialogrender(<CardMain     
@@ -72,42 +76,56 @@ function CommentDialog() {
 
   return (
     <div>
-        <main className="p-[20px]">
-            <section className="">
-                <figcaption className="">
-                    <h1 className="m-h6 font-serif">Responses ({commentdialogrendertwo?.length || 0})</h1>
-                    <br />
-                </figcaption>
-                <textarea onChange={p => setcommentdialogsubtitle(p.target.value)} rows="3" placeholder='What are your thoughts?' className='w-full  l-input border-2 border-gray-700' />
-                <br /><br />
-                <button onClick={() => {
+        <main className="p-[20px] md:p-[50px]">
+            <section className="p-[20px] border border-white">
 
-                    kk()
+                <textarea onChange={p => setcommentdialogsubtitle(p.target.value)} rows="3" placeholder='What are your thoughts?' className='w-full  l-input border-b-2 border-white' />
+                    <br /><br />
+                    <div className="">
+                    <ButtonMain 
+                    onclick={() => {
 
-                    // setstatemainstate({
-                    //     statemainid: 'commentdl',
-                    //     statemainidtwo: 'fail',
-                    // })
-                    // setappmainstate({
-                    //     appmainid: 'statesection',
-                    //     appmainidtwo: 'modalmain',
-                    //     appmainidthree: 0,
-                    //     appmainboolean: true,
-                    // })
-                }} className="l-button">Post comments</button>
+                        kk()
+
+                        // setstatemainstate({
+                        //     statemainid: 'commentdl',
+                        //     statemainidtwo: 'fail',
+                        // })
+                        // setappmainstate({
+                        //     appmainid: 'statesection',
+                        //     appmainidtwo: 'modalmain',
+                        //     appmainidthree: 0,
+                        //     appmainboolean: true,
+                        // })
+                    }} 
+                    title={'Post comments'}
+                    load={commentdialogload}
+                    />
+                    </div>
             </section>
             <section className="">
                 {commentdialogrender && commentdialogrender}
             </section>
             <br />
-            <section className="">
-                {/* <StateMain /> */}
-                {commentdialogrendertwo?.map(data => (<>
+            <section className="p-[20px] border border-white">
+                <figcaption className="">
+                    <h1 className="m-h6 font-serif">Responses ({commentdialogrendertwo?.length || 0})</h1>
+                </figcaption>
+                {commentdialogrendertwo?.length >= 0 && (<>
+                <CardMain     
+                cardmainid={'commentimg'}
+                cardmainidtwo={'inform'}
+                // cardmainidthree={'feedback'}
+                cardmainindex={0} 
+                />
+                </>)}
                 <br />
-                    <article className="p-[20px]  border border-gray-700">
+                {commentdialogrendertwo?.map(data => (<>
+                    <article className="border border-gray-700">
                         <h1 className="m-h3">{data?.commentsubtitle}</h1>
                     </article>
                 </>))}
+
             </section>
         </main>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useContext } from 'react'
 import {BiFoodTag} from 'react-icons/bi'
-import {RiContrastDropLine, RiSearch2Line, RiCloseFill, RiMenuLine} from 'react-icons/ri'
+import {RiContrastDropLine, RiSearch2Line, RiCloseFill, RiMenuLine, RiMenu5Line} from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 
 import { breadmain, categorymain, navmain } from '../../content/contentmain'
@@ -55,7 +55,7 @@ function NavMain() {
                             appmainboolean: true,
                         })
                     }} className="">
-                <RiMenuLine className='text-3xl ' />
+                <RiMenu5Line className='text-3xl ' />
                 </article>
             </section>
 

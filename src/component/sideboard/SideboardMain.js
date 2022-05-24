@@ -131,8 +131,7 @@ function SideboardMain() {
                     <RiContrastDropLine className='text-3xl' />
                 </figure>
                 <figcaption className="flex flex-row gap-1">
-                    <h1 className='m-h6 font-bold'>HAYAK</h1>
-                    <h1 className="l-h3">Blog</h1>
+                    <h1 className='m-h6 font-serif font-bold'>TOI</h1>
                 </figcaption>
                 </article>
               </figure>
@@ -144,16 +143,16 @@ function SideboardMain() {
                 }} className="z-10 absolute top-3 right-3 text-4xl  text-white bg-black rounded-full" />
               </figcaption>
             </section>
-            <section className="h-[80vh] w-full  overflow-y-scroll no-scrollbar ">
+            <section className="h-[90vh] w-full  overflow-y-scroll no-scrollbar ">
               {sideboardmainrender && sideboardmainrender}
               {appmainstate?.appmainid === 'searchdialog' && (<>
                 <AlertMain alertmainid={'inform'} alertmainidtwo={'searchdl'} />
               </>)}
             </section>
-            <section className="h-[10vh] w-full p-[20px] grid grid-flow-col  border-t border-gray-700">
+            {/* <section className="h-[10vh] w-full p-[20px] grid grid-flow-col  border-t border-gray-700">
               <button className="m-button">Our story</button>
               <button className="l-button">List your business</button>
-            </section>
+            </section> */}
         </motion.main>
     </div>
   )

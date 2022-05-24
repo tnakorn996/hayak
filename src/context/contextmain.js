@@ -66,6 +66,7 @@ export const Provider = ({ children }) => {
       if (location) {
         setappmainstate('')
         setspreadmainstate('')
+        setsharemainstate('')
       }
 
       progress.start();
@@ -122,11 +123,21 @@ export const Provider = ({ children }) => {
             tabmainid: 'share',
         },
 
-
         {
             blemainid: 'ask',
             blemaintitle: 'Ask question',
             blemainaction:  () => {
+                settabmainstate({
+                    tabmainid: 'feedback',
+                    tabmainidtwo: 'ask',
+                })
+                setappmainstate({
+                    appmainid: 'feedbacksection',
+                    appmainidtwo: 'modalmain',
+                    appmainidthree: 0,
+                    appmainboolean: true,
+                })
+
             },
 
             tabmainid: 'feedback',
@@ -135,6 +146,17 @@ export const Provider = ({ children }) => {
             blemainid: 'edit',
             blemaintitle: 'Suggest an edit',
             blemainaction:  () => {
+                settabmainstate({
+                    tabmainid: 'feedback',
+                    tabmainidtwo: 'edit',
+                })
+                setappmainstate({
+                    appmainid: 'feedbacksection',
+                    appmainidtwo: 'modalmain',
+                    appmainidthree: 0,
+                    appmainboolean: true,
+                })
+
             },
 
             tabmainid: 'feedback',
@@ -143,6 +165,17 @@ export const Provider = ({ children }) => {
             blemainid: 'report',
             blemaintitle: 'Report an issue',
             blemainaction:  () => {
+                settabmainstate({
+                    tabmainid: 'feedback',
+                    tabmainidtwo: 'report',
+                })
+                setappmainstate({
+                    appmainid: 'feedbacksection',
+                    appmainidtwo: 'modalmain',
+                    appmainidthree: 0,
+                    appmainboolean: true,
+                })
+
             },
 
             tabmainid: 'feedback',
@@ -518,11 +551,7 @@ export const Provider = ({ children }) => {
         {
             blemainid: 'feedback',
             blemainaction:  () => {
-                setappmainstate({
-                    appmainid: 'commentdialog',
-                    appmainidtwo: 'sideboardmain',
-                    appmainboolean: true,
-                })
+                window.open(`/feedback/feedbackmain`, '_blank').focus();
             },
             blemainentitle: 'Give a feedback',
 
@@ -532,23 +561,103 @@ export const Provider = ({ children }) => {
 
     const feedbackselect = [
          {
-            tabmainid: 'complain',
-            tabmaintitle: 'complain',
+            tabmainid: 'feedback',
+            tabmaintitle: 'Feedback',
             // tabmainaction: `/category/post`,
         },
     ]
 
     const feedbacklink = [
-         {
-            blemainid: 'design',
+        {
+            blemainid: 'ask',
+            blemaintitle: 'Ask question',
             blemainaction:  () => {
-
+                settabmainstate({
+                    tabmainid: 'feedback',
+                    tabmainidtwo: 'ask',
+                })
+                setappmainstate({
+                    appmainid: 'feedbacksection',
+                    appmainidtwo: 'modalmain',
+                    appmainidthree: 0,
+                    // appmainparam: param,
+                    appmainboolean: true,
+                })
             },
-            blemainentitle: 'Give a feedback',
 
-            tabmainid: 'complain',
+            tabmainid: 'feedback',
+        },
+        {
+            blemainid: 'edit',
+            blemaintitle: 'Suggest an edit',
+            blemainaction:  () => {
+                settabmainstate({
+                    tabmainid: 'feedback',
+                    tabmainidtwo: 'edit',
+                })
+                setappmainstate({
+                    appmainid: 'feedbacksection',
+                    appmainidtwo: 'modalmain',
+                    appmainidthree: 0,
+                    // appmainparam: param,
+                    appmainboolean: true,
+                })
+            },
+
+            tabmainid: 'feedback',
+        },
+        {
+            blemainid: 'report',
+            blemaintitle: 'Report an issue',
+            blemainaction:  () => {
+                settabmainstate({
+                    tabmainid: 'feedback',
+                    tabmainidtwo: 'report',
+                })
+                setappmainstate({
+                    appmainid: 'feedbacksection',
+                    appmainidtwo: 'modalmain',
+                    appmainidthree: 0,
+                    // appmainparam: param,
+                    appmainboolean: true,
+                })
+            },
+
+            tabmainid: 'feedback',
+        }
+    ]
+
+    const termselect = [
+         {
+            tabmainid: 'all',
+            tabmaintitle: 'All',
         },
     ]
+
+    const termlink = [
+        {
+            blemainid: 'use',
+            blemaintitle: 'Use',
+            blemainentitle: 'Term of Service',
+            blemainaction:  () => {
+                window.open(`/term/termmain`, '_blank').focus();
+            },
+
+            tabmainid: 'all',
+        },
+        {
+            blemainid: 'publish',
+            blemaintitle: 'Publish',
+            blemainentitle: 'Term of Service',
+            blemainaction:  () => {
+                window.open(`/term/termmain`, '_blank').focus();
+            },
+
+            tabmainid: 'all',
+        },
+    ]
+
+    /////////////////////////////////
 
     const tabmain = [
         // {
@@ -619,6 +728,7 @@ export const Provider = ({ children }) => {
           searchselect, searchlink,
           commentselect, commentlink,
           feedbackselect, feedbacklink,
+          termselect, termlink,
 
           appmainstate, setappmainstate,
           // postindexstate, setpostindexstate,

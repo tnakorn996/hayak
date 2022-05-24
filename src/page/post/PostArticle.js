@@ -59,7 +59,7 @@ function PostArticle() {
                                     navigate(`/${postarticlestate?.postid}`)
                                 }} className="m-button m-h3">→ Read more</button>
                                 {postarticlestate?.priceid === 'pro' &&<RiContrastDropLine className="m-h5 text-gray-700" />}
-                                <h1 className="l-h5">{Math.floor(postarticlestate?.postblock?.length / 3) || 0} min</h1>
+                                <h1 className="l-h5">{Math.floor(postarticlestate?.postblock?.length * 0.2) || 1} min</h1>
                                 <div className="flex flex-row items-center gap-1">
                                 <RiEyeLine className='m-h5' />
                                 <h1 className="l-h5">{postarticlestate?.postcount || 0}</h1>

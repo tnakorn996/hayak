@@ -12,6 +12,7 @@ import StateMain from '../state/StateMain'
 import OpendeskMain from '../opendesk/OpendeskMain'
 import SocialMain from '../../page/social/SocialMain'
 import CardMain from '../card/CardMain'
+import FeedbackSection from '../../page/feedback/FeedbackSection'
 
 function ModalMain() {
     const {
@@ -122,6 +123,16 @@ function ModalMain() {
         }
     ]
 
+    const feedbacksection = [
+        {
+            modalmainindex: 0,
+            modalmaintitle: '',
+            modalmainrender: () => {
+                return <FeedbackSection />
+            },
+        }
+    ]
+
     const modalmain = [
         {
             modalmainid: 'sharesection',
@@ -143,6 +154,10 @@ function ModalMain() {
             modalmainid: 'postsection',
             modalmaindata: postsection,
         },
+        {
+            modalmainid: 'feedbacksection',
+            modalmaindata: feedbacksection,
+        },
     ]
 
     useEffect(() => {
@@ -160,7 +175,7 @@ function ModalMain() {
   return (
     <div>
         <br />
-        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-screen md:max-w-[500px] bg-white border-2 border-black">
+        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-full md:min-w-[500px] bg-white border-2 border-black">
             <section className="p-[20px] text-center">
                 <h1 className="m-h4 font-serif">{modalmaintitle && modalmaintitle}</h1>
             </section>

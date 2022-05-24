@@ -23,6 +23,7 @@ import PromoMain from './component/promo/PromoMain';
 import TopMain from './component/top/TopMain';
 import PortMain from './component/port/PortMain';
 import SearchMain from './page/search/SearchMain';
+import FeedbackMain from './page/feedback/FeedbackMain';
 // import PreviewMain from './component/preview/PreviewMain';
 
 export default function App() {
@@ -97,6 +98,9 @@ export default function App() {
             <Route path='/about/aboutmain' element={<AboutMain />} /> 
 
             <Route path='/search/searchmain' element={<SearchMain />} /> 
+
+            <Route path='/feedback/feedbackmain' element={<FeedbackMain />} /> 
+
 
           </Routes> 
         </AnimatePresence>

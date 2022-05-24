@@ -16,9 +16,9 @@ import LoadingMain from '../../component/load/LoadingMain'
 import CtaMain from '../../component/ctamain/CtaMain'
 import RtaMain from '../../component/rta/RtaMain'
 import SpreadMain from '../../component/spread/SpreadMain'
-import StepMain from '../../component/step/StepMain'
 import SocialMain from '../social/SocialMain'
 import CardMain from '../../component/card/CardMain'
+import LoadMain from '../../component/load/LoadMain'
 
 function PostIndex() {
     const {
@@ -33,6 +33,7 @@ function PostIndex() {
         setspreadmainstate,
         settabmainstate,
         setstepmainstate,
+        setsharemainstate,
 
         postupdatedat,
         placeupdatedat,
@@ -201,14 +202,14 @@ function PostIndex() {
                 stepmainindex: 0,
             })
 
-            const filterfour = postindex.filter(data => data.postindexid === postpostid._type)
-            setpostindexrenderfour(filterfour[0].postindexrenderfour)
+            const filterfour = postindex?.filter(data => data.postindexid === postpostid?._type)
+            setpostindexrenderfour(filterfour[0]?.postindexrenderfour)
       }
     }, [postpostid])
 
     useEffect(() => {
         if(placeplaceid || productplaceid || productpostid){
-                if(placeplaceid && productplaceid && postpostid.categoryid === 'recipe'){
+                if(placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe'){
                     setctamainstate({
                         ctamainid: postpostid?._type,
                         ctamainidtwo: true,
@@ -231,6 +232,7 @@ function PostIndex() {
                                 spreadmainrender: data.postindextworender,
                             })
                             setspreadmainstate(empty)
+                            console.log('empty :>> ', empty);
                         }
                     })
 
@@ -274,13 +276,13 @@ function PostIndex() {
     // }, [userindex, postpostid])
     
     const ll = async () => {
-              const query = `*[ postid == '${param.id}']{
+              const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${param.id}']{
                   ...,
                   'postplaceid': *[_type == 'post' && postid != ^.postid && placeid == ^.placeid ] ,
                   'placeplaceid': *[_type == 'place' && postid == ^.placeid],
                   'productplaceid': *[_type == 'product' && postid != ^.postid && placeid == ^.placeid ] ,
 
-                  'productpostid': *[ postid match ^.productid || postid match ^.productidtwo || postid match ^.productidthree ] ,
+                  'productpostid': *[_type == 'product' && postid match ^.productid || postid match ^.productidtwo || postid match ^.productidthree ] ,
               }[0]`;
               await client.fetch(query)
               .then((data) => {
@@ -401,12 +403,21 @@ function PostIndex() {
                 <div className="flex justify-between items-center gap-5">
                     <BreadMain />
                     <figure onClick={() => {
+                        settabmainstate({
+                          tabmainid: 'postoption',
+                          tabmainparam: postpostid?.postid,
+                          // tabmainlocation: location.pathname,
+                          tabmainimage: postpostid?.posthero,
+                          tabmaintitle: postpostid?.posttitle,
+                        })
                         setappmainstate({
-                            appmainid: 'sharesection',
-                            appmainidtwo: 'modalmain',
-                            appmainidthree: 0,
-                            appmainparam: param.id,
-                            appmainboolean: true,
+                          appmainid: 'postoption',
+                          appmainidtwo: 'opendeskmain',
+                          appmainparam: postpostid?.postid,
+                          appmainboolean: true,
+                        })
+                        setsharemainstate({
+                          sharemainparam: postpostid?.postid,
                         })
                     }} className="">
                         <article className="">
@@ -489,7 +500,7 @@ function PostIndex() {
                     </figure>
                 </section>
                 <br />
-                <section className="p-[20px] min-h-[50vh]  border-2 border-black">
+                <section className="md:p-[20px] min-h-[50vh]  md:border-2 md:border-black">
                     <figcaption className="">
                         <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
@@ -511,13 +522,6 @@ function PostIndex() {
                 cardmainidthree={'all'}
                 cardmainindex={0} 
                 />
-                {/* <br />
-                <CardMain     
-                cardmainid={'commentimg'}
-                cardmainidtwo={'fail'}
-                cardmainidthree={'all'}
-                cardmainindex={0} 
-                /> */}
                 
                 </section>
             </figure>
@@ -525,9 +529,9 @@ function PostIndex() {
                 <section className="hidden md:block">
                     <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
-                    {<CtaMain />}
                 </section>
                 <section className="">
+                    {<CtaMain />}
                     {<RtaMain />}
                     {<SpreadMain />}
                     {/* <TableMain /> */}

@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { RiContrastDropLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 
-import { breadmain } from '../../content/contentmantwo'
+import { breadmain, categoryui } from '../../content/contentmantwo'
 import { ContextMain } from '../../context/contextmain'
 
 function PortMain() {
@@ -16,11 +16,13 @@ function PortMain() {
     } = useContext(ContextMain)
     const navigate = useNavigate()
     const [portmaindata, setportmaindata] = useState()
+    const [portmaindatatwo, setportmaindatatwo] = useState()
 
     const posttfoot = [
         {
             portmainidtwo: 'breadmain',
-            portmainrender: breadmain[0].breadmainref.filter(data => data.breadmainid === portmainstate?.portmainidthree)
+            portmainrender: breadmain[0].breadmainref.filter(data => data.breadmainid === portmainstate?.portmainidthree),
+            portmainrendertwo: categoryui.filter(data => data.breadmainid === portmainstate?.portmainidthree)
         },
 
     ]
@@ -37,11 +39,7 @@ function PortMain() {
           const filter = portmain.filter(data => data.portmainid === portmainstate.portmainid)
           const filtertwo = filter[0].portmainref.filter(data => data.portmainidtwo === portmainstate.portmainidtwo)
           setportmaindata(filtertwo[0].portmainrender)
-      }
-      if(portmainstate && portmainstate.portmainidtwo === 'auditmain'){
-        //   const filter = portmain.filter(data => data.portmainid === portmainstate.portmainid)
-        //   const filtertwo = filter[0].portmainref.filter(data => data.portmainidtwo === portmainstate.portmainidtwo)
-        //   const filterthree = filtertwo[0].portmainref.filter(data => data.portmainidtwo === portmainstate.portmainidtwo)
+          setportmaindatatwo(filtertwo[0].portmainrendertwo)
       }
     }, [portmainstate])
 
@@ -49,19 +47,34 @@ function PortMain() {
     <div>
         <main className="h-[80vh] p-[20px] md:px-[60px] flex justify-center items-center  bg-gray-100 text-black">
             {portmaindata?.map(data => (<>
-            <article onClick={() => {
-                        setbreadmainstate('')
-                        navigate(data?.breadmainaction)
-                    }} className="">
-                <section className="flex-col mx-auto h-[30vh] flex justify-center text-center items-center gap-3">
+            <figure className="">
+                <section className="flex-col mx-auto flex justify-center text-center items-center gap-3">
                     <h1 className="flex flex-row items-center  m-h6 font-serif"><RiContrastDropLine className='' />{data?.breadmaintitle}</h1>
-                    <h1 className="max-w-[800px] m-h4 text-gray-500">{data?.breadmaindetail}</h1>
+                    <br />
+                    <h1 className="max-w-[900px] m-h4 text-gray-500">{data?.breadmaindetail}</h1>
+                </section>
+                <br /><br />
+                <section className="mx-auto max-w-[700px] flex flex-row justify-center flex-wrap gap-3">
+                    {portmaindatatwo?.map(dat => (<>
+                    <button onClick={() => {
+                        setbreadmainstate({
+                            breadmainid: dat?.breadmainid,
+                            breadmainidtwo: dat?.crummainid,
+                        })
+                        navigate(data?.breadmainaction)
+                    }} className="l-button border-2 border-black">
+                        {dat?.crummaintitle}
+                    </button>
+                    </>))}
                 </section>
                 <br />
-                <section className="max-w-[500px] mx-auto h-[20vh] flex justify-center items-center">
+                <section onClick={() => {
+                        setbreadmainstate('')
+                        navigate(data?.breadmainaction)
+                    }} className="max-w-[500px] mx-auto h-[20vh] flex justify-center items-center">
                     <button className="m-h3  ">{data?.breadmainentitle} →</button>
                 </section>
-            </article>
+            </figure>
             </>))}
         </main>
     </div>

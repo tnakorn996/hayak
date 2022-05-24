@@ -88,8 +88,8 @@ function OpendeskMain() {
     }, [])
 
     useEffect(() => {
-        if(tabmainstate){
-            const filter = opendeskmain.filter(data => data.opendeskmainid === tabmainstate.tabmainid)
+        if(appmainstate && appmainstate.appmainidtwo === 'opendeskmain'){
+            const filter = opendeskmain.filter(data => data.opendeskmainid === appmainstate.appmainid)
             const filtertwo = filter[0].opendeskmainref.filter(data => data.opendeskmainindex === opendeskmainindex)
             if(opendeskmainindex === 0) {
                 setopendeskmainrender(filtertwo[0].opendeskmainrender)
@@ -97,7 +97,7 @@ function OpendeskMain() {
                 setopendeskmainrendertwo(filtertwo[0].opendeskmainrender)
             }
         }
-    }, [tabmainstate])
+    }, [appmainstate, tabmainstate])
 
   return (
     <div>

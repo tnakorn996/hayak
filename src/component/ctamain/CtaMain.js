@@ -100,7 +100,6 @@ function CtaMain() {
     
     useEffect(() => {
         if(ctamainstate) {
-            console.log('ctamainstate :>> ', ctamainstate);
             if (ctamainstate.ctamainidtwo === true) {
                 const filter = ctamain.filter(data => data.ctamainid === ctamainstate.ctamainid)
                 const filtertwo = filter[0].ctamainref.filter(data => filter[0].ctamainref.indexOf(data) === 1)

@@ -51,7 +51,7 @@ function ChipMain() {
                 {breadmainstate && chipmainrender?.map(data => (<>
                     <button onClick={() => {
                         setbreadmainstate('')
-                        }} className="flex flex-row items-center gap-3  l-button border border-black"> <span className="m-h2">╳</span>{data?.crummaintitle}</button>
+                        }} className="flex flex-row items-center gap-3  l-button border-2 border-black"> <span className="m-h2">╳</span>{data?.crummaintitle}</button>
                 </>))}
             </section>
         </main>

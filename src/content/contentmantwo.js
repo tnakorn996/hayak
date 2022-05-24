@@ -1,115 +1,6 @@
 import { RiInformationLine } from "react-icons/ri"
 
 
-    export const categoryui = [
-        {
-            crummainid: 'recipe',
-            crummaintitle: 'Recipes',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainstyle: 'bg-gray-900 text-white',
-            crummainimage: 'https://images.unsplash.com/photo-1506368083636-6defb67639a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
-            breadmainid: 'post',
-        },
-        {
-            crummainid: 'review',
-            crummaintitle: 'Reviews',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainstyle: 'bg-gray-900 text-white',
-            crummainimage: 'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-            breadmainid: 'post',
-        },
-        {
-            crummainid: 'interview',
-            crummaintitle: 'Interviews',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainstyle: 'bg-gray-900 text-white',
-
-            crummainimage: 'https://images.unsplash.com/photo-1529395045262-dc9665365b0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1978&q=80',
-            breadmainid: 'post',
-
-        },
-
-        {
-            crummainid: 'meat',
-            crummaintitle: 'Meat',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainstyle: 'bg-gray-900 text-white',
-
-            crummainimage: 'https://images.unsplash.com/photo-1513615147033-3ed2afaaae8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
-            breadmainid: 'product',
-
-        },
-        {
-            crummainid: 'coffee',
-            crummaintitle: 'Coffee',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainstyle: 'bg-gray-900 text-white',
-
-            crummainimage: 'https://images.unsplash.com/photo-1623593721974-f39b78528626?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-            breadmainid: 'product',
-
-        },
-        {
-            crummainid: 'alcohol',
-            crummaintitle: 'Alcohol',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainstyle: 'bg-gray-900 text-white',
-
-            crummainimage: 'https://images.unsplash.com/photo-1623593688280-a5aec8ac4ae7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
-            breadmainid: 'product',
-
-        },
-        {
-            crummainid: 'dairy',
-            crummaintitle: 'Dairy',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainstyle: 'bg-gray-900 text-white',
-
-            crummainimage: 'https://images.unsplash.com/photo-1600379097298-0217be1203c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
-            breadmainid: 'product',
-
-        },
-        {
-            crummainid: 'etc',
-            crummaintitle: 'Veggies, fruit, etc',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainstyle: 'bg-gray-900 text-white',
-
-            crummainimage: 'https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80',
-            breadmainid: 'product',
-
-        },
-        
-        {
-            crummainid: 'retail',
-            crummaintitle: 'Retailers',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainstyle: 'bg-gray-900 text-white',
-
-            crummainimage: 'https://images.unsplash.com/photo-1616715320643-b6d9214b9946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
-            breadmainid: 'place',
-
-        },
-        {
-            crummainid: 'manufacturer',
-            crummaintitle: 'Manufacturers',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainstyle: 'bg-gray-900 text-white',
-
-            crummainimage: 'https://images.unsplash.com/photo-1522643628976-0a170f6722ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2016&q=80',
-            breadmainid: 'place',
-
-        },
-        {
-            crummainid: 'restaurant',
-            crummaintitle: "Chefs / Restaurants",
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainstyle: 'bg-gray-900 text-white',
-
-            crummainimage: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-            breadmainid: 'place',
-        },
-    ]
 
     export const categoryul = [
          {
@@ -143,6 +34,97 @@ import { RiInformationLine } from "react-icons/ri"
             // breadmainref: categoryul,
         },
     ]
+
+    export const categoryui = [
+        {
+            crummainid: 'recipe',
+            crummaintitle: 'Recipes',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1585326390322-f2ae6ed52ac4?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
+            breadmainid: 'post',
+        },
+        {
+            crummainid: 'review',
+            crummaintitle: 'Reviews',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1543364195-077a16c30ff3?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
+            breadmainid: 'post',
+        },
+        {
+            crummainid: 'interview',
+            crummaintitle: 'Interviews',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
+            breadmainid: 'post',
+
+        },
+
+        {
+            crummainid: 'meat',
+            crummaintitle: 'Meat',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1644253370496-1b1b19beb3ce?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
+            breadmainid: 'product',
+
+        },
+        {
+            crummainid: 'coffee',
+            crummaintitle: 'Coffee',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1623593721974-f39b78528626?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+            breadmainid: 'product',
+
+        },
+        {
+            crummainid: 'alcohol',
+            crummaintitle: 'Alcohol',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1623593688280-a5aec8ac4ae7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+            breadmainid: 'product',
+
+        },
+        {
+            crummainid: 'dairy',
+            crummaintitle: 'Dairy',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1600379097298-0217be1203c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+            breadmainid: 'product',
+
+        },
+        {
+            crummainid: 'etc',
+            crummaintitle: 'Veggies, fruit, etc',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80',
+            breadmainid: 'product',
+
+        },
+        
+        {
+            crummainid: 'retail',
+            crummaintitle: 'Retailers',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1616715320643-b6d9214b9946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+            breadmainid: 'place',
+
+        },
+        {
+            crummainid: 'manufacturer',
+            crummaintitle: 'Manufacturers',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1522643628976-0a170f6722ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2016&q=80',
+            breadmainid: 'place',
+
+        },
+        {
+            crummainid: 'restaurant',
+            crummaintitle: "Chefs / Restaurants",
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+            breadmainid: 'place',
+        },
+    ]
+
 
     export const genreui = [
         {
@@ -262,7 +244,42 @@ import { RiInformationLine } from "react-icons/ri"
         },
     ]
 
-    //////////////////////////////////////////
+    export const feedbackul = [
+        {
+            breadmainid: 'feedback',
+            breadmaintitle: 'Feedback',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'See all feeedback',
+            breadmainaction: `/comment/commentmain`,
+        },
+    ]
+
+    export const feedbackui = [
+        {
+            crummainid: 'ask',
+            crummaintitle: 'Have question for us',
+            crummainsubtitle: `Tell us about your experience, what you love, or what we could improve. Please provide email addresses to keep in contact.`,
+
+            breadmainid: 'feedback',
+        },
+        {
+            crummainid: 'edit',
+            crummaintitle: 'Have feedback for us',
+            crummainsubtitle: `Tell us about your experience, what you love, or what we could improve. Please provide email addresses to keep in contact.`,
+
+            breadmainid: 'feedback',
+        },
+        {
+            crummainid: 'report',
+            crummaintitle: 'Have some issus to report',
+            crummainsubtitle: `Tell us about your experience, what you love, or what we could improve. Please provide email addresses to keep in contact.`,
+
+            breadmainid: 'feedback',
+        },
+    ]
+
+//////////////////////////////////////////
 
     export const categorydi = [
         {
@@ -392,6 +409,38 @@ import { RiInformationLine } from "react-icons/ri"
         },
 
     ]
+
+    export const termdi= [
+        {
+            sheetmaintitle: `ddddd`,
+            sheetmainsubtitle: `dddddd`,
+            sheetmainentitle: `Term of service`,
+            sheetmainaction: `/term/termmain`,
+
+            spreadmainid: 'success',
+            breadmainid: 'use'
+        },
+        {
+            sheetmaintitle: `fffff`,
+            sheetmainsubtitle: `ffffff`,
+            sheetmainentitle: `Term of service`,
+            sheetmainaction: `/term/termmain`,
+
+            spreadmainid: 'fail',
+            breadmainid: 'use'
+        },
+        {
+            sheetmaintitle: `Need support?`,
+            sheetmainsubtitle: `Please note we can’t guarantee a response.`,
+            sheetmainentitle: `Term of service`,
+            sheetmainaction: `/term/termmain`,
+
+            spreadmainid: 'inform',
+            breadmainid: 'use'
+        },
+
+    ]
+
 
 /////////////////////////////////////////////////////
 
