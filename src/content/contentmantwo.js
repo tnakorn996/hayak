@@ -402,7 +402,7 @@ import { RiInformationLine } from "react-icons/ri"
         },
         {
             sheetmaintitle: `Find this post helpful?`,
-            sheetmainsubtitle: `Help improve Product Hunt by sharing a review with others.`,
+            sheetmainsubtitle: `Help improve TOI by sharing a review with others.`,
 
             spreadmainid: 'inform',
             breadmainid: 'comment'

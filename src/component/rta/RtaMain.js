@@ -2,11 +2,13 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useContext } from 'react'
+import { RiQuestionFill } from 'react-icons/ri';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { sheetmain, spreadmain } from '../../content/contentmain';
 import { ContextMain } from '../../context/contextmain'
 import HorizonMain from '../post/HorizonMain';
+import TooltipMain from '../tooltip/TooltipMain';
 
 function RtaMain({type}) {
   const {
@@ -45,24 +47,31 @@ function RtaMain({type}) {
           {rtamainrender?.map(data => (<>
             {data?.rtamainrendertwo?.map(dat => (<>
                 <br /><br />
-                <div className="flex items-center justify-between">
-                <h1 className="m-h6 font-serif">{dat?.sheetmainsubtitle}</h1>
-                {data?.rtamainrenderthree?.length > 0 && (<>
-                  <article onClick={() => {
-                    setstackmainstate({
-                      stackmainid: 'rtatd',
-                      stackmainindex: 0,
-                      stackmaindata: data?.rtamainrenderthree,
-                    })
-                    setappmainstate({
-                            appmainid: 'rtasection',
-                            appmainidtwo: 'modalmain',
-                            appmainidthree: 0,
-                            appmainboolean: true,
-                        })
-                    }} className="l-h2">See all</article>
-                  </>)}
+                <section className="grid grid-cols-12 items-center justify-between">
+                  <div className=" col-span-10 flex flex-row items-start gap-3 ">
+                    <h1 className="m-h6 font-serif">{dat?.sheetmainsubtitle}</h1>
+                    <div className="relative">
+                    <TooltipMain title={dat?.sheetmainsubtitle}>
+                    <RiQuestionFill className='text-lg  text-gray-500' />
+                    </TooltipMain>
+                    </div>
                   </div>
+                  {data?.rtamainrenderthree?.length > 0 && (<>
+                    <article onClick={() => {
+                      setstackmainstate({
+                        stackmainid: 'rtatd',
+                        stackmainindex: 0,
+                        stackmaindata: data?.rtamainrenderthree,
+                      })
+                      setappmainstate({
+                              appmainid: 'rtasection',
+                              appmainidtwo: 'modalmain',
+                              appmainidthree: 0,
+                              appmainboolean: true,
+                          })
+                      }} className="col-span-2  l-h2">See all</article>
+                    </>)}
+                  </section>
                   <br />
               </>))}
               {data?.rtamainrenderthree?.map(da => (<>

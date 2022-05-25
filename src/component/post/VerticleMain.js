@@ -110,7 +110,7 @@ function VerticleMain({onlick, postid, createdat, posthero, posticon, posttitle,
                         navigate(`/catagory/${verticledivstate?.verticledivtitle || null}`)
                       }} className="px-[7px]  text-gray-500 uppercase text-[8px] bg-gray-200 rounded-full">{verticledivstate?.verticledivtitle || null}</h1>}
                     </div> */}
-                    <h1 className="m-h3 uppercase text-black truncate">{posttitle}</h1>
+                    <h1 className="m-h3 uppercase text-black">{posttitle}</h1>
                     {/* <h1 className="l-h2">{postsubtitle}</h1> */}
                     {/* {ll(data?.categoryid)} */}
                 </figcaption>
