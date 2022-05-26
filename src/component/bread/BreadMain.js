@@ -11,6 +11,7 @@ import { ContextMain } from '../../context/contextmain'
 function BreadMain() {
     const {
         breadmainstate, setbreadmainstate,
+        setgenreindexstate,
         setcategoryindextrigger,
 
 
@@ -35,23 +36,31 @@ function BreadMain() {
         <main className="grid grid-flow-col items-center gap-3">
             {breadmaintitle?.map(data => (<>
                 <article onClick={() => {
-                    setbreadmainstate()
+                    setgenreindexstate('')
+                    setbreadmainstate('')
                     navigate(`/category/${data?.breadmainid}`)
                 }} className="">
                 <h1 className="truncate">{data?.breadmaintitle}</h1>
                 </article>
                 {breadmainsubtitle?.map(dat => (<>
+                    <div className="">
+                        <h1 className="">→</h1>
+                    </div>
                     <article onClick={() => {
+                        setgenreindexstate('')
                         setbreadmainstate({
                             breadmainid: data?.breadmainid,
                             breadmainidtwo: dat?.crummainid,
                         })
                         navigate(`/category/${dat?.breadmainid}`)
                     }} className="">
-                    <h1 className="truncate">/ {dat?.crummaintitle}</h1>
+                    <h1 className="truncate">{dat?.crummaintitle}</h1>
                     </article>
+                    <div className="">
+                        <h1 className="">→</h1>
+                    </div>
                 </>))}
-            <h1 className="truncate">/ {breadmainmoretitle}</h1>
+            <h1 className="truncate">{breadmainmoretitle}</h1>
             </>))}
         </main>
     </div>

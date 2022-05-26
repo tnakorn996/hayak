@@ -87,7 +87,7 @@ function PreviewMain() {
                 setappmainstate({
                     appmainboolean: false
                 })
-            }} className="z-10 absolute top-3 right-3 text-4xl  text-white bg-black rounded-full" />
+            }} className="z-20 absolute top-0 right-0 text-4xl  text-white bg-black cursor-pointer" />
             {previewmainrender && previewmainrender}
         </motion.main>
     </div>

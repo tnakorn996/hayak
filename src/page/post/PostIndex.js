@@ -19,6 +19,7 @@ import SpreadMain from '../../component/spread/SpreadMain'
 import SocialMain from '../social/SocialMain'
 import CardMain from '../../component/card/CardMain'
 import LoadMain from '../../component/load/LoadMain'
+import { genreui } from '../../content/contentmantwo'
 
 function PostIndex() {
     const {
@@ -207,6 +208,14 @@ function PostIndex() {
       }
     }, [postpostid])
 
+    useEffect(() => {
+      if(postpostid && genreui){
+        const filter = genreui?.filter(data => data.crummainid === postpostid?.genreid)
+        setpostindexrender(filter[0]?.crummaintitle)
+        console.log('postindexrender :>> ', postindexrender);
+      }
+    }, [postpostid, genreui])
+    
     useEffect(() => {
         if(placeplaceid || productplaceid || productpostid){
                 if(placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe'){
@@ -433,8 +442,8 @@ function PostIndex() {
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                     <br />
                 </section>
-                <section className="border-2 border-black">
-                    <figure className="group relative min-h-[20vh] md:min-h-[50vh] grid items-center justify-items-center  border-b-2 border-black">
+                <section className="md:border-2 md:border-black">
+                    <figure className="group relative min-h-[20vh] md:min-h-[50vh] grid items-center justify-items-center  md:border-b-2 md:border-black">
                         <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={postpostid?.posthero} alt="" className="z-10 w-full " />
                         <div className="absolute">
                         <LoadingMain />
@@ -525,8 +534,9 @@ function PostIndex() {
                 
                 </section>
             </figure>
-            <figcaption className="p-0 md:p-[30px] md:col-span-5">
+            <figcaption className="p-0 md:px-[30px] md:col-span-5">
                 <section className="hidden md:block">
+                    <h1 className="l-h3 uppercase">{postindexrender && postindexrender}</h1>
                     <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                 </section>
@@ -548,7 +558,7 @@ function PostIndex() {
                 {postindexrenderfour?.slice(0, 4)?.map(data => (<>
                     <VerticleMain onlick={() => {
                                     navigate(`/${data?.postid}`)
-                                }} key={data?.postid} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} priceid={data?.priceid} param={data?.postid} />
+                                }} key={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid} param={data?.postid} />
                     </>))}
                 </div>
                 </section>

@@ -17,6 +17,8 @@ function OpendeskMain() {
         setappmainstate, appmainstate,
         opendeskmainstate, setopendeskmainstate,
         tabmainstate, settabmainstate,
+        breadmainstate,
+        genreindexstate,
     } = useContext(ContextMain)
     const [opendeskmainindex, setopendeskmainindex] = useState(0)
     const [opendeskmaintitle, setopendeskmaintitle] = useState()
@@ -143,7 +145,9 @@ function OpendeskMain() {
                     <motion.div initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="">
                     {opendeskmainrendertwo?.map(data => (<>
 
-                    <article onClick={data?.blemainaction} className="grid grid-cols-12 items-center p-[20px]">
+                    <article onClick={() => {
+                        data?.blemainaction()
+                    }} className={`grid grid-cols-12 items-center p-[20px] ${(data?.blemainid === genreindexstate?.genreindexid || data?.blemainid === breadmainstate?.breadmainidtwo) && '!bg-gray-900 text-white'}`}>
                         <h1 className="m-h3">{data?.tabmainicon}</h1>
                         <h1 className="col-span-10  first-letter:uppercase m-h2">{data?.tabmaintitle || data?.blemaintitle}</h1>
                     </article>

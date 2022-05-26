@@ -60,20 +60,20 @@ function ZoomMain({
             zoommaindata: [
                 {
                     zoommaintitle: 'Blog',
-                    zoommainrender: (postupdatedat.filter(data => data.posttitle.toLowerCase().match(zoommainkey) || data.postsubtitle.toLowerCase().match(zoommainkey))),
+                    zoommainrender: (postupdatedat.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey))),
                     zoommainicon: <RiNewspaperFill />,
                     // .filter(data => data._type === breadmainstate.breadmainidtwo),
 
                 },
                 {
                     zoommaintitle: 'Places',
-                    zoommainrender: (placeupdatedat.filter(data => data.posttitle.toLowerCase().match(zoommainkey) || data.postsubtitle.toLowerCase().match(zoommainkey))),
+                    zoommainrender: (placeupdatedat.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey))),
                     zoommainicon: <RiMapPin3Fill />,
 
                 },
                 {
                     zoommaintitle: 'Products',
-                    zoommainrender: (productupdatedat.filter(data => data.posttitle.toLowerCase().match(zoommainkey) || data.postsubtitle.toLowerCase().match(zoommainkey))),
+                    zoommainrender: (productupdatedat.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey))),
                     zoommainicon: <RiShoppingBag2Fill />,
 
                 },
@@ -97,7 +97,7 @@ function ZoomMain({
             zoommaindata: [
                 {
                     zoommaintitle: 'Give us feedback',
-                    zoommainrender: (feedbacklink.filter(data => data.blemaintitle.toLowerCase().match(zoommainkey) || data.blemainid.toLowerCase().match(zoommainkey))),
+                    zoommainrender: (feedbacklink.filter(data => data.blemaintitle.toLowerCase().includes(zoommainkey) || data.blemainid.toLowerCase().includes(zoommainkey))),
                     zoommainicon: <RiChat4Fill />,
                 },
             ]

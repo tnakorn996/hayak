@@ -216,7 +216,7 @@ function HomeMain() {
                             {data?.homemainmap?.slice(homemainsliceone, homemainslicetwo).map(dat => (<>
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)
-                                    }} key={dat?.postid} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
+                                    }} key={dat?.postid} type={dat?._type} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid} param={dat?.postid} />
                             </>))}
                         </>)}
 
@@ -284,7 +284,7 @@ function HomeMain() {
                             {data?.homemainmap?.slice(homemainslicethree, homemainslicefour).map(dat => (<>
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)
-                                    }} key={dat?.postid} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
+                                    }} key={dat?.postid} type={dat?._type} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid} param={dat?.postid} />
                             </>))}
                         </>)}
                     </div>
@@ -300,7 +300,7 @@ function HomeMain() {
                             {data?.homemainmap?.slice(homemainslicefive, homemainslicesix).map(dat => (<>
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)
-                                    }} key={dat?.postid} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} placepostid={dat?.placepostid} />
+                                    }} key={dat?.postid} type={dat?._type} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid} param={dat?.postid} placepostid={dat?.placepostid} />
                             </>))}
                         </>)}
                     </div>

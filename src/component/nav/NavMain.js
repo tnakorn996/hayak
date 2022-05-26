@@ -39,7 +39,7 @@ function NavMain() {
                         // }} 
                         
                         className='l-button' >
-                            <h1 className={` first-letter:uppercase ${dropdownmainstate?.dropdownmainidtwo ===  data?.breadmainid && 'border-b border-black text-black'}`}>{data?.breadmaintitle}</h1>
+                            <h1 className={`!text-xs  first-letter:uppercase ${dropdownmainstate?.dropdownmainidtwo ===  data?.breadmainid && 'border-b border-black text-black'}`}>{data?.breadmaintitle}</h1>
                         </article>
                         </>))}
                     </div>
@@ -72,7 +72,7 @@ function NavMain() {
                     </figcaption>
                 </article>
             </section>
-            <section className="md:px-[60px] col-span-2 md:col-span-5 flex justify-end gap-1">
+            <section className="!text-xs md:px-[60px] col-span-2 md:col-span-5 flex justify-end gap-1">
                     
                     {/* <button onClick={() => {
                         setappmainstate({

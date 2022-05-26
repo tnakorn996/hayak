@@ -8,7 +8,7 @@
     }
 
     article {
-        @apply opacity-80 hover:opacity-100 cursor-pointer duration-1000;
+        @apply opacity-80 hover:opacity-100 cursor-pointer duration-1000 border-black;
     }
 
     button {

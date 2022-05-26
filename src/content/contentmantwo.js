@@ -1,284 +1,6 @@
 import { RiInformationLine } from "react-icons/ri"
 
 
-
-    export const categoryul = [
-         {
-            breadmainid: 'post',
-            breadmaintitle: 'Blog',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: `The blog is a place where we take the liberty to explore our places and products a bit more. Less informative, more in depth and hopefully, more creative, here you'll find recipes,  reviews, interviews from some of our favorite NZ food!`,
-            breadmainentitle: 'Find more blogs',
-            breadmainaction: `/category/post`,
-            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
-            // breadmainref: categoryul,
-        },
-        {
-            breadmainid: 'place',
-            breadmaintitle: 'Places',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: `Here you can find where to get some of the best NZ kai. Retailers specialized in great food, great chefs and their restaurants or the manufacturers themselves, they're all here. Have a look at our list to find the right places to get the food you love`,
-            breadmainentitle: 'Find more places',
-            breadmainaction: `/category/place`,
-            breadmainimage: 'https://images.unsplash.com/photo-1612020187640-c1d6bb844ab4?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388',
-            // breadmainref: categoryul,
-        },
-        {
-            breadmainid: 'product',
-            breadmaintitle: 'Products',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: `Looking for a specific item? Here you can find anything to quench your thirst or to fill your stomach!`,
-            breadmainentitle: 'Find more products',
-            breadmainaction: `/category/product`,
-            breadmainimage: 'https://images.unsplash.com/photo-1590194360930-4866613967b0?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2034',
-            // breadmainref: categoryul,
-        },
-    ]
-
-    export const categoryui = [
-        {
-            crummainid: 'recipe',
-            crummaintitle: 'Recipes',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1585326390322-f2ae6ed52ac4?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
-            breadmainid: 'post',
-        },
-        {
-            crummainid: 'review',
-            crummaintitle: 'Reviews',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1543364195-077a16c30ff3?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
-            breadmainid: 'post',
-        },
-        {
-            crummainid: 'interview',
-            crummaintitle: 'Interviews',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
-            breadmainid: 'post',
-
-        },
-
-        {
-            crummainid: 'meat',
-            crummaintitle: 'Meat',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1644253370496-1b1b19beb3ce?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
-            breadmainid: 'product',
-
-        },
-        {
-            crummainid: 'coffee',
-            crummaintitle: 'Coffee',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1623593721974-f39b78528626?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-            breadmainid: 'product',
-
-        },
-        {
-            crummainid: 'alcohol',
-            crummaintitle: 'Alcohol',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1623593688280-a5aec8ac4ae7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
-            breadmainid: 'product',
-
-        },
-        {
-            crummainid: 'dairy',
-            crummaintitle: 'Dairy',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1600379097298-0217be1203c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
-            breadmainid: 'product',
-
-        },
-        {
-            crummainid: 'etc',
-            crummaintitle: 'Veggies, fruit, etc',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80',
-            breadmainid: 'product',
-
-        },
-        
-        {
-            crummainid: 'retail',
-            crummaintitle: 'Retailers',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1616715320643-b6d9214b9946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
-            breadmainid: 'place',
-
-        },
-        {
-            crummainid: 'manufacturer',
-            crummaintitle: 'Manufacturers',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1522643628976-0a170f6722ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2016&q=80',
-            breadmainid: 'place',
-
-        },
-        {
-            crummainid: 'restaurant',
-            crummaintitle: "Chefs / Restaurants",
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-            breadmainid: 'place',
-        },
-    ]
-
-
-    export const genreui = [
-        {
-            crummainid: 'excite',
-            crummaintitle: 'Exciting',
-            crummainsubtitle: '',
-            crummainstyle: '',
-            crummainimage: '',
-
-            breadmainid: '',
-        },
-        {
-            crummainid: 'recommend',
-            crummaintitle: 'Recommend',
-            crummainsubtitle: '',
-            crummainstyle: '',
-            crummainimage: '',
-
-            breadmainid: '',
-        },
-    ]
-
-
-    export const postui = [
-        {
-            crummainid: 'name',
-            crummaintitle: 'PROUDLY OWNED BY',
-            crummainsubtitle: '',
-            crummainstyle: '',
-            crummainimage: '',
-
-            breadmainid: 'description',
-        },
-        {
-            crummainid: 'type',
-            crummaintitle: 'BUSINESS TYPE',
-            crummainsubtitle: '',
-            crummainstyle: '',
-            crummainimage: '',
-
-            breadmainid: 'description',
-        },
-        {
-            crummainid: 'name',
-            crummaintitle: 'TIME COOK',
-            crummainsubtitle: '',
-            crummainstyle: '',
-            crummainimage: '',
-
-            breadmainid: 'detail',
-        },
-        {
-            crummainid: 'type',
-            crummaintitle: 'RECIPE',
-            crummainsubtitle: '',
-            crummainstyle: '',
-            crummainimage: '',
-
-            breadmainid: 'detail',
-        },
-     
-
-
-        {
-            crummainid: 'top',
-            crummaintitle: 'top',
-            crummainsubtitle: '',
-            crummainstyle: '',
-            crummainimage: '',
-
-            breadmainid: 'comment',
-        },
-    ]
-
-    export const postul = [
-        {
-            breadmainid: 'description',
-            breadmaintitle: 'Descriptions',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
-            breadmainentitle: 'Find more info',
-            breadmainaction: `/category/post`,
-            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
-        },
-        {
-            breadmainid: 'comment',
-            breadmaintitle: 'Comments',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
-            breadmainentitle: 'Find more comments',
-            breadmainaction: `/category/post`,
-            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
-        }
-    ]
-
-    export const commentui = [
-        {
-            crummainid: 'all',
-            crummaintitle: 'Find this post helpful?',
-            crummainsubtitle: `Help improve Product Hunt by sharing a review with others.`,
-            crummainstyle: '',
-            crummainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
-
-            breadmainid: 'comment',
-        },
-    ]
-
-    export const commentul = [
-        {
-            breadmainid: 'comment',
-            breadmaintitle: 'Comments',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
-            breadmainentitle: 'See all comments',
-            breadmainaction: `/comment/commentmain`,
-            breadmainimage: '',
-        },
-    ]
-
-    export const feedbackul = [
-        {
-            breadmainid: 'feedback',
-            breadmaintitle: 'Feedback',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
-            breadmainentitle: 'See all feeedback',
-            breadmainaction: `/comment/commentmain`,
-        },
-    ]
-
-    export const feedbackui = [
-        {
-            crummainid: 'ask',
-            crummaintitle: 'Have question for us',
-            crummainsubtitle: `Tell us about your experience, what you love, or what we could improve. Please provide email addresses to keep in contact.`,
-
-            breadmainid: 'feedback',
-        },
-        {
-            crummainid: 'edit',
-            crummaintitle: 'Have feedback for us',
-            crummainsubtitle: `Tell us about your experience, what you love, or what we could improve. Please provide email addresses to keep in contact.`,
-
-            breadmainid: 'feedback',
-        },
-        {
-            crummainid: 'report',
-            crummaintitle: 'Have some issus to report',
-            crummainsubtitle: `Tell us about your experience, what you love, or what we could improve. Please provide email addresses to keep in contact.`,
-
-            breadmainid: 'feedback',
-        },
-    ]
-
 //////////////////////////////////////////
 
     export const categorydi = [
@@ -439,6 +161,283 @@ import { RiInformationLine } from "react-icons/ri"
             breadmainid: 'use'
         },
 
+    ]
+
+////////////////////////////////////////////////
+
+    export const categoryul = [
+         {
+            breadmainid: 'post',
+            breadmaintitle: 'Blog',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: `The blog is a place where we take the liberty to explore our places and products a bit more. Less informative, more in depth and hopefully, more creative, here you'll find recipes,  reviews, interviews from some of our favorite NZ food!`,
+            breadmainentitle: 'Find more blogs',
+            breadmainaction: `/category/post`,
+            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+            // breadmainref: categoryul,
+        },
+        {
+            breadmainid: 'place',
+            breadmaintitle: 'Places',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: `Here you can find where to get some of the best NZ kai. Retailers specialized in great food, great chefs and their restaurants or the manufacturers themselves, they're all here. Have a look at our list to find the right places to get the food you love`,
+            breadmainentitle: 'Find more places',
+            breadmainaction: `/category/place`,
+            breadmainimage: 'https://images.unsplash.com/photo-1612020187640-c1d6bb844ab4?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388',
+            // breadmainref: categoryul,
+        },
+        {
+            breadmainid: 'product',
+            breadmaintitle: 'Products',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: `Looking for a specific item? Here you can find anything to quench your thirst or to fill your stomach!`,
+            breadmainentitle: 'Find more products',
+            breadmainaction: `/category/product`,
+            breadmainimage: 'https://images.unsplash.com/photo-1590194360930-4866613967b0?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2034',
+            // breadmainref: categoryul,
+        },
+    ]
+
+    export const categoryui = [
+        {
+            crummainid: 'recipe',
+            crummaintitle: 'Recipes',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1585326390322-f2ae6ed52ac4?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
+            breadmainid: 'post',
+        },
+        {
+            crummainid: 'review',
+            crummaintitle: 'Reviews',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1543364195-077a16c30ff3?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
+            breadmainid: 'post',
+        },
+        {
+            crummainid: 'interview',
+            crummaintitle: 'Interviews',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
+            breadmainid: 'post',
+
+        },
+
+        {
+            crummainid: 'meat',
+            crummaintitle: 'Meat',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1644253370496-1b1b19beb3ce?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
+            breadmainid: 'product',
+
+        },
+        {
+            crummainid: 'coffee',
+            crummaintitle: 'Coffee',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1623593721974-f39b78528626?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+            breadmainid: 'product',
+
+        },
+        {
+            crummainid: 'alcohol',
+            crummaintitle: 'Alcohol',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1623593688280-a5aec8ac4ae7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+            breadmainid: 'product',
+
+        },
+        {
+            crummainid: 'dairy',
+            crummaintitle: 'Dairy',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1600379097298-0217be1203c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+            breadmainid: 'product',
+
+        },
+        {
+            crummainid: 'etc',
+            crummaintitle: 'Veggies, fruit, etc',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80',
+            breadmainid: 'product',
+
+        },
+        
+        {
+            crummainid: 'retail',
+            crummaintitle: 'Retailers',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1616715320643-b6d9214b9946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+            breadmainid: 'place',
+
+        },
+        {
+            crummainid: 'manufacturer',
+            crummaintitle: 'Manufacturers',
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1522643628976-0a170f6722ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2016&q=80',
+            breadmainid: 'place',
+
+        },
+        {
+            crummainid: 'restaurant',
+            crummaintitle: "Chefs / Restaurants",
+            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainimage: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+            breadmainid: 'place',
+        },
+    ]
+
+    export const genreui = [
+        {
+            crummainid: 'excite',
+            crummaintitle: 'Exciting',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'all',
+        },
+        {
+            crummainid: 'recommend',
+            crummaintitle: 'Recommended',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'all',
+        },
+    ]
+
+    export const postui = [
+        {
+            crummainid: 'name',
+            crummaintitle: 'PROUDLY OWNED BY',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'description',
+        },
+        {
+            crummainid: 'type',
+            crummaintitle: 'BUSINESS TYPE',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'description',
+        },
+        {
+            crummainid: 'name',
+            crummaintitle: 'TIME COOK',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'detail',
+        },
+        {
+            crummainid: 'type',
+            crummaintitle: 'RECIPE',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'detail',
+        },
+     
+
+
+        {
+            crummainid: 'top',
+            crummaintitle: 'top',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'comment',
+        },
+    ]
+
+    export const postul = [
+        {
+            breadmainid: 'description',
+            breadmaintitle: 'Descriptions',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'Find more info',
+            breadmainaction: `/category/post`,
+            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+        },
+        {
+            breadmainid: 'comment',
+            breadmaintitle: 'Comments',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'Find more comments',
+            breadmainaction: `/category/post`,
+            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+        }
+    ]
+
+    export const commentui = [
+        {
+            crummainid: 'all',
+            crummaintitle: 'Find this post helpful?',
+            crummainsubtitle: `Help improve Product Hunt by sharing a review with others.`,
+            crummainstyle: '',
+            crummainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+
+            breadmainid: 'comment',
+        },
+    ]
+
+    export const commentul = [
+        {
+            breadmainid: 'comment',
+            breadmaintitle: 'Comments',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'See all comments',
+            breadmainaction: `/comment/commentmain`,
+            breadmainimage: '',
+        },
+    ]
+
+    export const feedbackul = [
+        {
+            breadmainid: 'feedback',
+            breadmaintitle: 'Feedback',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'See all feeedback',
+            breadmainaction: `/comment/commentmain`,
+        },
+    ]
+
+    export const feedbackui = [
+        {
+            crummainid: 'ask',
+            crummaintitle: 'Have question for us',
+            crummainsubtitle: `Tell us about your experience, what you love, or what we could improve. Please provide email addresses to keep in contact.`,
+
+            breadmainid: 'feedback',
+        },
+        {
+            crummainid: 'edit',
+            crummaintitle: 'Have feedback for us',
+            crummainsubtitle: `Tell us about your experience, what you love, or what we could improve. Please provide email addresses to keep in contact.`,
+
+            breadmainid: 'feedback',
+        },
+        {
+            crummainid: 'report',
+            crummaintitle: 'Have some issus to report',
+            crummainsubtitle: `Tell us about your experience, what you love, or what we could improve. Please provide email addresses to keep in contact.`,
+
+            breadmainid: 'feedback',
+        },
     ]
 
 

@@ -16,6 +16,7 @@ function CategoryIndex() {
         setappmainstate, appmainstate,
         breadmainstate, setbreadmainstate,
         settabmainstate,
+        genreindexstate, setgenreindexstate,
 
         postplaceproduct,
 
@@ -73,18 +74,24 @@ function CategoryIndex() {
     
     useEffect(() => {
         if(postplaceproduct){
-            ll()
+            // ll()
+            kk()
+
+            // setgenreindexstate({
+            //     genreindexid: 'recommend'
+            // })
         }
     }, [postplaceproduct])
 
     useEffect(() => {
-        if(breadmainstate === '') {
-            ll()
-        } 
-        if(breadmainstate !== ''){
-            kk()
-        }
-    }, [breadmainstate])
+        // if(breadmainstate === '' && genreindexstate === '') {
+        //     ll()
+        // } 
+        // if(breadmainstate !== '' || genreindexstate !== ''){
+        //     kk()
+        // }
+        kk()
+    }, [breadmainstate, genreindexstate])
 
     useEffect(() => {
       if(postcategoryidcreatedat && postcategoryidupdatedat && postcategoryidpostcount){
@@ -92,24 +99,44 @@ function CategoryIndex() {
       }
     }, [postcategoryidcreatedat, postcategoryidupdatedat, postcategoryidpostcount])
     
-    const ll = async () => {
-            const filter = postplaceproduct.filter(data => data._type === param.id)
-            const filtertwo = postplaceproduct.filter(data => data._type === param.id)
-            const filterthree = postplaceproduct.filter(data => data._type === param.id)
-            setpostcategoryidcreatedat(filter)
-            setpostcategoryidupdatedat(filtertwo)
-            setpostcategoryidpostcount(filterthree)
+    // const ll = async () => {
+    //         const filter = postplaceproduct.filter(data => data._type === param.id)
+    //         const filtertwo = postplaceproduct.filter(data => data._type === param.id)
+    //         const filterthree = postplaceproduct.filter(data => data._type === param.id)
+    //         setpostcategoryidcreatedat(filter)
+    //         setpostcategoryidupdatedat(filtertwo)
+    //         setpostcategoryidpostcount(filterthree)
+    // }
 
-            }
+    const kk = () => {
+        const empty = []
+        postplaceproduct.forEach(data => {
 
-    const kk = async () => {
-            const filter = postplaceproduct.filter(data => data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo)
-            const filtertwo = postplaceproduct.filter(data => data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo)
-            const filterthree = postplaceproduct.filter(data => data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo)
-            setpostcategoryidcreatedat(filter)
-            setpostcategoryidupdatedat(filtertwo)
-            setpostcategoryidpostcount(filterthree)
+            if(breadmainstate !== '' && genreindexstate !== '' && data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo && data.genreid === genreindexstate.genreindexid){
+                empty.push(data)
             }
+            if(breadmainstate !== '' && genreindexstate === '' && data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo){
+                empty.push(data)
+            }
+            if(breadmainstate === '' && genreindexstate !== '' && data._type === param.id && data.genreid === genreindexstate.genreindexid){
+                empty.push(data)
+            }
+            if(breadmainstate === '' && genreindexstate === '' && data._type === param.id) {
+                empty.push(data)
+            }
+            setpostcategoryidcreatedat(empty)
+            setpostcategoryidupdatedat(empty)
+            setpostcategoryidpostcount(empty)
+
+        })
+
+        // const filter = postplaceproduct.filter(data => data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo)
+        // const filtertwo = postplaceproduct.filter(data => data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo)
+        // const filterthree = postplaceproduct.filter(data => data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo)
+        // setpostcategoryidcreatedat(filter)
+        // setpostcategoryidupdatedat(filtertwo)
+        // setpostcategoryidpostcount(filterthree)
+    }
     
     function jj() {
         categoryindexrender.forEach(data => {
@@ -183,7 +210,7 @@ function CategoryIndex() {
                     {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
                         <VerticleMain onlick={() => {
                             navigate(`/${dat?.postid}`)
-                        }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid}  param={dat?.postid} />
+                        }} key={dat?.postid} type={dat?._type} createdat={dat?._createdAt} posticon={dat?.posticon} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid}  param={dat?.postid} />
                     </>))}
                     </div>
                 </figure>

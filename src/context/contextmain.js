@@ -1,6 +1,6 @@
 
 import React, { createContext, useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import LoadMain from '../component/load/LoadMain'
 import ProgressBar from "@badrap/bar-of-progress";
 
@@ -14,7 +14,6 @@ export const ContextMain = createContext()
 export const Provider = ({ children }) => {
     const location = useLocation()
     // const param = useParams()
-    // console.log('location :>> ', location);
 
     const [appmainstate, setappmainstate] = useState('appmain')
     // const [postindexstate, setpostindexstate] = useState()
@@ -27,7 +26,7 @@ export const Provider = ({ children }) => {
     const [sheetmainpage, setsheetmainpage] = useState(0)
     const [categorypicturestate, setcategorypicturestate] = useState()
     const [categoryindextrigger, setcategoryindextrigger] = useState('')
-    const [breadmainstate, setbreadmainstate] = useState()
+    const [breadmainstate, setbreadmainstate] = useState('')
     const [alertmainstate, setalertmainstate] = useState()
     const [dropdownmainstate, setdropdownmainstate] = useState()
     const [ctamainstate, setctamainstate] = useState()
@@ -42,6 +41,7 @@ export const Provider = ({ children }) => {
     const [opendeskmainstate, setopendeskmainstate] = useState()
     const [stepmainstate, setstepmainstate] = useState()
     const [sharemainstate, setsharemainstate] = useState()
+    const [genreindexstate, setgenreindexstate] = useState('')
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -63,17 +63,14 @@ export const Provider = ({ children }) => {
     })
 
     useEffect(() => {
-      if (location) {
         setappmainstate('')
         setspreadmainstate('')
         setsharemainstate('')
-      }
 
-      progress.start();
-
-      setTimeout(() => {
-        progress.finish();
-      }, 5000);
+        progress.start();
+        setTimeout(() => {
+            progress.finish();
+        }, 5000);
 
     }, [location])
     
@@ -330,9 +327,9 @@ export const Provider = ({ children }) => {
             blemainid: 'excite',
             blemaintitle: "Exciting",
             blemainaction:  () => {
-                // setbreadmainstate({
-                //     breadmainidtwo: 'restaurant',
-                // })
+                setgenreindexstate({
+                    genreindexid: 'excite',
+                })
             },
             
             tabmainid: 'genre',
@@ -341,9 +338,9 @@ export const Provider = ({ children }) => {
             blemainid: 'recommend',
             blemaintitle: "Recommended",
             blemainaction:  () => {
-                // setbreadmainstate({
-                //     breadmainidtwo: 'restaurant',
-                // })
+                setgenreindexstate({
+                    genreindexid: 'recommend',
+                })
             },
             
             tabmainid: 'genre',
@@ -756,6 +753,7 @@ export const Provider = ({ children }) => {
           opendeskmainstate, setopendeskmainstate,
           stepmainstate, setstepmainstate,
           sharemainstate, setsharemainstate,
+          genreindexstate, setgenreindexstate,
           
           userindex,
           postplaceproduct,

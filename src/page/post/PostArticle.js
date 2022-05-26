@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import LoadingMain from '../../component/load/LoadingMain'
 
 import HorizonMain from '../../component/post/HorizonMain'
+import { genreui } from '../../content/contentmantwo'
 import { ContextMain } from '../../context/contextmain'
 
 
@@ -14,6 +15,7 @@ function PostArticle() {
   const {
 
       setappmainstate, appmainstate,
+      genreindexstate,
 
       postplaceproduct,
 
@@ -22,24 +24,31 @@ function PostArticle() {
 
   const [postarticlestate, setpostarticlestate] = useState()
   const [postarticlestatetwo, setpostarticlestatetwo] = useState()
+  const [postarticlerenderthree, setpostarticlerenderthree] = useState()
   // const [previewmainpage, setpreviewmainpage] = useState(3)
 
   useEffect(() => {
     const filter = postplaceproduct?.filter(data => data.postid === appmainstate.appmainparam)
     const filtertwo = postplaceproduct?.filter(data => data.postid !== appmainstate.appmainparam)
-    const ref = filter[0]
-    setpostarticlestate(ref)
+    setpostarticlestate(filter[0])
     setpostarticlestatetwo(filtertwo)
-  }, [])
+}, [])
+
+useEffect(() => {
+    if(postarticlestate && genreui){
+        const filter = genreui.filter(data => data.crummainid === postarticlestate.genreid)
+        setpostarticlerenderthree(filter[0]?.crummaintitle)
+    }
+  }, [postarticlestate])
   
   return (
     <div>
         <main className="">
                 <section className="">
                     <figure className="relative max-h-[40vh] md:min-h-[65vh] flex items-center justify-center  overflow-hidden">
-                        <div className="z-10 absolute bottom-0 left-0 min-h-[35vh] md:min-h-[30vh] w-full  bg-gradient-to-b from-transparent to-white" />
+                        <div className="z-10 absolute bottom-0 left-0 min-h-[35vh] md:min-h-[40vh] w-full  bg-gradient-to-b from-transparent to-white" />
                         <div className="z-10 absolute bottom-0 left-8 md:left-14 max-w-[70%] md:max-w-[60%] ">
-                            <h1 className="md:text-3xl  m-h6 font-serif">{postarticlestate?.posttitle}</h1>
+                            <h1 className="md:text-5xl  m-h6 font-serif">{postarticlestate?.posttitle}</h1>
                         </div>
                         {postarticlestate?.priceid === 'pro' &&<RiContrastDropLine className="absolute top-8 left-8 text-4xl  m-h5 text-gray-300" />}
                         <div className="absolute">
@@ -48,47 +57,52 @@ function PostArticle() {
                         <img src={postarticlestate?.posthero} alt="" className="z-0 w-full" />
                     </figure>
                 </section>
-                <section className="p-[30px] md:p-[60px] flex flex-col md:grid md:grid-cols-12 gap-5">
-                    <figure className="md:col-span-8">
-                        <figure className="flex flex-row items-center justify-between">
-                            <div className="flex flex-row gap-5 items-center">
+                <section className="p-[30px] md:p-[60px] flex flex-col md:grid md:grid-cols-12 gap-5 ">
+                    <figure className="md:col-span-7">
+                        <figure className="grid grid-cols-12 items-center">
+                            <div className="col-span-12 grid grid-cols-12 gap-5  ">
                                 <button onClick={() => {
                                     setappmainstate({
                                         appmainboolean: false,
                                     })
                                     navigate(`/${postarticlestate?.postid}`)
-                                }} className="m-button m-h3">→ Read more</button>
-                                {postarticlestate?.priceid === 'pro' &&<RiContrastDropLine className="m-h5 text-gray-700" />}
-                                <h1 className="l-h5">{Math.floor(postarticlestate?.postblock?.length * 0.2) || 1} min</h1>
-                                <div className="flex flex-row items-center gap-1">
-                                <RiEyeLine className='m-h5' />
-                                <h1 className="l-h5">{postarticlestate?.postcount || 0}</h1>
-                                </div>
-                            </div>
-                            <div className="">
-                                <figure onClick={() => {
-                                    setappmainstate({
-                                        appmainid: 'sharesection',
-                                        appmainidtwo: 'modalmain',
-                                        appmainidthree: 0,
-                                        appmainparam: postarticlestate?.postid,
-                                        appmainboolean: true,
-                                    })
-                                }} className="">
-                                    <article className="">
-                                    <RiShareFill className='m-h5' />
-                                    </article>
+                                }} className="col-span-12 md:col-span-5 m-button m-h3">→ Read more</button>
+                                <figure className="col-span-12 md:col-span-7 flex flex-row gap-3 items-center justify-between ">
+                                    <div className="flex flex-row gap-3 items-center">
+                                        <h1 className="block md:hidden l-h5">{postarticlestate?._createdAt?.slice(0, 10)}</h1>
+                                        <h1 className="l-h5">{Math.floor(postarticlestate?.postblock?.length * 0.2) || 1} min</h1>
+                                        <div className="flex flex-row items-center gap-1">
+                                        <RiEyeLine className='m-h5' />
+                                        <h1 className="l-h5">{postarticlestate?.postcount || 0}</h1>
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-row items-center gap-3 justify-end ">
+                                        <figure onClick={() => {
+                                            setappmainstate({
+                                                appmainid: 'sharesection',
+                                                appmainidtwo: 'modalmain',
+                                                appmainidthree: 0,
+                                                appmainparam: postarticlestate?.postid,
+                                                appmainboolean: true,
+                                            })
+                                        }} className="">
+                                            <article className="">
+                                            <RiShareFill className='m-h5' />
+                                            </article>
+                                        </figure>
+                                    </div>
                                 </figure>
                             </div>
+                            
                         </figure>
                         <figcaption className="">
                             <br />
-                            <h1 className="l-h6">{postarticlestate?._createdAt?.slice(0, 10)}</h1>
+                            <h1 className="hidden md:flex  l-h6">{postarticlestate?._createdAt?.slice(0, 10)}</h1>
                             <br />
-                            <h1 className="l-h5">{postarticlestate?.postsubtitle}</h1>
+                            <h1 className="l-h3 md:l-h5">{postarticlestate?.postsubtitle}</h1>
                         </figcaption>
                     </figure>
-                    <figcaption className="md:col-span-4 grid grid-cols-2">
+                    <figcaption className="md:col-span-5 grid grid-cols-2">
                         <div className="col-span-2">
                                 <HorizonMain onlick={() => {
                                     navigate(`/${postarticlestate?.placepostid?.postid}`)
@@ -102,7 +116,7 @@ function PostArticle() {
                         <div className="">
                         <br /><br />
                         <h1 className="l-h2">This article is: </h1>
-                        <h1 className="l-h4 text-black first-letter:uppercase">--</h1>
+                        <h1 className="l-h4 text-black first-letter:uppercase">{postarticlerenderthree ? postarticlerenderthree : '--'}</h1>
                         </div>
 
                     </figcaption>
