@@ -11,7 +11,6 @@ import { breadmain, crummain } from '../../content/contentmain'
 import '../sideboard/sideboardmain.css'
 import { ContextMain } from '../../context/contextmain'
 import CommentDialog from '../../page/comment/CommentDialog'
-import AlertMain from '../alert/AlertMain'
 import PortMain from '../port/PortMain'
 import ZoomMain from '../zoom/ZoomMain'
 
@@ -64,9 +63,9 @@ function SideboardMain() {
               </article>
             </>))}
           </section>
-          <section className="!bg-black">
+          {/* <section className="!bg-black">
             <PortMain />
-          </section>
+          </section> */}
         </main>
         }
     },
@@ -140,14 +139,11 @@ function SideboardMain() {
                 setappmainstate({
                     appmainboolean: false
                 })
-                }} className="z-10 absolute top-3 right-3 text-4xl  text-white bg-black rounded-full" />
+                }} className="z-10 absolute top-5 right-5 text-5xl  text-white bg-black rounded-full" />
               </figcaption>
             </section>
             <section className="h-[90vh] w-full  overflow-y-scroll no-scrollbar ">
               {sideboardmainrender && sideboardmainrender}
-              {appmainstate?.appmainid === 'searchdialog' && (<>
-                <AlertMain alertmainid={'inform'} alertmainidtwo={'searchdl'} />
-              </>)}
             </section>
             {/* <section className="h-[10vh] w-full p-[20px] grid grid-flow-col  border-t border-gray-700">
               <button className="m-button">Our story</button>

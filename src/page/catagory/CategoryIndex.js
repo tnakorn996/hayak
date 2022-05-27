@@ -158,7 +158,7 @@ function CategoryIndex() {
                 <div className="">
                 <h1 className="text-3xl font-serif m-h6 first-letter:uppercase">{categoryindextitle} </h1>
                 <br />
-                <h1 className="md:max-w-[900px] l-h3 first-letter:uppercase leading-relaxed">{categoryindexdetail} </h1>
+                <h1 className="md:max-w-[900px] l-h2 md:l-h3 first-letter:uppercase leading-relaxed">{categoryindexdetail} </h1>
                 </div>
             </section>
             <hr />

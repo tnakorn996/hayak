@@ -13,6 +13,7 @@ function DropdownMain() {
     const {
         dropdownmainstate, setdropdownmainstate,
         setbreadmainstate,
+        setgenreindexstate,
 
     } = useContext(ContextMain)
     const [dropdownmaintitle, setdropdownmaintitle] = useState()
@@ -89,6 +90,7 @@ function DropdownMain() {
                         }}
                         
                         onClick={() => {
+                            setgenreindexstate('')
                             setbreadmainstate({
                                 breadmainid: data?.breadmainid,
                                 breadmainidtwo: data?.crummainid,
@@ -100,6 +102,7 @@ function DropdownMain() {
                         </>))}
                     </div>
                     <article onClick={() => {
+                        setgenreindexstate('')
                         setbreadmainstate('')
                         navigate(`/category/${dropdownmainparam}`)
                     }} className="">
@@ -109,7 +112,7 @@ function DropdownMain() {
                 <figure className="hidden md:flex col-span-5 items-center justify-center   overflow-hidden">
                     <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-fit" />
                 </figure>
-                <article className='w-[70px] h-[70px] text-5xl absolute flex justify-center items-center top-3 right-3 md:top-16 md:right-16  bg-black' >
+                <article className='w-[70px] h-[70px] text-5xl absolute flex justify-center items-center top-5 right-5  bg-black' >
                     <RiCloseFill onClick={() => {
                         setdropdownmainstate('')
                     }} />

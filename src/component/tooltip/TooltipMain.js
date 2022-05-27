@@ -31,8 +31,8 @@ function TooltipMain({title, children, ...props}) {
 
                 <span ref={ref} className={`min-w-[150px] top-${p => p.ref.current.top} left-${p => p.ref.current.left}  opacity-0 ${tooltipmainstyle} duration-500`}>
                     <div className="relative flex flex-row">
-                    <h1 className="m-h6">◂</h1>
-                    <h1 className="absolute left-2 p-[10px]  text-white bg-gray-900 rounded-sm">{title} Lorem, ipsum dolor si. </h1>
+                    <h1 className="m-h6 text-gray-700">◀</h1>
+                    <h1 className="absolute left-[7px] p-[8px]  l-h1 text-white bg-gray-700 rounded-sm">{title} </h1>
                     </div>
                 </span>
             {/* </Portal> */}

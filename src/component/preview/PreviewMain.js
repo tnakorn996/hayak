@@ -10,7 +10,6 @@ import { ContextMain } from '../../context/contextmain'
 import ContactArticle from '../../page/contact/ContactArticle'
 import MenuArticle from '../../page/menu/MenuArticle'
 import PostArticle from '../../page/post/PostArticle'
-import AlertMain from '../alert/AlertMain'
 
 function PreviewMain() {
     const {
@@ -33,7 +32,6 @@ function PreviewMain() {
                 return <section className="">
                     <figure className="p-[20px] flex flex-col justify-center">
                         <img src={appmainstate?.appmainrender} alt="" className="" />
-                        <AlertMain alertmainid={'credit'} alertmainidtwo={'postdl'} alertmain={'postdl'}  />
                     </figure>
                 </section>
             },
@@ -87,7 +85,7 @@ function PreviewMain() {
                 setappmainstate({
                     appmainboolean: false
                 })
-            }} className="z-20 absolute top-0 right-0 text-4xl  text-white bg-black cursor-pointer" />
+            }} className="z-20 absolute top-5 right-5 text-4xl  text-white bg-black cursor-pointer" />
             {previewmainrender && previewmainrender}
         </motion.main>
     </div>

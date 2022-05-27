@@ -74,7 +74,7 @@ function RtaMain({type}) {
                   </section>
                   <br />
               </>))}
-              {data?.rtamainrenderthree?.map(da => (<>
+              {data?.rtamainrenderthree?.slice(0, 3)?.map(da => (<>
                   <HorizonMain onlick={() => {
                     navigate(`/${da?.postid}`)
                   }} key={da?.postid} createdat={da?._createdAt} posticon={da?.posticon} posthero={da?.posthero} posttitle={da?.posttitle} postsubtitle={da?.postsubtitle} categoryid={da?.categoryid} priceid={da?.priceid} param={da?.postid} />

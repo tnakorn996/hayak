@@ -45,13 +45,13 @@ function PortMain() {
 
   return (
     <div>
-        <main className="h-[80vh] p-[20px] md:px-[60px] flex justify-center items-center  bg-gray-100 text-black">
+        <main className="h-[90vh] md:h-[60vh] p-[20px] md:px-[60px] flex justify-center items-center  bg-gray-100 text-black">
             {portmaindata?.map(data => (<>
             <figure className="">
                 <section className="flex-col mx-auto flex justify-center text-center items-center gap-3">
                     <h1 className="flex flex-row items-center  m-h6 font-serif"><RiContrastDropLine className='' />{data?.breadmaintitle}</h1>
                     <br />
-                    <h1 className="max-w-[900px] m-h4 text-gray-500">{data?.breadmaindetail}</h1>
+                    <h1 className="max-w-[1100px] m-h4 text-gray-500">{data?.breadmaindetail}</h1>
                 </section>
                 <br /><br />
                 <section className="mx-auto max-w-[700px] flex flex-row justify-center flex-wrap gap-3">
@@ -67,11 +67,10 @@ function PortMain() {
                     </button>
                     </>))}
                 </section>
-                <br />
                 <section onClick={() => {
                         setbreadmainstate('')
                         navigate(data?.breadmainaction)
-                    }} className="max-w-[500px] mx-auto h-[20vh] flex justify-center items-center">
+                    }} className="max-w-[500px] mx-auto h-[15vh] flex justify-center items-center">
                     <button className="m-h3  ">{data?.breadmainentitle} →</button>
                 </section>
             </figure>

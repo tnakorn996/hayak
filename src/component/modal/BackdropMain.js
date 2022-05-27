@@ -2,8 +2,9 @@ import React from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { ContextMain } from '../../context/contextmain'
+import { AnimatePresence, motion } from 'framer-motion'
 
+import { ContextMain } from '../../context/contextmain'
 import PreviewMain from '../preview/PreviewMain'
 import ModalMain from './ModalMain'
 import '../modal/backdropmain.css'
@@ -13,6 +14,7 @@ import OpendeskMain from '../opendesk/OpendeskMain'
 function BackdropMain() {
   const {
     appmainstate,
+    backdropstate,
 
   } = useContext(ContextMain)
   
@@ -46,8 +48,14 @@ function BackdropMain() {
 
   return (
     <div>
-        <main className="z-20 w-screen h-screen top-0 left-0 fixed flex justify-center items-end md:items-start  bg-black bg-opacity-10 overflow-y-auto no-scrollbar">
-            {backdropmainrender && backdropmainrender}
+        <main className="z-20 w-screen h-screen top-0 left-0 fixed flex justify-center items-end md:items-start  bg-white bg-opacity-10 overflow-y-auto no-scrollbar">
+          <AnimatePresence>
+            {/* {backdropstate && (<> */}
+              <motion.section key='backdrop' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="">
+                {backdropmainrender && backdropmainrender}
+              </motion.section>
+            {/* </>)} */}
+          </AnimatePresence>
         </main>
     </div>
   )

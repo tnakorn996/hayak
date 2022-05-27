@@ -1,4 +1,4 @@
-import { motion, useMotionValue } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
@@ -11,8 +11,8 @@ import StackMain from '../Stack/StackMain'
 import StateMain from '../state/StateMain'
 import OpendeskMain from '../opendesk/OpendeskMain'
 import SocialMain from '../../page/social/SocialMain'
-import CardMain from '../card/CardMain'
 import FeedbackSection from '../../page/feedback/FeedbackSection'
+import { useLocation } from 'react-router-dom'
 
 function ModalMain() {
     const {
@@ -22,6 +22,7 @@ function ModalMain() {
         setsnackbarmainstate,
 
     } = useContext(ContextMain)
+    const location = useLocation()
     const [modalmainindex, setmodalmainindex] = useState(0)
     const [modalmaintitle, setmodalmaintitle] = useState()
     const [modalmainrender, setmodalmainrender] = useState()
@@ -35,19 +36,19 @@ function ModalMain() {
             modalmainrender: () => {
                 return (<>
                 <section className="flex justify-center ">
-                    <figure className="h-[250px] w-[250px] flex justify-center items-center  m-article">
+                    <figure className="h-[250px] w-[250px] flex justify-center items-center ">
                         <RiContrastDropLine className='absolute text-3xl w-[50px] h-[50px]  bg-white rounded-full' />
                         <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://hayak.vercel.app/${appmainstate?.appmainparam}`} alt="" />
                     </figure>
                 </section>
                  <br />
                 <section className="">
-                    <article className="grid grid-cols-12  m-article">
+                    <article className="grid grid-cols-12 ">
                         <figcaption className="col-span-10">
                             <h1 className="m-h3">Blog Address</h1>
                             <h1 className="l-h2">https://hayak.vercel.app/{appmainstate?.appmainparam}</h1>
                         </figcaption>
-                        <figure className="col-span-2 flex justify-center items-center  l-article">
+                        <figure className="col-span-2 flex justify-center items-center ">
                             <RiFileCopyLine className='m-h3' />
                         </figure>
                     </article>
@@ -175,7 +176,7 @@ function ModalMain() {
   return (
     <div>
         <br />
-        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 100}} className="w-full md:min-w-[500px] bg-white border-2 border-black">
+        <motion.main initial={{y: 200}} animate={{ y:0}} exit={{y: 200}} className="w-screen md:max-w-[700px] bg-white border-2 border-black">
             <section className="p-[20px] text-center">
                 <h1 className="m-h4 font-serif">{modalmaintitle && modalmaintitle}</h1>
             </section>

@@ -14,11 +14,11 @@ function CardMain({
     cardmainidthree,
     cardmainindex,
 
-    cardmainuuid,
 }) {
     const {
         commentlink, 
         termlink,
+        feedbacklink,
 
     } = useContext(ContextMain)
 
@@ -33,7 +33,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = commentlink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className="w-full  underline">{filter[0].blemainentitle}</button>
+                    return <button onClick={filter[0].blemainaction} className="w-full  l-button">{filter[0].blemainentitle}</button>
                 }
             } 
         },
@@ -46,7 +46,20 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = termlink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className="w-full  underline">{filter[0].blemainentitle}</button>
+                    return <button onClick={filter[0].blemainaction} className="w-full  l-button">{filter[0].blemainentitle}</button>
+                }
+            } 
+        },
+    ]
+
+    const feedbackimg = [
+        {
+            cardmainindex: 0,
+            cardmainrender: feedbacklink.filter(data => data.blemainid === cardmainidthree),
+            cardmainaction: () => {
+                if(cardmainidthree) {
+                    const filter = feedbacklink.filter(data => data.blemainid === cardmainidthree);
+                    return <button onClick={filter[0].blemainaction} className="w-full  l-button">{filter[0].blemaintitle}</button>
                 }
             } 
         },
@@ -60,6 +73,10 @@ function CardMain({
         {
             cardmainid: 'termimg',
             cardmainref: termimg,
+        },
+        {
+            cardmainid: 'feedbackimg',
+            cardmainref: feedbackimg,
         }
     ]
 
@@ -71,14 +88,8 @@ function CardMain({
             setcardmainrender(filter)
             setcardmainrendertwo(filterthree[0].cardmainrender)
             setcardmainaction(filterthree[0].cardmainaction)
-
-            // const filter = spreadmain.filter(data => data.spreadmainid === cardmainid)
-            // const filtertwo = filter[0].spreadmainref.filter(data => data.spreadmainid === cardmainidtwo)
-            // const filterthree = commentlink.filter(data => data.spreadmainid === cardmainidthree);
-            // setcardmainrender(filtertwo)
-            // setcardmainaction(filterthree)
         }
-    }, [cardmainid, cardmainidtwo, cardmainuuid])
+    }, [cardmainid, cardmainidtwo])
 
   return (
     <div>
@@ -91,8 +102,8 @@ function CardMain({
                     </section>
                     {cardmainrendertwo?.map(dat => (<>
                     <section className="col-span-8">
-                        <h1 className="m-h3">{dat?.sheetmaintitle}</h1>
-                        <h1 className="py-[10px] md:p-0  l-h2">{dat?.sheetmainsubtitle}</h1>
+                        <h1 className="m-h2">{dat?.sheetmaintitle || dat?.blemaintitle}</h1>
+                        <h1 className="py-[10px] md:p-0  l-h1">{dat?.sheetmainsubtitle || dat?.blemainsubtitle}</h1>
                     </section>
                     </>))}
                     <section className="col-span-3">

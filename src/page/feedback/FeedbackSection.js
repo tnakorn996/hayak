@@ -78,7 +78,7 @@ function FeedbackSection() {
 
   return (
     <div>
-        <main className="max-w-[1200px] flex flex-col md:grid md:grid-cols-12 gap-5">
+        <main className="max-w-[1200px] flex flex-col  gap-5">
                 {feedbacksectionrender?.map(data => (<>
                 <div className="col-span-7">
                     <section className="">

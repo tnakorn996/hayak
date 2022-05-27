@@ -6,10 +6,12 @@ import { ContextMain } from '../../context/contextmain'
 import ToastMain from '../toast/ToastMain'
 import { useState } from 'react'
 import SnackbarMain from '../snackbar/SnackbarMain'
+import { AnimatePresence, motion } from 'framer-motion'
 
 function Overlay() {
     const {
         appmainstate,
+        overlaystate,
 
     } = useContext(ContextMain)
     const [overlayrender, setoverlayrender] = useState()
@@ -35,10 +37,13 @@ function Overlay() {
   return (
     <div>
         <main className="">
-            <section className="">
-                {overlayrender && overlayrender}
-            </section>
-
+            <AnimatePresence>
+                {/* {overlaystate && (<> */}
+                <motion.section key='overlay' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="">
+                    {overlayrender && overlayrender}
+                </motion.section>
+                {/* </>)} */}
+            </AnimatePresence>
         </main>
     </div>
   )

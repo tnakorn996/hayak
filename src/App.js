@@ -1,6 +1,6 @@
 
 import React, {useState, useRef, useEffect, useContext} from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useParams } from 'react-router-dom';
 import {AnimatePresence} from 'framer-motion'
 
 // import HomeMain from './home/HomeMain'
@@ -24,21 +24,28 @@ import TopMain from './component/top/TopMain';
 import PortMain from './component/port/PortMain';
 import SearchMain from './page/search/SearchMain';
 import FeedbackMain from './page/feedback/FeedbackMain';
+import FooterMain from './component/footer/FooterMain';
 // import PreviewMain from './component/preview/PreviewMain';
 
 export default function App() {
   const {
     appmainstate, 
     setportmainstate,
+    setsnackbarmainstate,
   
   } = useContext(ContextMain)
   const location = useLocation()
+  const param = useParams()
+  console.log('param :>> ', param);
 
   useEffect(() => {
     setportmainstate({
       portmainid: 'posttfoot',
       portmainidtwo: 'breadmain',
       portmainidthree: 'place',
+    })
+    setsnackbarmainstate({
+      snackbarmainid: 'categoryfooter',
     })
   }, [])
 
@@ -110,15 +117,19 @@ export default function App() {
         <PortMain />
         </section>
 
+        <section className="">
+        <FooterMain />
+        </section>
+
         <section className="z-30 sticky">
         {appmainstate?.appmainboolean === true && (<>
-        <BackdropMain />
+            <BackdropMain />
         </>)}
         </section>
 
         <section className="z-30 sticky">
         {appmainstate?.appmainid === 'overlay' && (<>
-        <Overlay />
+            <Overlay />
         </>)}
         </section>
 

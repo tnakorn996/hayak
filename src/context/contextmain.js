@@ -42,6 +42,9 @@ export const Provider = ({ children }) => {
     const [stepmainstate, setstepmainstate] = useState()
     const [sharemainstate, setsharemainstate] = useState()
     const [genreindexstate, setgenreindexstate] = useState('')
+    const [landmainstate, setlandmainstate] = useState()
+    const [overlaystate, setoverlaystate] = useState(false)
+    const [backdropstate, setbackdropstate] = useState(false)
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -73,6 +76,15 @@ export const Provider = ({ children }) => {
         }, 5000);
 
     }, [location])
+
+    // useEffect(() => {
+    //   if(appmainstate === ''){
+    //       setoverlaystate(false)
+    //     } 
+    //     if(appmainstate !== ''){
+    //         setoverlaystate(true)
+    //     } 
+    // }, [appmainstate])
     
     const postselect = [
         {
@@ -568,6 +580,7 @@ export const Provider = ({ children }) => {
         {
             blemainid: 'ask',
             blemaintitle: 'Ask question',
+            blemainsubtitle: `Please note we can’t guarantee a response.`,
             blemainaction:  () => {
                 settabmainstate({
                     tabmainid: 'feedback',
@@ -587,6 +600,7 @@ export const Provider = ({ children }) => {
         {
             blemainid: 'edit',
             blemaintitle: 'Suggest an edit',
+            blemainsubtitle: `Please note we can’t guarantee a response.`,
             blemainaction:  () => {
                 settabmainstate({
                     tabmainid: 'feedback',
@@ -606,6 +620,7 @@ export const Provider = ({ children }) => {
         {
             blemainid: 'report',
             blemaintitle: 'Report an issue',
+            blemainsubtitle: `Please note we can’t guarantee a response.`,
             blemainaction:  () => {
                 settabmainstate({
                     tabmainid: 'feedback',
@@ -754,6 +769,9 @@ export const Provider = ({ children }) => {
           stepmainstate, setstepmainstate,
           sharemainstate, setsharemainstate,
           genreindexstate, setgenreindexstate,
+          landmainstate, setlandmainstate,
+          overlaystate, setoverlaystate,
+          backdropstate, setbackdropstate,
           
           userindex,
           postplaceproduct,

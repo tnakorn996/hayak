@@ -3,80 +3,79 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { RiInformationLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
-import { breadmain, categoryui, sheetmain, spreadmain } from '../../content/contentmantwo'
+import { breadmain, categorydi, categorydl, categoryui, postui, postul, sheetmain, spreadmain } from '../../content/contentmantwo'
+import CardMain from '../card/CardMain'
 
 function AlertMain({
     alertmainid,
     alertmainidtwo,
-    // alertmainpage,
-    // alertmainfullname,
 
+    alertmainmessage,
 }) {
-    const [alertmainicon, setalertmainicon] = useState()
-    const [alertmainstyle, setalertmainstyle] = useState()
-    const [alertmainaction, setalertmainaction] = useState()
-    const [alertmainentitle, setalertmainentitle] = useState()
-    const [alertmaintitle, setalertmaintitle] = useState()
+    const [alertmainrender, setalertmainrender] = useState()
+    const [alertmainrendertwo, setalertmainrendertwo] = useState()
+
     const navigate = useNavigate()
 
-    // const searchcaption = [
-    //     {
-    //         alertmainindex: 0,
-    //         alertmainrender: () => {
-    //             return 'dd';
-    //         },
-    //         alertmainrendertwo: () => {
-    //             return 'dd';
-    //         }
-    //     }
-    // ]
+    const postcaption = [
+        {
+            alertmainindex: 0,
+            alertmainrender: categorydi.filter(data => data.spreadmainid === 'fail'),
+            alertmainrendertwo: postul.filter(data => data.breadmainid === 'description')
+        }
+    ]
 
-    // const alertmain = [
-    //     {
-    //         alertmainid: 'postcaption',
-    //         alertmainref: postcaption,
-    //     },
-    //     {
-    //         alertmainid: 'searchcaption',
-    //         alertmainref: searchcaption,
-    //     },
-    // ]
+    const alertmain = [
+        {
+            alertmainid: 'postcaption',
+            alertmainref: postcaption,
+        },
+    ]
 
     useEffect(() => {
-      if(alertmainid){
-            const filter = spreadmain.filter(data => data.spreadmainid === 'categorydi');
-            const filtertwo = filter[0].spreadmainref.filter(data => data.spreadmainid === alertmainid);
-
-            const filterthree = sheetmain.filter(data => data.sheetmainid === alertmainidtwo);
-            const filterfour = filterthree[0].sheetmainref.filter(data => data.spreadmainid === alertmainid);
-            setalertmainicon(filtertwo[0].spreadmainicon)
-            setalertmainstyle(filtertwo[0].spreadmainstyle)
-            setalertmaintitle(filterfour[0].sheetmaintitle)
-            setalertmainentitle(filterfour[0].sheetmainentitle)
-            setalertmainaction(filterfour[0].sheetmainaction)
+      if(!alertmainid){
+            const filter = alertmain.filter(data => data.alertmainid === 'postcaption');
+            const filtertwo = filter[0].alertmainref.filter(data => data.alertmainindex === 0);
+            setalertmainrender(filtertwo[0].alertmainrender)
+            setalertmainrendertwo(filtertwo[0].alertmainrendertwo)
       }
     }, [alertmainid])
 
   return (
     <div>
         <main className="">
-            <br />
-            <section className="">
-                <article className={`p-[20px] flex flex-row gap-1 justify-between items-start  ${alertmainstyle && alertmainstyle}` }>
-                    <figure className="flex flex-row gap-3 justify-between items-start ">
-                    <h1 className="m-h3">{alertmainicon && alertmainicon}</h1>
-                    <h1 className="m-h3">{alertmaintitle && alertmaintitle}</h1>
+            {alertmainrender?.map(data => (<>
+                {alertmainrendertwo?.map(dat => (<>
+                <div className="m-[20px] max-w-[450px]">
+                <br />
+                <section className="">
+                    <figure className="">
+                        <img src={data?.spreadmainimage} className="" />
                     </figure>
-                    <figcaption className="">
-                        {alertmainaction && (<>
-                        <button onClick={() => {
-                            navigate(alertmainaction)
-                        }} className="l-button">{alertmainentitle && alertmainentitle}</button>
-                        </>)}
-                    </figcaption>
-                </article>
-            </section>
-            <br />
+                </section>
+                <br />
+                <section className="">
+                    <div className="text-center">
+                        <br />
+                        <h1 className="m-h6  font-serif">{data?.spreadmaintitle}</h1>
+                        <h1 className="l-h3">{alertmainmessage && '· ' + alertmainmessage}</h1>
+                    </div>
+                    <CardMain 
+                    cardmainid={'feedbackimg'}
+                    cardmainidtwo={'inform'}
+                    cardmainidthree={'ask'}
+                    cardmainindex={0} 
+                />
+                </section>
+                <br />
+                <section className="">
+                    <button onClick={() => {
+                        navigate(dat?.breadmainaction) || dat?.blemainaction()
+                    }} className="w-full  m-button">{dat?.breadmainentitle || dat?.blemainentitle}</button>
+                </section>
+                </div>
+                </>))}
+            </>))}
         </main>
     </div>
   )

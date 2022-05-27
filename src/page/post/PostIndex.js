@@ -11,7 +11,6 @@ import { ContextMain } from '../../context/contextmain'
 import { client } from '../../lib/sanity'
 import BreadMain from '../../component/bread/BreadMain'
 import VerticleMain from '../../component/post/VerticleMain'
-import AlertMain from '../../component/alert/AlertMain'
 import LoadingMain from '../../component/load/LoadingMain'
 import CtaMain from '../../component/ctamain/CtaMain'
 import RtaMain from '../../component/rta/RtaMain'
@@ -20,6 +19,7 @@ import SocialMain from '../social/SocialMain'
 import CardMain from '../../component/card/CardMain'
 import LoadMain from '../../component/load/LoadMain'
 import { genreui } from '../../content/contentmantwo'
+import AlertMain from '../../component/alert/AlertMain'
 
 function PostIndex() {
     const {
@@ -29,7 +29,6 @@ function PostIndex() {
         setctamainstate,
         setrtamainstate,
         setbreadmainstate,
-        setalertmainstate,
         setportmainstate,
         setspreadmainstate,
         settabmainstate,
@@ -48,6 +47,9 @@ function PostIndex() {
     const [postindexrendertwo, setpostindexrendertwo] = useState()
     const [postindexrenderthree, setpostindexrenderthree] = useState()
     const [postindexrenderfour, setpostindexrenderfour] = useState()
+    const [postindexmessage, setpostindexmessage] = useState()
+    const [postindexaction, setpostindexaction] = useState(true)
+
     const [postpostid, setpostpostid] = useState()
     const [postplaceid, setpostplaceid] = useState()
     const [placeplaceid, setplaceplaceid] = useState()
@@ -177,11 +179,6 @@ function PostIndex() {
                 breadmainidtwo: postpostid?.categoryid,
                 breadmainidthree: postpostid?.posttitle,
             })
-            // setalertmainstate({
-            //     alertmainid: 'postcaption',
-            //     alertmainfullname: 'Unsplash.com',
-            //     alertmainpage: 0,
-            // })
             setwiremainstate({
                 wiremainid: 'blocktr',
                 wiremainindex: 0,
@@ -212,7 +209,6 @@ function PostIndex() {
       if(postpostid && genreui){
         const filter = genreui?.filter(data => data.crummainid === postpostid?.genreid)
         setpostindexrender(filter[0]?.crummaintitle)
-        console.log('postindexrender :>> ', postindexrender);
       }
     }, [postpostid, genreui])
     
@@ -241,7 +237,6 @@ function PostIndex() {
                                 spreadmainrender: data.postindextworender,
                             })
                             setspreadmainstate(empty)
-                            console.log('empty :>> ', empty);
                         }
                     })
 
@@ -287,11 +282,11 @@ function PostIndex() {
     const ll = async () => {
               const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${param.id}']{
                   ...,
-                  'postplaceid': *[_type == 'post' && postid != ^.postid && placeid == ^.placeid ] ,
-                  'placeplaceid': *[_type == 'place' && postid == ^.placeid],
-                  'productplaceid': *[_type == 'product' && postid != ^.postid && placeid == ^.placeid ] ,
+                  'postplaceid': *[_type == 'post' && postid != ^.postid && placeid == ^.placeid ] | order(_createdAt desc) ,
+                  'placeplaceid': *[_type == 'place' && postid == ^.placeid] | order(_createdAt desc),
+                  'productplaceid': *[_type == 'product' && postid != ^.postid && placeid == ^.placeid ] | order(_createdAt desc) ,
 
-                  'productpostid': *[_type == 'product' && postid match ^.productid || postid match ^.productidtwo || postid match ^.productidthree ] ,
+                  'productpostid': *[_type == 'product' && postid match ^.productid || postid match ^.productidtwo || postid match ^.productidthree ] | order(_createdAt desc) ,
               }[0]`;
               await client.fetch(query)
               .then((data) => {
@@ -301,6 +296,8 @@ function PostIndex() {
                     setplaceplaceid(data.placeplaceid)
                     setproductplaceid(data.productplaceid)
                     setproductpostid(data.productpostid)
+                }).catch((data) => {
+                    setpostindexmessage(data.message)
                 })
             }
     
@@ -404,6 +401,11 @@ function PostIndex() {
 
     // if(!postpostid) return <LoadMain />
 
+    if(postindexmessage) return <section className="w-screen h-screen flex justify-center items-center">
+        <AlertMain alertmainmessage={postindexmessage} />
+    </section> 
+
+
   return (
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="px-[20px] md:px-[60px] flex flex-col md:grid md:grid-cols-12 gap-3">
@@ -449,11 +451,6 @@ function PostIndex() {
                         <LoadingMain />
                         </div>
                         <div onClick={() => {
-                            setalertmainstate({
-                                alertmainid: 'postcaption',
-                                alertmainfullname: postpostid?.postherosource,
-                                alertmainpage: 1,
-                            })
                             setappmainstate({
                                 appmainidtwo: 'previewmain',
                                 appmainid: 'postarticle',
@@ -509,12 +506,12 @@ function PostIndex() {
                     </figure>
                 </section>
                 <br />
-                <section className="md:p-[20px] min-h-[50vh]  md:border-2 md:border-black">
+                <section className={`md:p-[20px] relative h-[60vh]  md:border-2 md:border-black overflow-hidden ${!postindexaction && '!h-fit'}`}>
                     <figcaption className="">
                         <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                     <br />
-                    <figcaption className="md:text-lg  font-light">
+                    <figcaption className="md:text-lg  font-light ">
                     <PortableTextComponentsProvider components={component}  >
                         {postpostid?.postblock?.map(data => (<>
                         <PortableText value={data} />
@@ -522,15 +519,19 @@ function PostIndex() {
                         </>))}
                     </PortableTextComponentsProvider>
                     </figcaption>
+                    <figure onClick={() => {
+                        setpostindexaction(!postindexaction)
+                    }} className={`p-[10px] absolute w-full h-[50%] bottom-0 left-0 flex items-end justify-end   bg-gradient-to-b from-transparent to-white ${!postindexaction && '!to-transparent'}`}>
+                        <button className="l-button">{ postindexaction ? 'Read more' : 'Show less'}</button>
+                    </figure>
                 </section>
-                <br />
-                <section className="">
-                <CardMain     
-                cardmainid={'commentimg'}
-                cardmainidtwo={'inform'}
-                cardmainidthree={'all'}
-                cardmainindex={0} 
-                />
+                <section layout className="">
+                    <CardMain     
+                    cardmainid={'commentimg'}
+                    cardmainidtwo={'inform'}
+                    cardmainidthree={'all'}
+                    cardmainindex={0} 
+                    />
                 
                 </section>
             </figure>
@@ -546,15 +547,14 @@ function PostIndex() {
                     {<SpreadMain />}
                     {/* <TableMain /> */}
                     {/* <StepMain /> */}
-                    {/* <AlertMain alertmainid={'disclaim'} alertmainidtwo={'postdl'}  /> */}
                 </section>
             </figcaption>
-            <figure className="col-span-12">
+            <figure layout className="col-span-12">
                 <br />
                 <h1 className="m-h6 font-serif"> You may also like</h1>
                 <br />
                 <section className="overflow-y-scroll">
-                <div className="w-[1200px] md:w-full grid grid-cols-4 gap-3">
+                <div className="w-[1000px] md:w-full grid grid-cols-4 gap-3">
                 {postindexrenderfour?.slice(0, 4)?.map(data => (<>
                     <VerticleMain onlick={() => {
                                     navigate(`/${data?.postid}`)

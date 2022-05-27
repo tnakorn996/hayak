@@ -1,7 +1,9 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useContext } from 'react'
 import { RiFilter3Fill } from 'react-icons/ri'
 import ChipMain from '../../component/chip/ChipMain'
+import LandMain from '../../component/land/LandMain'
 
 import ZoomMain from '../../component/zoom/ZoomMain'
 import { ContextMain } from '../../context/contextmain'
@@ -9,16 +11,28 @@ import { ContextMain } from '../../context/contextmain'
 function SearchMain() {
   const {
     settabmainstate, setappmainstate,
+    setlandmainstate, landmainstate,
 
     postupdatedat, placeupdatedat, productupdatedat,
 
   } = useContext(ContextMain)
 
+  useEffect(() => {
+    setlandmainstate({
+      landmainid: 'searchtbody',
+      landmainindex: 0,
+      landmainidtwo: 'search'
+
+    })
+  }, [])
 
   return (
     <div>
         <main className="">
-          <section className="p-[20px] md:p-[50px] flex justify-between items-center">
+          <section className="">
+            {landmainstate && <LandMain />}
+          </section>
+          <section className="p-[20px] md:px-[50px] flex justify-end gap-1 items-center">
             <ChipMain />
                 
               <button onClick={() => {
@@ -39,6 +53,7 @@ function SearchMain() {
               }} className="flex flex-row items-center gap-2  l-button"><RiFilter3Fill /> Filter</button>
 
           </section>
+          <br /><br />
             <section className="">
               {postupdatedat && placeupdatedat && productupdatedat && (<>
                 <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />

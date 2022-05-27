@@ -1,37 +1,39 @@
 import { RiInformationLine } from "react-icons/ri"
 
-
-//////////////////////////////////////////
-
     export const categorydi = [
         {
             spreadmainid: 'success',
             spreadmaintitle: 'Successfully', 
             spreadmainicon: <RiInformationLine />,
+            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
             spreadmainstyle: '!bg-emerald-50 !text-emerald-800',
         },
         {
             spreadmainid: 'fail',
-            spreadmaintitle: 'Oops', 
+            spreadmaintitle: 'Oops 404', 
             spreadmainicon: <RiInformationLine />,
+            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
             spreadmainstyle: '!bg-red-50 !text-red-800',
         },
         {
             spreadmainid: 'inform',
             spreadmaintitle: 'This', 
             spreadmainicon: <RiInformationLine />,
+            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
             spreadmainstyle: '!bg-gray-50 !text-gray-800',
         },
         {
             spreadmainid: 'disclaim',
             spreadmaintitle: 'This', 
             spreadmainicon: <RiInformationLine />,
+            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
             spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
         },
         {
             spreadmainid: 'credit',
             spreadmaintitle: 'This', 
             spreadmainicon: <RiInformationLine />,
+            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
             spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
         },
     ]
@@ -140,7 +142,6 @@ import { RiInformationLine } from "react-icons/ri"
             sheetmainaction: `/term/termmain`,
 
             spreadmainid: 'success',
-            breadmainid: 'use'
         },
         {
             sheetmaintitle: `fffff`,
@@ -149,7 +150,6 @@ import { RiInformationLine } from "react-icons/ri"
             sheetmainaction: `/term/termmain`,
 
             spreadmainid: 'fail',
-            breadmainid: 'use'
         },
         {
             sheetmaintitle: `Need support?`,
@@ -158,7 +158,6 @@ import { RiInformationLine } from "react-icons/ri"
             sheetmainaction: `/term/termmain`,
 
             spreadmainid: 'inform',
-            breadmainid: 'use'
         },
 
     ]
@@ -309,6 +308,27 @@ import { RiInformationLine } from "react-icons/ri"
         },
     ]
 
+    export const postul = [
+        {
+            breadmainid: 'description',
+            breadmaintitle: 'Descriptions',
+            breadmainsubtitle: 'Find post form TOI',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'Explore post',
+            breadmainaction: `/category/post`,
+            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+        },
+        {
+            breadmainid: 'comment',
+            breadmaintitle: 'Comments',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'See comments',
+            breadmainaction: `/category/post`,
+            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+        }
+    ]
+
     export const postui = [
         {
             crummainid: 'name',
@@ -346,8 +366,6 @@ import { RiInformationLine } from "react-icons/ri"
 
             breadmainid: 'detail',
         },
-     
-
 
         {
             crummainid: 'top',
@@ -358,27 +376,6 @@ import { RiInformationLine } from "react-icons/ri"
 
             breadmainid: 'comment',
         },
-    ]
-
-    export const postul = [
-        {
-            breadmainid: 'description',
-            breadmaintitle: 'Descriptions',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
-            breadmainentitle: 'Find more info',
-            breadmainaction: `/category/post`,
-            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
-        },
-        {
-            breadmainid: 'comment',
-            breadmaintitle: 'Comments',
-            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
-            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
-            breadmainentitle: 'Find more comments',
-            breadmainaction: `/category/post`,
-            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
-        }
     ]
 
     export const commentui = [
@@ -405,6 +402,18 @@ import { RiInformationLine } from "react-icons/ri"
         },
     ]
 
+    export const searchul = [
+        {
+            breadmainid: 'search',
+            breadmaintitle: 'search on TOI',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'See all results',
+            breadmainimage: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870',
+            breadmainaction: `/search/searchmain`,
+        },
+    ]
+
     export const feedbackul = [
         {
             breadmainid: 'feedback',
@@ -412,7 +421,8 @@ import { RiInformationLine } from "react-icons/ri"
             breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
             breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
             breadmainentitle: 'See all feeedback',
-            breadmainaction: `/comment/commentmain`,
+            breadmainimage: 'https://images.unsplash.com/photo-1518110925495-5fe2fda0442c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070',
+            breadmainaction: `/feedback/feedbackmain`,
         },
     ]
 
