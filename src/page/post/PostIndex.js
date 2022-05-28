@@ -6,6 +6,7 @@ import { RiChat3Line, RiEyeLine, RiMore2Fill, RiInformationLine } from 'react-ic
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {PortableText, PortableTextComponentsProvider} from '@portabletext/react'
+import '../post/postindex.css'
 
 import { ContextMain } from '../../context/contextmain'
 import { client } from '../../lib/sanity'
@@ -222,7 +223,7 @@ function PostIndex() {
                     })
                     const empty = []
                     postindextwo?.forEach(data => {
-                        if (data?.postindextworender?.length <= 0){
+                        if (data?.postindextworender?.length <= 0 && data?.postindextwoid !== 'productdi'){
                             empty.push({
                                 spreadmainid: 'break',
                                 spreadmainidtwo: data.postindextwoid,
@@ -230,7 +231,7 @@ function PostIndex() {
                             })
                             setspreadmainstate(empty)
                         }
-                        if (data?.postindextworender?.length > 0) {
+                        if (data?.postindextworender?.length > 0 && data?.postindextwoid !== 'productdi') {
                             empty.push({
                                 spreadmainid: 'success',
                                 spreadmainidtwo: data.postindextwoid,
@@ -286,7 +287,7 @@ function PostIndex() {
                   'placeplaceid': *[_type == 'place' && postid == ^.placeid] | order(_createdAt desc),
                   'productplaceid': *[_type == 'product' && postid != ^.postid && placeid == ^.placeid ] | order(_createdAt desc) ,
 
-                  'productpostid': *[_type == 'product' && postid match ^.productid || postid match ^.productidtwo || postid match ^.productidthree ] | order(_createdAt desc) ,
+                  'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] | order(_createdAt desc) ,
               }[0]`;
               await client.fetch(query)
               .then((data) => {
@@ -518,12 +519,16 @@ function PostIndex() {
                         <br />
                         </>))}
                     </PortableTextComponentsProvider>
+                    <br /><br />
                     </figcaption>
-                    <figure onClick={() => {
+                    <figure className={`p-[10px] absolute w-full h-[50%] bottom-0 left-0 flex items-end justify-end   bg-gradient-to-b from-transparent to-white ${!postindexaction && '!hidden'}`}>
+                        {/* <button onClick={() => {
                         setpostindexaction(!postindexaction)
-                    }} className={`p-[10px] absolute w-full h-[50%] bottom-0 left-0 flex items-end justify-end   bg-gradient-to-b from-transparent to-white ${!postindexaction && '!to-transparent'}`}>
-                        <button className="l-button">{ postindexaction ? 'Read more' : 'Show less'}</button>
+                    }} className="l-button">Read more</button> */}
                     </figure>
+                    <button onClick={() => {
+                        setpostindexaction(!postindexaction)
+                    }} className='md:m-[10px] absolute bottom-0 right-0  l-button '>{postindexaction ? 'Read more' : 'Show less'}</button>
                 </section>
                 <section layout className="">
                     <CardMain     
@@ -549,12 +554,14 @@ function PostIndex() {
                     {/* <StepMain /> */}
                 </section>
             </figcaption>
+        </motion.main>
             <figure layout className="col-span-12">
                 <br />
-                <h1 className="m-h6 font-serif"> You may also like</h1>
                 <br />
-                <section className="overflow-y-scroll">
-                <div className="w-[1000px] md:w-full grid grid-cols-4 gap-3">
+                <h1 className="px-[20px] md:px-[60px]  m-h6 font-serif"> You may also like</h1>
+                <br />
+                <section className="overflow-y-scroll no-scrollbar">
+                <div className="px-[20px] md:px-[60px] w-[1000px] md:w-full grid grid-cols-4 gap-3">
                 {postindexrenderfour?.slice(0, 4)?.map(data => (<>
                     <VerticleMain onlick={() => {
                                     navigate(`/${data?.postid}`)
@@ -564,7 +571,6 @@ function PostIndex() {
                 </section>
                 <br />
             </figure>
-        </motion.main>
     </div>
   )
 }

@@ -48,7 +48,7 @@ function LandMain() {
     
   return (
     <div>
-        <main className="absolute w-full">
+        <main className="">
             {landmainrender?.map(data => (<>
             <section className="relative h-[35vh] md:h-[40vh] flex justify-center items-center  overflow-hidden ">
                 <img src={data?.breadmainimage} alt="" className="h-fit min-w-[100ch] md:w-full md:h-fit" />

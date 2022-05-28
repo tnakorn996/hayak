@@ -16,11 +16,11 @@
     }
 
     .m-button {
-        @apply  py-[10px] px-[20px] bg-black text-white font-medium;
+        @apply text-xs py-[10px] px-[20px] bg-black text-white font-medium;
     }
 
     .l-button {
-        @apply py-[10px] px-[20px] bg-white text-black font-medium;
+        @apply text-xs py-[10px] px-[20px] bg-white text-black font-medium;
     }
 
     .m-article {

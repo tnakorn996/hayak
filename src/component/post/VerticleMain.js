@@ -38,7 +38,7 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
   useEffect(() => {
     if(genreid){
         const filter = genreui.filter(data => data.crummainid === genreid)
-        setverticlemainrendertwo(filter[0].crummaintitle)
+        setverticlemainrendertwo(filter[0]?.crummaintitle)
     }
   }, [genreid])
 
@@ -47,18 +47,6 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
         <main className="">
           <article className="relative flex flex-col justify-center">
                 <figure 
-
-                    // onMouseEnter={() => {
-                    //   setTimeout(
-                    //   setappmainstate({
-                    //     appmainid: 'postarticle',
-                    //     appmainidtwo: 'previewmain',
-                    //     appmainpage: 0,
-                    //     appmainparam: param,
-                    //     appmainboolean: true,
-                    //   }), 100000);
-                    // }}
-                
                     onClick={() => {
                       // window.history.replaceState(null, "" , postid)
                       setappmainstate({
@@ -69,23 +57,18 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                         appmainboolean: true,
                       })
                     }} className="relative row-span-3 overflow-hidden h-[40vh] md:h-[60vh] flex justify-center items-center   border-2 border-black">
-                    {/* {priceid === 'pro' && (<>
-                    <figure className="z-20 absolute top-2 left-2">
-                      <RiContrastDropLine className='m-h6 text-white  !opacity-100' />
-                    </figure>
-                    </>)} */}
                     <div className="absolute">
                     <LoadingMain />
                     </div>
                     <div className="z-20 absolute top-0 left-0">
-                      {verticlemainrendertwo && (<>
+                      {verticlemainrendertwo && verticlemainrendertwo && (<>
                       <button onClick={() => {
                         setbreadmainstate('')
                         setgenreindexstate({
                           genreindexid: genreid,
                         })
                         navigate(`/category/${type}`)
-                      }} className="text-xs  l-button opacity-100 border-r-2 border-b-2 border-black">{verticlemainrendertwo}</button>
+                      }} className="text-xs  uppercase l-button opacity-100 border-r-2 border-b-2 border-black">{verticlemainrendertwo}</button>
                       </>)}
                     </div>
                     {/* <div className="absolute top-0 left-0 z-10 w-full h-full  bg-black opacity-10" /> */}

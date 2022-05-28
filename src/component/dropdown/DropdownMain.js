@@ -8,6 +8,7 @@ import { crummain } from '../../content/contentmain'
 import { ContextMain } from '../../context/contextmain'
 import { RiCloseFill } from 'react-icons/ri'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { categoryui } from '../../content/contentmantwo'
 
 function DropdownMain() {
     const {
@@ -30,19 +31,19 @@ function DropdownMain() {
             dropdownmainidtwo: 'post',
             dropdownmaintitle: 'Blog collections',
             dropdownmainimage: 'https://cdn.pixabay.com/photo/2017/04/05/01/15/food-2203717_1280.jpg',
-            dropdownmainrender: crummain.filter(data => data.breadmainid === 'post')
+            dropdownmainrender: categoryui.filter(data => data.breadmainid === 'post')
         },
         {
             dropdownmainidtwo: 'place',
             dropdownmaintitle: 'Places',
             dropdownmainimage: 'https://cdn.pixabay.com/photo/2018/07/14/15/27/cafe-3537801_1280.jpg',
-            dropdownmainrender: crummain.filter(data => data.breadmainid === 'place')
+            dropdownmainrender: categoryui.filter(data => data.breadmainid === 'place')
         },
         {
             dropdownmainidtwo: 'product',
             dropdownmaintitle: 'Products collections',
             dropdownmainimage: 'https://cdn.pixabay.com/photo/2010/12/16/11/54/cabrales-3499_1280.jpg',
-            dropdownmainrender: crummain.filter(data => data.breadmainid === 'product')
+            dropdownmainrender: categoryui.filter(data => data.breadmainid === 'product')
         },
     ]
 
@@ -110,7 +111,7 @@ function DropdownMain() {
                     </article>
                 </figcaption>
                 <figure className="hidden md:flex col-span-5 items-center justify-center   overflow-hidden">
-                    <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-fit" />
+                    <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-[100ch] min-h-fit" />
                 </figure>
                 <article className='w-[70px] h-[70px] text-5xl absolute flex justify-center items-center top-5 right-5  bg-black' >
                     <RiCloseFill onClick={() => {

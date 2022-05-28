@@ -201,22 +201,22 @@ import { RiInformationLine } from "react-icons/ri"
         {
             crummainid: 'recipe',
             crummaintitle: 'Recipes',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1585326390322-f2ae6ed52ac4?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
+            crummainsubtitle: 'Get ideas for great dishes',
+            crummainimage: 'https://images.unsplash.com/photo-1611962424660-201a4af8f496?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
             breadmainid: 'post',
         },
         {
             crummainid: 'review',
             crummaintitle: 'Reviews',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1543364195-077a16c30ff3?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
+            crummainsubtitle: `Don't know where to go? Check our review!`,
+            crummainimage: 'https://images.unsplash.com/photo-1526318896980-cf78c088247c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
             breadmainid: 'post',
         },
         {
             crummainid: 'interview',
             crummaintitle: 'Interviews',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
+            crummainsubtitle: `Know more about who's behind NZ's best food`,
+            crummainimage: 'https://images.unsplash.com/photo-1470784790053-6c2f15489967?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=859&q=80',
             breadmainid: 'post',
 
         },
@@ -224,15 +224,15 @@ import { RiInformationLine } from "react-icons/ri"
         {
             crummainid: 'meat',
             crummaintitle: 'Meat',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1644253370496-1b1b19beb3ce?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480',
+            crummainsubtitle: `Our best lamb, beef, poultry, game, etc`,
+            crummainimage: 'https://images.unsplash.com/photo-1560781290-7dc94c0f8f4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
             breadmainid: 'product',
 
         },
         {
             crummainid: 'coffee',
             crummaintitle: 'Coffee',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainsubtitle: `Great beans for your brew`,
             crummainimage: 'https://images.unsplash.com/photo-1623593721974-f39b78528626?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
             breadmainid: 'product',
 
@@ -240,7 +240,7 @@ import { RiInformationLine } from "react-icons/ri"
         {
             crummainid: 'alcohol',
             crummaintitle: 'Alcohol',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainsubtitle: `Did you know there is NZ made sake?`,
             crummainimage: 'https://images.unsplash.com/photo-1623593688280-a5aec8ac4ae7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
             breadmainid: 'product',
 
@@ -248,15 +248,15 @@ import { RiInformationLine } from "react-icons/ri"
         {
             crummainid: 'dairy',
             crummaintitle: 'Dairy',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1600379097298-0217be1203c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+            crummainsubtitle: `Yummy cheese, butter, etc`,
+            crummainimage: 'https://images.unsplash.com/photo-1552767059-ce182ead6c1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
             breadmainid: 'product',
 
         },
         {
             crummainid: 'etc',
             crummaintitle: 'Veggies, fruit, etc',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainsubtitle: `Anything that doesn't fit on the above!`,
             crummainimage: 'https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80',
             breadmainid: 'product',
 
@@ -265,15 +265,15 @@ import { RiInformationLine } from "react-icons/ri"
         {
             crummainid: 'retail',
             crummaintitle: 'Retailers',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1616715320643-b6d9214b9946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+            crummainsubtitle: `Where to buy great kai`,
+            crummainimage: 'https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80',
             breadmainid: 'place',
 
         },
         {
             crummainid: 'manufacturer',
             crummaintitle: 'Manufacturers',
-            crummainsubtitle: 'adfasfsadfsadfsfd',
+            crummainsubtitle: `Who makes great kai`,
             crummainimage: 'https://images.unsplash.com/photo-1522643628976-0a170f6722ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2016&q=80',
             breadmainid: 'place',
 
@@ -281,16 +281,22 @@ import { RiInformationLine } from "react-icons/ri"
         {
             crummainid: 'restaurant',
             crummaintitle: "Chefs / Restaurants",
-            crummainsubtitle: 'adfasfsadfsadfsfd',
-            crummainimage: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+            crummainsubtitle: `Aoteroa's best cafes and restaurants`,
+            crummainimage: 'https://images.unsplash.com/photo-1642158136957-0f43fb43d3cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2098&q=80',
             breadmainid: 'place',
         },
     ]
 
+        //     {
+        // name: 'genreid',
+        // title: `Blog genre eg: classic, newbie, native, vegean, vegetarian, diary, gluten`,
+        // type: 'string',
+        // },
+
     export const genreui = [
         {
-            crummainid: 'excite',
-            crummaintitle: 'Exciting',
+            crummainid: 'classic',
+            crummaintitle: 'Classic',
             crummainsubtitle: '',
             crummainstyle: '',
             crummainimage: '',
@@ -298,8 +304,53 @@ import { RiInformationLine } from "react-icons/ri"
             breadmainid: 'all',
         },
         {
-            crummainid: 'recommend',
-            crummaintitle: 'Recommended',
+            crummainid: 'newbie',
+            crummaintitle: 'Newbie',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'all',
+        },
+        {
+            crummainid: 'native',
+            crummaintitle: 'Native',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'all',
+        },
+        {
+            crummainid: 'vegan',
+            crummaintitle: 'Vegan',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'all',
+        },
+        {
+            crummainid: 'vegeterian',
+            crummaintitle: 'Vegeterian',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'all',
+        },
+        {
+            crummainid: 'dairy',
+            crummaintitle: 'Diary Free',
+            crummainsubtitle: '',
+            crummainstyle: '',
+            crummainimage: '',
+
+            breadmainid: 'all',
+        },
+        {
+            crummainid: 'gluten',
+            crummaintitle: 'Gluten Free',
             crummainsubtitle: '',
             crummainstyle: '',
             crummainimage: '',
@@ -450,9 +501,7 @@ import { RiInformationLine } from "react-icons/ri"
         },
     ]
 
-
 /////////////////////////////////////////////////////
-
 
 
     export const breadmain = [

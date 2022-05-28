@@ -50,7 +50,7 @@ function RtaMain({type}) {
                 <section className="grid grid-cols-12 items-center justify-between">
                   <div className=" col-span-10 flex flex-row items-start gap-3 ">
                     <h1 className="m-h6 font-serif">{dat?.sheetmainsubtitle}</h1>
-                    <div className="relative">
+                    <div className="hidden md:block relative">
                     <TooltipMain title={dat?.sheetmainsubtitle}>
                     <RiQuestionFill className='text-lg  text-gray-500' />
                     </TooltipMain>

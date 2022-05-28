@@ -24,7 +24,7 @@ function FeedbackMain() {
   return (
     <div>
         <main className="">
-          <section className="">
+          <section className="absolute w-full">
             {landmainstate && <LandMain />}
           </section>
           <br /><br /><br /><br /><br /><br />

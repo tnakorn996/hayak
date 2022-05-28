@@ -6,12 +6,11 @@ import { useEffect } from 'react'
 import { RiCloseFill, RiContrastDropLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 // import { useLocation } from 'react-router-dom'
-import { breadmain, crummain } from '../../content/contentmain'
+import { categoryul, categoryui } from '../../content/contentmantwo'
 
 import '../sideboard/sideboardmain.css'
 import { ContextMain } from '../../context/contextmain'
 import CommentDialog from '../../page/comment/CommentDialog'
-import PortMain from '../port/PortMain'
 import ZoomMain from '../zoom/ZoomMain'
 
 function SideboardMain() {
@@ -48,7 +47,7 @@ function SideboardMain() {
       sideboardrender: () => {
         return <main className="h-full flex flex-col justify-between">
           <section className="">
-            {breadmain?.map(data => (<>
+            {categoryul?.map(data => (<>
               <article onClick={() => {
                 setappmainstate({
                             appmainid: 'navdialog',
@@ -71,7 +70,7 @@ function SideboardMain() {
     },
     {
       sideboardrender: () => {
-        const filter = crummain.filter(data => data.breadmainid === appmainstate.appmainidthree)
+        const filter = categoryui.filter(data => data.breadmainid === appmainstate.appmainidthree)
         return <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="">
           <section className="">
             <button onClick={() => {
@@ -139,7 +138,7 @@ function SideboardMain() {
                 setappmainstate({
                     appmainboolean: false
                 })
-                }} className="z-10 absolute top-5 right-5 text-5xl  text-white bg-black rounded-full" />
+                }} className="z-10 absolute top-5 right-5 text-4xl  text-white bg-black rounded-full" />
               </figcaption>
             </section>
             <section className="h-[90vh] w-full  overflow-y-scroll no-scrollbar ">

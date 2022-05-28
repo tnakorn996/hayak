@@ -45,7 +45,7 @@ function PortMain() {
 
   return (
     <div>
-        <main className="h-[90vh] md:h-[60vh] p-[20px] md:px-[60px] flex justify-center items-center  bg-gray-100 text-black">
+        <main className="h-[90vh] md:h-[70vh] p-[20px] md:px-[60px] flex justify-center items-center  bg-gray-100 text-black">
             {portmaindata?.map(data => (<>
             <figure className="">
                 <section className="flex-col mx-auto flex justify-center text-center items-center gap-3">
@@ -62,7 +62,7 @@ function PortMain() {
                             breadmainidtwo: dat?.crummainid,
                         })
                         navigate(data?.breadmainaction)
-                    }} className="l-button border-2 border-black">
+                    }} className="l-button !text-xs border-2 border-black">
                         {dat?.crummaintitle}
                     </button>
                     </>))}

@@ -162,7 +162,7 @@ function CategoryIndex() {
                 </div>
             </section>
             <hr />
-            <section className="px-[20px] md:px-[60px] py-[20px] flex justify-end">
+            <section className="px-[20px] md:px-[60px] h-[10vh] flex justify-end items-center">
                 {/* {breadmainstate?.breadmainidtwo && <button onClick={() => setbreadmainstate('')} className="flex flex-row items-center gap-3  l-button border border-black"> <span className="m-h2">╳</span>  {breadmainstate?.breadmainidtwo}</button>} */}
                 <ChipMain />
                 
@@ -206,7 +206,7 @@ function CategoryIndex() {
                 </figcaption>
                 <br />
                 <figure className="px-[20px] md:px-[60px] w-screen  overflow-y-scroll no-scrollbar">
-                    <div className="w-[1200px] md:w-full grid grid-cols-4 gap-5">
+                    <div className="w-[1000px] md:w-full grid grid-cols-4 gap-5">
                     {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
                         <VerticleMain onlick={() => {
                             navigate(`/${dat?.postid}`)

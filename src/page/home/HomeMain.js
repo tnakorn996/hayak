@@ -16,6 +16,8 @@ function HomeMain() {
     const {
         setappmainstate,
         setwiremainstate,
+        setbreadmainstate,
+        setgenreindexstate,
 
         postupdatedat,
         placeupdatedat,
@@ -24,11 +26,11 @@ function HomeMain() {
     } = useContext(ContextMain)
     const navigate = useNavigate()
     const [homemainsliceone, sethomemainsliceone] = useState(0)
-    const [homemainslicetwo, sethomemainslicetwo] = useState(4)
+    const [homemainslicetwo, sethomemainslicetwo] = useState(12)
     const [homemainslicethree, sethomemainslicethree] = useState(0)
-    const [homemainslicefour, sethomemainslicefour] = useState(3)
+    const [homemainslicefour, sethomemainslicefour] = useState(9)
     const [homemainslicefive, sethomemainslicefive] = useState(0)
-    const [homemainslicesix, sethomemainslicesix] = useState(4)
+    const [homemainslicesix, sethomemainslicesix] = useState(12)
     const [homemainsliceseven, sethomemainsliceseven] = useState(0)
     const [homemainsliceeight, sethomemainsliceeight] = useState(4)
     const [homemainslicenine, sethomemainslicenine] = useState(0)
@@ -175,7 +177,7 @@ function HomeMain() {
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="w-screen  overflow-hidden">
             <br />
             <section onClick={() => {
-                    window.history.replaceState(null, "" , postupdatedat[0]?.postid)
+                    // window.history.replaceState(null, "" , postupdatedat[0]?.postid)
                       setappmainstate({
                         appmainid: 'postarticle',
                         appmainidtwo: 'previewmain',
@@ -196,23 +198,28 @@ function HomeMain() {
             <section className="w-[1200px] md:w-full">
                 {homemainmap?.map(data => (<>
                 <br />
-                <figcaption className="md:h-[10vh] px-[20px] md:px-[60px] w-screen md:w-full flex flex-row justify-between items-center">
-                    <h1 className="m-h5  font-serif">{data?.homemaintitle}</h1>
+                <br />
+                <br />
+                <figcaption className="px-[20px] md:px-[60px] w-screen md:w-full flex flex-row justify-between items-center">
+                    <h1 className="text-3xl m-h5  font-serif">{data?.homemaintitle}</h1>
                     <button onClick={() => {
+                        setbreadmainstate('')
+                        setgenreindexstate('')
                         navigate(data?.homemaindirect)
-                    }} className="l-h2">See all</button>
+                    }} className="l-h6">→</button>
                 </figcaption>
+                <br />
+                <hr />
                 <br />
                 <figure className="px-[20px] md:px-[60px] w-screen relative  overflow-y-scroll no-scrollbar">
 
-                    <div className="w-[1200px] md:w-full group grid grid-cols-4 gap-5">
+                    <div className="w-[3000px] md:w-[3600px] group grid grid-cols-12 gap-5">
                         {data?.homemainid === 'postupdatedat' && (<>
-                        <button onClick={() => {
+                        {/* <button onClick={() => {
                             ll(data?.homemainmap?.length)
                         }} className="hidden md:flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            {/* <h1 className="w-[50px] h-[50px] flex items-center justify-center  m-h6 bg-white rounded-full border border-gray-400">→</h1> */}
                             <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
-                        </button>
+                        </button> */}
                             {data?.homemainmap?.slice(homemainsliceone, homemainslicetwo).map(dat => (<>
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)
@@ -273,14 +280,13 @@ function HomeMain() {
                         </>)} */}
                     </div>
 
-                    <div className="w-[700px] md:w-full group grid grid-cols-3 gap-5">
+                    <div className="w-[2500px] md:w-[3200px] group grid grid-cols-9 gap-5">
                         {data?.homemainid === 'placeupdatedat' && (<>
-                        <button onClick={() => {
+                        {/* <button onClick={() => {
                             kk(data?.homemainmap?.length)
                         }} className="hidden md:flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            {/* <h1 className="w-[50px] h-[50px] flex items-center justify-center  m-h6 bg-white rounded-full border border-gray-400">→</h1> */}
                             <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
-                        </button>
+                        </button> */}
                             {data?.homemainmap?.slice(homemainslicethree, homemainslicefour).map(dat => (<>
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)
@@ -289,14 +295,13 @@ function HomeMain() {
                         </>)}
                     </div>
 
-                    <div className="w-[1200px] md:w-full group grid grid-cols-4 gap-5">
+                    <div className="w-[3000px] md:w-[3600px] group grid grid-cols-12 gap-5">
                         {data?.homemainid === 'productupdatedat' && (<>
-                        <button onClick={() => {
+                        {/* <button onClick={() => {
                             jj(data?.homemainmap?.length)
                         }} className="hidden md:flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            {/* <h1 className="w-[50px] h-[50px] flex items-center justify-center  m-h6 bg-white rounded-full border border-gray-400">→</h1> */}
                             <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
-                        </button>
+                        </button> */}
                             {data?.homemainmap?.slice(homemainslicefive, homemainslicesix).map(dat => (<>
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)

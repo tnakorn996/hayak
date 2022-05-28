@@ -15,6 +15,17 @@ function Overlay() {
 
     } = useContext(ContextMain)
     const [overlayrender, setoverlayrender] = useState()
+    // const [overlayboolean, setoverlayboolean] = useState(false)
+
+    // useEffect(() => {
+    //     if(appmainstate === ''){
+    //         setoverlayboolean(false)
+    //         console.log('overlayboolean :>>> ', overlayboolean);
+    //     } 
+    //     if(appmainstate !== ''){
+    //         setoverlayboolean(true)
+    //     } 
+    // }, [appmainstate])
 
     const overlay = [
         {
@@ -37,13 +48,13 @@ function Overlay() {
   return (
     <div>
         <main className="">
-            <AnimatePresence>
-                {/* {overlaystate && (<> */}
+            {/* <AnimatePresence> */}
+                {/* {overlayboolean && ( */}
                 <motion.section key='overlay' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="">
                     {overlayrender && overlayrender}
                 </motion.section>
-                {/* </>)} */}
-            </AnimatePresence>
+                {/* )} */}
+            {/* </AnimatePresence> */}
         </main>
     </div>
   )

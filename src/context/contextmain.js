@@ -43,8 +43,6 @@ export const Provider = ({ children }) => {
     const [sharemainstate, setsharemainstate] = useState()
     const [genreindexstate, setgenreindexstate] = useState('')
     const [landmainstate, setlandmainstate] = useState()
-    const [overlaystate, setoverlaystate] = useState(false)
-    const [backdropstate, setbackdropstate] = useState(false)
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -76,15 +74,6 @@ export const Provider = ({ children }) => {
         }, 5000);
 
     }, [location])
-
-    // useEffect(() => {
-    //   if(appmainstate === ''){
-    //       setoverlaystate(false)
-    //     } 
-    //     if(appmainstate !== ''){
-    //         setoverlaystate(true)
-    //     } 
-    // }, [appmainstate])
     
     const postselect = [
         {
@@ -336,22 +325,77 @@ export const Provider = ({ children }) => {
         },
 
         {
-            blemainid: 'excite',
-            blemaintitle: "Exciting",
+            blemainid: 'classic',
+            blemaintitle: "Classic",
             blemainaction:  () => {
                 setgenreindexstate({
-                    genreindexid: 'excite',
+                    genreindexid: 'classic',
                 })
             },
             
             tabmainid: 'genre',
         },
         {
-            blemainid: 'recommend',
-            blemaintitle: "Recommended",
+            blemainid: 'newbie',
+            blemaintitle: "Newbie",
             blemainaction:  () => {
                 setgenreindexstate({
-                    genreindexid: 'recommend',
+                    genreindexid: 'newbie',
+                })
+            },
+            
+            tabmainid: 'genre',
+        },
+        {
+            blemainid: 'native',
+            blemaintitle: "Native",
+            blemainaction:  () => {
+                setgenreindexstate({
+                    genreindexid: 'native',
+                })
+            },
+            
+            tabmainid: 'genre',
+        },
+        {
+            blemainid: 'vegan',
+            blemaintitle: "Vegan",
+            blemainaction:  () => {
+                setgenreindexstate({
+                    genreindexid: 'vegan',
+                })
+            },
+            
+            tabmainid: 'genre',
+        },
+        {
+            blemainid: 'vegeterian',
+            blemaintitle: "Vegetarian",
+            blemainaction:  () => {
+                setgenreindexstate({
+                    genreindexid: 'vegeterian',
+                })
+            },
+            
+            tabmainid: 'genre',
+        },
+        {
+            blemainid: 'dairy',
+            blemaintitle: "Dairy Free",
+            blemainaction:  () => {
+                setgenreindexstate({
+                    genreindexid: 'dairy',
+                })
+            },
+            
+            tabmainid: 'genre',
+        },
+        {
+            blemainid: 'gluten',
+            blemaintitle: "Gluten Free",
+            blemainaction:  () => {
+                setgenreindexstate({
+                    genreindexid: 'gluten',
                 })
             },
             
@@ -770,8 +814,6 @@ export const Provider = ({ children }) => {
           sharemainstate, setsharemainstate,
           genreindexstate, setgenreindexstate,
           landmainstate, setlandmainstate,
-          overlaystate, setoverlaystate,
-          backdropstate, setbackdropstate,
           
           userindex,
           postplaceproduct,

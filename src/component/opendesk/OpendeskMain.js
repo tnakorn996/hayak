@@ -112,7 +112,7 @@ function OpendeskMain() {
             </>)}
             </section>
 
-            <section className="h-[50vh] md:h-[80vh]">
+            <section className="h-[50vh] md:h-[75vh]">
                 <br />
                 {opendeskmainindex === 0 && opendeskmainrender?.map(data => (<>
                 <div className="">
@@ -158,7 +158,7 @@ function OpendeskMain() {
                 </>)}
 
             </section>
-            <section className="md:h-[10vh]">
+            <section className="md:h-[10vh] flex items-center">
                 <button onClick={() => {
                     setappmainstate('')
                 }} className=" w-full  m-button">Cancel</button>

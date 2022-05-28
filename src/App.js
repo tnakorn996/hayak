@@ -86,7 +86,8 @@ export default function App() {
     const dashboard = (
     <div className="App">
       <main className="">
-        <section className="sticky z-30 top-0 left-0">
+        {/* <section className="sticky z-30 top-0 left-0"> */}
+        <section className="">
           <NavMain />
           
         </section>
@@ -113,9 +114,9 @@ export default function App() {
         </AnimatePresence>
         </section>
 
-        <section className="">
+        {/* <section className="">
         <PortMain />
-        </section>
+        </section> */}
 
         <section className="">
         <FooterMain />
