@@ -211,9 +211,8 @@ function HomeMain() {
                 <br />
                 <hr />
                 <br />
-                <figure className="px-[20px] md:px-[60px] w-screen relative  overflow-y-scroll no-scrollbar">
+                <figure className="px-[20px] md:px-[60px] w-screen relative grid grid-flow-col gap-5  overflow-y-scroll no-scrollbar snap-x snap-mandatory">
 
-                    <div className="w-[3000px] md:w-[3600px] group grid grid-cols-12 gap-5">
                         {data?.homemainid === 'postupdatedat' && (<>
                         {/* <button onClick={() => {
                             ll(data?.homemainmap?.length)
@@ -278,9 +277,7 @@ function HomeMain() {
                                     }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
                             </>))}
                         </>)} */}
-                    </div>
 
-                    <div className="w-[2500px] md:w-[3200px] group grid grid-cols-9 gap-5">
                         {data?.homemainid === 'placeupdatedat' && (<>
                         {/* <button onClick={() => {
                             kk(data?.homemainmap?.length)
@@ -293,9 +290,7 @@ function HomeMain() {
                                     }} key={dat?.postid} type={dat?._type} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid} param={dat?.postid} />
                             </>))}
                         </>)}
-                    </div>
 
-                    <div className="w-[3000px] md:w-[3600px] group grid grid-cols-12 gap-5">
                         {data?.homemainid === 'productupdatedat' && (<>
                         {/* <button onClick={() => {
                             jj(data?.homemainmap?.length)
@@ -308,7 +303,6 @@ function HomeMain() {
                                     }} key={dat?.postid} type={dat?._type} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid} param={dat?.postid} placepostid={dat?.placepostid} />
                             </>))}
                         </>)}
-                    </div>
 
                 </figure>
                 </>))}

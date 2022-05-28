@@ -31,7 +31,7 @@ function CategoryIndex() {
     const [categoryindeximage, setcategoryindeximage] = useState()
     const [categoryindexaction, setcategoryindexaction] = useState()
     const [categoryindexsliceone, setcategoryindexsliceone] = useState(0)
-    const [categoryindexslicetwo, setcategoryindexslicetwo] = useState(4)
+    const [categoryindexslicetwo, setcategoryindexslicetwo] = useState(12)
 
     const [postcategoryidcreatedat, setpostcategoryidcreatedat] = useState()
     const [postcategoryidupdatedat, setpostcategoryidupdatedat] = useState()
@@ -195,24 +195,24 @@ function CategoryIndex() {
             </section>
             <hr />
             <section className="w-[1200px] md:w-full mx-auto relative group">
-                <button onClick={() => jj()} className="hidden group-hover:flex fixed z-20 top-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
+                {/* <button onClick={() => jj()} className="hidden group-hover:flex fixed z-20 top-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
                     <RiArrowRightSLine className='text-5xl' />
                 </button>
-                <button className="hidden md:flex md:fixed z-10 top-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black" />
+                <button className="hidden md:flex md:fixed z-10 top-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black" /> */}
                 {categoryindexrender?.map(data => (<>
                 <br />
                 <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
                     <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle}</h1>
                 </figcaption>
                 <br />
-                <figure className="px-[20px] md:px-[60px] w-screen  overflow-y-scroll no-scrollbar">
-                    <div className="w-[1000px] md:w-full grid grid-cols-4 gap-5">
+                <figure className="px-[20px] md:px-[60px] w-screen grid grid-flow-col gap-5  overflow-y-scroll no-scrollbar snap-x snap-mandatory">
+                    {/* <div className="w-[1000px] md:w-full grid grid-cols-4 gap-5"> */}
                     {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
                         <VerticleMain onlick={() => {
                             navigate(`/${dat?.postid}`)
                         }} key={dat?.postid} type={dat?._type} createdat={dat?._createdAt} posticon={dat?.posticon} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid}  param={dat?.postid} />
                     </>))}
-                    </div>
+                    {/* </div> */}
                 </figure>
                 <br />
                 </>))}
