@@ -21,11 +21,10 @@ import Overlay from './component/overlay/Overlay';
 import SheetMain from './component/sheet/SheetMain';
 import PromoMain from './component/promo/PromoMain';
 import TopMain from './component/top/TopMain';
-import PortMain from './component/port/PortMain';
+// import PortMain from './component/port/PortMain';
 import SearchMain from './page/search/SearchMain';
 import FeedbackMain from './page/feedback/FeedbackMain';
 import FooterMain from './component/footer/FooterMain';
-// import PreviewMain from './component/preview/PreviewMain';
 
 export default function App() {
   const {
@@ -35,8 +34,7 @@ export default function App() {
   
   } = useContext(ContextMain)
   const location = useLocation()
-  const param = useParams()
-  console.log('param :>> ', param);
+  // const param = useParams()
 
   useEffect(() => {
     setportmainstate({

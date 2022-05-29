@@ -44,7 +44,8 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
 
   return (
     <div>
-        <main className="w-[250px] md:w-[300px] snap-center">
+        {/* <main className="w-[250px] md:w-[300px] snap-center"> */}
+        <main className="">
           <article className="relative flex flex-col justify-center">
                 <figure 
                     onClick={() => {

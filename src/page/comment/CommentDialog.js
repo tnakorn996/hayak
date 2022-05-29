@@ -42,7 +42,6 @@ function CommentDialog() {
     }
 
     const kk = async () => {
-        if(commentdialogsubtitle !== ''){
             setcommentdialogload(true)
             const doc = {
                 _id: uuidv4(),
@@ -55,62 +54,86 @@ function CommentDialog() {
                 postid: location.pathname?.slice(1, location.pathname.length),
             }
             await client.createOrReplace(doc).then(() => {
-                setcommentdialogrender(<CardMain     
-                cardmainid={'commentimg'}
-                cardmainidtwo={'success'}
-                cardmainidthree={'feedback'}
-                cardmainindex={0} 
-                />)
+                setcommentdialogrender({
+                    cardmainid: 'commentimg',
+                    cardmainidtwo: 'success',
+                    // cardmainidthree: 'feedback',
+                    cardmainindex: 0 ,
+                })
                 setcommentdialogload(false)
             });
-        } else {
-            setcommentdialogrender(<CardMain     
-                cardmainid={'commentimg'}
-                cardmainidtwo={'fail'}
-                cardmainidthree={'feedback'}
-                cardmainindex={0} 
-                />)
+    }
+
+    function jj() {
+        const empty = []
+        if(commentdialogsubtitle === '' && commentdialogtitle === '') {
+            if(commentdialogsubtitle === ''){
+                empty.push({
+                    error: 'Message is required',
+                })
+            } 
+            if(commentdialogtitle === ''){
+                empty.push({
+                    error: 'Name is required',
+                })
+            } 
+            setcommentdialogrender({
+                cardmainid: 'commentimg',
+                cardmainidtwo: 'fail',
+                cardmainidthree: 'feedback',
+                cardmainmessage: empty,
+                cardmainindex: 0 ,
+            })
+        }
+        if(commentdialogsubtitle !== '' && commentdialogtitle !== '') {
+            kk()
         }
     }
+
+    // setcommentdialogrender(<CardMain     
+    //             cardmainid={'commentimg'}
+    //             cardmainidtwo={'success'}
+    //             cardmainidthree={'feedback'}
+    //             cardmainindex={0} 
+    //             />)
+    //             setcommentdialogload(false)
 
 
   return (
     <div>
         <main className="p-[20px] md:p-[50px]">
-            <section className="p-[20px] border border-white">
-
-                <textarea onChange={p => setcommentdialogsubtitle(p.target.value)} rows="3" placeholder='What are your thoughts?' className='w-full  l-input border-b-2 border-white' />
-                    <br /><br />
-                    <div className="">
-                    <ButtonMain 
+            <section className="">
+                <figure className="">
+                    <h1 className="m-h6 font-serif">Responses ({commentdialogrendertwo?.length || 0})</h1>
+                </figure>
+            </section>
+            <br />
+            <section className="">
+                <input onChange={p => setcommentdialogtitle(p.target.value)} placeholder='Enter your name' className='w-full  l-input border-b border-white' />
+                <br /><br />
+                <textarea onChange={p => setcommentdialogsubtitle(p.target.value)} rows="3" placeholder='What are your thoughts?' className='w-full  l-input  border-b border-white' />
+                <br /><br />
+                <ButtonMain 
                     onclick={() => {
-
-                        kk()
-
-                        // setstatemainstate({
-                        //     statemainid: 'commentdl',
-                        //     statemainidtwo: 'fail',
-                        // })
-                        // setappmainstate({
-                        //     appmainid: 'statesection',
-                        //     appmainidtwo: 'modalmain',
-                        //     appmainidthree: 0,
-                        //     appmainboolean: true,
-                        // })
+                        jj()
                     }} 
                     title={'Post comments'}
                     load={commentdialogload}
-                    />
-                    </div>
+                />
             </section>
             <section className="">
-                {commentdialogrender && commentdialogrender}
+                {/* {commentdialogrender && commentdialogrender} */}
+                {commentdialogrender && (<>
+                <CardMain     
+                cardmainid={commentdialogrender?.cardmainid}
+                cardmainidtwo={commentdialogrender?.cardmainidtwo}
+                cardmainidthree={commentdialogrender?.cardmainidthree}
+                cardmainmessage={commentdialogrender?.cardmainmessage}
+                cardmainindex={commentdialogrender?.cardmainindex} 
+                />
+                </>)}
             </section>
-            <br />
-            <section className="p-[20px] border border-white">
-                <figcaption className="">
-                    <h1 className="m-h6 font-serif">Responses ({commentdialogrendertwo?.length || 0})</h1>
-                </figcaption>
+            <section className="">
                 {commentdialogrendertwo?.length >= 0 && (<>
                 <CardMain     
                 cardmainid={'commentimg'}

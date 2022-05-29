@@ -12,6 +12,7 @@ function CardMain({
     cardmainid,
     cardmainidtwo,
     cardmainidthree,
+    cardmainmessage,
     cardmainindex,
 
 }) {
@@ -102,8 +103,17 @@ function CardMain({
                     </section>
                     {cardmainrendertwo?.map(dat => (<>
                     <section className="col-span-8">
+
                         <h1 className="m-h2">{dat?.sheetmaintitle || dat?.blemaintitle}</h1>
                         <h1 className="py-[10px] md:p-0  l-h1">{dat?.sheetmainsubtitle || dat?.blemainsubtitle}</h1>
+                        <br />
+                        <div className="flex flex-col">
+                        {cardmainmessage && cardmainmessage?.map(da => (<>
+                         {da?.error && <span className="m-h1">∙ {da?.error}</span>}
+                         {da?.success && <span className="m-h1">∙ {da?.success}</span>}
+                        </>))}
+                        </div>
+
                     </section>
                     </>))}
                     <section className="col-span-3">

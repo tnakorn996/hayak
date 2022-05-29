@@ -10,6 +10,7 @@ import VerticleMain from '../../component/post/VerticleMain'
 import { ContextMain } from '../../context/contextmain'
 import '../home/homemain.css'
 import WireMain from '../../component/wire/WireMain'
+import { useRef } from 'react'
 // import LandscapeMain from '../../component/place/LandscapeMain'
 
 function HomeMain() {
@@ -37,6 +38,9 @@ function HomeMain() {
     const [homemainsliceten, sethomemainsliceten] = useState(4)
 
     const [homemainmap, sethomemainmap] = useState()
+    const ref = useRef(null)
+    const reftwo = useRef(null)
+    const refthree = useRef(null)
 
     const homemain = [
         {
@@ -103,38 +107,38 @@ function HomeMain() {
         }
     }, [postupdatedat, placeupdatedat, productupdatedat])
 
-    function ll(first = this.props.first) {
-            if(homemainslicetwo < first){
-                sethomemainsliceone(homemainsliceone + 1)
-                sethomemainslicetwo(homemainslicetwo + 1)
-            }
-            if(homemainslicetwo >= first){
-                sethomemainsliceone(0)
-                sethomemainslicetwo(4)
-            }
-    }
+    // function ll(first = this.props.first) {
+    //         if(homemainslicetwo < first){
+    //             sethomemainsliceone(homemainsliceone + 1)
+    //             sethomemainslicetwo(homemainslicetwo + 1)
+    //         }
+    //         if(homemainslicetwo >= first){
+    //             sethomemainsliceone(0)
+    //             sethomemainslicetwo(4)
+    //         }
+    // }
 
-    function kk(first = this.props.first) {
-            if(homemainslicefour < first){
-                sethomemainslicethree(homemainslicethree + 1)
-                sethomemainslicefour(homemainslicefour + 1)
-            }
-            if(homemainslicefour >= first){
-                sethomemainslicethree(0)
-                sethomemainslicefour(3)
-            }
-    }
+    // function kk(first = this.props.first) {
+    //         if(homemainslicefour < first){
+    //             sethomemainslicethree(homemainslicethree + 1)
+    //             sethomemainslicefour(homemainslicefour + 1)
+    //         }
+    //         if(homemainslicefour >= first){
+    //             sethomemainslicethree(0)
+    //             sethomemainslicefour(3)
+    //         }
+    // }
 
-    function jj(first = this.props.first) {
-            if(homemainslicesix < first){
-                sethomemainslicefive(homemainslicefive + 1)
-                sethomemainslicesix(homemainslicesix + 1)
-            }
-            if(homemainslicesix >= first){
-                sethomemainslicefive(0)
-                sethomemainslicesix(4)
-            }
-    }
+    // function jj(first = this.props.first) {
+    //         if(homemainslicesix < first){
+    //             sethomemainslicefive(homemainslicefive + 1)
+    //             sethomemainslicesix(homemainslicesix + 1)
+    //         }
+    //         if(homemainslicesix >= first){
+    //             sethomemainslicefive(0)
+    //             sethomemainslicesix(4)
+    //         }
+    // }
 
     // function hh(first = this.props.first) {
     //         if(homemainsliceeight < first){
@@ -157,6 +161,11 @@ function HomeMain() {
     //             sethomemainsliceten(4)
     //         }
     // }
+
+    const ll = (first= this.props.first, second= this.props.second) => {
+        first.current.scrollTo(first.current.scrollLeft + 250 * second, 0)
+    
+    }
 
     // window.onscroll = function (){
     //     if ((window.innerHeight + document.documentElement.scrollTop) > (document.documentElement.offsetHeight) * 50 /100) {
@@ -185,7 +194,7 @@ function HomeMain() {
                         appmainparam: postupdatedat && postupdatedat[0]?.postid,
                         appmainboolean: true,
                       })
-                    }} className="py-[20px] px-[20px] md:px-[60px] h-[80vh] flex flex-col gap-3">
+                    }} className="py-[20px] px-[20px] md:px-[60px] h-[90vh] flex flex-col gap-3">
                 <figcaption className="flex flex-col justify-between items-center  border-b border-black">
                     <h1 className="text-6xl font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>
                     <button className="m-h3">Read more →</button>
@@ -193,15 +202,18 @@ function HomeMain() {
                 <figure className="flex items-center justify-center  overflow-hidden border border-black">
                     <img src={postupdatedat && postupdatedat[0]?.posthero} alt="" className="max-h-[200ch] w-full" />
                 </figure>
+                <div className="w-full  border-b border-black" />
             </section>
-
-            <section className="w-[1200px] md:w-full">
+            <br />
+            <br />
+            <section className=" w-[1200px] md:w-full group">
                 {homemainmap?.map(data => (<>
-                <br />
-                <br />
+                {/* <div className="px-[60px]">
+                <div className="w-full  border-b border-black" />
+                </div> */}
                 <br />
                 <figcaption className="px-[20px] md:px-[60px] w-screen md:w-full flex flex-row justify-between items-center">
-                    <h1 className="text-3xl m-h5  font-serif">{data?.homemaintitle}</h1>
+                    <h1 className="m-h6  font-serif">{data?.homemaintitle}</h1>
                     <button onClick={() => {
                         setbreadmainstate('')
                         setgenreindexstate('')
@@ -209,106 +221,56 @@ function HomeMain() {
                     }} className="l-h6">→</button>
                 </figcaption>
                 <br />
-                <hr />
-                <br />
-                <figure className="px-[20px] md:px-[60px] w-screen relative grid grid-flow-col gap-5  overflow-y-scroll no-scrollbar snap-x snap-mandatory">
 
                         {data?.homemainid === 'postupdatedat' && (<>
-                        {/* <button onClick={() => {
-                            ll(data?.homemainmap?.length)
-                        }} className="hidden md:flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
-                        </button> */}
+                        <figure ref={ref} className="px-[20px] md:px-[60px] w-screen relative grid grid-flow-col gap-5 justify-start overflow-y-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
                             {data?.homemainmap?.slice(homemainsliceone, homemainslicetwo).map(dat => (<>
+                                    <div className="w-[250px] md:w-[300px] snap-center">
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)
                                     }} key={dat?.postid} type={dat?._type} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid} param={dat?.postid} />
+                                    </div>
                             </>))}
+                            <button onClick={() => ll(ref, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
+                            <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
+                            </button>
+                        </figure>
                         </>)}
-
-                        {/* {data?.homemainid === 'postcategoryid' && (<>
-                        <button onClick={() => {
-                            kk(data?.homemainmap?.length)
-                        }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-5xl  bg-white rounded-full border' />
-                        </button>
-                            {data?.homemainmap?.slice(homemainslicethree, homemainslicefour).map(dat => (<>
-                                    <VerticleMain onlick={() => {
-                                        navigate(`/${dat?.postid}`)
-                                    }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
-                            </>))}
-                        </>)}
-
-                        {data?.homemainid === 'postpostcount' && (<>
-                        <button onClick={() => {
-                            jj(data?.homemainmap?.length)
-                        }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-5xl  bg-white rounded-full border' />
-                        </button>
-                            {data?.homemainmap?.slice(homemainslicefive, homemainslicesix).map(dat => (<>
-                                    <VerticleMain onlick={() => {
-                                        navigate(`/${dat?.postid}`)
-                                    }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
-                            </>))}
-                        </>)}
-
-                        {data?.homemainid === 'postcreatedat' && (<>
-                        <button onClick={() => {
-                            hh(data?.homemainmap?.length)
-                        }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-5xl' />
-                        </button>
-                            {data?.homemainmap?.slice(homemainsliceseven, homemainsliceeight).map(dat => (<>
-                                    <VerticleMain onlick={() => {
-                                        navigate(`/${dat?.postid}`)
-                                    }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
-                            </>))}
-                        </>)}
-
-                        {data?.homemainid === 'postpriceid' && (<>
-                        <button onClick={() => {
-                            gg(data?.homemainmap?.length)
-                        }} className="hidden group-hover:flex absolute z-10 bottom-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-5xl' />
-                        </button>
-                            {data?.homemainmap?.slice(homemainslicenine, homemainsliceten).map(dat => (<>
-                                    <VerticleMain onlick={() => {
-                                        navigate(`/${dat?.postid}`)
-                                    }} key={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} priceid={dat?.priceid} param={dat?.postid} />
-                            </>))}
-                        </>)} */}
 
                         {data?.homemainid === 'placeupdatedat' && (<>
-                        {/* <button onClick={() => {
-                            kk(data?.homemainmap?.length)
-                        }} className="hidden md:flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
-                        </button> */}
+                        <figure ref={reftwo} className="px-[20px] md:px-[60px] w-screen relative grid grid-flow-col gap-5 justify-start overflow-y-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
                             {data?.homemainmap?.slice(homemainslicethree, homemainslicefour).map(dat => (<>
+                                    <div className="w-[250px] md:w-[300px] snap-center">
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)
                                     }} key={dat?.postid} type={dat?._type} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid} param={dat?.postid} />
+                                    </div>
                             </>))}
+                            <button onClick={() => ll(reftwo, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
+                            <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
+                            </button>
+                        </figure>
                         </>)}
 
                         {data?.homemainid === 'productupdatedat' && (<>
-                        {/* <button onClick={() => {
-                            jj(data?.homemainmap?.length)
-                        }} className="hidden md:flex absolute z-10 bottom-0 right-0 w-[20vw] md:w-[10vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                            <RiArrowRightSLine className='text-6xl  bg-white rounded-full border border-black' />
-                        </button> */}
+                        <figure ref={refthree} className="px-[20px] md:px-[60px] w-screen relative grid grid-flow-col gap-5 justify-start overflow-y-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
                             {data?.homemainmap?.slice(homemainslicefive, homemainslicesix).map(dat => (<>
+                                    <div className="w-[250px] md:w-[300px] snap-center">
                                     <VerticleMain onlick={() => {
                                         navigate(`/${dat?.postid}`)
                                     }} key={dat?.postid} type={dat?._type} postid={dat?.postid} createdat={dat?._createdAt} posthero={dat?.posthero} posticon={dat?.posticon} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid} param={dat?.postid} placepostid={dat?.placepostid} />
+                                    </div>
                             </>))}
+                            <button onClick={() => ll(refthree, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
+                            <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
+                            </button>
+                        </figure>
                         </>)}
-
-                </figure>
                 </>))}
                 <br />
             </section>
             <br />
+            <div className="w-full  border-b-2 border-black" />
             <br />
             <section className="px-[20px] md:px-[60px]">
                 <WireMain />

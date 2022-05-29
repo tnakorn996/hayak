@@ -10,6 +10,7 @@ import VerticleMain from '../../component/post/VerticleMain'
 import { ContextMain } from '../../context/contextmain'
 import { breadmain, categoryul, crummain } from '../../content/contentmantwo'
 import ChipMain from '../../component/chip/ChipMain'
+import { useRef } from 'react'
 
 function CategoryIndex() {
     const {
@@ -24,6 +25,9 @@ function CategoryIndex() {
     const param = useParams()
     const location = useLocation()
     const navigate = useNavigate()
+    const ref = useRef(null)
+    const reftwo = useRef(null)
+    const refthree = useRef(null)
 
     const [categoryindexrender, setcategoryindexrender] = useState()
     const [categoryindextitle, setcategoryindextitle] = useState()
@@ -138,17 +142,26 @@ function CategoryIndex() {
         // setpostcategoryidpostcount(filterthree)
     }
     
-    function jj() {
-        categoryindexrender.forEach(data => {
-            if(categoryindexslicetwo < data.categoryindexmap.length){
-                setcategoryindexsliceone(categoryindexsliceone + 1)
-                setcategoryindexslicetwo(categoryindexslicetwo + 1)
-            }
-            if(categoryindexslicetwo >= data.categoryindexmap.length ){
-                setcategoryindexsliceone(0)
-                setcategoryindexslicetwo(4)
-            }
-        })
+    // function jj() {
+    //     categoryindexrender.forEach(data => {
+    //         if(categoryindexslicetwo < data.categoryindexmap.length){
+    //             setcategoryindexsliceone(categoryindexsliceone + 1)
+    //             setcategoryindexslicetwo(categoryindexslicetwo + 1)
+    //         }
+    //         if(categoryindexslicetwo >= data.categoryindexmap.length ){
+    //             setcategoryindexsliceone(0)
+    //             setcategoryindexslicetwo(4)
+    //         }
+    //     })
+    // }
+
+    const hh = (first= this.props.first, second= this.props.second) => {
+        first.current.scrollTo(first.current.scrollLeft + 250 * second, 0)
+        
+            // const offset = ref.current.offsetWidth;
+            // ref.current.scrollTo(ref.current.scrollLeft + offset * delta, 0)
+            // ref.current.scrollLeft = 1500;
+            // ref.current.scrollLeft += 20;
     }
 
   return (
@@ -195,27 +208,71 @@ function CategoryIndex() {
             </section>
             <hr />
             <section className="w-[1200px] md:w-full mx-auto relative group">
-                {/* <button onClick={() => jj()} className="hidden group-hover:flex fixed z-20 top-0 right-0 w-[10vw] md:w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black">
-                    <RiArrowRightSLine className='text-5xl' />
-                </button>
-                <button className="hidden md:flex md:fixed z-10 top-0 right-0 w-[5vw] h-full justify-center items-center  bg-gradient-to-r from-transparent to-white text-black" /> */}
-                {categoryindexrender?.map(data => (<>
+
+
+                {categoryindexrender?.slice(0, 1)?.map(data => (<>
                 <br />
                 <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
                     <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle}</h1>
                 </figcaption>
                 <br />
-                <figure className="px-[20px] md:px-[60px] w-screen grid grid-flow-col gap-5  overflow-y-scroll no-scrollbar snap-x snap-mandatory">
-                    {/* <div className="w-[1000px] md:w-full grid grid-cols-4 gap-5"> */}
+                <figure ref={ref} className="relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
                     {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
+                    <div className="w-[250px] md:w-[300px] snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${dat?.postid}`)
                         }} key={dat?.postid} type={dat?._type} createdat={dat?._createdAt} posticon={dat?.posticon} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid}  param={dat?.postid} />
+                    </div>
                     </>))}
-                    {/* </div> */}
+                    <button onClick={() => hh(ref, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
+                    <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
+                    </button>
                 </figure>
                 <br />
                 </>))}
+
+                {categoryindexrender?.slice(1, 2)?.map(data => (<>
+                <br />
+                <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
+                    <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle}</h1>
+                </figcaption>
+                <br />
+                <figure ref={reftwo} className="relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
+                    {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
+                    <div className="w-[250px] md:w-[300px] snap-center">
+                        <VerticleMain onlick={() => {
+                            navigate(`/${dat?.postid}`)
+                        }} key={dat?.postid} type={dat?._type} createdat={dat?._createdAt} posticon={dat?.posticon} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid}  param={dat?.postid} />
+                    </div>
+                    </>))}
+                    <button onClick={() => hh(reftwo, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
+                    <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
+                    </button>
+                </figure>
+                <br />
+                </>))}
+
+                {categoryindexrender?.slice(2, 3)?.map(data => (<>
+                <br />
+                <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
+                    <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle}</h1>
+                </figcaption>
+                <br />
+                <figure ref={refthree} className="relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
+                    {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
+                    <div className="w-[250px] md:w-[300px] snap-center">
+                        <VerticleMain onlick={() => {
+                            navigate(`/${dat?.postid}`)
+                        }} key={dat?.postid} type={dat?._type} createdat={dat?._createdAt} posticon={dat?.posticon} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid}  param={dat?.postid} />
+                    </div>
+                    </>))}
+                    <button onClick={() => hh(refthree, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
+                    <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
+                    </button>
+                </figure>
+                <br />
+                </>))}
+
             </section>
         </motion.main>
     </div>

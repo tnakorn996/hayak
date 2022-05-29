@@ -44,7 +44,6 @@ function FeedbackSection() {
     }, [sharemainstate])
 
     const ll = async () => {
-        if(feedbacksectionsubtitle !== ''){
           setfeedbacksectionload(true)
             const doc = {
                 _id: uuidv4(),
@@ -56,25 +55,48 @@ function FeedbackSection() {
                 postid: sharemainstate?.sharemainparam,
             }
             await client.createOrReplace(doc).then(() => {
-                setfeedbacksectionrenderthree(<CardMain     
-                cardmainid={'commentimg'}
-                cardmainidtwo={'success'}
-                // cardmainidthree={'feedback'}
-                cardmainindex={0} 
-                />)
+                setfeedbacksectionrenderthree({
+                  cardmainid:'commentimg',
+                  cardmainidtwo:'success',
+                  // cardmainidthree:'feedback',
+                  cardmainindex:0,
+                })
                 setfeedbacksectionload(false)
             });
-        } else {
-            setfeedbacksectionrenderthree(<CardMain     
-                cardmainid={'commentimg'}
-                cardmainidtwo={'fail'}
-                // cardmainidthree={'feedback'}
-                cardmainindex={0} 
-                />)
+    }
+
+    function kk() {
+        const empty = []
+        if(feedbacksectionsubtitle === ''){
+          empty.push({
+            error: 'Message is required',
+          })
+          setfeedbacksectionrenderthree({
+                  cardmainid:'commentimg',
+                  cardmainidtwo:'fail',
+                  // cardmainidthree:'feedback',
+                  cardmainmessage:empty,
+                  cardmainindex:0,
+          })
+        } 
+        else {
+          ll()
         }
     }
 
-    
+    // <CardMain     
+    //             cardmainid={'commentimg'}
+    //             cardmainidtwo={'success'}
+    //             // cardmainidthree={'feedback'}
+    //             cardmainindex={0} 
+    //             />
+
+    // setfeedbacksectionrenderthree(<CardMain     
+    //             cardmainid={'commentimg'}
+    //             cardmainidtwo={'fail'}
+    //             // cardmainidthree={'feedback'}
+    //             cardmainindex={0} 
+    //             />)
 
   return (
     <div>
@@ -101,12 +123,19 @@ function FeedbackSection() {
                       cardmainidthree={'use'}
                       cardmainindex={0} 
                       />
-                      {feedbacksectionrenderthree && feedbacksectionrenderthree}
+                      <CardMain     
+                      cardmainid={feedbacksectionrenderthree?.cardmainid}
+                      cardmainidtwo={feedbacksectionrenderthree?.cardmainidtwo}
+                      cardmainidthree={feedbacksectionrenderthree?.cardmainidthree}
+                      cardmainmessage={feedbacksectionrenderthree?.cardmainmessage}
+                      cardmainindex={feedbacksectionrenderthree?.cardmainindex} 
+                      />
+                      {/* {feedbacksectionrenderthree && feedbacksectionrenderthree} */}
                     </section>
                     <br />
                     <section className="">
                       <ButtonMain onclick={() => {
-                          ll()
+                          kk()
                       }} title={'Submit'} load={feedbacksectionload}  />
                     </section>
                 </div>
