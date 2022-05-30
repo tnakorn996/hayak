@@ -69,7 +69,7 @@ function RtaMain({type}) {
                               appmainidthree: 0,
                               appmainboolean: true,
                           })
-                      }} className="col-span-2  l-h2">See all</article>
+                      }} className="col-span-2 text-right  l-h6">→</article>
                     </>)}
                   </section>
                   <br />

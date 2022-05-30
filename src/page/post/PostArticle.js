@@ -123,7 +123,7 @@ useEffect(() => {
                     </figcaption>
                 </section>
                 <section className="hidden md:block p-[30px] md:p-[60px]">
-                    <h1 className="m-h6">More like this</h1>
+                    <h1 className="m-h6 font-serif">More like this</h1>
                     <br />
                     <div className="flex flex-col gap-3">
                     {postarticlestatetwo?.slice(0, 3).map(data => (<>

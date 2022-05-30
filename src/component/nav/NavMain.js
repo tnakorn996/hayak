@@ -20,7 +20,7 @@ function NavMain() {
 
   return (
     <div>
-        <main className="z-20 mx-auto grid grid-cols-11 items-center   bg-white bg-opacity-95 backdrop-blur border-b-2 border-black">
+        <main className="z-20 mx-auto grid grid-cols-11 items-center   bg-white bg-opacity-95 backdrop-blur border-b border-black">
             <section className="hidden p-[20px] md:px-[60px] md:py-[20px] col-span-5 md:flex flex-row justify-start gap-1">
                     <div className="flex flex-row">
                         {breadmain?.map(data => (<>

@@ -174,7 +174,7 @@ function PostIndex() {
     useEffect(() => {
       if(postpostid){
             // kk()
-            // jj()
+            jj()
             setbreadmainstate({
                 breadmainid: postpostid?._type,
                 breadmainidtwo: postpostid?.categoryid,
@@ -349,7 +349,7 @@ function PostIndex() {
             h4: ({children}) => <h1 className='text-xl !m-h4' >{children}</h1>,
             h5: ({children}) => <h1 className='text-lg  !m-h5' >{children}</h1>,
             h6: ({children}) => <h1 className='text-md  !m-h6' >{children}</h1>,
-            blockquote: ({children}) => <h1 className='!pl-[20px]  border-l-2 border-gray-600 italic' >{children}</h1>,
+            blockquote: ({children}) => <h1 className='!pl-[20px]  border-l border-gray-600 italic' >{children}</h1>,
         },
 
         listitem: {
@@ -441,12 +441,13 @@ function PostIndex() {
             </figcaption>
             <figure className="col-span-12 md:col-span-7">
                 <section className="block md:hidden">
+                    <h1 className="l-h3 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
                     <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                     <br />
                 </section>
-                <section className="md:border-2 md:border-black">
-                    <figure className="group relative min-h-[20vh] md:min-h-[50vh] grid items-center justify-items-center  md:border-b-2 md:border-black">
+                <section className="md:border md:border-black">
+                    <figure className="group relative min-h-[50vh] grid items-center justify-items-center  md:border-b md:border-black">
                         <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={postpostid?.posthero} alt="" className="z-10 w-full " />
                         <div className="absolute">
                         <LoadingMain />
@@ -507,7 +508,7 @@ function PostIndex() {
                     </figure>
                 </section>
                 <br />
-                <section className={`md:p-[20px] relative h-[60vh]  md:border-2 md:border-black overflow-hidden ${!postindexaction && '!h-fit'}`}>
+                <section className={`md:p-[20px] relative h-[60vh]  md:border md:border-black overflow-hidden ${!postindexaction && '!h-fit'}`}>
                     <figcaption className="">
                         <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
@@ -542,7 +543,7 @@ function PostIndex() {
             </figure>
             <figcaption className="p-0 md:px-[30px] md:col-span-5">
                 <section className="hidden md:block">
-                    <h1 className="l-h3 uppercase">{postindexrender && postindexrender}</h1>
+                    <h1 className="l-h3 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
                     <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                 </section>

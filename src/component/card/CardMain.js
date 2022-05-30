@@ -66,6 +66,14 @@ function CardMain({
         },
     ]
 
+    const shareimg = [
+        {
+            cardmainindex: 0,
+            cardmainrender: '',
+            cardmainaction: () => {},
+        },
+    ]
+
     const cardmain = [
         {
             cardmainid: 'commentimg',
@@ -78,6 +86,10 @@ function CardMain({
         {
             cardmainid: 'feedbackimg',
             cardmainref: feedbackimg,
+        },
+        {
+            cardmainid: 'shareimg',
+            cardmainref: shareimg,
         }
     ]
 
@@ -97,25 +109,23 @@ function CardMain({
         <br />
         <motion.main initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative">
             {cardmainrender?.map(data => (<>
-                <figure className={`w-full p-[20px] flex flex-col  md:grid md:grid-cols-12  border-2 border-black ${data?.spreadmainstyle}`}>
-                    <section className="col-span-1">
-                        <h1 className="hidden md:flex  l-h3">{data?.spreadmainicon}</h1>
+                <figure className={`w-full p-[20px] flex flex-col  md:grid md:grid-cols-12  border border-black ${data?.spreadmainstyle}`}>
+                    <section className="col-span-1 ">
+                        <h1 className={`hidden md:flex justify-start  l-h3 ${data?.spreadmainstyle}`}>{data?.spreadmainicon}</h1>
                     </section>
-                    {cardmainrendertwo?.map(dat => (<>
                     <section className="col-span-8">
-
+                        {cardmainrendertwo !== '' && cardmainrendertwo?.map(dat => (<>
                         <h1 className="m-h2">{dat?.sheetmaintitle || dat?.blemaintitle}</h1>
                         <h1 className="py-[10px] md:p-0  l-h1">{dat?.sheetmainsubtitle || dat?.blemainsubtitle}</h1>
                         <br />
+                        </>))}
                         <div className="flex flex-col">
                         {cardmainmessage && cardmainmessage?.map(da => (<>
                          {da?.error && <span className="m-h1">∙ {da?.error}</span>}
                          {da?.success && <span className="m-h1">∙ {da?.success}</span>}
                         </>))}
                         </div>
-
                     </section>
-                    </>))}
                     <section className="col-span-3">
                         {cardmainaction && cardmainaction}
                     </section>

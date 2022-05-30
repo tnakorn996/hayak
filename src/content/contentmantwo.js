@@ -1,17 +1,17 @@
-import { RiInformationLine } from "react-icons/ri"
+import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "react-icons/ri"
 
     export const categorydi = [
         {
             spreadmainid: 'success',
             spreadmaintitle: 'Successfully', 
-            spreadmainicon: <RiInformationLine />,
+            spreadmainicon: <RiCheckboxCircleFill />,
             spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
             spreadmainstyle: '!bg-emerald-50 !text-emerald-800',
         },
         {
             spreadmainid: 'fail',
             spreadmaintitle: 'Oops 404', 
-            spreadmainicon: <RiInformationLine />,
+            spreadmainicon: <RiErrorWarningFill />,
             spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
             spreadmainstyle: '!bg-red-50 !text-red-800',
         },

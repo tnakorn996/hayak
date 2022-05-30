@@ -34,7 +34,7 @@ function CtaMain() {
                             appmainidtwo: 'sideboardmain',
                             appmainboolean: true,
                 })
-            }} className="m-h3 w-full l-button  border-2 border-black">Check avability comments</button>,
+            }} className="m-h3 w-full l-button  border border-black">Check avability comments</button>,
         },
         {
             ctamainrender: <button onClick={() => {
@@ -52,7 +52,7 @@ function CtaMain() {
                             appmainidtwo: 'sideboardmain',
                             appmainboolean: true,
                 })
-            }} className="m-h3 w-full l-button  border-2 border-black">Check avability comments</button>,
+            }} className="m-h3 w-full l-button  border border-black">Check avability comments</button>,
         },
     ]
 
@@ -67,7 +67,7 @@ function CtaMain() {
                             appmainidtwo: 'sideboardmain',
                             appmainboolean: true,
                 })
-            }} className="m-h3 w-full l-button  border-2 border-black">Check avability reviews</button>,
+            }} className="m-h3 w-full l-button  border border-black">Check avability reviews</button>,
         },
     ]
 
@@ -78,7 +78,7 @@ function CtaMain() {
             }} className="m-h3 w-full m-button">Seller website</button>,
             ctamainrendertwo: <button onClick={() => {
                 window.open(ctamainstate?.ctamainrender?.postproducturl, '_blank').focus();
-            }} className="m-h3 w-full l-button  border-2 border-black">Check avability product</button>,
+            }} className="m-h3 w-full l-button  border border-black">Check avability product</button>,
         },
     ]
 

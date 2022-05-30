@@ -3,14 +3,15 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { RiArrowRightSLine , RiFilter3Fill} from 'react-icons/ri'
+import { BsLayoutSplit, BsLayoutThreeColumns } from 'react-icons/bs'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-import VerticleMain from '../../component/post/VerticleMain'
 import { ContextMain } from '../../context/contextmain'
 import { breadmain, categoryul, crummain } from '../../content/contentmantwo'
 import ChipMain from '../../component/chip/ChipMain'
 import { useRef } from 'react'
+import SlideMain from '../../component/slide/SlideMain'
 
 function CategoryIndex() {
     const {
@@ -34,8 +35,7 @@ function CategoryIndex() {
     const [categoryindexdetail, setcategoryindexdetail] = useState()
     const [categoryindeximage, setcategoryindeximage] = useState()
     const [categoryindexaction, setcategoryindexaction] = useState()
-    const [categoryindexsliceone, setcategoryindexsliceone] = useState(0)
-    const [categoryindexslicetwo, setcategoryindexslicetwo] = useState(12)
+    const [slidemainstate, setslidemainstate] = useState({slidemainindex: 0})
 
     const [postcategoryidcreatedat, setpostcategoryidcreatedat] = useState()
     const [postcategoryidupdatedat, setpostcategoryidupdatedat] = useState()
@@ -60,6 +60,8 @@ function CategoryIndex() {
             categoryindextitle: 'Hottest',
         },
     ]
+
+    console.log('postcatego :>> ', postcategoryidcreatedat);
 
     useEffect(() => {
         if(breadmain && crummain){
@@ -114,23 +116,33 @@ function CategoryIndex() {
 
     const kk = () => {
         const empty = []
+        const emptytwo = []
+        const emptythree = []
         postplaceproduct.forEach(data => {
 
             if(breadmainstate !== '' && genreindexstate !== '' && data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo && data.genreid === genreindexstate.genreindexid){
                 empty.push(data)
+                emptytwo.push(data)
+                emptythree.push(data)
             }
             if(breadmainstate !== '' && genreindexstate === '' && data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo){
                 empty.push(data)
+                emptytwo.push(data)
+                emptythree.push(data)
             }
             if(breadmainstate === '' && genreindexstate !== '' && data._type === param.id && data.genreid === genreindexstate.genreindexid){
                 empty.push(data)
+                emptytwo.push(data)
+                emptythree.push(data)
             }
             if(breadmainstate === '' && genreindexstate === '' && data._type === param.id) {
                 empty.push(data)
+                emptytwo.push(data)
+                emptythree.push(data)
             }
             setpostcategoryidcreatedat(empty)
-            setpostcategoryidupdatedat(empty)
-            setpostcategoryidpostcount(empty)
+            setpostcategoryidupdatedat(emptytwo)
+            setpostcategoryidpostcount(emptythree)
 
         })
 
@@ -141,27 +153,16 @@ function CategoryIndex() {
         // setpostcategoryidupdatedat(filtertwo)
         // setpostcategoryidpostcount(filterthree)
     }
-    
-    // function jj() {
-    //     categoryindexrender.forEach(data => {
-    //         if(categoryindexslicetwo < data.categoryindexmap.length){
-    //             setcategoryindexsliceone(categoryindexsliceone + 1)
-    //             setcategoryindexslicetwo(categoryindexslicetwo + 1)
-    //         }
-    //         if(categoryindexslicetwo >= data.categoryindexmap.length ){
-    //             setcategoryindexsliceone(0)
-    //             setcategoryindexslicetwo(4)
-    //         }
-    //     })
-    // }
 
-    const hh = (first= this.props.first, second= this.props.second) => {
-        first.current.scrollTo(first.current.scrollLeft + 250 * second, 0)
-        
-            // const offset = ref.current.offsetWidth;
-            // ref.current.scrollTo(ref.current.scrollLeft + offset * delta, 0)
-            // ref.current.scrollLeft = 1500;
-            // ref.current.scrollLeft += 20;
+    function hh() {
+        if(slidemainstate && slidemainstate.slidemainindex === 0)
+        setslidemainstate({
+            slidemainindex: 1
+        })
+        if(slidemainstate && slidemainstate.slidemainindex === 1)
+        setslidemainstate({
+            slidemainindex: 0
+        })
     }
 
   return (
@@ -196,6 +197,17 @@ function CategoryIndex() {
                         })
                 }} className="flex flex-row items-center gap-2  l-button"><RiFilter3Fill /> Filter</button>
 
+                <button onClick={() => {
+                    hh()
+                }} className="hidden md:flex flex-row items-center gap-2  l-button">
+                    {slidemainstate?.slidemainindex === 0 && (<>
+                    <BsLayoutSplit /><h1 className="">Split</h1>
+                    </>)}
+                    {slidemainstate?.slidemainindex === 1 && (<>
+                    <BsLayoutThreeColumns /><h1 className="">Columns</h1>
+                    </>)}
+                </button>
+
                 {/* <button onClick={() => {
                     setappmainstate({
                         appmainid: 'categorysection',
@@ -207,7 +219,29 @@ function CategoryIndex() {
                 }} className="flex flex-row items-center gap-2  l-button"><RiFilter3Fill /> Filter</button> */}
             </section>
             <hr />
-            <section className="w-[1200px] md:w-full mx-auto relative group">
+            <section className="">
+                {categoryindexrender?.map(data => (<>
+                <br />
+                <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
+                    <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle && categoryindextitle}</h1>
+                </figcaption>
+                <br />
+
+                {data?.categoryindexid === 'postcategoryidcreatedat' && (<>
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={ref} />
+                </>)}
+
+                {data?.categoryindexid === 'postcategoryidupdatedat' && (<>
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={reftwo} />
+                </>)}
+
+                {data?.categoryindexid === 'postcategoryidpostcount' && (<>
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={refthree} />
+                </>)}
+
+                </>))}
+            </section>
+            {/* <section className="w-[1200px] md:w-full mx-auto relative group">
 
 
                 {categoryindexrender?.slice(0, 1)?.map(data => (<>
@@ -273,7 +307,7 @@ function CategoryIndex() {
                 <br />
                 </>))}
 
-            </section>
+            </section> */}
         </motion.main>
     </div>
   )

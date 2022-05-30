@@ -7,6 +7,7 @@ import { RiFeedbackFill, RiShareFill } from 'react-icons/ri'
 
 import { ContextMain } from '../../context/contextmain'
 import HorizonMain from '../post/HorizonMain'
+import '../opendesk/opendesk.css'
 
 function OpendeskMain() {
     const {
@@ -104,7 +105,7 @@ function OpendeskMain() {
 
   return (
     <div>
-        <motion.main key='opendeskmain' initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="fixed bottom-0 md:top-0 right-0 w-screen md:h-screen md:max-w-[500px] p-[20px]  bg-white border-2 border-black overflow-hidden">
+        <motion.main key='opendeskmain' initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="fixed bottom-0 md:top-0 right-0 w-screen md:h-screen md:max-w-[500px] p-[20px]  bg-white border border-black overflow-hidden">
             <section className="md:h-[10vh]">
             {(opendeskmainlocation || opendeskmainparam) && (<>
                 <HorizonMain
@@ -112,7 +113,7 @@ function OpendeskMain() {
             </>)}
             </section>
 
-            <section className="h-[50vh] md:h-[75vh]">
+            <section className="h-[50vh] md:h-[75vh]  overflow-hidden">
                 <br />
                 {opendeskmainindex === 0 && opendeskmainrender?.map(data => (<>
                 <div className="">
@@ -143,7 +144,7 @@ function OpendeskMain() {
                         <h1 className="col-span-9  uppercase l-button border">{opendeskmainrendertwo && opendeskmainrendertwo[0]?.tabmainid}</h1>
                     </div>
                     <br />
-                    <motion.div initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="">
+                    <motion.div initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="max-h-full  overflow-y-scroll no-scrollbar">
                     {opendeskmainrendertwo?.map(data => (<>
 
                     <article onClick={() => {
@@ -154,14 +155,15 @@ function OpendeskMain() {
                     </article>
                     <hr />
                     </>))}
+                    <br /><br /><br /><br /><br />
                     </motion.div>
                 </>)}
 
             </section>
-            <section className="md:h-[10vh] flex items-center">
+            <section className="md:h-[10vh] flex items-center  bg-white">
                 <button onClick={() => {
                     setappmainstate('')
-                }} className=" w-full  m-button">Cancel</button>
+                }} className=" w-full  l-button">Cancel</button>
             </section>
 
             {/* <section className="">

@@ -11,6 +11,7 @@ import { ContextMain } from '../../context/contextmain'
 import '../home/homemain.css'
 import WireMain from '../../component/wire/WireMain'
 import { useRef } from 'react'
+import SlideMain from '../../component/slide/SlideMain'
 // import LandscapeMain from '../../component/place/LandscapeMain'
 
 function HomeMain() {
@@ -223,7 +224,9 @@ function HomeMain() {
                 <br />
 
                         {data?.homemainid === 'postupdatedat' && (<>
-                        <figure ref={ref} className="px-[20px] md:px-[60px] w-screen relative grid grid-flow-col gap-5 justify-start overflow-y-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
+                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[0]?.homemainmap} slidemainref={ref} />
+
+                        {/* <figure ref={ref} className="px-[20px] md:px-[60px] w-screen relative grid grid-flow-col gap-5 justify-start overflow-y-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
                             {data?.homemainmap?.slice(homemainsliceone, homemainslicetwo).map(dat => (<>
                                     <div className="w-[250px] md:w-[300px] snap-center">
                                     <VerticleMain onlick={() => {
@@ -234,11 +237,13 @@ function HomeMain() {
                             <button onClick={() => ll(ref, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
                             <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
                             </button>
-                        </figure>
+                        </figure> */}
                         </>)}
 
                         {data?.homemainid === 'placeupdatedat' && (<>
-                        <figure ref={reftwo} className="px-[20px] md:px-[60px] w-screen relative grid grid-flow-col gap-5 justify-start overflow-y-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
+                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[1]?.homemainmap} slidemainref={reftwo} />
+
+                        {/* <figure ref={reftwo} className="px-[20px] md:px-[60px] w-screen relative grid grid-flow-col gap-5 justify-start overflow-y-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
                             {data?.homemainmap?.slice(homemainslicethree, homemainslicefour).map(dat => (<>
                                     <div className="w-[250px] md:w-[300px] snap-center">
                                     <VerticleMain onlick={() => {
@@ -249,11 +254,13 @@ function HomeMain() {
                             <button onClick={() => ll(reftwo, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
                             <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
                             </button>
-                        </figure>
+                        </figure> */}
                         </>)}
 
                         {data?.homemainid === 'productupdatedat' && (<>
-                        <figure ref={refthree} className="px-[20px] md:px-[60px] w-screen relative grid grid-flow-col gap-5 justify-start overflow-y-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
+                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[2]?.homemainmap} slidemainref={refthree} />
+
+                        {/* <figure ref={refthree} className="px-[20px] md:px-[60px] w-screen relative grid grid-flow-col gap-5 justify-start overflow-y-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
                             {data?.homemainmap?.slice(homemainslicefive, homemainslicesix).map(dat => (<>
                                     <div className="w-[250px] md:w-[300px] snap-center">
                                     <VerticleMain onlick={() => {
@@ -264,7 +271,7 @@ function HomeMain() {
                             <button onClick={() => ll(refthree, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
                             <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
                             </button>
-                        </figure>
+                        </figure> */}
                         </>)}
                 </>))}
                 <br />

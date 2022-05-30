@@ -13,6 +13,7 @@ import OpendeskMain from '../opendesk/OpendeskMain'
 import SocialMain from '../../page/social/SocialMain'
 import FeedbackSection from '../../page/feedback/FeedbackSection'
 import { useLocation } from 'react-router-dom'
+import ShareSection from '../../page/share/ShareSection'
 
 function ModalMain() {
     const {
@@ -26,6 +27,7 @@ function ModalMain() {
     const [modalmainindex, setmodalmainindex] = useState(0)
     const [modalmaintitle, setmodalmaintitle] = useState()
     const [modalmainrender, setmodalmainrender] = useState()
+    const [modalmainrendertwo, setmodalmainrendertwo] = useState()
     const [modalmainaction, setmodalmainaction] = useState()
     const [modalmainentitle, setmodalmainentitle] = useState()
     
@@ -33,41 +35,8 @@ function ModalMain() {
         {
             modalmainindex: 0,
             modalmaintitle: 'Share Post',
-            modalmainrender: () => {
-                return (<>
-                <section className="flex justify-center ">
-                    <figure className="h-[250px] w-[250px] flex justify-center items-center ">
-                        <RiContrastDropLine className='absolute text-3xl w-[50px] h-[50px]  bg-white rounded-full' />
-                        <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://hayak.vercel.app/${appmainstate?.appmainparam}`} alt="" />
-                    </figure>
-                </section>
-                 <br />
-                <section className="">
-                    <article className="grid grid-cols-12 ">
-                        <figcaption className="col-span-10">
-                            <h1 className="m-h3">Blog Address</h1>
-                            <h1 className="l-h2">https://hayak.vercel.app/{appmainstate?.appmainparam}</h1>
-                        </figcaption>
-                        <figure className="col-span-2 flex justify-center items-center ">
-                            <RiFileCopyLine className='m-h3' />
-                        </figure>
-                    </article>
-                </section>
-                </>)
-            },
-            modalmainaction: <button onClick={() => {
-                    navigator.clipboard.writeText(`https://hayak.vercel.app/${appmainstate?.appmainparam}`) 
-                    setsnackbarmainstate({
-                        snackbarmainid: 'sharefooter',
-                        snackbarmainidtwo: 'success',
-                        snackbarmainidthree: 'sharedi',
-                    })
-                    setappmainstate({
-                        appmainid: 'overlay',
-                        appmainidtwo: 'snackbarmain',
-                    })
-                }} className="m-button">Copy to clipboard</button>,
-
+            modalmainrender: <ShareSection param={appmainstate.appmainparam} />,
+            modalmainaction: '',
         },
         {
             modalmainindex: 1,
@@ -103,11 +72,7 @@ function ModalMain() {
         {
             modalmainindex: 0,
             modalmaintitle: '',
-            modalmainrender: () => {
-                return <section className="">
-                    <StackMain />
-                </section>
-            },
+            modalmainrender: <StackMain />,
             modalmainaction: <button onClick={() => {
                     setappmainstate('')
                 }} className="m-button">Continue</button>,
@@ -118,9 +83,7 @@ function ModalMain() {
         {
             modalmainindex: 0,
             modalmaintitle: '',
-            modalmainrender: () => {
-                return <OpendeskMain />
-            }
+            modalmainrender: <OpendeskMain />,
         }
     ]
 
@@ -128,9 +91,7 @@ function ModalMain() {
         {
             modalmainindex: 0,
             modalmaintitle: '',
-            modalmainrender: () => {
-                return <FeedbackSection />
-            },
+            modalmainrender: <FeedbackSection />,
         }
     ]
 
@@ -176,7 +137,7 @@ function ModalMain() {
   return (
     <div>
         <br />
-        <motion.main initial={{y: 200}} animate={{ y:0}} exit={{y: 200}} className="w-screen md:max-w-[700px] bg-white border-2 border-black">
+        <motion.main initial={{y: 200}} animate={{ y:0}} exit={{y: 200}} className="w-screen md:max-w-[700px] bg-white border border-black">
             <section className="p-[20px] text-center">
                 <h1 className="m-h4 font-serif">{modalmaintitle && modalmaintitle}</h1>
             </section>

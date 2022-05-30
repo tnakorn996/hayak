@@ -4,7 +4,7 @@ function LoadingMain() {
   return (
     <div>
         <main className="">
-            <div className="w-[20px] h-[20px]  rounded-full border-2 border-gray-200 border-t-gray-500 animate-spin" />
+            <div className="w-[30px] h-[30px]  rounded-full border border-white border-t-gray-900 animate-spin" />
         </main>
     </div>
   )

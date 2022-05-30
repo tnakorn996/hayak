@@ -16,7 +16,7 @@ import AboutMain from './page/about/AboutMain';
 import ExtroMain from './component/extro/ExtroMain';
 import ContactMain from './page/contact/ContactMain';
 import BackdropMain from './component/modal/BackdropMain';
-import SlideMain from './component/slide/SlideMain';
+import SlideMain from './component/slidee/SlideMain';
 import Overlay from './component/overlay/Overlay';
 import SheetMain from './component/sheet/SheetMain';
 import PromoMain from './component/promo/PromoMain';
@@ -67,8 +67,8 @@ export default function App() {
         case 'contactmain': 
         return <ContactMain />
 
-        case 'slidemain': 
-        return <SlideMain />
+        // case 'slidemain': 
+        // return <SlideMain />
         
         case 'sheetmain': 
         return <SheetMain />

@@ -1,84 +1,114 @@
 import React from 'react'
 import { useState } from 'react'
-import { useContext } from 'react'
 import { useEffect } from 'react'
-import { RiArrowLeftSFill, RiArrowRightSFill } from 'react-icons/ri'
-import { motion } from 'framer-motion'
+import { RiArrowRightSLine } from 'react-icons/ri'
+import { useNavigate } from 'react-router-dom'
+import VerticleMain from '../post/VerticleMain'
 
-import { ContextMain } from '../../context/contextmain'
-import MenuDiv from '../../page/menu/MenuDiv'
-import ExitMain from '../exit/ExitMain'
-import PostDiv from '../../page/post/PostDiv'
-
-function SlideMain() {
-    const {
-        appmainstate, setappmainstate,
-        slidemainpage, setslidemainpage,
-
-    } = useContext(ContextMain)
+function SlideMain({
+    slidemainid,
+    slidemainindex,
+    slidemaindata,
+    slidemainref,
+}) {
+    const navigate = useNavigate()
 
     const [slidemainrender, setslidemainrender] = useState()
 
-    const menudiv = [
+    const homemainth = [
         {
             slidemainindex: 0,
-            slidemainrender: <MenuDiv />,
-        },
+            slidemainrender: () => {
+
+                return  slidemaindata?.slice(0, 12).map(data => (<>
+                    <div className="w-[250px] md:w-fit snap-center">
+                        <VerticleMain onlick={() => {
+                            navigate(`/${data?.postid}`)
+                        }} key={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} />
+                    </div>
+                    </>))
+            },
+        }
     ]
 
-    const postdiv = [
+    const categoryindexth = [
         {
             slidemainindex: 0,
-            slidemainrender: <PostDiv />,
+            slidemainrender: () => {
+
+                return  slidemaindata?.slice(0, 12).map(data => (<>
+                    <div className="w-[250px] md:w-[300px] snap-center">
+                        <VerticleMain onlick={() => {
+                            navigate(`/${data?.postid}`)
+                        }} key={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} />
+                    </div>
+                    </>))
+            },
         },
+        {
+            slidemainindex: 1,
+            slidemainrender: () => {
+
+                return  slidemaindata?.slice(0, 12).map(data => (<>
+                    {/* <div className="w-[250px] md:w-[300px] snap-center"> */}
+                    <div className="w-[250px] md:w-fit snap-center">
+                        <VerticleMain onlick={() => {
+                            navigate(`/${data?.postid}`)
+                        }} key={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} />
+                    </div>
+                    </>))
+            },
+        }
     ]
 
     const slidemain = [
         {
-            slidemainid: 'menudiv',
-            slidemainref: menudiv,
+            slidemainid: 'homemainth',
+            slidemainref: homemainth,
         },
         {
-            slidemainid: 'postdiv',
-            slidemainref: postdiv,
+            slidemainid: 'categoryindexth',
+            slidemainref: categoryindexth,
         },
     ]
 
     useEffect(() => {
-        if(appmainstate && appmainstate.appmainredirect === 'slidemain'){
-            const filter = slidemain.filter(data => data.slidemainid === appmainstate.appmainid)
-            const filtertwo = filter[0].slidemainref.filter(data => data.slidemainindex === 0)
-            setslidemainrender(filtertwo[0].slidemainrender)
-        }
-    }, [appmainstate])
+      if(slidemainid) {
+          const filter = slidemain.filter(data => data.slidemainid === slidemainid)
+          const filtertwo = filter[0].slidemainref.filter(data => data.slidemainindex === slidemainindex)
+          setslidemainrender(filtertwo[0].slidemainrender)
+      }
+    }, [slidemainid, slidemaindata, slidemainindex])
 
-    function ll() {
-        const math = Math.floor(Math.random() * (0 - 99 + 1) + 99)
-        setslidemainpage(math)
+    const ll = (first= this.props.first, second= this.props.second) => {
+        const scrollleft = first.current.scrollLeft;
+        const offsetwidth = first.current.offsetWidth;
+
+        if(scrollleft <= offsetwidth){
+            first.current.scrollTo(scrollleft + 400 * second, 0)
+        } 
+        if(scrollleft > offsetwidth) {
+            first.current.scrollTo(0, 0)
+        }
+
+            // const offset = ref.current.offsetWidth;
+            // ref.current.scrollTo(ref.current.scrollLeft + offset * delta, 0)
+            // ref.current.scrollLeft = 1500;
+            // ref.current.scrollLeft += 20;
     }
-    
+
   return (
     <div>
-        <motion.main   initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="relative w-screen min-h-screen grid grid-cols-12  bg-gray-900 text-white">
-                <article onClick={() => {
-                    ll()
-                }} className="col-span-2 sticky top-0 right-0 h-screen flex justify-center items-center">
-                    {/* <h1 className="text-3xl">←</h1> */}
-                    <RiArrowLeftSFill className='text-5xl  bg-black rounded-full' />
-                </article>
-            <section className="col-span-8 max-w-[500px] mx-auto">
-                <ExitMain />
-                <figcaption className="">
-                    {slidemainrender && slidemainrender}
-                </figcaption>
+        <main className="">
+            <section className="w-[1200px] md:w-full mx-auto relative group">
+                <figure ref={slidemainref} className="relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
+                   {slidemainrender && slidemainrender}
+                    <button onClick={() => ll(slidemainref, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
+                    <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
+                    </button>
+                </figure>
             </section>
-                <article onClick={() => {
-                    ll()
-                }} className="col-span-2 sticky top-0 right-0 h-screen flex justify-center items-center">
-                    {/* <h1 className="text-3xl">→</h1> */}
-                    <RiArrowRightSFill className='text-5xl  bg-black rounded-full' />
-                </article>
-        </motion.main>
+        </main>
     </div>
   )
 }

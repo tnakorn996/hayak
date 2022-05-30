@@ -57,7 +57,7 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                         appmainparam: param,
                         appmainboolean: true,
                       })
-                    }} className="relative row-span-3 overflow-hidden h-[40vh] md:h-[60vh] flex justify-center items-center   border-2 border-black">
+                    }} className="relative row-span-3 overflow-hidden h-[50vh] md:h-[60vh] flex justify-center items-center   border border-black">
                     <div className="absolute">
                     <LoadingMain />
                     </div>
@@ -69,7 +69,7 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                           genreindexid: genreid,
                         })
                         navigate(`/category/${type}`)
-                      }} className="text-xs  uppercase l-button opacity-100 border-r-2 border-b-2 border-black">{verticlemainrendertwo}</button>
+                      }} className="text-xs  uppercase l-button opacity-100 border-r border-b border-black">{verticlemainrendertwo}</button>
                       </>)}
                     </div>
                     {/* <div className="absolute top-0 left-0 z-10 w-full h-full  bg-black opacity-10" /> */}
@@ -77,12 +77,12 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                 </figure>
                 <figure className="relative flex flex-row py-[7px] gap-2 justify-end items-center">
                     {placepostid && (<>
-                    <div className="z-10 absolute -top-11 left-3 w-[30px] h-[30px] flex items-center  bg-white rounded-full overflow-hidden border-2 border-black">
+                    <div className="z-10 absolute -top-11 left-3 w-[30px] h-[30px] flex items-center  bg-white rounded-full overflow-hidden border border-black">
                         <img src={placepostid?.posticon} alt="" className="" />
                     </div>
                     </>)}
                     {posticon && (<>
-                    <div className="z-10 absolute -top-20 left-3 w-[100px] h-[100px] flex items-center  bg-white rounded-full overflow-hidden border-2 border-black">
+                    <div className="z-10 absolute -top-20 left-3 w-[100px] h-[100px] flex items-center  bg-white rounded-full overflow-hidden border border-black">
                         <img src={posticon} alt="" className="" />
                     </div>
                     </>)}
@@ -107,7 +107,7 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                       <RiMore2Fill className='my-[7px]  text-md l-m3' />
                     </figure>
                 </figure>
-                <figcaption onClick={onlick} className="row-span-3 h-[10vh]">
+                <figcaption onClick={onlick} className="row-span-3 h-[20vh]">
                     {/* <div className="flex flex-row gap-2 items-center">
                       <h1 className="text-[9px]  l-h1 truncate">{createdat?.slice(0, 10)}</h1>
                       <h1 className="l-h1 truncate">|</h1>
@@ -117,7 +117,7 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                         navigate(`/catagory/${verticledivstate?.verticledivtitle || null}`)
                       }} className="px-[7px]  text-gray-500 uppercase text-[8px] bg-gray-200 rounded-full">{verticledivstate?.verticledivtitle || null}</h1>}
                     </div> */}
-                    <h1 className="m-h2 uppercase text-black">{posttitle}</h1>
+                    <h1 className="m-h2 uppercase font-serif font-normal text-black">{posttitle}</h1>
                     {/* <h1 className="l-h2">{postsubtitle}</h1> */}
                     {/* {ll(data?.categoryid)} */}
                 </figcaption>
