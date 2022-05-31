@@ -15,6 +15,10 @@
         @apply opacity-80 cursor-pointer;
     }
 
+    a {
+        @apply opacity-80 cursor-pointer hover:underline;
+    }
+
     .m-button {
         @apply text-xs py-[10px] px-[20px] bg-black text-white font-medium;
     }
@@ -68,7 +72,7 @@
     }
 
     .l-h1 {
-        @apply text-xs text-gray-500 font-extralight;
+        @apply text-xs text-gray-500 font-light;
     }
 
     .m-h2 {
@@ -76,7 +80,7 @@
     }
 
     .l-h2 {
-        @apply text-sm text-gray-500 font-extralight;
+        @apply text-sm text-gray-500 font-light;
     }
 
     .m-h3 {
@@ -84,7 +88,7 @@
     }
 
     .l-h3 {
-        @apply text-base text-gray-500 font-extralight;
+        @apply text-base text-gray-500 font-light;
     }
 
     .m-h4 {
@@ -92,7 +96,7 @@
     }
 
     .l-h4 {
-        @apply text-lg text-gray-500 font-extralight;
+        @apply text-lg text-gray-500 font-light;
     }
 
     .m-h5 {
@@ -100,7 +104,7 @@
     }
 
     .l-h5 {
-        @apply text-xl  text-gray-500 font-extralight;
+        @apply text-xl  text-gray-500 font-light;
     }
 
     .m-h6 {
@@ -108,7 +112,7 @@
     }
 
     .l-h6 {
-        @apply text-2xl  text-gray-500 font-extralight;
+        @apply text-2xl  text-gray-500 font-light;
     }
 
     .m-figure {

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import LoadingMain from '../../component/load/LoadingMain'
 
 import HorizonMain from '../../component/post/HorizonMain'
-import { genreui } from '../../content/contentmantwo'
+import { categoryui, genreui } from '../../content/contentmantwo'
 import { ContextMain } from '../../context/contextmain'
 
 
@@ -25,7 +25,7 @@ function PostArticle() {
   const [postarticlestate, setpostarticlestate] = useState()
   const [postarticlestatetwo, setpostarticlestatetwo] = useState()
   const [postarticlerenderthree, setpostarticlerenderthree] = useState()
-  // const [previewmainpage, setpreviewmainpage] = useState(3)
+  const [postarticlerenderfour, setpostarticlerenderfour] = useState()
 
   useEffect(() => {
     const filter = postplaceproduct?.filter(data => data.postid === appmainstate.appmainparam)
@@ -36,32 +36,38 @@ function PostArticle() {
 
 useEffect(() => {
     if(postarticlestate && genreui){
-        const filter = genreui.filter(data => data.crummainid === postarticlestate.genreid)
+        const filter = categoryui.filter(data => data.crummainid === postarticlestate.categoryid)
+        const filtertwo = genreui.filter(data => data.crummainid === postarticlestate.genreid)
         setpostarticlerenderthree(filter[0]?.crummaintitle)
+        setpostarticlerenderfour(filtertwo[0]?.crummaintitle)
     }
   }, [postarticlestate])
   
   return (
     <div>
-        <main className="">
-                <section className="">
-                    <figure className="relative md:h-[65vh] flex items-center justify-center  overflow-hidden">
-                        <div className="z-10 absolute bottom-0 left-0 min-h-[20vh] md:min-h-[40vh] w-full  bg-gradient-to-b from-transparent to-white" />
-                        <div className="z-10 absolute bottom-0 left-8 md:left-14 max-w-[70%] md:max-w-[60%] ">
-                            {postarticlerenderthree && <h1 className=" flex flex-row items-center gap-1  tracking-[0.2em] md:m-h3 uppercase"><RiContrastDropLine className='md:m-h3' /> {postarticlerenderthree}</h1>}
-                            <h1 className="md:text-5xl  m-h6 font-serif">{postarticlestate?.posttitle}</h1>
-                        </div>
-                        {postarticlestate?.priceid === 'pro' &&<RiContrastDropLine className="absolute top-8 left-8 text-4xl  m-h5 text-gray-300" />}
+        <main className="h-screen md:h-full overflow-y-scroll md:overflow-auto">
+                <section className="z-0 sticky top-0 left-0">
+                    <figure className="relative h-[65vh] flex items-center justify-center  overflow-hidden">
+
                         <div className="absolute">
                             <LoadingMain />
                         </div>
-                        <img src={postarticlestate?.posthero} alt="" className="z-0 w-full" />
+                        <img src={postarticlestate?.posthero} alt="" className="z-0 min-w-[100ch] h-fit" />
                     </figure>
                 </section>
-                <section className="p-[30px] md:p-[60px] flex flex-col md:grid md:grid-cols-12 gap-5 ">
+                <section className="">
+                    <figure className="w-full relative">
+                        <div className="z-10 absolute bottom-0 left-0 min-h-[25vh] md:min-h-[40vh] w-full  bg-gradient-to-b from-transparent to-white" />
+                        <div className="z-10 absolute bottom-0 left-8 md:left-14 max-w-[70%] md:max-w-[60%] ">
+                            {postarticlerenderfour && <h1 className=" flex flex-row items-center gap-1  tracking-[0.2em] md:m-h3 uppercase"><RiContrastDropLine className='md:m-h3' /> {postarticlerenderfour}</h1>}
+                            <h1 className="md:text-5xl  m-h6 font-serif">{postarticlestate?.posttitle}</h1>
+                        </div>
+                    </figure>
+                </section>
+                <section className="sticky z-10 p-[30px] md:p-[60px] flex flex-col md:grid md:grid-cols-12 gap-5  bg-white">
                     <figure className="md:col-span-7">
-                        <figure className="grid grid-cols-12 items-center">
-                            <div className="col-span-12 grid grid-cols-12 gap-5  ">
+                        <figure className="grid grid-cols-12 items-center  ">
+                            <div className="col-span-12 grid grid-cols-12 gap-5">
                                 <button onClick={() => {
                                     setappmainstate({
                                         appmainboolean: false,
@@ -103,7 +109,7 @@ useEffect(() => {
                             <br />
                             <h1 className="hidden md:flex  l-h6">{postarticlestate?._createdAt?.slice(0, 10)}</h1>
                             <br />
-                            <h1 className="l-h3 md:l-h5">{postarticlestate?.postsubtitle}</h1>
+                            <h1 className="l-h5">{postarticlestate?.postsubtitle}</h1>
                         </figcaption>
                     </figure>
                     <figcaption className="md:col-span-5 grid grid-cols-2">
@@ -115,17 +121,17 @@ useEffect(() => {
                         <div className="">
                         <br /><br />
                         <h1 className="l-h2">Category: </h1>
-                        <h1 className="l-h4 text-black first-letter:uppercase">{postarticlestate?.categoryid}</h1>
+                        <h1 className="l-h4 text-black first-letter:uppercase">{postarticlerenderthree ? postarticlerenderthree : '--'}</h1>
                         </div>
                         <div className="">
                         <br /><br />
                         <h1 className="l-h2">This article is: </h1>
-                        <h1 className="l-h4 text-black first-letter:uppercase">{postarticlerenderthree ? postarticlerenderthree : '--'}</h1>
+                        <h1 className="l-h4 text-black first-letter:uppercase">{postarticlerenderfour ? postarticlerenderfour : '--'}</h1>
                         </div>
 
                     </figcaption>
                 </section>
-                <section className="hidden md:block p-[30px] md:p-[60px]">
+                <section className="sticky z-10 p-[30px] md:p-[60px] bg-white">
                     <h1 className="m-h6 font-serif">More like this</h1>
                     <br />
                     <div className="flex flex-col gap-3">

@@ -406,7 +406,7 @@ function PostIndex() {
     //     }
     // }
 
-    // if(!postpostid) return <LoadMain />
+    if(!postpostid) return <LoadMain />
 
     if(postindexmessage) return <section className="w-screen h-screen flex justify-center items-center">
         <AlertMain alertmainmessage={postindexmessage} />
@@ -453,7 +453,7 @@ function PostIndex() {
                     <br />
                 </section>
                 <section className="">
-                    <figure className="group relative md:min-h-[70vh] flex items-center justify-center overflow-hidden">
+                    <figure className="group relative flex items-center justify-center overflow-hidden">
                         <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={postpostid?.posthero} alt="" className="z-10 w-full " />
                         <div className="absolute">
                         <LoadingMain />
@@ -520,7 +520,7 @@ function PostIndex() {
                         <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                     <br />
-                    <figcaption className="md:text-lg  font-light">
+                    <figcaption className="md:text-lg  md:font-extralight">
                     <PortableTextComponentsProvider components={component}  >
                         {postpostid?.postblock?.map(data => (<>
                         <PortableText value={data} />
@@ -566,14 +566,14 @@ function PostIndex() {
             <figure layout className="col-span-12">
                 <br />
                 <br />
-                <h1 className="px-[20px] md:px-[60px]  m-h6 font-serif"> You may also like</h1>
+                <h1 className="px-[20px] md:px-[60px]  m-h5 md:m-h6 font-serif"> You may also like</h1>
                 <br />
                 <section className="overflow-y-scroll no-scrollbar">
                 <div className="px-[20px] md:px-[60px] w-[1000px] md:w-full grid grid-cols-4 gap-3">
                 {postindexrenderfour?.slice(0, 4)?.map(data => (<>
                     <VerticleMain onlick={() => {
                                     navigate(`/${data?.postid}`)
-                                }} key={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid} param={data?.postid} />
+                                }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid} param={data?.postid} />
                     </>))}
                 </div>
                 </section>

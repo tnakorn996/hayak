@@ -24,7 +24,7 @@ function SlideMain({
                     <div className="w-[250px] md:w-fit snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
-                        }} key={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} />
+                        }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} />
                     </div>
                     </>))
             },
@@ -40,7 +40,7 @@ function SlideMain({
                     <div className="w-[250px] md:w-[300px] snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
-                        }} key={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} />
+                        }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} />
                     </div>
                     </>))
             },
@@ -54,7 +54,7 @@ function SlideMain({
                     <div className="w-[250px] md:w-fit snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
-                        }} key={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} />
+                        }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} />
                     </div>
                     </>))
             },

@@ -52,7 +52,7 @@ function SpreadMain() {
           {spreadmainrender?.map(data => (<>
             {data?.spreadmainrendertwo?.map(dat => (<>
             <br /><br />
-            <h1 className="m-h6 font-serif">{dat?.sheetmainsubtitle}</h1>
+            <h1 className="m-h5 md:m-h6 font-serif">{dat?.sheetmainsubtitle}</h1>
             <br />
             {data?.spreadmainrender?.map(da => (<>
             <figure className={`p-[20px] grid grid-cols-12  ${da?.spreadmainstyle}`}>

@@ -221,7 +221,7 @@ function CategoryIndex() {
                 {categoryindexrender?.map(data => (<>
                 <br />
                 <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
-                    <h1 className="m-h6 font-serif">{data?.categoryindextitle} {categoryindextitle && categoryindextitle}</h1>
+                    <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle && categoryindextitle}</h1>
                 </figcaption>
                 <br />
 

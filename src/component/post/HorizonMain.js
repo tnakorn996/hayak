@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { RiArrowDownSLine } from 'react-icons/ri'
 import { ContextMain } from '../../context/contextmain'
 
-function HorizonMain({onlick, posticon, posthero, posttitle, postsubtitle,  createdat, param}) {
+function HorizonMain({onlick, postid, posticon, posthero, posttitle, postsubtitle,  createdat, param}) {
 
     const {
         setappmainstate,
@@ -22,7 +22,7 @@ function HorizonMain({onlick, posticon, posthero, posttitle, postsubtitle,  crea
                 </section>
                 <section className="">
                     <figcaption onClick={onlick} className="grid grid-flow-row l-section">
-                        <h1 className="m-h4 truncate">{posttitle}</h1>
+                        <a href={`https://hayak.vercel.app/${postid}`} className="m-h4 truncate">{posttitle}</a>
                         <h1 className="l-h2 truncate">{postsubtitle}</h1>
                     </figcaption>
                     <figure className="flex flex-row justify-between items-center  l-section">

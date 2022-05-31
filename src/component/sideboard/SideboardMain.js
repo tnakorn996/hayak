@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
-import { RiCloseFill, RiContrastDropLine } from 'react-icons/ri'
+import { RiCloseFill, RiCloseLine, RiContrastDropLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 // import { useLocation } from 'react-router-dom'
 import { categoryul, categoryui } from '../../content/contentmantwo'
@@ -121,7 +121,7 @@ function SideboardMain() {
 
   return (
     <div>
-        <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="h-screen w-screen md:max-w-[55vw] fixed top-0 left-0 flex flex-col justify-start items-center bg-black text-white">
+        <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="h-screen w-screen md:max-w-[55vw] fixed top-0 left-0 flex flex-col justify-start items-center bg-white shadow-2xl">
             <section className="h-[10vh] px-[20px] md:px-[50px] w-full flex flex-row justify-between items-center">
               <figure className="">
                 <article className=" flex flex-row gap-1 items-center">
@@ -134,7 +134,7 @@ function SideboardMain() {
                 </article>
               </figure>
               <figcaption className="">
-                <RiCloseFill onClick={() => {
+                <RiCloseLine onClick={() => {
                 setappmainstate({
                     appmainboolean: false
                 })

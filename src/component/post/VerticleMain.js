@@ -118,7 +118,7 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                         navigate(`/catagory/${verticledivstate?.verticledivtitle || null}`)
                       }} className="px-[7px]  text-gray-500 uppercase text-[8px] bg-gray-200 rounded-full">{verticledivstate?.verticledivtitle || null}</h1>}
                     </div> */}
-                    <h1 className="m-h2 uppercase font-serif font-normal  leading-loose text-black">{posttitle}</h1>
+                    <a href={`https://hayak.vercel.app/${postid}`} className="m-h2 uppercase font-serif font-normal  leading-loose text-black">{posttitle}</a>
                     <h1 className="l-h2">{postsubtitle}</h1>
                     {/* {ll(data?.categoryid)} */}
                 </figcaption>
