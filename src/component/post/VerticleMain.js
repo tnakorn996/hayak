@@ -57,11 +57,11 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                         appmainparam: param,
                         appmainboolean: true,
                       })
-                    }} className="relative row-span-3 overflow-hidden h-[50vh] md:h-[60vh] flex justify-center items-center   border border-black">
+                    }} className="relative row-span-3 overflow-hidden h-[50vh] md:h-[60vh] flex justify-center items-center ">
                     <div className="absolute">
                     <LoadingMain />
                     </div>
-                    <div className="z-20 absolute top-0 left-0">
+                    <div className="z-30 absolute top-0 left-0">
                       {verticlemainrendertwo && verticlemainrendertwo && (<>
                       <button onClick={() => {
                         setbreadmainstate('')
@@ -69,20 +69,21 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                           genreindexid: genreid,
                         })
                         navigate(`/category/${type}`)
-                      }} className="text-xs  uppercase l-button opacity-100 border-r border-b border-black">{verticlemainrendertwo}</button>
+                      }} className="text-xs  uppercase l-button opacity-100">{verticlemainrendertwo}</button>
                       </>)}
                     </div>
+                    <div className="z-20 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
                     {/* <div className="absolute top-0 left-0 z-10 w-full h-full  bg-black opacity-10" /> */}
                     <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={posthero} alt="" className="max-w-[100ch] z-10 h-full hover:scale-110 duration-1000" />
                 </figure>
                 <figure className="relative flex flex-row py-[7px] gap-2 justify-end items-center">
                     {placepostid && (<>
-                    <div className="z-10 absolute -top-11 left-3 w-[30px] h-[30px] flex items-center  bg-white rounded-full overflow-hidden border border-black">
+                    <div className="z-20 absolute -top-11 left-3 w-[30px] h-[30px] flex items-center  bg-white rounded-full overflow-hidden shadow">
                         <img src={placepostid?.posticon} alt="" className="" />
                     </div>
                     </>)}
                     {posticon && (<>
-                    <div className="z-10 absolute -top-20 left-3 w-[100px] h-[100px] flex items-center  bg-white rounded-full overflow-hidden border border-black">
+                    <div className="z-20 absolute -top-20 left-3 w-[100px] h-[100px] flex items-center  bg-white rounded-full overflow-hidden shadow">
                         <img src={posticon} alt="" className="" />
                     </div>
                     </>)}
@@ -117,8 +118,8 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                         navigate(`/catagory/${verticledivstate?.verticledivtitle || null}`)
                       }} className="px-[7px]  text-gray-500 uppercase text-[8px] bg-gray-200 rounded-full">{verticledivstate?.verticledivtitle || null}</h1>}
                     </div> */}
-                    <h1 className="m-h2 uppercase font-serif font-normal text-black">{posttitle}</h1>
-                    {/* <h1 className="l-h2">{postsubtitle}</h1> */}
+                    <h1 className="m-h2 uppercase font-serif font-normal  leading-loose text-black">{posttitle}</h1>
+                    <h1 className="l-h2">{postsubtitle}</h1>
                     {/* {ll(data?.categoryid)} */}
                 </figcaption>
             </article>

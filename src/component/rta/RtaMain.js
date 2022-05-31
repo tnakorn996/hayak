@@ -74,11 +74,13 @@ function RtaMain({type}) {
                   </section>
                   <br />
               </>))}
-              {data?.rtamainrenderthree?.slice(0, 3)?.map(da => (<>
+              <section className="flex flex-col">
+              {data?.rtamainrenderthree?.slice(0, 2)?.map(da => (<>
                   <HorizonMain onlick={() => {
                     navigate(`/${da?.postid}`)
                   }} key={da?.postid} createdat={da?._createdAt} posticon={da?.posticon} posthero={da?.posthero} posttitle={da?.posttitle} postsubtitle={da?.postsubtitle} categoryid={da?.categoryid} priceid={da?.priceid} param={da?.postid} />
-            </>))}
+              </>))}
+              </section>
           </>))}
         </main>
     </div>

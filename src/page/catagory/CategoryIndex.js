@@ -45,14 +45,14 @@ function CategoryIndex() {
 
     const categoryindex = [
         {
-            categoryindexid: 'postcategoryidcreatedat',
-            categoryindexmap: postcategoryidcreatedat?.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt)),
-            categoryindextitle: 'New',
-        },
-        {
             categoryindexid: 'postcategoryidupdatedat',
             categoryindexmap: postcategoryidupdatedat?.sort((a, b) => new Date(b._updatedAt) - new Date(a._updatedAt)),
             categoryindextitle: 'Trending',
+        },
+        {
+            categoryindexid: 'postcategoryidcreatedat',
+            categoryindexmap: postcategoryidcreatedat?.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt)),
+            categoryindextitle: 'New',
         },
         {
             categoryindexid: 'postcategoryidpostcount',
@@ -60,8 +60,6 @@ function CategoryIndex() {
             categoryindextitle: 'Hottest',
         },
     ]
-
-    console.log('postcatego :>> ', postcategoryidcreatedat);
 
     useEffect(() => {
         if(breadmain && crummain){
@@ -223,16 +221,16 @@ function CategoryIndex() {
                 {categoryindexrender?.map(data => (<>
                 <br />
                 <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
-                    <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle && categoryindextitle}</h1>
+                    <h1 className="m-h6 font-serif">{data?.categoryindextitle} {categoryindextitle && categoryindextitle}</h1>
                 </figcaption>
                 <br />
 
-                {data?.categoryindexid === 'postcategoryidcreatedat' && (<>
-                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={ref} />
-                </>)}
-
                 {data?.categoryindexid === 'postcategoryidupdatedat' && (<>
                 <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={reftwo} />
+                </>)}
+
+                {data?.categoryindexid === 'postcategoryidcreatedat' && (<>
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={ref} />
                 </>)}
 
                 {data?.categoryindexid === 'postcategoryidpostcount' && (<>

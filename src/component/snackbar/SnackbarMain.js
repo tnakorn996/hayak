@@ -59,7 +59,6 @@ function SnackbarMain() {
       }
     }, [snackbarmainstate])
 
-    console.log('snackbarmainrender :>> ', snackbarmainrender);
 
   return (
     <div>

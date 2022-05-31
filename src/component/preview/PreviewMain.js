@@ -80,7 +80,7 @@ function PreviewMain() {
   return (
     <div>
         <br />
-        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 0}}  className="relative md:w-[900px] mx-auto bg-white overflow-hidden border border-black">
+        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 0}}  className="relative md:w-[900px] mx-auto bg-white overflow-hidden shadow-2xl">
             <RiCloseFill onClick={() => {
                 setappmainstate({
                     appmainboolean: false

@@ -25,9 +25,7 @@ function SheetMain() {
 
     const [sheetmainvalue, setsheetmainvalue] = useState()
     const [sheetmainvalueone, setsheetmainvalueone] = useState()
-    console.log('sheetmainvalueone :>> ', sheetmainvalueone);
     const [sheetmainvaluetwo, setsheetmainvaluetwo] = useState()
-    console.log('sheetmainvaluetwo :>> ', sheetmainvaluetwo);
     const [sheetmainvaluethree, setsheetmainvaluethree] = useState()
     const [sheetmainvaluefour, setsheetmainvaluefour] = useState()
 

@@ -10,6 +10,8 @@ function CtaMain() {
     const {
         setappmainstate,
         ctamainstate,
+        settabmainstate,
+        setsharemainstate,
 
     } = useContext(ContextMain)
     const param = useParams()
@@ -20,12 +22,22 @@ function CtaMain() {
     const postembed = [
         {
             ctamainrender: <button onClick={() => {
-                setappmainstate({
-                            appmainid: 'sharesection',
-                            appmainidtwo: 'modalmain',
-                            appmainidthree: 0,
-                            appmainparam: param.id,
-                            appmainboolean: true,
+                        settabmainstate({
+                          tabmainid: 'postoption',
+                          tabmainparam: ctamainstate?.ctamainrender?.postid,
+                          // tabmainlocation: location.pathname,
+                          tabmainimage: ctamainstate?.ctamainrender?.posthero,
+                          tabmaintitle: ctamainstate?.ctamainrender?.posttitle,
+                        })
+                        setappmainstate({
+                          appmainid: 'postoption',
+                          appmainidtwo: 'opendeskmain',
+                          appmainindex: 1,
+                          appmainparam: ctamainstate?.ctamainrender?.postid,
+                          appmainboolean: true,
+                        })
+                        setsharemainstate({
+                          sharemainparam: ctamainstate?.ctamainrender?.postid,
                         })
             }} className="m-h3 w-full m-button">Share post</button>,
             ctamainrendertwo: <button onClick={() => {
@@ -34,17 +46,33 @@ function CtaMain() {
                             appmainidtwo: 'sideboardmain',
                             appmainboolean: true,
                 })
-            }} className="m-h3 w-full l-button  border border-black">Check avability comments</button>,
+            }} className="m-h3 w-full l-button  border border-black">Give your comment</button>,
         },
         {
             ctamainrender: <button onClick={() => {
-                setappmainstate({
-                            appmainid: 'sharesection',
-                            appmainidtwo: 'modalmain',
-                            appmainidthree: 0,
-                            appmainparam: param.id,
-                            appmainboolean: true,
+                        settabmainstate({
+                          tabmainid: 'postoption',
+                          tabmainparam: ctamainstate?.ctamainrender?.postid,
+                          // tabmainlocation: location.pathname,
+                          tabmainimage: ctamainstate?.ctamainrender?.posthero,
+                          tabmaintitle: ctamainstate?.ctamainrender?.posttitle,
                         })
+                        setappmainstate({
+                          appmainid: 'postoption',
+                          appmainidtwo: 'opendeskmain',
+                          appmainparam: ctamainstate?.ctamainrender?.postid,
+                          appmainboolean: true,
+                        })
+                        setsharemainstate({
+                          sharemainparam: ctamainstate?.ctamainrender?.postid,
+                        })
+                // setappmainstate({
+                //             appmainid: 'sharesection',
+                //             appmainidtwo: 'modalmain',
+                //             appmainidthree: 0,
+                //             appmainparam: param.id,
+                //             appmainboolean: true,
+                //         })
             }} className="m-h3 w-full m-button">Share recipes</button>,
             ctamainrendertwo: <button onClick={() => {
                 setappmainstate({
@@ -52,7 +80,7 @@ function CtaMain() {
                             appmainidtwo: 'sideboardmain',
                             appmainboolean: true,
                 })
-            }} className="m-h3 w-full l-button  border border-black">Check avability comments</button>,
+            }} className="m-h3 w-full l-button  border border-black">Give your comment</button>,
         },
     ]
 
@@ -60,25 +88,30 @@ function CtaMain() {
         {
             ctamainrender: <button onClick={() => {
                 window.open(ctamainstate?.ctamainrender?.postplaceurl, '_blank').focus();
-            }} className="m-h3 w-full m-button">Seller website</button>,
+            }} className="m-h3 w-full m-button">Owner website</button>,
             ctamainrendertwo: <button onClick={() => {
                 setappmainstate({
                             appmainid: 'commentdialog',
                             appmainidtwo: 'sideboardmain',
                             appmainboolean: true,
                 })
-            }} className="m-h3 w-full l-button  border border-black">Check avability reviews</button>,
+            }} className="m-h3 w-full l-button  border border-black">Give your comment</button>,
         },
     ]
 
     const productembed = [
         {
-            ctamainrender: <button onClick={() => {
-                window.open(ctamainstate?.ctamainrender?.placeplaceid[0]?.postplaceurl, '_blank').focus();
-            }} className="m-h3 w-full m-button">Seller website</button>,
-            ctamainrendertwo: <button onClick={() => {
-                window.open(ctamainstate?.ctamainrender?.postproducturl, '_blank').focus();
-            }} className="m-h3 w-full l-button  border border-black">Check avability product</button>,
+            ctamainrender: () => {
+
+                return <button onClick={() => {
+                    window.open(ctamainstate?.ctamainrender?.placeplaceid[1]?.postplaceurl || ctamainstate?.ctamainrender?.placeplaceid[0]?.postplaceurl, '_blank').focus();
+                }} className="m-h3 w-full m-button">Seller website</button>
+            },
+            ctamainrendertwo: () => {
+                return <button onClick={() => {
+                    window.open(ctamainstate?.ctamainrender?.postproducturl, '_blank').focus();
+                }} className="m-h3 w-full l-button  border border-black">Check avability product</button>
+            },
         },
     ]
 

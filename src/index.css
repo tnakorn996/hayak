@@ -68,7 +68,7 @@
     }
 
     .l-h1 {
-        @apply text-xs text-gray-500 font-light;
+        @apply text-xs text-gray-500 font-extralight;
     }
 
     .m-h2 {
@@ -76,7 +76,7 @@
     }
 
     .l-h2 {
-        @apply text-sm text-gray-500 font-light;
+        @apply text-sm text-gray-500 font-extralight;
     }
 
     .m-h3 {
@@ -84,7 +84,7 @@
     }
 
     .l-h3 {
-        @apply text-base text-gray-500 font-light;
+        @apply text-base text-gray-500 font-extralight;
     }
 
     .m-h4 {
@@ -92,7 +92,7 @@
     }
 
     .l-h4 {
-        @apply text-lg text-gray-500 font-light;
+        @apply text-lg text-gray-500 font-extralight;
     }
 
     .m-h5 {
@@ -100,7 +100,7 @@
     }
 
     .l-h5 {
-        @apply text-xl  text-gray-500 font-light;
+        @apply text-xl  text-gray-500 font-extralight;
     }
 
     .m-h6 {
@@ -108,7 +108,7 @@
     }
 
     .l-h6 {
-        @apply text-2xl  text-gray-500 font-light;
+        @apply text-2xl  text-gray-500 font-extralight;
     }
 
     .m-figure {

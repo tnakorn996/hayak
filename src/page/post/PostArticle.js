@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
-import { RiContrastDropLine, RiEyeLine, RiShareFill } from 'react-icons/ri'
+import { RiContrastDropLine, RiEyeLine, RiShareFill, RiBookOpenLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 import LoadingMain from '../../component/load/LoadingMain'
 
@@ -45,8 +45,8 @@ useEffect(() => {
     <div>
         <main className="">
                 <section className="">
-                    <figure className="relative max-h-[40vh] md:min-h-[65vh] flex items-center justify-center  overflow-hidden">
-                        <div className="z-10 absolute bottom-0 left-0 min-h-[35vh] md:min-h-[40vh] w-full  bg-gradient-to-b from-transparent to-white" />
+                    <figure className="relative md:h-[65vh] flex items-center justify-center  overflow-hidden">
+                        <div className="z-10 absolute bottom-0 left-0 min-h-[20vh] md:min-h-[40vh] w-full  bg-gradient-to-b from-transparent to-white" />
                         <div className="z-10 absolute bottom-0 left-8 md:left-14 max-w-[70%] md:max-w-[60%] ">
                             {postarticlerenderthree && <h1 className=" flex flex-row items-center gap-1  tracking-[0.2em] md:m-h3 uppercase"><RiContrastDropLine className='md:m-h3' /> {postarticlerenderthree}</h1>}
                             <h1 className="md:text-5xl  m-h6 font-serif">{postarticlestate?.posttitle}</h1>
@@ -69,9 +69,12 @@ useEffect(() => {
                                     navigate(`/${postarticlestate?.postid}`)
                                 }} className="col-span-12 md:col-span-5 m-button m-h3">→ Read more</button>
                                 <figure className="col-span-12 md:col-span-7 flex flex-row gap-3 items-center justify-between ">
-                                    <div className="flex flex-row gap-3 items-center">
+                                    <div className="flex flex-row gap-4 items-center">
                                         <h1 className="block md:hidden l-h5">{postarticlestate?._createdAt?.slice(0, 10)}</h1>
+                                        <div className="flex flex-row items-center gap-1">
+                                        <RiBookOpenLine className='m-h5' />
                                         <h1 className="l-h5">{Math.floor(postarticlestate?.postblock?.length * 0.2) || 1} min</h1>
+                                        </div>
                                         <div className="flex flex-row items-center gap-1">
                                         <RiEyeLine className='m-h5' />
                                         <h1 className="l-h5">{postarticlestate?.postcount || 0}</h1>

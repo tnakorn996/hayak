@@ -174,7 +174,7 @@ function PostIndex() {
     useEffect(() => {
       if(postpostid){
             // kk()
-            jj()
+            // jj()
             setbreadmainstate({
                 breadmainid: postpostid?._type,
                 breadmainidtwo: postpostid?.categoryid,
@@ -201,8 +201,9 @@ function PostIndex() {
                 stepmainindex: 0,
             })
 
-            const filterfour = postindex?.filter(data => data.postindexid === postpostid?._type)
-            setpostindexrenderfour(filterfour[0]?.postindexrenderfour)
+            const filterthree = postindex?.filter(data => data.postindexid === postpostid?._type)
+            const filterfour = filterthree[0]?.postindexrenderfour?.filter(data => data._id !== postpostid?._id)
+            setpostindexrenderfour(filterfour)
       }
     }, [postpostid])
 
@@ -280,13 +281,18 @@ function PostIndex() {
     //   }
     // }, [userindex, postpostid])
     
+
+    
     const ll = async () => {
+        // && postid != ^.postid
+        
+                //   'placeplaceid': *[_type == 'place' && postid == ^.placeid] | order(_createdAt desc),
+
               const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${param.id}']{
                   ...,
-                  'postplaceid': *[_type == 'post' && postid != ^.postid && placeid == ^.placeid ] | order(_createdAt desc) ,
-                  'placeplaceid': *[_type == 'place' && postid == ^.placeid] | order(_createdAt desc),
-                  'productplaceid': *[_type == 'product' && postid != ^.postid && placeid == ^.placeid ] | order(_createdAt desc) ,
-
+                  'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] | order(_createdAt desc),
+                  'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo] | order(_createdAt desc) ,
+                  'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] | order(_createdAt desc) ,
                   'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] | order(_createdAt desc) ,
               }[0]`;
               await client.fetch(query)
@@ -441,13 +447,13 @@ function PostIndex() {
             </figcaption>
             <figure className="col-span-12 md:col-span-7">
                 <section className="block md:hidden">
-                    <h1 className="l-h3 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
+                    <h1 className="l-h2 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
                     <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                     <br />
                 </section>
-                <section className="md:border md:border-black">
-                    <figure className="group relative min-h-[50vh] grid items-center justify-items-center  md:border-b md:border-black">
+                <section className="">
+                    <figure className="group relative md:min-h-[70vh] flex items-center justify-center overflow-hidden">
                         <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={postpostid?.posthero} alt="" className="z-10 w-full " />
                         <div className="absolute">
                         <LoadingMain />
@@ -463,6 +469,7 @@ function PostIndex() {
                         }}  className="hidden group-hover:block absolute top-3 left-3 z-20 p-[10px]  ">
                             <button className="l-button opacity-100 border border-black">View image</button>
                         </div>
+                        <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
                     </figure>
                     <figure className="p-[10px] flex justify-between items-center">
                         <div className="flex flex-row gap-5 items-center ">
@@ -508,12 +515,12 @@ function PostIndex() {
                     </figure>
                 </section>
                 <br />
-                <section className={`md:p-[20px] relative h-[60vh]  md:border md:border-black overflow-hidden ${!postindexaction && '!h-fit'}`}>
+                <section className={`relative h-[30vh] md:h-[50vh]  overflow-hidden ${!postindexaction && '!h-fit'}`}>
                     <figcaption className="">
                         <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                     <br />
-                    <figcaption className="md:text-lg  font-light ">
+                    <figcaption className="md:text-lg  font-light">
                     <PortableTextComponentsProvider components={component}  >
                         {postpostid?.postblock?.map(data => (<>
                         <PortableText value={data} />
@@ -543,7 +550,7 @@ function PostIndex() {
             </figure>
             <figcaption className="p-0 md:px-[30px] md:col-span-5">
                 <section className="hidden md:block">
-                    <h1 className="l-h3 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
+                    <h1 className="l-h2 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
                     <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                 </section>

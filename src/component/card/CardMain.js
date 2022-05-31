@@ -109,7 +109,7 @@ function CardMain({
         <br />
         <motion.main initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative">
             {cardmainrender?.map(data => (<>
-                <figure className={`w-full p-[20px] flex flex-col  md:grid md:grid-cols-12  border border-black ${data?.spreadmainstyle}`}>
+                <figure className={`w-full p-[20px] flex flex-col  md:grid md:grid-cols-12   ${data?.spreadmainstyle}`}>
                     <section className="col-span-1 ">
                         <h1 className={`hidden md:flex justify-start  l-h3 ${data?.spreadmainstyle}`}>{data?.spreadmainicon}</h1>
                     </section>
