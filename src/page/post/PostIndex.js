@@ -406,7 +406,7 @@ function PostIndex() {
     //     }
     // }
 
-    if(!postpostid) return <LoadMain />
+    // if(!postpostid) return <LoadMain />
 
     if(postindexmessage) return <section className="w-screen h-screen flex justify-center items-center">
         <AlertMain alertmainmessage={postindexmessage} />
