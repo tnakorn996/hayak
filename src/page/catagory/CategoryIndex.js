@@ -77,25 +77,11 @@ function CategoryIndex() {
     }, [])
     
     useEffect(() => {
-        if(postplaceproduct){
+        if(postplaceproduct || breadmainstate || genreindexstate){
             // ll()
             kk()
-
-            // setgenreindexstate({
-            //     genreindexid: 'recommend'
-            // })
         }
-    }, [postplaceproduct])
-
-    useEffect(() => {
-        // if(breadmainstate === '' && genreindexstate === '') {
-        //     ll()
-        // } 
-        // if(breadmainstate !== '' || genreindexstate !== ''){
-        //     kk()
-        // }
-        kk()
-    }, [breadmainstate, genreindexstate])
+    }, [postplaceproduct, breadmainstate, genreindexstate])
 
     useEffect(() => {
       if(postcategoryidcreatedat && postcategoryidupdatedat && postcategoryidpostcount){
@@ -116,7 +102,7 @@ function CategoryIndex() {
         const empty = []
         const emptytwo = []
         const emptythree = []
-        postplaceproduct.forEach(data => {
+        postplaceproduct?.forEach(data => {
 
             if(breadmainstate !== '' && genreindexstate !== '' && data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo && data.genreid === genreindexstate.genreindexid){
                 empty.push(data)
