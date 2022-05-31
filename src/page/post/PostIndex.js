@@ -406,7 +406,7 @@ function PostIndex() {
     //     }
     // }
 
-    // if(!postpostid) return <LoadMain />
+    if(!postpostid) return <LoadMain />
 
     if(postindexmessage) return <section className="w-screen h-screen flex justify-center items-center">
         <AlertMain alertmainmessage={postindexmessage} />
@@ -453,7 +453,7 @@ function PostIndex() {
                     <br />
                 </section>
                 <section className="">
-                    <figure className="group relative flex items-center justify-center overflow-hidden">
+                    <figure className="group md:min-h-[50vh] relative flex items-center justify-center overflow-hidden">
                         <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={postpostid?.posthero} alt="" className="z-10 w-full " />
                         <div className="absolute">
                         <LoadingMain />

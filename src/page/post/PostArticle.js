@@ -53,7 +53,7 @@ useEffect(() => {
                             <LoadingMain />
                         </div>
                         <figure className="h-full w-full flex justify-center items-center">
-                        <img src={postarticlestate?.posthero} alt="" className="z-0 max-w-[100ch] h-full" />
+                        <img src={postarticlestate?.posthero} alt="" className=" z-0 max-w-[100ch] h-full  md:h-fit md:w-full" />
                         </figure>
                     </figure>
                 </section>
