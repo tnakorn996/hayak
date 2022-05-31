@@ -415,8 +415,8 @@ function PostIndex() {
 
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="px-[20px] md:px-[60px] flex flex-col md:grid md:grid-cols-12 gap-3">
-            <figcaption className="col-span-12 ">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="flex flex-col md:grid md:grid-cols-12">
+            {/* <figcaption className="col-span-12 ">
                 <br />
                 <div className="flex justify-between items-center gap-5">
                     <BreadMain />
@@ -444,16 +444,10 @@ function PostIndex() {
                     </figure>
                 </div>
                 <br />
-            </figcaption>
-            <figure className="col-span-12 md:col-span-7">
-                <section className="block md:hidden">
-                    <h1 className="l-h2 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
-                    <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
-                    <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
-                    <br />
-                </section>
+            </figcaption> */}
+            <figure className="col-span-12">
                 <section className="">
-                    <figure className="group md:min-h-[50vh] relative flex items-center justify-center overflow-hidden">
+                    <figure className="group md:max-h-[60vh] relative flex items-center justify-center overflow-hidden">
                         <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={postpostid?.posthero} alt="" className="z-10 w-full " />
                         <div className="absolute">
                         <LoadingMain />
@@ -471,13 +465,28 @@ function PostIndex() {
                         </div>
                         <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
                     </figure>
+                </section>
+            </figure>
+            <figcaption className="hidden md:block col-span-12">
+                <section className="md:grid md:grid-flow-col">
+                    {<SpreadMain />}
+                    {<RtaMain />}
+                </section>
+            </figcaption>
+            <figcaption className="col-span-12">
+                <br /><br />
+                <section className="px-[20px] md:px-[60px] max-w-[900px] mx-auto">
+                    <h1 className="l-h2 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
+                    <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
+                    <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
+                    <br />
                     <figure className="p-[10px] flex justify-between items-center">
                         <div className="flex flex-row gap-5 items-center ">
                             <div className="flex flex-row gap-2 items-center  m-h4">
                                 <figure className="">
                                     <RiEyeLine />
                                 </figure>
-                                <figcaption className="">
+                                <figcaption className="l-h3">
                                     {postpostid?.postcount || 0}
                                 </figcaption>
                             </div>
@@ -491,54 +500,40 @@ function PostIndex() {
                                 <figure className="">
                                     <RiChat3Line />
                                 </figure>
-                                <figcaption className="">
+                                <figcaption className="l-h3">
                                     {postpostid?.postcount || 0}
                                 </figcaption>
                             </div>
                         </div>
                         <div className="">
                         <SocialMain param={`/` + param.id} />
-                            {/* <figure onClick={() => {
-                                setappmainstate({
-                                    appmainid: 'sharesection',
-                                    appmainidtwo: 'modalmain',
-                                    appmainidthree: 0,
-                                    appmainparam: param.id,
-                                    appmainboolean: true,
-                                })
-                            }} className="">
-                            <article className="">
-                            <RiMore2Fill className='m-h3' />
-                            </article>
-                        </figure> */}
                         </div>
                     </figure>
+                    <br />
+                    <hr />
+                    <br />
                 </section>
-                <br />
-                <section className={`relative h-[30vh] md:h-[50vh]  overflow-hidden ${!postindexaction && '!h-fit'}`}>
+                <section className={`relative px-[20px] md:px-[60px] max-w-[900px] mx-auto h-[30vh] md:h-[40vh] overflow-hidden ${!postindexaction && '!h-fit'}`}>
+                    <br />
                     <figcaption className="">
                         <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                     <br />
-                    <figcaption className="md:text-lg  md:font-extralight">
+                    <figcaption className="md:text-lg relative  md:font-extralight">
                     <PortableTextComponentsProvider components={component}  >
                         {postpostid?.postblock?.map(data => (<>
                         <PortableText value={data} />
                         <br />
                         </>))}
+                        <button onClick={() => {
+                            setpostindexaction(!postindexaction)
+                        }} className='absolute z-10 right-0 bottom-0  md:m-[10px] l-button '>{postindexaction ? 'Show more' : 'Show less'}</button>
                     </PortableTextComponentsProvider>
                     <br /><br />
                     </figcaption>
-                    <figure className={`p-[10px] absolute w-full h-[50%] bottom-0 left-0 flex items-end justify-end   bg-gradient-to-b from-transparent to-white ${!postindexaction && '!hidden'}`}>
-                        {/* <button onClick={() => {
-                        setpostindexaction(!postindexaction)
-                    }} className="l-button">Read more</button> */}
-                    </figure>
-                    <button onClick={() => {
-                        setpostindexaction(!postindexaction)
-                    }} className='md:m-[10px] absolute bottom-0 right-0  l-button '>{postindexaction ? 'Read more' : 'Show less'}</button>
+                    <figure className={`p-[10px] absolute w-full h-[50%] bottom-0 left-0 flex items-end justify-end   bg-gradient-to-b from-transparent to-white ${!postindexaction && '!hidden'}`} />
                 </section>
-                <section layout className="">
+                <section layout className="px-[20px] md:px-[60px] max-w-[900px] mx-auto">
                     <CardMain     
                     cardmainid={'commentimg'}
                     cardmainidtwo={'inform'}
@@ -547,22 +542,23 @@ function PostIndex() {
                     />
                 
                 </section>
+
+            </figcaption>
+            <figure className="col-span-5">
+                
             </figure>
-            <figcaption className="p-0 md:px-[30px] md:col-span-5">
-                <section className="hidden md:block">
+            <figcaption className="col-span-12">
+                    {/* <section className="hidden md:block">
                     <h1 className="l-h2 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
                     <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
-                </section>
-                <section className="">
+                </section> */}
+                <section className="px-[20px] md:px-[60px] max-w-[900px] mx-auto ">
                     {<CtaMain />}
-                    {<RtaMain />}
-                    {<SpreadMain />}
                     {/* <TableMain /> */}
                     {/* <StepMain /> */}
                 </section>
             </figcaption>
-        </motion.main>
             <figure layout className="col-span-12">
                 <br />
                 <br />
@@ -572,13 +568,14 @@ function PostIndex() {
                 <div className="px-[20px] md:px-[60px] w-[1000px] md:w-full grid grid-cols-4 gap-3">
                 {postindexrenderfour?.slice(0, 4)?.map(data => (<>
                     <VerticleMain onlick={() => {
-                                    navigate(`/${data?.postid}`)
-                                }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid} param={data?.postid} />
+                        navigate(`/${data?.postid}`)
+                    }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid} param={data?.postid} />
                     </>))}
                 </div>
                 </section>
                 <br />
             </figure>
+        </motion.main>
     </div>
   )
 }

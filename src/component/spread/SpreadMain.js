@@ -17,10 +17,8 @@ function SpreadMain() {
   const param = useParams()
 
   const [spreadmainrender, setspreadmainrender] = useState()
-  const [spreadmainrendertwo, setspreadmainrendertwo] = useState()
 
   useEffect(() => {
-    // console.log('spreadmainstate :>> ', spreadmainstate);
     if(spreadmainstate && spreadmainstate.spreadmainrender !== null){
       const empty = []
       sheetmain.forEach(data  => {
@@ -46,10 +44,13 @@ function SpreadMain() {
     }
   }, [spreadmainstate])
 
+  if(spreadmainrender === undefined) return null
+
   return (
     <div>
-        <main className="">
+        <main className="h-full flex flex-col md:flex-row">
           {spreadmainrender?.map(data => (<>
+          <div className="w-full px-0 md:px-[30px]  md:border">
             {data?.spreadmainrendertwo?.map(dat => (<>
             <br /><br />
             <h1 className="m-h5 md:m-h6 font-serif">{dat?.sheetmainsubtitle}</h1>
@@ -72,6 +73,8 @@ function SpreadMain() {
             </figure>
             </>))}
             </>))}
+            <br /><br />
+          </div>
           </>))}
         </main>
     </div>

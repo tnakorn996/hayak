@@ -43,9 +43,11 @@ function RtaMain({type}) {
 
   return (
     <div>
-        <main className="">
+        <main className="flex flex-col md:flex-row">
           {rtamainrender?.map(data => (<>
+            <div className="w-full px-0 md:px-[30px]  md:border">
             {data?.rtamainrendertwo?.map(dat => (<>
+
                 <br /><br />
                 <section className="grid grid-cols-12 items-center justify-between">
                   <div className=" col-span-10 flex flex-row items-start gap-3 ">
@@ -81,6 +83,8 @@ function RtaMain({type}) {
                   }} key={da?.postid} postid={da?.postid} createdat={da?._createdAt} posticon={da?.posticon} posthero={da?.posthero} posttitle={da?.posttitle} postsubtitle={da?.postsubtitle} categoryid={da?.categoryid} priceid={da?.priceid} param={da?.postid} />
               </>))}
               </section>
+              <br /><br />
+              </div>
           </>))}
         </main>
     </div>

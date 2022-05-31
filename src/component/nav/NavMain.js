@@ -59,18 +59,19 @@ function NavMain() {
                 </article>
             </section>
 
-            <section onClick={() => {
-                navigate('/')
-            }} className="p-[20px] md:p-0 col-span-7 md:col-span-1 flex flex-row items-center justify-center">
+            <section className="p-[20px] md:p-0 col-span-7 md:col-span-1 flex flex-row items-center justify-center">
+                <a href="https://hayak.vercel.app" className="opacity-100">
                 <article className=" flex flex-row gap-1 items-center">
                     <figure className="">
-                        <RiContrastDropLine className='text-3xl' />
+                        {/* <div className="w-[20px] h-[20px]  rounded-full bg-black" /> */}
+                        <RiContrastDropLine className='m-h6' />
                     </figure>
                     <figcaption className="flex flex-row gap-1">
                         <h1 className='m-h6 font-bold font-serif'>TOI</h1>
                         {/* <h1 className="l-h3">Blog</h1> */}
                     </figcaption>
                 </article>
+                </a>
             </section>
             <section className="!text-xs md:px-[60px] col-span-2 md:col-span-5 flex justify-end gap-1">
                     
