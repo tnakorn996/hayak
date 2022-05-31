@@ -75,7 +75,7 @@ function SideboardMain() {
           <section className="">
             <button onClick={() => {
               setsideboardmainpage(0)
-            }} className='m-button'>← Main menu</button>
+            }} className='l-button'>← Main menu</button>
           </section>
           <section className="">
             {filter.map(data => (<>
@@ -87,7 +87,7 @@ function SideboardMain() {
               navigate(`/category/${data?.breadmainid}`)
             }} className="p-[20px]">
                 <h1 className="m-h6 text-2xl  font-serif">{data?.crummaintitle}</h1>
-                <h1 className="l-h5">{data?.crummainsubtitle}</h1>
+                <h1 className="l-h2">{data?.crummainsubtitle}</h1>
             </article>
             </>))}
           </section>

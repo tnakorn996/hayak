@@ -47,12 +47,14 @@ useEffect(() => {
     <div>
         <main className="h-screen md:h-full overflow-y-scroll md:overflow-auto">
                 <section className="z-0 sticky top-0 left-0">
-                    <figure className="relative h-[65vh] flex items-center justify-center  overflow-hidden">
+                    <figure className="relative h-[65vh] w-full flex items-center justify-center overflow-hidden">
 
                         <div className="absolute">
                             <LoadingMain />
                         </div>
-                        <img src={postarticlestate?.posthero} alt="" className="z-0 min-w-[100ch] h-fit" />
+                        <figure className="h-full w-full flex justify-center items-center">
+                        <img src={postarticlestate?.posthero} alt="" className="z-0 max-w-[100ch] h-full" />
+                        </figure>
                     </figure>
                 </section>
                 <section className="">
