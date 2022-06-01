@@ -83,7 +83,7 @@ function DropdownMain() {
                     <br />
                     <div className="flex flex-col">
                         {dropdownmainrender && dropdownmainrender?.map(data => (<>
-                        <a
+                        <article
 
                         onMouseEnter={() => {
                             setdropdownmainimage(data?.crummainimage)
@@ -96,17 +96,17 @@ function DropdownMain() {
                                 breadmainid: data?.breadmainid,
                                 breadmainidtwo: data?.crummainid,
                             })
-                            // navigate(`/category/${data?.breadmainid}`)
-                        }} href={`https://hayak.vercel.app/category/${dropdownmainparam}`} className={`text-5xl  font-serif m-h5 ${data?.crummainid === dropdownmaineffect && 'underline'}`}>
+                            navigate(`/category/${data?.breadmainid}`)
+                        }} className={`text-5xl  font-serif m-h5 ${data?.crummainid === dropdownmaineffect && 'underline'}`}>
                             {data?.crummaintitle} <span className="font-sans">→</span>
-                        </a>
+                        </article>
                         </>))}
                     </div>
                     <a onClick={() => {
-                        setgenreindexstate('')
-                        setbreadmainstate('')
+                        // setgenreindexstate('')
+                        // setbreadmainstate('')
                         // navigate(`/category/${dropdownmainparam}`)
-                    }} href={`https://hayak.vercel.app/category/${dropdownmainparam}`} className="text-5xl  font-serif m-h5">
+                    }} href={`https://toifood.co.nz/category/${dropdownmainparam}`} className="text-5xl  font-serif m-h5">
                         See {dropdownmaintitle}<span className="font-sans">→</span>
                     </a>
                 </figcaption>

@@ -12,7 +12,7 @@
     }
 
     button {
-        @apply opacity-80 cursor-pointer;
+        @apply opacity-80 cursor-pointer font-serif;
     }
 
     a {

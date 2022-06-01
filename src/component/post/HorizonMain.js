@@ -22,7 +22,7 @@ function HorizonMain({onlick, postid, posticon, posthero, posttitle, postsubtitl
                 </section>
                 <section className="">
                     <figcaption onClick={onlick} className="grid grid-flow-row l-section">
-                        <a href={`https://hayak.vercel.app/${postid}`} className="m-h4 truncate">{posttitle}</a>
+                        <a href={`https://toifood.co.nz/${postid}`} className="m-h4 truncate">{posttitle}</a>
                         <h1 className="l-h2 truncate">{postsubtitle}</h1>
                     </figcaption>
                     <figure className="flex flex-row justify-between items-center  l-section">

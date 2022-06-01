@@ -24,7 +24,7 @@ function NavMain() {
             <section className="hidden p-[20px] md:px-[60px] md:py-[20px] col-span-5 md:flex flex-row justify-start gap-1">
                     <div className="flex flex-row">
                         {breadmain?.map(data => (<>
-                        <article 
+                        <button 
                         
                         onMouseEnter={() => {
                             setdropdownmainstate({
@@ -39,8 +39,8 @@ function NavMain() {
                         // }} 
                         
                         className='l-button' >
-                            <h1 className={`!text-xs  first-letter:uppercase ${dropdownmainstate?.dropdownmainidtwo ===  data?.breadmainid && 'border-b border-black text-black'}`}>{data?.breadmaintitle}</h1>
-                        </article>
+                            <h1 className={`!text-xs  first-letter:uppercase ${dropdownmainstate?.dropdownmainidtwo ===  data?.breadmainid && 'underline'}`}>{data?.breadmaintitle}</h1>
+                        </button>
                         </>))}
                     </div>
 
@@ -60,7 +60,7 @@ function NavMain() {
             </section>
 
             <section className="p-[20px] md:p-0 col-span-7 md:col-span-1 flex flex-row items-center justify-center">
-                <a href="https://hayak.vercel.app" className="opacity-100">
+                <a href="https://toifood.co.nz/" className="opacity-100">
                 <article className=" flex flex-row gap-1 items-center">
                     <figure className="">
                         {/* <div className="w-[20px] h-[20px]  rounded-full bg-black" /> */}

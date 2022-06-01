@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { MdShowChart } from 'react-icons/md'
-import { RiChat4Fill, RiChat4Line, RiMapPin3Fill, RiMapPin3Line, RiNewspaperFill, RiNewspaperLine, RiShoppingBag2Fill, RiShoppingBag2Line } from 'react-icons/ri'
+import { RiChat4Fill, RiChat4Line, RiLayoutGridFill, RiMapPin3Fill, RiMapPin3Line, RiNewspaperFill, RiNewspaperLine, RiShoppingBag2Fill, RiShoppingBag2Line } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 import { categoryul } from '../../content/contentmantwo'
 
@@ -77,6 +77,17 @@ function ZoomMain({
                     zoommainicon: <RiShoppingBag2Fill />,
 
                 },
+                 {
+                    zoommaintitle: 'Category',
+                    zoommainrender: (categoryul.filter(data => data.breadmainid.toLowerCase().includes(zoommainkey) || data.breadmainid.toLowerCase().includes(zoommainkey))),
+                    zoommainicon: <RiLayoutGridFill />,
+                },
+                {
+                    zoommaintitle: 'Feedback',
+                    zoommainrender: (feedbacklink.filter(data => data.blemaintitle.toLowerCase().includes(zoommainkey) || data.blemainid.toLowerCase().includes(zoommainkey))),
+                    zoommainicon: <RiChat4Fill />,
+                },
+               
             ],
         },
     ]
@@ -161,10 +172,11 @@ function ZoomMain({
                             <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white">{data.zoommainicon}</span>
                             <figcaption className="">
                                 <div className=" hover:cursor-pointer">
-                                <h1 onClick={() => {
-                                    navigate(`/${dat?.postid}`)
-                                }} className=" leading-loose !text-gray-400 truncate font-serif">{dat?.posttitle}</h1>
+                                <a onClick={() => {
+                                    // navigate(`/${dat?.postid}`)
+                                }} href={`https://toifood.co.nz/${dat?.postid}`} className=" leading-loose !text-gray-400 truncate font-serif">{dat?.posttitle}</a>
                                 <h1 onClick={dat?.blemainaction} className=" leading-loose !text-gray-400 truncate font-serif">{dat?.blemaintitle}</h1>
+                                <a href={`https://toifood.co.nz${dat?.breadmainaction}`}  className=" leading-loose !text-gray-400 truncate font-serif">{dat?.breadmaintitle}</a>
                                 {/* <h1 className="l-h3 truncate">{dat?.postsubtitle}</h1> */}
                                 </div>
                             </figcaption>

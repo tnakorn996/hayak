@@ -73,7 +73,9 @@ function SpreadMain() {
             </figure>
             </>))}
             </>))}
+            <div className="hidden md:block">
             <br /><br />
+            </div>
           </div>
           </>))}
         </main>

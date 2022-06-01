@@ -7,15 +7,15 @@ function SocialMain({param}) {
     <div>
         <main className="">
           <section className="grid grid-flow-col justify-items-center justify-center gap-3 text-center">
-                      <a href={`https://twitter.com/intent/tweet?url=https://hayak.vercel.app${param}&text=${param}`} target="_blank" className="grid justify-items-center gap-3">
+                      <a href={`https://twitter.com/intent/tweet?url=https://toifood.co.nz${param}&text=${param}`} target="_blank" className="grid justify-items-center gap-3">
                           <RiTwitterFill className='text-xl  m-h6' />
                           {/* <h1 className="l-h1">Twitter</h1> */}
                       </a>
-                      <a href={`https://www.facebook.com/sharer.php?u=https://hayak.vercel.app${param}`} target="_blank" className="grid justify-items-center gap-3">
+                      <a href={`https://www.facebook.com/sharer.php?u=https://toifood.co.nz${param}`} target="_blank" className="grid justify-items-center gap-3">
                           <RiFacebookFill className='text-xl  m-h6' />
                           {/* <h1 className="l-h1">Facebook</h1> */}
                       </a>
-                      <a href={`https://www.linkedin.com/sharing/share-offsite/?url=https://hayak.vercel.app${param}`} target="_blank" className="grid justify-items-center gap-3">
+                      <a href={`https://www.linkedin.com/sharing/share-offsite/?url=https://toifood.co.nz${param}`} target="_blank" className="grid justify-items-center gap-3">
                           <RiLinkedinFill className='text-xl  m-h6' />
                           {/* <h1 className="l-h1">Linkedin</h1> */}
                       </a>

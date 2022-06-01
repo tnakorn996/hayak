@@ -293,7 +293,7 @@ function PostIndex() {
               const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${param.id}']{
                   ...,
                   'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] | order(_createdAt desc),
-                  'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo] | order(_createdAt desc) ,
+                  'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] | order(_createdAt desc) ,
                   'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] | order(_createdAt desc) ,
                   'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] | order(_createdAt desc) ,
               }[0]`;
@@ -479,7 +479,7 @@ function PostIndex() {
                 </section> */}
             </figure>
             <figcaption className="hidden md:block col-span-12">
-                <section className="md:grid md:grid-flow-col">
+                <section className="grid grid-flow-col">
                     {<SpreadMain />}
                     {<RtaMain />}
                 </section>
@@ -548,10 +548,10 @@ function PostIndex() {
                     <hr />
                     <br />
                 </section>
-                <section className={`relative px-[20px] md:px-[60px] max-w-[900px] mx-auto h-[30vh] md:h-[50vh] overflow-hidden ${!postindexaction && '!h-fit'}`}>
+                <section className={`relative px-[20px] md:px-[60px] max-w-[900px] mx-auto h-[30vh] md:h-[30vh] overflow-hidden ${!postindexaction && '!h-fit'}`}>
                     <br />
                     <figcaption className="">
-                        <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on` + postpostid?._updatedAt?.slice(0, 10)}</h1>
+                        <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on ` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                     <br />
                     <figcaption className="md:text-lg relative  md:font-extralight">
@@ -561,10 +561,11 @@ function PostIndex() {
                             <br />
                             </>))}
                         </PortableTextComponentsProvider>
+                        <br />
                     </figcaption>
                     <button onClick={() => {
                         setpostindexaction(!postindexaction)
-                    }} className='absolute z-10 right-[70px] bottom-0  md:m-[10px] l-button '>{postindexaction ? 'Show more' : 'Show less'}</button>
+                    }} className='absolute z-10 right-0 md:right-[70px] bottom-0  md:m-[10px] l-button '>{postindexaction ? 'Show more' : 'Show less'}</button>
                     <figure className={`p-[10px] absolute w-full h-[80%] bottom-0 left-0 flex items-end justify-end   bg-gradient-to-b from-transparent to-white ${!postindexaction && '!hidden'}`} />
                 </section>
                 <section layout className="px-[20px] md:px-[60px] max-w-[900px] mx-auto">
@@ -583,6 +584,12 @@ function PostIndex() {
                     {/* <StepMain /> */}
                 </section>
             </figcaption>
+            <figcaption className="block md:hidden col-span-12">
+                <section className="px-[20px] md:p-0 md:grid md:grid-flow-col">
+                    {<SpreadMain />}
+                    {<RtaMain />}
+                </section>
+            </figcaption>
             <figure layout className="col-span-12">
                 <br />
                 <br />
@@ -597,6 +604,7 @@ function PostIndex() {
                     </>))}
                 </div>
                 </section> */}
+                <section className="overflow-hidden">
                 <SlideMain 
                 slidemainid={'categoryindexth'} 
                 slidemainindex={0} 
@@ -604,6 +612,7 @@ function PostIndex() {
                 slidemainref={reftwo}
                 slidemainscroll={400} 
                 />
+                </section>
                 <br />
             </figure>
         </motion.main>

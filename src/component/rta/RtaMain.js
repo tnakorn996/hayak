@@ -83,7 +83,9 @@ function RtaMain({type}) {
                   }} key={da?.postid} postid={da?.postid} createdat={da?._createdAt} posticon={da?.posticon} posthero={da?.posthero} posttitle={da?.posttitle} postsubtitle={da?.postsubtitle} categoryid={da?.categoryid} priceid={da?.priceid} param={da?.postid} />
               </>))}
               </section>
+              <div className="hidden md:block">
               <br /><br />
+              </div>
               </div>
           </>))}
         </main>

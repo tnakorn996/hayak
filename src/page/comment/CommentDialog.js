@@ -144,8 +144,15 @@ function CommentDialog() {
                 </>)}
                 <br />
                 {commentdialogrendertwo?.map(data => (<>
-                    <article className="border border-gray-700">
-                        <h1 className="m-h3">{data?.commentsubtitle}</h1>
+                    <article className="px-[20px]  shadow ">
+                        <br />
+                        <h1 className="m-h3 font-serif">{data?.commentsubtitle}</h1>
+                        <div className="flex flex-row justify-start items-center gap-1">
+                        <h1 className="m-h1  uppercase">{data?.commenttitle}</h1>
+                        <h1 className="">·</h1>
+                        <h1 className="m-h1  uppercase">{data?._createdAt?.slice(0, 10)}</h1>
+                        </div>
+                        <br />
                     </article>
                 </>))}
 

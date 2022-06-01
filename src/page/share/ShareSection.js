@@ -10,7 +10,7 @@ function ShareSection({
 
     function ll() {
         const empty = []
-        navigator.clipboard.writeText(`https://hayak.vercel.app/${param}`).catch(error => {
+        navigator.clipboard.writeText(`https://toifood.co.nz/${param}`).catch(error => {
             empty.push({
                 error: 'Something wrong'
             })
@@ -34,7 +34,7 @@ function ShareSection({
             <section className="flex justify-center ">
                     <figure className="h-[250px] w-[250px] flex justify-center items-center ">
                         <RiContrastDropLine className='absolute text-3xl w-[50px] h-[50px]  bg-white rounded-full' />
-                        <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://hayak.vercel.app/${param}`} alt="" />
+                        <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://toifood.co.nz/${param}`} alt="" />
                     </figure>
                 </section>
                  <br />
@@ -42,7 +42,7 @@ function ShareSection({
                     <article className="grid grid-cols-12 ">
                         <figcaption className="col-span-10">
                             <h1 className="m-h3">Blog Address</h1>
-                            <h1 className="l-h2">https://hayak.vercel.app/{param}</h1>
+                            <h1 className="l-h2">https://toifood.co.nz/{param}</h1>
                         </figcaption>
                         <figure onClick={() => {
                             ll()
