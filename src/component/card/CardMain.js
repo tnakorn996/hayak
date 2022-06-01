@@ -70,7 +70,12 @@ function CardMain({
         {
             cardmainindex: 0,
             cardmainrender: '',
-            cardmainaction: () => {},
+            cardmainaction: () => {
+                if(cardmainidthree) {
+                    const filter = commentlink.filter(data => data.blemainid === cardmainidthree);
+                    return <button onClick={filter[0].blemainaction} className="w-full  l-button">{filter[0].blemainentitle}</button>
+                }
+            },
         },
     ]
 
@@ -109,7 +114,8 @@ function CardMain({
         <br />
         <motion.main initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative">
             {cardmainrender?.map(data => (<>
-                <figure className={`w-full p-[20px] flex flex-col  md:grid md:grid-cols-12   ${data?.spreadmainstyle}`}>
+                <figure className={`w-full p-[20px] flex flex-col  md:flex-row justify-between ${data?.spreadmainstyle}`}>
+                    <div className="flex flex-row items-start gap-3">
                     <section className="col-span-1 ">
                         <h1 className={`hidden md:flex justify-start  l-h3 ${data?.spreadmainstyle}`}>{data?.spreadmainicon}</h1>
                     </section>
@@ -126,6 +132,7 @@ function CardMain({
                         </>))}
                         </div>
                     </section>
+                    </div>
                     <section className="col-span-3">
                         {cardmainaction && cardmainaction}
                     </section>

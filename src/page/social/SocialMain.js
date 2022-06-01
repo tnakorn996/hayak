@@ -2,7 +2,7 @@ import React from 'react'
 import { RiFacebookFill, RiLinkedinFill, RiTwitterFill } from 'react-icons/ri'
 
 function SocialMain({param}) {
-
+  
   return (
     <div>
         <main className="">

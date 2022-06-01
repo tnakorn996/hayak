@@ -113,7 +113,7 @@ function FeedbackSection() {
                 <div className="col-span-5">
                     <section className="">
                       {feedbacksectionrendertwo?.map(data => (<>
-                      <HorizonMain key={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle}  createdat={data?._createdAt} param={data?.postid} />
+                      <HorizonMain key={data?.postid} postid={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle}  createdat={data?._createdAt} param={data?.postid} />
                       </>))}
                     </section>
                     <section className="">

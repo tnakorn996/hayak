@@ -10,6 +10,7 @@ import { ContextMain } from '../../context/contextmain'
 import ContactArticle from '../../page/contact/ContactArticle'
 import MenuArticle from '../../page/menu/MenuArticle'
 import PostArticle from '../../page/post/PostArticle'
+import CardMain from '../card/CardMain'
 
 function PreviewMain() {
     const {
@@ -31,7 +32,18 @@ function PreviewMain() {
             previewmainrender: () => {
                 return <section className="">
                     <figure className="p-[20px] flex flex-col justify-center">
-                        <img src={appmainstate?.appmainrender} alt="" className="" />
+                        <img src={appmainstate?.appmainimage} alt="" className="" />
+                        <CardMain     
+                            cardmainid={'shareimg'}
+                            cardmainidtwo={'inform'}
+                            cardmainidthree={'feedback'}
+                            cardmainmessage={[
+                                {
+                                    'success': `Photo by ` + appmainstate?.appmainsource,
+                                }
+                            ]} 
+                            cardmainindex={0} 
+                            />
                     </figure>
                 </section>
             },

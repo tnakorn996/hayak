@@ -76,7 +76,7 @@ function PostDiv() {
                     setappmainstate({
                             appmainredirect: 'appmain'
                         })
-                    }} key={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
+                    }} key={data?.postid} postid={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
                 </>))}
             </section>
             </>)}

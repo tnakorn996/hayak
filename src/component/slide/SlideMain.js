@@ -1,8 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
+import { useContext } from 'react'
 import { useEffect } from 'react'
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
+import { ContextMain } from '../../context/contextmain'
+import LoadingMain from '../load/LoadingMain'
 import VerticleMain from '../post/VerticleMain'
 
 function SlideMain({
@@ -10,8 +13,14 @@ function SlideMain({
     slidemainindex,
     slidemaindata,
     slidemainref,
+    slidemainscroll,
+    slidemainstyle,
 }) {
     const navigate = useNavigate()
+    const {
+        setappmainstate,
+
+    } = useContext(ContextMain)
 
     const [slidemainrender, setslidemainrender] = useState()
 
@@ -36,7 +45,7 @@ function SlideMain({
             slidemainindex: 0,
             slidemainrender: () => {
 
-                return  slidemaindata?.slice(0, 12).map(data => (<>
+                return  slidemaindata?.slice(0, 12)?.map(data => (<>
                     <div className="w-[250px] md:w-[300px] snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
@@ -49,7 +58,7 @@ function SlideMain({
             slidemainindex: 1,
             slidemainrender: () => {
 
-                return  slidemaindata?.slice(0, 12).map(data => (<>
+                return  slidemaindata?.slice(0, 12)?.map(data => (<>
                     {/* <div className="w-[250px] md:w-[300px] snap-center"> */}
                     <div className="w-[250px] md:w-fit snap-center">
                         <VerticleMain onlick={() => {
@@ -61,6 +70,47 @@ function SlideMain({
         }
     ]
 
+    const postindexth = [
+        {
+            slidemainindex: 0,
+            slidemainrender: () => {
+                const empty = [
+                    {
+                        posthero: slidemaindata?.posthero,
+                        postherosource: slidemaindata?.postherosource,
+                    },
+                    {
+                        posthero: slidemaindata?.postherotwo,
+                        postherosource: slidemaindata?.postherosourcetwo,
+                    },
+                ]
+                return empty?.slice(0, 12)?.map(data => (<>
+                    <div className="w-screen  snap-center">
+                        <figure className="h-[50vh] relative flex justify-center items-center ">
+                            <img loading='lazy' src={data?.posthero} alt="" className="z-10 min-h-[100ch] w-full" />
+                            <div className="absolute">
+                            <LoadingMain />
+                            </div>
+                            <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
+                            <div onClick={() => {
+                                setappmainstate({
+                                    appmainidtwo: 'previewmain',
+                                    appmainid: 'postarticle',
+                                    appmainpage: 1,
+                                    appmainimage: data?.posthero,
+                                    appmainsource: data?.postherosource,
+                                    appmainboolean: true,
+                                })
+                            }}  className="hidden group-hover:block absolute top-3 left-3 z-30 p-[10px]  ">
+                            <button className="l-button opacity-100 border border-black">View image</button>
+                            </div>
+                        </figure>
+                    </div>
+                    </>))
+            },
+        },
+    ]
+
     const slidemain = [
         {
             slidemainid: 'homemainth',
@@ -69,6 +119,10 @@ function SlideMain({
         {
             slidemainid: 'categoryindexth',
             slidemainref: categoryindexth,
+        },
+        {
+            slidemainid: 'postindexth',
+            slidemainref: postindexth,
         },
     ]
 
@@ -85,7 +139,7 @@ function SlideMain({
         const offsetwidth = first.current.offsetWidth;
 
         if(scrollleft <= offsetwidth){
-            first.current.scrollTo(scrollleft + 400 * second, 0)
+            first.current.scrollTo(scrollleft + slidemainscroll * second, 0)
         } 
         if(scrollleft > offsetwidth) {
             first.current.scrollTo(0, 0)
@@ -100,13 +154,13 @@ function SlideMain({
   return (
     <div>
         <main className="">
-            <section className="w-[1200px] md:w-full mx-auto relative group">
-                <figure ref={slidemainref} className="relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
+            <section className="w-[1200px] md:w-full relative group">
+                <figure ref={slidemainref} className={`relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth ${slidemainstyle && slidemainstyle}`}>
                    {slidemainrender && slidemainrender}
-                    <button onClick={() => ll(slidemainref, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
-                    <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
-                    </button>
                 </figure>
+                    <button onClick={() => ll(slidemainref, 1)} className="hidden group-hover:flex absolute z-20 top-0 right-0 w-fit h-full justify-center items-center !opacity-100">
+                    <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl' />
+                    </button>
             </section>
         </main>
     </div>

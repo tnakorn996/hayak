@@ -57,7 +57,7 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                         appmainparam: param,
                         appmainboolean: true,
                       })
-                    }} className="relative row-span-3 overflow-hidden h-[50vh] md:h-[60vh] flex justify-center items-center ">
+                    }} className="relative row-span-3 overflow-hidden h-[50vh] md:h-[60vh] flex justify-center items-center">
                     <div className="absolute">
                     <LoadingMain />
                     </div>
@@ -73,7 +73,6 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                       </>)}
                     </div>
                     <div className="z-20 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
-                    {/* <div className="absolute top-0 left-0 z-10 w-full h-full  bg-black opacity-10" /> */}
                     <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={posthero} alt="" className="max-w-[100ch] z-10 h-full hover:scale-110 duration-1000" />
                 </figure>
                 <figure className="relative flex flex-row py-[7px] gap-2 justify-end items-center">

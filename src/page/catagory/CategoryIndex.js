@@ -206,21 +206,21 @@ function CategoryIndex() {
             <section className="">
                 {categoryindexrender?.map(data => (<>
                 <br />
-                <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
+                <figcaption className="mx-[20px] md:mx-[60px] flex flex-row justify-between items-center ">
                     <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle && categoryindextitle}</h1>
                 </figcaption>
                 <br />
 
                 {data?.categoryindexid === 'postcategoryidupdatedat' && (<>
-                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={reftwo} />
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={reftwo} slidemainscroll={400} />
                 </>)}
 
                 {data?.categoryindexid === 'postcategoryidcreatedat' && (<>
-                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={ref} />
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={ref} slidemainscroll={400} />
                 </>)}
 
                 {data?.categoryindexid === 'postcategoryidpostcount' && (<>
-                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={refthree} />
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={refthree} slidemainscroll={400} />
                 </>)}
 
                 </>))}

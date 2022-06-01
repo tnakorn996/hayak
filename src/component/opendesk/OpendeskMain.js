@@ -109,7 +109,7 @@ function OpendeskMain() {
             <section className="md:h-[10vh]">
             {(opendeskmainlocation || opendeskmainparam) && (<>
                 <HorizonMain
-                posthero={opendeskmainimage} posttitle={opendeskmaintitle} postsubtitle={`https://hayak.vercel.app${opendeskmainlocation || '/' + opendeskmainparam}`} />
+                posthero={opendeskmainimage} postid={opendeskmainlocation || '/' + opendeskmainparam} posttitle={opendeskmaintitle} postsubtitle={`https://hayak.vercel.app${opendeskmainlocation || '/' + opendeskmainparam}`} />
             </>)}
             </section>
 

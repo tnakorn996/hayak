@@ -118,7 +118,7 @@ useEffect(() => {
                         <div className="col-span-2">
                                 <HorizonMain onlick={() => {
                                     navigate(`/${postarticlestate?.placepostid?.postid}`)
-                                }} key={postarticlestate?.placepostid?.postid} createdat={postarticlestate?.placepostid?._createdAt}  posticon={postarticlestate?.placepostid?.posticon} posthero={postarticlestate?.placepostid?.posthero} posttitle={postarticlestate?.placepostid?.posttitle} postsubtitle={postarticlestate?.placepostid?.postsubtitle} categoryid={postarticlestate?.placepostid?.categoryid} priceid={postarticlestate?.placepostid?.priceid} param={postarticlestate?.placepostid?.postid} />
+                                }} key={postarticlestate?.placepostid?.postid} postid={postarticlestate?.placepostid?.postid} createdat={postarticlestate?.placepostid?._createdAt}  posticon={postarticlestate?.placepostid?.posticon} posthero={postarticlestate?.placepostid?.posthero} posttitle={postarticlestate?.placepostid?.posttitle} postsubtitle={postarticlestate?.placepostid?.postsubtitle} categoryid={postarticlestate?.placepostid?.categoryid} priceid={postarticlestate?.placepostid?.priceid} param={postarticlestate?.placepostid?.postid} />
                         </div>
                         <div className="">
                         <br /><br />
@@ -140,7 +140,7 @@ useEffect(() => {
                     {postarticlestatetwo?.slice(0, 3).map(data => (<>
                         <HorizonMain onlick={() => {
                             navigate(`/${data?.postid}`)
-                        }} key={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle}  createdat={data?._createdAt} param={data?.postid} />
+                        }} key={data?.postid} postid={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle}  createdat={data?._createdAt} param={data?.postid} />
                     </>))}
                     </div>
                     {/* <br />

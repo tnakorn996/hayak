@@ -79,11 +79,11 @@ function DropdownMain() {
         <motion.main layout className={`w-screen h-0  overflow-hidden border-b border-black bg-black text-white ${dropdownmainheight && dropdownmainheight} `}>
             <section className="h-full relative flex flex-col md:grid md:grid-cols-12">
                 <figcaption className="p-[60px] col-span-7 flex flex-col justify-between">
-                    <div className="">
-                        <h1 className="l-h6 underline text-white">{dropdownmaintitle && dropdownmaintitle}</h1>
-                        <br />
+                    <h1 className="m-h6  text-white">{dropdownmaintitle && dropdownmaintitle}</h1>
+                    <br />
+                    <div className="flex flex-col">
                         {dropdownmainrender && dropdownmainrender?.map(data => (<>
-                        <article 
+                        <a
 
                         onMouseEnter={() => {
                             setdropdownmainimage(data?.crummainimage)
@@ -96,19 +96,19 @@ function DropdownMain() {
                                 breadmainid: data?.breadmainid,
                                 breadmainidtwo: data?.crummainid,
                             })
-                            navigate(`/category/${data?.breadmainid}`)
-                        }} className="">
-                            <h1 className={`text-5xl  font-serif m-h6 ${data?.crummainid === dropdownmaineffect && 'underline'}`}>{data?.crummaintitle} <span className="font-sans">→</span></h1>
-                        </article>
+                            // navigate(`/category/${data?.breadmainid}`)
+                        }} href={`https://hayak.vercel.app/category/${dropdownmainparam}`} className={`text-5xl  font-serif m-h5 ${data?.crummainid === dropdownmaineffect && 'underline'}`}>
+                            {data?.crummaintitle} <span className="font-sans">→</span>
+                        </a>
                         </>))}
                     </div>
-                    <article onClick={() => {
+                    <a onClick={() => {
                         setgenreindexstate('')
                         setbreadmainstate('')
-                        navigate(`/category/${dropdownmainparam}`)
-                    }} className="">
-                        <h1 className="text-5xl  font-serif m-h6">See {dropdownmaintitle}<span className="font-sans">→</span></h1>
-                    </article>
+                        // navigate(`/category/${dropdownmainparam}`)
+                    }} href={`https://hayak.vercel.app/category/${dropdownmainparam}`} className="text-5xl  font-serif m-h5">
+                        See {dropdownmaintitle}<span className="font-sans">→</span>
+                    </a>
                 </figcaption>
                 <figure className="hidden md:flex col-span-5 items-center justify-center   overflow-hidden">
                     <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-[100ch] min-h-fit" />

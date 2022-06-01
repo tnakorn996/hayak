@@ -49,7 +49,7 @@ function WireMain() {
           return wiremainstate?.wiremaindata?.map(data => (<>
               <HorizonMain onlick={() => {
                   navigate(`/${data?.postid}`)
-                }} key={data?.postid} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} priceid={data?.priceid} param={data?.postid} />
+                }} key={data?.postid} postid={data?.postid} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} priceid={data?.priceid} param={data?.postid} />
               </>))
         },
       },
