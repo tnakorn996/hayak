@@ -512,7 +512,7 @@ function PostIndex() {
                             </article>
                         </figure>
                     </div>
-                    <h1 className="text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
+                    <h1 className="text-3xl md:text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                     <br />
                     <figure className="p-[10px] flex justify-between items-center">

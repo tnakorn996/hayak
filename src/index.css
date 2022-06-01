@@ -20,11 +20,11 @@
     }
 
     .m-button {
-        @apply text-xs py-[10px] px-[20px] bg-black text-white font-medium;
+        @apply text-sm py-[10px] px-[20px] bg-black text-white font-medium;
     }
 
     .l-button {
-        @apply text-xs py-[10px] px-[20px] bg-white text-black font-medium;
+        @apply text-sm py-[10px] px-[20px] bg-white text-black font-medium;
     }
 
     .m-article {
@@ -44,19 +44,19 @@
     }
 
     .m-h1 {
-        @apply text-[9px] md:text-xs font-medium;
+        @apply text-xs font-medium;
     }
 
     .l-h1 {
-        @apply text-[9px] md:text-xs text-gray-500 font-light;
+        @apply text-xs text-gray-500 font-light;
     }
 
     .m-h2 {
-        @apply text-[11px] md:text-sm font-medium;
+        @apply text-sm font-medium;
     }
 
     .l-h2 {
-        @apply text-[11px] md:text-sm text-gray-500 font-light;
+        @apply text-sm text-gray-500 font-light;
     }
 
     .m-h3 {

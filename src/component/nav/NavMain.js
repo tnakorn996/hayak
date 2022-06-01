@@ -39,7 +39,7 @@ function NavMain() {
                         // }} 
                         
                         className='l-button' >
-                            <h1 className={`!text-xs  first-letter:uppercase ${dropdownmainstate?.dropdownmainidtwo ===  data?.breadmainid && 'underline'}`}>{data?.breadmaintitle}</h1>
+                            <h1 className={`first-letter:uppercase ${dropdownmainstate?.dropdownmainidtwo ===  data?.breadmainid && 'underline'}`}>{data?.breadmaintitle}</h1>
                         </button>
                         </>))}
                     </div>
