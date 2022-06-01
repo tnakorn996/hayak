@@ -62,7 +62,7 @@ useEffect(() => {
                         <div className="z-10 absolute bottom-0 left-0 min-h-[25vh] md:min-h-[40vh] w-full  bg-gradient-to-b from-transparent to-white" />
                         <div className="z-10 absolute bottom-0 left-8 md:left-14 max-w-[70%] md:max-w-[60%] ">
                             {postarticlerenderfour && <h1 className=" flex flex-row items-center gap-1  tracking-[0.2em] md:m-h3 uppercase"><RiContrastDropLine className='md:m-h3' /> {postarticlerenderfour}</h1>}
-                            <h1 className="md:text-5xl  m-h6 font-serif">{postarticlestate?.posttitle}</h1>
+                            <h1 className="text-2xl md:text-5xl  m-h6 font-serif">{postarticlestate?.posttitle}</h1>
                         </div>
                     </figure>
                 </section>

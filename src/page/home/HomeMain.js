@@ -195,7 +195,7 @@ function HomeMain() {
                         appmainparam: postupdatedat && postupdatedat[0]?.postid,
                         appmainboolean: true,
                       })
-                    }} className="py-[20px] px-[20px] md:px-[60px] h-[90vh] flex flex-col gap-3">
+                    }} className="py-[20px] px-[20px] md:px-[60px] h-[90vh] flex flex-col justify-evenly gap-3">
                 <figcaption className="flex flex-col justify-between items-center  border-b border-black">
                     <h1 className="text-6xl font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>
                     <button className="m-h3">Read more →</button>
