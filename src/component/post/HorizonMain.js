@@ -21,7 +21,7 @@ function HorizonMain({onlick, postid, posticon, posthero, posttitle, postsubtitl
                     </figure>
                 </section>
                 <section className="">
-                    <figcaption onClick={onlick} className="grid grid-flow-row l-section">
+                    <figcaption className="grid grid-flow-row l-section">
                         <a href={`https://toifood.co.nz/${postid}`} className="m-h4 truncate">{posttitle}</a>
                         <h1 className="l-h2 truncate">{postsubtitle}</h1>
                     </figcaption>

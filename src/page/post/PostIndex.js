@@ -6,13 +6,11 @@ import { RiChat3Line, RiEyeLine, RiMore2Fill, RiInformationLine } from 'react-ic
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {PortableText, PortableTextComponentsProvider} from '@portabletext/react'
-import '../post/postindex.css'
+import { useRef } from 'react'
 
 import { ContextMain } from '../../context/contextmain'
 import { client } from '../../lib/sanity'
-import BreadMain from '../../component/bread/BreadMain'
-import VerticleMain from '../../component/post/VerticleMain'
-import LoadingMain from '../../component/load/LoadingMain'
+import '../post/postindex.css'
 import CtaMain from '../../component/ctamain/CtaMain'
 import RtaMain from '../../component/rta/RtaMain'
 import SpreadMain from '../../component/spread/SpreadMain'
@@ -22,7 +20,6 @@ import LoadMain from '../../component/load/LoadMain'
 import { genreui } from '../../content/contentmantwo'
 import AlertMain from '../../component/alert/AlertMain'
 import SlideMain from '../../component/slide/SlideMain'
-import { useRef } from 'react'
 
 function PostIndex() {
     const {
@@ -206,11 +203,7 @@ function PostIndex() {
             })
 
         }
-        if(postpostid && postindex){
-            const filterthree = postindex?.filter(data => data.postindexid === postpostid?._type)
-            const filterfour = filterthree[0]?.postindexrenderfour?.filter(data => data._id !== postpostid?._id)
-            setpostindexrenderfour(filterfour)
-        }
+       
     }, [postpostid])
 
     useEffect(() => {
@@ -280,6 +273,15 @@ function PostIndex() {
 
         }
     },[ placeplaceid, productplaceid, productpostid])
+
+    useEffect(() => {
+      if(postupdatedat || placeupdatedat || productupdatedat) {
+            const filterthree = postindex?.filter(data => data.postindexid === postpostid?._type)
+            const filterfour = filterthree[0]?.postindexrenderfour?.filter(data => data?._id !== postpostid?._id)
+            setpostindexrenderfour(filterfour)
+      }
+    }, [postpostid, postupdatedat, placeupdatedat, productupdatedat])
+    
     
     // useEffect(() => {
     //   if(postpostid && userindex){
@@ -485,7 +487,9 @@ function PostIndex() {
                 </section>
             </figcaption>
             <figcaption className="col-span-12">
-                <br /><br />
+                <br />
+                <hr />
+                <br />
                 <section className="px-[20px] md:px-[60px] max-w-[900px] mx-auto">
                     <div className="flex flex-row justify-between">
                         <h1 className="l-h2 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
@@ -544,9 +548,7 @@ function PostIndex() {
                         <SocialMain param={`/` + param.id} />
                         </div>
                     </figure>
-                    <br />
-                    <hr />
-                    <br />
+                    <br /><hr /><br />
                 </section>
                 <section className={`relative px-[20px] md:px-[60px] max-w-[900px] mx-auto h-[30vh] md:h-[30vh] overflow-hidden ${!postindexaction && '!h-fit'}`}>
                     <br />
@@ -591,6 +593,8 @@ function PostIndex() {
                 </section>
             </figcaption>
             <figure layout className="col-span-12">
+                <br />
+                <hr />
                 <br />
                 <br />
                 <h1 className="px-[20px] md:px-[60px]  m-h5 md:m-h6 font-serif"> You may also like</h1>

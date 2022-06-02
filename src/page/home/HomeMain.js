@@ -200,7 +200,7 @@ function HomeMain() {
                     <h1 className="text-6xl font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>
                     <button className="m-h3">Read more →</button>
                 </figcaption>
-                <figure className="flex items-center justify-center  overflow-hidden border border-black">
+                <figure className="min-h-[70vh] flex items-center justify-center  overflow-hidden border border-black">
                     <img src={postupdatedat && postupdatedat[0]?.posthero} alt="" className="max-h-[200ch] w-full" />
                 </figure>
                 <div className="w-full  border-b border-black" />
