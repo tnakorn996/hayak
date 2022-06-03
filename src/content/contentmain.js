@@ -48,7 +48,6 @@ export const navmain = [
     }
 ]
 
-
 export const planmain = [
     {
         planmainid: 'once',
@@ -109,8 +108,7 @@ export const plansummary = [
                     ontromainsubheader: 'A nutritious, freshly prepared meal, served with love and shared amongst friends has the ability to turn someones day around. An ongoing donation is your commitment to help us put an end to food poverty, food waste and social isolation in New Zealand.',
                     ontromainredirect: 'planmain',
                 },
-    ]
-
+]
 
 export const extromain = [
     {
@@ -118,7 +116,6 @@ export const extromain = [
         extromainref: plansummary,
     },
 ]
-
 
 export const collectionmain = [
     {
@@ -196,8 +193,7 @@ export const collectionmain = [
 
         categorymainid: 'place',
     },
-  ]
-
+]
 
 export const categorymain = [
     {
@@ -216,7 +212,6 @@ export const categorymain = [
         categorymaindirect: 'product',
     },
 ]
-
 
 export const statemain = [
     {

@@ -43,6 +43,7 @@ export const Provider = ({ children }) => {
     const [sharemainstate, setsharemainstate] = useState()
     const [genreindexstate, setgenreindexstate] = useState('')
     const [landmainstate, setlandmainstate] = useState()
+    const [barmainstate, setbarmainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -815,6 +816,7 @@ export const Provider = ({ children }) => {
           sharemainstate, setsharemainstate,
           genreindexstate, setgenreindexstate,
           landmainstate, setlandmainstate,
+          barmainstate, setbarmainstate,
           
           userindex,
           postplaceproduct,

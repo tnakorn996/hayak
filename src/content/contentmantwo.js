@@ -16,6 +16,14 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
             spreadmainstyle: '!bg-red-50 !text-red-800',
         },
         {
+            spreadmainid: 'break',
+            spreadmaintitle: 'Apologies',
+            spreadmainicon: <RiInformationLine />,
+            spreadmainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
+            spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
+
+        },
+        {
             spreadmainid: 'inform',
             spreadmaintitle: 'This', 
             spreadmainicon: <RiInformationLine />,
@@ -66,6 +74,35 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
             sheetmainaction: `/category/product`,
         },
 
+        {
+            sheetmainid: 'readdi',
+            sheetmaintitle: 'Find mins',
+            sheetmainsubtitle: 'Related mins',
+            sheetmainaction: `/read/readmain`,
+        },
+        {
+            sheetmainid: 'viewdi',
+            sheetmaintitle: 'Find views',
+            sheetmainsubtitle: 'Related views',
+            sheetmainaction: `/view/viewmain`,
+        },
+        {
+            sheetmainid: 'commentdi',
+            sheetmaintitle: 'Find comments',
+            sheetmainsubtitle: 'Related comments',
+            sheetmainaction: `/comment/commentmain`,
+        },
+        {
+            sheetmainid: 'timedi',
+            sheetmaintitle: 'Find times',
+            sheetmainsubtitle: 'Related times',
+            sheetmainaction: `/time/timemain`,
+        },
+
+    ]
+
+    export const postdl= [
+        
     ]
 
     export const searchdl= [
@@ -89,23 +126,6 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
             sheetmainentitle: 'See more',
 
             spreadmainid: 'inform'
-        },
-    ]
-
-    export const postdl= [
-        {
-            sheetmaintitle: 'Disclaimer: ',
-            sheetmainaction: `/term/termmain`,
-            sheetmainentitle: 'Learn more',
-
-            spreadmainid: 'disclaim'
-        },
-        {
-            sheetmaintitle: "Image from ",
-            sheetmainaction: `/term/termmain`,
-            sheetmainentitle: 'Learn more',
-
-            spreadmainid: 'credit'
         },
     ]
 

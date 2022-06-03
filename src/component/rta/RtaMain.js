@@ -13,7 +13,8 @@ import TooltipMain from '../tooltip/TooltipMain';
 function RtaMain({type}) {
   const {
     setappmainstate,
-    spreadmainstate,
+    // spreadmainstate,
+    rtamainstate,
     setbreadmainstate,
     setstackmainstate,
 
@@ -23,10 +24,10 @@ function RtaMain({type}) {
   const [rtamainrender, setrtamainrender] = useState()
   
   useEffect(() => {
-    if(spreadmainstate){
+    if(rtamainstate){
       const empty = []
       sheetmain.forEach(data  => {
-        for(const dat of spreadmainstate){
+        for(const dat of rtamainstate){
           if(data.sheetmainid === dat.spreadmainidtwo && dat.spreadmainid === 'success'){
             const filter = spreadmain.filter(da => da.spreadmainid === dat.spreadmainid && da.spreadmainid === 'success')
             empty.push({
@@ -39,7 +40,7 @@ function RtaMain({type}) {
         }
       })
     }
-  }, [spreadmainstate])
+  }, [rtamainstate])
 
   return (
     <div>

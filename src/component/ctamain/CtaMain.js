@@ -2,6 +2,7 @@ import React from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { RiExternalLinkLine, RiShareLine } from 'react-icons/ri'
 
 import { ContextMain } from '../../context/contextmain'
 
@@ -37,7 +38,7 @@ function CtaMain() {
                         setsharemainstate({
                           sharemainparam: ctamainstate?.ctamainrender?.postid,
                         })
-            }} className="m-h3 w-full m-button">Share post</button>,
+            }} className="flex flex-row justify-center gap-3 items-center  m-h3 w-full m-button">Share post <RiShareLine /></button>,
             ctamainrendertwo: <button onClick={() => {
                 setappmainstate({
                             appmainid: 'commentdialog',
@@ -71,7 +72,7 @@ function CtaMain() {
                 //             appmainparam: param.id,
                 //             appmainboolean: true,
                 //         })
-            }} className="m-h3 w-full m-button">Share recipes</button>,
+            }} className="flex flex-row justify-center gap-3 items-center m-h3 w-full m-button">Share recipes <RiShareLine /></button>,
             ctamainrendertwo: <button onClick={() => {
                 setappmainstate({
                             appmainid: 'commentdialog',
@@ -86,7 +87,7 @@ function CtaMain() {
         {
             ctamainrender: <button onClick={() => {
                 window.open(ctamainstate?.ctamainrender?.postplaceurl, '_blank').focus();
-            }} className="m-h3 w-full m-button">Owner website</button>,
+            }} className="flex flex-row justify-center gap-3 items-center  m-h3 w-full m-button">Owner website <RiExternalLinkLine /></button>,
             ctamainrendertwo: <button onClick={() => {
                 setappmainstate({
                             appmainid: 'commentdialog',
@@ -103,7 +104,7 @@ function CtaMain() {
 
                 return <button onClick={() => {
                     window.open(ctamainstate?.ctamainrender?.placeplaceid[1]?.postplaceurl || ctamainstate?.ctamainrender?.placeplaceid[0]?.postplaceurl, '_blank').focus();
-                }} className="m-h3 w-full m-button">Seller website</button>
+                }} className="flex flex-row justify-center gap-3 items-center m-h3 w-full m-button">Seller website <RiExternalLinkLine /></button>
             },
             ctamainrendertwo: () => {
                 return <button onClick={() => {
@@ -154,7 +155,7 @@ function CtaMain() {
             <section className="">
                         <br />
                         {ctamainrender && ctamainrender}
-                        <br /><br />
+                        <br />
                         {ctamainrendertwo && ctamainrendertwo}
             </section>
         </main>

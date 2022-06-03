@@ -131,6 +131,7 @@ function CardMain({
                          {da?.success && <span className="m-h1">∙ {da?.success}</span>}
                         </>))}
                         </div>
+                        <br />
                     </section>
                     </div>
                     <section className="col-span-3">

@@ -107,7 +107,7 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                       <RiMore2Fill className='my-[7px]  text-md l-m3' />
                     </figure>
                 </figure>
-                <figcaption onClick={onlick} className="row-span-3 h-[20vh]">
+                <figcaption className="row-span-3 h-[20vh]">
                     {/* <div className="flex flex-row gap-2 items-center">
                       <h1 className="text-[9px]  l-h1 truncate">{createdat?.slice(0, 10)}</h1>
                       <h1 className="l-h1 truncate">|</h1>

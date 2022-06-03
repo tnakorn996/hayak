@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useContext } from 'react'
 import { RiContrastDropLine, RiEyeLine, RiShareFill, RiBookOpenLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
+import BarMain from '../../component/bar/BarMain'
 import LoadingMain from '../../component/load/LoadingMain'
 
 import HorizonMain from '../../component/post/HorizonMain'
@@ -77,6 +78,7 @@ useEffect(() => {
                                     navigate(`/${postarticlestate?.postid}`)
                                 }} className="col-span-12 md:col-span-5 m-button m-h3">→ Read more</button>
                                 <figure className="col-span-12 md:col-span-7 flex flex-row gap-3 items-center justify-between ">
+                                    {/* <BarMain barmainid={'postindextime'}  /> */}
                                     <div className="flex flex-row gap-4 items-center">
                                         <h1 className="block md:hidden l-h5">{postarticlestate?._createdAt?.slice(0, 10)}</h1>
                                         <div className="flex flex-row items-center gap-1">

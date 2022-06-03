@@ -20,6 +20,7 @@ import LoadMain from '../../component/load/LoadMain'
 import { genreui } from '../../content/contentmantwo'
 import AlertMain from '../../component/alert/AlertMain'
 import SlideMain from '../../component/slide/SlideMain'
+import BarMain from '../../component/bar/BarMain'
 
 function PostIndex() {
     const {
@@ -156,7 +157,27 @@ function PostIndex() {
         {
             postindextwoid: 'pickdi',
             postindextworender: productpostid,
-        }
+        },
+       
+    ]
+
+    const postindexthree = [
+        {
+            postindexthreeid: 'readdi',
+            postindexthreerender: [postpostid]
+        },
+        {
+            postindexthreeid: 'viewdi',
+            postindexthreerender: [postpostid]
+        },
+        {
+            postindexthreeid: 'commentdi',
+            postindexthreerender: [postpostid]
+        },
+        {
+            postindexthreeid: 'timedi',
+            postindexthreerender: [postpostid]
+        },
     ]
 
     useEffect(() => {
@@ -221,26 +242,6 @@ function PostIndex() {
                         ctamainidtwo: true,
                         ctamainrender: postpostid,
                     })
-                    const empty = []
-                    postindextwo?.forEach(data => {
-                        if (data?.postindextworender?.length <= 0 && data?.postindextwoid !== 'productdi'){
-                            empty.push({
-                                spreadmainid: 'break',
-                                spreadmainidtwo: data.postindextwoid,
-                                spreadmainrender: data.postindextworender,
-                            })
-                            setspreadmainstate(empty)
-                        }
-                        if (data?.postindextworender?.length > 0 && data?.postindextwoid !== 'productdi') {
-                            empty.push({
-                                spreadmainid: 'success',
-                                spreadmainidtwo: data.postindextwoid,
-                                spreadmainrender: data.postindextworender,
-                            })
-                            setspreadmainstate(empty)
-                        }
-                    })
-
                 }
 
                 if(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe'){
@@ -248,27 +249,6 @@ function PostIndex() {
                         ctamainid: postpostid?._type,
                         ctamainrender: postpostid,
                     })
-                    const empty = []
-                    const filter = postindextwo.filter(data => data.postindextwoid !== 'pickdi')
-                    filter?.forEach(data => {
-                        if (data?.postindextworender?.length <= 0){
-                            empty.push({
-                                spreadmainid: 'break',
-                                spreadmainidtwo: data.postindextwoid,
-                                spreadmainrender: data.postindextworender,
-                            })
-                            setspreadmainstate(empty)
-                        }
-                        if (data?.postindextworender?.length > 0) {
-                            empty.push({
-                                spreadmainid: 'success',
-                                spreadmainidtwo: data.postindextwoid,
-                                spreadmainrender: data.postindextworender,
-                            })
-                            setspreadmainstate(empty)
-                        }
-                    })
-                    
                 }     
 
         }
@@ -384,12 +364,12 @@ function PostIndex() {
 
     }
 
-    const  jj = async () => {
-            await client  
-            .patch(postpostid._id)
-            .set({postcount: postpostid.postcount + 1 || 0}) 
-            .commit()
-    }
+    // const  jj = async () => {
+    //         await client  
+    //         .patch(postpostid._id)
+    //         .set({postcount: postpostid.postcount + 1 || 0}) 
+    //         .commit()
+    // }
 
     // const  hh = async () => {
     //         await client  
@@ -420,35 +400,6 @@ function PostIndex() {
   return (
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="flex flex-col md:grid md:grid-cols-12">
-            {/* <figcaption className="col-span-12 ">
-                <br />
-                <div className="flex justify-between items-center gap-5">
-                    <BreadMain />
-                    <figure onClick={() => {
-                        settabmainstate({
-                          tabmainid: 'postoption',
-                          tabmainparam: postpostid?.postid,
-                          // tabmainlocation: location.pathname,
-                          tabmainimage: postpostid?.posthero,
-                          tabmaintitle: postpostid?.posttitle,
-                        })
-                        setappmainstate({
-                          appmainid: 'postoption',
-                          appmainidtwo: 'opendeskmain',
-                          appmainparam: postpostid?.postid,
-                          appmainboolean: true,
-                        })
-                        setsharemainstate({
-                          sharemainparam: postpostid?.postid,
-                        })
-                    }} className="">
-                        <article className="">
-                            <RiMore2Fill className='m-h3' />
-                        </article>
-                    </figure>
-                </div>
-                <br />
-            </figcaption> */}
             <figure className="col-span-12">
                 <section className="overflow-hidden">
                     <SlideMain 
@@ -459,29 +410,11 @@ function PostIndex() {
                     slidemainscroll={1000}
                     slidemainstyle={'!p-0'} />
                 </section>
-                {/* <section className="">
-                    <figure className="group md:max-h-[50vh] relative flex items-center justify-center overflow-hidden">
-                        <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={postpostid?.posthero} alt="" className="z-10 w-full " />
-                        <div className="absolute">
-                        <LoadingMain />
-                        </div>
-                        <div onClick={() => {
-                            setappmainstate({
-                                appmainidtwo: 'previewmain',
-                                appmainid: 'postarticle',
-                                appmainpage: 1,
-                                appmainrender: postpostid?.posthero,
-                                appmainboolean: true,
-                            })
-                        }}  className="hidden group-hover:block absolute top-3 left-3 z-20 p-[10px]  ">
-                            <button className="l-button opacity-100 border border-black">View image</button>
-                        </div>
-                        <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
-                    </figure>
-                </section> */}
             </figure>
             <figcaption className="hidden md:block col-span-12">
                 <section className="grid grid-flow-col">
+                    {(placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={0} sheetmaindata={postindextwo}  />}
+                    {(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
                     {<SpreadMain />}
                     {<RtaMain />}
                 </section>
@@ -494,22 +427,22 @@ function PostIndex() {
                     <div className="flex flex-row justify-between">
                         <h1 className="l-h2 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
                         <figure onClick={() => {
-                        settabmainstate({
-                          tabmainid: 'postoption',
-                          tabmainparam: postpostid?.postid,
-                          // tabmainlocation: location.pathname,
-                          tabmainimage: postpostid?.posthero,
-                          tabmaintitle: postpostid?.posttitle,
-                        })
-                        setappmainstate({
-                          appmainid: 'postoption',
-                          appmainidtwo: 'opendeskmain',
-                          appmainparam: postpostid?.postid,
-                          appmainboolean: true,
-                        })
-                        setsharemainstate({
-                          sharemainparam: postpostid?.postid,
-                        })
+                            settabmainstate({
+                            tabmainid: 'postoption',
+                            tabmainparam: postpostid?.postid,
+                            // tabmainlocation: location.pathname,
+                            tabmainimage: postpostid?.posthero,
+                            tabmaintitle: postpostid?.posttitle,
+                            })
+                            setappmainstate({
+                            appmainid: 'postoption',
+                            appmainidtwo: 'opendeskmain',
+                            appmainparam: postpostid?.postid,
+                            appmainboolean: true,
+                            })
+                            setsharemainstate({
+                            sharemainparam: postpostid?.postid,
+                            })
                         }} className="">
                             <article className="">
                                 <RiMore2Fill className='m-h3' />
@@ -521,7 +454,10 @@ function PostIndex() {
                     <br />
                     <figure className="p-[10px] flex justify-between items-center">
                         <div className="flex flex-row gap-5 items-center ">
-                            <div className="flex flex-row gap-2 items-center  m-h4">
+                            {postpostid && <SpreadMain sheetmainid={'postindexdi'} sheetmainindex={0} sheetmaindata={postindexthree}  />}
+                            
+                            {postpostid && <BarMain barmainid={'postindextime'} />}
+                            {/* <div className="flex flex-row gap-2 items-center  m-h4">
                                 <figure className="">
                                     <RiEyeLine />
                                 </figure>
@@ -542,7 +478,7 @@ function PostIndex() {
                                 <figcaption className="l-h3">
                                     {postpostid?.postcount || 0}
                                 </figcaption>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="">
                         <SocialMain param={`/` + param.id} />
