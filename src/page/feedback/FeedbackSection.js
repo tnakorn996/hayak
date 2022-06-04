@@ -32,7 +32,6 @@ function FeedbackSection() {
         const filter = feedbackui.filter(data => data.crummainid === tabmainstate.tabmainidtwo)
         setfeedbacksectiontitle(filter[0].crummaintitle)
         setfeedbacksectionrender(filter)
-
       }
     }, [tabmainstate])
 

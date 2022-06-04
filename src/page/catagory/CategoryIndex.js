@@ -61,6 +61,8 @@ function CategoryIndex() {
         },
     ]
 
+    console.log('postcategoryidpostcount :>> ', postcategoryidpostcount);
+
     useEffect(() => {
         if(breadmain && crummain){
             const filter = breadmain.filter(data => data.breadmainid === 'categoryul')
@@ -151,7 +153,7 @@ function CategoryIndex() {
 
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="overflow-hidden">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="overflow-hidden duration-100">
             <section className="px-[20px] md:px-[60px] w-full mx-auto h-[30vh] flex items-center">
                 <div className="">
                 <h1 className="text-3xl font-serif m-h6 first-letter:uppercase">{categoryindextitle} </h1>
@@ -212,15 +214,15 @@ function CategoryIndex() {
                 <br />
 
                 {data?.categoryindexid === 'postcategoryidupdatedat' && (<>
-                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={reftwo} slidemainscroll={400} />
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={reftwo} slidemainscroll={400} slidemainslice={12} />
                 </>)}
 
                 {data?.categoryindexid === 'postcategoryidcreatedat' && (<>
-                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={ref} slidemainscroll={400} />
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={ref} slidemainscroll={400} slidemainslice={12} />
                 </>)}
 
                 {data?.categoryindexid === 'postcategoryidpostcount' && (<>
-                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={refthree} slidemainscroll={400} />
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={refthree} slidemainscroll={400} slidemainslice={12} />
                 </>)}
 
                 </>))}

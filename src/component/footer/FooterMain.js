@@ -44,23 +44,34 @@ function FooterMain() {
             <section className="p-[20px] md:p-0 flex items-center text-white">
                 <div className="w-full flex flex-row flex-wrap justify-between gap-7">
                 {categoryul?.map(data => (<>
-                <article onClick={() => {
-                    setgenreindexstate('')
-                    setbreadmainstate('')
-                    navigate(data?.breadmainaction)
-                }} className="m-h3  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</article>
+                <a 
+                // onClick={() => {
+                //     setgenreindexstate('')
+                //     setbreadmainstate('')
+                //     navigate(data?.breadmainaction)
+                // }}
+                href={data?.breadmainaction}
+                 className="m-h3  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
                 </>
                 ))}
+
                 {searchul?.map(data => (<>
-                <article onClick={() => {
-                    navigate(data?.breadmainaction)
-                }} className="m-h3  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</article>
+                <a 
+                // onClick={() => {
+                //     navigate(data?.breadmainaction)
+                // }}
+                href={data?.breadmainaction}
+                 className="m-h3  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
                 </>
                 ))}
+                
                 {feedbackul?.map(data => (<>
-                <article onClick={() => {
-                    navigate(data?.breadmainaction)
-                }} className="m-h3  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</article>
+                <a 
+                // onClick={() => {
+                //     navigate(data?.breadmainaction)
+                // }}
+                href={data?.breadmainaction}
+                 className="m-h3  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
                 </>
                 ))}
                 </div>

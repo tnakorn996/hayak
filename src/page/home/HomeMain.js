@@ -21,6 +21,7 @@ function HomeMain() {
         setbreadmainstate,
         setgenreindexstate,
 
+        postplaceproduct,
         postupdatedat,
         placeupdatedat,
         productupdatedat,
@@ -42,6 +43,7 @@ function HomeMain() {
     const ref = useRef(null)
     const reftwo = useRef(null)
     const refthree = useRef(null)
+    const reffour = useRef(null)
 
     const homemain = [
         {
@@ -184,27 +186,38 @@ function HomeMain() {
 
     return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="w-screen  overflow-hidden">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="w-screen  overflow-hidden duration-100">
             <br />
-            <section onClick={() => {
+            <br />
+            <section className="">
+            <SlideMain 
+            slidemainid={'homemainth'} 
+            slidemainindex={1} 
+            slidemaindata={postplaceproduct} 
+            slidemainref={reffour} 
+            slidemainscroll={1200}
+            slidemainstyle={'!p-0'}
+            slidemainslice={5} />
+            </section>
+            {/* <section onClick={() => {
                     // window.history.replaceState(null, "" , postupdatedat[0]?.postid)
                       setappmainstate({
                         appmainid: 'postarticle',
                         appmainidtwo: 'previewmain',
                         appmainpage: 0,
-                        appmainparam: postupdatedat && postupdatedat[0]?.postid,
+                        appmainparam: postplaceproduct && postplaceproduct[0]?.postid,
                         appmainboolean: true,
                       })
-                    }} className="py-[20px] px-[20px] md:px-[60px] h-[90vh] flex flex-col justify-evenly gap-3">
+                    }} className="py-[20px] px-[20px] md:px-[60px] h-[85vh] flex flex-col justify-evenly gap-3">
                 <figcaption className="flex flex-col justify-between items-center  border-b border-black">
-                    <h1 className="text-6xl font-serif m-h6">{postupdatedat && postupdatedat[0]?.posttitle}</h1>
+                    <h1 className="text-6xl font-serif m-h6">{postplaceproduct && postplaceproduct[0]?.posttitle}</h1>
                     <button className="m-h3">Read more →</button>
                 </figcaption>
-                <figure className="min-h-[70vh] flex items-center justify-center  overflow-hidden border border-black">
-                    <img src={postupdatedat && postupdatedat[0]?.posthero} alt="" className="max-h-[200ch] w-full" />
+                <figure className="h-[70vh] flex items-center justify-center  overflow-hidden border border-black">
+                    <img src={postplaceproduct && postplaceproduct[0]?.posthero} alt="" className="max-h-[200ch] w-full" />
                 </figure>
                 <div className="w-full  border-b border-black" />
-            </section>
+            </section> */}
             <br />
             <br />
             <section className=" w-[1200px] md:w-full group">
@@ -224,21 +237,20 @@ function HomeMain() {
                 <br />
 
                         {data?.homemainid === 'postupdatedat' && (<>
-                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[0]?.homemainmap} slidemainref={ref} slidemainscroll={350} />
+                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[0]?.homemainmap} slidemainref={ref} slidemainscroll={350} slidemainslice={12} />
                         </>)}
 
                         {data?.homemainid === 'placeupdatedat' && (<>
-                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[1]?.homemainmap} slidemainref={reftwo} slidemainscroll={350} />
+                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[1]?.homemainmap} slidemainref={reftwo} slidemainscroll={350} slidemainslice={12} />
                         </>)}
 
                         {data?.homemainid === 'productupdatedat' && (<>
-                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[2]?.homemainmap} slidemainref={refthree} slidemainscroll={350} />
+                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[2]?.homemainmap} slidemainref={refthree} slidemainscroll={350} slidemainslice={12} />
                         </>)}
                 </>))}
                 <br />
             </section>
             <br />
-            <div className="w-full  border-b-2 border-black" />
             <br />
             <section className="px-[20px] md:px-[60px]">
                 <WireMain />

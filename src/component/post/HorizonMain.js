@@ -15,7 +15,7 @@ function HorizonMain({onlick, postid, posticon, posthero, posttitle, postsubtitl
         <main className="">
             <article className="grid grid-flow-col items-center gap-3 justify-start">
                 <section onClick={onlick} className="">
-                    <figure className={`relative w-[70px] h-[70px] flex items-center justify-center  overflow-hidden shadow ${posticon && 'rounded-full shadow'}`}>
+                    <figure className={`relative w-[70px] h-[70px] flex items-center justify-center  overflow-hidden shadow border ${posticon && 'rounded-full shadow'}`}>
                         <img loading='lazy' src={posticon || posthero} alt="" className="max-h-[100ch] z-10 w-full" />
                         {!posticon && <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />}
                     </figure>

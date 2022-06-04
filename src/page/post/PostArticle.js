@@ -8,6 +8,7 @@ import BarMain from '../../component/bar/BarMain'
 import LoadingMain from '../../component/load/LoadingMain'
 
 import HorizonMain from '../../component/post/HorizonMain'
+import SpreadMain from '../../component/spread/SpreadMain'
 import { categoryui, genreui } from '../../content/contentmantwo'
 import { ContextMain } from '../../context/contextmain'
 
@@ -43,6 +44,25 @@ useEffect(() => {
         setpostarticlerenderfour(filtertwo[0]?.crummaintitle)
     }
   }, [postarticlestate])
+
+    const postindexthree = [
+        {
+            postindexthreeid: 'readdi',
+            postindexthreerender: [postarticlestate]
+        },
+        {
+            postindexthreeid: 'viewdi',
+            postindexthreerender: [postarticlestate]
+        },
+        {
+            postindexthreeid: 'commentdi',
+            postindexthreerender: [postarticlestate]
+        },
+        {
+            postindexthreeid: 'timedi',
+            postindexthreerender: [postarticlestate]
+        },
+    ]
   
   return (
     <div>
@@ -78,8 +98,9 @@ useEffect(() => {
                                     navigate(`/${postarticlestate?.postid}`)
                                 }} className="col-span-12 md:col-span-5 m-button m-h3">→ Read more</button>
                                 <figure className="col-span-12 md:col-span-7 flex flex-row gap-3 items-center justify-between ">
-                                    {/* <BarMain barmainid={'postindextime'}  /> */}
-                                    <div className="flex flex-row gap-4 items-center">
+                                    {postarticlestate && <SpreadMain sheetmainid={'postindexdi'} sheetmainindex={0} sheetmaindata={postindexthree}  />}
+                                    <BarMain barmainid={'postindextime'} />
+                                    {/* <div className="flex flex-row gap-4 items-center">
                                         <h1 className="block md:hidden l-h5">{postarticlestate?._createdAt?.slice(0, 10)}</h1>
                                         <div className="flex flex-row items-center gap-1">
                                         <RiBookOpenLine className='m-h5' />
@@ -89,7 +110,7 @@ useEffect(() => {
                                         <RiEyeLine className='m-h5' />
                                         <h1 className="l-h5">{postarticlestate?.postcount || 0}</h1>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="flex flex-row items-center gap-3 justify-end ">
                                         <figure onClick={() => {
                                             setappmainstate({
@@ -101,7 +122,7 @@ useEffect(() => {
                                             })
                                         }} className="">
                                             <article className="">
-                                            <RiShareFill className='m-h5' />
+                                            <RiShareFill className='m-h3' />
                                             </article>
                                         </figure>
                                     </div>

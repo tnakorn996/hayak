@@ -59,7 +59,7 @@ function SlideMain() {
     
   return (
     <div>
-        <motion.main   initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="relative w-screen min-h-screen grid grid-cols-12  bg-gray-900 text-white">
+        <motion.main   initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="relative w-screen min-h-screen grid grid-cols-12  bg-gray-900 text-white duration-100">
                 <article onClick={() => {
                     ll()
                 }} className="col-span-2 sticky top-0 right-0 h-screen flex justify-center items-center">

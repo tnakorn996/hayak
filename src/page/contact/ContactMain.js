@@ -5,7 +5,7 @@ import ExitMain from '../../component/exit/ExitMain'
 function ContactMain() {
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="w-screen min-h-screen flex flex-col md:grid md:grid-cols-12 items-center  bg-black text-white">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="w-screen min-h-screen flex flex-col md:grid md:grid-cols-12 items-center  bg-black text-white duration-100">
             <section className="col-span-7 p-[40px] max-w-[700px] mx-auto  ">
                 <ExitMain />
                 <br /><br />

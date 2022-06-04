@@ -73,7 +73,7 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                       </>)}
                     </div>
                     <div className="z-20 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
-                    <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} loading='lazy' src={posthero} alt="" className="max-w-[100ch] z-10 h-full hover:scale-110 duration-1000" />
+                    <motion.img loading='lazy' initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} src={posthero} alt="" className="max-w-[100ch] z-10 h-full hover:scale-110 duration-1000" />
                 </figure>
                 <figure className="relative flex flex-row py-[7px] gap-2 justify-end items-center">
                     {placepostid && (<>
@@ -107,7 +107,7 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                       <RiMore2Fill className='my-[7px]  text-md l-m3' />
                     </figure>
                 </figure>
-                <figcaption className="row-span-3 h-[20vh]">
+                <figcaption className="row-span-3 h-[15vh]">
                     {/* <div className="flex flex-row gap-2 items-center">
                       <h1 className="text-[9px]  l-h1 truncate">{createdat?.slice(0, 10)}</h1>
                       <h1 className="l-h1 truncate">|</h1>

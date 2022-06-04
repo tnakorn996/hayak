@@ -53,6 +53,7 @@ function RtaMain({type}) {
                 <section className="grid grid-cols-12 items-center justify-between">
                   <div className=" col-span-10 flex flex-row items-start gap-1 ">
                     <h1 className=" m-h5 md:m-h6 font-serif">{dat?.sheetmainsubtitle}</h1>
+                    {/* <h1 className=" m-h5 md:l-h6">{data?.rtamainrenderthree?.length}</h1> */}
                     <div className="hidden md:block relative">
                     <TooltipMain title={dat?.sheetmainsubtitle}>
                     <RiQuestionFill className='l-h3' />
@@ -77,7 +78,7 @@ function RtaMain({type}) {
                   </section>
                   <br />
               </>))}
-              <section className="flex flex-col">
+              <section className="flex flex-col gap-1">
               {data?.rtamainrenderthree?.slice(0, 2)?.map(da => (<>
                   <HorizonMain onlick={() => {
                     navigate(`/${da?.postid}`)

@@ -519,6 +519,13 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
 
             breadmainid: 'feedback',
         },
+                {
+            crummainid: 'request',
+            crummaintitle: 'Have some feature to request',
+            crummainsubtitle: `Tell us about your experience, what you love, or what we could improve. Please provide email addresses to keep in contact.`,
+
+            breadmainid: 'feedback',
+        },
     ]
 
 /////////////////////////////////////////////////////

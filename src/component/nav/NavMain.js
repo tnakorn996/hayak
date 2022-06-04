@@ -60,7 +60,9 @@ function NavMain() {
             </section>
 
             <section className="p-[20px] md:p-0 col-span-7 md:col-span-1 flex flex-row items-center justify-center">
-                <a href="https://toifood.co.nz/" className="opacity-100">
+                <button onClick={() => {
+                    navigate('/')
+                }} className="opacity-100">
                 <article className=" flex flex-row gap-1 items-center">
                     <figure className="">
                         {/* <div className="w-[20px] h-[20px]  rounded-full bg-black" /> */}
@@ -71,7 +73,7 @@ function NavMain() {
                         {/* <h1 className="l-h3">Blog</h1> */}
                     </figcaption>
                 </article>
-                </a>
+                </button>
             </section>
             <section className="!text-xs md:px-[60px] col-span-2 md:col-span-5 flex justify-end gap-1">
                     
@@ -127,8 +129,10 @@ function NavMain() {
                 
                 
             </section>
-            <section className="col-span-12">
+            <section className="col-span-12 relative">
+                <div className="z-30 absolute">
                 <DropdownMain />
+                </div>
             </section>
         </main>
     </div>

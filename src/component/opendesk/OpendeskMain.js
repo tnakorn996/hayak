@@ -105,7 +105,7 @@ function OpendeskMain() {
 
   return (
     <div>
-        <motion.main key='opendeskmain' initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="fixed bottom-0 md:top-0 right-0 w-screen md:h-screen md:max-w-[500px] p-[20px]  border bg-white shadow-2xl overflow-hidden">
+        <motion.main key='opendeskmain' initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="fixed bottom-0 md:top-0 right-0 w-screen md:h-screen md:max-w-[500px] p-[20px]  border bg-white shadow-2xl overflow-hidden duration-100">
             <section className="md:h-[10vh]">
             {(opendeskmainlocation || opendeskmainparam) && (<>
                 <HorizonMain
@@ -144,7 +144,7 @@ function OpendeskMain() {
                         <h1 className="col-span-9  uppercase l-button border">{opendeskmainrendertwo && opendeskmainrendertwo[0]?.tabmainid}</h1>
                     </div>
                     <br />
-                    <motion.div initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="max-h-full  overflow-y-scroll no-scrollbar">
+                    <motion.div initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="max-h-full  overflow-y-scroll no-scrollbar  duration-100">
                     {opendeskmainrendertwo?.map(data => (<>
 
                     <article onClick={() => {

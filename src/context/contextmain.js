@@ -108,7 +108,7 @@ export const Provider = ({ children }) => {
         },
         {
             blemainid: 'url',
-            blemaintitle: 'Scan with other platforms',
+            blemaintitle: 'Share with other platforms',
             blemainaction:  () => {
                 setappmainstate({
                     appmainid: 'sharesection',
@@ -160,21 +160,41 @@ export const Provider = ({ children }) => {
 
             tabmainid: 'feedback',
         },
+        // {
+        //     blemainid: 'report',
+        //     blemaintitle: 'Report an issue',
+        //     blemainaction:  () => {
+        //         settabmainstate({
+        //             tabmainid: 'feedback',
+        //             tabmainidtwo: 'report',
+        //         })
+        //         setappmainstate({
+        //             appmainid: 'feedbacksection',
+        //             appmainidtwo: 'modalmain',
+        //             appmainidthree: 0,
+        //             appmainboolean: true,
+        //         })
+
+        //     },
+
+        //     tabmainid: 'feedback',
+        // },
         {
-            blemainid: 'report',
-            blemaintitle: 'Report an issue',
+            blemainid: 'request',
+            blemaintitle: 'Request feature',
+            blemainsubtitle: `Please note we can’t guarantee a response.`,
             blemainaction:  () => {
                 settabmainstate({
                     tabmainid: 'feedback',
-                    tabmainidtwo: 'report',
+                    tabmainidtwo: 'request',
                 })
                 setappmainstate({
                     appmainid: 'feedbacksection',
                     appmainidtwo: 'modalmain',
                     appmainidthree: 0,
+                    // appmainparam: param,
                     appmainboolean: true,
                 })
-
             },
 
             tabmainid: 'feedback',
@@ -225,7 +245,6 @@ export const Provider = ({ children }) => {
             },
 
             tabmainid: 'post',
-
         },
 
         {
@@ -238,7 +257,6 @@ export const Provider = ({ children }) => {
             },
 
             tabmainid: 'product',
-
         },
         {
             blemainid: 'coffee',
@@ -250,7 +268,6 @@ export const Provider = ({ children }) => {
             },
 
             tabmainid: 'product',
-
         },
         {
             blemainid: 'alcohol',
@@ -670,6 +687,26 @@ export const Provider = ({ children }) => {
                 settabmainstate({
                     tabmainid: 'feedback',
                     tabmainidtwo: 'report',
+                })
+                setappmainstate({
+                    appmainid: 'feedbacksection',
+                    appmainidtwo: 'modalmain',
+                    appmainidthree: 0,
+                    // appmainparam: param,
+                    appmainboolean: true,
+                })
+            },
+
+            tabmainid: 'feedback',
+        },
+        {
+            blemainid: 'request',
+            blemaintitle: 'Request feature',
+            blemainsubtitle: `Please note we can’t guarantee a response.`,
+            blemainaction:  () => {
+                settabmainstate({
+                    tabmainid: 'feedback',
+                    tabmainidtwo: 'request',
                 })
                 setappmainstate({
                     appmainid: 'feedbacksection',

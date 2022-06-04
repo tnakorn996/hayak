@@ -196,7 +196,7 @@ function PostIndex() {
     useEffect(() => {
         if(postpostid){
             // kk()
-            // jj()
+            jj()
             setbreadmainstate({
                 breadmainid: postpostid?._type,
                 breadmainidtwo: postpostid?.categoryid,
@@ -364,12 +364,12 @@ function PostIndex() {
 
     }
 
-    // const  jj = async () => {
-    //         await client  
-    //         .patch(postpostid._id)
-    //         .set({postcount: postpostid.postcount + 1 || 0}) 
-    //         .commit()
-    // }
+    const  jj = async () => {
+            await client  
+            .patch(postpostid._id)
+            .set({postcount: postpostid.postcount + 1 || 0}) 
+            .commit()
+    }
 
     // const  hh = async () => {
     //         await client  
@@ -415,7 +415,7 @@ function PostIndex() {
                 <section className="grid grid-flow-col">
                     {(placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={0} sheetmaindata={postindextwo}  />}
                     {(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
-                    {<SpreadMain />}
+                    {/* {<SpreadMain />} */}
                     {<RtaMain />}
                 </section>
             </figcaption>
@@ -455,7 +455,6 @@ function PostIndex() {
                     <figure className="p-[10px] flex justify-between items-center">
                         <div className="flex flex-row gap-5 items-center ">
                             {postpostid && <SpreadMain sheetmainid={'postindexdi'} sheetmainindex={0} sheetmaindata={postindexthree}  />}
-                            
                             {postpostid && <BarMain barmainid={'postindextime'} />}
                             {/* <div className="flex flex-row gap-2 items-center  m-h4">
                                 <figure className="">
@@ -551,6 +550,7 @@ function PostIndex() {
                 slidemaindata={postindexrenderfour} 
                 slidemainref={reftwo}
                 slidemainscroll={400} 
+                slidemainslice={12}
                 />
                 </section>
                 <br />

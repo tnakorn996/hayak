@@ -131,7 +131,7 @@ function SpreadMain({
   ]
 
   useEffect(() => {
-    if(sheetmainid && sheetmaindata){
+    if(sheetmaindata){
       const filter = sheetmain.filter(data => data.sheetmainid === sheetmainid);
       const filtertwo = filter[0].sheetmainref.filter(data => data.sheetmainindex === sheetmainindex);
       setspreadmainrender(filtertwo[0].sheetmainrender)
@@ -163,6 +163,8 @@ function SpreadMain({
         })
     }
   }, [spreadmainrender])
+
+  console.log('spreadmainrendertwo :>> ', spreadmainrendertwo);
   
   if(spreadmainrendertwo === undefined) return null
 
@@ -187,7 +189,7 @@ function SpreadMain({
               <section onClick={() => {
                 setbreadmainstate('')
                 navigate(`${dat?.sheetmainaction}`)
-              }} className="col-span-5">
+              }} className="col-span-5 justify-center">
                 <button className="w-full  l-button">See more</button>
               </section>
             </figure>

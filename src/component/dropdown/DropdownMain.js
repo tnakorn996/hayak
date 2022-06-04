@@ -76,9 +76,9 @@ function DropdownMain() {
 
   return (
     <div>
-        <motion.main layout className={`w-screen h-0  overflow-hidden border-b border-black bg-black text-white ${dropdownmainheight && dropdownmainheight} `}>
+        <motion.main layout className={`w-screen h-0  overflow-hidden border-b border-black bg-black text-white  duration-500 ${dropdownmainheight && dropdownmainheight} `}>
             <section className="h-full relative flex flex-col md:grid md:grid-cols-12">
-                <figcaption className="p-[60px] col-span-7 flex flex-col justify-between">
+                <figcaption className="h-[90vh] p-[60px] col-span-7 flex flex-col justify-between">
                     <h1 className="m-h6  text-white">{dropdownmaintitle && dropdownmaintitle}</h1>
                     <br />
                     <div className="flex flex-col">
@@ -111,7 +111,7 @@ function DropdownMain() {
                     </a>
                 </figcaption>
                 <figure className="hidden md:flex col-span-5 items-center justify-center   overflow-hidden">
-                    <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-[100ch] min-h-fit" />
+                    <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-[100ch] min-h-fit   duration-100" />
                 </figure>
                 <article className='w-[70px] h-[70px] text-5xl absolute flex justify-center items-center top-5 right-5  bg-black' >
                     <RiCloseFill onClick={() => {

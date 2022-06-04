@@ -23,18 +23,18 @@ function BarMain({
             barmainrender: barmainstate?.filter(data => data.spreadmainidthree === 'viewdi'),
             barmainaction: () => {},
         },
-        {
-            barmainindex: 1,
-            barmainicon: <RiChat3Line />,
-            barmainrender: barmainstate?.filter(data => data.spreadmainidthree === 'commentdi'),
-            barmainaction: () => {
-                // setappmainstate({
-                //     appmainid: 'commentdialog',
-                //     appmainidtwo: 'sideboardmain',
-                //     appmainboolean: true,
-                // })
-            },
-        },
+        // {
+        //     barmainindex: 1,
+        //     barmainicon: <RiChat3Line />,
+        //     barmainrender: barmainstate?.filter(data => data.spreadmainidthree === 'commentdi'),
+        //     barmainaction: () => {
+        //         // setappmainstate({
+        //         //     appmainid: 'commentdialog',
+        //         //     appmainidtwo: 'sideboardmain',
+        //         //     appmainboolean: true,
+        //         // })
+        //     },
+        // },
         {
             barmainindex: 2,
             barmainicon: <RiBookOpenLine />,
@@ -102,8 +102,8 @@ function BarMain({
                             {data?.barmainrender?.map(dat => (<>
                                 {dat?.spreadmainrender?.map(da => (<>
                                     {data?.barmainindex === 0 && <h1 className="">{da?.postcount || 0}</h1>}
-                                    {data?.barmainindex === 1 && <h1 className="">{da?.postcount || 0}</h1>}
-                                    {data?.barmainindex === 2 && <h1 className="">{Math.floor(da?.postblock?.length * 0.2) || 0} min</h1>}
+                                    {data?.barmainindex === 1 && <h1 className="">{0}</h1>}
+                                    {data?.barmainindex === 2 && <h1 className="">{Math.floor(da?.postblock?.length * 0.3) || 0} min</h1>}
                                     {data?.barmainindex === 3 && <h1 className="">{ll(new Date(da?._createdAt)) || 0}</h1>}
                                 </>))}
                             </>))}

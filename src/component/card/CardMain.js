@@ -112,7 +112,7 @@ function CardMain({
   return (
     <div>
         <br />
-        <motion.main initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative">
+        <motion.main initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative  duration-100">
             {cardmainrender?.map(data => (<>
                 <figure className={`w-full p-[20px] flex flex-col  md:flex-row justify-between ${data?.spreadmainstyle}`}>
                     <div className="flex flex-row items-start gap-3">

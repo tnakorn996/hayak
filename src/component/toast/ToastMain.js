@@ -39,7 +39,7 @@ function ToastMain() {
     
   return (
     <div>
-        <motion.main  initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="z-10 w-full fixed bottom-0 left-0 flex items-center  bg-black text-white">
+        <motion.main  initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="z-10 w-full fixed bottom-0 left-0 flex items-center  bg-black text-white duration-100">
             <div className="w-full px-[20px] md:px-[60px] flex flex-col md:grid md:grid-cols-12 justify-center items-center text-center">
                     <section className="md:col-span-8">
                         <br />
