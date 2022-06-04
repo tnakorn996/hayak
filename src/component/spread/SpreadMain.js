@@ -164,8 +164,6 @@ function SpreadMain({
     }
   }, [spreadmainrender])
 
-  console.log('spreadmainrendertwo :>> ', spreadmainrendertwo);
-  
   if(spreadmainrendertwo === undefined) return null
 
   return (
@@ -196,7 +194,7 @@ function SpreadMain({
             </>))}
             </>))}
             <div className="hidden md:block">
-            <br /><br />
+            <br />
             </div>
           </div>
           </>))}

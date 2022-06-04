@@ -215,7 +215,7 @@ function SlideMain({
                         {slidemainslice && slidemaindata?.slice(0, slidemainslice)?.map((data, index) => (<>
                         <article onClick={() => {
                             ll(slidemainref, 1, index)
-                        }} className={`p-[10px] w-[7px] h-[7px]  bg-gray-300 duration-100 ${slidemainindextwo === slidemainscroll * index && '!w-[100px]  !cursor-default !bg-gray-900'} `}>
+                        }} className={`p-[10px] w-[7px] h-[7px]  bg-gray-200 duration-500 ${slidemainindextwo === slidemainscroll * index && '!w-[100px]  !cursor-default !bg-gray-900'} `}>
                         </article>
                         </>))}
                     </div>

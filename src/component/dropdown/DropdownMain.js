@@ -76,7 +76,7 @@ function DropdownMain() {
 
   return (
     <div>
-        <motion.main layout className={`w-screen h-0  overflow-hidden border-b border-black bg-black text-white  duration-500 ${dropdownmainheight && dropdownmainheight} `}>
+        <motion.main layout className={`w-screen h-0 z-30  overflow-hidden border-b border-black bg-black text-white  duration-500 ${dropdownmainheight && dropdownmainheight} `}>
             <section className="h-full relative flex flex-col md:grid md:grid-cols-12">
                 <figcaption className="h-[90vh] p-[60px] col-span-7 flex flex-col justify-between">
                     <h1 className="m-h6  text-white">{dropdownmaintitle && dropdownmaintitle}</h1>
@@ -97,8 +97,8 @@ function DropdownMain() {
                                 breadmainidtwo: data?.crummainid,
                             })
                             navigate(`/category/${data?.breadmainid}`)
-                        }} className={`text-5xl  font-serif m-h5 ${data?.crummainid === dropdownmaineffect && 'underline'}`}>
-                            {data?.crummaintitle} <span className="font-sans">→</span>
+                        }} className={`text-5xl flex flex-row items-center gap-3  font-serif m-h5 ${data?.crummainid === dropdownmaineffect && 'underline'}`}>
+                            {data?.crummaintitle}
                         </article>
                         </>))}
                     </div>
@@ -107,7 +107,7 @@ function DropdownMain() {
                         // setbreadmainstate('')
                         // navigate(`/category/${dropdownmainparam}`)
                     }} href={`https://toifood.co.nz/category/${dropdownmainparam}`} className="text-5xl  font-serif m-h5">
-                        See {dropdownmaintitle}<span className="font-sans">→</span>
+                        See {dropdownmaintitle}
                     </a>
                 </figcaption>
                 <figure className="hidden md:flex col-span-5 items-center justify-center   overflow-hidden">

@@ -68,6 +68,7 @@ export const Provider = ({ children }) => {
         setappmainstate('')
         setspreadmainstate('')
         setsharemainstate('')
+        setrtamainstate('')
 
         progress.start();
         setTimeout(() => {
