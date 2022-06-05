@@ -21,6 +21,7 @@ import { genreui } from '../../content/contentmantwo'
 import AlertMain from '../../component/alert/AlertMain'
 import SlideMain from '../../component/slide/SlideMain'
 import BarMain from '../../component/bar/BarMain'
+import ListMain from '../../component/list/ListMain'
 
 function PostIndex() {
     const {
@@ -176,6 +177,10 @@ function PostIndex() {
         },
         {
             postindexthreeid: 'timedi',
+            postindexthreerender: [postpostid]
+        },
+        {
+            postindexthreeid: 'socialdi',
             postindexthreerender: [postpostid]
         },
     ]
@@ -390,7 +395,7 @@ function PostIndex() {
     //     }
     // }
 
-    if(!postpostid) return <LoadMain />
+    // if(!postpostid) return <LoadMain />
 
     if(postindexmessage) return <section className="w-screen h-screen flex justify-center items-center">
         <AlertMain alertmainmessage={postindexmessage} />
@@ -399,7 +404,7 @@ function PostIndex() {
 
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="flex flex-col md:grid md:grid-cols-12">
+        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="flex flex-col md:grid md:grid-cols-12   duration-100">
             <figure className="col-span-12">
                 <section className="overflow-hidden">
                     <SlideMain 
@@ -415,7 +420,6 @@ function PostIndex() {
                 <section className="grid grid-flow-col">
                     {(placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={0} sheetmaindata={postindextwo}  />}
                     {(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
-                    {/* {<SpreadMain />} */}
                     {<RtaMain />}
                 </section>
             </figcaption>
@@ -423,65 +427,15 @@ function PostIndex() {
                 <br />
                 <hr />
                 <br />
-                <section className="px-[20px] md:px-[60px] max-w-[900px] mx-auto">
+                <section className="px-[20px] md:px-[60px] max-w-[900px] mx-auto min-h-[20vh] md:h-fit">
                     <div className="flex flex-row justify-between">
                         <h1 className="l-h2 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
-                        <figure onClick={() => {
-                            settabmainstate({
-                            tabmainid: 'postoption',
-                            tabmainparam: postpostid?.postid,
-                            // tabmainlocation: location.pathname,
-                            tabmainimage: postpostid?.posthero,
-                            tabmaintitle: postpostid?.posttitle,
-                            })
-                            setappmainstate({
-                            appmainid: 'postoption',
-                            appmainidtwo: 'opendeskmain',
-                            appmainparam: postpostid?.postid,
-                            appmainboolean: true,
-                            })
-                            setsharemainstate({
-                            sharemainparam: postpostid?.postid,
-                            })
-                        }} className="">
-                            <article className="">
-                                <RiMore2Fill className='m-h3' />
-                            </article>
-                        </figure>
                     </div>
                     <h1 className="text-3xl md:text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
                     <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
                     <br />
-                    <figure className="p-[10px] flex justify-between items-center">
-                        <div className="flex flex-row gap-5 items-center ">
-                            {postpostid && <SpreadMain sheetmainid={'postindexdi'} sheetmainindex={0} sheetmaindata={postindexthree}  />}
-                            {postpostid && <BarMain barmainid={'postindextime'} />}
-                            {/* <div className="flex flex-row gap-2 items-center  m-h4">
-                                <figure className="">
-                                    <RiEyeLine />
-                                </figure>
-                                <figcaption className="l-h3">
-                                    {postpostid?.postcount || 0}
-                                </figcaption>
-                            </div>
-                            <div onClick={() => {
-                                setappmainstate({
-                                    appmainid: 'commentdialog',
-                                    appmainidtwo: 'sideboardmain',
-                                    appmainboolean: true,
-                                })
-                            }} className="flex flex-row gap-2 items-center  m-h4">
-                                <figure className="">
-                                    <RiChat3Line />
-                                </figure>
-                                <figcaption className="l-h3">
-                                    {postpostid?.postcount || 0}
-                                </figcaption>
-                            </div> */}
-                        </div>
-                        <div className="">
-                        <SocialMain param={`/` + param.id} />
-                        </div>
+                    <figure className="">
+                        {postpostid && <BarMain barmainid={'postindextime'} barmainindex={0} barmaindata={postindexthree} />}
                     </figure>
                     <br /><hr /><br />
                 </section>
@@ -516,33 +470,23 @@ function PostIndex() {
             </figcaption>
             <figcaption className="col-span-12">
                 <section className="px-[20px] md:px-[60px] max-w-[900px] mx-auto ">
-                    {<CtaMain />}
-                    {/* <TableMain /> */}
-                    {/* <StepMain /> */}
+                    <CtaMain />
                 </section>
             </figcaption>
             <figcaption className="block md:hidden col-span-12">
                 <section className="px-[20px] md:p-0 md:grid md:grid-flow-col">
-                    {<SpreadMain />}
-                    {<RtaMain />}
+                    {(placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={0} sheetmaindata={postindextwo}  />}
+                    {(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
+                    <RtaMain />
                 </section>
             </figcaption>
             <figure layout className="col-span-12">
                 <br />
-                <hr />
                 <br />
+                <hr />
                 <br />
                 <h1 className="px-[20px] md:px-[60px]  m-h5 md:m-h6 font-serif"> You may also like</h1>
                 <br />
-                {/* <section className="overflow-y-scroll no-scrollbar">
-                <div className="px-[20px] md:px-[60px] w-[1000px] md:w-full grid grid-cols-4 gap-3">
-                {postindexrenderfour?.slice(0, 4)?.map(data => (<>
-                    <VerticleMain onlick={() => {
-                        navigate(`/${data?.postid}`)
-                    }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid} param={data?.postid} />
-                    </>))}
-                </div>
-                </section> */}
                 <section className="overflow-hidden">
                 <SlideMain 
                 slidemainid={'categoryindexth'} 

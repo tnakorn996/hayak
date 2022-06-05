@@ -388,11 +388,11 @@ export const Provider = ({ children }) => {
             tabmainid: 'genre',
         },
         {
-            blemainid: 'vegeterian',
+            blemainid: 'vegetarian',
             blemaintitle: "Vegetarian",
             blemainaction:  () => {
                 setgenreindexstate({
-                    genreindexid: 'vegeterian',
+                    genreindexid: 'vegetarian',
                 })
             },
             
@@ -752,21 +752,41 @@ export const Provider = ({ children }) => {
         },
     ]
 
+    const faqdl = [
+        {
+            spreadmainindex: 0,
+            spreadmaintitle: 'What is TOI',
+        },
+        {
+            spreadmainindex: 1,
+            spreadmaintitle: 'Our purpose',
+        },
+        {
+            spreadmainindex: 2,
+            spreadmaintitle: 'Why join',
+        },
 
-    /////////////////////////////////
-
-    const tabmain = [
-        // {
-        //     tabmainid: 'blockselect',
-        //     tabmainref: blockselect,
-        // },
     ]
 
-    const blemain = [
-        // {
-        //     blemainid: 'blocklink',
-        //     blemainref: blocklink,
-        // },
+    const faqdi = [
+        {
+            sheetmainindex: 0,
+            sheetmaintitle: `TOI is a curated directory that champions and connects artisan and owner-operated businesses and First Nations offerings to people like you who want to support independents. We establish personal relationships with our members, so each business is vetted by us. You see who owns and operates each business, but each business listing is our members showcasing themselves in their words. Pretty simple.`,
+
+            spreadmainindex: 0,
+        },
+        {
+            sheetmainindex: 0,
+            sheetmaintitle: `Money flows where intention goes. The Realness empowers you to put franchises and chains behind you. In the spirit of investment and redistribution of wealth, you can help grow this community of independent owner-operated and indigenous businesses across Aotearoa and beyond - from your couch.`,
+
+            spreadmainindex: 1,
+        },
+        {
+            sheetmainindex: 0,
+            sheetmaintitle: `With the ability to discover 200+ independent retailers, makers, services, and spots to eat and drink - we champion independent offerings across Aotearoa and beyond. Need a mover, flowers, perfume or pants? Our directory has you covered, and best of all, each business is operated by the people who own them!-`,
+
+            spreadmainindex: 2,
+        }
     ]
 
     const pp = async () => {
@@ -775,7 +795,7 @@ export const Provider = ({ children }) => {
 
                 'postplaceproduct': *[_type == 'post' || _type == 'place' || _type == 'product'] {
                   ...,
-                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
+                  'placepostid':  *[_type == 'place' && postid == lower(^.placeid) ][0],
                 } | order(_createdAt desc) ,
 
                 'postupdatedat': *[_type == 'post'] {
@@ -825,6 +845,7 @@ export const Provider = ({ children }) => {
           commentselect, commentlink,
           feedbackselect, feedbacklink,
           termselect, termlink,
+          faqdl, faqdi,
 
           appmainstate, setappmainstate,
           // postindexstate, setpostindexstate,

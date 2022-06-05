@@ -2,16 +2,23 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
-import { RiBookOpenLine, RiChat3Line, RiEyeLine, RiH1, RiMore2Line, RiTimeLine } from 'react-icons/ri'
+import { RiBookOpenLine, RiChat3Line, RiEyeLine, RiH1, RiMore2Fill, RiMore2Line, RiTimeLine } from 'react-icons/ri'
 
 import { ContextMain } from '../../context/contextmain'
+import SocialMain from '../../page/social/SocialMain'
 
 function BarMain({
     barmainid,
+    barmainindex,
+    barmaindata,
 
 }) {
     const {
         barmainstate,
+
+        settabmainstate,
+        setappmainstate,
+        setsharemainstate,
 
     } = useContext(ContextMain)
     const [barmainrender, setbarmainrender] = useState()
@@ -19,36 +26,145 @@ function BarMain({
     const postindextime = [
         {
             barmainindex: 0,
-            barmainicon: <RiEyeLine />,
-            barmainrender: barmainstate?.filter(data => data.spreadmainidthree === 'viewdi'),
-            barmainaction: () => {},
-        },
-        // {
-        //     barmainindex: 1,
-        //     barmainicon: <RiChat3Line />,
-        //     barmainrender: barmainstate?.filter(data => data.spreadmainidthree === 'commentdi'),
-        //     barmainaction: () => {
-        //         // setappmainstate({
-        //         //     appmainid: 'commentdialog',
-        //         //     appmainidtwo: 'sideboardmain',
-        //         //     appmainboolean: true,
-        //         // })
-        //     },
-        // },
-        {
-            barmainindex: 2,
-            barmainicon: <RiBookOpenLine />,
-            barmainrender: barmainstate?.filter(data => data.spreadmainidthree === 'readdi'),
-            barmainaction: () => {},
-        },
-        {
-            barmainindex: 3,
-            barmainicon: <RiTimeLine />,
-            barmainrender: barmainstate?.filter(data => data.spreadmainidthree === 'timedi'),
-            barmainaction: () => {},
-        },
+            barmaindata: [
+                {
+                    barmainindex: 0,
+                    barmainicon: <RiEyeLine />,
+                    barmainrender: () => {
+                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'viewdi')
+                        return filter[0]?.postindexthreerender[0]?.postcount
+                    }, 
+                    barmainrendertwo: () => {},
 
+                },
+                {
+                    barmainindex: 1,
+                    barmainicon: <RiBookOpenLine />,
+                    barmainrender: () => {
+                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'readdi')
+                        return Math.floor(filter[0]?.postindexthreerender[0]?.postblock?.length * 0.3) + ' min'
+                    }, 
+                    barmainrendertwo: () => {},
+
+                },
+                {
+                    barmainindex: 2,
+                    barmainicon: <RiTimeLine />,
+                    barmainrender: () => {
+                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
+                        return ll(new Date(filter[0]?.postindexthreerender[0]?._createdAt))
+                    }, 
+                    barmainrendertwo: () => {},
+                },
+                {
+                    barmainindex: 3,
+                    barmainrender: () => {},
+                    barmainrendertwo: () => {
+                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
+                        return <SocialMain param={`/` + filter[0]?.postindexthreerender[0]?.postid} />
+                    }, 
+                },
+                {
+                    barmainindex: 4,
+                    barmainrender: () => {},
+                    barmainrendertwo: () => {
+                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
+                        const ref = filter[0]?.postindexthreerender[0]
+                        return <figure onClick={() => {
+                                settabmainstate({
+                                    tabmainid: 'postoption',
+                                    tabmainparam: ref?.postid,
+                                    // tabmainlocation: location.pathname,
+                                    tabmainimage: ref?.posthero,
+                                    tabmaintitle: ref?.posttitle,
+                                })
+                                setappmainstate({
+                                    appmainid: 'postoption',
+                                    appmainidtwo: 'opendeskmain',
+                                    appmainparam: ref?.postid,
+                                    appmainboolean: true,
+                                })
+                                setsharemainstate({
+                                    sharemainparam: ref?.postid,
+                                })
+                            }} className="">
+                                <article className="">
+                                    <RiMore2Fill className='m-h3' />
+                                </article>
+                        </figure>
+                    }, 
+                },
+            ]
+        },
+        {
+            barmainindex: 1,
+            barmaindata: [
+                {
+                    barmainindex: 0,
+                    barmainicon: <RiEyeLine />,
+                    barmainrender: () => {
+                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'viewdi')
+                        return filter[0]?.postindexthreerender[0]?.postcount
+                    }, 
+                    barmainrendertwo: () => {},
+
+                },
+                {
+                    barmainindex: 1,
+                    barmainicon: <RiBookOpenLine />,
+                    barmainrender: () => {
+                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'readdi')
+                        return Math.floor(filter[0]?.postindexthreerender[0]?.postblock?.length * 0.3) + ' min'
+                    }, 
+                    barmainrendertwo: () => {},
+
+                },
+                {
+                    barmainindex: 2,
+                    barmainicon: <RiTimeLine />,
+                    barmainrender: () => {
+                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
+                        return ll(new Date(filter[0]?.postindexthreerender[0]?._createdAt))
+                    }, 
+                    barmainrendertwo: () => {},
+                },
+
+                {
+                    barmainindex: 4,
+                    barmainrender: () => {},
+                    barmainrendertwo: () => {
+                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
+                        const ref = filter[0]?.postindexthreerender[0]
+                        return <figure onClick={() => {
+                                settabmainstate({
+                                    tabmainid: 'postoption',
+                                    tabmainparam: ref?.postid,
+                                    // tabmainlocation: location.pathname,
+                                    tabmainimage: ref?.posthero,
+                                    tabmaintitle: ref?.posttitle,
+                                })
+                                setappmainstate({
+                                    appmainid: 'postoption',
+                                    appmainidtwo: 'opendeskmain',
+                                    appmainparam: ref?.postid,
+                                    appmainboolean: true,
+                                })
+                                setsharemainstate({
+                                    sharemainparam: ref?.postid,
+                                })
+                            }} className="">
+                                <article className="">
+                                    <RiMore2Fill className='m-h3' />
+                                </article>
+                        </figure>
+                    }, 
+                },
+            ]
+        }
     ]
+
+
+                            
 
     const barmain = [
         {
@@ -58,11 +174,12 @@ function BarMain({
     ]
 
     useEffect(() => {
-      if(barmainstate){
+      if(barmaindata){
         const filter = barmain.filter(data => data.barmainid === barmainid)
-        setbarmainrender(filter[0].barmainref)
+        const filtertwo = filter[0].barmainref.filter(data => data.barmainindex === barmainindex)
+        setbarmainrender(filtertwo[0].barmaindata)
       }
-    }, [barmainstate])
+    }, [barmainid, barmaindata])
 
     function ll(first = this.props.first) {
         var seconds = Math.floor((new Date() - first) / 1000);
@@ -84,49 +201,33 @@ function BarMain({
         }
         interval = seconds / 60;
         if (interval > 1) {
-            return Math.floor(interval) + " minutes";
+            return Math.floor(interval) + " min";
         }
         return Math.floor(seconds) + " seconds";
     }
 
   return (
     <div>
-        <main className="flex flex-row gap-3">
+        <main className="grid grid-flow-col gap-3 items-center justify-between">
+                <section className="flex flex-row gap-3 justify-start items-center">
                 {barmainrender?.map(data => (<>
-                <div className="flex flex-row gap-3">
                     <article className="flex flex-row gap-1 items-center  m-h4">
-                        <figure className="">
+                        <figure className="m-h3">
                             {data?.barmainicon}
                         </figure>
                         <figcaption className="l-h3">
-                            {data?.barmainrender?.map(dat => (<>
-                                {dat?.spreadmainrender?.map(da => (<>
-                                    {data?.barmainindex === 0 && <h1 className="">{da?.postcount || 0}</h1>}
-                                    {data?.barmainindex === 1 && <h1 className="">{0}</h1>}
-                                    {data?.barmainindex === 2 && <h1 className="">{Math.floor(da?.postblock?.length * 0.3) || 0} min</h1>}
-                                    {data?.barmainindex === 3 && <h1 className="">{ll(new Date(da?._createdAt)) || 0}</h1>}
-                                </>))}
-                            </>))}
+                            <h1 className="">{data?.barmainrender()}</h1>
                         </figcaption>
                     </article>
-                </div>
-
-                {/* <div className="flex flex-row justify-between gap-3">
-                    <article onClick={() => {
-                    }} className="flex flex-row gap-1 items-center  m-h4">
-                        <figure className="">
-                            {data?.barmainicon}
-                        </figure>
-                        <figcaption className="l-h3">
-                            {data?.barmainrendertwo?.map(dat => (<>
-                                {dat?.spreadmainrender?.map(da => (<>
-                                    {data?.barmainindex === 3 && <h1 className="">{da?.postcount || 0}</h1>}
-                                </>))}
-                            </>))}
-                        </figcaption>
-                    </article>
-                </div> */}
                 </>))}
+                </section>
+
+                <section className="flex flex-row gap-3 justify-end items-center">
+                {barmainrender?.map(data => (<>
+                    {data?.barmainrendertwo()}
+                </>))}
+                </section>
+
         </main>
 
     </div>

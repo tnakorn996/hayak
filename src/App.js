@@ -1,9 +1,8 @@
 
-import React, {useState, useRef, useEffect, useContext} from 'react'
-import { Route, Routes, useLocation, useParams } from 'react-router-dom';
+import React, { useEffect, useContext} from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom';
 import {AnimatePresence} from 'framer-motion'
 
-// import HomeMain from './home/HomeMain'
 import './App.css';
 import NavMain from './component/nav/NavMain';
 import {ContextMain} from './context/contextmain'
@@ -16,15 +15,14 @@ import AboutMain from './page/about/AboutMain';
 import ExtroMain from './component/extro/ExtroMain';
 import ContactMain from './page/contact/ContactMain';
 import BackdropMain from './component/modal/BackdropMain';
-import SlideMain from './component/slidee/SlideMain';
 import Overlay from './component/overlay/Overlay';
 import SheetMain from './component/sheet/SheetMain';
 import PromoMain from './component/promo/PromoMain';
 import TopMain from './component/top/TopMain';
-// import PortMain from './component/port/PortMain';
 import SearchMain from './page/search/SearchMain';
 import FeedbackMain from './page/feedback/FeedbackMain';
 import FooterMain from './component/footer/FooterMain';
+import FaqMain from './page/faq/FaqMain';
 
 export default function App() {
   const {
@@ -85,9 +83,8 @@ export default function App() {
     <div className="App">
       <main className="">
         {/* <section className="sticky z-30 top-0 left-0"> */}
-        <section className="">
+        <section className="duration-100">
           <NavMain />
-          
         </section>
 
         <section className="min-h-screen">
@@ -106,6 +103,8 @@ export default function App() {
             <Route path='/search/searchmain' element={<SearchMain />} /> 
 
             <Route path='/feedback/feedbackmain' element={<FeedbackMain />} /> 
+
+            <Route path='/faq/faqmain' element={<FaqMain />} /> 
 
 
           </Routes> 

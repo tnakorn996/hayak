@@ -8,7 +8,7 @@ import { RiContrastDropLine, RiFileCopyLine } from 'react-icons/ri'
 import { ContextMain } from '../../context/contextmain'
 import CategorySection from '../../page/catagory/CategorySection'
 import StackMain from '../Stack/StackMain'
-import StateMain from '../state/StateMain'
+// import StateMain from '../state/StateMain'
 import OpendeskMain from '../opendesk/OpendeskMain'
 import SocialMain from '../../page/social/SocialMain'
 import FeedbackSection from '../../page/feedback/FeedbackSection'
@@ -57,16 +57,16 @@ function ModalMain() {
         },
     ]
 
-    const statesection = [
-        {
-            modalmainindex: 0,
-            modalmaintitle: '',
-            modalmainrender: <StateMain />,
-            modalmainaction: <button onClick={() => {
-                    setappmainstate('')
-                }} className="m-button">Continue</button>,
-        }
-    ]
+    // const statesection = [
+    //     {
+    //         modalmainindex: 0,
+    //         modalmaintitle: '',
+    //         modalmainrender: <StateMain />,
+    //         modalmainaction: <button onClick={() => {
+    //                 setappmainstate('')
+    //             }} className="m-button">Continue</button>,
+    //     }
+    // ]
 
     const rtasection = [
         {
@@ -104,10 +104,10 @@ function ModalMain() {
             modalmainid: 'categorysection',
             modalmaindata: categorysection,
         },
-        {
-            modalmainid: 'statesection',
-            modalmaindata: statesection,
-        },
+        // {
+        //     modalmainid: 'statesection',
+        //     modalmaindata: statesection,
+        // },
         {
             modalmainid: 'rtasection',
             modalmaindata: rtasection,

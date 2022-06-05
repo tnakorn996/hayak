@@ -54,12 +54,13 @@ function SlideMain({
                             appmainparam: data.postid,
                             appmainboolean: true,
                           })
-                        }} className="w-screen py-[20px] px-[20px] md:px-[60px] h-[85vh] flex flex-col justify-evenly gap-3   snap-center">
+                        }} className="w-screen px-[20px] md:px-[60px] h-[80vh] flex flex-col justify-evenly gap-3   snap-center">
                         <figcaption className="flex flex-col justify-between items-center  border-b border-black">
                             <h1 className="text-6xl font-serif m-h6">{data.posttitle}</h1>
                             <button className="m-h3">Read more →</button>
                         </figcaption>
-                        <figure className="h-[70vh] flex items-center justify-center  overflow-hidden border border-black">
+                        <figure className="relative h-[60vh] flex items-center justify-center  overflow-hidden border border-black">
+                            <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
                             <img src={data.posthero} alt="" className="min-w-[100ch] h-fit md:w-full md:h-fit" />
                         </figure>
                         <div className="w-full  border-b border-black" />
@@ -116,7 +117,7 @@ function SlideMain({
                 return empty?.map(data => (<>
                     <div className="w-screen  snap-center overflow-hidden">
                         <figure className="h-[40vh] md:h-[55vh] relative flex justify-center items-center ">
-                            <img loading='lazy' src={data?.posthero} alt="" className="z-10 min-h-full min-w-[70ch] md:min-h-[100ch] md:w-full" />
+                            <img loading='lazy' src={data?.posthero} alt="" className="z-10 min-w-[100ch] min-h-full md:h-fit md:min-w-full" />
                             <div className="absolute">
                             <LoadingMain />
                             </div>
@@ -212,10 +213,10 @@ function SlideMain({
                     </button>
                     </>)}
                     <div className="hidden z-10 absolute -top-10 md:flex flex-row w-full justify-center items-center">
-                        {slidemainslice && slidemaindata?.slice(0, slidemainslice)?.map((data, index) => (<>
+                        {(slidemainslice && slidemaindata?.length > 5) && slidemaindata?.slice(0, slidemainslice)?.map((data, index) => (<>
                         <article onClick={() => {
                             ll(slidemainref, 1, index)
-                        }} className={`p-[10px] w-[7px] h-[7px]  bg-gray-200 duration-500 ${slidemainindextwo === slidemainscroll * index && '!w-[100px]  !cursor-default !bg-gray-900'} `}>
+                        }} className={`p-[10px] w-[7px] h-[7px]  bg-gray-200 duration-1000 ${slidemainindextwo === slidemainscroll * index && '!w-[100px]  !cursor-default !bg-gray-900'} `}>
                         </article>
                         </>))}
                     </div>

@@ -30,19 +30,19 @@ function DropdownMain() {
         {
             dropdownmainidtwo: 'post',
             dropdownmaintitle: 'Blog collections',
-            dropdownmainimage: 'https://cdn.pixabay.com/photo/2017/04/05/01/15/food-2203717_1280.jpg',
+            dropdownmainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/272329885_10166020441840367_2664436787088136063_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a26aad&_nc_ohc=HNbzCF-aUKUAX_qNICf&_nc_ht=scontent-akl1-1.xx&oh=00_AT85YlLqZjo9yBOSEzMvSe454c5XjSLUPThTELdKNXoYaw&oe=62A1648C',
             dropdownmainrender: categoryui.filter(data => data.breadmainid === 'post')
         },
         {
             dropdownmainidtwo: 'place',
             dropdownmaintitle: 'Places',
-            dropdownmainimage: 'https://cdn.pixabay.com/photo/2018/07/14/15/27/cafe-3537801_1280.jpg',
+            dropdownmainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/272329871_10166020441835367_2706226399375601580_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a26aad&_nc_ohc=NFoc3c-4qiAAX9kp_np&_nc_ht=scontent-akl1-1.xx&oh=00_AT-ecU1aGr1c_rcU7kQRtfuOsUc8-4SqUupz-94gZ1-MCQ&oe=62A14011',
             dropdownmainrender: categoryui.filter(data => data.breadmainid === 'place')
         },
         {
             dropdownmainidtwo: 'product',
             dropdownmaintitle: 'Products collections',
-            dropdownmainimage: 'https://cdn.pixabay.com/photo/2010/12/16/11/54/cabrales-3499_1280.jpg',
+            dropdownmainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/272206956_10166020441830367_8096047458411988811_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a26aad&_nc_ohc=AGMfBWem09EAX8tGepQ&_nc_ht=scontent-akl1-1.xx&oh=00_AT83IscqQzY4nO_zUjmhrlPFaP9aqsdIp6DsiMJu_AbhUA&oe=62A1240A',
             dropdownmainrender: categoryui.filter(data => data.breadmainid === 'product')
         },
     ]
@@ -110,8 +110,11 @@ function DropdownMain() {
                         See {dropdownmaintitle}
                     </a>
                 </figcaption>
-                <figure className="hidden md:flex col-span-5 items-center justify-center   overflow-hidden">
-                    <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-[100ch] min-h-fit   duration-100" />
+                <figure className="hidden md:flex col-span-5  overflow-hidden">
+                    <div className="relative w-full h-full flex justify-center items-center">
+                    <div className="absolute top-0 left-0 w-full h-full  bg-black opacity-5" />
+                    <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-[100ch] min-h-full   duration-100" />
+                    </div>
                 </figure>
                 <article className='w-[70px] h-[70px] text-5xl absolute flex justify-center items-center top-5 right-5  bg-black' >
                     <RiCloseFill onClick={() => {

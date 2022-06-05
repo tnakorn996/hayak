@@ -102,7 +102,6 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
     ]
 
     export const postdl= [
-        
     ]
 
     export const searchdl= [
@@ -192,7 +191,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
             breadmaindetail: `The blog is a place where we take the liberty to explore our places and products a bit more. Less informative, more in depth and hopefully, more creative, here you'll find recipes,  reviews, interviews from some of our favorite NZ food!`,
             breadmainentitle: 'Find more blogs',
             breadmainaction: `/category/post`,
-            breadmainimage: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465',
+            breadmainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/272329885_10166020441840367_2664436787088136063_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a26aad&_nc_ohc=HNbzCF-aUKUAX_qNICf&_nc_ht=scontent-akl1-1.xx&oh=00_AT85YlLqZjo9yBOSEzMvSe454c5XjSLUPThTELdKNXoYaw&oe=62A1648C',
             // breadmainref: categoryul,
         },
         {
@@ -202,7 +201,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
             breadmaindetail: `Here you can find where to get some of the best NZ kai. Retailers specialized in great food, great chefs and their restaurants or the manufacturers themselves, they're all here. Have a look at our list to find the right places to get the food you love`,
             breadmainentitle: 'Find more places',
             breadmainaction: `/category/place`,
-            breadmainimage: 'https://images.unsplash.com/photo-1612020187640-c1d6bb844ab4?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388',
+            breadmainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/272329871_10166020441835367_2706226399375601580_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a26aad&_nc_ohc=NFoc3c-4qiAAX9kp_np&_nc_ht=scontent-akl1-1.xx&oh=00_AT-ecU1aGr1c_rcU7kQRtfuOsUc8-4SqUupz-94gZ1-MCQ&oe=62A14011',
             // breadmainref: categoryul,
         },
         {
@@ -212,7 +211,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
             breadmaindetail: `Looking for a specific item? Here you can find anything to quench your thirst or to fill your stomach!`,
             breadmainentitle: 'Find more products',
             breadmainaction: `/category/product`,
-            breadmainimage: 'https://images.unsplash.com/photo-1590194360930-4866613967b0?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2034',
+            breadmainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/272206956_10166020441830367_8096047458411988811_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a26aad&_nc_ohc=AGMfBWem09EAX8tGepQ&_nc_ht=scontent-akl1-1.xx&oh=00_AT83IscqQzY4nO_zUjmhrlPFaP9aqsdIp6DsiMJu_AbhUA&oe=62A1240A',
             // breadmainref: categoryul,
         },
     ]
@@ -222,7 +221,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
             crummainid: 'recipe',
             crummaintitle: 'Recipes',
             crummainsubtitle: 'Get ideas for great dishes',
-            crummainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/277796997_10166227899430367_4169767629415412045_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=9267fe&_nc_ohc=cwXEmJ-QDJsAX_RdIzd&tn=Zo_phPcFZQYI8dAO&_nc_ht=scontent-akl1-1.xx&oh=00_AT93rDYoFYWeeR48cDYGpF0vS9fHmwhIC6hFcvGLlkBe1g&oe=629F49B3',
+            crummainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/277569884_10166212142905367_7425291292136385593_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=9267fe&_nc_ohc=XFH7bTK7f7sAX-HPIHP&_nc_ht=scontent-akl1-1.xx&oh=00_AT8DoczeMlpwqoPNtEn2G8_MIWJgOZ2ZmWOiL1zKZrxl4w&oe=62A12CE1',
             breadmainid: 'post',
         },
         {
@@ -286,7 +285,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
             crummainid: 'retail',
             crummaintitle: 'Retailers',
             crummainsubtitle: `Where to buy great kai`,
-            crummainimage: 'https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80',
+            crummainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/275790749_10166171281450367_7157046006563357038_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9267fe&_nc_ohc=91V0W6mofWkAX_nDeXN&_nc_oc=AQkPK7My1yqr2fjuGUaTEHfI4doOrUB134oxVlKs2fBHFNSw0hpkEP-48w7_baSy1g8&_nc_ht=scontent-akl1-1.xx&oh=00_AT8ks6yR-ftPeAJGlVpey0wZVR7tflGSxqTVum9c3nQbag&oe=62A09579',
             breadmainid: 'place',
 
         },
@@ -294,7 +293,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
             crummainid: 'manufacturer',
             crummaintitle: 'Manufacturers',
             crummainsubtitle: `Who makes great kai`,
-            crummainimage: 'https://images.unsplash.com/photo-1522643628976-0a170f6722ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2016&q=80',
+            crummainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/277245270_10166191464115367_6926717501652358714_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=a26aad&_nc_ohc=DP0oCMhe-i4AX-95Eww&tn=Zo_phPcFZQYI8dAO&_nc_ht=scontent-akl1-1.xx&oh=00_AT-9e_XcIQ67bwmgLLHd18LeqteK8AWvPquUtjKQKWZpTg&oe=62A0C0CC',
             breadmainid: 'place',
 
         },
@@ -302,16 +301,10 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
             crummainid: 'restaurant',
             crummaintitle: "Chefs / Restaurants",
             crummainsubtitle: `Aoteroa's best cafes and restaurants`,
-            crummainimage: 'https://images.unsplash.com/photo-1642158136957-0f43fb43d3cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2098&q=80',
+            crummainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/273996807_10166091151745367_2234332137371253127_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a26aad&_nc_ohc=lbeNUjPrwy0AX-XRp9e&_nc_ht=scontent-akl1-1.xx&oh=00_AT-HMkkRHxUs9__lYrvq1bv8yml_hIKpg-AT9pQjtWNiew&oe=62A1B211',
             breadmainid: 'place',
         },
     ]
-
-        //     {
-        // name: 'genreid',
-        // title: `Blog genre eg: classic, newbie, native, vegean, vegetarian, diary, gluten`,
-        // type: 'string',
-        // },
 
     export const genreui = [
         {
@@ -351,8 +344,8 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
             breadmainid: 'all',
         },
         {
-            crummainid: 'vegeterian',
-            crummaintitle: 'Vegeterian',
+            crummainid: 'vegetarian',
+            crummaintitle: 'Vegetarian',
             crummainsubtitle: '',
             crummainstyle: '',
             crummainimage: '',
@@ -528,6 +521,17 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
         },
     ]
 
+    export const faqul = [
+        {
+            breadmainid: 'faq',
+            breadmaintitle: 'FAQ',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'See all feeedback',
+            breadmainimage: 'https://images.unsplash.com/photo-1518110925495-5fe2fda0442c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070',
+            breadmainaction: `/faq/faqmain`,
+        },
+    ]
 /////////////////////////////////////////////////////
 
 

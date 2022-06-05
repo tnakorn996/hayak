@@ -189,6 +189,7 @@ function HomeMain() {
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="w-screen  overflow-hidden duration-100">
             <br />
             <br />
+            <br />
             <section className="">
             <SlideMain 
             slidemainid={'homemainth'} 
@@ -197,7 +198,7 @@ function HomeMain() {
             slidemainref={reffour} 
             slidemainscroll={1200}
             slidemainstyle={'!p-0'}
-            slidemainslice={5} />
+            slidemainslice={12} />
             </section>
             {/* <section onClick={() => {
                     // window.history.replaceState(null, "" , postupdatedat[0]?.postid)

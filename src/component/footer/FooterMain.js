@@ -2,7 +2,7 @@ import React from 'react'
 import { useContext } from 'react';
 import { RiContrastDropLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom'
-import { categoryul, feedbackul, searchul } from '../../content/contentmantwo';
+import { categoryul, faqul, feedbackul, searchul } from '../../content/contentmantwo';
 import { ContextMain } from '../../context/contextmain';
 import BreadMain from '../bread/BreadMain'
 
@@ -43,37 +43,27 @@ function FooterMain() {
             </section>
             <section className="p-[20px] md:p-0 flex items-center text-white">
                 <div className="w-full flex flex-row flex-wrap justify-between gap-7">
+                
                 {categoryul?.map(data => (<>
-                <a 
-                // onClick={() => {
-                //     setgenreindexstate('')
-                //     setbreadmainstate('')
-                //     navigate(data?.breadmainaction)
-                // }}
-                href={data?.breadmainaction}
-                 className="m-h3  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
+                <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
+                </>
+                ))}
+
+                {faqul?.map(data => (<>
+                <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
                 </>
                 ))}
 
                 {searchul?.map(data => (<>
-                <a 
-                // onClick={() => {
-                //     navigate(data?.breadmainaction)
-                // }}
-                href={data?.breadmainaction}
-                 className="m-h3  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
+                <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
                 </>
                 ))}
                 
                 {feedbackul?.map(data => (<>
-                <a 
-                // onClick={() => {
-                //     navigate(data?.breadmainaction)
-                // }}
-                href={data?.breadmainaction}
-                 className="m-h3  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
+                <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
                 </>
                 ))}
+
                 </div>
 
             </section>

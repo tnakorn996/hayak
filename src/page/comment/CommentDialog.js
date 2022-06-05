@@ -7,7 +7,6 @@ import { v4 as uuidv4 } from 'uuid'
 import ButtonMain from '../../component/button/ButtonMain'
 import CardMain from '../../component/card/CardMain'
 
-import StateMain from '../../component/state/StateMain'
 import { ContextMain } from '../../context/contextmain'
 import { client } from '../../lib/sanity'
 
@@ -26,10 +25,6 @@ function CommentDialog() {
     const [commentdialogsubtitle, setcommentdialogsubtitle] = useState('')
 
     useEffect(() => {
-        setstatemainstate({
-            statemainid: 'commentdl',
-            statemainidtwo: 'break',
-        })
         ll()
     }, [])
 

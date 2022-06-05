@@ -125,12 +125,8 @@ function NavMain() {
                     }} className="hidden md:block  m-button">{navmain[4].navmaintitle}</button>
 
             </section>
-            <section className="mx-[20px] md:mx-[60px] col-span-12 grid grid-cols-12  ">
-                
-                
-            </section>
             <section className="col-span-12 relative">
-                <div className="z-30 absolute">
+                <div className=" absolute top-0 left-0 z-30">
                 <DropdownMain />
                 </div>
             </section>

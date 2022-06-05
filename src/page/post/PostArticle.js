@@ -74,7 +74,7 @@ useEffect(() => {
                             <LoadingMain />
                         </div>
                         <figure className="h-full w-full flex justify-center items-center">
-                        <img src={postarticlestate?.posthero} alt="" className=" z-0 max-w-[100ch] h-full  md:h-fit md:w-full" />
+                        <img src={postarticlestate?.posthero} alt="" className=" z-0 max-w-[150ch] h-full md:h-fit md:w-full" />
                         </figure>
                     </figure>
                 </section>
@@ -90,28 +90,16 @@ useEffect(() => {
                 <section className="sticky z-10 p-[30px] md:p-[60px] flex flex-col md:grid md:grid-cols-12 gap-5  bg-white">
                     <figure className="md:col-span-7">
                         <figure className="grid grid-cols-12 items-center  ">
-                            <div className="col-span-12 grid grid-cols-12 gap-5">
+                            <div className="col-span-12 grid grid-cols-12 items-center gap-5">
                                 <button onClick={() => {
                                     setappmainstate({
                                         appmainboolean: false,
                                     })
                                     navigate(`/${postarticlestate?.postid}`)
                                 }} className="col-span-12 md:col-span-5 m-button m-h3">→ Read more</button>
-                                <figure className="col-span-12 md:col-span-7 flex flex-row gap-3 items-center justify-between ">
-                                    {postarticlestate && <SpreadMain sheetmainid={'postindexdi'} sheetmainindex={0} sheetmaindata={postindexthree}  />}
-                                    <BarMain barmainid={'postindextime'} />
-                                    {/* <div className="flex flex-row gap-4 items-center">
-                                        <h1 className="block md:hidden l-h5">{postarticlestate?._createdAt?.slice(0, 10)}</h1>
-                                        <div className="flex flex-row items-center gap-1">
-                                        <RiBookOpenLine className='m-h5' />
-                                        <h1 className="l-h5">{Math.floor(postarticlestate?.postblock?.length * 0.2) || 1} min</h1>
-                                        </div>
-                                        <div className="flex flex-row items-center gap-1">
-                                        <RiEyeLine className='m-h5' />
-                                        <h1 className="l-h5">{postarticlestate?.postcount || 0}</h1>
-                                        </div>
-                                    </div> */}
-                                    <div className="flex flex-row items-center gap-3 justify-end ">
+                                <figure className="col-span-12 md:col-span-7">
+                                    <BarMain barmainid={'postindextime'} barmainindex={1} barmaindata={postindexthree}/>
+                                    {/* <div className="flex flex-row items-center gap-3 justify-end ">
                                         <figure onClick={() => {
                                             setappmainstate({
                                                 appmainid: 'sharesection',
@@ -125,7 +113,7 @@ useEffect(() => {
                                             <RiShareFill className='m-h3' />
                                             </article>
                                         </figure>
-                                    </div>
+                                    </div> */}
                                 </figure>
                             </div>
                             
