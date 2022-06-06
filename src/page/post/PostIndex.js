@@ -22,10 +22,11 @@ import AlertMain from '../../component/alert/AlertMain'
 import SlideMain from '../../component/slide/SlideMain'
 import BarMain from '../../component/bar/BarMain'
 import ListMain from '../../component/list/ListMain'
+import GuideMain from '../../component/guide/GuideMain'
 
 function PostIndex() {
     const {
-        setappmainstate,
+        setappmainstate, appmainstate,
         // setpostindexstate,
         setwiremainstate,
         setctamainstate,
@@ -202,11 +203,11 @@ function PostIndex() {
         if(postpostid){
             // kk()
             jj()
-            setbreadmainstate({
-                breadmainid: postpostid?._type,
-                breadmainidtwo: postpostid?.categoryid,
-                breadmainidthree: postpostid?.posttitle,
-            })
+            // setbreadmainstate({
+            //     breadmainid: postpostid?._type,
+            //     breadmainidtwo: postpostid?.categoryid,
+            //     breadmainidthree: postpostid?.posttitle,
+            // })
             setwiremainstate({
                 wiremainid: 'blocktr',
                 wiremainindex: 0,
@@ -277,7 +278,7 @@ function PostIndex() {
     
     const ll = async () => {
 
-              const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${param.id}']{
+              const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${appmainstate?.appmainparam || param.id}']{
                   ...,
                   'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] | order(_createdAt desc),
                   'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] | order(_createdAt desc) ,
@@ -418,8 +419,8 @@ function PostIndex() {
             </figure>
             <figcaption className="hidden md:block col-span-12">
                 <section className="grid grid-flow-col">
-                    {(placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={0} sheetmaindata={postindextwo}  />}
-                    {(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
+                    {(!appmainstate?.appmainparam && placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={0} sheetmaindata={postindextwo}  />}
+                    {(!appmainstate?.appmainparam && placeplaceid && productplaceid && postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
                     {<RtaMain />}
                 </section>
             </figcaption>
@@ -428,6 +429,9 @@ function PostIndex() {
                 <hr />
                 <br />
                 <section className="px-[20px] md:px-[60px] max-w-[900px] mx-auto min-h-[20vh] md:h-fit">
+                    <div className="absolute top-40 right-[10%] z-30 flex justify-center items-center">
+                        {postpostid?.categoryid === 'recipe' && <GuideMain guidemainid={'posttbody'} guidemainindex={0} guidemaindata={postindextwo} />}
+                    </div>
                     <div className="flex flex-row justify-between">
                         <h1 className="l-h2 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
                     </div>
@@ -475,9 +479,9 @@ function PostIndex() {
             </figcaption>
             <figcaption className="block md:hidden col-span-12">
                 <section className="px-[20px] md:p-0 md:grid md:grid-flow-col">
+                    <RtaMain />
                     {(placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={0} sheetmaindata={postindextwo}  />}
                     {(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
-                    <RtaMain />
                 </section>
             </figcaption>
             <figure layout className="col-span-12">

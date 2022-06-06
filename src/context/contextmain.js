@@ -44,6 +44,7 @@ export const Provider = ({ children }) => {
     const [genreindexstate, setgenreindexstate] = useState('')
     const [landmainstate, setlandmainstate] = useState()
     const [barmainstate, setbarmainstate] = useState()
+    const [guidemainstate, setguidemainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -752,6 +753,23 @@ export const Provider = ({ children }) => {
         },
     ]
 
+    const postdl = [
+        {
+            spreadmainindex: 0,
+            spreadmaintitle: 'guide',
+        }
+    ]
+
+    const postdi = [
+        {
+            sheetmainindex: 0,
+            sheetmaintitle: '+',
+            sheetmaindata: rtamainstate,
+
+            spreadmainindex: 0,
+        }
+    ]
+
     const faqdl = [
         {
             spreadmainindex: 0,
@@ -846,6 +864,7 @@ export const Provider = ({ children }) => {
           feedbackselect, feedbacklink,
           termselect, termlink,
           faqdl, faqdi,
+          postdl, postdi,
 
           appmainstate, setappmainstate,
           // postindexstate, setpostindexstate,
@@ -876,7 +895,8 @@ export const Provider = ({ children }) => {
           genreindexstate, setgenreindexstate,
           landmainstate, setlandmainstate,
           barmainstate, setbarmainstate,
-          
+          guidemainstate, setguidemainstate,
+
           userindex,
           postplaceproduct,
           postupdatedat,

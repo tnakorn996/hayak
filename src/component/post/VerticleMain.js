@@ -11,7 +11,23 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import LoadingMain from '../load/LoadingMain'
 import { genreui } from '../../content/contentmantwo'
 
-function VerticleMain({onlick, type, postid, createdat, posthero, posticon, posttitle, postsubtitle,  categoryid, genreid, priceid, param, placepostid}) {
+function VerticleMain({
+  onlick, 
+  type, 
+  postid, 
+  createdat, 
+  posthero,
+  postherotwo,
+  posticon, 
+  posttitle, 
+  postsubtitle,  
+  categoryid, 
+  genreid, 
+  priceid, 
+  param, 
+  placepostid
+
+}) {
   const {
     setappmainstate,
     settabmainstate,
@@ -25,6 +41,7 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
   // const location = useLocation()
   const [verticledivstate, setverticledivstate] = useState()
   const [verticlemainrendertwo, setverticlemainrendertwo] = useState()
+  const [verticlemainimage, setverticlemainimage] = useState(posthero)
   
   useEffect(() => {
     if(categoryid){
@@ -48,8 +65,24 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
         <main className="">
           <article className="relative flex flex-col justify-center">
                 <figure 
+
+                    // onMouseEnter={() => {
+                    //   setverticlemainimage(postherotwo)
+                    // }}
+
+                    // onMouseLeave={() => {
+                    //   setverticlemainimage(posthero)
+                    // }}
+
                     onClick={() => {
                       // window.history.replaceState(null, "" , postid)
+                      // setappmainstate({
+                      //   appmainid: 'postarticle',
+                      //   appmainidtwo: 'previewmain',
+                      //   appmainpage: 2,
+                      //   appmainparam: param,
+                      //   appmainboolean: true,
+                      // })
                       setappmainstate({
                         appmainid: 'postarticle',
                         appmainidtwo: 'previewmain',
@@ -73,7 +106,7 @@ function VerticleMain({onlick, type, postid, createdat, posthero, posticon, post
                       </>)}
                     </div>
                     <div className="z-20 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
-                    <motion.img loading='lazy' initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} src={posthero} alt="" className="max-w-[100ch] z-10 h-full hover:scale-110 duration-1000" />
+                    <motion.img loading='lazy' initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} src={verticlemainimage} alt="" className="max-w-[100ch] z-10 h-full duration-1000" />
                 </figure>
                 <figure className="relative flex flex-row py-[7px] gap-2 justify-end items-center">
                     {/* {placepostid && (<>

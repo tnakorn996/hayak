@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 import { ContextMain } from '../../context/contextmain'
+import GuideMain from '../guide/GuideMain'
 import LoadingMain from '../load/LoadingMain'
 import VerticleMain from '../post/VerticleMain'
 
@@ -20,6 +21,8 @@ function SlideMain({
     const navigate = useNavigate()
     const {
         setappmainstate,
+        setstackmainstate,
+        rtamainstate,
 
     } = useContext(ContextMain)
     const [slidemainindextwo, setslidemainindextwo] = useState(0)
@@ -79,7 +82,7 @@ function SlideMain({
                     <div className="w-[250px] md:w-[300px] snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
-                        }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} placepostid={data?.placepostid} />
+                        }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} postherotwo={data?.postherotwo} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} placepostid={data?.placepostid} />
                     </div>
                     </>))
             },
@@ -93,7 +96,7 @@ function SlideMain({
                     <div className="w-[250px] md:w-fit snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
-                        }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} placepostid={data?.placepostid} />
+                        }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} postherotwo={data?.postherotwo} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} placepostid={data?.placepostid} />
                     </div>
                     </>))
             },
@@ -133,7 +136,8 @@ function SlideMain({
                                 })
                             }}  className="hidden group-hover:block absolute top-3 left-3 z-30 p-[10px]  ">
                             <button className="l-button opacity-100 border border-black">View image</button>
-                            </div>
+                            </div>               
+  
                         </figure>
                     </div>
                     </>))
@@ -167,8 +171,8 @@ function SlideMain({
     const ll = (first= this.props.first, second= this.props.second, third = this.props.third) => {
         const scrollleft = first.current.scrollLeft;
         const offsetwidth = first.current.offsetWidth;
-
-        setslidemainindextwo(slidemainscroll * third)
+        
+        setslidemainindextwo((slidemainscroll) * third)
         first.current.scrollTo((slidemainscroll) * second * third, 0)
 
         // if(scrollleft <= offsetwidth) {
@@ -196,7 +200,6 @@ function SlideMain({
         }
     }
 
-
   return (
     <div>
         <main className="">
@@ -212,13 +215,16 @@ function SlideMain({
                     <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl' />
                     </button>
                     </>)}
-                    <div className="hidden z-10 absolute -top-10 md:flex flex-row w-full justify-center items-center">
+                    <div className="hidden md:flex flex-row z-10 absolute -top-10 w-full justify-center items-center ">
+                        {/* <figure className="flex flex-row justify-center items-center   border "> */}
                         {(slidemainslice && slidemaindata?.length > 5) && slidemaindata?.slice(0, slidemainslice)?.map((data, index) => (<>
+
                         <article onClick={() => {
                             ll(slidemainref, 1, index)
                         }} className={`p-[10px] w-[7px] h-[7px]  bg-gray-200 duration-1000 ${slidemainindextwo === slidemainscroll * index && '!w-[100px]  !cursor-default !bg-gray-900'} `}>
                         </article>
                         </>))}
+                        {/* </figure> */}
                     </div>
             </section>
         </main>

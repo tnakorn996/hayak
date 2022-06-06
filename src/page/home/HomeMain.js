@@ -238,15 +238,15 @@ function HomeMain() {
                 <br />
 
                         {data?.homemainid === 'postupdatedat' && (<>
-                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[0]?.homemainmap} slidemainref={ref} slidemainscroll={350} slidemainslice={12} />
+                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[0]?.homemainmap} slidemainref={ref} slidemainscroll={500} slidemainslice={12} />
                         </>)}
 
                         {data?.homemainid === 'placeupdatedat' && (<>
-                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[1]?.homemainmap} slidemainref={reftwo} slidemainscroll={350} slidemainslice={12} />
+                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[1]?.homemainmap} slidemainref={reftwo} slidemainscroll={500} slidemainslice={12} />
                         </>)}
 
                         {data?.homemainid === 'productupdatedat' && (<>
-                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[2]?.homemainmap} slidemainref={refthree} slidemainscroll={350} slidemainslice={12} />
+                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[2]?.homemainmap} slidemainref={refthree} slidemainscroll={500} slidemainslice={12} />
                         </>)}
                 </>))}
                 <br />

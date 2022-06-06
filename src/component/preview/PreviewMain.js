@@ -10,6 +10,7 @@ import { ContextMain } from '../../context/contextmain'
 import ContactArticle from '../../page/contact/ContactArticle'
 import MenuArticle from '../../page/menu/MenuArticle'
 import PostArticle from '../../page/post/PostArticle'
+import PostIndex from '../../page/post/PostIndex'
 import CardMain from '../card/CardMain'
 
 function PreviewMain() {
@@ -47,7 +48,11 @@ function PreviewMain() {
                     </figure>
                 </section>
             },
-        }
+        },
+        {
+            previewmainindex: 2,
+            previewmainrender: <PostIndex />,
+        },
     ]
 
     const contactarticle = [
@@ -92,12 +97,12 @@ function PreviewMain() {
   return (
     <div>
         <br />
-        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 0}}  className="relative w-screen md:w-[900px] h-screen md:h-full  mx-auto border bg-white overflow-hidden shadow-2xl duration-100">
+        <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 0}}  className="relative w-screen md:w-[1000px] h-screen md:h-full  mx-auto border bg-white overflow-hidden shadow-2xl duration-100">
             <RiCloseFill onClick={() => {
                 setappmainstate({
                     appmainboolean: false
                 })
-            }} className="z-20 absolute top-5 right-5 text-4xl  text-white bg-black cursor-pointer" />
+            }} className="z-30 absolute top-5 right-5 text-4xl  text-white bg-black cursor-pointer" />
             {previewmainrender && previewmainrender}
         </motion.main>
     </div>

@@ -35,7 +35,7 @@ function CategoryIndex() {
     const [categoryindexdetail, setcategoryindexdetail] = useState()
     const [categoryindeximage, setcategoryindeximage] = useState()
     const [categoryindexaction, setcategoryindexaction] = useState()
-    const [slidemainstate, setslidemainstate] = useState({slidemainindex: 0})
+    const [slidemainstate, setslidemainstate] = useState({slidemainindex: 0, slidemainscroll: 250})
 
     const [postcategoryidcreatedat, setpostcategoryidcreatedat] = useState()
     const [postcategoryidupdatedat, setpostcategoryidupdatedat] = useState()
@@ -60,8 +60,6 @@ function CategoryIndex() {
             categoryindextitle: 'Hottest',
         },
     ]
-
-    console.log('postcategoryidpostcount :>> ', postcategoryidpostcount);
 
     useEffect(() => {
         if(breadmain && crummain){
@@ -143,11 +141,13 @@ function CategoryIndex() {
     function hh() {
         if(slidemainstate && slidemainstate.slidemainindex === 0)
         setslidemainstate({
-            slidemainindex: 1
+            slidemainindex: 1,
+            slidemainscroll: 600,
         })
         if(slidemainstate && slidemainstate.slidemainindex === 1)
         setslidemainstate({
-            slidemainindex: 0
+            slidemainindex: 0,
+            slidemainscroll: 250,
         })
     }
 
@@ -214,15 +214,15 @@ function CategoryIndex() {
                 <br />
 
                 {data?.categoryindexid === 'postcategoryidupdatedat' && (<>
-                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={reftwo} slidemainscroll={400} slidemainslice={12} />
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={reftwo} slidemainscroll={slidemainstate?.slidemainscroll} slidemainslice={12} />
                 </>)}
 
                 {data?.categoryindexid === 'postcategoryidcreatedat' && (<>
-                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={ref} slidemainscroll={400} slidemainslice={12} />
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={ref} slidemainscroll={slidemainstate?.slidemainscroll} slidemainslice={12} />
                 </>)}
 
                 {data?.categoryindexid === 'postcategoryidpostcount' && (<>
-                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={refthree} slidemainscroll={400} slidemainslice={12} />
+                <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={refthree} slidemainscroll={slidemainstate?.slidemainscroll} slidemainslice={12} />
                 </>)}
 
                 </>))}
