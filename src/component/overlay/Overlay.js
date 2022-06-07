@@ -3,10 +3,9 @@ import { useEffect } from 'react'
 import { useContext } from 'react'
 
 import { ContextMain } from '../../context/contextmain'
-import ToastMain from '../toast/ToastMain'
 import { useState } from 'react'
 import SnackbarMain from '../snackbar/SnackbarMain'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 function Overlay() {
     const {
@@ -28,10 +27,6 @@ function Overlay() {
     // }, [appmainstate])
 
     const overlay = [
-        {
-            overlayid: 'toastmain',
-            overlayrender: <ToastMain />,
-        },
         {
             overlayid: 'snackbarmain',
             overlayrender: <SnackbarMain />,

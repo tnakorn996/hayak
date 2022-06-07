@@ -23,6 +23,7 @@ import SlideMain from '../../component/slide/SlideMain'
 import BarMain from '../../component/bar/BarMain'
 import ListMain from '../../component/list/ListMain'
 import GuideMain from '../../component/guide/GuideMain'
+import PtaMain from '../../component/pta/PtaMain'
 
 function PostIndex() {
     const {
@@ -37,7 +38,10 @@ function PostIndex() {
         settabmainstate,
         setstepmainstate,
         setsharemainstate,
+        setfavouritemainstate, favouritemainstate,
+        ptamainstate, setptamainstate,
 
+        parsepost,
         postupdatedat,
         placeupdatedat,
         productupdatedat,
@@ -229,6 +233,23 @@ function PostIndex() {
                 stepmainindex: 0,
             })
 
+        } 
+        if(parsepost && postpostid){
+            parsepost.favouritemaindata.forEach(data => {
+                if(data.postid === postpostid.postid){
+                    setptamainstate({
+                        ptamainid: 'favouriteiframe',
+                        ptamainindex: 1,
+                        ptamaindata: postpostid,
+                    })
+                } else {
+                    setptamainstate({
+                        ptamainid: 'favouriteiframe',
+                        ptamainindex: 0,
+                        ptamaindata: postpostid,
+                    })
+                }
+            });
         }
        
     }, [postpostid])
@@ -274,7 +295,6 @@ function PostIndex() {
     //         hh()
     //   }
     // }, [userindex, postpostid])
-    
     
     const ll = async () => {
 
@@ -402,11 +422,10 @@ function PostIndex() {
         <AlertMain alertmainmessage={postindexmessage} />
     </section> 
 
-
   return (
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="flex flex-col md:grid md:grid-cols-12   duration-100">
-            <figure className="col-span-12">
+            <figure className="col-span-12 relative">
                 <section className="overflow-hidden">
                     <SlideMain 
                     slidemainid={'postindexth'} 
@@ -416,11 +435,17 @@ function PostIndex() {
                     slidemainscroll={1000}
                     slidemainstyle={'!p-0'} />
                 </section>
+                <div className="absolute top-20 right-[10%] z-20 flex justify-center items-center">
+                    {postpostid?.categoryid === 'recipe' && <GuideMain guidemainid={'posttbody'} guidemainindex={0} guidemaindata={postindextwo} />}
+                </div>
+                <div className="absolute top-5 right-5 z-20 flex justify-center items-center">
+                    {<PtaMain />}
+                </div>
             </figure>
             <figcaption className="hidden md:block col-span-12">
                 <section className="grid grid-flow-col">
-                    {(!appmainstate?.appmainparam && placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={0} sheetmaindata={postindextwo}  />}
-                    {(!appmainstate?.appmainparam && placeplaceid && productplaceid && postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
+                    {(placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={0} sheetmaindata={postindextwo}  />}
+                    {(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
                     {<RtaMain />}
                 </section>
             </figcaption>
@@ -429,9 +454,6 @@ function PostIndex() {
                 <hr />
                 <br />
                 <section className="px-[20px] md:px-[60px] max-w-[900px] mx-auto min-h-[20vh] md:h-fit">
-                    <div className="absolute top-40 right-[10%] z-30 flex justify-center items-center">
-                        {postpostid?.categoryid === 'recipe' && <GuideMain guidemainid={'posttbody'} guidemainindex={0} guidemaindata={postindextwo} />}
-                    </div>
                     <div className="flex flex-row justify-between">
                         <h1 className="l-h2 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
                     </div>

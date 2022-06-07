@@ -12,7 +12,7 @@ import PostIndex from './page/post/PostIndex';
 import PlanMain from './page/plan/PlanMain';
 import OntroMain from './component/ontro.js/OntroMain';
 import AboutMain from './page/about/AboutMain';
-import ExtroMain from './component/extro/ExtroMain';
+// import ExtroMain from './component/extro/ExtroMain';
 import ContactMain from './page/contact/ContactMain';
 import BackdropMain from './component/modal/BackdropMain';
 import Overlay from './component/overlay/Overlay';
@@ -53,8 +53,8 @@ export default function App() {
         case 'ontromain': 
         return <OntroMain />
 
-        case 'extromain': 
-        return <ExtroMain />
+        // case 'extromain': 
+        // return <ExtroMain />
 
         case 'aboutmain': 
         return <AboutMain />

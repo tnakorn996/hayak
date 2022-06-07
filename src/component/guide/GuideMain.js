@@ -29,7 +29,6 @@ function GuideMain({
             guidemainaction: () => {
                 for(const data of guidemaindata){
                     const empty = []
-                    console.log('guidemaindata :>> ', guidemaindata);
                     if(data?.postindextwoid === 'pickdi'){
                         empty.push(data.postindextworender)
                         return () => {
@@ -45,7 +44,7 @@ function GuideMain({
                                 appmainboolean: true,
                             })
                         }
-                    }  
+                    }
                 }
                 
             }

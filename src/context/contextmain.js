@@ -12,6 +12,8 @@ import WireMain from '../component/wire/WireMain';
 export const ContextMain = createContext()
 
 export const Provider = ({ children }) => {
+    const localpost = window.localStorage.getItem("post");
+    const parsepost = JSON.parse(localpost);
     const location = useLocation()
     // const param = useParams()
 
@@ -45,6 +47,8 @@ export const Provider = ({ children }) => {
     const [landmainstate, setlandmainstate] = useState()
     const [barmainstate, setbarmainstate] = useState()
     const [guidemainstate, setguidemainstate] = useState()
+    const [favouritemainstate, setfavouritemainstate] = useState({favouritemaindata: []})
+    const [ptamainstate, setptamainstate] = useState()
     
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -753,21 +757,56 @@ export const Provider = ({ children }) => {
         },
     ]
 
-    const postdl = [
+    const searchdl = [
         {
             spreadmainindex: 0,
-            spreadmaintitle: 'guide',
+            spreadmaintitle: 'Blog',
+            spreadmaindata: postupdatedat,
+        },
+        {
+            spreadmainindex: 1,
+            spreadmaintitle: 'Places',
+            spreadmaindata: placeupdatedat,
+        },
+        {
+            spreadmainindex: 2,
+            spreadmaintitle: 'Products',
+            spreadmaindata: productupdatedat,
+        },
+    ]
+
+    const favouritedl = [
+        {
+            spreadmainid: 'read',
+            spreadmaintitle: 'Readlist',
         }
     ]
 
-    const postdi = [
+    const favouritedi = [
         {
             sheetmainindex: 0,
-            sheetmaintitle: '+',
-            sheetmaindata: rtamainstate,
+            sheetmaintitle: 'Blog',
+            // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'post'),
+            sheetmaindata: parsepost?.favouritemaindata?.filter(data => data?._type === 'post'),
 
-            spreadmainindex: 0,
-        }
+            spreadmainid: 'read',
+        },
+        {
+            sheetmainindex: 1,
+            sheetmaintitle: 'Places',
+            // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'place'),
+            sheetmaindata: parsepost?.favouritemaindata?.filter(data => data?._type === 'place'),
+
+            spreadmainid: 'read',
+        },
+        {
+            sheetmainindex: 2,
+            sheetmaintitle: 'Products',
+            // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'product'),
+            sheetmaindata: parsepost?.favouritemaindata?.filter(data => data?._type === 'product'),
+
+            spreadmainid: 'read',
+        },
     ]
 
     const faqdl = [
@@ -857,14 +896,16 @@ export const Provider = ({ children }) => {
 
     return (
       <ContextMain.Provider value={{
+          parsepost,
           postselect, postlink,
           categoryselect, categorylink,
           searchselect, searchlink,
           commentselect, commentlink,
           feedbackselect, feedbacklink,
           termselect, termlink,
-          faqdl, faqdi,
-          postdl, postdi,
+          searchdl,
+          faqdl, faqdi, 
+          favouritedl, favouritedi,
 
           appmainstate, setappmainstate,
           // postindexstate, setpostindexstate,
@@ -896,6 +937,9 @@ export const Provider = ({ children }) => {
           landmainstate, setlandmainstate,
           barmainstate, setbarmainstate,
           guidemainstate, setguidemainstate,
+          favouritemainstate, setfavouritemainstate,
+          ptamainstate, setptamainstate,
+
 
           userindex,
           postplaceproduct,

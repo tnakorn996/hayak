@@ -12,11 +12,14 @@ import '../sideboard/sideboardmain.css'
 import { ContextMain } from '../../context/contextmain'
 import CommentDialog from '../../page/comment/CommentDialog'
 import ZoomMain from '../zoom/ZoomMain'
+import FavouriteDialog from '../../page/favourite/FavouriteDialog'
 
 function SideboardMain() {
   const {
     appmainstate, setappmainstate,
     setbreadmainstate,
+
+    postupdatedat,
 
 
   } = useContext(ContextMain)
@@ -24,15 +27,9 @@ function SideboardMain() {
   const [sideboardmainrender, setsideboardmainrender] = useState()
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if(appmainstate && appmainstate.appmainid){
-
-    }
-  }, [appmainstate])
-
   const searchdialog = [
     {
-      sideboardrender: <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />,
+      sideboardrender: postupdatedat && <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />,
     },
   ]
 
@@ -95,6 +92,12 @@ function SideboardMain() {
       }
     },
   ]
+
+  const favouritedialog = [
+    {
+      sideboardrender: postupdatedat && <FavouriteDialog />
+    },
+  ]
     
   const sideboardmain = [
     {
@@ -108,6 +111,10 @@ function SideboardMain() {
     {
       sideboardmainid: 'navdialog',
       sideboardmainref: navdialog,
+    },
+    {
+      sideboardmainid: 'favouritedialog',
+      sideboardmainref: favouritedialog,
     },
   ]
 

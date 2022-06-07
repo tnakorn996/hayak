@@ -1,7 +1,7 @@
 import React from 'react'
 import { useContext } from 'react'
 import {BiFoodTag} from 'react-icons/bi'
-import {RiContrastDropLine, RiSearch2Line, RiCloseFill, RiMenuLine, RiMenu5Line} from 'react-icons/ri'
+import {RiContrastDropLine, RiSearch2Line, RiCloseFill, RiMenuLine, RiMenu5Line, RiHeartLine} from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 
 import { breadmain, categorymain, navmain } from '../../content/contentmain'
@@ -13,6 +13,8 @@ function NavMain() {
         setappmainstate,
         setdropdownmainstate, dropdownmainstate,
         setbreadmainstate,
+
+        postupdatedat,
 
         
     } = useContext(ContextMain)
@@ -91,19 +93,31 @@ function NavMain() {
                         })
                     }} className="hidden md:block l-button">{navmain[1].navmaintitle}</button> */}
 
-                    <button onClick={() => {
+                    {/* <button onClick={() => {
                         setappmainstate({
                             appmainid: navmain[2]?.navmainref,
                             appmainredirect:  navmain[2]?.navmainredirect
                         })
-                    }} className="hidden md:block l-button">{navmain[2].navmaintitle}</button>
+                    }} className="hidden md:block l-button">{navmain[2].navmaintitle}</button> */}
                     
-                    <button onClick={() => {
+                    {/* <button onClick={() => {
                         setappmainstate({
                             appmainid: navmain[3]?.navmainref,
                             appmainredirect:  navmain[3]?.navmainredirect
                         })
-                    }} className="hidden md:block l-button ">{navmain[3].navmaintitle}</button>
+                    }} className="hidden md:block l-button ">{navmain[3].navmaintitle}</button> */}
+
+                    <article onClick={() => {
+                            setappmainstate(
+                                {
+                                    appmainid: 'favouritedialog',
+                                    appmainidtwo: 'sideboardmain',
+                                    appmainboolean: true,
+                                }
+                            )
+                        }} className="grid grid-flow-col gap-1 items-center">
+                        <RiHeartLine className='m-h6' />
+                    </article>
 
                     <article onClick={() => {
                             setappmainstate(
