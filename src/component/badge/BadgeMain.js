@@ -21,9 +21,9 @@ function BadgeMain({
       badgemainrender: () => {
         const empty = []
         favouritedi.forEach(data => {
-          if(data.sheetmaindata.length > 0){
+          if(data.sheetmaindata && data.sheetmaindata.length > 0){
             empty.push(data.sheetmaindata.length)
-          }
+          } 
         })
         return empty.reduce(function(a, b) { return a + b; }, 0)
         // favouritedi?.sheetmaindata?.length?.reduce(function(a, b) { return a + b; }, 0),
