@@ -69,10 +69,6 @@ function CategoryIndex() {
             setcategoryindexdetail(filtertwo[0]?.breadmaindetail)
             setcategoryindeximage(filtertwo[0]?.breadmainimage)
             setcategoryindexaction(filtertwo[0]?.breadmainaction)
-
-            // const filter = breadmain.filter(data => data.breadmainid === param.id)
-            // setcategoryindextitle(filter[0]?.breadmaintitle)
-            // setcategoryindexdetail(filter[0]?.breadmaindetail)
         }
     }, [])
     
@@ -89,21 +85,12 @@ function CategoryIndex() {
       }
     }, [postcategoryidcreatedat, postcategoryidupdatedat, postcategoryidpostcount])
     
-    // const ll = async () => {
-    //         const filter = postplaceproduct.filter(data => data._type === param.id)
-    //         const filtertwo = postplaceproduct.filter(data => data._type === param.id)
-    //         const filterthree = postplaceproduct.filter(data => data._type === param.id)
-    //         setpostcategoryidcreatedat(filter)
-    //         setpostcategoryidupdatedat(filtertwo)
-    //         setpostcategoryidpostcount(filterthree)
-    // }
-
     const kk = () => {
         const empty = []
         const emptytwo = []
         const emptythree = []
         postplaceproduct?.forEach(data => {
-
+            
             if(breadmainstate !== '' && genreindexstate !== '' && data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo && data.genreid === genreindexstate.genreindexid){
                 empty.push(data)
                 emptytwo.push(data)

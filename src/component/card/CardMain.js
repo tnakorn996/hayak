@@ -20,6 +20,7 @@ function CardMain({
         commentlink, 
         termlink,
         feedbacklink,
+        favouritelink,
 
     } = useContext(ContextMain)
 
@@ -79,6 +80,19 @@ function CardMain({
         },
     ]
 
+    const favouriteimg = [
+        {
+            cardmainindex: 0,
+            cardmainrender: '',
+            cardmainaction: () => {
+                if(cardmainidthree) {
+                    const filter = favouritelink.filter(data => data.blemainid === cardmainidthree);
+                    return <button onClick={filter[0].blemainaction} className="w-full  l-button">{filter[0].blemainentitle}</button>
+                }
+            },
+        },
+    ]
+
     const cardmain = [
         {
             cardmainid: 'commentimg',
@@ -95,6 +109,10 @@ function CardMain({
         {
             cardmainid: 'shareimg',
             cardmainref: shareimg,
+        },
+        {
+            cardmainid: 'favouriteimg',
+            cardmainref: favouriteimg,
         }
     ]
 
@@ -111,7 +129,6 @@ function CardMain({
 
   return (
     <div>
-        <br />
         <motion.main initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative  duration-100">
             {cardmainrender?.map(data => (<>
                 <figure className={`w-full p-[20px] flex flex-col  md:flex-row justify-between ${data?.spreadmainstyle}`}>

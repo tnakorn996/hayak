@@ -32,7 +32,7 @@ function BarMain({
                     barmainicon: <RiEyeLine />,
                     barmainrender: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'viewdi')
-                        return kk(filter[0]?.postindexthreerender[0]?.postcount, 1)
+                        return kk(filter[0]?.postindexthreerender?.postcount, 1)
                     }, 
                     barmainrendertwo: () => {},
 
@@ -42,7 +42,7 @@ function BarMain({
                     barmainicon: <RiBookOpenLine />,
                     barmainrender: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'readdi')
-                        return Math.floor(filter[0]?.postindexthreerender[0]?.postblock?.length * 0.3) + ' min'
+                        return Math.floor(filter[0]?.postindexthreerender?.postblock?.length * 0.3) + ' min'
                     }, 
                     barmainrendertwo: () => {},
 
@@ -52,7 +52,7 @@ function BarMain({
                     barmainicon: <RiTimeLine />,
                     barmainrender: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
-                        return ll(new Date(filter[0]?.postindexthreerender[0]?._createdAt))
+                        return ll(new Date(filter[0]?.postindexthreerender?._createdAt))
                     }, 
                     barmainrendertwo: () => {},
                 },
@@ -61,7 +61,7 @@ function BarMain({
                     barmainrender: () => {},
                     barmainrendertwo: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
-                        return <SocialMain param={`/` + filter[0]?.postindexthreerender[0]?.postid} />
+                        return <SocialMain param={`/` + filter[0]?.postindexthreerender?.postid} />
                     }, 
                 },
                 {
@@ -69,7 +69,7 @@ function BarMain({
                     barmainrender: () => {},
                     barmainrendertwo: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
-                        const ref = filter[0]?.postindexthreerender[0]
+                        const ref = filter[0]?.postindexthreerender
                         return <figure onClick={() => {
                                 settabmainstate({
                                     tabmainid: 'postoption',
@@ -104,7 +104,7 @@ function BarMain({
                     barmainicon: <RiEyeLine />,
                     barmainrender: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'viewdi')
-                        return kk(filter[0]?.postindexthreerender[0]?.postcount, 1)
+                        return kk(filter[0]?.postindexthreerender?.postcount, 1)
                     }, 
                     barmainrendertwo: () => {},
 
@@ -114,7 +114,7 @@ function BarMain({
                     barmainicon: <RiBookOpenLine />,
                     barmainrender: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'readdi')
-                        return Math.floor(filter[0]?.postindexthreerender[0]?.postblock?.length * 0.3) + ' min'
+                        return Math.floor(filter[0]?.postindexthreerender?.postblock?.length * 0.3) + ' min'
                     }, 
                     barmainrendertwo: () => {},
 
@@ -124,7 +124,7 @@ function BarMain({
                     barmainicon: <RiTimeLine />,
                     barmainrender: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
-                        return ll(new Date(filter[0]?.postindexthreerender[0]?._createdAt))
+                        return ll(new Date(filter[0]?.postindexthreerender?._createdAt))
                     }, 
                     barmainrendertwo: () => {},
                 },
@@ -134,7 +134,7 @@ function BarMain({
                     barmainrender: () => {},
                     barmainrendertwo: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
-                        const ref = filter[0]?.postindexthreerender[0]
+                        const ref = filter[0]?.postindexthreerender
                         return <figure onClick={() => {
                                 settabmainstate({
                                     tabmainid: 'postoption',

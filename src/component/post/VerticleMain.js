@@ -42,6 +42,8 @@ function VerticleMain({
   const [verticledivstate, setverticledivstate] = useState()
   const [verticlemainrendertwo, setverticlemainrendertwo] = useState()
   const [verticlemainimage, setverticlemainimage] = useState(posthero)
+
+  const [ptamainstatic, setptamainstatic] = useState()
   
   useEffect(() => {
     if(categoryid){

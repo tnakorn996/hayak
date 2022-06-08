@@ -49,7 +49,8 @@ export const Provider = ({ children }) => {
     const [guidemainstate, setguidemainstate] = useState()
     const [favouritemainstate, setfavouritemainstate] = useState({favouritemaindata: []})
     const [ptamainstate, setptamainstate] = useState()
-    
+    const [toastermainstate, settoastermainstate] = useState()
+
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
     const [postupdatedat, setpostupdatedat] = useState()
@@ -74,6 +75,7 @@ export const Provider = ({ children }) => {
         setspreadmainstate('')
         setsharemainstate('')
         setrtamainstate('')
+        setptamainstate('')
 
         progress.start();
         setTimeout(() => {
@@ -757,6 +759,46 @@ export const Provider = ({ children }) => {
         },
     ]
 
+    const favouritelink = [
+        {
+            blemainid: 'review',
+            blemaintitle: 'review',
+            blemainentitle: 'See all Lists',
+            blemainaction:  () => {
+                setappmainstate(
+                    {
+                        appmainid: 'favouritedialog',
+                        appmainidtwo: 'sideboardmain',
+                        appmainboolean: true,
+                    }
+                )
+            },
+
+            tabmainid: 'post',
+        },
+    ]
+
+    const homedl = [
+        {
+            spreadmainid: 'postupdatedat',
+            spreadmainmap: postupdatedat,
+            spreadmaintitle: 'Trending Blog',
+            spreadmaindirect: '/category/post'
+        },
+        {
+            spreadmainid: 'placeupdatedat',
+            spreadmainmap: placeupdatedat,
+            spreadmaintitle: 'Hot Places',
+            spreadmaindirect: '/category/place',
+        },
+                {
+            spreadmainid: 'productupdatedat',
+            spreadmainmap: productupdatedat,
+            spreadmaintitle: 'New Items',
+            spreadmaindirect: '/category/product',
+        },
+    ]
+
     const searchdl = [
         {
             spreadmainindex: 0,
@@ -903,6 +945,8 @@ export const Provider = ({ children }) => {
           commentselect, commentlink,
           feedbackselect, feedbacklink,
           termselect, termlink,
+          favouritelink,
+          homedl,
           searchdl,
           faqdl, faqdi, 
           favouritedl, favouritedi,
@@ -939,7 +983,7 @@ export const Provider = ({ children }) => {
           guidemainstate, setguidemainstate,
           favouritemainstate, setfavouritemainstate,
           ptamainstate, setptamainstate,
-
+          toastermainstate, settoastermainstate,
 
           userindex,
           postplaceproduct,

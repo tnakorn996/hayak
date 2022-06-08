@@ -5,65 +5,91 @@ import { useEffect } from 'react';
 import { RiHeartFill, RiHeartLine } from 'react-icons/ri';
 import { ContextMain } from '../../context/contextmain';
 
-function PtaMain() {
+function PtaMain({
+    ptamainstatic,
+
+}) {
     const {
-        parsepost,
-        setfavouritemainstate, favouritemainstate,
+        setappmainstate,
         ptamainstate, setptamainstate,
+        setfavouritemainstate, favouritemainstate,
+        settoastermainstate,
         
+        parsepost,
     } = useContext(ContextMain)
     const [ptamainrender, setptamainrender] = useState()
 
-    const favouriteiframe = [
-        {
-            ptamainindex: 0,
-            ptamainicon: <RiHeartFill />,
-            ptamainaction: () => {
-                const ref = parsepost.favouritemaindata || favouritemainstate.favouritemaindata
-                ref.push(ptamainstate.ptamaindata)
-                window.localStorage.setItem("post", JSON.stringify({
-                    favouritemaindata: ref,
-                }));
-                setptamainstate({
-                    ptamainid: 'favouriteiframe',
-                    ptamainindex: 1,
-                    ptamaindata: ptamainstate.ptamaindata,
-                })
-
-                // const ref = favouritemainstate.favouritemaindata
-                // ref.push(ptamainstate.ptamaindata)
-                // setfavouritemainstate({
-                //     favouritemaindata: ref,
-                // })
-            },
-        },
-        {
-            ptamainindex: 1,
-            ptamainicon: <RiHeartFill className='text-gray-900' />,
-            ptamainaction: () => {
-                const filter = parsepost.favouritemaindata.filter(data => data.postid !== ptamainstate.ptamaindata.postid)
-                window.localStorage.clear()
-                window.localStorage.setItem("post", JSON.stringify({
-                    favouritemaindata: filter,
-                }));
-                setptamainstate({
-                    ptamainid: 'favouriteiframe',
+    const postiframe = [
+                {
                     ptamainindex: 0,
-                    ptamaindata: ptamainstate.ptamaindata,
-                })
+                    ptamainicon: <RiHeartFill />,
+                    ptamainaction: () => {
+                        const ref = parsepost?.favouritemaindata || favouritemainstate.favouritemaindata
+                        ref.push(ptamainstate.ptamaindata)
+                        window.localStorage.setItem("post", JSON.stringify({
+                            favouritemaindata: ref,
+                        }))
+                        setptamainstate({
+                            ptamainid: 'postiframe',
+                            ptamainindex: 1,
+                            ptamaindata: ptamainstate.ptamaindata,
+                        })
 
-                // const filter = favouritemainstate.favouritemaindata.filter(data => data.postid !== ptamainstate.ptamaindata.postid)
-                // setfavouritemainstate({
-                //     favouritemaindata: filter,
-                // })
-            }
-        }
+                        setappmainstate({
+                            appmainid:'overlay',
+                            appmainidtwo:'toastermain',
+                        })
+                        settoastermainstate({
+                                toastermainid: 'postheader',
+                                toastermainindex: 1,
+                                // toastermaindata: [ptamainstate.ptamaindata],
+                        })
+
+                        // const ref = favouritemainstate.favouritemaindata
+                        // ref.push(ptamainstate.ptamaindata)
+                        // setfavouritemainstate({
+                        //     favouritemaindata: ref,
+                        // })
+                    },
+                },
+                {
+                    ptamainindex: 1,
+                    ptamainicon: <RiHeartFill className='text-gray-900' />,
+                    ptamainaction: () => {
+                        const filter = parsepost.favouritemaindata.filter(data => data.postid !== ptamainstate.ptamaindata.postid)
+                        window.localStorage.clear()
+                        window.localStorage.setItem("post", JSON.stringify({
+                            favouritemaindata: filter,
+                        }));
+                        setptamainstate({
+                            ptamainid: 'postiframe',
+                            ptamainindex: 0,
+                            ptamaindata: ptamainstate.ptamaindata,
+                        })
+
+                        setappmainstate({
+                            appmainid:'overlay',
+                            appmainidtwo:'toastermain',
+                        })
+                        settoastermainstate({
+                                toastermainid: 'postheader',
+                                toastermainindex: 2,
+                                // toastermaindata: [ptamainstate.ptamaindata],
+                        })
+
+                        // const filter = favouritemainstate.favouritemaindata.filter(data => data.postid !== ptamainstate.ptamaindata.postid)
+                        // setfavouritemainstate({
+                        //     favouritemaindata: filter,
+                        // })
+                    }
+                }
+        
     ]
 
     const ptamain = [
         {
-            ptamainid: 'favouriteiframe',
-            ptamainref: favouriteiframe,
+            ptamainid: 'postiframe',
+            ptamainref: postiframe,
         }
     ]
 
@@ -72,9 +98,36 @@ function PtaMain() {
           const filter = ptamain.filter(data => data.ptamainid === ptamainstate.ptamainid);
           const filtertwo = filter[0].ptamainref.filter(data => data.ptamainindex === ptamainstate.ptamainindex);
           setptamainrender(filtertwo)
-
       }
     }, [ptamainstate])
+
+    useEffect(() => {
+        if(ptamainstatic && ptamainstatic.ptamaindata){
+            if(parsepost && parsepost.favouritemaindata.length > 0){
+                    const filter = parsepost.favouritemaindata.filter(data => data.postid === ptamainstatic.ptamaindata.postid)
+                    if(filter.length > 0){
+                        setptamainstate({
+                            ptamainid: 'postiframe',
+                            ptamainindex: 1,
+                            ptamaindata: ptamainstatic.ptamaindata,
+                        })
+                    } else {
+                        setptamainstate({
+                            ptamainid: 'postiframe',
+                            ptamainindex: 0,
+                            ptamaindata: ptamainstatic.ptamaindata,
+                        })
+                    }
+            } 
+            else {
+                setptamainstate({
+                    ptamainid: 'postiframe',
+                    ptamainindex: 0,
+                    ptamaindata: ptamainstatic.ptamaindata,
+                })
+            }
+      }
+    }, [ptamainstatic])
 
   return (
     <div>
@@ -82,12 +135,12 @@ function PtaMain() {
             <section className="">
                 {ptamainrender?.map(data => (<>
 
-                <article onClick={() => {
-                    data?.ptamainaction()
+                    <article onClick={() => {
+                        data?.ptamainaction()
 
-                }} className="">
-                    <h1 className="text-5xl   m-h6 text-white">{data?.ptamainicon}</h1>
-                </article>
+                    }} className="">
+                        <h1 className="text-5xl   m-h6 text-white">{data?.ptamainicon}</h1>
+                    </article>
                 
                 </>))}
             </section>

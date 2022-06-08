@@ -208,11 +208,11 @@ function SlideMain({
                    {slidemainrender && slidemainrender}
                 </figure>
                     {!slidemainslice && (<>
-                    <button onClick={() => {
+                    <button className="opacity-0 group-hover:opacity-100 absolute z-20 top-0 right-0 w-fit h-full justify-center items-center  duration-100">
+                    <RiArrowRightSLine onClick={() => {
                         // setslidemainindextwo(slidemaindata?.length - slidemainslice)
                         kk(slidemainref, 1)
-                    }} className="opacity-0 group-hover:opacity-100 absolute z-20 top-0 right-0 w-fit h-full justify-center items-center  duration-100">
-                    <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl' />
+                    }} className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl' />
                     </button>
                     </>)}
                     <div className="hidden md:flex flex-row z-10 absolute -top-10 w-full justify-center items-center ">

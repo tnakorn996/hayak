@@ -58,6 +58,7 @@ function PostIndex() {
     const [postindexrenderfour, setpostindexrenderfour] = useState()
     const [postindexmessage, setpostindexmessage] = useState()
     const [postindexaction, setpostindexaction] = useState(true)
+    const [ptamainstatic, setptamainstatic] = useState()
 
     const [postpostid, setpostpostid] = useState()
     const [postplaceid, setpostplaceid] = useState()
@@ -170,38 +171,44 @@ function PostIndex() {
     const postindexthree = [
         {
             postindexthreeid: 'readdi',
-            postindexthreerender: [postpostid]
+            postindexthreerender: postpostid
         },
         {
             postindexthreeid: 'viewdi',
-            postindexthreerender: [postpostid]
+            postindexthreerender: postpostid
         },
         {
             postindexthreeid: 'commentdi',
-            postindexthreerender: [postpostid]
+            postindexthreerender: postpostid
         },
         {
             postindexthreeid: 'timedi',
-            postindexthreerender: [postpostid]
+            postindexthreerender: postpostid
         },
         {
             postindexthreeid: 'socialdi',
-            postindexthreerender: [postpostid]
+            postindexthreerender: postpostid
         },
     ]
+
+    // const postindexfour = [
+    //     {
+    //         postindexfourid: 'postdl',
+    //         postindexfourrender: postpostid,
+    //     },
+    //     {
+    //         postindexfourid: 'placedl',
+    //         postindexfourrender: postpostid,
+    //     },
+    //     {
+    //         postindexfourid: 'productdl',
+    //         postindexfourrender: postpostid,
+    //     },
+    // ]
 
     useEffect(() => {
         ll()
     }, [])
-
-    // useEffect(() => {
-    //     if(postpostid){
-    //         const empty = []
-    //         empty.push({posthero: postpostid?.posthero})
-    //         empty.push({posthero: postpostid?.postherotwo})
-    //         setpostindexrenderthree(empty)
-    //     }
-    // }, [postpostid])
 
     useEffect(() => {
         if(postpostid){
@@ -212,6 +219,13 @@ function PostIndex() {
             //     breadmainidtwo: postpostid?.categoryid,
             //     breadmainidthree: postpostid?.posttitle,
             // })
+            // setptamainstate({
+            //     ptamainid: 'postiframe',
+            //     ptamaindata: postpostid,
+            // })
+            setptamainstatic({
+                ptamaindata: postpostid
+            })
             setwiremainstate({
                 wiremainid: 'blocktr',
                 wiremainindex: 0,
@@ -233,25 +247,8 @@ function PostIndex() {
                 stepmainindex: 0,
             })
 
+            
         } 
-        if(parsepost && postpostid){
-            parsepost.favouritemaindata.forEach(data => {
-                if(data.postid === postpostid.postid){
-                    setptamainstate({
-                        ptamainid: 'favouriteiframe',
-                        ptamainindex: 1,
-                        ptamaindata: postpostid,
-                    })
-                } else {
-                    setptamainstate({
-                        ptamainid: 'favouriteiframe',
-                        ptamainindex: 0,
-                        ptamaindata: postpostid,
-                    })
-                }
-            });
-        }
-       
     }, [postpostid])
 
     useEffect(() => {
@@ -288,7 +285,6 @@ function PostIndex() {
             setpostindexrenderfour(filterfour)
       }
     }, [postpostid, postupdatedat, placeupdatedat, productupdatedat])
-    
     
     // useEffect(() => {
     //   if(postpostid && userindex){
@@ -435,11 +431,11 @@ function PostIndex() {
                     slidemainscroll={1000}
                     slidemainstyle={'!p-0'} />
                 </section>
-                <div className="absolute top-20 right-[10%] z-20 flex justify-center items-center">
+                <div className="absolute top-60 right-[15%] z-20 flex justify-center items-center">
                     {postpostid?.categoryid === 'recipe' && <GuideMain guidemainid={'posttbody'} guidemainindex={0} guidemaindata={postindextwo} />}
                 </div>
                 <div className="absolute top-5 right-5 z-20 flex justify-center items-center">
-                    {<PtaMain />}
+                    {<PtaMain ptamainstatic={ptamainstatic} />}
                 </div>
             </figure>
             <figcaption className="hidden md:block col-span-12">

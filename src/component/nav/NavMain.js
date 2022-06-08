@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { breadmain, categorymain, navmain } from '../../content/contentmain'
 import { ContextMain } from '../../context/contextmain'
+import BadgeMain from '../badge/BadgeMain'
 import DropdownMain from '../dropdown/DropdownMain'
 
 function NavMain() {
@@ -115,8 +116,11 @@ function NavMain() {
                                     appmainboolean: true,
                                 }
                             )
-                        }} className="grid grid-flow-col gap-1 items-center">
+                        }} className="relative grid grid-flow-col gap-1 items-center">
                         <RiHeartLine className='m-h6' />
+                        <div className="absolute -right-2 -top-2 md:top-0">
+                            <BadgeMain badgemainid={'favouritespan'} badgemainindex={0} />
+                        </div>
                     </article>
 
                     <article onClick={() => {

@@ -16,6 +16,8 @@ import SlideMain from '../../component/slide/SlideMain'
 
 function HomeMain() {
     const {
+        homedl,
+
         setappmainstate,
         setwiremainstate,
         setbreadmainstate,
@@ -39,65 +41,34 @@ function HomeMain() {
     const [homemainslicenine, sethomemainslicenine] = useState(0)
     const [homemainsliceten, sethomemainsliceten] = useState(4)
 
-    const [homemainmap, sethomemainmap] = useState()
+    const [homemainrender, sethomemainrender] = useState()
     const ref = useRef(null)
     const reftwo = useRef(null)
     const refthree = useRef(null)
     const reffour = useRef(null)
 
-    const homemain = [
-        {
-            homemainid: 'postupdatedat',
-            homemainmap: postupdatedat,
-            homemaintitle: 'Trending Blog',
-            homemaindirect: '/category/post'
-        },
-        {
-            homemainid: 'placeupdatedat',
-            homemainmap: placeupdatedat,
-            homemaintitle: 'Hot Places',
-            homemaindirect: '/category/place',
-        },
-                {
-            homemainid: 'productupdatedat',
-            homemainmap: productupdatedat,
-            homemaintitle: 'New Items',
-            homemaindirect: '/category/product',
-        },
-
-        // {
-        //     homemainid: 'postcategoryid',
-        //     homemainmap: postcategoryid,
-        //     homemaintitle: '💡 Blog For You',
-        //     homemaindirect: '/search/searchmain',
-        // },
-        // {
-        //     homemainid: 'postpostcount',
-        //     homemainmap: postpostcount,
-        //     homemaintitle: '🔥 Hottest Blog',
-        //     homemaindirect: '/search/searchmain'
-        // },
-        // {
-        //     homemainid: 'postcreatedat',
-        //     homemainmap: postcreatedat,
-        //     homemaintitle: '✨ New Blog',
-        //     homemaindirect: '/search/searchmain'
-        // },
-        // {
-        //     homemainid: 'postpriceid',
-        //     homemainmap: postpriceid,
-        //     homemaintitle: 'We Just Love These',
-        //     homemaindirect: '/search/searchmain'
-        // }
-    ]
+    // const homemain = [
+    //     {
+    //         homemainid: 'postupdatedat',
+    //         homemainmap: postupdatedat,
+    //         homemaintitle: 'Trending Blog',
+    //         homemaindirect: '/category/post'
+    //     },
+    //     {
+    //         homemainid: 'placeupdatedat',
+    //         homemainmap: placeupdatedat,
+    //         homemaintitle: 'Hot Places',
+    //         homemaindirect: '/category/place',
+    //     },
+    //             {
+    //         homemainid: 'productupdatedat',
+    //         homemainmap: productupdatedat,
+    //         homemaintitle: 'New Items',
+    //         homemaindirect: '/category/product',
+    //     },
+    // ]
 
     useEffect(() => {
-        // setappmainstate({
-        //     appmainidtwo: 'previewmain',
-        //     appmainid: 'menuarticle',
-        //     appmainboolean: true,
-        // })
-        
         setwiremainstate({
             wiremainid: 'hometr',
             wiremainindex: 0,
@@ -106,64 +77,9 @@ function HomeMain() {
 
     useEffect(() => {
         if(postupdatedat && placeupdatedat && productupdatedat){
-            sethomemainmap(homemain)
+            sethomemainrender(homedl)
         }
     }, [postupdatedat, placeupdatedat, productupdatedat])
-
-    // function ll(first = this.props.first) {
-    //         if(homemainslicetwo < first){
-    //             sethomemainsliceone(homemainsliceone + 1)
-    //             sethomemainslicetwo(homemainslicetwo + 1)
-    //         }
-    //         if(homemainslicetwo >= first){
-    //             sethomemainsliceone(0)
-    //             sethomemainslicetwo(4)
-    //         }
-    // }
-
-    // function kk(first = this.props.first) {
-    //         if(homemainslicefour < first){
-    //             sethomemainslicethree(homemainslicethree + 1)
-    //             sethomemainslicefour(homemainslicefour + 1)
-    //         }
-    //         if(homemainslicefour >= first){
-    //             sethomemainslicethree(0)
-    //             sethomemainslicefour(3)
-    //         }
-    // }
-
-    // function jj(first = this.props.first) {
-    //         if(homemainslicesix < first){
-    //             sethomemainslicefive(homemainslicefive + 1)
-    //             sethomemainslicesix(homemainslicesix + 1)
-    //         }
-    //         if(homemainslicesix >= first){
-    //             sethomemainslicefive(0)
-    //             sethomemainslicesix(4)
-    //         }
-    // }
-
-    // function hh(first = this.props.first) {
-    //         if(homemainsliceeight < first){
-    //             sethomemainsliceseven(homemainsliceseven + 1)
-    //             sethomemainsliceeight(homemainsliceeight + 1)
-    //         }
-    //         if(homemainsliceeight >= first){
-    //             sethomemainsliceseven(0)
-    //             sethomemainsliceeight(4)
-    //         }
-    // }
-
-    // function gg(first = this.props.first) {
-    //         if(homemainsliceten < first){
-    //             sethomemainslicenine(homemainslicenine + 1)
-    //             sethomemainsliceten(homemainsliceten + 1)
-    //         }
-    //         if(homemainsliceten >= first){
-    //             sethomemainslicenine(0)
-    //             sethomemainsliceten(4)
-    //         }
-    // }
 
     const ll = (first= this.props.first, second= this.props.second) => {
         first.current.scrollTo(first.current.scrollLeft + 250 * second, 0)
@@ -222,31 +138,31 @@ function HomeMain() {
             <br />
             <br />
             <section className=" w-[1200px] md:w-full group">
-                {homemainmap?.map(data => (<>
+                {homemainrender?.map(data => (<>
                 {/* <div className="px-[60px]">
                 <div className="w-full  border-b border-black" />
                 </div> */}
                 <br />
                 <figcaption className="px-[20px] md:px-[60px] w-screen md:w-full flex flex-row justify-between items-center">
-                    <h1 className="m-h6  font-serif">{data?.homemaintitle}</h1>
+                    <h1 className="m-h6  font-serif">{data?.spreadmaintitle}</h1>
                     <button onClick={() => {
                         setbreadmainstate('')
                         setgenreindexstate('')
-                        navigate(data?.homemaindirect)
+                        navigate(data?.spreadmaindirect)
                     }} className="l-h6">→</button>
                 </figcaption>
                 <br />
 
-                        {data?.homemainid === 'postupdatedat' && (<>
-                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[0]?.homemainmap} slidemainref={ref} slidemainscroll={500} slidemainslice={12} />
+                        {data?.spreadmainid === 'postupdatedat' && (<>
+                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={data?.spreadmainmap} slidemainref={ref} slidemainscroll={500} slidemainslice={12} />
                         </>)}
 
-                        {data?.homemainid === 'placeupdatedat' && (<>
-                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[1]?.homemainmap} slidemainref={reftwo} slidemainscroll={500} slidemainslice={12} />
+                        {data?.spreadmainid === 'placeupdatedat' && (<>
+                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={data?.spreadmainmap} slidemainref={reftwo} slidemainscroll={500} slidemainslice={12} />
                         </>)}
 
-                        {data?.homemainid === 'productupdatedat' && (<>
-                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={homemainmap[2]?.homemainmap} slidemainref={refthree} slidemainscroll={500} slidemainslice={12} />
+                        {data?.spreadmainid === 'productupdatedat' && (<>
+                        <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={data?.spreadmainmap} slidemainref={refthree} slidemainscroll={500} slidemainslice={12} />
                         </>)}
                 </>))}
                 <br />

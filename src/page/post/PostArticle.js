@@ -48,19 +48,19 @@ useEffect(() => {
     const postindexthree = [
         {
             postindexthreeid: 'readdi',
-            postindexthreerender: [postarticlestate]
+            postindexthreerender: postarticlestate
         },
         {
             postindexthreeid: 'viewdi',
-            postindexthreerender: [postarticlestate]
+            postindexthreerender: postarticlestate
         },
         {
             postindexthreeid: 'commentdi',
-            postindexthreerender: [postarticlestate]
+            postindexthreerender: postarticlestate
         },
         {
             postindexthreeid: 'timedi',
-            postindexthreerender: [postarticlestate]
+            postindexthreerender: postarticlestate
         },
     ]
   

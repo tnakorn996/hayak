@@ -6,31 +6,20 @@ import { ContextMain } from '../../context/contextmain'
 import { useState } from 'react'
 import SnackbarMain from '../snackbar/SnackbarMain'
 import { motion } from 'framer-motion'
+import ToasterMain from '../toaster/ToasterMain'
 
 function Overlay() {
     const {
         appmainstate,
-        overlaystate,
 
     } = useContext(ContextMain)
     const [overlayrender, setoverlayrender] = useState()
-    // const [overlayboolean, setoverlayboolean] = useState(false)
-
-    // useEffect(() => {
-    //     if(appmainstate === ''){
-    //         setoverlayboolean(false)
-    //         console.log('overlayboolean :>>> ', overlayboolean);
-    //     } 
-    //     if(appmainstate !== ''){
-    //         setoverlayboolean(true)
-    //     } 
-    // }, [appmainstate])
 
     const overlay = [
         {
-            overlayid: 'snackbarmain',
-            overlayrender: <SnackbarMain />,
-        }
+            overlayid: 'toastermain',
+            overlayrender: <ToasterMain />,
+        },
     ]
 
     useEffect(() => {
@@ -45,9 +34,9 @@ function Overlay() {
         <main className="">
             {/* <AnimatePresence> */}
                 {/* {overlayboolean && ( */}
-                <motion.section key='overlay' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className=" duration-100">
+                <section className=" duration-100">
                     {overlayrender && overlayrender}
-                </motion.section>
+                </section>
                 {/* )} */}
             {/* </AnimatePresence> */}
         </main>

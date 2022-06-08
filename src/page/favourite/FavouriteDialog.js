@@ -16,12 +16,12 @@ function FavouriteDialog() {
   return (
     <div>
         <main className="">
-            <section className="px-[50px]">
+            <section className="px-[20px] md:px-[50px]">
                 <br /><br />
                 <h1 className="m-h6 font-serif">Reading List</h1>
             </section>
             <section className="">
-                <ZoomMain zoommainid={'favouriteinput'} zoommainslice={3} />
+                <ZoomMain zoommainid={'favouriteinput'} zoommainslice={10} />
             </section>
         </main>
         {/* <main className="">
