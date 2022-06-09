@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { RiHeartFill, RiHeartLine } from 'react-icons/ri';
+
+import '../pta/ptamain.css'
 import { ContextMain } from '../../context/contextmain';
 
 function PtaMain({
@@ -22,7 +24,7 @@ function PtaMain({
     const postiframe = [
                 {
                     ptamainindex: 0,
-                    ptamainicon: <RiHeartFill />,
+                    ptamainicon: <RiHeartFill className='filter-drop-shadow' />,
                     ptamainaction: () => {
                         const ref = parsepost?.favouritemaindata || favouritemainstate.favouritemaindata
                         ref.push(ptamainstate.ptamaindata)
@@ -54,7 +56,7 @@ function PtaMain({
                 },
                 {
                     ptamainindex: 1,
-                    ptamainicon: <RiHeartFill className='text-gray-900' />,
+                    ptamainicon: <RiHeartFill className='text-gray-900 filter-drop-shadow' />,
                     ptamainaction: () => {
                         const filter = parsepost.favouritemaindata.filter(data => data.postid !== ptamainstate.ptamaindata.postid)
                         window.localStorage.clear()

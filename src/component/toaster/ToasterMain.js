@@ -29,7 +29,7 @@ function ToasterMain() {
             toastermainindex: 1,
             toastermainrender: <CardMain 
             cardmainid={'favouriteimg'} 
-            cardmainidtwo={'inform'} 
+            cardmainidtwo={'success'} 
             cardmainidthree={'review'} 
             cardmainmessage={[{'success': `Successfully added to Reading list`}]}
             cardmainindex={0}  />
@@ -38,7 +38,7 @@ function ToasterMain() {
             toastermainindex: 2,
             toastermainrender: <CardMain 
             cardmainid={'favouriteimg'} 
-            cardmainidtwo={'inform'} 
+            cardmainidtwo={'success'} 
             cardmainidthree={'review'} 
             cardmainmessage={[{'error': `Remove from Reading list`}]}
             cardmainindex={0}  />
@@ -62,20 +62,20 @@ function ToasterMain() {
     
   return (
     <div>
-        <motion.main className="flex justify-center items-center  duration-100">
-            <section className="fixed top-0 md:top-5 w-full md:max-w-[40vw] mx-auto  bg-white">
-                    <figure className="grid grid-cols-12  border shadow-2xl">
-                        <figcaption className="col-span-11">
-                            {toastermainrender && toastermainrender}
-                        </figcaption>
+        <main className="flex justify-center items-center  duration-100">
+            <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}  className="fixed md:top-5 w-full md:max-w-[40vw] mx-auto  bg-white duration-100">
+                    <figure className="flex flex-col  border shadow-2xl">
                         <article onClick={() => {
                             setappmainstate('')
-                        }} className="col-span-1 flex items-start justify-center  border-l border-gray-200">
-                            <h1 className="l-h6">╳</h1>
+                        }} className="h-[5vh] flex items-start justify-end  border border-gray-200">
+                            <h1 className="px-[10px]  l-h6">╳</h1>
                         </article>
+                        <figcaption className="">
+                            {toastermainrender && toastermainrender}
+                        </figcaption>
                     </figure>
-            </section>
-        </motion.main>
+            </motion.section>
+        </main>
     </div>
   )
 }

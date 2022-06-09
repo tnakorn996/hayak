@@ -1,15 +1,28 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import ExitMain from '../../component/exit/ExitMain'
+import { RiCloseLine } from 'react-icons/ri'
+import { useNavigate } from 'react-router-dom'
+import FieldMain from '../../component/field/FieldMain'
 
 function ContactMain() {
+    const navigate = useNavigate()
+
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="w-screen min-h-screen flex flex-col md:grid md:grid-cols-12 items-center  bg-black text-white duration-100">
+        <main className="">
+            <section className="">
+                <FieldMain fieldmainid={'contactform'} fieldmainindex={0} />
+            </section>
+        </main>
+        {/* <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="w-screen min-h-screen flex flex-col md:grid md:grid-cols-12 items-center  bg-black text-white duration-100">
+            <figcaption className="">
+                <RiCloseLine onClick={() => {
+                    navigate('/')
+                }} className="z-10 absolute top-5 right-5 text-4xl  text-white bg-black rounded-full" />
+            </figcaption>
             <section className="col-span-7 p-[40px] max-w-[700px] mx-auto  ">
-                <ExitMain />
                 <br /><br />
-                <h1 className="text-5xl  m-h6 font-serif">Want to be part of Hayak? Drop us a line!</h1>
+                <h1 className="text-5xl  m-h6 font-serif">Want to be part of TOI? Drop us a line!</h1>
                 <br />
                 <input className="w-full  l-input focus:outline-none" placeholder='Name' />
                 <br /><br />
@@ -33,7 +46,7 @@ function ContactMain() {
                 </figure>
             </section>
 
-        </motion.main>
+        </motion.main> */}
     </div>
   )
 }

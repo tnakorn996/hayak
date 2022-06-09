@@ -49,7 +49,7 @@ function NavMain() {
 
             </section>
 
-            <section className="p-[20px] md:hidden col-span-2">
+            <section className="p-[20px] md:hidden col-span-3">
                 <article onClick={() => {
                     setappmainstate({
                             appmainid: 'navdialog',
@@ -62,7 +62,7 @@ function NavMain() {
                 </article>
             </section>
 
-            <section className="p-[20px] md:p-0 col-span-7 md:col-span-1 flex flex-row items-center justify-center">
+            <section className="p-[20px] md:p-0 col-span-5 md:col-span-1 flex flex-row items-center justify-center">
                 <button onClick={() => {
                     navigate('/')
                 }} className="opacity-100">
@@ -78,7 +78,8 @@ function NavMain() {
                 </article>
                 </button>
             </section>
-            <section className="!text-xs md:px-[60px] col-span-2 md:col-span-5 flex justify-end gap-1">
+
+            <section className="p-[20px] md:px-[60px] text-xs col-span-3 md:col-span-5 flex justify-end gap-5 md:gap-7">
                     
                     {/* <button onClick={() => {
                         setappmainstate({
@@ -111,6 +112,18 @@ function NavMain() {
                     <article onClick={() => {
                             setappmainstate(
                                 {
+                                    appmainid: 'searchdialog',
+                                    appmainidtwo: 'sideboardmain',
+                                    appmainboolean: true,
+                                }
+                            )
+                        }} className="grid grid-flow-col gap-1 items-center">
+                        <RiSearch2Line className='m-h6' />
+                    </article>
+
+                    <article onClick={() => {
+                            setappmainstate(
+                                {
                                     appmainid: 'favouritedialog',
                                     appmainidtwo: 'sideboardmain',
                                     appmainboolean: true,
@@ -123,24 +136,12 @@ function NavMain() {
                         </div>
                     </article>
 
-                    <article onClick={() => {
-                            setappmainstate(
-                                {
-                                    appmainid: 'searchdialog',
-                                    appmainidtwo: 'sideboardmain',
-                                    appmainboolean: true,
-                                }
-                            )
-                        }} className="px-[30px] grid grid-flow-col gap-1 items-center">
-                        <RiSearch2Line className='m-h6' />
-                    </article>
-
-                    <button onClick={() => {
-                        setappmainstate({
-                            appmainid: navmain[4]?.navmainref,
-                            appmainredirect:  navmain[4]?.navmainredirect
-                        })
-                    }} className="hidden md:block  m-button">{navmain[4].navmaintitle}</button>
+                    <a href='/contact/contactmain' onClick={() => {
+                        // setappmainstate({
+                        //     appmainid: navmain[4]?.navmainref,
+                        //     appmainredirect:  navmain[4]?.navmainredirect
+                        // })
+                    }} className="hidden md:block  m-button font-serif">List my business</a>
 
             </section>
             <section className="col-span-12">

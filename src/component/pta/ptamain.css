@@ -1,0 +1,4 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+.filter-drop-shadow {
+    filter: drop-shadow(1px 1px 30px rgba(0, 0, 0, 0.500));
+}

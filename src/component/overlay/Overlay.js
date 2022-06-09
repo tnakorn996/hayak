@@ -34,7 +34,7 @@ function Overlay() {
         <main className="">
             {/* <AnimatePresence> */}
                 {/* {overlayboolean && ( */}
-                <section className=" duration-100">
+                <section className="">
                     {overlayrender && overlayrender}
                 </section>
                 {/* )} */}

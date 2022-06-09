@@ -62,8 +62,8 @@ export default function App() {
         case 'planmain': 
         return <PlanMain />
 
-        case 'contactmain': 
-        return <ContactMain />
+        // case 'contactmain': 
+        // return <ContactMain />
 
         // case 'slidemain': 
         // return <SlideMain />
@@ -105,6 +105,8 @@ export default function App() {
             <Route path='/feedback/feedbackmain' element={<FeedbackMain />} /> 
 
             <Route path='/faq/faqmain' element={<FaqMain />} /> 
+
+            <Route path='/contact/contactmain' element={<ContactMain />} /> 
 
 
           </Routes> 
