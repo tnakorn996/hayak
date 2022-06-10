@@ -63,24 +63,25 @@ export const Provider = ({ children }) => {
         pp()
     }, [])
 
-    const progress = new ProgressBar({
-      size: 4,
-      color: 'rgb(55 65 81)',
-      className: 'z-50',
-      delay: 100,
-    })
+    // const progress = new ProgressBar({
+    //   size: 4,
+    //   color: 'rgb(55 65 81)',
+    //   className: 'z-50',
+    //   delay: 100,
+    // })
 
     useEffect(() => {
         setappmainstate('')
         setspreadmainstate('')
         setsharemainstate('')
         setrtamainstate('')
+        setctamainstate('')
         setptamainstate('')
 
-        progress.start();
-        setTimeout(() => {
-            progress.finish();
-        }, 5000);
+        // progress.start();
+        // setTimeout(() => {
+        //     progress.finish();
+        // }, 5000);
 
     }, [location])
     
