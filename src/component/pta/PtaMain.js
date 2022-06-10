@@ -57,7 +57,7 @@ function PtaMain({
                 },
                 {
                     ptamainindex: 1,
-                    ptamainicon: <motion.div initial={{scale: 1.7}} animate={{ scale:1}} className="duration-100">
+                    ptamainicon: <motion.div initial={{scale: 0.5}} animate={{ scale:1}} className="duration-100">
                         <RiHeartFill className='text-black' />
                     </motion.div>,
                     ptamainaction: () => {

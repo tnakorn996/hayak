@@ -288,10 +288,9 @@ function PostIndex() {
       if(postupdatedat || placeupdatedat || productupdatedat) {
             const filterthree = postindex?.filter(data => data.postindexid === postpostid?._type)
             const filterfour = filterthree[0]?.postindexrenderfour?.filter(data => data?._id !== postpostid?._id)
-            setpostindexrenderfour(filterfour)
+            // setpostindexrenderfour(filterfour)
             setsnackbarmainstatic({
                 snackbarmainid: 'categoryfooter',
-                snackbarmainindex: 0,
             })
       }
     }, [postpostid, postupdatedat, placeupdatedat, productupdatedat])
@@ -471,13 +470,13 @@ function PostIndex() {
                     </figure>
                     <br /><hr /><br />
                 </section>
-                <section className={`relative px-[20px] md:px-[60px] max-w-[900px] mx-auto h-[30vh] md:h-[30vh] overflow-hidden ${!postindexaction && '!h-fit'}`}>
+                <section className={`relative px-[20px] md:px-[60px] max-w-[900px] mx-auto h-[30vh] md:h-[35vh] overflow-hidden ${!postindexaction && '!h-fit'}`}>
                     <br />
                     <figcaption className="">
                         <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on ` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                     <br />
-                    <figcaption className="md:text-lg relative  md:font-extralight">
+                    <figcaption className="text-lg relative  md:font-extralight font-serif">
                         <PortableTextComponentsProvider components={component}  >
                             {postpostid?.postblock?.map(data => (<>
                             <PortableText value={data} />
