@@ -10,7 +10,6 @@ import CategoryIndex from './page/catagory/CategoryIndex';
 import HomeMain from './page/home/HomeMain';
 import PostIndex from './page/post/PostIndex';
 import PlanMain from './page/plan/PlanMain';
-import OntroMain from './component/ontro.js/OntroMain';
 import AboutMain from './page/about/AboutMain';
 // import ExtroMain from './component/extro/ExtroMain';
 import BackdropMain from './component/modal/BackdropMain';
@@ -29,7 +28,7 @@ export default function App() {
   const {
     appmainstate, 
     setportmainstate,
-    setsnackbarmainstate,
+    setsnackbarmainstate, snackbarmainstate,
   
   } = useContext(ContextMain)
   const location = useLocation()
@@ -50,9 +49,6 @@ export default function App() {
       switch(appmainstate.appmainredirect) {
         default: 
         return dashboard
-
-        case 'ontromain': 
-        return <OntroMain />
 
         // case 'extromain': 
         // return <ExtroMain />

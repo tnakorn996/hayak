@@ -34,12 +34,7 @@ function FooterMain() {
                     </figcaption>
                     </>)}
                 </div>
-                <button onClick={() => {
-                    setappmainstate({
-                        appmainid: 'overlay',
-                        appmainidtwo: 'snackbarmain',
-                    })
-                }} className="hidden md:block">You may also be interested in</button>
+                <button className="hidden md:block">You may also be interested in</button>
             </section>
             <section className="p-[20px] md:p-0 flex items-center text-white">
                 <div className="w-full flex flex-row flex-wrap justify-between gap-7">

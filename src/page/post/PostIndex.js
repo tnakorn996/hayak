@@ -24,6 +24,7 @@ import BarMain from '../../component/bar/BarMain'
 import ListMain from '../../component/list/ListMain'
 import GuideMain from '../../component/guide/GuideMain'
 import PtaMain from '../../component/pta/PtaMain'
+import SnackbarMain from '../../component/snackbar/SnackbarMain'
 
 function PostIndex() {
     const {
@@ -59,6 +60,7 @@ function PostIndex() {
     const [postindexmessage, setpostindexmessage] = useState()
     const [postindexaction, setpostindexaction] = useState(true)
     const [ptamainstatic, setptamainstatic] = useState()
+    const [snackbarmainstatic, setsnackbarmainstatic] = useState()
 
     const [postpostid, setpostpostid] = useState()
     const [postplaceid, setpostplaceid] = useState()
@@ -287,6 +289,10 @@ function PostIndex() {
             const filterthree = postindex?.filter(data => data.postindexid === postpostid?._type)
             const filterfour = filterthree[0]?.postindexrenderfour?.filter(data => data?._id !== postpostid?._id)
             setpostindexrenderfour(filterfour)
+            setsnackbarmainstatic({
+                snackbarmainid: 'categoryfooter',
+                snackbarmainindex: 0,
+            })
       }
     }, [postpostid, postupdatedat, placeupdatedat, productupdatedat])
     
@@ -511,19 +517,19 @@ function PostIndex() {
                 <br />
                 <hr />
                 <br />
-                <h1 className="px-[20px] md:px-[60px]  m-h5 md:m-h6 font-serif"> You may also like</h1>
+                {/* <h1 className="px-[20px] md:px-[60px]  m-h5 md:m-h6 font-serif"> You may also like</h1> */}
                 <br />
                 <section className="overflow-hidden">
-                <SlideMain 
+                    <SnackbarMain snackbarmainid={snackbarmainstatic?.snackbarmainid} />
+                {/* <SlideMain 
                 slidemainid={'categoryindexth'} 
                 slidemainindex={0} 
                 slidemaindata={postindexrenderfour} 
                 slidemainref={reftwo}
                 slidemainscroll={400} 
                 slidemainslice={12}
-                />
+                /> */}
                 </section>
-                <br />
             </figure>
         </motion.main>
     </div>

@@ -20,7 +20,6 @@ function ModalMain() {
         appmainstate, setappmainstate,
         setstatemainstate,
         setspreadmainstate,
-        setsnackbarmainstate,
 
     } = useContext(ContextMain)
     const location = useLocation()

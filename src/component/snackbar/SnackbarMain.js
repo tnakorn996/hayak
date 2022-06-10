@@ -9,10 +9,13 @@ import { breadmain, sheetmain, spreadmain, statemain } from '../../content/conte
 
 import { ContextMain } from '../../context/contextmain'
 
-function SnackbarMain() {
+function SnackbarMain({
+    snackbarmainid,
+
+}) {
     const {
         setappmainstate,
-        snackbarmainstate, 
+        // snackbarmainstate, 
 
         postupdatedat,
         placeupdatedat,
@@ -52,33 +55,32 @@ function SnackbarMain() {
     ]
 
     useEffect(() => {
-      if(snackbarmainstate){
-            const filter = snackbarmain.filter(data => data.snackbarmainid === snackbarmainstate.snackbarmainid)
+      if(snackbarmainid){
+            const filter = snackbarmain.filter(data => data.snackbarmainid === snackbarmainid)
             // const filtertwo = filter[0].snackbarmainref.filter(data => data.snackbarindex === 0)
             setsnackbarmainrender(filter[0].snackbarmainref)
       }
-    }, [snackbarmainstate])
-
+    }, [snackbarmainid])
 
   return (
     <div>
-        <main  className="h-[50vh] absolute bottom-[30vh] left-0  w-screen text-center   bg-gray-900">
+        <main className="w-screen text-center   bg-gray-900">
             <section className="relative w-full border-b border-gray-700  ">
                 <br />
-                <h1 className="m-h6 font-serif text-white">You may also be interested in</h1>
+                <h1 className="m-h4 font-serif text-white">You may also be interested in</h1>
                 <br />
-                <RiCloseFill onClick={() => {
+                {/* <RiCloseFill onClick={() => {
                     setappmainstate('')
-                }} className="z-20 absolute top-5 right-5 text-4xl  text-white bg-black cursor-pointer" />
+                }} className="z-20 absolute top-5 right-5 text-4xl  text-white bg-black cursor-pointer" /> */}
             </section>
             <br />
-            <section className="px-[50px] grid grid-cols-3 items-center">
+            <section className="px-[50px] flex flex-col md:grid md:grid-cols-3 items-center gap-10">
                 {snackbarmainrender?.map(data => (<>
                 <figcaption className="flex flex-col gap-3">
                     {data?.snackbarmainrender?.slice(0, 6)?.map(dat => (<>
                     <article onClick={() => {
                     navigate(`/${dat?.postid}`)
-                    }} className="l-h4 font-extralight text-white">{dat?.posttitle}</article>
+                    }} className="l-h2 font-extralight text-white">{dat?.posttitle}</article>
                     </>))}
                 </figcaption>
                 </>))}
