@@ -85,8 +85,8 @@ export default function App() {
         </section>
 
         <section className="min-h-screen">
-          <TopMain />
-        <AnimatePresence exitBeforeEnter >
+        <TopMain />
+        {/* <AnimatePresence exitBeforeEnter > */}
           <Routes key={location.pathname} location={location}>
 
             <Route path='/' element={<HomeMain />} /> 
@@ -108,7 +108,7 @@ export default function App() {
 
 
           </Routes> 
-        </AnimatePresence>
+        {/* </AnimatePresence> */}
         </section>
 
         {/* <section className="">

@@ -355,9 +355,9 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiInfor
     export const contactul = [
         {
             breadmainid: 'main',
-            breadmaintitle: 'Main',
-            breadmainsubtitle: 'Here is our stories',
-            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmaintitle: 'Our story',
+            breadmainsubtitle: 'Meet the team',
+            breadmaindetail: `In 2022, a couple, Diogo and Tanny, were working on their food blog and realized they needed a better way to measure and track their ideas. They created a simple tool to do just that, and TOI was born. Today, TOI is the go-to platform for food bloggers and home cooks alike. With over 20 restaurants indexed and a community of passionate partners, TOI is the ultimate destination for anyone who loves food.`,
             breadmainentitle: 'Our story',
             breadmainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t31.18172-8/25627247_1781183131955643_5427587585225810811_o.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=Yq-HKKlVj_AAX-dX1h-&_nc_ht=scontent-akl1-1.xx&oh=00_AT8fXFVCuBQhglqdmESHNLXVN_NuXDkthq40hs488eDv6Q&oe=62C74C02',
             breadmainaction: `/contact/contactmain`,
@@ -365,7 +365,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiInfor
         },
         {
             breadmainid: 'form',
-            breadmaintitle: 'Form',
+            breadmaintitle: 'List my business',
             breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
             breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
             breadmainentitle: 'List my business',
@@ -378,33 +378,45 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiInfor
     export const contactui = [
         {
             crummainid: 'story',
-            crummaintitle: 'Our story',
             crummaindata: [
                 {
-                    crummainsubtitle: 'a',
+                    crummainkey: 'reck',
+                    crummainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t1.18169-9/10557473_714835455257088_8331819989989541462_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=174925&_nc_ohc=62IkRRQkv3wAX9nhGVK&_nc_ht=scontent-akl1-1.xx&oh=00_AT_gmfPMo9rEAKYZVKZx3EYfC1ousOCOmzHqcBNXMT-KyA&oe=62CB3182',
+                    crummainsubtitle: 'Diogo Reck Figueiredo',
+                    crummaindetail: 'Co-Founder/Writer',
                 },
                 {
-                    crummainsubtitle: 'b',
+                    crummainkey: 'tanny',
+                    crummainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t1.6435-9/86422899_3500717006668905_2951072759226040320_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=8LW46hDXNkoAX9u-iDZ&_nc_ht=scontent-akl1-1.xx&oh=00_AT9bkct1yY7fsjXYjmacsI4Bw8MH2wivT68uz9ZXv7iMyQ&oe=62C7957A',
+                    crummainsubtitle: 'Tanny Tinna',
+                    crummaindetail: 'Co-Founder/Developer',
                 },
             ],
-
-            breadmainid: 'main',
-        },
-        {
-            crummainid: 'social',
-            crummaintitle: 'Our social',
-            crummaindata: [
+            crummaindatatwo: [
                 {
+                    crummainkey: 'reck',
                     crummainicon: <RiInstagramFill />,
                     crummainaction: 'https://www.instagram.com/reckdiogo/',
                 },
                 {
+                    crummainkey: 'reck',
                     crummainicon: <RiFacebookCircleFill />,
                     crummainaction: 'https://www.facebook.com/reckdiogo',
                 },
                 {
+                    crummainkey: 'reck',
                     crummainicon: <RiMailFill />,
                     crummainaction: 'mailto:diogorf@gmail.com',
+                },
+                {
+                    crummainkey: 'tanny',
+                    crummainicon: <RiInstagramFill />,
+                    crummainaction: 'https://www.instagram.com/tnakorn996/',
+                },
+                {
+                    crummainkey: 'tanny',
+                    crummainicon: <RiMailFill />,
+                    crummainaction: 'mailto:tnakorn996@gmail.com',
                 },
             ],
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useContext } from 'react';
 import { RiContrastDropLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom'
-import { categoryul, faqul, feedbackul, searchul } from '../../content/contentmantwo';
+import { categoryul, contactul, faqul, feedbackul, searchul } from '../../content/contentmantwo';
 import { ContextMain } from '../../context/contextmain';
 import BreadMain from '../bread/BreadMain'
 
@@ -55,6 +55,11 @@ function FooterMain() {
                 ))}
                 
                 {feedbackul?.map(data => (<>
+                <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
+                </>
+                ))}
+
+                {contactul?.map(data => (<>
                 <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
                 </>
                 ))}

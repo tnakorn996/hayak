@@ -176,7 +176,7 @@ function FieldMain({
                     {data?.fieldmaintitle !== '' && (<>
                     <figure className="">
                     <br /><br />
-                    <h1 className="m-h6 font-serif">{data?.fieldmaintitle}</h1>
+                    <h1 className="max-w-[300px]  m-h6 font-serif">{data?.fieldmaintitle}</h1>
                     <br />
                     </figure>
                     </>)}

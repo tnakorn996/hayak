@@ -288,7 +288,7 @@ function PostIndex() {
       if(postupdatedat || placeupdatedat || productupdatedat) {
             const filterthree = postindex?.filter(data => data.postindexid === postpostid?._type)
             const filterfour = filterthree[0]?.postindexrenderfour?.filter(data => data?._id !== postpostid?._id)
-            // setpostindexrenderfour(filterfour)
+            setpostindexrenderfour(filterfour)
             setsnackbarmainstatic({
                 snackbarmainid: 'categoryfooter',
             })
@@ -516,18 +516,18 @@ function PostIndex() {
                 <br />
                 <hr />
                 <br />
-                {/* <h1 className="px-[20px] md:px-[60px]  m-h5 md:m-h6 font-serif"> You may also like</h1> */}
+                <h1 className="px-[20px] md:px-[60px]  m-h5 md:m-h6 font-serif"> You may also like</h1>
                 <br />
                 <section className="overflow-hidden">
+                    <SlideMain 
+                    slidemainid={'categoryindexth'} 
+                    slidemainindex={0} 
+                    slidemaindata={postindexrenderfour} 
+                    slidemainref={reftwo}
+                    slidemainscroll={400} 
+                    slidemainslice={12}
+                    />
                     <SnackbarMain snackbarmainid={snackbarmainstatic?.snackbarmainid} />
-                {/* <SlideMain 
-                slidemainid={'categoryindexth'} 
-                slidemainindex={0} 
-                slidemaindata={postindexrenderfour} 
-                slidemainref={reftwo}
-                slidemainscroll={400} 
-                slidemainslice={12}
-                /> */}
                 </section>
             </figure>
         </motion.main>
