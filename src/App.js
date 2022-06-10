@@ -13,7 +13,6 @@ import PlanMain from './page/plan/PlanMain';
 import OntroMain from './component/ontro.js/OntroMain';
 import AboutMain from './page/about/AboutMain';
 // import ExtroMain from './component/extro/ExtroMain';
-import ContactMain from './page/contact/ContactMain';
 import BackdropMain from './component/modal/BackdropMain';
 import Overlay from './component/overlay/Overlay';
 import SheetMain from './component/sheet/SheetMain';
@@ -23,6 +22,8 @@ import SearchMain from './page/search/SearchMain';
 import FeedbackMain from './page/feedback/FeedbackMain';
 import FooterMain from './component/footer/FooterMain';
 import FaqMain from './page/faq/FaqMain';
+import ContactMain from './page/contact/ContactMain';
+import ContactForm from './page/contact/ContactForm';
 
 export default function App() {
   const {
@@ -107,6 +108,7 @@ export default function App() {
             <Route path='/faq/faqmain' element={<FaqMain />} /> 
 
             <Route path='/contact/contactmain' element={<ContactMain />} /> 
+            <Route path='/contact/contactform' element={<ContactForm />} /> 
 
 
           </Routes> 

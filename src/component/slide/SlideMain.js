@@ -38,7 +38,7 @@ function SlideMain({
                     <div className="w-[250px] md:w-fit snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
-                        }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid} param={data?.postid} placepostid={data?.placepostid} />
+                        }} key={data?.postid} data={data} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid} param={data?.postid} placepostid={data?.placepostid} />
                     </div>
                     </>))
             },
@@ -82,7 +82,7 @@ function SlideMain({
                     <div className="w-[250px] md:w-[300px] snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
-                        }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} postherotwo={data?.postherotwo} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} placepostid={data?.placepostid} />
+                        }} key={data?.postid} data={data} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} postherotwo={data?.postherotwo} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} placepostid={data?.placepostid} />
                     </div>
                     </>))
             },
@@ -96,7 +96,7 @@ function SlideMain({
                     <div className="w-[250px] md:w-fit snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
-                        }} key={data?.postid} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} postherotwo={data?.postherotwo} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} placepostid={data?.placepostid} />
+                        }} key={data?.postid} data={data} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} postherotwo={data?.postherotwo} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} placepostid={data?.placepostid} />
                     </div>
                     </>))
             },
@@ -221,7 +221,7 @@ function SlideMain({
 
                         <article onClick={() => {
                             ll(slidemainref, 1, index)
-                        }} className={`p-[10px] w-[7px] h-[7px]  bg-gray-200 duration-1000 ${slidemainindextwo === slidemainscroll * index && '!w-[100px]  !cursor-default !bg-gray-900'} `}>
+                        }} className={`p-[10px] w-[7px] h-[7px]  bg-gray-200 duration-1000 ${slidemainindextwo === slidemainscroll * index && '!w-[100px] !cursor-default !bg-gray-900'} `}>
                         </article>
                         </>))}
                         {/* </figure> */}

@@ -189,6 +189,10 @@ function PostIndex() {
             postindexthreeid: 'socialdi',
             postindexthreerender: postpostid
         },
+        {
+            postindexthreeid: 'moredi',
+            postindexthreerender: postpostid
+        },
     ]
 
     // const postindexfour = [

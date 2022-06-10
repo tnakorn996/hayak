@@ -3,6 +3,7 @@ import React from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { RiCloseFill } from 'react-icons/ri'
 import { ContextMain } from '../../context/contextmain'
 
 import CardMain from '../card/CardMain'
@@ -65,14 +66,15 @@ function ToasterMain() {
         <main className="flex justify-center items-center  duration-100">
             <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}  className="fixed md:top-5 w-full md:max-w-[40vw] mx-auto  bg-white duration-100">
                     <figure className="flex flex-col  border shadow-2xl">
-                        <article onClick={() => {
+                        <div className="flex items-center justify-end  border border-gray-200">
+                            {/* <h1 className="px-[10px]  l-h6">╳</h1> */}
+                            <RiCloseFill onClick={() => {
                             setappmainstate('')
-                        }} className="h-[5vh] flex items-start justify-end  border border-gray-200">
-                            <h1 className="px-[10px]  l-h6">╳</h1>
-                        </article>
-                        <figcaption className="">
+                        }} className='p-[5px] text-4xl  l-h6' />
+                        </div>
+                        <div className="">
                             {toastermainrender && toastermainrender}
-                        </figcaption>
+                        </div>
                     </figure>
             </motion.section>
         </main>

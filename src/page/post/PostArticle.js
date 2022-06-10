@@ -14,36 +14,36 @@ import { ContextMain } from '../../context/contextmain'
 
 
 function PostArticle() {
-  const {
+    const {
 
-      setappmainstate, appmainstate,
-      genreindexstate,
+        setappmainstate, appmainstate,
+        genreindexstate,
 
-      postplaceproduct,
+        postplaceproduct,
 
-  } = useContext(ContextMain)
-  const navigate = useNavigate()
+    } = useContext(ContextMain)
+    const navigate = useNavigate()
 
-  const [postarticlestate, setpostarticlestate] = useState()
-  const [postarticlestatetwo, setpostarticlestatetwo] = useState()
-  const [postarticlerenderthree, setpostarticlerenderthree] = useState()
-  const [postarticlerenderfour, setpostarticlerenderfour] = useState()
+    const [postarticlestate, setpostarticlestate] = useState()
+    const [postarticlestatetwo, setpostarticlestatetwo] = useState()
+    const [postarticlerenderthree, setpostarticlerenderthree] = useState()
+    const [postarticlerenderfour, setpostarticlerenderfour] = useState()
 
-  useEffect(() => {
-    const filter = postplaceproduct?.filter(data => data.postid === appmainstate.appmainparam)
-    const filtertwo = postplaceproduct?.filter(data => data.postid !== appmainstate.appmainparam)
-    setpostarticlestate(filter[0])
-    setpostarticlestatetwo(filtertwo)
-}, [])
+    useEffect(() => {
+        const filter = postplaceproduct?.filter(data => data.postid === appmainstate.appmainparam)
+        const filtertwo = postplaceproduct?.filter(data => data.postid !== appmainstate.appmainparam)
+        setpostarticlestate(filter[0])
+        setpostarticlestatetwo(filtertwo)
+    }, [])
 
-useEffect(() => {
-    if(postarticlestate && genreui){
-        const filter = categoryui.filter(data => data.crummainid === postarticlestate.categoryid)
-        const filtertwo = genreui.filter(data => data.crummainid === postarticlestate.genreid)
-        setpostarticlerenderthree(filter[0]?.crummaintitle)
-        setpostarticlerenderfour(filtertwo[0]?.crummaintitle)
-    }
-  }, [postarticlestate])
+    useEffect(() => {
+        if(postarticlestate && genreui){
+            const filter = categoryui.filter(data => data.crummainid === postarticlestate.categoryid)
+            const filtertwo = genreui.filter(data => data.crummainid === postarticlestate.genreid)
+            setpostarticlerenderthree(filter[0]?.crummaintitle)
+            setpostarticlerenderfour(filtertwo[0]?.crummaintitle)
+        }
+    }, [postarticlestate])
 
     const postindexthree = [
         {
@@ -60,6 +60,10 @@ useEffect(() => {
         },
         {
             postindexthreeid: 'timedi',
+            postindexthreerender: postarticlestate
+        },
+        {
+            postindexthreeid: 'moredi',
             postindexthreerender: postarticlestate
         },
     ]

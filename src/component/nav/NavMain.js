@@ -2,9 +2,11 @@ import React from 'react'
 import { useContext } from 'react'
 import {BiFoodTag} from 'react-icons/bi'
 import {RiContrastDropLine, RiSearch2Line, RiCloseFill, RiMenuLine, RiMenu5Line, RiHeartLine} from 'react-icons/ri'
+import {VscHeart, VscMenu, VscSearch} from 'react-icons/vsc'
 import { useNavigate } from 'react-router-dom'
 
 import { breadmain, categorymain, navmain } from '../../content/contentmain'
+import { contactul } from '../../content/contentmantwo'
 import { ContextMain } from '../../context/contextmain'
 import BadgeMain from '../badge/BadgeMain'
 import DropdownMain from '../dropdown/DropdownMain'
@@ -58,7 +60,7 @@ function NavMain() {
                             appmainboolean: true,
                         })
                     }} className="">
-                <RiMenu5Line className='text-3xl ' />
+                <VscMenu className='m-h6' />
                 </article>
             </section>
 
@@ -118,7 +120,7 @@ function NavMain() {
                                 }
                             )
                         }} className="grid grid-flow-col gap-1 items-center">
-                        <RiSearch2Line className='m-h6' />
+                        <VscSearch className='m-h5' />
                     </article>
 
                     <article onClick={() => {
@@ -130,18 +132,13 @@ function NavMain() {
                                 }
                             )
                         }} className="relative grid grid-flow-col gap-1 items-center">
-                        <RiHeartLine className='m-h6' />
+                        <VscHeart className='m-h6' />
                         <div className="absolute -right-2 -top-2 md:top-0">
                             <BadgeMain badgemainid={'favouritespan'} badgemainindex={0} />
                         </div>
                     </article>
 
-                    <a href='/contact/contactmain' onClick={() => {
-                        // setappmainstate({
-                        //     appmainid: navmain[4]?.navmainref,
-                        //     appmainredirect:  navmain[4]?.navmainredirect
-                        // })
-                    }} className="hidden md:block  m-button font-serif">List my business</a>
+                    <a href={contactul[1]?.breadmainaction} className="hidden md:block  m-button font-serif">{contactul[1]?.breadmainentitle}</a>
 
             </section>
             <section className="col-span-12">

@@ -113,7 +113,7 @@ function DropdownMain() {
                 <figure className="hidden md:flex col-span-5  overflow-hidden">
                     <div className="relative w-full h-full flex justify-center items-center">
                     <div className="absolute top-0 left-0 w-full h-full  bg-black opacity-5" />
-                    <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-[100ch] min-h-full   duration-100" />
+                    <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-[100ch] min-h-full   duration-100 grayscale" />
                     </div>
                 </figure>
                 <article className='w-[70px] h-[70px] text-5xl absolute flex justify-center items-center top-5 right-5  bg-black' >

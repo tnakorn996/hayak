@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 import ButtonMain from '../../component/button/ButtonMain'
 import CardMain from '../../component/card/CardMain'
+import FieldMain from '../../component/field/FieldMain'
 
 import { ContextMain } from '../../context/contextmain'
 import { client } from '../../lib/sanity'
@@ -102,31 +103,8 @@ function CommentDialog() {
                     <h1 className="m-h6 font-serif">Responses ({commentdialogrendertwo?.length || 0})</h1>
                 </figure>
             </section>
-            <br />
             <section className="">
-                <input onChange={p => setcommentdialogtitle(p.target.value)} placeholder='Enter your name' className='w-full  l-input border-b border-white' />
-                <br /><br />
-                <textarea onChange={p => setcommentdialogsubtitle(p.target.value)} rows="3" placeholder='What are your thoughts?' className='w-full  l-input  border-b border-white' />
-                <br /><br />
-                <ButtonMain 
-                    onclick={() => {
-                        jj()
-                    }} 
-                    title={'Post comments'}
-                    load={commentdialogload}
-                />
-            </section>
-            <section className="">
-                {/* {commentdialogrender && commentdialogrender} */}
-                {commentdialogrender && (<>
-                <CardMain     
-                cardmainid={commentdialogrender?.cardmainid}
-                cardmainidtwo={commentdialogrender?.cardmainidtwo}
-                cardmainidthree={commentdialogrender?.cardmainidthree}
-                cardmainmessage={commentdialogrender?.cardmainmessage}
-                cardmainindex={commentdialogrender?.cardmainindex} 
-                />
-                </>)}
+                <FieldMain fieldmainid={'commentform'} fieldmainindex={0} fieldmainparam={location.pathname?.slice(1, location.pathname.length)} />
             </section>
             <section className="">
                 {commentdialogrendertwo?.length >= 0 && (<>

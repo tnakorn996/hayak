@@ -11,12 +11,15 @@ import CardMain from '../card/CardMain'
 function FieldMain({
     fieldmainid,
     fieldmainindex,
+    fieldmainparam,
 
 }) {
     const ref = useRef('')
     const reftwo = useRef('')
     const refthree = useRef('')
     const reffour = useRef('')
+    const reffive = useRef('')
+    const refsix = useRef('')
     const [fieldmainuuid, setfieldmainuuid] = useState(uuidv4())
     const [fieldmainload, setfieldmainload] = useState(false)
 
@@ -37,6 +40,20 @@ function FieldMain({
                     mailemail: jj(reftwo?.current?.value),
                     mailcity: refthree?.current?.value,
                     mailmessage: reffour?.current?.value,
+                }
+            },
+            {
+                dataid: 'commentform',
+                dataindex: 0,
+                datadoc: {
+                    _id: fieldmainuuid,
+                    _type: 'comment',
+                    commentid:  fieldmainuuid,
+                    commenttitle: reffive?.current?.value,
+                    commentsubtitle: refsix?.current?.value,
+                    commentboolean: false,
+
+                    postid: fieldmainparam,
                 }
             },
         ]
@@ -61,16 +78,15 @@ function FieldMain({
                 })
             }
             setfieldmainload(false);
-            
     }
 
     const kk = async (first = this.props.first) => {
          await client.createOrReplace(first).then(() => {
             setcardmainstatic({
-                cardmainid: 'commentimg',
+                cardmainid: 'shareimg',
                 cardmainidtwo: 'success',
                 cardmainidthree: 'feedback',
-                // cardmainmessage: [{'success': ''}],
+                cardmainmessage: [{'success': 'Successfully send your comments.'}, {'success': 'This might take up to 3 days for us to review.'}],
                 cardmainindex: 0 ,
             })
             setfieldmainload(false);
@@ -92,7 +108,6 @@ function FieldMain({
             fieldmainaction: ll,
             fieldmaintitle: 'Want to be part of TOI? Drop us a line!',
             fieldmainentitle: 'Submit form',
-            fieldmainimage: 'https://images.unsplash.com/photo-1609951651556-5334e2706168?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
             fieldmaindata: [
                 {
                     fieldmainsubtitle: 'Name',
@@ -114,10 +129,34 @@ function FieldMain({
         },
     ]
 
+    const commentform = [
+        {
+            fieldmainindex: 0,
+            fieldmainaction: ll,
+            fieldmaintitle: '',
+            fieldmainentitle: 'Post comments',
+            fieldmaindata: [
+                {
+                    fieldmainsubtitle: '',
+                    fieldmainrender: <input ref={reffive} className="w-full  l-input" placeholder='Enter your name' />,
+                },
+                {
+                    fieldmainsubtitle: '',
+                    fieldmainrender: <textarea ref={refsix} rows={3} className="w-full  l-input" placeholder='What are your thoughts?' />,
+                },
+            ]
+
+        }
+    ]
+
     const fieldmain = [
         {
             fieldmainid: 'contactform',
             fieldmainref: contactform,
+        },
+        {
+            fieldmainid: 'commentform',
+            fieldmainref: commentform,
         }
     ]
 
@@ -131,19 +170,20 @@ function FieldMain({
 
   return (
     <div>
-        <main className="flex flex-col md:grid md:grid-cols-12">
+        <main className="">
             {fieldmainrender?.map(data => (<>
-            <div className="col-span-7 px-[20px] md:px-[50px]">
                 <section className="">
+                    {data?.fieldmaintitle !== '' && (<>
                     <figure className="">
                     <br /><br />
-                    <h1 className="max-w-[600px] text-3xl  m-h6 font-serif">{data?.fieldmaintitle}</h1>
+                    <h1 className="m-h6 font-serif">{data?.fieldmaintitle}</h1>
                     <br />
                     </figure>
+                    </>)}
                     {data?.fieldmaindata?.map(dat => (<>
                     <figcaption className="">
                         <br />
-                        <h1 className="l-h2">{dat?.fieldmainsubtitle}</h1>
+                        <h1 className="l-h2">{dat?.fieldmainsubtitle !== '' && dat?.fieldmainsubtitle}</h1>
                         <div className="w-full  border-b">
                         {dat?.fieldmainrender}
                         </div>
@@ -172,12 +212,6 @@ function FieldMain({
                     />
                 </section>
                 <br /><br />
-            </div>
-            <div className="col-span-5">
-                <figure className="h-screen flex justify-center items-center  overflow-hidden">
-                    <img src={data?.fieldmainimage} alt="" className="max-w-[100ch] min-h-full" />
-                </figure>
-            </div>
             </>))}            
         </main>
     </div>

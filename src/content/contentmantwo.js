@@ -1,185 +1,4 @@
-import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "react-icons/ri"
-
-    export const categorydi = [
-        {
-            spreadmainid: 'success',
-            spreadmaintitle: 'Successfully', 
-            spreadmainicon: <RiCheckboxCircleFill />,
-            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-emerald-50 !text-emerald-800',
-        },
-        {
-            spreadmainid: 'fail',
-            spreadmaintitle: 'Oops 404', 
-            spreadmainicon: <RiErrorWarningFill />,
-            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-red-50 !text-red-800',
-        },
-        {
-            spreadmainid: 'break',
-            spreadmaintitle: 'Apologies',
-            spreadmainicon: <RiInformationLine />,
-            spreadmainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
-
-        },
-        {
-            spreadmainid: 'inform',
-            spreadmaintitle: 'This', 
-            spreadmainicon: <RiInformationLine />,
-            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-gray-50 !text-gray-800',
-        },
-        {
-            spreadmainid: 'disclaim',
-            spreadmaintitle: 'This', 
-            spreadmainicon: <RiInformationLine />,
-            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
-        },
-        {
-            spreadmainid: 'credit',
-            spreadmaintitle: 'This', 
-            spreadmainicon: <RiInformationLine />,
-            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
-        },
-    ]
-
-    export const categorydl = [
-        {
-            sheetmainid: 'placedi',
-            sheetmaintitle: 'Find sellers',
-            sheetmainsubtitle: 'Place Location',
-            sheetmainaction: `/category/place`,
-
-        },
-        {
-            sheetmainid: 'pickdi',
-            sheetmaintitle: 'Find products',
-            sheetmainsubtitle: `What You'll Need`,
-            sheetmainaction: `/category/product`,
-        },
-        {
-            sheetmainid: 'postdi',
-            sheetmaintitle: 'Find blogs',
-            sheetmainsubtitle: 'Related Blog',
-            sheetmainaction: `/category/post`,
-
-        },
-        {
-            sheetmainid: 'productdi',
-            sheetmaintitle: 'Find products',
-            sheetmainsubtitle: 'Related Products',
-            sheetmainaction: `/category/product`,
-        },
-
-        {
-            sheetmainid: 'readdi',
-            sheetmaintitle: 'Find mins',
-            sheetmainsubtitle: 'Related mins',
-            sheetmainaction: `/read/readmain`,
-        },
-        {
-            sheetmainid: 'viewdi',
-            sheetmaintitle: 'Find views',
-            sheetmainsubtitle: 'Related views',
-            sheetmainaction: `/view/viewmain`,
-        },
-        {
-            sheetmainid: 'commentdi',
-            sheetmaintitle: 'Find comments',
-            sheetmainsubtitle: 'Related comments',
-            sheetmainaction: `/comment/commentmain`,
-        },
-        {
-            sheetmainid: 'timedi',
-            sheetmaintitle: 'Find times',
-            sheetmainsubtitle: 'Related times',
-            sheetmainaction: `/time/timemain`,
-        },
-
-    ]
-
-    export const postdl= [
-    ]
-
-    export const searchdl= [
-        {
-            sheetmaintitle: 'Find more results',
-            sheetmainaction: `/search/`,
-            sheetmainentitle: 'Filter search',
-
-            spreadmainid: 'success'
-        },
-        {
-            sheetmaintitle: "We couldn't find results",
-            sheetmainaction: `/search/searchmain`,
-            sheetmainentitle: 'Filter search',
-
-            spreadmainid: 'fail'
-        },
-        {
-            sheetmaintitle: "Can't find result?",
-            sheetmainaction: `/search/searchmain`,
-            sheetmainentitle: 'See more',
-
-            spreadmainid: 'inform'
-        },
-    ]
-
-    export const commentdi= [
-        {
-            sheetmaintitle: `Successfully sent your comments:`,
-            sheetmainsubtitle: `It will take upto three days for us to review.`,
-
-            spreadmainid: 'success',
-            breadmainid: 'comment'
-        },
-        {
-            sheetmaintitle: `There are some issues:`,
-            sheetmainsubtitle: `That's all we know.`,
-
-            spreadmainid: 'fail',
-            breadmainid: 'comment'
-        },
-        {
-            sheetmaintitle: `Find this post helpful?`,
-            sheetmainsubtitle: `Help improve TOI by sharing a review with others.`,
-
-            spreadmainid: 'inform',
-            breadmainid: 'comment'
-        },
-
-    ]
-
-    export const termdi= [
-        {
-            sheetmaintitle: `ddddd`,
-            sheetmainsubtitle: `dddddd`,
-            sheetmainentitle: `Term of service`,
-            sheetmainaction: `/term/termmain`,
-
-            spreadmainid: 'success',
-        },
-        {
-            sheetmaintitle: `fffff`,
-            sheetmainsubtitle: `ffffff`,
-            sheetmainentitle: `Term of service`,
-            sheetmainaction: `/term/termmain`,
-
-            spreadmainid: 'fail',
-        },
-        {
-            sheetmaintitle: `Need support?`,
-            sheetmainsubtitle: `Please note we can’t guarantee a response.`,
-            sheetmainentitle: `Term of service`,
-            sheetmainaction: `/term/termmain`,
-
-            spreadmainid: 'inform',
-        },
-
-    ]
+import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiInformationLine, RiInstagramFill, RiMailFill, RiTwitterFill } from "react-icons/ri"
 
 ////////////////////////////////////////////////
 
@@ -532,8 +351,251 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiInformationLine } from "rea
             breadmainaction: `/faq/faqmain`,
         },
     ]
+
+    export const contactul = [
+        {
+            breadmainid: 'main',
+            breadmaintitle: 'Main',
+            breadmainsubtitle: 'Here is our stories',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'Our story',
+            breadmainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t31.18172-8/25627247_1781183131955643_5427587585225810811_o.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=Yq-HKKlVj_AAX-dX1h-&_nc_ht=scontent-akl1-1.xx&oh=00_AT8fXFVCuBQhglqdmESHNLXVN_NuXDkthq40hs488eDv6Q&oe=62C74C02',
+            breadmainaction: `/contact/contactmain`,
+            breadmainstyle: `l-button`,
+        },
+        {
+            breadmainid: 'form',
+            breadmaintitle: 'Form',
+            breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
+            breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
+            breadmainentitle: 'List my business',
+            breadmainimage: 'https://images.unsplash.com/photo-1518110925495-5fe2fda0442c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070',
+            breadmainaction: `/contact/contactform`,
+            breadmainstyle: `m-button`,
+        },
+    ]
+
+    export const contactui = [
+        {
+            crummainid: 'story',
+            crummaintitle: 'Our story',
+            crummaindata: [
+                {
+                    crummainsubtitle: 'a',
+                },
+                {
+                    crummainsubtitle: 'b',
+                },
+            ],
+
+            breadmainid: 'main',
+        },
+        {
+            crummainid: 'social',
+            crummaintitle: 'Our social',
+            crummaindata: [
+                {
+                    crummainicon: <RiInstagramFill />,
+                    crummainaction: 'https://www.instagram.com/reckdiogo/',
+                },
+                {
+                    crummainicon: <RiFacebookCircleFill />,
+                    crummainaction: 'https://www.facebook.com/reckdiogo',
+                },
+                {
+                    crummainicon: <RiMailFill />,
+                    crummainaction: 'mailto:diogorf@gmail.com',
+                },
+            ],
+
+            breadmainid: 'main',
+        },
+    ]
+
 /////////////////////////////////////////////////////
 
+    export const categorydi = [
+        {
+            spreadmainid: 'success',
+            spreadmaintitle: 'Successfully', 
+            spreadmainicon: <RiCheckboxCircleFill />,
+            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
+            spreadmainstyle: '!bg-emerald-50 !text-emerald-800',
+        },
+        {
+            spreadmainid: 'fail',
+            spreadmaintitle: 'Oops 404', 
+            spreadmainicon: <RiErrorWarningFill />,
+            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
+            spreadmainstyle: '!bg-red-50 !text-red-800',
+        },
+        {
+            spreadmainid: 'break',
+            spreadmaintitle: 'Apologies',
+            spreadmainicon: <RiInformationLine />,
+            spreadmainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
+            spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
+
+        },
+        {
+            spreadmainid: 'inform',
+            spreadmaintitle: 'This', 
+            spreadmainicon: <RiInformationLine />,
+            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
+            spreadmainstyle: '!bg-gray-50 !text-gray-800',
+        },
+        {
+            spreadmainid: 'disclaim',
+            spreadmaintitle: 'This', 
+            spreadmainicon: <RiInformationLine />,
+            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
+            spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
+        },
+        {
+            spreadmainid: 'credit',
+            spreadmaintitle: 'This', 
+            spreadmainicon: <RiInformationLine />,
+            spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
+            spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
+        },
+    ]
+
+    export const categorydl = [
+        {
+            sheetmainid: 'placedi',
+            sheetmaintitle: 'Find sellers',
+            sheetmainsubtitle: 'Place Location',
+            sheetmainaction: `/category/place`,
+
+        },
+        {
+            sheetmainid: 'pickdi',
+            sheetmaintitle: 'Find products',
+            sheetmainsubtitle: `What You'll Need`,
+            sheetmainaction: `/category/product`,
+        },
+        {
+            sheetmainid: 'postdi',
+            sheetmaintitle: 'Find blogs',
+            sheetmainsubtitle: 'Related Blog',
+            sheetmainaction: `/category/post`,
+
+        },
+        {
+            sheetmainid: 'productdi',
+            sheetmaintitle: 'Find products',
+            sheetmainsubtitle: 'Related Products',
+            sheetmainaction: `/category/product`,
+        },
+
+        {
+            sheetmainid: 'readdi',
+            sheetmaintitle: 'Find mins',
+            sheetmainsubtitle: 'Related mins',
+            sheetmainaction: `/read/readmain`,
+        },
+        {
+            sheetmainid: 'viewdi',
+            sheetmaintitle: 'Find views',
+            sheetmainsubtitle: 'Related views',
+            sheetmainaction: `/view/viewmain`,
+        },
+        {
+            sheetmainid: 'commentdi',
+            sheetmaintitle: 'Find comments',
+            sheetmainsubtitle: 'Related comments',
+            sheetmainaction: `/comment/commentmain`,
+        },
+        {
+            sheetmainid: 'timedi',
+            sheetmaintitle: 'Find times',
+            sheetmainsubtitle: 'Related times',
+            sheetmainaction: `/time/timemain`,
+        },
+
+    ]
+
+    export const postdl= [
+    ]
+
+    export const searchdl= [
+        {
+            sheetmaintitle: 'Find more results',
+            sheetmainaction: `/search/`,
+            sheetmainentitle: 'Filter search',
+
+            spreadmainid: 'success'
+        },
+        {
+            sheetmaintitle: "We couldn't find results",
+            sheetmainaction: `/search/searchmain`,
+            sheetmainentitle: 'Filter search',
+
+            spreadmainid: 'fail'
+        },
+        {
+            sheetmaintitle: "Can't find result?",
+            sheetmainaction: `/search/searchmain`,
+            sheetmainentitle: 'See more',
+
+            spreadmainid: 'inform'
+        },
+    ]
+
+    export const commentdi= [
+        {
+            sheetmaintitle: `Successfully sent your comments:`,
+            sheetmainsubtitle: `It will take upto three days for us to review.`,
+
+            spreadmainid: 'success',
+            breadmainid: 'comment'
+        },
+        {
+            sheetmaintitle: `There are some issues:`,
+            sheetmainsubtitle: `That's all we know.`,
+
+            spreadmainid: 'fail',
+            breadmainid: 'comment'
+        },
+        {
+            sheetmaintitle: `Find this post helpful?`,
+            sheetmainsubtitle: `Help improve TOI by sharing a review with others.`,
+
+            spreadmainid: 'inform',
+            breadmainid: 'comment'
+        },
+
+    ]
+
+    export const termdi= [
+        {
+            sheetmaintitle: `ddddd`,
+            sheetmainsubtitle: `dddddd`,
+            sheetmainentitle: `Term of service`,
+            sheetmainaction: `/term/termmain`,
+
+            spreadmainid: 'success',
+        },
+        {
+            sheetmaintitle: `fffff`,
+            sheetmainsubtitle: `ffffff`,
+            sheetmainentitle: `Term of service`,
+            sheetmainaction: `/term/termmain`,
+
+            spreadmainid: 'fail',
+        },
+        {
+            sheetmaintitle: `Need support?`,
+            sheetmainsubtitle: `Please note we can’t guarantee a response.`,
+            sheetmainentitle: `Term of service`,
+            sheetmainaction: `/term/termmain`,
+
+            spreadmainid: 'inform',
+        },
+
+    ]
+
+/////////////////////////////////////////////////////
 
     export const breadmain = [
         {

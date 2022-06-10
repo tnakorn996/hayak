@@ -83,20 +83,6 @@ function FeedbackSection() {
         }
     }
 
-    // <CardMain     
-    //             cardmainid={'commentimg'}
-    //             cardmainidtwo={'success'}
-    //             // cardmainidthree={'feedback'}
-    //             cardmainindex={0} 
-    //             />
-
-    // setfeedbacksectionrenderthree(<CardMain     
-    //             cardmainid={'commentimg'}
-    //             cardmainidtwo={'fail'}
-    //             // cardmainidthree={'feedback'}
-    //             cardmainindex={0} 
-    //             />)
-
   return (
     <div>
         <main className="max-w-[1200px] flex flex-col  gap-5">

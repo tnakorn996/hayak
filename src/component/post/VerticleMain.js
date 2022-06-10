@@ -10,9 +10,11 @@ import { ContextMain } from '../../context/contextmain'
 import { useLocation, useNavigate } from 'react-router-dom'
 import LoadingMain from '../load/LoadingMain'
 import { genreui } from '../../content/contentmantwo'
+import BarMain from '../bar/BarMain'
 
 function VerticleMain({
   onlick, 
+  data,
   type, 
   postid, 
   createdat, 
@@ -30,9 +32,9 @@ function VerticleMain({
 }) {
   const {
     setappmainstate,
-    settabmainstate,
-    setopendeskmainstate,
-    setsharemainstate,
+    // settabmainstate,
+    // setopendeskmainstate,
+    // setsharemainstate,
     setbreadmainstate,
     setgenreindexstate,
 
@@ -45,6 +47,29 @@ function VerticleMain({
 
   const [ptamainstatic, setptamainstatic] = useState()
   
+  const postindexthree = [
+        // {
+        //     postindexthreeid: 'readdi',
+        //     postindexthreerender: data
+        // },
+        // {
+        //     postindexthreeid: 'viewdi',
+        //     postindexthreerender: data
+        // },
+        // {
+        //     postindexthreeid: 'commentdi',
+        //     postindexthreerender: data
+        // },
+        // {
+        //     postindexthreeid: 'timedi',
+        //     postindexthreerender: data,
+        // },
+        {
+            postindexthreeid: 'moredi',
+            postindexthreerender: data,
+        },
+  ]
+
   useEffect(() => {
     if(categoryid){
         const filter = categorymain.filter(data => data.categorymainid === categoryid)
@@ -110,7 +135,7 @@ function VerticleMain({
                     <div className="z-20 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
                     <motion.img loading='lazy' initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} src={verticlemainimage} alt="" className="max-w-[100ch] z-10 h-full duration-1000" />
                 </figure>
-                <figure className="relative flex flex-row py-[7px] gap-2 justify-end items-center">
+                <figure className="relative flex flex-row py-[7px] gap-2 justify-start items-center">
                     {/* {placepostid && (<>
                     <div className="z-20 absolute -top-11 left-3 w-[30px] h-[30px] flex items-center  bg-white rounded-full overflow-hidden shadow">
                         <img src={placepostid?.posticon} alt="" className="" />
@@ -121,26 +146,10 @@ function VerticleMain({
                         <img src={posticon} alt="" className="" />
                     </div>
                     </>)} */}
-                    <figure onClick={() => {
-                        settabmainstate({
-                          tabmainid: 'postoption',
-                          tabmainparam: param,
-                          // tabmainlocation: location.pathname,
-                          tabmainimage: posthero,
-                          tabmaintitle: posttitle,
-                        })
-                        setappmainstate({
-                          appmainid: 'postoption',
-                          appmainidtwo: 'opendeskmain',
-                          appmainparam: param,
-                          appmainboolean: true,
-                        })
-                        setsharemainstate({
-                          sharemainparam: param,
-                        })
-                    }} className="">
-                      <RiMore2Fill className='my-[7px]  text-md l-m3' />
-                    </figure>
+
+                    <div className="w-full">
+                      <BarMain barmainid='postindextime' barmainindex={2} barmaindata={postindexthree} />
+                    </div>
                 </figure>
                 <figcaption className="max-w-[90%] row-span-3 h-[20vh]">
                     {/* <div className="flex flex-row gap-2 items-center">

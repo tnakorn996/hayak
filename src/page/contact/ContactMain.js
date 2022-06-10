@@ -1,52 +1,43 @@
-import { motion } from 'framer-motion'
 import React from 'react'
-import { RiCloseLine } from 'react-icons/ri'
-import { useNavigate } from 'react-router-dom'
-import FieldMain from '../../component/field/FieldMain'
+import { contactui, contactul } from '../../content/contentmantwo'
 
 function ContactMain() {
-    const navigate = useNavigate()
 
   return (
     <div>
         <main className="">
-            <section className="">
-                <FieldMain fieldmainid={'contactform'} fieldmainindex={0} />
-            </section>
-        </main>
-        {/* <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="w-screen min-h-screen flex flex-col md:grid md:grid-cols-12 items-center  bg-black text-white duration-100">
-            <figcaption className="">
-                <RiCloseLine onClick={() => {
-                    navigate('/')
-                }} className="z-10 absolute top-5 right-5 text-4xl  text-white bg-black rounded-full" />
-            </figcaption>
-            <section className="col-span-7 p-[40px] max-w-[700px] mx-auto  ">
-                <br /><br />
-                <h1 className="text-5xl  m-h6 font-serif">Want to be part of TOI? Drop us a line!</h1>
-                <br />
-                <input className="w-full  l-input focus:outline-none" placeholder='Name' />
-                <br /><br />
-                <input className="w-full  l-input focus:outline-none" placeholder='Email' />
-                 <br /><br />
-                <input className="w-full  l-input focus:outline-none" placeholder='City' />
-                 <br /><br />
-                <input className="w-full  l-input focus:outline-none" placeholder='Enquiry Type' />
-                 <br /><br />
-                <textarea rows={3} className="w-full  l-input focus:outline-none" placeholder='Message' />
-                <br /><br />
-                <div className="grid grid-flow-col gap-1">
-                <button className="m-button">Cancel</button>
-                <button className="l-button">Submit</button>
-                </div>
-                <br />
-            </section>
-            <section className="relative col-span-5 hidden md:block h-full">
-                <figure className="relative h-full w-full flex justify-center items-center  overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1609951651556-5334e2706168?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" alt="" className="fixed top-0 right-0 h-full" />
+            <section className="max-w-[800px] mx-auto">
+                {contactul?.slice(0, 1).map(data => (<>
+                <figure className="h-[60vh] flex justify-center items-center  overflow-hidden">
+                    <img src={data?.breadmainimage} alt="" className="" />
                 </figure>
-            </section>
+                <figcaption className="">
+                    <br /><br />
+                    <h1 className="m-h6 font-serif">{data?.breadmainsubtitle}</h1>
+                    <br />
+                    <h1 className="l-h3">{data?.breadmaindetail}</h1>
+                </figcaption>
+                <br />
+                <figure className="flex flex-row items-center justify-start">
+                    {contactui?.map(dat => (<>
+                        {dat?.breadmainid === data?.breadmainid && (<>
+                            {dat?.crummaindata?.map(da => (<>
+                            <a href={da?.crummainaction} className="m-h6">{da?.crummainicon}</a>
+                            </>))}
+                        </>)}
+                    </>))}
+                </figure>
+                </>))}
 
-        </motion.main> */}
+            </section>
+            <br /><br />
+            <section className="max-w-[800px] mx-auto">
+                <figcaption className="">
+                    <a href={contactul[1]?.breadmainaction} className={` ${contactul[1]?.breadmainstyle}`}>{contactul[1]?.breadmainentitle}</a>
+                </figcaption>
+            </section>
+            <br /><br />
+        </main>
     </div>
   )
 }

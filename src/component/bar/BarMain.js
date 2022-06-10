@@ -68,7 +68,7 @@ function BarMain({
                     barmainindex: 4,
                     barmainrender: () => {},
                     barmainrendertwo: () => {
-                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
+                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'moredi')
                         const ref = filter[0]?.postindexthreerender
                         return <figure onClick={() => {
                                 settabmainstate({
@@ -133,7 +133,42 @@ function BarMain({
                     barmainindex: 4,
                     barmainrender: () => {},
                     barmainrendertwo: () => {
-                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
+                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'moredi')
+                        const ref = filter[0]?.postindexthreerender
+                        return <figure onClick={() => {
+                                settabmainstate({
+                                    tabmainid: 'postoption',
+                                    tabmainparam: ref?.postid,
+                                    // tabmainlocation: location.pathname,
+                                    tabmainimage: ref?.posthero,
+                                    tabmaintitle: ref?.posttitle,
+                                })
+                                setappmainstate({
+                                    appmainid: 'postoption',
+                                    appmainidtwo: 'opendeskmain',
+                                    appmainparam: ref?.postid,
+                                    appmainboolean: true,
+                                })
+                                setsharemainstate({
+                                    sharemainparam: ref?.postid,
+                                })
+                            }} className="">
+                                <article className="">
+                                    <RiMore2Fill className='m-h3' />
+                                </article>
+                        </figure>
+                    }, 
+                },
+            ]
+        },
+        {
+            barmainindex: 2,
+            barmaindata: [
+                {
+                    barmainindex: 4,
+                    barmainrender: () => {},
+                    barmainrendertwo: () => {
+                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'moredi')
                         const ref = filter[0]?.postindexthreerender
                         return <figure onClick={() => {
                                 settabmainstate({

@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import { RiCloseFill, RiCloseLine, RiContrastDropLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 // import { useLocation } from 'react-router-dom'
-import { categoryul, categoryui } from '../../content/contentmantwo'
+import { categoryul, categoryui, contactul } from '../../content/contentmantwo'
 
 import '../sideboard/sideboardmain.css'
 import { ContextMain } from '../../context/contextmain'
@@ -43,7 +43,7 @@ function SideboardMain() {
     {
       sideboardrender: () => {
         return <main className="h-full flex flex-col justify-between">
-          <section className="">
+          <section className="h-[80vh]">
             {categoryul?.map(data => (<>
               <article onClick={() => {
                 setappmainstate({
@@ -59,9 +59,11 @@ function SideboardMain() {
               </article>
             </>))}
           </section>
-          {/* <section className="!bg-black">
-            <PortMain />
-          </section> */}
+          <section className="px-[20px] w-full grid grid-cols-2 items-center justify-center text-center h-[10vh]">
+            {contactul?.map(data => (<>
+              <a href={data?.breadmainaction} className={`font-serif ${data?.breadmainstyle}`}>{data?.breadmainentitle}</a>
+            </>))}
+          </section>
         </main>
         }
     },
@@ -74,18 +76,23 @@ function SideboardMain() {
               setsideboardmainpage(0)
             }} className='l-button'>← Main menu</button>
           </section>
-          <section className="">
+          <section className="h-[75vh]">
             {filter.map(data => (<>
             <article onClick={() => {
-              setbreadmainstate({
-                            breadmainid: data?.breadmainid,
-                            breadmainidtwo: data?.crummainid,
-              })
-              navigate(`/category/${data?.breadmainid}`)
-            }} className="p-[20px]">
-                <h1 className="m-h6 text-2xl  font-serif">{data?.crummaintitle}</h1>
-                <h1 className="l-h2">{data?.crummainsubtitle}</h1>
+                setbreadmainstate({
+                  breadmainid: data?.breadmainid,
+                  breadmainidtwo: data?.crummainid,
+                })
+                navigate(`/category/${data?.breadmainid}`)
+              }} className="p-[20px]">
+              <h1 className="m-h6 text-2xl  font-serif">{data?.crummaintitle}</h1>
+              <h1 className="l-h2">{data?.crummainsubtitle}</h1>
             </article>
+            </>))}
+          </section>
+          <section className="px-[20px] w-full h-[10vh] grid grid-cols-1 items-center">
+            {filter.slice(0, 1).map(data => (<>
+              <a href={`/category/${data?.breadmainid}`} className='text-center m-button font-serif' >See all {data?.breadmainid}s</a>
             </>))}
           </section>
         </motion.main>
@@ -133,7 +140,7 @@ function SideboardMain() {
               <figure className="">
                 <article className=" flex flex-row gap-1 items-center">
                 <figure className="">
-                    <RiContrastDropLine className='text-3xl' />
+                    <RiContrastDropLine className='m-h6' />
                 </figure>
                 <figcaption className="flex flex-row gap-1">
                     <h1 className='m-h6 font-serif font-bold'>TOI</h1>
@@ -141,11 +148,13 @@ function SideboardMain() {
                 </article>
               </figure>
               <figcaption className="">
+                <article className="">
                 <RiCloseLine onClick={() => {
-                setappmainstate({
+                  setappmainstate({
                     appmainboolean: false
-                })
-                }} className="z-10 absolute top-5 right-5 text-4xl  text-white bg-black rounded-full" />
+                  })
+                }} className="z-10 absolute top-5 right-5  l-h6 " />
+                </article> 
               </figcaption>
             </section>
             <section className="h-[90vh] w-full  overflow-y-scroll no-scrollbar ">

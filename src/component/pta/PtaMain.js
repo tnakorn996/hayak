@@ -6,6 +6,7 @@ import { RiHeartFill, RiHeartLine } from 'react-icons/ri';
 
 import '../pta/ptamain.css'
 import { ContextMain } from '../../context/contextmain';
+import { motion } from 'framer-motion';
 
 function PtaMain({
     ptamainstatic,
@@ -56,7 +57,9 @@ function PtaMain({
                 },
                 {
                     ptamainindex: 1,
-                    ptamainicon: <RiHeartFill className='text-gray-900 filter-drop-shadow' />,
+                    ptamainicon: <motion.div initial={{scale: 1.7}} animate={{ scale:1}} className="duration-100">
+                        <RiHeartFill className='text-black' />
+                    </motion.div>,
                     ptamainaction: () => {
                         const filter = parsepost.favouritemaindata.filter(data => data.postid !== ptamainstate.ptamaindata.postid)
                         window.localStorage.clear()
