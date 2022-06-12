@@ -30,11 +30,13 @@ function WireMain() {
                 breadmainidtwo: data?.crummainid,
               })
               navigate(`/category/${data?.breadmainid}`)
-            }} className={` ${data?.crummainstyle} !bg-black border border-black `}>
+            }} className={` ${data?.crummainstyle}`}>
               <figure className="relative h-[40vh] md:h-[80vh] flex items-center justify-center  overflow-hidden">
-                <img src={data?.crummainimage} alt="" className="max-w-[100ch] h-fit" />
-                <div className="absolute bottom-0 h-[10vh] md:h-[50vh] w-full  bg-gradient-to-b from-transparent to-black" />
-                <h1 className="absolute bottom-0 p-[20px] md:text-8xl w-full  m-h6 text-white font-serif truncate">{data.crummaintitle}</h1>
+                {/* <div className="absolute w-[900px] h-[900px] -right-80   -rotate-45 scale-50 bg-red-500"> */}
+                <img src={data?.crummainimage} alt="" className="max-w-[100ch] min-h-full  grayscale" />
+                {/* </div> */}
+                {/* <div className="absolute bottom-0 h-[10vh] md:h-[50vh] w-full  bg-gradient-to-b from-transparent to-black" /> */}
+                {/* <h1 className="absolute bottom-0 p-[20px] md:text-8xl w-full  m-h6 text-white font-serif truncate">{data.crummaintitle}</h1> */}
               </figure>
             </article>
             </>))

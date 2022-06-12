@@ -12,6 +12,7 @@ import '../home/homemain.css'
 import WireMain from '../../component/wire/WireMain'
 import { useRef } from 'react'
 import SlideMain from '../../component/slide/SlideMain'
+import JointMain from '../../component/joint/JointMain'
 // import LandscapeMain from '../../component/place/LandscapeMain'
 
 function HomeMain() {
@@ -100,9 +101,11 @@ function HomeMain() {
     //     }
     // }
 
+    if(!postplaceproduct) return <JointMain jointmainid={'hometemplate'} jointmainindex={0} />
+
     return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="w-screen  overflow-hidden duration-100">
+        <main className="w-screen  overflow-hidden duration-100">
             <br />
             <br />
             <br />
@@ -176,7 +179,7 @@ function HomeMain() {
             <br />
 
 
-        </motion.main>
+        </main>
     </div>
   )
 }

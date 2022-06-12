@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 
 function PtaMain({
     ptamainstatic,
+    ptamainstyle,
 
 }) {
     const {
@@ -25,7 +26,7 @@ function PtaMain({
     const postiframe = [
                 {
                     ptamainindex: 0,
-                    ptamainicon: <RiHeartFill className='filter-drop-shadow' />,
+                    ptamainicon: <RiHeartFill className='text-gray-300 filter-drop-shadow' />,
                     ptamainaction: () => {
                         const ref = parsepost?.favouritemaindata || favouritemainstate.favouritemaindata
                         ref.push(ptamainstate.ptamaindata)
@@ -58,7 +59,7 @@ function PtaMain({
                 {
                     ptamainindex: 1,
                     ptamainicon: <motion.div initial={{scale: 0.5}} animate={{ scale:1}} className="duration-100">
-                        <RiHeartFill className='text-black' />
+                        <RiHeartFill className='text-rose-800' />
                     </motion.div>,
                     ptamainaction: () => {
                         const filter = parsepost.favouritemaindata.filter(data => data.postid !== ptamainstate.ptamaindata.postid)
@@ -144,7 +145,7 @@ function PtaMain({
                         data?.ptamainaction()
 
                     }} className="">
-                        <h1 className="text-5xl   m-h6 text-white">{data?.ptamainicon}</h1>
+                        <h1 className={`text-5xl   m-h6 text-white ${ptamainstyle && ptamainstyle}`}>{data?.ptamainicon}</h1>
                     </article>
                 
                 </>))}

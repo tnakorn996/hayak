@@ -6,15 +6,14 @@ function LoadMain({title}) {
   return (
     <div>
         <main className="w-screen h-screen flex flex-col justify-center items-center  bg-white">
-            <div className="h-[15vh]">
+            {/* <div className="h-[15vh]">
                 <figure className="">
-                    <RiContrastDropLine className='text-6xl' />
+                    <RiContrastDropLine className='m-h6' />
                 </figure>
                 <figcaption className="">
                     <h1 className="l-h3">{title}</h1>
                 </figcaption>
-                <br />
-            </div>
+            </div> */}
             <figure className="">
                 <LoadingMain />
             </figure>

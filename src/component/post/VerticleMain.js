@@ -133,7 +133,7 @@ function VerticleMain({
                       </>)}
                     </div>
                     <div className="z-20 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
-                    <motion.img loading='lazy' initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5}} src={verticlemainimage} alt="" className="max-w-[100ch] z-10 h-full duration-1000" />
+                    <motion.img loading='lazy' initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1,  duration: 0.1}} src={verticlemainimage} alt="" className="max-w-[100ch] z-10 h-full duration-1000" />
                 </figure>
                 <figure className="relative flex flex-row py-[7px] gap-2 justify-start items-center">
                     {/* {placepostid && (<>

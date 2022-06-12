@@ -89,7 +89,7 @@ function FeedbackSection() {
                 {feedbacksectionrender?.map(data => (<>
                 <div className="col-span-7">
                     <section className="">
-                        <h1 className="m-h6 font-serif">Send feedback</h1>
+                        <h1 className="m-h6 font-serif">Send us your feedback</h1>
                         <br />
                         <input disabled={true} className="w-full  l-input font-light bg-gray-100 border-black cursor-not-allowed" placeholder={data?.crummaintitle} />
                         <textarea onChange={p => setfeedbacksectionsubtitle(p.target.value)} rows="7" className="w-full  l-input font-light border-black" placeholder={data?.crummainsubtitle} />

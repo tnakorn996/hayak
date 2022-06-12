@@ -25,6 +25,7 @@ import ListMain from '../../component/list/ListMain'
 import GuideMain from '../../component/guide/GuideMain'
 import PtaMain from '../../component/pta/PtaMain'
 import SnackbarMain from '../../component/snackbar/SnackbarMain'
+import JointMain from '../../component/joint/JointMain'
 
 function PostIndex() {
     const {
@@ -49,18 +50,19 @@ function PostIndex() {
 
     } = useContext(ContextMain)
     const param = useParams()
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const ref = useRef(null)
     const reftwo = useRef(null)
 
     const [postindexrender, setpostindexrender] = useState()
-    const [postindexrendertwo, setpostindexrendertwo] = useState()
-    const [postindexrenderthree, setpostindexrenderthree] = useState()
+    // const [postindexrendertwo, setpostindexrendertwo] = useState()
+    // const [postindexrenderthree, setpostindexrenderthree] = useState()
     const [postindexrenderfour, setpostindexrenderfour] = useState()
     const [postindexmessage, setpostindexmessage] = useState()
     const [postindexaction, setpostindexaction] = useState(true)
+    const [postindexstyle, setpostindexstyle] = useState('')
     const [ptamainstatic, setptamainstatic] = useState()
-    const [snackbarmainstatic, setsnackbarmainstatic] = useState()
+    // const [snackbarmainstatic, setsnackbarmainstatic] = useState()
 
     const [postpostid, setpostpostid] = useState()
     const [postplaceid, setpostplaceid] = useState()
@@ -197,6 +199,25 @@ function PostIndex() {
         },
     ]
 
+    const postdi = [
+        {
+            sheetindex: 0,
+            sheetrender: postplaceid,
+        },
+        {
+            sheetindex: 1,
+            sheetrender: placeplaceid,
+        },
+        {
+            sheetindex: 2,
+            sheetrender: productplaceid,
+        },
+        {
+            sheetindex: 3,
+            sheetrender: productpostid,
+        },
+    ]
+
     // const postindexfour = [
     //     {
     //         postindexfourid: 'postdl',
@@ -289,9 +310,9 @@ function PostIndex() {
             const filterthree = postindex?.filter(data => data.postindexid === postpostid?._type)
             const filterfour = filterthree[0]?.postindexrenderfour?.filter(data => data?._id !== postpostid?._id)
             setpostindexrenderfour(filterfour)
-            setsnackbarmainstatic({
-                snackbarmainid: 'categoryfooter',
-            })
+            // setsnackbarmainstatic({
+            //     snackbarmainid: 'categoryfooter',
+            // })
       }
     }, [postpostid, postupdatedat, placeupdatedat, productupdatedat])
     
@@ -409,19 +430,18 @@ function PostIndex() {
     //         .commit()
     // }
 
-    // window.onscroll = function (){
-    //     if ((window.innerHeight + document.documentElement.scrollTop) > (document.documentElement.offsetHeight) * 70 /100) {
-    //         setappmainstate({
-    //             appmainid: 'overlay',
-    //             appmainidtwo: 'toastmain',
-    //             appmainidthree: 'postfigcaption',
-    //         })
-    //     } else {
-    //         setappmainstate('')
-    //     }
-    // }
+    window.onscroll = function (){
+        // if ((window.innerHeight + document.documentElement.scrollTop) > (document.documentElement.offsetHeight) * 50 /100) {
+        if (((window.innerHeight + document.documentElement.scrollTop) >= window.screen.height + 500 ) && ((window.innerHeight + document.documentElement.scrollTop) >= window.screen.height + 600 ) && window.screen.width > 1000) {
+            setpostindexstyle('!h-[30vh] !flex !flex-row  !bg-white !border !shadow')
+        } else {
+            setpostindexstyle('')
+        }
+    }
 
     // if(!postpostid) return <LoadMain />
+    // if(!postpostid) return null
+    if(!postpostid) return <JointMain jointmainid={'posttemplate'} jointmainindex={0} />
 
     if(postindexmessage) return <section className="w-screen h-screen flex justify-center items-center">
         <AlertMain alertmainmessage={postindexmessage} />
@@ -429,7 +449,7 @@ function PostIndex() {
 
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="flex flex-col md:grid md:grid-cols-12   duration-100">
+        <main className="flex flex-col md:grid md:grid-cols-12   duration-100">
             <figure className="col-span-12 relative">
                 <section className="overflow-hidden">
                     <SlideMain 
@@ -447,15 +467,18 @@ function PostIndex() {
                     {<PtaMain ptamainstatic={ptamainstatic} />}
                 </div>
             </figure>
-            <figcaption className="hidden md:block col-span-12">
+            <figcaption className="hidden md:block min-h-[30vh] col-span-12">
                 <section className="grid grid-flow-col">
-                    {(placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={0} sheetmaindata={postindextwo}  />}
-                    {(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
-                    {<RtaMain />}
+                    {(placeplaceid && productplaceid && productpostid) && (<>
+                    {(postpostid.categoryid === 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={0} sheetmaindata={postindextwo}  />}
+                    {(postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
+                    {(postpostid.categoryid === 'recipe') && <RtaMain rtamainid={'categorycanvas'} rtamainindex={1} rtamaindata={postdi}  />}
+                    {(postpostid.categoryid !== 'recipe') && <RtaMain rtamainid={'categorycanvas'} rtamainindex={0} rtamaindata={postdi}  />}
+                    </>)}
                 </section>
             </figcaption>
             <figcaption className="col-span-12">
-                <br />
+                {/* <br />
                 <hr />
                 <br />
                 <section className="px-[20px] md:px-[60px] max-w-[900px] mx-auto min-h-[20vh] md:h-fit">
@@ -469,14 +492,19 @@ function PostIndex() {
                         {postpostid && <BarMain barmainid={'postindextime'} barmainindex={0} barmaindata={postindexthree} />}
                     </figure>
                     <br /><hr /><br />
-                </section>
-                <section className={`relative px-[20px] md:px-[60px] max-w-[900px] mx-auto h-[30vh] md:h-[35vh] overflow-hidden ${!postindexaction && '!h-fit'}`}>
+                </section> */}
+            </figcaption>
+            <div layout className={`relative col-span-12 flex flex-col-reverse`}>
+            <figcaption className="col-span-12 md:col-span-7">
+                <section className={`relative px-[20px] md:px-[60px] max-w-[900px] mx-auto h-[30vh] md:h-fit overflow-hidden ${!postindexaction && '!h-fit'}`}>
+                    {/* {postindexstyle !== '' && (<><br /><br /><br /><br /><br /><br /><br /><br /><br /></>)} */}
+                    <br />
                     <br />
                     <figcaption className="">
-                        <h1 className="text-base  italic  text-black font-serif">{ postpostid?._updatedAt && `This article was last updated on ` + postpostid?._updatedAt?.slice(0, 10)}</h1>
+                        <h1 className={`text-base  italic  text-black font-serif`}>{ postpostid?._updatedAt && `This article was last updated on ` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                     <br />
-                    <figcaption className="text-lg relative  md:font-extralight font-serif">
+                    <figcaption className="text-lg relative  md:font-light font-serif">
                         <PortableTextComponentsProvider components={component}  >
                             {postpostid?.postblock?.map(data => (<>
                             <PortableText value={data} />
@@ -487,8 +515,8 @@ function PostIndex() {
                     </figcaption>
                     <button onClick={() => {
                         setpostindexaction(!postindexaction)
-                    }} className='absolute z-10 right-0 md:right-[70px] bottom-0  md:m-[10px] l-button '>{postindexaction ? 'Show more' : 'Show less'}</button>
-                    <figure className={`p-[10px] absolute w-full h-[80%] bottom-0 left-0 flex items-end justify-end   bg-gradient-to-b from-transparent to-white ${!postindexaction && '!hidden'}`} />
+                    }} className='absolute md:hidden z-10 right-0 md:right-[70px] bottom-0  md:m-[10px] l-button '>{postindexaction ? 'Show more' : 'Show less'}</button>
+                    <figure className={`p-[10px] absolute md:hidden w-full h-[80%] bottom-0 left-0 flex items-end justify-end   bg-gradient-to-b from-transparent to-white ${!postindexaction && '!hidden'}`} />
                 </section>
                 <section layout className="px-[20px] md:px-[60px] max-w-[900px] mx-auto">
                     <CardMain     
@@ -499,14 +527,33 @@ function PostIndex() {
                     />
                 </section>
             </figcaption>
-            <figcaption className="col-span-12">
-                <section className="px-[20px] md:px-[60px] max-w-[900px] mx-auto ">
+            {/* {(postpostid && placeplaceid && productplaceid && productpostid) && <SnackbarMain snackbarmainid={'postfooter'} snackbarmaindata={postindexrender} snackbarmaindatatwo={postpostid} snackbarmaindatathree={postindexthree} snackbarmainscroll={650} />} */}
+            <motion.figcaption layout className={`col-span-12 md:col-span-5 md:sticky md:top-0 md:left-0 h-[50vh] flex flex-col  duration-1000 ${postindexstyle}`}>
+                <section className="w-full px-[20px] md:px-[60px] max-w-[900px] mx-auto min-h-[20vh] md:h-fit">
+                <br />
+                <br />
+                    <div className="flex flex-row justify-between">
+                        <h1 className={`l-h2 uppercase tracking-[0.2em]  ${postindexstyle !== '' && '!m-h1'}`}>{postindexrender && postindexrender}</h1>
+                        {<PtaMain ptamainstatic={ptamainstatic} ptamainstyle={'text-xl'} />}
+                    </div>
+                    <h1 className={`text-3xl md:text-4xl m-h6 py-[10px]  font-serif leading-normal  ${postindexstyle !== '' && '!text-xl'}`}>{postpostid?.posttitle}</h1>
+                    <h1 className={`l-h6   ${postindexstyle !== '' && '!text-base'}`}>{postpostid?.postsubtitle}</h1>
+                    <br />
+                    <figure className="">
+                        {postpostid && <BarMain barmainid={'postindextime'} barmainindex={0} barmaindata={postindexthree} />}
+                    </figure>
+                    <br />
+                    <br />
+                </section>
+                <section className="w-full px-[20px] md:px-[60px] max-w-[900px] mx-auto md:h-fit ">
                     <CtaMain />
                 </section>
-            </figcaption>
+            </motion.figcaption>
+            </div>
             <figcaption className="block md:hidden col-span-12">
                 <section className="px-[20px] md:p-0 md:grid md:grid-flow-col">
-                    <RtaMain />
+                    {(postpostid.categoryid === 'recipe') && <RtaMain rtamainid={'categorycanvas'} rtamainindex={1} rtamaindata={postdi}  />}
+                    {(postpostid.categoryid !== 'recipe') && <RtaMain rtamainid={'categorycanvas'} rtamainindex={0} rtamaindata={postdi}  />}
                     {(placeplaceid && productplaceid && productpostid && postpostid.categoryid === 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={0} sheetmaindata={postindextwo}  />}
                     {(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
                 </section>
@@ -527,10 +574,9 @@ function PostIndex() {
                     slidemainscroll={400} 
                     slidemainslice={12}
                     />
-                    <SnackbarMain snackbarmainid={snackbarmainstatic?.snackbarmainid} />
                 </section>
             </figure>
-        </motion.main>
+        </main>
     </div>
   )
 }

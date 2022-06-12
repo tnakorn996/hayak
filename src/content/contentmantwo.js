@@ -357,7 +357,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiInfor
             breadmainid: 'main',
             breadmaintitle: 'Our story',
             breadmainsubtitle: 'Meet the team',
-            breadmaindetail: `In 2022, a couple, Diogo and Tanny, were working on their food blog and realized they needed a better way to measure and track their ideas. They created a simple tool to do just that, and TOI was born. Today, TOI is the go-to platform for food bloggers and home cooks alike. With over 20 restaurants indexed and a community of passionate partners, TOI is the ultimate destination for anyone who loves food.`,
+            breadmaindetail: `Reck is deeply in love with food. Tanny has a passion for IT. In 2022, we decided to bring our hearts together - in another way - and create a project that could take us away from the 9-5 life. Toi was born with the goal to help to promote some of the best local food and indigenous ingredients. With over dozens of profiles of retailers, restaurants and manufacturers and a community of passionate partners, TOI is the ultimate destination for anyone who loves New Zealand food.`,
             breadmainentitle: 'Our story',
             breadmainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t31.18172-8/25627247_1781183131955643_5427587585225810811_o.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=Yq-HKKlVj_AAX-dX1h-&_nc_ht=scontent-akl1-1.xx&oh=00_AT8fXFVCuBQhglqdmESHNLXVN_NuXDkthq40hs488eDv6Q&oe=62C74C02',
             breadmainaction: `/contact/contactmain`,
@@ -382,7 +382,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiInfor
                 {
                     crummainkey: 'reck',
                     crummainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t1.18169-9/10557473_714835455257088_8331819989989541462_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=174925&_nc_ohc=62IkRRQkv3wAX9nhGVK&_nc_ht=scontent-akl1-1.xx&oh=00_AT_gmfPMo9rEAKYZVKZx3EYfC1ousOCOmzHqcBNXMT-KyA&oe=62CB3182',
-                    crummainsubtitle: 'Diogo Reck Figueiredo',
+                    crummainsubtitle: 'Reck Diogo',
                     crummaindetail: 'Co-Founder/Writer',
                 },
                 {
@@ -398,11 +398,11 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiInfor
                     crummainicon: <RiInstagramFill />,
                     crummainaction: 'https://www.instagram.com/reckdiogo/',
                 },
-                {
-                    crummainkey: 'reck',
-                    crummainicon: <RiFacebookCircleFill />,
-                    crummainaction: 'https://www.facebook.com/reckdiogo',
-                },
+                // {
+                //     crummainkey: 'reck',
+                //     crummainicon: <RiFacebookCircleFill />,
+                //     crummainaction: 'https://www.facebook.com/reckdiogo',
+                // },
                 {
                     crummainkey: 'reck',
                     crummainicon: <RiMailFill />,
@@ -598,7 +598,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiInfor
         },
         {
             sheetmaintitle: `Need support?`,
-            sheetmainsubtitle: `Please note we can’t guarantee a response.`,
+            sheetmainsubtitle: `We'll try to get back to you as soon as possible`,
             sheetmainentitle: `Term of service`,
             sheetmainaction: `/term/termmain`,
 

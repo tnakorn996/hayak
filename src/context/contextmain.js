@@ -133,7 +133,7 @@ export const Provider = ({ children }) => {
 
         {
             blemainid: 'ask',
-            blemaintitle: 'Ask question',
+            blemaintitle: 'Ask us a question',
             blemainaction:  () => {
                 settabmainstate({
                     tabmainid: 'feedback',
@@ -169,28 +169,9 @@ export const Provider = ({ children }) => {
 
             tabmainid: 'feedback',
         },
-        // {
-        //     blemainid: 'report',
-        //     blemaintitle: 'Report an issue',
-        //     blemainaction:  () => {
-        //         settabmainstate({
-        //             tabmainid: 'feedback',
-        //             tabmainidtwo: 'report',
-        //         })
-        //         setappmainstate({
-        //             appmainid: 'feedbacksection',
-        //             appmainidtwo: 'modalmain',
-        //             appmainidthree: 0,
-        //             appmainboolean: true,
-        //         })
-
-        //     },
-
-        //     tabmainid: 'feedback',
-        // },
         {
             blemainid: 'request',
-            blemaintitle: 'Request feature',
+            blemaintitle: 'Request a new feature',
             blemainsubtitle: `Please note we can’t guarantee a response.`,
             blemainaction:  () => {
                 settabmainstate({
@@ -650,8 +631,8 @@ export const Provider = ({ children }) => {
     const feedbacklink = [
         {
             blemainid: 'ask',
-            blemaintitle: 'Ask question',
-            blemainsubtitle: `Please note we can’t guarantee a response.`,
+            blemaintitle: 'Ask us a question',
+            blemainsubtitle: `We'll try to get back to you as soon as possible`,
             blemainaction:  () => {
                 settabmainstate({
                     tabmainid: 'feedback',
@@ -671,7 +652,7 @@ export const Provider = ({ children }) => {
         {
             blemainid: 'edit',
             blemaintitle: 'Suggest an edit',
-            blemainsubtitle: `Please note we can’t guarantee a response.`,
+            blemainsubtitle: `We'll try to get back to you as soon as possible`,
             blemainaction:  () => {
                 settabmainstate({
                     tabmainid: 'feedback',
@@ -691,7 +672,7 @@ export const Provider = ({ children }) => {
         {
             blemainid: 'report',
             blemaintitle: 'Report an issue',
-            blemainsubtitle: `Please note we can’t guarantee a response.`,
+            blemainsubtitle: `We'll try to get back to you as soon as possible`,
             blemainaction:  () => {
                 settabmainstate({
                     tabmainid: 'feedback',
@@ -710,8 +691,8 @@ export const Provider = ({ children }) => {
         },
         {
             blemainid: 'request',
-            blemaintitle: 'Request feature',
-            blemainsubtitle: `Please note we can’t guarantee a response.`,
+            blemaintitle: 'Request a new feature',
+            blemainsubtitle: `We'll try to get back to you as soon as possible`,
             blemainaction:  () => {
                 settabmainstate({
                     tabmainid: 'feedback',

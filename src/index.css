@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 @layer components {
+
+
     body {
         @apply text-sm bg-white text-black;
     }
@@ -17,6 +19,10 @@
 
     a {
         @apply opacity-80 cursor-pointer hover:underline;
+    }
+
+    .m-section {
+        @apply bg-black opacity-5;
     }
 
     .m-button {

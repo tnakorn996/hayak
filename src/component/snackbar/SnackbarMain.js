@@ -8,9 +8,15 @@ import { useNavigate } from 'react-router-dom'
 import { breadmain, sheetmain, spreadmain, statemain } from '../../content/contentmain'
 
 import { ContextMain } from '../../context/contextmain'
+import BarMain from '../bar/BarMain'
+import CtaMain from '../ctamain/CtaMain'
 
 function SnackbarMain({
     snackbarmainid,
+    snackbarmaindata,
+    snackbarmaindatatwo,
+    snackbarmaindatathree,
+    snackbarmainscroll,
 
 }) {
     const {
@@ -23,67 +29,90 @@ function SnackbarMain({
 
     } = useContext(ContextMain)
     const navigate = useNavigate()
+    const [snackbarmainindex, setsnackbarmainindex] = useState(0)
 
     const [snackbarmainrender, setsnackbarmainrender] = useState()
 
-    const categoryfooter = [
+    const postfooter = [
         {
             snackbarmainindex: 0,
-            snackbarmainid: 'postcategoryidcreatedat',
-            snackbarmainrender: postupdatedat?.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt)),
-            snackbarmaintitle: 'New',
+            snackbarmainrender: <figcaption className={`col-span-12 h-[50vh] flex flex-col`}>
+                <section className="w-full px-[20px] md:px-[60px] max-w-[900px] mx-auto min-h-[20vh] md:h-fit">
+                <br />
+                {/* <hr /> */}
+                <br />
+                    <div className="flex flex-row justify-between">
+                        <h1 className={`l-h2 uppercase tracking-[0.2em]`}>{snackbarmaindata && snackbarmaindata}</h1>
+                    </div>
+                    <h1 className={`text-3xl md:text-4xl m-h6 py-[10px]  font-serif leading-normal`}>{snackbarmaindatatwo?.posttitle}</h1>
+                    <h1 className={`l-h6`}>{snackbarmaindatatwo?.postsubtitle}</h1>
+                    <br />
+                    <figure className="">
+                        {snackbarmaindatatwo && <BarMain barmainid={'postindextime'} barmainindex={0} barmaindata={snackbarmaindatathree} />}
+                    </figure>
+                    <br />
+                    <hr />
+                    <br />
+                </section>
+                <section className="w-full px-[20px] md:px-[60px] max-w-[900px] mx-auto md:h-fit  bg-white  ">
+                    <CtaMain />
+                </section>
+            </figcaption>,
         },
         {
             snackbarmainindex: 1,
-            snackbarmainid: 'postcategoryidupdatedat',
-            snackbarmainrender: placeupdatedat?.sort((a, b) => new Date(b._updatedAt) - new Date(a._updatedAt)),
-            snackbarmaintitle: 'Trending',
-        },
-        {
-            snackbarmainindex: 2,
-            snackbarmainid: 'postcategoryidpostcount',
-            snackbarmainrender: productupdatedat?.sort((a, b) => b.postcount - a.postcount),
-            snackbarmaintitle: 'Hottest',
+            snackbarmainrender: <figcaption className={`col-span-12 w-full md:sticky md:top-0 md:left-0 h-[30vh] flex flex-row  bg-white shadow`}>
+                <section className="w-full px-[20px] md:px-[60px] max-w-[900px] mx-auto min-h-[20vh] md:h-fit">
+                <br />
+                <br />
+                    <div className="flex flex-row justify-between">
+                        <h1 className='uppercase tracking-[0.2em]  !m-h1' >{snackbarmaindata && snackbarmaindata}</h1>
+                    </div>
+                    <h1 className='text-xl md:text-4xl m-h6 py-[10px]  font-serif leading-normal' >{snackbarmaindatatwo?.posttitle}</h1>
+                    <h1 className='text-base' >{snackbarmaindatatwo?.postsubtitle}</h1>
+                    <br />
+                    <figure className="">
+                        {snackbarmaindatatwo && <BarMain barmainid={'postindextime'} barmainindex={0} barmaindata={snackbarmaindatathree} />}
+                    </figure>
+                    <br />
+                    <hr />
+                    <br />
+                </section>
+                <section className="w-full px-[20px] md:px-[60px] max-w-[900px] mx-auto md:h-fit  bg-white  ">
+                    <CtaMain />
+                </section>
+            </figcaption>,
         },
     ]
 
     const snackbarmain = [
         {
-            snackbarmainid: 'categoryfooter',
-            snackbarmainref: categoryfooter,
+            snackbarmainid: 'postfooter',
+            snackbarmainref: postfooter,
         }
     ]
 
     useEffect(() => {
-      if(snackbarmainid){
+      if(snackbarmaindata && snackbarmaindatatwo && snackbarmaindatathree){
             const filter = snackbarmain.filter(data => data.snackbarmainid === snackbarmainid)
-            // const filtertwo = filter[0].snackbarmainref.filter(data => data.snackbarindex === 0)
-            setsnackbarmainrender(filter[0].snackbarmainref)
+            const filtertwo = filter[0].snackbarmainref.filter(data => data.snackbarmainindex === snackbarmainindex)
+            setsnackbarmainrender(filtertwo[0].snackbarmainrender)
       }
-    }, [snackbarmainid])
+    }, [snackbarmainid, snackbarmainindex])
+
+    window.onscroll = function (){
+        if (((window.innerHeight + document.documentElement.scrollTop) > window.screen.height + snackbarmainscroll) && window.screen.width > 1000) {
+            setsnackbarmainindex(1)
+        } else {
+            setsnackbarmainindex(0)
+        }
+    }
 
   return (
     <div>
-        <main className="w-screen text-center   bg-gray-900">
-            <section className="relative w-full border-b border-gray-700  ">
-                <br />
-                <h1 className="m-h4 font-serif text-white">You may also be interested in</h1>
-                <br />
-                {/* <RiCloseFill onClick={() => {
-                    setappmainstate('')
-                }} className="z-20 absolute top-5 right-5 text-4xl  text-white bg-black cursor-pointer" /> */}
-            </section>
-            <br />
-            <section className="px-[50px] flex flex-col md:grid md:grid-cols-3 items-center gap-10">
-                {snackbarmainrender?.map(data => (<>
-                <figcaption className="flex flex-col gap-3">
-                    {data?.snackbarmainrender?.slice(0, 6)?.map(dat => (<>
-                    <article onClick={() => {
-                    navigate(`/${dat?.postid}`)
-                    }} className="l-h2 font-extralight text-white">{dat?.posttitle}</article>
-                    </>))}
-                </figcaption>
-                </>))}
+        <main className="">
+            <section className="">
+                {snackbarmainrender  && snackbarmainrender}
             </section>
         </main>
     </div>
