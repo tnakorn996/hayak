@@ -432,11 +432,11 @@ function PostIndex() {
 
     window.onscroll = function (){
         // if ((window.innerHeight + document.documentElement.scrollTop) > (document.documentElement.offsetHeight) * 50 /100) {
-        if (((window.innerHeight + document.documentElement.scrollTop) >= window.screen.height + 600 ) && window.screen.width > 1000) {
+        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.2)) && window.screen.width > 1000) {
             setpostindexstyle('!min-h-[30vh] !flex !flex-row  !bg-white !border !shadow')
             
         } 
-        if (((window.innerHeight + document.documentElement.scrollTop) < window.screen.height + 500) && window.screen.width > 1000) {
+        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.9)) && window.screen.width > 1000) {
             setpostindexstyle('')
         }
     }

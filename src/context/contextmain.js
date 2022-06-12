@@ -172,7 +172,6 @@ export const Provider = ({ children }) => {
         {
             blemainid: 'request',
             blemaintitle: 'Request a new feature',
-            blemainsubtitle: `Please note we can’t guarantee a response.`,
             blemainaction:  () => {
                 settabmainstate({
                     tabmainid: 'feedback',
