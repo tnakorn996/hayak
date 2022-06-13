@@ -16,7 +16,6 @@ function SnackbarMain({
     snackbarmaindata,
     snackbarmaindatatwo,
     snackbarmaindatathree,
-    snackbarmainscroll,
 
 }) {
     const {
@@ -101,9 +100,10 @@ function SnackbarMain({
     }, [snackbarmainid, snackbarmainindex])
 
     window.onscroll = function (){
-        if (((window.innerHeight + document.documentElement.scrollTop) > window.screen.height + snackbarmainscroll) && window.screen.width > 1000) {
+        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.1)) && window.screen.width > 1000) {
             setsnackbarmainindex(1)
-        } else {
+        } 
+        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.8)) && window.screen.width > 1000) {
             setsnackbarmainindex(0)
         }
     }

@@ -11,10 +11,8 @@ import HomeMain from './page/home/HomeMain';
 import PostIndex from './page/post/PostIndex';
 import PlanMain from './page/plan/PlanMain';
 import AboutMain from './page/about/AboutMain';
-// import ExtroMain from './component/extro/ExtroMain';
 import BackdropMain from './component/modal/BackdropMain';
 import Overlay from './component/overlay/Overlay';
-import SheetMain from './component/sheet/SheetMain';
 import PromoMain from './component/promo/PromoMain';
 import TopMain from './component/top/TopMain';
 import SearchMain from './page/search/SearchMain';
@@ -23,6 +21,7 @@ import FooterMain from './component/footer/FooterMain';
 import FaqMain from './page/faq/FaqMain';
 import ContactMain from './page/contact/ContactMain';
 import ContactForm from './page/contact/ContactForm';
+import FabMain from './component/fab/FabMain';
 
 export default function App() {
   const {
@@ -65,8 +64,8 @@ export default function App() {
         // case 'slidemain': 
         // return <SlideMain />
         
-        case 'sheetmain': 
-        return <SheetMain />
+        // case 'sheetmain': 
+        // return <SheetMain />
 
         case 'promomain': 
         return <PromoMain />
@@ -116,7 +115,7 @@ export default function App() {
         </section> */}
 
         <section className="">
-        <FooterMain />
+          <FooterMain />
         </section>
 
         <section className="z-30 sticky">

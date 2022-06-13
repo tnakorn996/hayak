@@ -27,6 +27,7 @@ function FieldMain({
     const [cardmainstatic, setcardmainstatic] = useState()
 
     const ll = async () => {
+        setfieldmainload(true);
         const empty = []
         const data = [
             {
@@ -69,6 +70,7 @@ function FieldMain({
                 kk(doc)
             } 
             if(empty.length !== 0) {
+                setfieldmainload(false);
                 setcardmainstatic({
                     cardmainid: 'commentimg',
                     cardmainidtwo: 'fail',
@@ -77,7 +79,6 @@ function FieldMain({
                     cardmainindex: 0 ,
                 })
             }
-            setfieldmainload(false);
     }
 
     const kk = async (first = this.props.first) => {
@@ -86,7 +87,7 @@ function FieldMain({
                 cardmainid: 'shareimg',
                 cardmainidtwo: 'success',
                 cardmainidthree: 'feedback',
-                cardmainmessage: [{'success': 'Successfully send your comments.'}, {'success': 'This might take up to 3 days for us to review.'}],
+                cardmainmessage: [{'success': 'Successfully send your ' + first._type + '.'}, {'success': 'This might take up to 3 days for us to review.'}],
                 cardmainindex: 0 ,
             })
             setfieldmainload(false);
@@ -205,7 +206,6 @@ function FieldMain({
                     <ButtonMain 
                     onclick={() => {
                         data?.fieldmainaction();
-                        setfieldmainload(true);
                     }}
                     load={fieldmainload === true ? fieldmainload : fieldmainload}
                     title={data?.fieldmainentitle}

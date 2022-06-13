@@ -8,7 +8,6 @@ import { motion } from 'framer-motion';
 import { ContextMain } from '../../context/contextmain';
 import { v4 as uuidv4 } from 'uuid'
 import { planform, planmain } from '../../content/contentmain';
-import ExitMain from '../../component/exit/ExitMain';
 
 function PlanForm() {
     const {
@@ -145,7 +144,6 @@ function PlanForm() {
   return (
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}  className="p-[30px] w-screen min-h-screen  bg-orange-800 text-white">
-            <ExitMain appmainid={appmainstate.appmainid} />
             <section className="max-w-[500px] mx-auto">
                 <figcaption className="">
                     {/* <ExitMain /> */}
