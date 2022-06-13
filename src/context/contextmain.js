@@ -835,35 +835,36 @@ export const Provider = ({ children }) => {
     const faqdl = [
         {
             spreadmainindex: 0,
-            spreadmaintitle: 'What is TOI',
-        },
-        {
-            spreadmainindex: 1,
-            spreadmaintitle: 'Our purpose',
+            spreadmaintitle: 'What is TOI?',
         },
         {
             spreadmainindex: 2,
-            spreadmaintitle: 'Why join',
+            spreadmaintitle: 'Why join?',
         },
+        {
+            spreadmainindex: 1,
+            spreadmaintitle: 'Do I have to pay anything to have my business featured?',
+        },
+
 
     ]
 
     const faqdi = [
         {
             sheetmainindex: 0,
-            sheetmaintitle: `TOI is a curated directory that champions and connects artisan and owner-operated businesses and First Nations offerings to people like you who want to support independents. We establish personal relationships with our members, so each business is vetted by us. You see who owns and operates each business, but each business listing is our members showcasing themselves in their words. Pretty simple.`,
+            sheetmaintitle: `TOI is an online project to promote some of the best NZ-made kai. Want to find who makes the best eggs, butter or steak? Use our search feature and we'll hopefully help you to have a great meal.`,
 
             spreadmainindex: 0,
         },
         {
             sheetmainindex: 0,
-            sheetmaintitle: `Money flows where intention goes. The Realness empowers you to put franchises and chains behind you. In the spirit of investment and redistribution of wealth, you can help grow this community of independent owner-operated and indigenous businesses across Aotearoa and beyond - from your couch.`,
+            sheetmaintitle: `No, TOI is a curated project driven by our love for food. Our idea is to promote great food, free of charge.`,
 
             spreadmainindex: 1,
         },
         {
             sheetmainindex: 0,
-            sheetmaintitle: `With the ability to discover 200+ independent retailers, makers, services, and spots to eat and drink - we champion independent offerings across Aotearoa and beyond. Need a mover, flowers, perfume or pants? Our directory has you covered, and best of all, each business is operated by the people who own them!-`,
+            sheetmaintitle: `To help us to spread the word about great, local products-`,
 
             spreadmainindex: 2,
         }
@@ -913,7 +914,6 @@ export const Provider = ({ children }) => {
                   setproductcreatedat(data.productcreatedat);
               })
         }
-
 
     // if(!postupdatedat) return <LoadMain />
 

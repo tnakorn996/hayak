@@ -151,7 +151,7 @@ function VerticleMain({
                       <BarMain barmainid='postindextime' barmainindex={2} barmaindata={postindexthree} />
                     </div>
                 </figure>
-                <figcaption className="max-w-[90%] row-span-3 h-[20vh]">
+                <figcaption className="max-w-[80%] row-span-3 h-[20vh]">
                     {/* <div className="flex flex-row gap-2 items-center">
                       <h1 className="text-[9px]  l-h1 truncate">{createdat?.slice(0, 10)}</h1>
                       <h1 className="l-h1 truncate">|</h1>
@@ -161,7 +161,7 @@ function VerticleMain({
                         navigate(`/catagory/${verticledivstate?.verticledivtitle || null}`)
                       }} className="px-[7px]  text-gray-500 uppercase text-[8px] bg-gray-200 rounded-full">{verticledivstate?.verticledivtitle || null}</h1>}
                     </div> */}
-                    <a href={`/${postid}`} className="  m-h2 uppercase font-serif font-normal  leading-loose text-black">{posttitle}</a>
+                    <a href={`/${postid}`} className="m-h2 uppercase font-serif font-normal  leading-loose text-black">{posttitle}</a>
                     <h1 className=" l-h2">{postsubtitle}</h1>
                     {/* {ll(data?.categoryid)} */}
                 </figcaption>

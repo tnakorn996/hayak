@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
-import { RiChat3Line, RiEyeLine, RiMore2Fill, RiInformationLine } from 'react-icons/ri'
+import { RiChat3Line, RiEyeLine, RiMore2Fill, RiInformationLine, RiContrastDropLine } from 'react-icons/ri'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {PortableText, PortableTextComponentsProvider} from '@portabletext/react'
@@ -432,11 +432,11 @@ function PostIndex() {
 
     window.onscroll = function (){
         // if ((window.innerHeight + document.documentElement.scrollTop) > (document.documentElement.offsetHeight) * 50 /100) {
-        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.2)) && window.screen.width > 1000) {
+        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.1)) && window.screen.width > 1000) {
             setpostindexstyle('!min-h-[30vh] !flex !flex-row  !bg-white !border !shadow')
             
         } 
-        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.9)) && window.screen.width > 1000) {
+        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.8)) && window.screen.width > 1000) {
             setpostindexstyle('')
         }
     }
@@ -465,7 +465,7 @@ function PostIndex() {
                 <div className="absolute top-60 right-[15%] z-20 flex justify-center items-center">
                     {postpostid?.categoryid === 'recipe' && <GuideMain guidemainid={'posttbody'} guidemainindex={0} guidemaindata={postindextwo} />}
                 </div>
-                <div className="absolute top-5 right-5 z-20 flex justify-center items-center">
+                <div className="hidden absolute top-5 right-5 z-20 md:flex justify-center items-center">
                     {<PtaMain ptamainstatic={ptamainstatic} />}
                 </div>
             </figure>
@@ -496,9 +496,9 @@ function PostIndex() {
                     <br /><hr /><br />
                 </section> */}
             </figcaption>
-            <div layout className={`relative col-span-12 flex flex-col-reverse`}>
+            <div className={`relative col-span-12 flex flex-col-reverse`}>
             <figcaption className="col-span-12 md:col-span-7">
-                <section className={`relative px-[20px] md:px-[60px] max-w-[900px] mx-auto h-[30vh] md:h-fit overflow-hidden ${!postindexaction && '!h-fit'}`}>
+                <section className={`relative px-[20px] md:px-[60px] max-w-[800px] mx-auto h-[30vh] md:h-fit overflow-hidden ${!postindexaction && '!h-fit'}`}>
                     {/* {postindexstyle !== '' && (<><br /><br /><br /><br /><br /><br /><br /><br /><br /></>)} */}
                     <br />
                     <br />
@@ -506,7 +506,7 @@ function PostIndex() {
                         <h1 className={`text-base  italic  text-black font-serif`}>{ postpostid?._updatedAt && `This article was last updated on ` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                     <br />
-                    <figcaption className="text-lg relative  md:font-light font-serif">
+                    <figcaption className="text-base relative  md:font-light font-serif">
                         <PortableTextComponentsProvider components={component}  >
                             {postpostid?.postblock?.map(data => (<>
                             <PortableText value={data} />
@@ -520,7 +520,7 @@ function PostIndex() {
                     }} className='absolute md:hidden z-10 right-0 md:right-[70px] bottom-0  md:m-[10px] l-button '>{postindexaction ? 'Show more' : 'Show less'}</button>
                     <figure className={`p-[10px] absolute md:hidden w-full h-[80%] bottom-0 left-0 flex items-end justify-end   bg-gradient-to-b from-transparent to-white ${!postindexaction && '!hidden'}`} />
                 </section>
-                <section layout className="px-[20px] md:px-[60px] max-w-[900px] mx-auto">
+                <section layout className="px-[20px] md:px-[60px] max-w-[800px] mx-auto">
                     <CardMain     
                     cardmainid={'commentimg'}
                     cardmainidtwo={'inform'}
@@ -530,15 +530,15 @@ function PostIndex() {
                 </section>
             </figcaption>
             {/* {(postpostid && placeplaceid && productplaceid && productpostid) && <SnackbarMain snackbarmainid={'postfooter'} snackbarmaindata={postindexrender} snackbarmaindatatwo={postpostid} snackbarmaindatathree={postindexthree} snackbarmainscroll={650} />} */}
-            <motion.figcaption layout className={`col-span-12 md:col-span-5 md:sticky md:top-0 md:left-0 min-h-[50vh] flex flex-col  duration-1000 ${postindexstyle}`}>
-                <section className="w-full px-[20px] md:px-[60px] max-w-[900px] mx-auto min-h-[20vh] md:h-fit">
+            <motion.figcaption layout className={`col-span-12 md:col-span-5 md:sticky md:top-0 md:left-0 min-h-[50vh] flex flex-col  duration-700 ${postindexstyle}`}>
+                <section className="w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto min-h-[20vh] md:h-fit">
                 <br />
                 <br />
                     <div className="flex flex-row justify-between">
-                        <h1 className={`l-h2 uppercase tracking-[0.2em]  ${postindexstyle !== '' && '!m-h1'}`}>{postindexrender && postindexrender}</h1>
+                        <h1 className={`flex flex-row items-center gap-1  l-h2 uppercase tracking-[0.2em]  ${postindexstyle !== '' && '!text-[12px]'}`}><RiContrastDropLine /> {postindexrender ? postindexrender : 'ORIGINAL'}</h1>
                         {<PtaMain ptamainstatic={ptamainstatic} ptamainstyle={'text-xl'} />}
                     </div>
-                    <h1 className={`text-3xl md:text-4xl m-h6 py-[10px]  font-serif leading-normal  ${postindexstyle !== '' && '!text-xl'}`}>{postpostid?.posttitle}</h1>
+                    <h1 className={`text-3xl md:text-4xl m-h6 py-[10px]  font-serif leading-normal  ${postindexstyle !== '' && '!text-xl !leading-none'}`}>{postpostid?.posttitle}</h1>
                     <h1 className={`l-h6   ${postindexstyle !== '' && '!text-base'}`}>{postpostid?.postsubtitle}</h1>
                     <br />
                     <figure className="">
@@ -547,7 +547,7 @@ function PostIndex() {
                     <br />
                     <br />
                 </section>
-                <section className="w-full px-[20px] md:px-[60px] max-w-[900px] mx-auto md:h-fit ">
+                <section className="w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto md:h-fit ">
                     <CtaMain />
                 </section>
             </motion.figcaption>

@@ -26,7 +26,7 @@ function PtaMain({
     const postiframe = [
                 {
                     ptamainindex: 0,
-                    ptamainicon: <RiHeartFill className='text-gray-300 filter-drop-shadow' />,
+                    ptamainicon: <RiHeartFill className='text-gray-300' />,
                     ptamainaction: () => {
                         const ref = parsepost?.favouritemaindata || favouritemainstate.favouritemaindata
                         ref.push(ptamainstate.ptamaindata)

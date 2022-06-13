@@ -120,7 +120,7 @@ function NavMain() {
                                 }
                             )
                         }} className="grid grid-flow-col gap-1 items-center">
-                        <VscSearch className='m-h5' />
+                        <VscSearch className='m-h4' />
                     </article>
 
                     <article onClick={() => {
@@ -132,7 +132,7 @@ function NavMain() {
                                 }
                             )
                         }} className="relative grid grid-flow-col gap-1 items-center">
-                        <VscHeart className='m-h6' />
+                        <VscHeart className='m-h5' />
                         <div className="absolute -right-2 -top-2 md:top-0">
                             <BadgeMain badgemainid={'favouritespan'} badgemainindex={0} />
                         </div>

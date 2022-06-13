@@ -50,8 +50,8 @@ function BadgeMain({
     <div>
         <main className="">
             <section className="">
-              <figure className="py-[1px] px-[5px]  rounded-full  bg-black">
-                <h1 className="m-h1 text-white">{badgemainrender && badgemainrender}</h1>
+              <figure className="py-[0.5px] px-[5px]  rounded-full  bg-black">
+                <h1 className="text-[9px]  m-h1 text-white">{badgemainrender && badgemainrender}</h1>
               </figure>
             </section>
         </main>
