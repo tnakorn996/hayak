@@ -21,6 +21,7 @@ function CardMain({
         termlink,
         feedbacklink,
         favouritelink,
+        faqlink,
 
     } = useContext(ContextMain)
 
@@ -93,6 +94,19 @@ function CardMain({
         },
     ]
 
+    const faqimg = [
+        {
+            cardmainindex: 0,
+            cardmainrender: '',
+            cardmainaction: () => {
+                if(cardmainidthree) {
+                    const filter = faqlink.filter(data => data.blemainid === cardmainidthree);
+                    return <button onClick={filter[0].blemainaction} className="w-full  l-button">{filter[0].blemainentitle}</button>
+                }
+            },
+        },
+    ]
+
     const cardmain = [
         {
             cardmainid: 'commentimg',
@@ -113,6 +127,10 @@ function CardMain({
         {
             cardmainid: 'favouriteimg',
             cardmainref: favouriteimg,
+        },
+        {
+            cardmainid: 'faqimg',
+            cardmainref: faqimg,
         }
     ]
 
@@ -131,7 +149,7 @@ function CardMain({
     <div>
         <motion.main initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative  duration-100">
             {cardmainrender?.map(data => (<>
-                <figure className={`w-full p-[20px] flex flex-col  md:flex-row justify-between ${data?.spreadmainstyle}`}>
+                <figure className={`w-full p-[20px] flex flex-col gap-3  md:flex-row justify-between ${data?.spreadmainstyle}`}>
                     <div className="flex flex-row items-start gap-3">
                     <section className="col-span-1 ">
                         <h1 className={`hidden md:flex justify-start  l-h3 ${data?.spreadmainstyle}`}>{data?.spreadmainicon}</h1>
@@ -144,6 +162,7 @@ function CardMain({
                         </>))}
                         <div className="flex flex-col">
                         {cardmainmessage && cardmainmessage?.map(da => (<>
+                         {da?.inform && <span className="m-h1">∙ {da?.inform}</span>}
                          {da?.error && <span className="m-h1">∙ {da?.error}</span>}
                          {da?.success && <span className="m-h1">∙ {da?.success}</span>}
                         </>))}

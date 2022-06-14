@@ -434,10 +434,10 @@ function PostIndex() {
     window.onscroll = function (){
         // if ((window.innerHeight + document.documentElement.scrollTop) > (document.documentElement.offsetHeight) * 50 /100) {
         if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.1)) && window.screen.width > 1000) {
-            setpostindexstyle('!min-h-fit !flex !flex-row  !bg-white !border !shadow')
+            setpostindexstyle('!grid-flow-col !bg-white !border !shadow')
             
         } 
-        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.8)) && window.screen.width > 1000) {
+        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.7)) && window.screen.width > 1000) {
             setpostindexstyle('')
         }
     }
@@ -499,7 +499,7 @@ function PostIndex() {
             </figcaption>
             <div className={`relative col-span-12 flex flex-col-reverse`}>
             <figcaption className="col-span-12 md:col-span-7">
-                <section className={`relative px-[20px] md:px-[60px] max-w-[800px] mx-auto h-[30vh] md:h-fit overflow-hidden ${!postindexaction && '!h-fit'}`}>
+                <section className={`relative px-[20px] md:px-[60px] max-w-[800px] mx-auto h-[50vh] md:h-fit overflow-hidden ${!postindexaction && '!h-fit'}`}>
                     {/* {postindexstyle !== '' && (<><br /><br /><br /><br /><br /><br /><br /><br /><br /></>)} */}
                     <br />
                     <br />
@@ -531,25 +531,26 @@ function PostIndex() {
                 </section>
             </figcaption>
             {/* {<SnackbarMain snackbarmainid={'postfooter'} snackbarmaindata={postindexrender && postindexrender} snackbarmaindatatwo={postpostid && postpostid} snackbarmaindatathree={postindexthree && postindexthree} />} */}
-            <figcaption className={`col-span-12 md:col-span-5 md:sticky md:top-0 md:left-0 min-h-[50vh] flex flex-col  duration-1000 ${postindexstyle}`}>
-                <section className="w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto min-h-[20vh] md:h-fit">
-                <br />
-                <br />
+            <figcaption className={`col-span-12 md:sticky md:top-0 md:left-0 min-h-fit grid grid-flow-row  duration-1000 ${postindexstyle}`}>
+                <section className="w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto">
+                    <br />
+                    {postindexstyle === '' && (<><br /></>)}
                     <div className="flex flex-row justify-between">
                         <h1 className={`flex flex-row items-center gap-1  l-h2 uppercase tracking-[0.2em]  ${postindexstyle !== '' && '!text-[12px]'}`}><RiContrastDropLine /> {postindexrender ? postindexrender : 'ORIGINAL'}</h1>
                         {<PtaMain ptamainstatic={ptamainstatic} ptamainstyle={'text-xl'} />}
                     </div>
                     <h1 className={`text-3xl md:text-4xl m-h6 py-[10px]  font-serif leading-normal  ${postindexstyle !== '' && '!text-xl !leading-none'}`}>{postpostid?.posttitle}</h1>
-                    <h1 className={`first-letter:uppercase l-h6   ${postindexstyle !== '' && '!text-base'}`}>{postpostid?.postsubtitle}</h1>
-                    {/* <h1 className={` ${postindexstyle !== '' && '!hidden'}`}><br /></h1> */}
-                    <br />
+                    {postindexstyle === '' && (<>
+                    <h1 className={`first-letter:uppercase l-h6`}>{postpostid?.postsubtitle}</h1>
+                    <br /> 
                     <figure className="">
                         {postpostid && <BarMain barmainid={'postindextime'} barmainindex={0} barmaindata={postindexthree} />}
                     </figure>
-                    <br />
+                    <br />   
+                    </>)}
                     <br />
                 </section>
-                <section className="w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto md:h-fit ">
+                <section className={`w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto md:h-full grid grid-flow-col items-center`}>
                     <CtaMain />
                 </section>
             </figcaption>
@@ -580,8 +581,8 @@ function PostIndex() {
                     />
                 </section>
             </figure>
-            {postindexstyle && (<>
-            <motion.figure initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="z-20 fixed bottom-10 right-10  duration-100">
+            {(postindexstyle || !postindexaction) && (<>
+            <motion.figure initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="z-20 fixed bottom-5 right-5  duration-100">
             <FabMain fabmainid={'posttfoot'} fabmainindex={0} />
             </motion.figure>
             </>)}

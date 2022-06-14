@@ -63,12 +63,12 @@ export const Provider = ({ children }) => {
         pp()
     }, [])
 
-    // const progress = new ProgressBar({
-    //   size: 4,
-    //   color: 'rgb(55 65 81)',
-    //   className: 'z-50',
-    //   delay: 100,
-    // })
+    const progress = new ProgressBar({
+      size: 4,
+      color: 'rgb(55 65 81)',
+      className: 'z-50',
+      delay: 100,
+    })
 
     useEffect(() => {
         setappmainstate('')
@@ -78,10 +78,10 @@ export const Provider = ({ children }) => {
         setctamainstate('')
         setptamainstate('')
 
-        // progress.start();
-        // setTimeout(() => {
-        //     progress.finish();
-        // }, 5000);
+        progress.start();
+        setTimeout(() => {
+            progress.finish();
+        }, 5000);
 
     }, [location])
     
@@ -710,6 +710,27 @@ export const Provider = ({ children }) => {
         }
     ]
 
+    const faqselect = [
+        {
+            tabmainindex: 0,
+            tabmaintitle: 'all',
+            tabmainaction: 'all',
+        }
+    ]
+
+    const faqlink = [
+        {
+            blemainid: 'who',
+            blemaintitle: 'Whats toi?',
+            blemainentitle: 'FAQs',
+            blemainaction: () => {
+                window.open(`/faq/faqmain`, '_blank').focus();
+            },
+
+            tabmainindex: 0,
+        }
+    ]
+
     const termselect = [
          {
             tabmainid: 'all',
@@ -929,6 +950,7 @@ export const Provider = ({ children }) => {
           favouritelink,
           homedl,
           searchdl,
+          faqlink, faqselect,
           faqdl, faqdi, 
           favouritedl, favouritedi,
 

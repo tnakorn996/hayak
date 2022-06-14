@@ -12,7 +12,6 @@ function FieldMain({
     fieldmainid,
     fieldmainindex,
     fieldmainparam,
-
 }) {
     const ref = useRef('')
     const reftwo = useRef('')
@@ -20,6 +19,9 @@ function FieldMain({
     const reffour = useRef('')
     const reffive = useRef('')
     const refsix = useRef('')
+    const refseven = useRef('')
+    const refeight = useRef('')
+
     const [fieldmainuuid, setfieldmainuuid] = useState(uuidv4())
     const [fieldmainload, setfieldmainload] = useState(false)
 
@@ -57,6 +59,20 @@ function FieldMain({
                     postid: fieldmainparam,
                 }
             },
+            {
+                dataid: 'feedbackform',
+                dataindex: 0,
+                datadoc: {
+                    _id: fieldmainuuid,
+                    _type: 'feedback',
+                    feedbackid: fieldmainuuid,
+                    feedbacktitle: jj(refseven?.current?.value),
+                    feedbacksubtitle: refeight?.current?.value,
+
+                    postid: fieldmainparam,
+                }
+            },
+            
         ]
         const filter = data.filter(data =>  data.dataid === fieldmainid && data.dataindex === fieldmainindex)
         const doc = filter[fieldmainindex].datadoc
@@ -150,6 +166,25 @@ function FieldMain({
         }
     ]
 
+    const feedbackform = [
+        {
+            fieldmainindex: 0,
+            fieldmainaction: ll,
+            fieldmaintitle: '',
+            fieldmainentitle: 'Submit',
+            fieldmaindata: [
+                {
+                    fieldmainsubtitle: '',
+                    fieldmainrender: <input ref={refseven} type={'email'} className="w-full  l-input" placeholder={'johndoe@example.com'} />,
+                },
+                {
+                    fieldmainsubtitle: '',
+                    fieldmainrender: <textarea ref={refeight} rows={3} className="w-full  l-input" placeholder='What are your thoughts?' />,
+                },
+            ]
+        }
+    ]
+
     const fieldmain = [
         {
             fieldmainid: 'contactform',
@@ -158,6 +193,10 @@ function FieldMain({
         {
             fieldmainid: 'commentform',
             fieldmainref: commentform,
+        },
+        {
+            fieldmainid: 'feedbackform',
+            fieldmainref: feedbackform,
         }
     ]
 
@@ -200,6 +239,14 @@ function FieldMain({
                     cardmainidthree={cardmainstatic?.cardmainidthree} 
                     cardmainmessage={cardmainstatic?.cardmainmessage}
                     />
+                    <br />
+                    <CardMain     
+                    cardmainid={'faqimg'}
+                    cardmainidtwo={'inform'}
+                    cardmainidthree={'who'}
+                    cardmainmessage={[{'inform': 'Have some question for us? You can also find it in our frequent asked questions'}]}
+                    cardmainindex={0} 
+                    />
                 </section>
                 <br />
                 <section className="">
@@ -211,7 +258,6 @@ function FieldMain({
                     title={data?.fieldmainentitle}
                     />
                 </section>
-                <br /><br />
             </>))}            
         </main>
     </div>

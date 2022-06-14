@@ -105,7 +105,6 @@ export default function App() {
             <Route path='/contact/contactmain' element={<ContactMain />} /> 
             <Route path='/contact/contactform' element={<ContactForm />} /> 
 
-
           </Routes> 
         {/* </AnimatePresence> */}
         </section>

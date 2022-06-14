@@ -107,14 +107,14 @@ function CommentDialog() {
                 <FieldMain fieldmainid={'commentform'} fieldmainindex={0} fieldmainparam={location.pathname?.slice(1, location.pathname.length)} />
             </section>
             <section className="">
-                {commentdialogrendertwo?.length >= 0 && (<>
+                {/* {commentdialogrendertwo?.length >= 0 && (<>
                 <CardMain     
                 cardmainid={'commentimg'}
                 cardmainidtwo={'inform'}
                 // cardmainidthree={'feedback'}
                 cardmainindex={0} 
                 />
-                </>)}
+                </>)} */}
                 <br />
                 {commentdialogrendertwo?.map(data => (<>
                     <article className="px-[20px]  shadow ">

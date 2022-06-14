@@ -30,19 +30,19 @@ function DropdownMain() {
         {
             dropdownmainidtwo: 'post',
             dropdownmaintitle: 'Blog collections',
-            dropdownmainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/272329885_10166020441840367_2664436787088136063_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a26aad&_nc_ohc=HNbzCF-aUKUAX_qNICf&_nc_ht=scontent-akl1-1.xx&oh=00_AT85YlLqZjo9yBOSEzMvSe454c5XjSLUPThTELdKNXoYaw&oe=62A1648C',
+            dropdownmainimage: 'https://ouch-cdn2.icons8.com/RgfXTcRmEkFz1A1bcK7_Liv6zqVUey8CXN2NTm5xrdA/rs:fit:256:407/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNjcx/L2ZlNDJkMjIwLTU4/OTItNGM0YS1hNGRi/LWRlODlhYjYxNDNk/Ni5wbmc.png',
             dropdownmainrender: categoryui.filter(data => data.breadmainid === 'post')
         },
         {
             dropdownmainidtwo: 'place',
             dropdownmaintitle: 'Places',
-            dropdownmainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/272329871_10166020441835367_2706226399375601580_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a26aad&_nc_ohc=NFoc3c-4qiAAX9kp_np&_nc_ht=scontent-akl1-1.xx&oh=00_AT-ecU1aGr1c_rcU7kQRtfuOsUc8-4SqUupz-94gZ1-MCQ&oe=62A14011',
+            dropdownmainimage: 'https://ouch-cdn2.icons8.com/0DjOrQagS0lAxcnpRnMjs9RySVRvTX8bOwzToHpnA5I/rs:fit:256:169/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMjkw/LzI1YWQ3Y2Q2LTFh/OTItNDAwMC05MWMz/LWM0NGUwYjdjYmNl/Zi5wbmc.png',
             dropdownmainrender: categoryui.filter(data => data.breadmainid === 'place')
         },
         {
             dropdownmainidtwo: 'product',
             dropdownmaintitle: 'Products collections',
-            dropdownmainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t39.30808-6/272206956_10166020441830367_8096047458411988811_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a26aad&_nc_ohc=AGMfBWem09EAX8tGepQ&_nc_ht=scontent-akl1-1.xx&oh=00_AT83IscqQzY4nO_zUjmhrlPFaP9aqsdIp6DsiMJu_AbhUA&oe=62A1240A',
+            dropdownmainimage: 'https://ouch-cdn2.icons8.com/SuK0TW0URpbSMQpBl2TvlPj56MniJvcaEsdKPQeT9fc/rs:fit:256:354/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvOTU0/LzljOGU5Yjg2LWMy/ZDUtNGZmYi1iNjUy/LTkyOTU3MGZiN2Q3/My5wbmc.png',
             dropdownmainrender: categoryui.filter(data => data.breadmainid === 'product')
         },
     ]
@@ -110,10 +110,11 @@ function DropdownMain() {
                         See {dropdownmaintitle}
                     </a>
                 </figcaption>
-                <figure className="hidden md:flex col-span-5  overflow-hidden">
+                <figure className="hidden md:flex col-span-5  overflow-hidden bg-white">
                     <div className="relative w-full h-full flex justify-center items-center">
                     <div className="absolute top-0 left-0 w-full h-full  bg-black opacity-5" />
-                    <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-[100ch] min-h-full   duration-100 grayscale" />
+                    {/* <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="min-w-[100ch] min-h-full   duration-100 grayscale" /> */}
+                    <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="max-w-[100ch] max-h-full   duration-100 grayscale" />
                     </div>
                 </figure>
                 <article className='w-[70px] h-[70px] text-5xl absolute flex justify-center items-center top-5 right-5  bg-black' >

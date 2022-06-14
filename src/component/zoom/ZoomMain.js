@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { MdShowChart } from 'react-icons/md'
-import { RiChat4Fill, RiChat4Line, RiLayoutGridFill, RiMapPin3Fill, RiMapPin3Line, RiNewspaperFill, RiNewspaperLine, RiShoppingBag2Fill, RiShoppingBag2Line } from 'react-icons/ri'
+import { RiChat4Fill, RiChat4Line, RiLayoutGridFill, RiMapPin3Fill, RiMapPin3Line, RiNewspaperFill, RiNewspaperLine, RiSearch2Line, RiShoppingBag2Fill, RiShoppingBag2Line } from 'react-icons/ri'
+import { VscSearch } from 'react-icons/vsc'
 import { useNavigate } from 'react-router-dom'
 import { categoryul } from '../../content/contentmantwo'
 
@@ -214,8 +215,8 @@ function ZoomMain({
         <main className="">
             <section autoFocus className="h-[20vh] px-[20px] md:px-[50px] grid grid-flow-row items-center">
                 <div className="w-full relative flex items-center">
-                    {/* {searchdialogload === true ? <div className="absolute"><LoadingMain /></div>  : <RiSearch2Line className='absolute  m-h6' />} */}
-                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[40px]  l-input border border-gray-600 bg-white text-black" placeholder='Search...' />
+                    <VscSearch className='absolute left-4  l-h6' />
+                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[50px]  l-input border border-gray-600 bg-white text-black" placeholder='Search TOIs' />
                 </div>
                 {/* <h1 className="l-h2 italic">Try coffee, kitchen, gift card..</h1> */}
             </section>

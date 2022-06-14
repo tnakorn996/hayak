@@ -152,10 +152,8 @@ function CtaMain() {
     
     <div>
         <main className="">
-            <section className="">
-                        <br />
+            <section className="flex justify-center items-center gap-1 flex-col md:flex-row">
                         {ctamainrender && ctamainrender}
-                        <br />
                         {ctamainrendertwo && ctamainrendertwo}
             </section>
         </main>

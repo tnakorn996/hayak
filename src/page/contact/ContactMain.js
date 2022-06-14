@@ -31,7 +31,7 @@ function ContactMain() {
                 <figcaption className="">
                     <h1 className="m-h6 font-serif">{data?.breadmainsubtitle}</h1>
                     <br />
-                    <h1 className="l-h4 md:l-h3">{data?.breadmaindetail}</h1>
+                    <h1 className="l-h2">{data?.breadmaindetail}</h1>
                     <br />
                 </figcaption>
                 <figcaption className="">
