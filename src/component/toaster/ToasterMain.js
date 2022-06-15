@@ -63,8 +63,8 @@ function ToasterMain() {
     
   return (
     <div>
-        <main className="flex justify-center items-center  duration-100">
-            <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}  className="fixed md:top-5 w-full md:max-w-[40vw] mx-auto  bg-white duration-100">
+        <main className="">
+            <motion.section initial={{y: -100}} animate={{ y:100}} exit={{y: -100}} className="fixed md:top-5 w-full md:max-w-[40vw] mx-auto  bg-white duration-100">
                     <figure className="flex flex-col  border shadow-2xl">
                         <div className="flex items-center justify-end  border border-gray-200">
                             {/* <h1 className="px-[10px]  l-h6">╳</h1> */}

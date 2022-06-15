@@ -147,9 +147,9 @@ function CardMain({
 
   return (
     <div>
-        <motion.main initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative  duration-100">
+        <main className="relative">
             {cardmainrender?.map(data => (<>
-                <figure className={`w-full p-[20px] flex flex-col gap-3  md:flex-row justify-between ${data?.spreadmainstyle}`}>
+                <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className={`w-full p-[10px] md:p-[20px] flex flex-col md:flex-row gap-3 justify-between  border duration-100 ${data?.spreadmainstyle}`}>
                     <div className="flex flex-row items-start gap-3">
                     <section className="col-span-1 ">
                         <h1 className={`hidden md:flex justify-start  l-h3 ${data?.spreadmainstyle}`}>{data?.spreadmainicon}</h1>
@@ -161,21 +161,22 @@ function CardMain({
                         <br />
                         </>))}
                         <div className="flex flex-col">
+                        <br />
                         {cardmainmessage && cardmainmessage?.map(da => (<>
                          {da?.inform && <span className="m-h1">∙ {da?.inform}</span>}
                          {da?.error && <span className="m-h1">∙ {da?.error}</span>}
                          {da?.success && <span className="m-h1">∙ {da?.success}</span>}
                         </>))}
-                        </div>
                         <br />
+                        </div>
                     </section>
                     </div>
                     <section className="col-span-3">
                         {cardmainaction && cardmainaction}
                     </section>
-                </figure>
+                </motion.figure>
             </>))}
-        </motion.main>
+        </main>
     </div>
   )
 }

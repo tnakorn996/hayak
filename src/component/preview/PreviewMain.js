@@ -12,6 +12,7 @@ import MenuArticle from '../../page/menu/MenuArticle'
 import PostArticle from '../../page/post/PostArticle'
 import PostIndex from '../../page/post/PostIndex'
 import CardMain from '../card/CardMain'
+import ChoiceMain from '../choice/ChoiceMain'
 
 function PreviewMain() {
     const {
@@ -69,6 +70,19 @@ function PreviewMain() {
         }
     ]
 
+    const userarticle = [
+        {
+            previewmainindex: 0,
+            previewmainrender: <section className="flex flex-col md:grid md:grid-cols-12">
+                <figcaption className="md:col-span-8">
+                <ChoiceMain choicemainid={'userlabel'} choicemainindex={0} />
+                </figcaption>
+                <figure className="hidden md:flex md:col-span-4 h-full items-center">
+                    <img src="https://ouch-cdn2.icons8.com/kXjxMSrtriPzK2Nzo4zcsd0RjyrD3MHBbNLIJFEQJtM/rs:fit:256:186/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTkw/LzhhNGM1MzllLWJi/MDItNDkwNS05MmQz/LTVhMDRmY2FmMWVh/OC5wbmc.png" alt="" className=" grayscale" />
+                </figure>
+            </section>
+        }
+    ]
 
     const previewmain = [
         {
@@ -82,6 +96,10 @@ function PreviewMain() {
         {
             previewmainid: 'menuarticle',
             previewmaindata: menuarticle, 
+        },
+        {
+            previewmainid: 'userarticle',
+            previewmaindata: userarticle, 
         },
 
     ]

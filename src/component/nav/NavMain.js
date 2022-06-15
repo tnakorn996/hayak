@@ -60,7 +60,7 @@ function NavMain() {
                             appmainboolean: true,
                         })
                     }} className="">
-                <VscMenu className='m-h6' />
+                <VscMenu className='m-h4' />
                 </article>
             </section>
 

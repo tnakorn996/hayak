@@ -1,12 +1,19 @@
 import React from 'react'
+import { useContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+
+import { ContextMain } from '../../context/contextmain';
 
 function FabMain({
     fabmainid,
     fabmainindex,
 
 }) {
+    const {
+        setappmainstate,
+
+    } = useContext(ContextMain)
 
     const [fabmainrender, setfabmainrender] = useState()
 
@@ -22,14 +29,29 @@ function FabMain({
                     behavior: 'smooth'
                 });
             } 
-        }
+        },
+        {
+            fabmainindex: 1,
+            fabmaintitle: 'Survey',
+            fabmainicon: '',
+            fabmainaction: () => {
+                setappmainstate(
+                    {
+                        appmainid: 'userarticle',
+                        appmainidtwo: 'previewmain',
+                        appmainpage: 0,
+                        appmainboolean: true,
+                    }
+                )
+            } 
+        },
     ]
 
     const fabmain = [
         {
             fabmainid: 'posttfoot',
             fabmainref: posttfoot,
-        }
+        },
     ]
 
     useEffect(() => {

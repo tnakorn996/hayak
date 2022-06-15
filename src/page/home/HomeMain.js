@@ -13,6 +13,7 @@ import WireMain from '../../component/wire/WireMain'
 import { useRef } from 'react'
 import SlideMain from '../../component/slide/SlideMain'
 import JointMain from '../../component/joint/JointMain'
+import ListMain from '../../component/list/ListMain'
 // import LandscapeMain from '../../component/place/LandscapeMain'
 
 function HomeMain() {
@@ -169,6 +170,10 @@ function HomeMain() {
                         </>)}
                 </>))}
                 <br />
+            </section>
+            <br />
+            <section className="">
+                <ListMain listmainid={'faqsummary'} listmainindex={0} />
             </section>
             <br />
             <br />

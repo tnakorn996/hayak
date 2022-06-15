@@ -6,9 +6,10 @@ function ContactForm() {
 
   return (
     <div>
-        <main className="flex flex-col md:grid md:grid-cols-12">
+        <main className="flex flex-col md:grid md:grid-cols-12 gap-3">
             <section className="col-span-7 px-[20px] md:px-[50px]">
                 <FieldMain fieldmainid={'contactform'} fieldmainindex={0} />
+                <br />
             </section>
             <section className="col-span-5 min-h-screen">
                 <figure className="h-full w-full flex justify-center  overflow-hidden bg-gray-200">

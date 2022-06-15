@@ -531,7 +531,7 @@ function PostIndex() {
                 </section>
             </figcaption>
             {/* {<SnackbarMain snackbarmainid={'postfooter'} snackbarmaindata={postindexrender && postindexrender} snackbarmaindatatwo={postpostid && postpostid} snackbarmaindatathree={postindexthree && postindexthree} />} */}
-            <figcaption className={`col-span-12 md:sticky md:top-0 md:left-0 min-h-fit grid grid-flow-row  duration-1000 ${postindexstyle}`}>
+            <figcaption className={`col-span-12 md:sticky md:top-0 md:left-0 min-h-fit grid grid-flow-row  border-b duration-1000 ${postindexstyle}`}>
                 <section className="w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto">
                     <br />
                     {postindexstyle === '' && (<><br /></>)}
@@ -539,9 +539,9 @@ function PostIndex() {
                         <h1 className={`flex flex-row items-center gap-1  l-h2 uppercase tracking-[0.2em]  ${postindexstyle !== '' && '!text-[12px]'}`}><RiContrastDropLine /> {postindexrender ? postindexrender : 'ORIGINAL'}</h1>
                         {<PtaMain ptamainstatic={ptamainstatic} ptamainstyle={'text-xl'} />}
                     </div>
-                    <h1 className={`text-3xl md:text-4xl m-h6 py-[10px]  font-serif leading-normal  ${postindexstyle !== '' && '!text-xl !leading-none'}`}>{postpostid?.posttitle}</h1>
+                    <h1 className={`text-3xl md:text-5xl m-h6 py-[10px] text-center  font-serif leading-normal  ${postindexstyle !== '' && '!text-xl !leading-none'}`}>{postpostid?.posttitle}</h1>
                     {postindexstyle === '' && (<>
-                    <h1 className={`first-letter:uppercase l-h6`}>{postpostid?.postsubtitle}</h1>
+                    <h1 className={`text-center  first-letter:uppercase  l-h6`}>{postpostid?.postsubtitle}</h1>
                     <br /> 
                     <figure className="">
                         {postpostid && <BarMain barmainid={'postindextime'} barmainindex={0} barmaindata={postindexthree} />}
@@ -551,7 +551,10 @@ function PostIndex() {
                     <br />
                 </section>
                 <section className={`w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto md:h-full grid grid-flow-col items-center`}>
-                    <CtaMain />
+                    <div className="">
+                        <CtaMain />
+                        <br />
+                    </div>
                 </section>
             </figcaption>
             </div>
@@ -581,11 +584,12 @@ function PostIndex() {
                     />
                 </section>
             </figure>
-            {(postindexstyle || !postindexaction) && (<>
             <motion.figure initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="z-20 fixed bottom-5 right-5  duration-100">
+            {(postindexstyle || !postindexaction) && (<>
             <FabMain fabmainid={'posttfoot'} fabmainindex={0} />
-            </motion.figure>
             </>)}
+            <FabMain fabmainid={'posttfoot'} fabmainindex={1} />
+            </motion.figure>
         </main>
     </div>
   )

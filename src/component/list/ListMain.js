@@ -50,10 +50,10 @@ function ListMain({
                 {listmainrender?.map(data => (<>
                     <details className="cursor-pointer border">
                         {listmainrendertwo?.map(dat => (<>
-                            <h1 className="px-[40px]  l-h5">{data?.spreadmainindex === dat?.spreadmainindex && dat?.sheetmaintitle}</h1>
+                            <h1 className="px-[40px] md:px-[60px]  l-h5">{data?.spreadmainindex === dat?.spreadmainindex && dat?.sheetmaintitle}</h1>
                         </>))}
                         <br />
-                        <summary className="p-[20px]">
+                        <summary className="p-[20px] md:px-[60px]">
                             <h1 className="m-h6 font-serif">{data?.spreadmaintitle}</h1>
                         </summary>
                     </details>

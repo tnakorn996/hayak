@@ -1,4 +1,4 @@
-import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiInformationLine, RiInstagramFill, RiMailFill, RiTwitterFill } from "react-icons/ri"
+import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiHandHeartLine, RiInformationLine, RiInstagramFill, RiMailFill, RiTwitterFill } from "react-icons/ri"
 
 ////////////////////////////////////////////////
 
@@ -421,6 +421,85 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiInfor
             ],
 
             breadmainid: 'main',
+        },
+    ]
+
+    export const userui = [
+        {
+            crummainid: 'purpose',
+            crummaintitle: 'What brings you to TOI?',
+            crummaindata: [
+                {
+                    crummainsubtitle: 'find recipe',
+                    crummainicon: <RiHandHeartLine />,
+                },
+                {
+                    crummainsubtitle: 'read blog',
+                    crummainicon: <RiHandHeartLine />,
+                },
+                {
+                    crummainsubtitle: 'find exotic restaurant',
+                    crummainicon: <RiHandHeartLine />,
+                },
+                {
+                    crummainsubtitle: 'find new product',
+                    crummainicon: <RiHandHeartLine />,
+                },
+            ]
+        },
+        {
+            crummainid: 'age',
+            crummaintitle: 'How old are you?',
+            crummaindata: [
+                {
+                    crummainsubtitle: 'below 18'
+                },
+                {
+                    crummainsubtitle: '18 - 24'
+                },
+                {
+                    crummainsubtitle: '25 - 34'
+                },
+                {
+                    crummainsubtitle: '35 - 44'
+                },
+                {
+                    crummainsubtitle: '45 - 54'
+                },
+                {
+                    crummainsubtitle: '55 - 64'
+                },
+                {
+                    crummainsubtitle: 'Above 64'
+                },
+            ]
+        },
+        {
+            crummainid: 'source',
+            crummaintitle: 'How did you hear about TOI?',
+            crummaindata: [
+                {
+                    crummainsubtitle: 'youtube'
+                },
+                {
+                    crummainsubtitle: 'tiktok'
+                },
+                {
+                    crummainsubtitle: 'news article or blog'
+                },
+                {
+                    crummainsubtitle: 'app store'
+                },
+                {
+                    crummainsubtitle: 'twitter'
+                },
+                {
+                    crummainsubtitle: 'word of mouth'
+                },
+                {
+                    crummainsubtitle: 'other'
+                },
+            ]
         },
     ]
 

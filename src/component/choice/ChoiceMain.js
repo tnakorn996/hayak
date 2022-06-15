@@ -1,0 +1,215 @@
+import { motion } from 'framer-motion'
+import React from 'react'
+import { useState } from 'react'
+import { useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+import { userui } from '../../content/contentmantwo'
+import { client } from '../../lib/sanity'
+import ButtonMain from '../button/ButtonMain'
+import CardMain from '../card/CardMain'
+
+function ChoiceMain({
+    choicemainid,
+    choicemainindex,
+
+}) {
+    const [choicemainpage, setchoicemainpage] = useState(0)
+    const [choicemainvalue, setchoicemainvalue] = useState('')
+    const [choicemainvaluetwo, setchoicemainvaluetwo] = useState('')
+    const [choicemainvaluethree, setchoicemainvaluethree] = useState('')
+    const [cardmainstatic, setcardmainstatic] = useState()
+    const [buttonmainstatic, setbuttonmainstatic] = useState(false)
+    
+    const [choicemainuuid, setchoicemainuuid] = useState(uuidv4())
+    const [choicemainrender, setchoicemainrender] = useState()
+
+    function ll(first= this.props.first, second= this.props.second) {
+        if(first <= second + 1){
+            setchoicemainpage(first + 1)
+        } 
+    }
+
+    function kk(first= this.props.first, second= this.props.second) {
+        if(first <= second + 1){
+            setchoicemainpage(first - 1)
+        } 
+    }
+
+    function jj(first= this.props.first, second= this.props.second) {
+        if(first === 0){
+            setchoicemainvalue(second)
+        }
+        if(first === 1){
+            setchoicemainvaluetwo(second)
+        }
+        if(first === 2){
+            setchoicemainvaluethree(second)
+        }
+    }
+    
+    const hh = () => {
+        setbuttonmainstatic(true);
+
+        const docmain = [
+            {
+                docmainid: 'userlabel',
+                docmainindex: 0,
+                docmaindata: [
+                    {
+                        _id: choicemainuuid,
+                        _type: 'user',
+                        userid: choicemainuuid,
+                        userpurpose: choicemainvalue,
+                        userage: choicemainvaluetwo,
+                        usersource: choicemainvaluethree,
+                    }
+                ]
+            }
+        ]
+
+        const empty = []
+        const filter = docmain.filter(data => data.docmainid === choicemainid && data.docmainindex === choicemainindex)
+        const filtertwo = filter[0].docmaindata[0]
+        if(filtertwo){
+            if(Object.values(filtertwo).some(props => props === '')){
+                empty.push({'error': 'Please select at least one answer for each question'})
+            } 
+            if(empty.length !== 0){
+                setbuttonmainstatic(false);
+                setcardmainstatic({
+                    cardmainid: 'commentimg',
+                    cardmainidtwo: 'fail',
+                    cardmainidthree: 'feedback',
+                    cardmainmessage: empty,
+                    cardmainindex: 0 ,
+                })
+            }
+            if(empty.length === 0){
+                gg(filter[0].docmaindata[0])
+            }
+        }
+    }
+
+
+    const gg = async (first = this.props.first) => {
+         await client.createOrReplace(first).then(() => {
+            setcardmainstatic({
+                    cardmainid: 'shareimg',
+                    cardmainidtwo: 'success',
+                    cardmainidthree: 'feedback',
+                    cardmainmessage: [{'success': 'Successfully sent your survey'}],
+                    cardmainindex: 0 ,
+            })
+            setbuttonmainstatic(false);
+        });
+    }
+
+    const userlabel = [
+        {
+            choicemainindex:0 ,
+            choicemaindata: [
+                {
+                    choicemaintitle: 'What brings you to TOI?',
+                    choicemainpage:0 ,
+                    choicemainrender: userui.filter(data => data.crummainid === 'purpose'),
+                    // choicemainaction: setchoicemainvalue(),
+                },
+                {
+                    choicemaintitle: 'How old are you?',
+                    choicemainpage:1 ,
+                    choicemainrender: userui.filter(data => data.crummainid === 'age'),
+                    // choicemainaction: setchoicemainvaluetwo(),
+                },
+                {
+                    choicemaintitle: 'How did you hear about TOI?',
+                    choicemainpage:2 ,
+                    choicemainrender: userui.filter(data => data.crummainid === 'source'),
+                    // choicemainaction: setchoicemainvaluethree(),
+                },
+            ]
+        }
+    ]
+
+    const choicemain = [
+        {
+            choicemainid: 'userlabel',
+            choicemainref: userlabel,
+        }
+    ]
+
+    useEffect(() => {
+      if(choicemainid){
+          const filter = choicemain.filter(data => data.choicemainid === choicemainid)
+          const filtertwo = filter[0].choicemainref.filter(data => data.choicemainindex === choicemainindex)
+          const filterthree = filtertwo[0].choicemaindata.filter(data => data.choicemainpage === choicemainpage)
+          setchoicemainrender(filterthree)
+      }
+    }, [choicemainid, choicemainpage])
+
+  return (
+    <div>
+        <main className="">
+            {choicemainrender?.map((data, index) => (<>
+            <section className='px-[20px] md:px-[60px]'>
+                <figure className="flex flex-row justify-start items-center gap-3">
+                    {data?.choicemainpage !== 0 && (<>
+                        <button onClick={() => {
+                            kk(data?.choicemainpage, choicemainrender?.length)
+                        }} className="text-3xl  l-h6 font-sans text-black">←</button>
+                    </>)}
+                    <div className="">
+                        <br />
+                        <br />
+                        <h1 className="m-h5 md:m-h6 font-serif">{data?.choicemaintitle}</h1>
+                        <br />
+                        <br />
+                    </div>
+                </figure>
+                <div className="flex flex-col justify-between items-stretch min-h-[75vh] md:min-h-[60vh]">
+                <figcaption className="grid grid-flow-row">
+                    {data?.choicemainrender[0]?.crummaindata?.map(dat => (<>
+                    <motion.button  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} onClick={() => {
+                        jj(data?.choicemainpage, dat?.crummainsubtitle)
+                    }} className={`p-[15px] flex flex-row justify-center items-center gap-2  m-h2 l-button border-b duration-1000 ${(
+                        dat?.crummainsubtitle === choicemainvalue || 
+                        dat?.crummainsubtitle === choicemainvaluetwo || 
+                        dat?.crummainsubtitle === choicemainvaluethree) && 'bg-gray-700 text-white'}`}>
+                            <h1 className="">{dat?.crummainicon}</h1>
+                            <h1 className="first-letter:uppercase ">{dat?.crummainsubtitle}</h1>
+                        </motion.button>
+                    </>))}
+                </figcaption>
+                <figcaption className="">
+                    <br />
+                    <CardMain 
+                    cardmainid={cardmainstatic?.cardmainid} 
+                    cardmainidtwo={cardmainstatic?.cardmainidtwo} 
+                    cardmainidthree={cardmainstatic?.cardmainidthree} 
+                    cardmainmessage={cardmainstatic?.cardmainmessage} 
+                    cardmainindex={cardmainstatic?.cardmainindex} />
+                </figcaption>
+                </div>
+                <figure className="">
+                    <br />
+                    {data?.choicemainpage < choicemainrender?.length + 1 ? (<>
+                        <button onClick={() => {
+                            ll(data?.choicemainpage, choicemainrender?.length)
+                        }} className="w-full  l-button border border-black">
+                            Continue
+                        </button>
+                        <br />
+                    </>) : (<>
+                        <ButtonMain onclick={() => {
+                            hh()
+                        }} load={buttonmainstatic} title={'Submit'} />
+                    </>) }
+                    <br />
+                </figure>
+            </section>
+            </>))}
+        </main>
+    </div>
+  )
+}
+
+export default ChoiceMain
