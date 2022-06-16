@@ -5,10 +5,10 @@ function SocialMain({param}) {
 
   // document.title = param.toUpperCase().slice(1, param.length);
 
-  const select = document.querySelector('title');
-  select.innerText = `TOI NZ | ${param.toUpperCase().slice(1, param.length)}`;
-  const selecttwo = document.querySelector("meta[name='description']");
-  selecttwo.setAttribute('content', param.toUpperCase().slice(1, param.length))
+  // const select = document.querySelector('title');
+  // select.innerText = `TOI NZ | ${param.toUpperCase().slice(1, param.length)}`;
+  // const selecttwo = document.querySelector("meta[name='description']");
+  // selecttwo.setAttribute('content', param.toUpperCase().slice(1, param.length))
 
   function ll() {
 

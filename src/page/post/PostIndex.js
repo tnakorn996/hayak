@@ -7,6 +7,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {PortableText, PortableTextComponentsProvider} from '@portabletext/react'
 import { useRef } from 'react'
+import {Helmet} from 'react-helmet'
 
 import { ContextMain } from '../../context/contextmain'
 import { client } from '../../lib/sanity'
@@ -452,6 +453,26 @@ function PostIndex() {
 
   return (
     <div>
+        <main className="">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>TOI NZ | {postpostid?.posttitle?.toUpperCase()}</title>
+                <meta name="description" content={postpostid?.postsubtitle} />
+                <meta name="image" property="og:image" content={postpostid?.posthero} />
+            </Helmet>
+                {/* <title>TOI NZ | {postpostid?.posttitle?.toUpperCase()}</title>
+                <meta property="og:type" content="article" />
+                <meta property="og:url" content="http://www.example.com/link" />
+                <meta property="og:image" content="" />
+                <meta property="og:image:alt" content="Alt Text for Image" />
+                <meta property="og:site_name" content="YourSite" />
+                <meta property="og:locale" content="en_US" />
+                <meta property="og:contentnid" content="214" />
+                <meta property="og:contenttype" content="article_listing" />
+                <meta property="og:publishdt" content="Oct 5 , 2018" />
+                <meta property="og:uploadedby" content="" />
+                <meta property="fb:app_id" content="your app id" />  */}
+        </main>
         <main className="flex flex-col md:grid md:grid-cols-12   duration-100">
             <figure className="col-span-12 relative">
                 <section className="overflow-hidden">
