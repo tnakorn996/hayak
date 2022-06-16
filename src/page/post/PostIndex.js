@@ -7,7 +7,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {PortableText, PortableTextComponentsProvider} from '@portabletext/react'
 import { useRef } from 'react'
-import {Helmet} from 'react-helmet'
+// import {Helmet} from 'react-helmet'
 
 import { ContextMain } from '../../context/contextmain'
 import { client } from '../../lib/sanity'
@@ -454,12 +454,12 @@ function PostIndex() {
   return (
     <div>
         <main className="">
-                <Helmet>
+                {/* <Helmet>
                     <meta charSet="utf-8" />
                     <title>TOI NZ | {postpostid?.posttitle?.toUpperCase()}</title>
                     <meta name="description" content={postpostid?.postsubtitle} />
                     <meta name="image" property="og:image" content={postpostid?.posthero} />
-                </Helmet>
+                </Helmet> */}
                 {/* <title>TOI NZ | {postpostid?.posttitle?.toUpperCase()}</title>
                 <meta property="og:type" content="article" />
                 <meta property="og:url" content="http://www.example.com/link" />
@@ -535,7 +535,7 @@ function PostIndex() {
                 </section>
             </figcaption>
             {/* {<SnackbarMain snackbarmainid={'postfooter'} snackbarmaindata={postindexrender && postindexrender} snackbarmaindatatwo={postpostid && postpostid} snackbarmaindatathree={postindexthree && postindexthree} />} */}
-            <figcaption className={`col-span-12 md:sticky md:top-0 md:left-0 min-h-fit grid grid-flow-row  border-b duration-1000 ${postindexstyle}`}>
+            <figcaption className={`col-span-12 md:sticky md:top-0 md:left-0 h-fit grid grid-flow-row  border-b duration-1000 ${postindexstyle}`}>
                 <section className="w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto">
                     <br />
                     {postindexstyle === '' && (<><br /></>)}
@@ -543,7 +543,7 @@ function PostIndex() {
                         <h1 className={`flex flex-row items-center gap-1  l-h2 uppercase tracking-[0.2em]  ${postindexstyle !== '' && '!text-[12px]'}`}><RiContrastDropLine /> {postindexrender ? postindexrender : 'ORIGINAL'}</h1>
                         {<PtaMain ptamainstatic={ptamainstatic} ptamainstyle={'text-xl'} />}
                     </div>
-                    <h1 className={`text-3xl md:text-5xl m-h6 py-[10px] font-serif leading-normal  ${postindexstyle !== '' && '!text-xl !leading-none'}`}>{postpostid?.posttitle}</h1>
+                    <h1 className={`max-w-[80%] text-3xl md:text-5xl m-h6 py-[10px] font-serif leading-normal  ${postindexstyle !== '' && '!text-xl !leading-none'}`}>{postpostid?.posttitle}</h1>
                     {postindexstyle === '' && (<>
                     <h1 className={`first-letter:uppercase  l-h6`}>{postpostid?.postsubtitle}</h1>
                     <br /> 

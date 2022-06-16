@@ -35,7 +35,7 @@ function SlideMain({
             slidemainrender: () => {
 
                 return  slidemaindata?.slice(0, slidemainslice)?.map(data => (<>
-                    <div className="w-[250px] md:w-fit snap-center">
+                    <div className="w-[250px] md:min-w-fit snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
                         }} key={data?.postid} data={data} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid} param={data?.postid} placepostid={data?.placepostid} />
@@ -93,7 +93,7 @@ function SlideMain({
 
                 return  slidemaindata?.slice(0, slidemainslice)?.map(data => (<>
                     {/* <div className="w-[250px] md:w-[300px] snap-center"> */}
-                    <div className="w-[250px] md:w-fit snap-center">
+                    <div className="w-[250px] md:min-w-fit snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
                         }} key={data?.postid} data={data} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} postherotwo={data?.postherotwo} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} placepostid={data?.placepostid} />
