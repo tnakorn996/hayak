@@ -9,11 +9,14 @@ function SocialMain({param}) {
   }, [])
 
   function ll() {
-    const select = document.querySelector('title');
-    select.innerText = `${select.text} | ${'dddddddd'}`;
+    // document.title = param;
 
+    const select = document.querySelector('title');
+    select.innerText = `TOI FOOD NZ | ${param.toUpperCase().slice(1, param.length)}`;
     const selecttwo = document.querySelector("meta[name='description']");
-    selecttwo.setAttribute('content', 'xxxxxxxx')
+    selecttwo.setAttribute('content', param.toUpperCase().slice(1, param.length))
+
+    console.log('param[0].toUpperCase() :>> ', param.toUpperCase().slice(1, param.length));
 
     // document.title ="Welcome | here is your page title to display"; 
     // document.getElementsByName("description").content="dddddddd";
@@ -25,15 +28,15 @@ function SocialMain({param}) {
     <div>
         <main className="">
           <section className="grid grid-flow-col justify-items-center justify-center gap-3 text-center">
-                      <a href={`https://twitter.com/intent/tweet?url=%PUBLIC_URL%${param}&text=${param}`} target="_blank" className="grid justify-items-center gap-3">
+                      <a href={`https://twitter.com/intent/tweet?url=${window.location.origin}${param}&text=${param}`} target="_blank" className="grid justify-items-center gap-3">
                           <RiTwitterFill className='text-xl  m-h6' />
                           {/* <h1 className="l-h1">Twitter</h1> */}
                       </a>
-                      <a href={`https://www.facebook.com/sharer.php?u=%PUBLIC_URL%${param}`} target="_blank" className="grid justify-items-center gap-3">
+                      <a href={`https://www.facebook.com/sharer.php?u=${window.location.origin}${param}`} target="_blank" className="grid justify-items-center gap-3">
                           <RiFacebookFill className='text-xl  m-h6' />
                           {/* <h1 className="l-h1">Facebook</h1> */}
                       </a>
-                      <a href={`https://www.linkedin.com/sharing/share-offsite/?url=%PUBLIC_URL%${param}`} target="_blank" className="grid justify-items-center gap-3">
+                      <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${window.location.origin}${param}`} target="_blank" className="grid justify-items-center gap-3">
                           <RiLinkedinFill className='text-xl  m-h6' />
                           {/* <h1 className="l-h1">Linkedin</h1> */}
                       </a>
