@@ -11,6 +11,7 @@ import HorizonMain from '../../component/post/HorizonMain'
 import SpreadMain from '../../component/spread/SpreadMain'
 import { categoryui, genreui } from '../../content/contentmantwo'
 import { ContextMain } from '../../context/contextmain'
+import { urlFor } from '../../lib/sanity'
 
 
 function PostArticle() {
@@ -78,7 +79,7 @@ function PostArticle() {
                             <LoadingMain />
                         </div>
                         <figure className="h-full w-full flex justify-center items-center">
-                        <img src={postarticlestate?.posthero} alt="" className=" z-0 max-w-[150ch] h-full md:h-fit md:w-full" />
+                        <img src={urlFor(postarticlestate?.posthero)} alt="" className=" z-0 max-w-[150ch] h-full md:h-fit md:w-full" />
                         </figure>
                     </figure>
                 </section>

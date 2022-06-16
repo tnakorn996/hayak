@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 import { ContextMain } from '../../context/contextmain'
+import { urlFor } from '../../lib/sanity'
 import GuideMain from '../guide/GuideMain'
 import LoadingMain from '../load/LoadingMain'
 import VerticleMain from '../post/VerticleMain'
@@ -64,7 +65,7 @@ function SlideMain({
                         </figcaption>
                         <figure className="relative h-[60vh] flex items-center justify-center  overflow-hidden border border-black">
                             <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
-                            <img src={data.posthero} alt="" className="min-w-[100ch] h-fit md:w-full md:h-fit" />
+                            <img src={urlFor(data.posthero)} alt="" className="min-w-[100ch] h-fit md:w-full md:h-fit" />
                         </figure>
                         <div className="w-full  border-b border-black" />
                     </section>
@@ -120,7 +121,7 @@ function SlideMain({
                 return empty?.map(data => (<>
                     <div className="w-screen  snap-center overflow-hidden">
                         <figure className="h-[40vh] md:h-[55vh] relative flex justify-center items-center ">
-                            <img loading='lazy' src={data?.posthero} alt="" className="z-10 min-w-[100ch] min-h-full md:h-fit md:min-w-full" />
+                            <img loading='lazy' src={urlFor(data?.posthero)} alt="" className="z-10 min-w-[100ch] min-h-full md:h-fit md:min-w-full" />
                             <div className="absolute">
                             <LoadingMain />
                             </div>

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { ContextMain } from '../../context/contextmain'
 import HorizonMain from '../../component/post/HorizonMain'
+import { urlFor } from '../../lib/sanity';
 
 function PostDiv() {
     const {
@@ -59,7 +60,7 @@ function PostDiv() {
                 </figcaption>
                 <article className="grid grid-cols-12 items-start">
                     <figure className="relative col-span-7 h-[180px] flex items-center justify-center  overflow-hidden">
-                        <img src={postdivrender[0]?.posthero} alt="" className="absolute" />
+                        <img src={urlFor(postdivrender[0]?.posthero)} alt="" className="absolute" />
                     </figure>
                     <figcaption className="col-span-5 p-[20px]">
                         <h1 className="m-h5">{postdivrender[0]?.posttitle}</h1>

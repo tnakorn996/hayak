@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
 import { ContextMain } from '../../context/contextmain'
+
+// const favouritespan = (state, action) => {
+//   switch (action.type) {
+//     case 0:
+//     return state
+    
+//     default:
+//     return state
+//   }
+// }
 
 function BadgeMain({
   badgemainid,
@@ -13,8 +23,25 @@ function BadgeMain({
     favouritedi,
 
   } = useContext(ContextMain)
+  // const initialState = {
+  //     favouritedi: () => {
+  //         const empty = []
+  //         favouritedi.forEach(data => {
+  //           if(data.sheetmaindata && data.sheetmaindata.length > 0){
+  //             empty.push(data.sheetmaindata.length)
+  //           } 
+  //         })
+  //         return empty.reduce(function(a, b) { return a + b; }, 0)
+  //     }
+  // }
+  // const [state, dispatch] = useReducer(favouritespan, initialState.favouritedi());
+
   const [badgemainrender, setbadgemainrender] = useState()
 
+  // useEffect(() => {
+  //     if(badgemainid === 'favouritespan') return dispatch({type: 0})
+  // }, [badgemainid, favouritedi])
+  
   const favouritespan = [
     {
       badgemainindex: 0,
@@ -26,7 +53,6 @@ function BadgeMain({
           } 
         })
         return empty.reduce(function(a, b) { return a + b; }, 0)
-        // favouritedi?.sheetmaindata?.length?.reduce(function(a, b) { return a + b; }, 0),
       } 
     }
   ]

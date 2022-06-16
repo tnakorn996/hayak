@@ -345,7 +345,6 @@ function PostIndex() {
                     setpostindexmessage(data.message)
                 })
             }
-    
 
     // function kk() {
     //     if(postpostid && postpostid.postblock){

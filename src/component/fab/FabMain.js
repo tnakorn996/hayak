@@ -2,6 +2,7 @@ import React from 'react'
 import { useContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { RiArrowUpCircleLine, RiSurveyLine } from 'react-icons/ri';
 
 import { ContextMain } from '../../context/contextmain';
 
@@ -20,8 +21,8 @@ function FabMain({
     const posttfoot = [
         {
             fabmainindex: 0,
-            fabmaintitle: 'Back to top',
-            fabmainicon: '↑',
+            fabmaintitle: '',
+            fabmainicon: <RiArrowUpCircleLine />,
             fabmainaction: () => {
                 window.scrollTo({
                     top: 0,
@@ -32,8 +33,8 @@ function FabMain({
         },
         {
             fabmainindex: 1,
-            fabmaintitle: 'Survey',
-            fabmainicon: '',
+            fabmaintitle: '',
+            fabmainicon: <RiSurveyLine />,
             fabmainaction: () => {
                 setappmainstate(
                     {
@@ -69,9 +70,9 @@ function FabMain({
                 {fabmainrender?.map(data => (<>
                 <article onClick={() => {
                     data?.fabmainaction()
-                }} className="w-fit flex flex-rowjustify-center items-center l-button shadow border">
+                }} className="p-[10px] w-fit flex flex-row justify-center items-center  bg-white shadow">
                     <h1 className="font-serif">{data?.fabmaintitle}</h1>
-                    <h1 className="l-h2 text-black">{data?.fabmainicon}</h1>
+                    <h1 className="m-h5">{data?.fabmainicon}</h1>
                 </article>
                 </>))}
             </section>

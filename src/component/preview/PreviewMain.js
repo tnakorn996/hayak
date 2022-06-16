@@ -7,6 +7,7 @@ import { RiCloseCircleFill, RiCloseFill, RiContrastDropLine, RiEyeFill, RiEyeLin
 import { useNavigate } from 'react-router-dom'
 
 import { ContextMain } from '../../context/contextmain'
+import { urlFor } from '../../lib/sanity'
 import ContactArticle from '../../page/contact/ContactArticle'
 import MenuArticle from '../../page/menu/MenuArticle'
 import PostArticle from '../../page/post/PostArticle'
@@ -34,7 +35,7 @@ function PreviewMain() {
             previewmainrender: () => {
                 return <section className="">
                     <figure className="p-[20px] flex flex-col justify-center">
-                        <img src={appmainstate?.appmainimage} alt="" className="" />
+                        <img src={urlFor(appmainstate?.appmainimage)} alt="" className="" />
                         <CardMain     
                             cardmainid={'shareimg'}
                             cardmainidtwo={'inform'}
