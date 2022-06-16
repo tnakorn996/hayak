@@ -1,22 +1,16 @@
 import React from 'react'
-import { useEffect } from 'react'
 import { RiFacebookFill, RiLinkedinFill, RiTwitterFill } from 'react-icons/ri'
 
 function SocialMain({param}) {
 
-  useEffect(() => {
-    ll()
-  }, [])
+  // document.title = param.toUpperCase().slice(1, param.length);
+
+  const select = document.querySelector('title');
+  select.innerText = `TOI NZ | ${param.toUpperCase().slice(1, param.length)}`;
+  const selecttwo = document.querySelector("meta[name='description']");
+  selecttwo.setAttribute('content', param.toUpperCase().slice(1, param.length))
 
   function ll() {
-    // document.title = param;
-
-    const select = document.querySelector('title');
-    select.innerText = `TOI FOOD NZ | ${param.toUpperCase().slice(1, param.length)}`;
-    const selecttwo = document.querySelector("meta[name='description']");
-    selecttwo.setAttribute('content', param.toUpperCase().slice(1, param.length))
-
-    console.log('param[0].toUpperCase() :>> ', param.toUpperCase().slice(1, param.length));
 
     // document.title ="Welcome | here is your page title to display"; 
     // document.getElementsByName("description").content="dddddddd";
