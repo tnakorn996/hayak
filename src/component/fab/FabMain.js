@@ -69,7 +69,7 @@ function FabMain({
                 {fabmainrender?.map(data => (<>
                 <article onClick={() => {
                     data?.fabmainaction()
-                }} className="flex flex-rowjustify-center items-center l-button shadow border">
+                }} className="w-fit flex flex-rowjustify-center items-center l-button shadow border">
                     <h1 className="font-serif">{data?.fabmaintitle}</h1>
                     <h1 className="l-h2 text-black">{data?.fabmainicon}</h1>
                 </article>

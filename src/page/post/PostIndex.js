@@ -480,26 +480,9 @@ function PostIndex() {
                     </>)}
                 </section>
             </figcaption>
-            <figcaption className="col-span-12">
-                {/* <br />
-                <hr />
-                <br />
-                <section className="px-[20px] md:px-[60px] max-w-[900px] mx-auto min-h-[20vh] md:h-fit">
-                    <div className="flex flex-row justify-between">
-                        <h1 className="l-h2 uppercase tracking-[0.2em]">{postindexrender && postindexrender}</h1>
-                    </div>
-                    <h1 className="text-3xl md:text-4xl m-h6 py-[10px]  font-serif leading-normal">{postpostid?.posttitle}</h1>
-                    <h1 className="l-h6 ">{postpostid?.postsubtitle}</h1>
-                    <br />
-                    <figure className="">
-                        {postpostid && <BarMain barmainid={'postindextime'} barmainindex={0} barmaindata={postindexthree} />}
-                    </figure>
-                    <br /><hr /><br />
-                </section> */}
-            </figcaption>
             <div className={`relative col-span-12 flex flex-col-reverse`}>
             <figcaption className="col-span-12 md:col-span-7">
-                <section className={`relative px-[20px] md:px-[60px] max-w-[800px] mx-auto h-[50vh] md:h-fit overflow-hidden ${!postindexaction && '!h-fit'}`}>
+                <section className={`relative px-[20px] md:px-[60px] max-w-[750px] mx-auto h-[50vh] md:h-fit overflow-hidden ${!postindexaction && '!h-fit'}`}>
                     {/* {postindexstyle !== '' && (<><br /><br /><br /><br /><br /><br /><br /><br /><br /></>)} */}
                     <br />
                     <br />
@@ -507,7 +490,7 @@ function PostIndex() {
                         <h1 className={`text-base  italic  text-black font-serif`}>{ postpostid?._updatedAt && `This article was last updated on ` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                     <br />
-                    <figcaption className="text-base relative  md:font-light font-serif">
+                    <figcaption className="text-base md:text-xl relative  md:font-light font-serif">
                         <PortableTextComponentsProvider components={component}  >
                             {postpostid?.postblock?.map(data => (<>
                             <PortableText value={data} />
@@ -539,9 +522,9 @@ function PostIndex() {
                         <h1 className={`flex flex-row items-center gap-1  l-h2 uppercase tracking-[0.2em]  ${postindexstyle !== '' && '!text-[12px]'}`}><RiContrastDropLine /> {postindexrender ? postindexrender : 'ORIGINAL'}</h1>
                         {<PtaMain ptamainstatic={ptamainstatic} ptamainstyle={'text-xl'} />}
                     </div>
-                    <h1 className={`text-3xl md:text-5xl m-h6 py-[10px] text-center  font-serif leading-normal  ${postindexstyle !== '' && '!text-xl !leading-none'}`}>{postpostid?.posttitle}</h1>
+                    <h1 className={`text-3xl md:text-5xl m-h6 py-[10px] font-serif leading-normal  ${postindexstyle !== '' && '!text-xl !leading-none'}`}>{postpostid?.posttitle}</h1>
                     {postindexstyle === '' && (<>
-                    <h1 className={`text-center  first-letter:uppercase  l-h6`}>{postpostid?.postsubtitle}</h1>
+                    <h1 className={`first-letter:uppercase  l-h6`}>{postpostid?.postsubtitle}</h1>
                     <br /> 
                     <figure className="">
                         {postpostid && <BarMain barmainid={'postindextime'} barmainindex={0} barmaindata={postindexthree} />}
@@ -553,7 +536,7 @@ function PostIndex() {
                 <section className={`w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto md:h-full grid grid-flow-col items-center`}>
                     <div className="">
                         <CtaMain />
-                        <br />
+                        {postindexstyle === '' && <br />}
                     </div>
                 </section>
             </figcaption>
@@ -584,12 +567,12 @@ function PostIndex() {
                     />
                 </section>
             </figure>
-            <motion.figure initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="z-20 fixed bottom-5 right-5  duration-100">
-            {(postindexstyle || !postindexaction) && (<>
-            <FabMain fabmainid={'posttfoot'} fabmainindex={0} />
-            </>)}
-            <FabMain fabmainid={'posttfoot'} fabmainindex={1} />
-            </motion.figure>
+            <figure className="z-20 fixed bottom-5 right-5 flex flex-col items-end gap-3  duration-100">
+                {/* <FabMain fabmainid={'posttfoot'} fabmainindex={1} /> */}
+                {(postindexstyle || !postindexaction) && (<>
+                <FabMain fabmainid={'posttfoot'} fabmainindex={0} />
+                </>)}
+            </figure>
         </main>
     </div>
   )

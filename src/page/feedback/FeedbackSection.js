@@ -108,9 +108,11 @@ function FeedbackSection() {
           <h1 className="m-h6 font-serif">{feedbacksectionrender?.crummaintitle}</h1>
           <br />
         </section>
+        {sharemainstate && (<>
         <section className="p-[20px]  border">
           <HorizonMain key={feedbacksectionrendertwo?.postid} postid={feedbacksectionrendertwo?.postid} posthero={feedbacksectionrendertwo?.posthero} posttitle={feedbacksectionrendertwo?.posttitle} postsubtitle={feedbacksectionrendertwo?.postsubtitle}  createdat={feedbacksectionrendertwo?._createdAt} param={feedbacksectionrendertwo?.postid} />
         </section>
+        </>)}
         <section className="">
           <FieldMain fieldmainid={'feedbackform'} fieldmainindex={0} fieldmainparam={feedbacksectionrendertwo?.postid} />
         </section>

@@ -898,7 +898,7 @@ export const Provider = ({ children }) => {
                 'postplaceproduct': *[_type == 'post' || _type == 'place' || _type == 'product'] {
                   ...,
                   'placepostid':  *[_type == 'place' && postid == lower(^.placeid) ][0],
-                } | order(_createdAt desc) ,
+                } | order(_updatedAt desc) ,
 
                 'postupdatedat': *[_type == 'post'] {
                   ...,

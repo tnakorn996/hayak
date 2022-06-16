@@ -14,6 +14,7 @@ import { useRef } from 'react'
 import SlideMain from '../../component/slide/SlideMain'
 import JointMain from '../../component/joint/JointMain'
 import ListMain from '../../component/list/ListMain'
+import FabMain from '../../component/fab/FabMain'
 // import LandscapeMain from '../../component/place/LandscapeMain'
 
 function HomeMain() {
@@ -32,43 +33,12 @@ function HomeMain() {
 
     } = useContext(ContextMain)
     const navigate = useNavigate()
-    const [homemainsliceone, sethomemainsliceone] = useState(0)
-    const [homemainslicetwo, sethomemainslicetwo] = useState(12)
-    const [homemainslicethree, sethomemainslicethree] = useState(0)
-    const [homemainslicefour, sethomemainslicefour] = useState(9)
-    const [homemainslicefive, sethomemainslicefive] = useState(0)
-    const [homemainslicesix, sethomemainslicesix] = useState(12)
-    const [homemainsliceseven, sethomemainsliceseven] = useState(0)
-    const [homemainsliceeight, sethomemainsliceeight] = useState(4)
-    const [homemainslicenine, sethomemainslicenine] = useState(0)
-    const [homemainsliceten, sethomemainsliceten] = useState(4)
 
     const [homemainrender, sethomemainrender] = useState()
     const ref = useRef(null)
     const reftwo = useRef(null)
     const refthree = useRef(null)
     const reffour = useRef(null)
-
-    // const homemain = [
-    //     {
-    //         homemainid: 'postupdatedat',
-    //         homemainmap: postupdatedat,
-    //         homemaintitle: 'Trending Blog',
-    //         homemaindirect: '/category/post'
-    //     },
-    //     {
-    //         homemainid: 'placeupdatedat',
-    //         homemainmap: placeupdatedat,
-    //         homemaintitle: 'Hot Places',
-    //         homemaindirect: '/category/place',
-    //     },
-    //             {
-    //         homemainid: 'productupdatedat',
-    //         homemainmap: productupdatedat,
-    //         homemaintitle: 'New Items',
-    //         homemaindirect: '/category/product',
-    //     },
-    // ]
 
     useEffect(() => {
         setwiremainstate({
@@ -120,32 +90,10 @@ function HomeMain() {
             slidemainstyle={'!p-0'}
             slidemainslice={12} />
             </section>
-            {/* <section onClick={() => {
-                    // window.history.replaceState(null, "" , postupdatedat[0]?.postid)
-                      setappmainstate({
-                        appmainid: 'postarticle',
-                        appmainidtwo: 'previewmain',
-                        appmainpage: 0,
-                        appmainparam: postplaceproduct && postplaceproduct[0]?.postid,
-                        appmainboolean: true,
-                      })
-                    }} className="py-[20px] px-[20px] md:px-[60px] h-[85vh] flex flex-col justify-evenly gap-3">
-                <figcaption className="flex flex-col justify-between items-center  border-b border-black">
-                    <h1 className="text-6xl font-serif m-h6">{postplaceproduct && postplaceproduct[0]?.posttitle}</h1>
-                    <button className="m-h3">Read more →</button>
-                </figcaption>
-                <figure className="h-[70vh] flex items-center justify-center  overflow-hidden border border-black">
-                    <img src={postplaceproduct && postplaceproduct[0]?.posthero} alt="" className="max-h-[200ch] w-full" />
-                </figure>
-                <div className="w-full  border-b border-black" />
-            </section> */}
             <br />
             <br />
             <section className=" w-[1200px] md:w-full group">
                 {homemainrender?.map(data => (<>
-                {/* <div className="px-[60px]">
-                <div className="w-full  border-b border-black" />
-                </div> */}
                 <br />
                 <figcaption className="px-[20px] md:px-[60px] w-screen md:w-full flex flex-row justify-between items-center">
                     <h1 className="m-h6  font-serif">{data?.spreadmaintitle}</h1>
@@ -182,6 +130,10 @@ function HomeMain() {
             </ section>
             <br />
             <br />
+
+            <figure className="z-20 fixed bottom-5 right-5 flex flex-col items-end gap-3  duration-100">
+                <FabMain fabmainid={'posttfoot'} fabmainindex={1} />
+            </figure>
 
 
         </main>

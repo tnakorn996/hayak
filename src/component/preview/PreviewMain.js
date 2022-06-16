@@ -74,11 +74,15 @@ function PreviewMain() {
         {
             previewmainindex: 0,
             previewmainrender: <section className="flex flex-col md:grid md:grid-cols-12">
-                <figcaption className="md:col-span-8">
+                <figcaption className="md:col-span-7">
                 <ChoiceMain choicemainid={'userlabel'} choicemainindex={0} />
+                <br />
                 </figcaption>
-                <figure className="hidden md:flex md:col-span-4 h-full items-center">
+                <figure className="relative hidden md:flex md:col-span-5 h-full items-start">
+                    <div className="absolute top-0 left-0 w-full h-full  bg-black opacity-5" />
+                    <div className="w-full h-[90vh] flex justify-center items-center overflow-hidden">
                     <img src="https://ouch-cdn2.icons8.com/kXjxMSrtriPzK2Nzo4zcsd0RjyrD3MHBbNLIJFEQJtM/rs:fit:256:186/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTkw/LzhhNGM1MzllLWJi/MDItNDkwNS05MmQz/LTVhMDRmY2FmMWVh/OC5wbmc.png" alt="" className=" grayscale" />
+                    </div>
                 </figure>
             </section>
         }

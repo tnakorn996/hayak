@@ -27,8 +27,9 @@ function ContactMain() {
                     </>))}
                 </>))}
             </section>
-            <section className="md:col-span-5 p-[50px]">
+            <section className="md:col-span-5 p-[20px] md:p-[50px]">
                 <figcaption className="">
+                    <br />
                     <h1 className="m-h6 font-serif">{data?.breadmainsubtitle}</h1>
                     <br />
                     <h1 className="l-h2">{data?.breadmaindetail}</h1>

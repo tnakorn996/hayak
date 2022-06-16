@@ -136,7 +136,7 @@ function SideboardMain() {
   return (
     <div>
         <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="h-screen w-screen md:max-w-[55vw] fixed top-0 left-0 flex flex-col justify-start items-center  border bg-white shadow-2xl duration-100">
-            <section className="h-[10vh] px-[20px] md:px-[50px] w-full flex flex-row justify-between items-center  shadow">
+            <section className="h-[10vh] px-[20px] md:px-[50px] w-full flex flex-row justify-between items-center">
               <figure className="">
                 <article className=" flex flex-row gap-1 items-center">
                 <figure className="">

@@ -9,6 +9,7 @@ import { breadmain, categorymain, navmain } from '../../content/contentmain'
 import { contactul } from '../../content/contentmantwo'
 import { ContextMain } from '../../context/contextmain'
 import BadgeMain from '../badge/BadgeMain'
+import BrandMain from '../brand/BrandMain'
 import DropdownMain from '../dropdown/DropdownMain'
 
 function NavMain() {
@@ -68,10 +69,11 @@ function NavMain() {
                 <button onClick={() => {
                     navigate('/')
                 }} className="opacity-100">
-                <article className=" flex flex-row gap-1 items-center">
+                <article className=" flex flex-row gap-2 items-center">
                     <figure className="">
                         {/* <div className="w-[20px] h-[20px]  rounded-full bg-black" /> */}
                         <RiContrastDropLine className='m-h6' />
+                        {/* <BrandMain /> */}
                     </figure>
                     <figcaption className="flex flex-row gap-1">
                         <h1 className='m-h6 font-bold font-serif'>TOI</h1>

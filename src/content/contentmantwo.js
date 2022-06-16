@@ -430,19 +430,19 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiHandH
             crummaintitle: 'What brings you to TOI?',
             crummaindata: [
                 {
-                    crummainsubtitle: 'find recipe',
+                    crummainsubtitle: 'find recipes',
                     crummainicon: <RiHandHeartLine />,
                 },
                 {
-                    crummainsubtitle: 'read blog',
+                    crummainsubtitle: 'read the blog',
                     crummainicon: <RiHandHeartLine />,
                 },
                 {
-                    crummainsubtitle: 'find exotic restaurant',
+                    crummainsubtitle: 'find a restaurant',
                     crummainicon: <RiHandHeartLine />,
                 },
                 {
-                    crummainsubtitle: 'find new product',
+                    crummainsubtitle: 'find new products',
                     crummainicon: <RiHandHeartLine />,
                 },
             ]
@@ -482,9 +482,6 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiHandH
                     crummainsubtitle: 'youtube'
                 },
                 {
-                    crummainsubtitle: 'tiktok'
-                },
-                {
                     crummainsubtitle: 'news article or blog'
                 },
                 {
@@ -501,6 +498,60 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiHandH
                 },
             ]
         },
+        {
+            crummainid: 'region',
+            crummaintitle: 'Where in NZ you are from?',
+            crummaindata: [
+                {
+                    crummainsubtitle: 'Bay of Plenty'
+                },
+                {
+                    crummainsubtitle: 'Auckland'
+                },
+                {
+                    crummainsubtitle: 'Canterbury'
+                },
+                {
+                    crummainsubtitle: `Hawke's Bay`
+                },
+                {
+                    crummainsubtitle: 'Gisborne'
+                },
+                {
+                    crummainsubtitle: 'Marlborough'
+                },
+                {
+                    crummainsubtitle: 'Manawatu-Wanganui'
+                },
+                {
+                    crummainsubtitle: 'Northland'
+                },
+                {
+                    crummainsubtitle: 'Nelson'
+                },
+                {
+                    crummainsubtitle: 'Southland'
+                },
+                {
+                    crummainsubtitle: 'Otago'
+                },
+                {
+                    crummainsubtitle: 'Tasman'
+                },
+                {
+                    crummainsubtitle: 'Taranaki'
+                },
+                {
+                    crummainsubtitle: 'Waikato'
+                },
+                {
+                    crummainsubtitle: 'Wellington'
+                },
+                {
+                    crummainsubtitle: 'West Coast'
+                }
+            ]
+        }
     ]
 
 /////////////////////////////////////////////////////
@@ -642,7 +693,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiHandH
             breadmainid: 'comment'
         },
         {
-            sheetmaintitle: `There are some issues:`,
+            sheetmaintitle: `Oops! Something went wrong!`,
             sheetmainsubtitle: `That's all we know.`,
 
             spreadmainid: 'fail',

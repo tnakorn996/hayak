@@ -33,10 +33,11 @@ function WireMain() {
             }} className={` ${data?.crummainstyle}`}>
               <figure className="relative h-[40vh] md:h-[80vh] flex items-center justify-center  overflow-hidden">
                 {/* <div className="absolute w-[900px] h-[900px] -right-80   -rotate-45 scale-50 bg-red-500"> */}
-                <img src={data?.crummainimage} alt="" className="max-w-[100ch] min-h-full  grayscale" />
+                <img src={data?.crummainimage} alt="" className="max-w-[100ch] max-h-full  grayscale scale-50" />
                 {/* </div> */}
-                {/* <div className="absolute bottom-0 h-[10vh] md:h-[50vh] w-full  bg-gradient-to-b from-transparent to-black" /> */}
-                {/* <h1 className="absolute bottom-0 p-[20px] md:text-8xl w-full  m-h6 text-white font-serif truncate">{data.crummaintitle}</h1> */}
+                <div className="absolute bottom-0 h-full w-full  bg-black opacity-5" />
+                {/* <div className="absolute bottom-0 h-[15vh] md:h-[40vh] w-full  bg-gradient-to-b from-transparent to-black" /> */}
+                <h1 className="absolute bottom-0 p-[20px] w-full  l-button font-serif">{data.crummaintitle}</h1>
               </figure>
             </article>
             </>))
