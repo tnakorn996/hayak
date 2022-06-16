@@ -454,12 +454,12 @@ function PostIndex() {
   return (
     <div>
         <main className="">
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>TOI NZ | {postpostid?.posttitle?.toUpperCase()}</title>
-                <meta name="description" content={postpostid?.postsubtitle} />
-                <meta name="image" property="og:image" content={postpostid?.posthero} />
-            </Helmet>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>TOI NZ | {postpostid?.posttitle?.toUpperCase()}</title>
+                    <meta name="description" content={postpostid?.postsubtitle} />
+                    <meta name="image" property="og:image" content={postpostid?.posthero} />
+                </Helmet>
                 {/* <title>TOI NZ | {postpostid?.posttitle?.toUpperCase()}</title>
                 <meta property="og:type" content="article" />
                 <meta property="og:url" content="http://www.example.com/link" />
