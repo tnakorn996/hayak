@@ -76,7 +76,7 @@ function DropdownMain() {
 
   return (
     <div>
-        <motion.main layout className={`w-screen h-0 z-30  overflow-hidden border-b border-black bg-black text-white  duration-500 ${dropdownmainheight && dropdownmainheight} `}>
+        <motion.main layout className={`w-screen h-0 z-30  overflow-hidden  bg-white text-black  duration-500 ${dropdownmainheight && dropdownmainheight} `}>
             <section className="h-full relative flex flex-col md:grid md:grid-cols-12">
                 <figcaption className="h-[90vh] p-[60px] col-span-7 flex flex-col justify-between">
                     <h1 className="m-h6  text-white">{dropdownmaintitle && dropdownmaintitle}</h1>
@@ -117,7 +117,7 @@ function DropdownMain() {
                     <motion.img  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.5}} loading='lazy' src={dropdownmainimage && dropdownmainimage} alt="" className="max-w-[100ch] max-h-full   duration-100 grayscale" />
                     </div>
                 </figure>
-                <article className='w-[70px] h-[70px] text-5xl absolute flex justify-center items-center top-5 right-5  bg-black' >
+                <article className='w-[70px] h-[70px] text-5xl absolute flex justify-center items-center top-5 right-5  bg-white' >
                     <RiCloseFill onClick={() => {
                         setdropdownmainstate('')
                     }} />

@@ -78,8 +78,8 @@ export default function App() {
     const dashboard = (
     <div className="App">
       <main className="">
-        {/* <section className="sticky z-30 top-0 left-0"> */}
-        <section className="duration-100">
+        <section className="absolute z-30 top-0 left-0">
+        {/* <section className="duration-100"> */}
           <NavMain />
         </section>
 

@@ -141,8 +141,12 @@ function CategoryIndex() {
   return (
     <div>
         <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="overflow-hidden duration-100">
-            <section className="px-[20px] md:px-[60px] w-full mx-auto h-[30vh] flex items-center">
+            <section className="px-[20px] md:px-[60px] w-full mx-auto h-[35vh] flex items-center">
                 <div className="">
+                <br />
+                <br />
+                <br />
+                
                 <h1 className="text-3xl font-serif m-h6 first-letter:uppercase">{categoryindextitle} </h1>
                 <br />
                 <h1 className="md:max-w-[900px] l-h2 md:l-h3 first-letter:uppercase leading-relaxed">{categoryindexdetail} </h1>

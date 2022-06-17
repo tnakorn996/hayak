@@ -898,7 +898,7 @@ export const Provider = ({ children }) => {
                 'postplaceproduct': *[_type == 'post' || _type == 'place' || _type == 'product'] {
                   ...,
                   'placepostid':  *[_type == 'place' && postid == lower(^.placeid) ][0],
-                } | order(_updatedAt desc) ,
+                } | order(_createdAt desc) ,
 
                 'postupdatedat': *[_type == 'post'] {
                   ...,
@@ -935,6 +935,7 @@ export const Provider = ({ children }) => {
                   setproductcreatedat(data.productcreatedat);
               })
         }
+        console.log('postplaceproduct :>> ', postplaceproduct);
 
     // if(!postupdatedat) return <LoadMain />
 

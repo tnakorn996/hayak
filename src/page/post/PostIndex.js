@@ -486,7 +486,7 @@ function PostIndex() {
                 <div className="absolute top-60 right-[15%] z-20 flex justify-center items-center">
                     {postpostid?.categoryid === 'recipe' && <GuideMain guidemainid={'posttbody'} guidemainindex={0} guidemaindata={postindextwo} />}
                 </div>
-                <div className="hidden absolute top-5 right-5 z-20 md:flex justify-center items-center">
+                <div className="hidden absolute top-[10vh] right-5 z-20 md:flex justify-center items-center">
                     {<PtaMain ptamainstatic={ptamainstatic} />}
                 </div>
             </figure>

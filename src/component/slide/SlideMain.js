@@ -120,12 +120,12 @@ function SlideMain({
                 ]
                 return empty?.map(data => (<>
                     <div className="w-screen  snap-center overflow-hidden">
-                        <figure className="h-[40vh] md:h-[55vh] relative flex justify-center items-center ">
+                        <figure className="h-[40vh] md:h-[65vh] relative flex justify-center items-center ">
                             <img loading='lazy' src={urlFor(data?.posthero)} alt="" className="z-10 min-w-[100ch] min-h-full md:h-fit md:min-w-full" />
                             <div className="absolute">
                             <LoadingMain />
                             </div>
-                            <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
+                            <div className="z-10 w-full h-full absolute top-0 left-0  bg-white opacity-10" />
                             <div onClick={() => {
                                 setappmainstate({
                                     appmainidtwo: 'previewmain',
@@ -135,7 +135,7 @@ function SlideMain({
                                     appmainsource: data?.postherosource,
                                     appmainboolean: true,
                                 })
-                            }}  className="hidden group-hover:block absolute top-3 left-3 z-30 p-[10px]  ">
+                            }}  className="hidden group-hover:block absolute top-[10vh] left-3 z-30 p-[10px]  ">
                             <button className="l-button opacity-100 border border-black">View image</button>
                             </div>               
   

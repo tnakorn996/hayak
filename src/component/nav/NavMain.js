@@ -26,9 +26,9 @@ function NavMain() {
 
   return (
     <div>
-        <main className="z-20 mx-auto grid grid-cols-11 items-center   bg-white bg-opacity-95 backdrop-blur">
+        <main className={`z-20 mx-auto grid grid-cols-11 items-center  duration-500 ${dropdownmainstate && 'bg-white'}`}>
             <section className="hidden p-[20px] md:px-[60px] md:py-[20px] col-span-5 md:flex flex-row justify-start gap-1">
-                    <div className="flex flex-row">
+                    <div className="flex flex-row gap-10">
                         {breadmain?.map(data => (<>
                         <button 
                         
@@ -44,7 +44,7 @@ function NavMain() {
                         //     navigate(`/category/${data?.categorymaindirect}`)
                         // }} 
                         
-                        className='l-button' >
+                        className='' >
                             <h1 className={`first-letter:uppercase ${dropdownmainstate?.dropdownmainidtwo ===  data?.breadmainid && 'underline'}`}>{data?.breadmaintitle}</h1>
                         </button>
                         </>))}

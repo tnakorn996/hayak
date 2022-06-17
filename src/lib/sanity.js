@@ -13,10 +13,8 @@ export const client = sanityClient({
 
 const builder = imageUrlBuilder(client); 
 export const urlFor = (source) => {
-  if(source === undefined) {
-    return null
-  }
-  if(source !== undefined){
+  if(source === undefined) return null
+  if(source && source.asset !== undefined){
     return builder.image(source); 
   } 
 } 
