@@ -45,7 +45,7 @@ function NavMain() {
                         // }} 
                         
                         className='' >
-                            <h1 className={`first-letter:uppercase ${dropdownmainstate?.dropdownmainidtwo ===  data?.breadmainid && 'underline'}`}>{data?.breadmaintitle}</h1>
+                            <a href={`/category/${data?.breadmainid}`} className={`first-letter:uppercase ${dropdownmainstate?.dropdownmainidtwo ===  data?.breadmainid && 'underline'}`}>{data?.breadmaintitle}</a>
                         </button>
                         </>))}
                     </div>
