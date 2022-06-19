@@ -30,7 +30,7 @@ function PtaMain({
     const postiframe = [
                 {
                     ptamainindex: 0,
-                    ptamainicon: <RiHeartFill className='text-gray-300' />,
+                    ptamainicon: <RiHeartFill className='text-gray-200' />,
                     ptamainaction: ll,
                 },
                 {
@@ -52,38 +52,9 @@ function PtaMain({
 
     useEffect(() => {
         if(ptamainstatic && ptamainstatic.ptamaindata) {
-            // const empty = []
             const parsepost = JSON.parse(window.localStorage.getItem("post"))
-                // for(let i = 0; i < parsepost.favouritemaindata.length; i++){
-                //     if(ptamainstatic.ptamaindata.postid !== parsepost.favouritemaindata[i].postid){
-                //         setptamainindex(0)
-                //     }
-                //     if(ptamainstatic.ptamaindata.postid === parsepost.favouritemaindata[i].postid){
-                //         setptamainindex(1)
-                //     }
-                // }
-
-                // parsepost.favouritemaindata.forEach(data => {
-                //     if(ptamainstatic.ptamaindata.postid !== data.postid){
-                //         setptamainindex(0)
-                //     }
-                //     if(ptamainstatic.ptamaindata.postid === data.postid){
-                //         setptamainindex(1)
-                //     }
-                // })
-
-                // for(const data of parsepost.favouritemaindata) {
-                //     if(ptamainstatic.ptamaindata.postid !== data.postid){
-                //         empty.push({ptamainindex: 0})
-                //         // setptamainindex(0)
-                //     }
-                //     if(ptamainstatic.ptamaindata.postid === data.postid){
-                //         empty.push({ptamainindex: 1})
-                //         // setptamainindex(1)
-                //     }
-                // }
-
-                const filter = parsepost.favouritemaindata.filter(data => data.postid === ptamainstatic.ptamaindata.postid)
+            if(parsepost) {
+            const filter = parsepost?.favouritemaindata?.filter(data => data?.postid === ptamainstatic?.ptamaindata?.postid)
                 if(filter.length === 0){
                     const filtertwo = ptamain.filter(data => data.ptamainid === ptamainstatic.ptamainid);
                     const filterthree = filtertwo[0].ptamainref.filter(data => data.ptamainindex === 0);
@@ -94,29 +65,13 @@ function PtaMain({
                     const filterthree = filtertwo[0].ptamainref.filter(data => data.ptamainindex === 1);
                     setptamainrender(filterthree)
                 }
+            } else {
+                window.localStorage.setItem("post", JSON.stringify({
+                    favouritemaindata: favouritemainstate.favouritemaindata,
+                }))
+            }
         }
     }, [ptamainindex, favouritedi])
-
-    // useEffect(() => {
-    //   if(ptamainstatic && ptamainstatic.ptamaindata) {
-    //     const parsepost = JSON.parse(window.localStorage.getItem("post"))
-    //     const empty = []
-    //         for(const data of parsepost.favouritemaindata) {
-    //             if(ptamainstatic.ptamaindata.postid !== data.postid){
-    //                 empty.push({ptamainindex: 0})
-    //             }
-    //             if(ptamainstatic.ptamaindata.postid === data.postid){
-    //                 empty.push({ptamainindex: 1})
-    //             }
-    //         }
-    //     if(empty.length !== 0){
-    //             const filter = ptamain.filter(data => data.ptamainid === ptamainstatic.ptamainid);
-    //             const filtertwo = filter[0].ptamainref.filter(data => data.ptamainindex === ptamainindex);
-                
-    //             setptamainrender(filtertwo)
-    //     }
-    //   }
-    // }, [])
 
     function ll() {
         const ptamaindata = [

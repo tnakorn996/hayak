@@ -251,11 +251,9 @@ function ZoomMain({
                             <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white">{data.zoommainicon}</span>
                             <figcaption className="">
                                 <div className=" hover:cursor-pointer">
-                                <a onClick={() => {
-                                    // navigate(`/${dat?.postid}`)
-                                }} href={`/${dat?.postid}`} className=" leading-loose !text-gray-400 truncate font-serif">{dat?.posttitle}</a>
-                                <h1 onClick={dat?.blemainaction} className=" leading-loose !text-gray-400 truncate font-serif">{dat?.blemaintitle}</h1>
-                                <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-400 truncate font-serif">{dat?.breadmaintitle}</a>
+                                <a href={`/${dat?.postid}`} className=" leading-loose !text-gray-800 truncate font-serif">{dat?.posttitle}</a>
+                                <h1 onClick={dat?.blemainaction} className=" leading-loose !text-gray-800 truncate font-serif">{dat?.blemaintitle}</h1>
+                                <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-800 truncate font-serif">{dat?.breadmaintitle}</a>
                                 {/* <h1 className="l-h3 truncate">{dat?.postsubtitle}</h1> */}
                                 </div>
                             </figcaption>
