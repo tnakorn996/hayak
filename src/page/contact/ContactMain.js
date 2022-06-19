@@ -5,6 +5,7 @@ function ContactMain() {
 
   return (
     <div>
+        <br /><br /><br /><br />
         <main className="flex flex-col-reverse md:grid md:grid-cols-12">
             {contactul?.slice(0, 1).map(data => (<>
             <section className="md:col-span-7 flex flex-col md:grid md:grid-cols-2">
@@ -15,8 +16,8 @@ function ContactMain() {
                                 <img src={da?.crummainimage} alt="" className="h-full max-w-[100ch]" />
                             </figure>
                             <figcaption className="px-[50px] h-[10vh]">
-                                <h1 className="m-h3">{da?.crummainsubtitle}</h1>
-                                <h1 className="m-h3">{da?.crummaindetail}</h1>
+                                <h1 className="m-h3 font-serif">{da?.crummainsubtitle}</h1>
+                                <h1 className="m-h3 font-serif">{da?.crummaindetail}</h1>
                             </figcaption>
                             <figcaption className="px-[50px] h-[10vh] flex flex-row justify-start gap-1">
                                {dat?.crummaindatatwo?.map(d => (<>

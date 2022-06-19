@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion'
 import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
@@ -108,6 +109,7 @@ function SlideMain({
         {
             slidemainindex: 0,
             slidemainrender: () => {
+                // const empty = []
                 const empty = [
                     {
                         posthero: slidemaindata?.posthero,
@@ -118,6 +120,11 @@ function SlideMain({
                         postherosource: slidemaindata?.postherosourcetwo,
                     },
                 ]
+                // for(const data of ref){
+                //     if(Object.values(data).some(props => props !== undefined)) {
+                //         empty.push(data)
+                //     }
+                // }
                 return empty?.map(data => (<>
                     <div className="w-screen  snap-center overflow-hidden">
                         <figure className="h-[85vh] md:h-[65vh] relative flex justify-center items-center ">
@@ -208,14 +215,16 @@ function SlideMain({
                 <figure ref={slidemainref} className={`relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth ${slidemainstyle && slidemainstyle}`}>
                    {slidemainrender && slidemainrender}
                 </figure>
-                    {!slidemainslice && (<>
+
+                    {(!slidemainslice)  && (<>
                     <button className="opacity-0 group-hover:opacity-100 absolute z-20 top-0 right-0 w-fit h-full justify-center items-center  duration-100">
                     <RiArrowRightSLine onClick={() => {
                         // setslidemainindextwo(slidemaindata?.length - slidemainslice)
                         kk(slidemainref, 1)
-                    }} className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl' />
+                    }} className='hidden md:block text-7xl p-[10px]  l-h6 bg-white shadow-2xl' />
                     </button>
                     </>)}
+                    
                     <div className="hidden md:flex flex-row z-10 absolute -top-10 w-full justify-center items-center ">
                         {/* <figure className="flex flex-row justify-center items-center   border "> */}
                         {(slidemainslice && slidemaindata?.length > 5) && slidemaindata?.slice(0, slidemainslice)?.map((data, index) => (<>

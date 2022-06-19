@@ -69,7 +69,7 @@ function NavMain() {
                 <button onClick={() => {
                     navigate('/')
                 }} className="opacity-100">
-                <article className=" flex flex-row gap-2 items-center">
+                <article className=" flex flex-row gap-1 items-center">
                     <figure className="">
                         {/* <div className="w-[20px] h-[20px]  rounded-full bg-black" /> */}
                         <RiContrastDropLine className='m-h6' />

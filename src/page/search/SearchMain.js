@@ -31,6 +31,7 @@ function SearchMain() {
         <main className="">
           <section className="absolute w-full">
             {landmainstate && <LandMain />}
+          <br /><br /><br /><br />
           </section>
           <section className="p-[20px] md:px-[50px] flex justify-end gap-1 items-center">
             <ChipMain />

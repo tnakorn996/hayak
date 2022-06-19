@@ -4,13 +4,15 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { MdShowChart } from 'react-icons/md'
-import { RiChat4Fill, RiChat4Line, RiLayoutGridFill, RiMapPin3Fill, RiMapPin3Line, RiNewspaperFill, RiNewspaperLine, RiSearch2Line, RiShoppingBag2Fill, RiShoppingBag2Line } from 'react-icons/ri'
+import { RiChat4Fill, RiChat4Line, RiHeartFill, RiLayoutGridFill, RiMapPin3Fill, RiMapPin3Line, RiNewspaperFill, RiNewspaperLine, RiSearch2Line, RiShoppingBag2Fill, RiShoppingBag2Line } from 'react-icons/ri'
 import { VscSearch } from 'react-icons/vsc'
 import { useNavigate } from 'react-router-dom'
 import { categoryul } from '../../content/contentmantwo'
 
 import { ContextMain } from '../../context/contextmain'
+import BarMain from '../bar/BarMain'
 import CardMain from '../card/CardMain'
+import PtaMain from '../pta/PtaMain'
 
 function ZoomMain({
     zoommainid, zoommainslice,
@@ -19,15 +21,16 @@ function ZoomMain({
 
 }) {
     const {
+        localpost, parsepost,
         feedbacklink,
         searchdl,
         favouritedi,
 
-        breadmainstate,
 
-        postupdatedat,
-        placeupdatedat,
-        productupdatedat,
+
+        // postupdatedat,
+        // placeupdatedat,
+        // productupdatedat,
 
     } = useContext(ContextMain)
     const navigate = useNavigate()
@@ -129,19 +132,16 @@ function ZoomMain({
                     zoommaintitle: 'Blog',
                     zoommainrender: (favouritedi[0]?.sheetmaindata),
                     zoommainicon: <RiNewspaperFill />,
-
                 },
                 {
                     zoommaintitle: 'Places',
                     zoommainrender: (favouritedi[1]?.sheetmaindata),
                     zoommainicon: <RiMapPin3Fill />,
-
                 },
                 {
                     zoommaintitle: 'Products',
                     zoommainrender: (favouritedi[2]?.sheetmaindata),
                     zoommainicon: <RiShoppingBag2Fill />,
-
                 },
             ]
         },
@@ -210,6 +210,25 @@ function ZoomMain({
         }
     }, [zoommainid, zoommainindex, zoommainkey])
 
+    // function ll(first= this.props.first) {
+    //     const filter = parsepost.favouritemaindata.filter(data => data.postid !== first.postid)
+    //     window.localStorage.clear()
+    //     window.localStorage.setItem("post", JSON.stringify({
+    //         favouritemaindata: filter,
+    //     }));
+    //     console.log('favouritedizoom>', favouritedi)
+
+    //     setappmainstate({
+    //         appmainid:'overlay',
+    //         appmainidtwo:'toastermain',
+    //     })
+    //     settoastermainstate({
+    //             toastermainid: 'postheader',
+    //             toastermainindex: 2,
+    //             // toastermaindata: [ptamainstate.ptamaindata],
+    //     })
+    // }
+
   return (
     <div>
         <main className="">
@@ -227,7 +246,8 @@ function ZoomMain({
                 <h1 className="m-h2">{data?.zoommaintitle} ({data?.zoommainrender?.length})</h1>
                 <br />
                     {data?.zoommainrender && data?.zoommainrender?.slice(0, zoommainslice)?.map(dat => (<>
-                        <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="p-[10px] grid grid-flow-col md:flex md:flex-row items-center justify-start gap-3">
+                        <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full p-[10px] flex flex-row items-center justify-between  group">
+                            <div className="grid grid-flow-col items-center justify-start gap-3">
                             <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white">{data.zoommainicon}</span>
                             <figcaption className="">
                                 <div className=" hover:cursor-pointer">
@@ -239,11 +259,14 @@ function ZoomMain({
                                 {/* <h1 className="l-h3 truncate">{dat?.postsubtitle}</h1> */}
                                 </div>
                             </figcaption>
-                            {/* <figure className="hidden md:flex col-span-3 justify-end">
-                                <img src={dat?.posticon || dat?.posthero} alt="" className="w-[80px] h-[80px]  border-2 border-black" />
-                            </figure> */}
+                            </div>
+
+                            <motion.div className="opacity-0 group-hover:opacity-100  duration-100">
+                            {zoommainid === 'favouriteinput' && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
+                            </motion.div>
+
                         </motion.figure>
-                        <div className="w-full  border-b border-gray-600" />
+                        <div className="w-full  border-b border-gray-200" />
                     </>))}
                 </figcaption>
                 </>))}

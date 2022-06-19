@@ -94,7 +94,7 @@ export default function App() {
 
             <Route path='/category/:id' element={<CategoryIndex />} /> 
 
-            <Route path='/about/aboutmain' element={<AboutMain />} /> 
+            {/* <Route path='/about/aboutmain' element={<AboutMain />} />  */}
 
             <Route path='/search/searchmain' element={<SearchMain />} /> 
 

@@ -6,8 +6,6 @@ import ProgressBar from "@badrap/bar-of-progress";
 
 import { client } from '../lib/sanity'
 import { RiFeedbackFill, RiShareFill } from 'react-icons/ri';
-import StackMain from '../component/Stack/StackMain';
-import WireMain from '../component/wire/WireMain';
 
 export const ContextMain = createContext()
 
@@ -935,8 +933,6 @@ export const Provider = ({ children }) => {
                   setproductcreatedat(data.productcreatedat);
               })
         }
-        console.log('postplaceproduct :>> ', postplaceproduct);
-
     // if(!postupdatedat) return <LoadMain />
 
     return (

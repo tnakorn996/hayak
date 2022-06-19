@@ -36,7 +36,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = commentlink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full  l-button">{filter[0].blemainentitle}</button>
+                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</button>
                 }
             } 
         },
@@ -49,7 +49,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = termlink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full  l-button">{filter[0].blemainentitle}</button>
+                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</button>
                 }
             } 
         },
@@ -62,7 +62,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = feedbacklink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full  l-button">{filter[0].blemaintitle}</button>
+                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemaintitle} →</button>
                 }
             } 
         },
@@ -75,7 +75,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = commentlink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full  l-button">{filter[0].blemainentitle}</button>
+                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</button>
                 }
             },
         },
@@ -88,7 +88,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = favouritelink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full  l-button">{filter[0].blemainentitle}</button>
+                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</button>
                 }
             },
         },
@@ -101,7 +101,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = faqlink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full  l-button">{filter[0].blemainentitle}</button>
+                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</button>
                 }
             },
         },
@@ -146,10 +146,10 @@ function CardMain({
     }, [cardmainid, cardmainidtwo])
 
   return (
-    <div>
-        <main className="relative">
+    <div className='h-full'>
+        <main className="relative h-full">
             {cardmainrender?.map(data => (<>
-                <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className={`w-full p-[20px] flex flex-col md:grid md:grid-flow-col gap-3 justify-between  border duration-100 ${data?.spreadmainstyle}`}>
+                <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className={`w-full h-full p-[20px] flex flex-col md:grid md:grid-flow-col gap-3 justify-between  border duration-100 ${data?.spreadmainstyle}`}>
                     <div className="flex flex-row items-start gap-3">
                     <section className="col-span-1 ">
                         <h1 className={`hidden md:flex justify-start  l-h3 ${data?.spreadmainstyle}`}>{data?.spreadmainicon}</h1>
@@ -169,7 +169,7 @@ function CardMain({
                         </div>
                     </section>
                     </div>
-                    <section className="w-fit h-fit  border">
+                    <section className="px-[10px] text-xs w-fit h-fit">
                         {cardmainaction && cardmainaction}
                     </section>
                 </motion.figure>

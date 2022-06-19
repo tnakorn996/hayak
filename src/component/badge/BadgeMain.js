@@ -47,6 +47,7 @@ function BadgeMain({
       badgemainindex: 0,
       badgemainrender: () => {
         const empty = []
+        // console.log('favouritedibadge :>> ', favouritedi);
         favouritedi.forEach(data => {
           if(data.sheetmaindata && data.sheetmaindata.length > 0){
             empty.push(data.sheetmaindata.length)

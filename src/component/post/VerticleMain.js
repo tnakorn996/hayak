@@ -12,6 +12,7 @@ import LoadingMain from '../load/LoadingMain'
 import { genreui } from '../../content/contentmantwo'
 import BarMain from '../bar/BarMain'
 import { urlFor } from '../../lib/sanity'
+import PtaMain from '../pta/PtaMain'
 
 function VerticleMain({
   onlick, 
@@ -89,7 +90,6 @@ function VerticleMain({
 
   return (
     <div>
-        {/* <main className="w-[250px] md:w-[300px] snap-center"> */}
         <main className="">
           <article className="relative flex flex-col justify-center">
                 <figure 
@@ -102,7 +102,26 @@ function VerticleMain({
                     //   setverticlemainimage(posthero)
                     // }}
 
-                    onClick={() => {
+                    className="relative row-span-3 overflow-hidden h-[50vh] md:h-[60vh] flex justify-center items-center">
+                    <div className="absolute">
+                    <LoadingMain />
+                    </div>
+                    <div className="z-30 absolute top-3 right-3">
+                    <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: data}} ptamainstyle={'!text-lg'} />
+                    </div>
+                    <div className="z-30 absolute top-0 left-0">
+                      {verticlemainrendertwo && verticlemainrendertwo && (<>
+                      <button onClick={() => {
+                        setbreadmainstate('')
+                        setgenreindexstate({
+                          genreindexid: genreid,
+                        })
+                        navigate(`/category/${type}`)
+                      }} className="text-xs  uppercase m-button opacity-100">{verticlemainrendertwo}</button>
+                      </>)}
+                    </div>
+
+                    <div onClick={() => {
                       // window.history.replaceState(null, "" , postid)
                       // setappmainstate({
                       //   appmainid: 'postarticle',
@@ -118,25 +137,10 @@ function VerticleMain({
                         appmainparam: param,
                         appmainboolean: true,
                       })
-                    }} className="relative row-span-3 overflow-hidden h-[50vh] md:h-[60vh] flex justify-center items-center">
-                    <div className="absolute">
-                    <LoadingMain />
-                    </div>
-                    <div className="z-30 absolute top-0 left-0">
-                      {verticlemainrendertwo && verticlemainrendertwo && (<>
-                      <button onClick={() => {
-                        setbreadmainstate('')
-                        setgenreindexstate({
-                          genreindexid: genreid,
-                        })
-                        navigate(`/category/${type}`)
-                      }} className="text-xs  uppercase l-button opacity-100">{verticlemainrendertwo}</button>
-                      </>)}
-                    </div>
-                    <div className="z-20 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
-                    <motion.img loading='lazy' initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1,  duration: 0.1}} src={urlFor(verticlemainimage)} alt="" className="max-w-[100ch] z-10 h-full duration-1000" />
+                    }} className="z-20 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
+                    <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} loading='lazy' src={urlFor(verticlemainimage)} alt="" className="max-h-[50ch] z-10 max-w-[100ch] duration-100" />
                 </figure>
-                <figure className="relative flex flex-row py-[7px] gap-2 justify-start items-center">
+                <figure className="h-[5vh] relative flex flex-row py-[7px] gap-2 justify-start items-center">
                     {/* {placepostid && (<>
                     <div className="z-20 absolute -top-11 left-3 w-[30px] h-[30px] flex items-center  bg-white rounded-full overflow-hidden shadow">
                         <img src={placepostid?.posticon} alt="" className="" />
@@ -152,7 +156,7 @@ function VerticleMain({
                       <BarMain barmainid='postindextime' barmainindex={2} barmaindata={postindexthree} />
                     </div>
                 </figure>
-                <figcaption className="max-w-[80%] row-span-3 h-[20vh]">
+                <figcaption className="max-w-[90%] row-span-3 h-[20vh]">
                     {/* <div className="flex flex-row gap-2 items-center">
                       <h1 className="text-[9px]  l-h1 truncate">{createdat?.slice(0, 10)}</h1>
                       <h1 className="l-h1 truncate">|</h1>

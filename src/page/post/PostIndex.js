@@ -252,9 +252,9 @@ function PostIndex() {
             //     ptamainid: 'postiframe',
             //     ptamaindata: postpostid,
             // })
-            setptamainstatic({
-                ptamaindata: postpostid
-            })
+            // setptamainstatic({
+            //     ptamaindata: postpostid
+            // })
             setwiremainstate({
                 wiremainid: 'blocktr',
                 wiremainindex: 0,
@@ -486,9 +486,9 @@ function PostIndex() {
                 <div className="absolute top-60 right-[15%] z-20 flex justify-center items-center">
                     {postpostid?.categoryid === 'recipe' && <GuideMain guidemainid={'posttbody'} guidemainindex={0} guidemaindata={postindextwo} />}
                 </div>
-                <div className="hidden absolute top-[10vh] right-5 z-20 md:flex justify-center items-center">
+                {/* <div className="hidden absolute top-[10vh] right-5 z-20 md:flex justify-center items-center">
                     {<PtaMain ptamainstatic={ptamainstatic} />}
-                </div>
+                </div> */}
             </figure>
             <figcaption className="hidden md:block min-h-[30vh] col-span-12">
                 <section className="grid grid-flow-col">
@@ -540,7 +540,7 @@ function PostIndex() {
                     {postindexstyle === '' && (<><br /></>)}
                     <div className="flex flex-row justify-between">
                         <h1 className={`flex flex-row items-center gap-1  l-h2 uppercase tracking-[0.2em]  ${postindexstyle !== '' && '!text-[12px]'}`}><RiContrastDropLine /> {postindexrender ? postindexrender : 'ORIGINAL'}</h1>
-                        {<PtaMain ptamainstatic={ptamainstatic} ptamainstyle={'text-xl'} />}
+                        {<PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamainindex: 0, ptamaindata: postpostid}} ptamainstyle={'text-xl'} />}
                     </div>
                     <h1 className={`md:max-w-[80%] text-3xl md:text-5xl m-h6 py-[10px] font-serif leading-normal  ${postindexstyle !== '' && '!text-xl !leading-none'}`}>{postpostid?.posttitle}</h1>
                     {postindexstyle === '' && (<>

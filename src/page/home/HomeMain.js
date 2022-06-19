@@ -125,15 +125,14 @@ function HomeMain() {
                 <br />
             </section>
             <br />
-            <section className="">
-                <ListMain listmainid={'faqsummary'} listmainindex={0} />
-            </section>
-            <br />
-            <br />
             <section className="px-[20px] md:px-[60px]">
                 <WireMain />
             </ section>
             <br />
+            <br />
+            <section className="">
+                <ListMain listmainid={'faqsummary'} listmainindex={0} />
+            </section>
             <br />
 
             <figure className="z-20 fixed bottom-5 right-5 flex flex-col items-end gap-3  duration-100">

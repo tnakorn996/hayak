@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
-import { RiBookOpenLine, RiChat3Line, RiEyeLine, RiH1, RiMore2Fill, RiMore2Line, RiTimeLine } from 'react-icons/ri'
+import { RiBookOpenLine, RiChat3Line, RiEyeLine, RiH1, RiHeartFill, RiMore2Fill, RiMore2Line, RiTimeLine } from 'react-icons/ri'
 
 import { ContextMain } from '../../context/contextmain'
 import SocialMain from '../../page/social/SocialMain'
@@ -14,11 +14,15 @@ function BarMain({
 
 }) {
     const {
-        barmainstate,
-
+        // barmainstate,
         settabmainstate,
         setappmainstate,
         setsharemainstate,
+        settoastermainstate,
+        setptamainstate,
+
+        parsepost,
+        favouritedi,
 
     } = useContext(ContextMain)
     const [barmainrender, setbarmainrender] = useState()
@@ -129,36 +133,36 @@ function BarMain({
                     barmainrendertwo: () => {},
                 },
 
-                {
-                    barmainindex: 4,
-                    barmainrender: () => {},
-                    barmainrendertwo: () => {
-                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'moredi')
-                        const ref = filter[0]?.postindexthreerender
-                        return <figure onClick={() => {
-                                settabmainstate({
-                                    tabmainid: 'postoption',
-                                    tabmainparam: ref?.postid,
-                                    // tabmainlocation: location.pathname,
-                                    tabmainimage: ref?.posthero,
-                                    tabmaintitle: ref?.posttitle,
-                                })
-                                setappmainstate({
-                                    appmainid: 'postoption',
-                                    appmainidtwo: 'opendeskmain',
-                                    appmainparam: ref?.postid,
-                                    appmainboolean: true,
-                                })
-                                setsharemainstate({
-                                    sharemainparam: ref?.postid,
-                                })
-                            }} className="">
-                                <article className="">
-                                    <RiMore2Fill className='m-h3' />
-                                </article>
-                        </figure>
-                    }, 
-                },
+                // {
+                //     barmainindex: 4,
+                //     barmainrender: () => {},
+                //     barmainrendertwo: () => {
+                //         const filter = barmaindata?.filter(data => data.postindexthreeid === 'moredi')
+                //         const ref = filter[0]?.postindexthreerender
+                //         return <figure onClick={() => {
+                //                 settabmainstate({
+                //                     tabmainid: 'postoption',
+                //                     tabmainparam: ref?.postid,
+                //                     // tabmainlocation: location.pathname,
+                //                     tabmainimage: ref?.posthero,
+                //                     tabmaintitle: ref?.posttitle,
+                //                 })
+                //                 setappmainstate({
+                //                     appmainid: 'postoption',
+                //                     appmainidtwo: 'opendeskmain',
+                //                     appmainparam: ref?.postid,
+                //                     appmainboolean: true,
+                //                 })
+                //                 setsharemainstate({
+                //                     sharemainparam: ref?.postid,
+                //                 })
+                //             }} className="">
+                //                 <article className="">
+                //                     <RiMore2Fill className='m-h3' />
+                //                 </article>
+                //         </figure>
+                //     }, 
+                // },
             ]
         },
         {
@@ -199,13 +203,52 @@ function BarMain({
     ]
 
 
-                            
+    const favouritetime = [
+        {
+            barmainindex: 0,
+            barmaindata: [
+                {
+                    barmainindex: 0,
+                    barmainrender: () => {},
+                    barmainrendertwo: () => {
+                        const filter = parsepost.favouritemaindata.filter(data => data.postid !== barmaindata.postid)
+                        return <RiHeartFill onClick={() => {
+                            window.localStorage.clear()
+                            window.localStorage.setItem("post", JSON.stringify({
+                                favouritemaindata: filter,
+                            }));
+                            // console.log('favouritedibar', favouritedi)
+
+                            // setptamainstate({
+                            //     ptamainid: 'postiframe',
+                            //     ptamainindex: 0,
+                            //     ptamaindata: barmaindata,
+                            // })
+                            setappmainstate({
+                                appmainid:'overlay',
+                                appmainidtwo:'toastermain',
+                            })
+                            settoastermainstate({
+                                    toastermainid: 'postheader',
+                                    toastermainindex: 2,
+                                    // toastermaindata: [ptamainstate.ptamaindata],
+                            })
+                        }} className='m-h2  text-rose-800' />
+                    }, 
+                },
+            ]
+        },
+    ]
 
     const barmain = [
         {
             barmainid: 'postindextime',
             barmainref: postindextime,
-        }
+        },
+        {
+            barmainid: 'favouritetime',
+            barmainref: favouritetime,
+        },
     ]
 
     useEffect(() => {
@@ -260,7 +303,7 @@ function BarMain({
 
   return (
     <div>
-        <main className="grid grid-flow-col gap-3 items-center justify-between">
+        <main className="w-full grid grid-flow-col gap-3 items-center justify-between">
                 <section className="flex flex-row gap-3 justify-start items-center">
                 {barmainrender?.map(data => (<>
                     <article className="flex flex-row gap-1 items-center  m-h4">
@@ -276,7 +319,11 @@ function BarMain({
 
                 <section className="flex flex-row gap-3 justify-end items-center">
                 {barmainrender?.map(data => (<>
+                <article onClick={() => {
+                    data?.barmainaction()
+                }} className="">
                     {data?.barmainrendertwo()}
+                </article>
                 </>))}
                 </section>
 

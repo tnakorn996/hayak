@@ -33,14 +33,6 @@
         @apply text-sm py-[10px] px-[20px] bg-white text-black font-medium;
     }
 
-    .m-article {
-        @apply p-[20px]  border rounded-md;
-    }
-
-    .l-article {
-        @apply p-[10px]  border rounded-md;
-    }
-
     .m-input {
         @apply text-base p-[10px]  bg-transparent border-b border-white focus:outline-none;
     }
@@ -54,7 +46,7 @@
     }
 
     .l-h1 {
-        @apply text-xs text-gray-500 font-light;
+        @apply text-xs text-gray-500 font-thin;
     }
 
     .m-h2 {
@@ -62,7 +54,7 @@
     }
 
     .l-h2 {
-        @apply text-sm text-gray-500 font-light;
+        @apply text-sm text-gray-500 font-thin;
     }
 
     .m-h3 {
@@ -70,7 +62,7 @@
     }
 
     .l-h3 {
-        @apply text-[13px] md:text-base text-gray-500 font-light;
+        @apply text-[13px] md:text-base text-gray-500 font-thin;
     }
 
     .m-h4 {
@@ -78,7 +70,7 @@
     }
 
     .l-h4 {
-        @apply text-[15px] md:text-lg text-gray-500 font-light;
+        @apply text-[15px] md:text-lg text-gray-500 font-thin;
     }
 
     .m-h5 {
@@ -86,7 +78,7 @@
     }
 
     .l-h5 {
-        @apply text-[18px] md:text-xl  text-gray-500 font-light;
+        @apply text-[18px] md:text-xl  text-gray-500 font-thin;
     }
 
     .m-h6 {
@@ -94,7 +86,7 @@
     }
 
     .l-h6 {
-        @apply text-[21px] md:text-2xl  text-gray-500 font-light;
+        @apply text-[21px] md:text-2xl  text-gray-500 font-thin;
     }
 
 }

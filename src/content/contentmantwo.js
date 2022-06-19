@@ -304,7 +304,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiHandH
             breadmainsubtitle: 'The latest stories and updates, direct from Hayak.',
             breadmaindetail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, perspiciatis! Nobis sint illo, praesentium tempore, iure obcaecati dicta explicabo tenetur soluta sequi fugiat rem odio exercitationem esse veritatis quo iste?',
             breadmainentitle: 'See all feeedback',
-            breadmainimage: 'https://images.unsplash.com/photo-1518110925495-5fe2fda0442c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070',
+            breadmainimage: 'https://images.pexels.com/photos/7809766/pexels-photo-7809766.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
             breadmainaction: `/feedback/feedbackmain`,
         },
     ]
@@ -387,7 +387,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiHandH
                 },
                 {
                     crummainkey: 'tanny',
-                    crummainimage: 'https://scontent-akl1-1.xx.fbcdn.net/v/t1.6435-9/86422899_3500717006668905_2951072759226040320_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=8LW46hDXNkoAX9u-iDZ&_nc_ht=scontent-akl1-1.xx&oh=00_AT9bkct1yY7fsjXYjmacsI4Bw8MH2wivT68uz9ZXv7iMyQ&oe=62C7957A',
+                    crummainimage: 'https://lh3.googleusercontent.com/a-/AOh14GiNTYpwEM2VMR4EQaPCoDCur1MaBqBLlcDJC8a8XQ=s576-p-rw-no',
                     crummainsubtitle: 'Tanny Tinna',
                     crummaindetail: 'Co-Founder/Developer',
                 },
