@@ -128,7 +128,7 @@ function SlideMain({
                 return empty?.map(data => (<>
                     <div className="w-screen  snap-center overflow-hidden">
                         <figure className="h-[85vh] md:h-[65vh] relative flex justify-center items-center ">
-                            <img loading='lazy' src={urlFor(data?.posthero)} alt="" className="z-10 min-w-[150ch] min-h-full md:min-w-full md:min-h-fit" />
+                            <img loading='lazy' src={urlFor(data?.posthero)} alt="" className="z-10 max-w-[200ch] min-h-full md:min-w-full md:min-h-fit" />
                             <div className="absolute">
                             <LoadingMain />
                             </div>

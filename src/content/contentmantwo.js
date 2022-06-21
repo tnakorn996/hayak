@@ -1,4 +1,4 @@
-import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiHandHeartLine, RiInformationLine, RiInstagramFill, RiMailFill, RiTwitterFill } from "react-icons/ri"
+import { RiCheckboxCircleFill, RiCheckboxCircleLine, RiCloseCircleLine, RiCloseLine, RiErrorWarningFill, RiFacebookCircleFill, RiHandHeartLine, RiInformationLine, RiInstagramFill, RiLightbulbFill, RiLightbulbLine, RiMailFill, RiTwitterFill } from "react-icons/ri"
 
 ////////////////////////////////////////////////
 
@@ -387,7 +387,7 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiHandH
                 },
                 {
                     crummainkey: 'tanny',
-                    crummainimage: 'https://lh3.googleusercontent.com/a-/AOh14GiNTYpwEM2VMR4EQaPCoDCur1MaBqBLlcDJC8a8XQ=s576-p-rw-no',
+                    crummainimage: 'https://media-exp2.licdn.com/dms/image/C5603AQHc28lHWiNsxQ/profile-displayphoto-shrink_800_800/0/1649925380851?e=1661385600&v=beta&t=zqpDDEOHk6k0Cg-dmz5FiJCoOJoFzEqtuMaDc230-r4',
                     crummainsubtitle: 'Tanny Tinna',
                     crummaindetail: 'Co-Founder/Developer',
                 },
@@ -560,14 +560,14 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiHandH
         {
             spreadmainid: 'success',
             spreadmaintitle: 'Successfully', 
-            spreadmainicon: <RiCheckboxCircleFill />,
+            spreadmainicon: <RiCheckboxCircleLine />,
             spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
             spreadmainstyle: '!bg-emerald-50 !text-emerald-800',
         },
         {
             spreadmainid: 'fail',
             spreadmaintitle: 'Oops 404', 
-            spreadmainicon: <RiErrorWarningFill />,
+            spreadmainicon: <RiCloseCircleLine />,
             spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
             spreadmainstyle: '!bg-red-50 !text-red-800',
         },
@@ -586,12 +586,13 @@ import { RiCheckboxCircleFill, RiErrorWarningFill, RiFacebookCircleFill, RiHandH
             spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
             spreadmainstyle: '!bg-gray-50 !text-gray-800',
         },
+        
         {
-            spreadmainid: 'disclaim',
+            spreadmainid: 'information',
             spreadmaintitle: 'This', 
-            spreadmainicon: <RiInformationLine />,
+            spreadmainicon: <RiLightbulbLine />,
             spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
+            spreadmainstyle: '!bg-blue-50 !text-blue-800 !border-blue-700',
         },
         {
             spreadmainid: 'credit',

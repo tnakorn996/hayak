@@ -38,7 +38,7 @@ function CtaMain() {
                         setsharemainstate({
                           sharemainparam: ctamainstate?.ctamainrender?.postid,
                         })
-            }} className="flex flex-row justify-center gap-3 items-center  m-h3 w-full m-button">Share post <RiShareLine /></button>,
+            }} className="m-h3 w-full m-button">Share post</button>,
             ctamainrendertwo: <button onClick={() => {
                 setappmainstate({
                             appmainid: 'commentdialog',
@@ -65,14 +65,7 @@ function CtaMain() {
                         setsharemainstate({
                           sharemainparam: ctamainstate?.ctamainrender?.postid,
                         })
-                // setappmainstate({
-                //             appmainid: 'sharesection',
-                //             appmainidtwo: 'modalmain',
-                //             appmainidthree: 0,
-                //             appmainparam: param.id,
-                //             appmainboolean: true,
-                //         })
-            }} className="flex flex-row justify-center gap-3 items-center m-h3 w-full m-button">Share recipes <RiShareLine /></button>,
+            }} className="m-h3 w-full m-button">Share recipes</button>,
             ctamainrendertwo: <button onClick={() => {
                 setappmainstate({
                             appmainid: 'commentdialog',
@@ -87,7 +80,7 @@ function CtaMain() {
         {
             ctamainrender: <button onClick={() => {
                 window.open(ctamainstate?.ctamainrender?.postplaceurl, '_blank').focus();
-            }} className="flex flex-row justify-center gap-3 items-center  m-h3 w-full m-button">Owner website <RiExternalLinkLine /></button>,
+            }} className="m-h3 w-full m-button">Owner website</button>,
             ctamainrendertwo: <button onClick={() => {
                 setappmainstate({
                             appmainid: 'commentdialog',
@@ -104,7 +97,7 @@ function CtaMain() {
 
                 return <button onClick={() => {
                     window.open(ctamainstate?.ctamainrender?.placeplaceid[1]?.postplaceurl || ctamainstate?.ctamainrender?.placeplaceid[0]?.postplaceurl, '_blank').focus();
-                }} className="flex flex-row justify-center gap-3 items-center m-h3 w-full m-button">Seller website <RiExternalLinkLine /></button>
+                }} className="flex flex-row justify-center gap-3 items-center m-h3 w-full m-button">Seller website</button>
             },
             ctamainrendertwo: () => {
                 return <button onClick={() => {

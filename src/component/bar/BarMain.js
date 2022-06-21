@@ -303,7 +303,7 @@ function BarMain({
 
   return (
     <div>
-        <main className="w-full grid grid-flow-col gap-3 items-center justify-between">
+        <main className="w-full grid grid-flow-col gap-3 items-center">
                 <section className="flex flex-row gap-3 justify-start items-center">
                 {barmainrender?.map(data => (<>
                     <article className="flex flex-row gap-1 items-center  m-h4">
@@ -317,7 +317,7 @@ function BarMain({
                 </>))}
                 </section>
 
-                <section className="flex flex-row gap-3 justify-end items-center">
+                <section className="flex flex-row gap-2 justify-end items-center">
                 {barmainrender?.map(data => (<>
                 <article onClick={() => {
                     data?.barmainaction()

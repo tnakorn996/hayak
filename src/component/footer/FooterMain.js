@@ -109,10 +109,10 @@ function FooterMain() {
                 </>
                 ))}
 
-                {searchul?.map(data => (<>
+                {/* {searchul?.map(data => (<>
                 <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
                 </>
-                ))}
+                ))} */}
                 
                 {feedbackul?.map(data => (<>
                 <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>

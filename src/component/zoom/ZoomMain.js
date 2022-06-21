@@ -6,8 +6,8 @@ import { useContext } from 'react'
 import { MdShowChart } from 'react-icons/md'
 import { RiChat4Fill, RiChat4Line, RiHeartFill, RiLayoutGridFill, RiMapPin3Fill, RiMapPin3Line, RiNewspaperFill, RiNewspaperLine, RiSearch2Line, RiShoppingBag2Fill, RiShoppingBag2Line } from 'react-icons/ri'
 import { VscSearch } from 'react-icons/vsc'
-import { useNavigate } from 'react-router-dom'
-import { categoryul } from '../../content/contentmantwo'
+// import { useNavigate } from 'react-router-dom'
+// import { categoryul } from '../../content/contentmantwo'
 
 import { ContextMain } from '../../context/contextmain'
 import BarMain from '../bar/BarMain'
@@ -26,14 +26,10 @@ function ZoomMain({
         searchdl,
         favouritedi,
 
-
-
-        // postupdatedat,
-        // placeupdatedat,
-        // productupdatedat,
+        searchmainstate,
 
     } = useContext(ContextMain)
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const [zoommainkey, setzoommainkey] = useState('')
     const [zoommainindex, setzoommainindex] = useState(0)
 
@@ -86,16 +82,6 @@ function ZoomMain({
                     zoommainicon: <RiShoppingBag2Fill />,
 
                 },
-                 {
-                    zoommaintitle: 'Category',
-                    zoommainrender: (categoryul.filter(data => data.breadmainid.toLowerCase().includes(zoommainkey) || data.breadmainid.toLowerCase().includes(zoommainkey))),
-                    zoommainicon: <RiLayoutGridFill />,
-                },
-                {
-                    zoommaintitle: 'Feedback',
-                    zoommainrender: (feedbacklink.filter(data => data.blemaintitle.toLowerCase().includes(zoommainkey) || data.blemainid.toLowerCase().includes(zoommainkey))),
-                    zoommainicon: <RiChat4Fill />,
-                },
                
             ],
         },
@@ -130,17 +116,17 @@ function ZoomMain({
             zoommaindata: [
                 {
                     zoommaintitle: 'Blog',
-                    zoommainrender: (favouritedi[0]?.sheetmaindata),
+                    zoommainrender: favouritedi[0]?.sheetmaindata,
                     zoommainicon: <RiNewspaperFill />,
                 },
                 {
                     zoommaintitle: 'Places',
-                    zoommainrender: (favouritedi[1]?.sheetmaindata),
+                    zoommainrender: favouritedi[1]?.sheetmaindata,
                     zoommainicon: <RiMapPin3Fill />,
                 },
                 {
                     zoommaintitle: 'Products',
-                    zoommainrender: (favouritedi[2]?.sheetmaindata),
+                    zoommainrender: favouritedi[2]?.sheetmaindata,
                     zoommainicon: <RiShoppingBag2Fill />,
                 },
             ]
@@ -186,103 +172,85 @@ function ZoomMain({
     ]
 
     useEffect(() => {
-        if(zoommainkey !== ''){
-            setzoommainindex(1)
-        } 
-        if(zoommainkey === '') {
-            setzoommainindex(0)
-        }
+        if(zoommainkey !== ''){setzoommainindex(1)} 
+        if(zoommainkey === ''){setzoommainindex(0)}
     }, [zoommainkey])
 
     useEffect(() => {
         if(zoommainid){
             const filter = zoommain.filter(data => data.zoommainid === zoommainid)
             const filtertwo = filter[0].zoommainref.filter(data => data.zoommainindex === zoommainindex)
-            const empty = []
-                for(const data of filtertwo[0].zoommaindata){
-                    if(data?.zoommainrender && data.zoommainrender.length !== 0){
-                            empty.push(data)
-                            setzoommaindata(empty)
-                    } 
-                }
+            setzoommaindata(filtertwo[0].zoommaindata)
+            // const empty = []
+            //     for(const data of filtertwo[0].zoommaindata){
+            //         if(data?.zoommainrender && data.zoommainrender.length !== 0){
+            //                 empty.push(data)
+            //                 setzoommaindata(empty)
+                            
+            //         } 
+            //     }
             setzoommaintitle(filtertwo[0].zoommaintitle)
             setzoommainicon(filtertwo[0].zoommainicon)
         }
     }, [zoommainid, zoommainindex, zoommainkey])
 
-    // function ll(first= this.props.first) {
-    //     const filter = parsepost.favouritemaindata.filter(data => data.postid !== first.postid)
-    //     window.localStorage.clear()
-    //     window.localStorage.setItem("post", JSON.stringify({
-    //         favouritemaindata: filter,
-    //     }));
-    //     console.log('favouritedizoom>', favouritedi)
-
-    //     setappmainstate({
-    //         appmainid:'overlay',
-    //         appmainidtwo:'toastermain',
-    //     })
-    //     settoastermainstate({
-    //             toastermainid: 'postheader',
-    //             toastermainindex: 2,
-    //             // toastermaindata: [ptamainstate.ptamaindata],
-    //     })
-    // }
-
+    // useEffect(() => {
+    //     if(searchmainstate && searchmainstate.tabmainindex){
+    //         setzoommaindata()
+    //     }
+    // }, [searchmainstate])
+    
   return (
     <div>
         <main className="">
-            <section autoFocus className="h-[20vh] px-[20px] md:px-[50px] grid grid-flow-row items-center">
+            <section autoFocus className="max-h-[20vh]">
+                <br />
                 <div className="w-full relative flex items-center">
                     <VscSearch className='absolute left-4  l-h6' />
-                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[50px]  l-input border border-gray-600 bg-white text-black" placeholder='Search TOIs' />
+                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[50px]  l-input shadow" placeholder='Search TOIs' />
                 </div>
-                {/* <h1 className="l-h2 italic">Try coffee, kitchen, gift card..</h1> */}
             </section>
-            <section className="px-[20px] md:px-[50px]">
+            <section className="">
+                <br />
+                 <CardMain      
+                        cardmainid={'favouriteimg'} 
+                        cardmainidtwo={'information'} 
+                        // cardmainidthree={'feedback'} 
+                        cardmainmessage={[{'success': 'TIPS: Add or remove your favourite post by clicking the heart icon on the side.'}]} 
+                        cardmainindex={0} 
+                        />
+            </section>
+            <section className="">
                 {zoommaindata?.map(data => (<>
+                {data?.zoommainrender?.length > 0 && (<>
                 <figcaption className="">
                 <br /><br />
                 <h1 className="m-h2">{data?.zoommaintitle} ({data?.zoommainrender?.length})</h1>
                 <br />
-                    {data?.zoommainrender && data?.zoommainrender?.slice(0, zoommainslice)?.map(dat => (<>
+                    {data?.zoommainrender?.slice(0, zoommainslice)?.map(dat => (<>
                         <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full p-[10px] flex flex-row items-center justify-between  group">
                             <div className="grid grid-flow-col items-center justify-start gap-3">
                             <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white">{data.zoommainicon}</span>
-                            <figcaption className="">
-                                <div className=" hover:cursor-pointer">
-                                <a href={`/${dat?.postid}`} className=" leading-loose !text-gray-800 truncate font-serif">{dat?.posttitle}</a>
-                                <h1 onClick={dat?.blemainaction} className=" leading-loose !text-gray-800 truncate font-serif">{dat?.blemaintitle}</h1>
-                                <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-800 truncate font-serif">{dat?.breadmaintitle}</a>
-                                {/* <h1 className="l-h3 truncate">{dat?.postsubtitle}</h1> */}
-                                </div>
+                            <figcaption className="flex flex-row items-center gap-1  truncate">
+                                <a href={`/${dat?.postid}`} className=" leading-loose !text-gray-700 font-serif">{dat?.posttitle}</a>
+                                <h1 onClick={dat?.blemainaction} className=" leading-loose !text-gray-700 font-serif">{dat?.blemaintitle}</h1>
+                                <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-700 font-serif">{dat?.breadmaintitle}</a>
+                                {/* <h1 className="l-h1 truncate">{dat?.postsubtitle}</h1> */}
                             </figcaption>
                             </div>
-
-                            <motion.div className="opacity-0 group-hover:opacity-100  duration-100">
-                            {zoommainid === 'favouriteinput' && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
-                            </motion.div>
+                            {/* <motion.div className="opacity-0 group-hover:opacity-100  duration-100"> */}
+                            {(zoommainid !== 'feedbackinput') && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
+                            {/* </motion.div> */}
 
                         </motion.figure>
                         <div className="w-full  border-b border-gray-200" />
                     </>))}
                 </figcaption>
-                </>))}
-                {!zoommaindata && (<>
-                 <CardMain      
-                        cardmainid={'shareimg'} 
-                        cardmainidtwo={'inform'} 
-                        // cardmainidthree={'feedback'} 
-                        cardmainmessage={
-                            [
-                                {
-                                    'success': 'No added post yet',
-                                }
-                            ]
-                        } 
-                        cardmainindex={0} 
-                        />
                 </>)}
+                </>))}
+                <br />
+
+
             </section>
         </main>
     </div>

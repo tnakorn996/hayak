@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { RiFilter3Fill } from 'react-icons/ri'
 import ChipMain from '../../component/chip/ChipMain'
 import LandMain from '../../component/land/LandMain'
+import TabMain from '../../component/tab/TabMain'
 
 import ZoomMain from '../../component/zoom/ZoomMain'
 import { ContextMain } from '../../context/contextmain'
@@ -56,6 +57,7 @@ function SearchMain() {
           </section>
           <br /><br />
             <section className="">
+              {/* <TabMain tabmainstatic={{tabmainid: 'searchinput'}} /> */}
               {postupdatedat && placeupdatedat && productupdatedat && (<>
                 <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />
               </>)}

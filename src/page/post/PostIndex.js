@@ -28,6 +28,7 @@ import PtaMain from '../../component/pta/PtaMain'
 import SnackbarMain from '../../component/snackbar/SnackbarMain'
 import JointMain from '../../component/joint/JointMain'
 import FabMain from '../../component/fab/FabMain'
+import HorizonMain from '../../component/post/HorizonMain'
 
 function PostIndex() {
     const {
@@ -45,7 +46,8 @@ function PostIndex() {
         setfavouritemainstate, favouritemainstate,
         ptamainstate, setptamainstate,
 
-        parsepost,
+        // parsepost,
+        postplaceproduct,
         postupdatedat,
         placeupdatedat,
         productupdatedat,
@@ -312,9 +314,6 @@ function PostIndex() {
             const filterthree = postindex?.filter(data => data.postindexid === postpostid?._type)
             const filterfour = filterthree[0]?.postindexrenderfour?.filter(data => data?._id !== postpostid?._id)
             setpostindexrenderfour(filterfour)
-            // setsnackbarmainstatic({
-            //     snackbarmainid: 'categoryfooter',
-            // })
       }
     }, [postpostid, postupdatedat, placeupdatedat, productupdatedat])
     
@@ -385,7 +384,7 @@ function PostIndex() {
         },
 
         block: {
-            normal: ({children}) => <h1 className="">{children}</h1>,
+            normal: ({children}) => <h1 className="leading-relaxed">{children}</h1>,
             h1: ({children}) => <h1 className='!text-base'>{children}</h1>,
             h2: ({children}) => <h1 className='text-4xl  !m-h1' >{children}</h1>,
             h3: ({children}) => <h1 className='text-3xl  !m-h2' >{children}</h1>,
@@ -432,12 +431,21 @@ function PostIndex() {
     // }
 
     window.onscroll = function (){
-        // if ((window.innerHeight + document.documentElement.scrollTop) > (document.documentElement.offsetHeight) * 50 /100) {
+        // if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.1)) && window.screen.width > 1000) {
         if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.1)) && window.screen.width > 1000) {
-            setpostindexstyle('!grid-flow-col !bg-white !border !shadow')
+            setpostindexstyle('grid-flow-col !bg-white !border !shadow')
             
         } 
+        // if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.7)) && window.screen.width > 1000) {
         if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.7)) && window.screen.width > 1000) {
+            setpostindexstyle('')
+        }
+
+        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 0.9)) && window.screen.width <= 1000) {
+            setpostindexstyle('!grid-flow-row !bg-white !border !shadow')
+            
+        } 
+        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.8)) && window.screen.width <= 1000) {
             setpostindexstyle('')
         }
     }
@@ -534,7 +542,7 @@ function PostIndex() {
                 </section>
             </figcaption>
             {/* {<SnackbarMain snackbarmainid={'postfooter'} snackbarmaindata={postindexrender && postindexrender} snackbarmaindatatwo={postpostid && postpostid} snackbarmaindatathree={postindexthree && postindexthree} />} */}
-            <figcaption className={`col-span-12 md:sticky md:top-0 md:left-0 h-fit grid grid-flow-row  border-b duration-1000 ${postindexstyle}`}>
+            <figcaption className={`col-span-12 sticky z-10 top-0 left-0 h-fit grid grid-flow-row  duration-1000 ${postindexstyle}`}>
                 <section className="w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto">
                     <br />
                     {postindexstyle === '' && (<><br /></>)}
@@ -553,11 +561,9 @@ function PostIndex() {
                     </>)}
                     <br />
                 </section>
-                <section className={`w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto md:h-full grid grid-flow-col items-center`}>
-                    <div className="">
+                <section className={`w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto md:h-full grid grid-flow-col items-center ${postindexstyle !== '' && 'hidden md:grid'}`}>
                         <CtaMain />
-                        {postindexstyle === '' && <br />}
-                    </div>
+                        {/* {postindexstyle === '' && <br />} */}
                 </section>
             </figcaption>
             </div>
@@ -569,6 +575,7 @@ function PostIndex() {
                     {(placeplaceid && productplaceid && postpostid.categoryid !== 'recipe') && <SpreadMain sheetmainid={'categoryindexdi'} sheetmainindex={1} sheetmaindata={postindextwo}  />}
                 </section>
             </figcaption>
+
             <figure layout className="col-span-12">
                 <br />
                 <br />
@@ -587,6 +594,20 @@ function PostIndex() {
                     />
                 </section>
             </figure>
+            {/* <figure layout className="col-span-12">
+                <br />
+                <br />
+                <hr />
+                <br />
+                <h1 className="px-[20px] md:px-[60px]  m-h5 md:m-h6 font-serif">Recommended from TOI</h1>
+                <br />
+                <section className="px-[20px] md:px-[60px] flex flex-col md:grid md:grid-cols-3 gap-5 overflow-hidden">
+                    {postplaceproduct && postplaceproduct?.slice(0, 9)?.map(data => (<>
+                    <HorizonMain key={data?.postid} postid={data?.postid} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} priceid={data?.priceid} param={data?.postid} />
+                    </>))}
+                </section>
+                <br /><br />
+            </figure> */}
             <figure className="z-20 fixed bottom-5 right-5 flex flex-col items-end gap-3  duration-100">
                 {/* <FabMain fabmainid={'posttfoot'} fabmainindex={1} /> */}
                 {(postindexstyle || !postindexaction) && (<>

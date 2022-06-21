@@ -17,6 +17,7 @@ function NavMain() {
         setappmainstate,
         setdropdownmainstate, dropdownmainstate,
         setbreadmainstate,
+        setsearchmainstate,
 
         postupdatedat,
 
@@ -114,6 +115,7 @@ function NavMain() {
                     }} className="hidden md:block l-button ">{navmain[3].navmaintitle}</button> */}
 
                     <article onClick={() => {
+                            setsearchmainstate({tabmainindex: 0})
                             setappmainstate(
                                 {
                                     appmainid: 'searchdialog',
@@ -126,6 +128,7 @@ function NavMain() {
                     </article>
 
                     <article onClick={() => {
+                            setsearchmainstate({tabmainindex: 1})
                             setappmainstate(
                                 {
                                     appmainid: 'favouritedialog',

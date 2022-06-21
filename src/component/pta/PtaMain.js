@@ -71,9 +71,10 @@ function PtaMain({
                 }))
             }
         }
-    }, [ptamainindex, favouritedi])
+    }, [ptamainindex, ptamainstatic])
 
     function ll() {
+        // console.log('ptamainstatic.ptamaindata.postid', ptamainstatic.ptamaindata.postid)
         const ptamaindata = [
             {
                 ptamainid: 'postiframe',
@@ -105,6 +106,7 @@ function PtaMain({
     }
 
     function kk() {
+        // console.log('ptamainstatic.ptamaindata', ptamainstatic.ptamaindata)
         const ptamaindata = [
             {
                 ptamainid: 'postiframe',

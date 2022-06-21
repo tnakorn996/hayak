@@ -141,7 +141,7 @@ function OpendeskMain() {
                             })
                             setopendeskmainindex(0)
                         }} className="col-span-2  l-button border">←</button>
-                        <h1 className="col-span-9  uppercase l-button border">{opendeskmainrendertwo && opendeskmainrendertwo[0]?.tabmainid}</h1>
+                        <button className="col-span-9  uppercase l-button border">{opendeskmainrendertwo && opendeskmainrendertwo[0]?.tabmainid}</button>
                     </div>
                     <br />
                     <motion.div initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="max-h-full  overflow-y-scroll no-scrollbar  duration-100">

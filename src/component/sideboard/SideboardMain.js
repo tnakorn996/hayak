@@ -13,6 +13,7 @@ import { ContextMain } from '../../context/contextmain'
 import CommentDialog from '../../page/comment/CommentDialog'
 import ZoomMain from '../zoom/ZoomMain'
 import FavouriteDialog from '../../page/favourite/FavouriteDialog'
+import TabMain from '../tab/TabMain'
 
 function SideboardMain() {
   const {
@@ -29,7 +30,10 @@ function SideboardMain() {
 
   const searchdialog = [
     {
-      sideboardrender: postupdatedat && <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />,
+      sideboardrender: postupdatedat && <section className="px-[20px] md:px-[50px]">
+          <TabMain tabmainstatic={{tabmainid: 'searchlegend'}} />
+          {/* <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />, */}
+        </section>,
     },
   ]
 
@@ -136,7 +140,7 @@ function SideboardMain() {
   return (
     <div>
         <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="h-screen w-screen md:max-w-[55vw] fixed top-0 left-0 flex flex-col justify-start items-center  border bg-white shadow-2xl duration-100">
-            <section className="h-[10vh] px-[20px] md:px-[50px] w-full flex flex-row justify-between items-center">
+            <section className="h-[10vh] px-[20px] md:px-[50px] w-full flex flex-row justify-between items-center  shadow">
               <figure className="">
                 <article className=" flex flex-row gap-1 items-center">
                 <figure className="">
@@ -158,6 +162,7 @@ function SideboardMain() {
               </figcaption>
             </section>
             <section className="h-[90vh] w-full  overflow-y-scroll no-scrollbar ">
+            <br />
               {sideboardmainrender && sideboardmainrender}
             </section>
             {/* <section className="h-[10vh] w-full p-[20px] grid grid-flow-col  border-t border-gray-700">

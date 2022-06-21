@@ -17,7 +17,6 @@ export const Provider = ({ children }) => {
 
     const [appmainstate, setappmainstate] = useState('appmain')
     // const [postindexstate, setpostindexstate] = useState()
-    const [searchmainstate, setsearchmainstate] = useState('postupdatedat')
     const [searchinputstate, setsearchinputstate] = useState('')
     const [planformstate, setplanformstate] = useState()
     const [ontromainstate, setontromainstate] = useState()
@@ -48,6 +47,7 @@ export const Provider = ({ children }) => {
     const [favouritemainstate, setfavouritemainstate] = useState({favouritemaindata: []})
     const [ptamainstate, setptamainstate] = useState()
     const [toastermainstate, settoastermainstate] = useState()
+    const [searchmainstate, setsearchmainstate] = useState()
 
     const [userindex, setuserindex] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
@@ -759,12 +759,22 @@ export const Provider = ({ children }) => {
         },
     ]
 
+    // const favouriteselect = [
+    //     {
+    //         tabmainid: 'reader',
+    //         tabmaintitle: 'reader',
+    //         tabmainentitle: 'Reader Picks',
+    //         tabmainrender: ,
+    //     }
+    // ]
+
     const favouritelink = [
         {
             blemainid: 'review',
             blemaintitle: 'review',
             blemainentitle: 'See all Lists',
             blemainaction:  () => {
+                setsearchmainstate({tabmainindex: 1})
                 setappmainstate(
                     {
                         appmainid: 'favouritedialog',
@@ -774,7 +784,28 @@ export const Provider = ({ children }) => {
                 )
             },
 
-            tabmainid: 'post',
+            tabmainid: 'reader',
+        },
+    ]
+
+    const postdl = [
+        {
+            spreadmainid: 'postupdatedat',
+            spreadmaintitle: 'You may also like',
+            spreadmaindata: postupdatedat,
+            spreadmainaction: '/category/post'
+        },
+        {
+            spreadmainid: 'placeupdatedat',
+            spreadmaintitle: 'You may also like',
+            spreadmaindata: placeupdatedat,
+            spreadmainaction: '/category/place'
+        },
+        {
+            spreadmainid: 'productupdatedat',
+            spreadmaintitle: 'You may also like',
+            spreadmaindata: productupdatedat,
+            spreadmainaction: '/category/product'
         },
     ]
 
@@ -923,7 +954,7 @@ export const Provider = ({ children }) => {
               }[0]`;
               await client.fetch(query) 
               .then((data) => {
-                  setuserindex(data)
+                //   setuserindex(data)
                   setpostplaceproduct(data.postplaceproduct)
 
                   setpostupdatedat(data.postupdatedat);
@@ -946,6 +977,7 @@ export const Provider = ({ children }) => {
           termselect, termlink,
           favouritelink,
           homedl,
+          postdl,
           searchdl,
           faqlink, faqselect,
           faqdl, faqdi, 
