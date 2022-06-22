@@ -63,7 +63,7 @@ function PostIndex() {
     // const [postindexrenderthree, setpostindexrenderthree] = useState()
     const [postindexrenderfour, setpostindexrenderfour] = useState()
     const [postindexmessage, setpostindexmessage] = useState()
-    const [postindexaction, setpostindexaction] = useState(true)
+    const [postindexaction, setpostindexaction] = useState(false)
     const [postindexstyle, setpostindexstyle] = useState('')
     const [ptamainstatic, setptamainstatic] = useState()
     // const [snackbarmainstatic, setsnackbarmainstatic] = useState()
@@ -238,7 +238,8 @@ function PostIndex() {
     // ]
 
     useEffect(() => {
-        ll()
+        window.addEventListener('load', ll())
+        // ll()
     }, [])
 
     useEffect(() => {
@@ -489,7 +490,8 @@ function PostIndex() {
                     slidemaindata={postpostid} 
                     slidemainref={ref}
                     slidemainscroll={1000}
-                    slidemainstyle={'!p-0'} />
+                    slidemainstyle={'!p-0'}
+                    slidemaintransform={0.5} />
                 </section>
                 <div className="absolute top-60 right-[15%] z-20 flex justify-center items-center">
                     {postpostid?.categoryid === 'recipe' && <GuideMain guidemainid={'posttbody'} guidemainindex={0} guidemaindata={postindextwo} />}

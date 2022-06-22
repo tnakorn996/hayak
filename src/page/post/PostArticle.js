@@ -24,6 +24,7 @@ function PostArticle() {
 
     } = useContext(ContextMain)
     const navigate = useNavigate()
+    const [postarticleyoffset, setpostarticleyoffset] = useState()
 
     const [postarticlestate, setpostarticlestate] = useState()
     const [postarticlestatetwo, setpostarticlestatetwo] = useState()
@@ -36,6 +37,12 @@ function PostArticle() {
         setpostarticlestate(filter[0])
         setpostarticlestatetwo(filtertwo)
     }, [])
+
+    useEffect(() => {
+       window.addEventListener('scroll', ll)
+        return () => window.removeEventListener('scroll', ll)
+    }, [])
+    
 
     useEffect(() => {
         if(postarticlestate && genreui){
@@ -68,13 +75,16 @@ function PostArticle() {
             postindexthreerender: postarticlestate
         },
     ]
+
+    function ll() {
+        setpostarticleyoffset(window.pageYOffset)
+    }
   
   return (
     <div>
-        <main className="h-screen md:h-full overflow-y-scroll md:overflow-auto">
-                <section className="z-0 sticky top-0 left-0">
+        <main className="h-screen md:h-full overflow-y-scroll">
+                <section className="z-0">
                     <figure className="relative h-[65vh] w-full flex items-center justify-center overflow-hidden">
-
                         <div className="absolute">
                             <LoadingMain />
                         </div>
@@ -95,7 +105,7 @@ function PostArticle() {
                         </div>
                     </figure>
                 </section>
-                <section className="sticky z-10 p-[30px] md:p-[60px] flex flex-col md:grid md:grid-cols-12 gap-5  bg-white">
+                <section className="z-10 p-[30px] md:p-[60px] flex flex-col md:grid md:grid-cols-12 gap-5  bg-white">
                     <figure className="md:col-span-7">
                         <figure className="grid grid-cols-12 items-center  ">
                             <div className="col-span-12 grid grid-cols-12 items-center gap-5">
@@ -152,7 +162,7 @@ function PostArticle() {
 
                     </figcaption>
                 </section>
-                <section className="sticky z-10 p-[30px] md:p-[60px] bg-white">
+                <section className="z-10 p-[30px] md:p-[60px] bg-white">
                     <h1 className="m-h6 font-serif">More like this</h1>
                     <br />
                     <div className="flex flex-col gap-3">
@@ -169,7 +179,6 @@ function PostArticle() {
                     <h1 onClick={() => setpreviewmainpage(previewmainpage + 3)} className="text-3xl">↓</h1>
                     </article> */}
                 </section>
-
         </main>
     </div>
   )

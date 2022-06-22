@@ -19,7 +19,8 @@ function SideboardMain() {
   const {
     appmainstate, setappmainstate,
     setbreadmainstate,
-
+    setsearchmainstate,
+    
     postupdatedat,
 
 
@@ -30,7 +31,7 @@ function SideboardMain() {
 
   const searchdialog = [
     {
-      sideboardrender: postupdatedat && <section className="px-[20px] md:px-[50px]">
+      sideboardrender: postupdatedat && <section className="">
           <TabMain tabmainstatic={{tabmainid: 'searchlegend'}} />
           {/* <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />, */}
         </section>,
@@ -154,6 +155,7 @@ function SideboardMain() {
               <figcaption className="">
                 <article className="">
                 <RiCloseLine onClick={() => {
+                  setsearchmainstate(null)
                   setappmainstate({
                     appmainboolean: false
                   })
@@ -161,7 +163,7 @@ function SideboardMain() {
                 </article> 
               </figcaption>
             </section>
-            <section className="h-[90vh] w-full  overflow-y-scroll no-scrollbar ">
+            <section className="h-[90vh]  overflow-y-scroll no-scrollbar ">
             <br />
               {sideboardmainrender && sideboardmainrender}
             </section>

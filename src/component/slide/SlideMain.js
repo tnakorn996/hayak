@@ -19,6 +19,7 @@ function SlideMain({
     slidemainscroll,
     slidemainslice,
     slidemainstyle,
+    slidemaintransform,
 }) {
     const navigate = useNavigate()
     const {
@@ -28,6 +29,8 @@ function SlideMain({
 
     } = useContext(ContextMain)
     const [slidemainindextwo, setslidemainindextwo] = useState(0)
+    const [slidemainpageyoffset, setslidemainpageyoffset] = useState(0)
+    const [slidemainpageyoffsetstyle, setslidemainpageyoffsetstyle] = useState()
 
     const [slidemainrender, setslidemainrender] = useState()
 
@@ -127,8 +130,8 @@ function SlideMain({
                 // }
                 return empty?.map(data => (<>
                     <div className="w-screen  snap-center overflow-hidden">
-                        <figure className="h-[85vh] md:h-[65vh] relative flex justify-center items-center ">
-                            <img loading='lazy' src={urlFor(data?.posthero)} alt="" className="z-10 max-w-[200ch] min-h-full md:min-w-full md:min-h-fit" />
+                        <figure className="h-[85vh] md:h-[65vh] relative flex justify-center items-center ">                            
+                            <img style={{transform: `translateY(${slidemainpageyoffset * 0.5}px)`}} loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-10 max-w-[200ch] min-h-full md:min-w-full md:min-h-fit`} />
                             <div className="absolute">
                             <LoadingMain />
                             </div>
@@ -169,6 +172,18 @@ function SlideMain({
     ]
 
     useEffect(() => {
+      window.addEventListener('scroll', jj)
+
+      return () => window.removeEventListener('scroll', jj)
+    }, [])
+
+    // useEffect(() => {
+    //   if(slidemainpageyoffset){
+    //     setslidemainpageyoffsetstyle(`hidden translate-y-[${Math.floor(slidemainpageyoffset * 0.5)}px]`)
+    //   }
+    // }, [slidemainpageyoffset])
+    
+    useEffect(() => {
       if(slidemainid) {
           const filter = slidemain.filter(data => data.slidemainid === slidemainid)
           const filtertwo = filter[0].slidemainref.filter(data => data.slidemainindex === slidemainindex)
@@ -176,19 +191,12 @@ function SlideMain({
       }
     }, [slidemainid, slidemaindata, slidemainindex])
 
+    // const scrollleft = slidemainref.current.scrollLeft;
+    // const offsetwidth = slidemainref.current.offsetWidth;
+    // console.log('scrollleft, offsetwidth :>> ', scrollleft, offsetwidth);
     const ll = (first= this.props.first, second= this.props.second, third = this.props.third) => {
-        const scrollleft = first.current.scrollLeft;
-        const offsetwidth = first.current.offsetWidth;
-        
         setslidemainindextwo((slidemainscroll) * third)
         first.current.scrollTo((slidemainscroll) * second * third, 0)
-
-        // if(scrollleft <= offsetwidth) {
-        //     first.current.scrollTo((scrollleft + slidemainscroll) * second, 0)
-        // } 
-        // if(scrollleft > offsetwidth) {
-        //     first.current.scrollTo(0, 0)
-        // }
 
         // const offset = ref.current.offsetWidth;
         // ref.current.scrollTo(ref.current.scrollLeft + offset * delta, 0)
@@ -199,7 +207,6 @@ function SlideMain({
     const kk = (first= this.props.first, second= this.props.second) => {
         const scrollleft = first.current.scrollLeft;
         const offsetwidth = first.current.offsetWidth;
-
         if(scrollleft <= offsetwidth) {
             first.current.scrollTo((scrollleft + slidemainscroll) * second, 0)
         } 
@@ -208,34 +215,37 @@ function SlideMain({
         }
     }
 
+    const jj = () => {
+        setslidemainpageyoffset(window.pageYOffset)
+    }
+    // console.log('slidemainpageyoffset :>> ', Math.floor(slidemainpageyoffset));
+
   return (
     <div>
         <main className="">
             <section className="w-screen md:w-full relative group">
-                <figure ref={slidemainref} className={`relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth ${slidemainstyle && slidemainstyle}`}>
+                <figure style={{transform: `translateY(${slidemaintransform && Math.floor(slidemainpageyoffset * slidemaintransform)}px)`}} ref={slidemainref} className={`relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth ${slidemainstyle && slidemainstyle}`}>
                    {slidemainrender && slidemainrender}
                 </figure>
-
-                    {(!slidemainslice)  && (<>
-                    <button className="opacity-0 group-hover:opacity-100 absolute z-20 top-0 right-0 w-fit h-full justify-center items-center  duration-100">
-                    <RiArrowRightSLine onClick={() => {
-                        // setslidemainindextwo(slidemaindata?.length - slidemainslice)
-                        kk(slidemainref, 1)
-                    }} className='hidden md:block text-7xl p-[10px]  l-h6 bg-white shadow-2xl' />
-                    </button>
-                    </>)}
-                    
-                    <div className="hidden md:flex flex-row z-10 absolute -top-10 w-full justify-center items-center ">
-                        {/* <figure className="flex flex-row justify-center items-center   border "> */}
-                        {(slidemainslice && slidemaindata?.length > 5) && slidemaindata?.slice(0, slidemainslice)?.map((data, index) => (<>
-
-                        <article onClick={() => {
-                            ll(slidemainref, 1, index)
-                        }} className={`p-[10px] w-[7px] h-[7px]  bg-gray-200 duration-100 ${slidemainindextwo === slidemainscroll * index && '!w-[100px] !cursor-default !bg-gray-900'} `}>
-                        </article>
-                        </>))}
-                        {/* </figure> */}
-                    </div>
+                {(!slidemainslice)  && (<>
+                <button className="opacity-0 group-hover:opacity-100 absolute z-20 top-0 right-0 w-fit h-full justify-center items-center  duration-100">
+                <RiArrowRightSLine onClick={() => {
+                    // setslidemainindextwo(slidemaindata?.length - slidemainslice)
+                    kk(slidemainref, 1)
+                }} className='hidden md:block text-7xl p-[10px]  l-h6 bg-white shadow-2xl' />
+                </button>
+                </>)}
+                
+                <div className="hidden md:flex flex-row z-10 absolute -top-10 w-full justify-center items-center ">
+                    {/* <figure className="flex flex-row justify-center items-center   border "> */}
+                    {(slidemainslice && slidemaindata?.length > 5) && slidemaindata?.slice(0, slidemainslice)?.map((data, index) => (<>
+                    <article onClick={() => {
+                        ll(slidemainref, 1, index)
+                    }} className={`p-[10px] w-[7px] h-[7px]  bg-gray-200 duration-100 ${slidemainindextwo === slidemainscroll * index && '!w-[100px] !cursor-default !bg-gray-900'} `}>
+                    </article>
+                    </>))}
+                    {/* </figure> */}
+                </div>
             </section>
         </main>
     </div>

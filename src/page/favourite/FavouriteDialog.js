@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import CardMain from '../../component/card/CardMain'
@@ -13,6 +13,8 @@ function FavouriteDialog() {
         favouritedl, favouritedi,
 
     } = useContext(ContextMain)
+    // const ref = useRef(null)
+    const reftwo = useRef(null)
 
   return (
     <div>
@@ -21,11 +23,9 @@ function FavouriteDialog() {
                 <br /><br />
                 <h1 className="m-h6 font-serif">Reading List</h1>
             </section> */}
-            <section className="px-[20px] md:px-[50px]">
                 {/* <br /><br /> */}
-                <TabMain tabmainstatic={{tabmainid:'favouritelegend'}} />
+                <TabMain reftwo={reftwo} tabmainstatic={{tabmainid:'favouritelegend'}} />
                 {/* <ZoomMain zoommainid={'favouriteinput'} zoommainslice={10} /> */}
-            </section>
         </main>
     </div>
   )

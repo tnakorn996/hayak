@@ -210,7 +210,7 @@ function ZoomMain({
                     <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[50px]  l-input shadow" placeholder='Search TOIs' />
                 </div>
             </section>
-            <section className="">
+            {/* <section className="">
                 <br />
                  <CardMain      
                         cardmainid={'favouriteimg'} 
@@ -219,7 +219,7 @@ function ZoomMain({
                         cardmainmessage={[{'success': 'TIPS: Add or remove your favourite post by clicking the heart icon on the side.'}]} 
                         cardmainindex={0} 
                         />
-            </section>
+            </section> */}
             <section className="">
                 {zoommaindata?.map(data => (<>
                 {data?.zoommainrender?.length > 0 && (<>
@@ -231,10 +231,10 @@ function ZoomMain({
                         <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full p-[10px] flex flex-row items-center justify-between  group">
                             <div className="grid grid-flow-col items-center justify-start gap-3">
                             <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white">{data.zoommainicon}</span>
-                            <figcaption className="flex flex-row items-center gap-1  truncate">
-                                <a href={`/${dat?.postid}`} className=" leading-loose !text-gray-700 font-serif">{dat?.posttitle}</a>
-                                <h1 onClick={dat?.blemainaction} className=" leading-loose !text-gray-700 font-serif">{dat?.blemaintitle}</h1>
-                                <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-700 font-serif">{dat?.breadmaintitle}</a>
+                            <figcaption className="flex flex-row items-center gap-1">
+                                <a href={`/${dat?.postid}`} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.posttitle}</a>
+                                <h1 onClick={dat?.blemainaction} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.blemaintitle}</h1>
+                                <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-700 font-serif truncate">{dat?.breadmaintitle}</a>
                                 {/* <h1 className="l-h1 truncate">{dat?.postsubtitle}</h1> */}
                             </figcaption>
                             </div>

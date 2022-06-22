@@ -26,7 +26,8 @@ function CommentDialog() {
     const [commentdialogsubtitle, setcommentdialogsubtitle] = useState('')
 
     useEffect(() => {
-        ll()
+        window.addEventListener("load", ll())
+        // ll()
     }, [])
 
     const ll = async () => {

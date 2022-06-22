@@ -58,7 +58,9 @@ export const Provider = ({ children }) => {
     const [placecreatedat, setplacecreatedat] = useState()
 
     useEffect(() => {
-        pp()
+        window.addEventListener('load', pp())
+        // pp()
+        return window.removeEventListener('load', pp())
     }, [])
 
     // const progress = new ProgressBar({
