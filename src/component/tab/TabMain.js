@@ -23,14 +23,14 @@ function TabMain({
         {
             tabmainindex: 0,
             tabmaintitle: 'Search',
-            tabmainrender: <section className="w-screen md:w-[55vw]  snap-end">
+            tabmainrender: <section className="w-screen md:w-[55vw]  snap-start">
                 <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />
             </section>
         },
         {
             tabmainindex: 1,
             tabmaintitle: 'Reading List',
-            tabmainrender: <section className="w-screen md:w-[55vw]  snap-end">
+            tabmainrender: <section className="w-screen md:w-[55vw]  snap-start">
                 <ZoomMain zoommainid={'favouriteinput'} zoommainslice={10} />
             </section>
         },
@@ -40,14 +40,14 @@ function TabMain({
         {
             tabmainindex: 0,
             tabmaintitle: 'Search',
-            tabmainrender: <section className="w-screen md:w-[55vw]  snap-end">
+            tabmainrender: <section className="w-screen md:w-[55vw]  snap-start">
                 <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />
             </section>
         },
         {
             tabmainindex: 1,
             tabmaintitle: 'Reading List',
-            tabmainrender: <section className="w-screen md:w-[55vw]  snap-end">
+            tabmainrender: <section className="w-screen md:w-[55vw]  snap-start">
                 <ZoomMain zoommainid={'favouriteinput'} zoommainslice={10} />
             </section>
         },
@@ -64,18 +64,16 @@ function TabMain({
         }
     ]
 
-    useEffect(() => {
-            if(searchmainstate && searchmainstate.tabmainindex === 0){
-                tabmainref?.current?.scrollTo(0, 0)
-                console.log('first :>> ');
-            }
-            if(searchmainstate && searchmainstate.tabmainindex === 1){
-                tabmainref?.current?.scrollTo(1000, 0)
-                console.log('sec :>> ');
-            } else {
-                console.log('third :>> ');
-            }
-    }, [])
+    // useEffect(() => {
+    //         if(searchmainstate && searchmainstate.tabmainindex === 0){
+    //             tabmainref?.current?.scrollTo(0, 0)
+    //             // console.log('first :>> ');
+    //         }
+    //         if(searchmainstate && searchmainstate.tabmainindex === 1){
+    //             tabmainref?.current?.scrollTo(1000, 0)
+    //             // console.log('sec :>> ');
+    //         }
+    // }, [])
 
     useEffect(() => {
         if(tabmainstatic && searchmainstate){
@@ -109,15 +107,15 @@ function TabMain({
     }, [searchmainstate, tabmainrender])
 
     function ll(first=this.props.first){
-        // console.log('first :>> ', first.targetTouches[0].clientX);
+        console.log('first :>> ', first.targetTouches[0].clientX);
         settabmainpagetouchstart(first.targetTouches[0].clientX)
     }
     function kk(first=this.props.first){
-        // console.log('sec :>> ', first.targetTouches[0].clientX);
+        console.log('sec :>> ', first.targetTouches[0].clientX);
         settabmainpagetouchend(first.targetTouches[0].clientX)
     }
     function jj(){
-        // console.log('thr :>> ');
+        console.log('thr :>> ');
         if(tabmainpagetouchstart - tabmainpagetouchend > 200){
             setsearchmainstate({tabmainindex: 1})
         }
@@ -127,8 +125,9 @@ function TabMain({
         // console.log('ref.current.scrollLeft :>> ', ref.current.scrollLeft);
     }
 
-    if(tabmainref === undefined) return null
-    if(searchmainstate === null) return null
+    // if(tabmainref === undefined) return null
+    // if(searchmainstate === null) return null
+
 
   return (
     <div className=''>
@@ -150,7 +149,7 @@ function TabMain({
                 </>))}
             </section>
             <section className="">
-                <div ref={tabmainref} onTouchStart={p => ll(p)} onTouchMove={p => kk(p)} onTouchEnd={() => jj()} className="w-screen md:w-[55vw] first-letter: overflow-x-scroll md:overflow-x-hidden overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth">
+                <div ref={tabmainref} onTouchStart={p => ll(p)} onTouchMove={p => kk(p)} onTouchEnd={() => jj()} className="w-screen md:w-[55vw] overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth">
                     <figure className="flex flex-row w-fit">
                             {tabmainrendertwo && tabmainrendertwo?.map(data => (<>
                             {data?.tabmainrender}

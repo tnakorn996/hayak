@@ -83,7 +83,7 @@ function PostArticle() {
   return (
     <div>
         <main className="h-screen md:h-full overflow-y-scroll">
-                <section className="z-0">
+                <section className="z-0 sticky top-0 left-0">
                     <figure className="relative h-[65vh] w-full flex items-center justify-center overflow-hidden">
                         <div className="absolute">
                             <LoadingMain />
@@ -93,7 +93,7 @@ function PostArticle() {
                         </figure>
                     </figure>
                 </section>
-                <section className="">
+                <section className="z-0">
                     <figure className="w-full relative">
                         <div className="z-10 absolute bottom-0 left-0 min-h-[25vh] md:min-h-[40vh] w-full  bg-gradient-to-b from-transparent to-white" />
                         <div className="z-10 absolute bottom-1 right-8" >
@@ -105,7 +105,7 @@ function PostArticle() {
                         </div>
                     </figure>
                 </section>
-                <section className="z-10 p-[30px] md:p-[60px] flex flex-col md:grid md:grid-cols-12 gap-5  bg-white">
+                <section className="sticky z-10 p-[30px] md:p-[60px] flex flex-col md:grid md:grid-cols-12 gap-5  bg-white">
                     <figure className="md:col-span-7">
                         <figure className="grid grid-cols-12 items-center  ">
                             <div className="col-span-12 grid grid-cols-12 items-center gap-5">
@@ -162,7 +162,7 @@ function PostArticle() {
 
                     </figcaption>
                 </section>
-                <section className="z-10 p-[30px] md:p-[60px] bg-white">
+                <section className="sticky z-10 p-[30px] md:p-[60px] bg-white">
                     <h1 className="m-h6 font-serif">More like this</h1>
                     <br />
                     <div className="flex flex-col gap-3">
