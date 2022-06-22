@@ -131,7 +131,7 @@ function SlideMain({
                 return empty?.map(data => (<>
                     <div className="w-screen  snap-center overflow-hidden">
                         <figure className="h-[85vh] md:h-[65vh] relative flex justify-center items-center ">                            
-                            <img style={{transform: `translateY(${slidemainpageyoffset * 0.5}px)`}} loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-10 max-w-[200ch] min-h-full md:min-w-full md:min-h-fit  duration-100`} />
+                            <img style={{transform: `translateY(${Math.floor(slidemainpageyoffset * 0.5)}px)`}} loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-10 max-w-[200ch] min-h-full md:min-w-full md:min-h-fit  duration-100`} />
                             <div className="absolute">
                             <LoadingMain />
                             </div>

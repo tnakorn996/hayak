@@ -116,10 +116,10 @@ function TabMain({
     }
     function jj(){
         console.log('thr :>> ');
-        if(tabmainpagetouchstart - tabmainpagetouchend > 200){
+        if(tabmainpagetouchstart - tabmainpagetouchend > 50){
             setsearchmainstate({tabmainindex: 1})
         }
-        if(tabmainpagetouchstart - tabmainpagetouchend < -200){
+        if(tabmainpagetouchstart - tabmainpagetouchend < -50){
             setsearchmainstate({tabmainindex: 0})
         }
         // console.log('ref.current.scrollLeft :>> ', ref.current.scrollLeft);
