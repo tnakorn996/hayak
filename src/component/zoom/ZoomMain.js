@@ -202,24 +202,15 @@ function ZoomMain({
     
   return (
     <div>
-        <main className="">
+        <main className="px-[20px] md:px-[50px]">
             <section autoFocus className="max-h-[20vh]">
                 <br />
                 <div className="w-full relative flex items-center">
                     <VscSearch className='absolute left-4  l-h6' />
-                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[50px]  l-input shadow" placeholder='Search TOIs' />
+                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[50px]  l-input border border-black" placeholder='Search TOIs' />
                 </div>
             </section>
-            {/* <section className="">
-                <br />
-                 <CardMain      
-                        cardmainid={'favouriteimg'} 
-                        cardmainidtwo={'information'} 
-                        // cardmainidthree={'feedback'} 
-                        cardmainmessage={[{'success': 'TIPS: Add or remove your favourite post by clicking the heart icon on the side.'}]} 
-                        cardmainindex={0} 
-                        />
-            </section> */}
+
             <section className="">
                 {zoommaindata?.map(data => (<>
                 {data?.zoommainrender?.length > 0 && (<>
@@ -230,8 +221,8 @@ function ZoomMain({
                     {data?.zoommainrender?.slice(0, zoommainslice)?.map(dat => (<>
                         <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full p-[10px] flex flex-row items-center justify-between  group">
                             <div className="grid grid-flow-col items-center justify-start gap-3">
-                            <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white">{data.zoommainicon}</span>
-                            <figcaption className="flex flex-row items-center gap-1">
+                            <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white ">{data.zoommainicon}</span>
+                            <figcaption className="flex flex-row items-center gap-1  truncate">
                                 <a href={`/${dat?.postid}`} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.posttitle}</a>
                                 <h1 onClick={dat?.blemainaction} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.blemaintitle}</h1>
                                 <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-700 font-serif truncate">{dat?.breadmaintitle}</a>

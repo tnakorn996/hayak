@@ -131,7 +131,7 @@ function SlideMain({
                 return empty?.map(data => (<>
                     <div className="w-screen  snap-center overflow-hidden">
                         <figure className="h-[85vh] md:h-[65vh] relative flex justify-center items-center ">                            
-                            <img style={{transform: `translateY(${slidemainpageyoffset * 0.9}px)`}} loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-10 max-w-[200ch] min-h-full md:min-w-full md:min-h-fit  duration-1000`} />
+                            <img loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-10 max-w-[200ch] min-h-full md:min-w-full md:min-h-fit`} />
                             <div className="absolute">
                             <LoadingMain />
                             </div>
@@ -224,15 +224,17 @@ function SlideMain({
     <div>
         <main className="">
             <section className="w-screen md:w-full relative group">
-                <figure style={{transform: `translateY(${slidemaintransform && Math.floor(slidemainpageyoffset * slidemaintransform)}px)`}} ref={slidemainref} className={`relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth ${slidemainstyle && slidemainstyle}`}>
+                
+                <figure style={{transform: `translateY(${slidemaintransform && slidemainpageyoffset * (slidemaintransform || 0.5)}px)`}} ref={slidemainref} className={`relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth duration-100 md:duration-[0ms] ${slidemainstyle && slidemainstyle}`}>
                    {slidemainrender && slidemainrender}
                 </figure>
+
                 {(!slidemainslice)  && (<>
                 <button className="opacity-0 group-hover:opacity-100 absolute z-20 top-0 right-0 w-fit h-full justify-center items-center  duration-100">
-                <RiArrowRightSLine onClick={() => {
-                    // setslidemainindextwo(slidemaindata?.length - slidemainslice)
-                    kk(slidemainref, 1)
-                }} className='hidden md:block text-7xl p-[10px]  l-h6 bg-white shadow-2xl' />
+                    <RiArrowRightSLine onClick={() => {
+                        // setslidemainindextwo(slidemaindata?.length - slidemainslice)
+                        kk(slidemainref, 1)
+                    }} className='hidden md:block text-7xl p-[10px]  l-h6 bg-white shadow-2xl' />
                 </button>
                 </>)}
                 

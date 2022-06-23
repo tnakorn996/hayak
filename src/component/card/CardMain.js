@@ -169,7 +169,7 @@ function CardMain({
                     </section>
                     <section className="col-span-8">
                         {cardmainrendertwo !== '' && cardmainrendertwo?.map(dat => (<>
-                        <h1 className="m-h2 font-serif">{dat?.sheetmaintitle || dat?.blemaintitle}</h1>
+                        <h1 className="m-h2">{dat?.sheetmaintitle || dat?.blemaintitle}</h1>
                         <div className="h-[10px]" />
                         {/* <h1 className="py-[10px] md:p-0  l-h1">{dat?.sheetmainsubtitle || dat?.blemainsubtitle}</h1> */}
                         </>))}

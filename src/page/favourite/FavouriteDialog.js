@@ -23,9 +23,11 @@ function FavouriteDialog() {
                 <br /><br />
                 <h1 className="m-h6 font-serif">Reading List</h1>
             </section> */}
+            <section className="">
                 {/* <br /><br /> */}
                 <TabMain reftwo={reftwo} tabmainstatic={{tabmainid:'favouritelegend'}} />
                 {/* <ZoomMain zoommainid={'favouriteinput'} zoommainslice={10} /> */}
+            </section>
         </main>
     </div>
   )

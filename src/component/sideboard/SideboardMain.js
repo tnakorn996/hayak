@@ -19,7 +19,7 @@ function SideboardMain() {
   const {
     appmainstate, setappmainstate,
     setbreadmainstate,
-    setsearchmainstate,
+    setsearchmainstate, searchmainstate,
     
     postupdatedat,
 
@@ -30,11 +30,14 @@ function SideboardMain() {
   const navigate = useNavigate()
 
   const searchdialog = [
+    // {
+    //   sideboardrender: postupdatedat && <section className="">
+    //       <TabMain tabmainstatic={{tabmainid: 'searchlegend'}} />
+    //       {/* <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />, */}
+    //     </section>,
+    // },
     {
-      sideboardrender: postupdatedat && <section className="">
-          <TabMain tabmainstatic={{tabmainid: 'searchlegend'}} />
-          {/* <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />, */}
-        </section>,
+      sideboardrender: postupdatedat && <FavouriteDialog />
     },
   ]
 
@@ -47,8 +50,8 @@ function SideboardMain() {
   const navdialog = [
     {
       sideboardrender: () => {
-        return <main className="h-full flex flex-col justify-between">
-          <section className="h-[80vh]">
+        return <main className="h-full flex flex-col">
+          <section className="h-[75vh]">
             {categoryul?.map(data => (<>
               <article onClick={() => {
                 setappmainstate({
@@ -64,7 +67,7 @@ function SideboardMain() {
               </article>
             </>))}
           </section>
-          <section className="px-[20px] w-full grid grid-cols-2 items-center justify-center text-center h-[10vh]">
+          <section className="px-[20px] w-full h-[10vh] grid grid-cols-2 items-center justify-center text-center">
             {contactul?.map(data => (<>
               <a href={data?.breadmainaction} className={`font-serif ${data?.breadmainstyle}`}>{data?.breadmainentitle}</a>
             </>))}
@@ -81,7 +84,7 @@ function SideboardMain() {
               setsideboardmainpage(0)
             }} className='l-button'>← Main menu</button>
           </section>
-          <section className="h-[75vh]">
+          <section className="h-[70vh]">
             {filter.map(data => (<>
             <article onClick={() => {
                 setbreadmainstate({
@@ -140,7 +143,7 @@ function SideboardMain() {
 
   return (
     <div>
-        <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="h-screen w-screen md:max-w-[55vw] fixed top-0 left-0 flex flex-col justify-start items-center  border bg-white shadow-2xl duration-100">
+        <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="h-screen w-screen md:w-[55vw] fixed top-0 left-0 flex flex-col justify-start items-center  border bg-white shadow-2xl duration-100">
             <section className="h-[10vh] px-[20px] md:px-[50px] w-full flex flex-row justify-between items-center  shadow">
               <figure className="">
                 <article className=" flex flex-row gap-1 items-center">
@@ -155,7 +158,7 @@ function SideboardMain() {
               <figcaption className="">
                 <article className="">
                 <RiCloseLine onClick={() => {
-                  setsearchmainstate(null)
+                  // setsearchmainstate(null)
                   setappmainstate({
                     appmainboolean: false
                   })
@@ -163,7 +166,7 @@ function SideboardMain() {
                 </article> 
               </figcaption>
             </section>
-            <section className="h-[90vh]  overflow-y-scroll no-scrollbar ">
+            <section className="h-[90vh] min-w-[90vw]  overflow-y-scroll no-scrollbar ">
             <br />
               {sideboardmainrender && sideboardmainrender}
             </section>

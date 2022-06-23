@@ -66,6 +66,7 @@ function PostIndex() {
     const [postindexaction, setpostindexaction] = useState(false)
     const [postindexstyle, setpostindexstyle] = useState('')
     const [ptamainstatic, setptamainstatic] = useState()
+    const [postindexpageyoffset, setpostindexpageyoffset] = useState()
     // const [snackbarmainstatic, setsnackbarmainstatic] = useState()
 
     const [postpostid, setpostpostid] = useState()
@@ -432,21 +433,19 @@ function PostIndex() {
     // }
 
     window.onscroll = function (){
-        // if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.1)) && window.screen.width > 1000) {
         if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.1)) && window.screen.width > 1000) {
-            setpostindexstyle('grid-flow-col !bg-white !border !shadow')
+            setpostindexstyle('!min-h-[15vh] !grid-flow-col !bg-white !border !shadow')
             
         } 
-        // if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.7)) && window.screen.width > 1000) {
         if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.7)) && window.screen.width > 1000) {
             setpostindexstyle('')
         }
 
-        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 0.9)) && window.screen.width <= 1000) {
-            setpostindexstyle('!grid-flow-row !bg-white !border !shadow')
+        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 0.8)) && window.screen.width <= 1000) {
+            setpostindexstyle('!min-h-[10vh] !grid-flow-row !bg-white !border !shadow')
             
         } 
-        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.8)) && window.screen.width <= 1000) {
+        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.5)) && window.screen.width <= 1000) {
             setpostindexstyle('')
         }
     }
@@ -520,7 +519,7 @@ function PostIndex() {
                         <h1 className={`text-base  italic  text-black font-serif`}>{ postpostid?._updatedAt && `This article was last updated on ` + postpostid?._updatedAt?.slice(0, 10)}</h1>
                     </figcaption>
                     <br />
-                    <figcaption className="text-base md:text-xl relative  md:font-light font-serif">
+                    <figcaption className="text-lg md:text-xl relative  md:font-light font-serif">
                         <PortableTextComponentsProvider components={component}  >
                             {postpostid?.postblock?.map(data => (<>
                             <PortableText value={data} />
@@ -544,7 +543,7 @@ function PostIndex() {
                 </section>
             </figcaption>
             {/* {<SnackbarMain snackbarmainid={'postfooter'} snackbarmaindata={postindexrender && postindexrender} snackbarmaindatatwo={postpostid && postpostid} snackbarmaindatathree={postindexthree && postindexthree} />} */}
-            <figcaption className={`col-span-12 sticky z-10 top-0 left-0 h-fit grid grid-flow-row  duration-1000 ${postindexstyle}`}>
+            <figcaption className={`col-span-12 sticky z-10 top-0 left-0 min-h-[35vh] grid grid-flow-row  duration-1000  ${postindexstyle}`}>
                 <section className="w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto">
                     <br />
                     {postindexstyle === '' && (<><br /></>)}

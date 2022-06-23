@@ -98,7 +98,7 @@ function CommentDialog() {
 
   return (
     <div>
-        <main className="p-[20px] md:p-[50px]">
+        <main className="px-[20px] md:px-[50px] w-full md:max-w-[55vw] mx-auto">
             <section className="">
                 <figure className="">
                     <h1 className="m-h6 font-serif">Responses ({commentdialogrendertwo?.length || 0})</h1>
@@ -108,14 +108,6 @@ function CommentDialog() {
                 <FieldMain fieldmainid={'commentform'} fieldmainindex={0} fieldmainparam={location.pathname?.slice(1, location.pathname.length)} />
             </section>
             <section className="">
-                {/* {commentdialogrendertwo?.length >= 0 && (<>
-                <CardMain     
-                cardmainid={'commentimg'}
-                cardmainidtwo={'inform'}
-                // cardmainidthree={'feedback'}
-                cardmainindex={0} 
-                />
-                </>)} */}
                 <br />
                 {commentdialogrendertwo?.map(data => (<>
                     <article className="px-[20px]  shadow ">
