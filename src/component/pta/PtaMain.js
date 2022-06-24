@@ -146,7 +146,7 @@ function PtaMain({
                         data?.ptamainaction()
 
                     }} className="">
-                        <h1 className={`text-5xl   m-h6 text-white ${ptamainstyle && ptamainstyle}`}>{data?.ptamainicon}</h1>
+                        <h1 className={`text-5xl   m-h6 text-white duration-1000 ${ptamainstyle && ptamainstyle}`}>{data?.ptamainicon}</h1>
                     </article>
                 
                 </>))}

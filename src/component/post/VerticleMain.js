@@ -121,7 +121,8 @@ function VerticleMain({
                       </>)}
                     </div>
 
-                    <div onClick={() => {
+                    {/* <div className="z-20 w-full h-full absolute top-0 left-0  bg-black opacity-5" /> */}
+                    <motion.img onClick={() => {
                       // window.history.replaceState(null, "" , postid)
                       // setappmainstate({
                       //   appmainid: 'postarticle',
@@ -137,8 +138,7 @@ function VerticleMain({
                         appmainparam: param,
                         appmainboolean: true,
                       })
-                    }} className="z-20 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
-                    <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} loading='lazy' src={urlFor(verticlemainimage)} alt="" className="max-h-[50ch] z-10 max-w-[150ch] duration-100" />
+                    }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} loading='lazy' src={urlFor(verticlemainimage)} alt="" className="max-h-[50ch] z-10 max-w-[150ch] duration-1000 hover:scale-110" />
                 </figure>
                 <figure className="h-[5vh] relative flex flex-row py-[7px] gap-2 justify-start items-center">
                     {/* {placepostid && (<>

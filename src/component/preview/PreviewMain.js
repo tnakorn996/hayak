@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { ContextMain } from '../../context/contextmain'
 import { urlFor } from '../../lib/sanity'
 import ContactArticle from '../../page/contact/ContactArticle'
-import MenuArticle from '../../page/menu/MenuArticle'
+// import MenuArticle from '../../page/menu/MenuArticle'
 import PostArticle from '../../page/post/PostArticle'
 import PostIndex from '../../page/post/PostIndex'
 import CardMain from '../card/CardMain'
@@ -64,12 +64,12 @@ function PreviewMain() {
         }
     ]
 
-    const menuarticle = [
-        {
-            previewmainindex: 0,
-            previewmainrender: <MenuArticle />,
-        }
-    ]
+    // const menuarticle = [
+    //     {
+    //         previewmainindex: 0,
+    //         previewmainrender: <MenuArticle />,
+    //     }
+    // ]
 
     const userarticle = [
         {
@@ -98,10 +98,10 @@ function PreviewMain() {
             previewmainid: 'contactarticle',
             previewmaindata: contactarticle, 
         },
-        {
-            previewmainid: 'menuarticle',
-            previewmaindata: menuarticle, 
-        },
+        // {
+        //     previewmainid: 'menuarticle',
+        //     previewmaindata: menuarticle, 
+        // },
         {
             previewmainid: 'userarticle',
             previewmaindata: userarticle, 

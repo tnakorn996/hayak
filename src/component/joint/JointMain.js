@@ -13,7 +13,7 @@ function JointMain({
     {
       jointmainindex: 0,
       jointmainrender: <main className="">
-        <section className="w-screen h-[85vh] md:h-[65vh]  m-section" />
+        <section className="w-screen h-[85vh] md:h-[75vh]  m-section" />
         <section className="flex flex-col md:grid md:grid-cols-3">
           <article className="p-[20px]  border border-gray-200">
             <figure className="w-[60%] h-[50px]  m-section" />

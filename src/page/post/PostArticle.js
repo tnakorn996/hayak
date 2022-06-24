@@ -97,7 +97,7 @@ function PostArticle() {
                     <figure className="w-full relative">
                         <div className="z-10 absolute bottom-0 left-0 min-h-[25vh] md:min-h-[40vh] w-full  bg-gradient-to-b from-transparent to-white" />
                         <div className="z-10 absolute bottom-1 right-8" >
-                            {postarticlestate && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: postarticlestate}} ptamainstyle={'!text-xl md:!text-3xl'} />}
+                            {postarticlestate && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: postarticlestate}} ptamainstyle={'!p-[13px] !text-xl md:!text-3xl  bg-white rounded-full shadow hover:scale-110'} />}
                         </div>
                         <div className="z-10 absolute bottom-0 left-8 md:left-14 max-w-[70%] md:max-w-[60%] ">
                             {postarticlerenderfour && <h1 className=" flex flex-row items-center gap-1  tracking-[0.2em] md:m-h3 uppercase"><RiContrastDropLine className='md:m-h3' /> {postarticlerenderfour}</h1>}
@@ -117,21 +117,6 @@ function PostArticle() {
                                 }} className="col-span-12 md:col-span-5 m-button m-h3">→ Read more</button>
                                 <figure className="col-span-12 md:col-span-7">
                                     <BarMain barmainid={'postindextime'} barmainindex={1} barmaindata={postindexthree}/>
-                                    {/* <div className="flex flex-row items-center gap-3 justify-end ">
-                                        <figure onClick={() => {
-                                            setappmainstate({
-                                                appmainid: 'sharesection',
-                                                appmainidtwo: 'modalmain',
-                                                appmainidthree: 0,
-                                                appmainparam: postarticlestate?.postid,
-                                                appmainboolean: true,
-                                            })
-                                        }} className="">
-                                            <article className="">
-                                            <RiShareFill className='m-h3' />
-                                            </article>
-                                        </figure>
-                                    </div> */}
                                 </figure>
                             </div>
                             
@@ -172,12 +157,6 @@ function PostArticle() {
                         }} key={data?.postid} postid={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle}  createdat={data?._createdAt} param={data?.postid} />
                     </>))}
                     </div>
-                    {/* <br />
-                    <hr />
-                    <br />
-                    <article className="text-center">
-                    <h1 onClick={() => setpreviewmainpage(previewmainpage + 3)} className="text-3xl">↓</h1>
-                    </article> */}
                 </section>
         </main>
     </div>

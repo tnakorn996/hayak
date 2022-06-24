@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://www.toifood.co.nz/</loc>
+  </url>
+    <url>
+    <loc>http://www.toifood.co.nz/category/post</loc>
+  </url>
+    <url>
+    <loc>http://www.toifood.co.nz/category/place</loc>
+  </url>
+    <url>
+    <loc>http://www.toifood.co.nz/category/product</loc>
+  </url>
+    <url>
+    <loc>http://www.toifood.co.nz/contact/contactmain</loc>
+  </url>
+</urlset>

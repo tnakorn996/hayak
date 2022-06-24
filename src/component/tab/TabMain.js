@@ -43,14 +43,14 @@ function TabMain({
         {
             tabmainindex: 0,
             tabmaintitle: 'Search',
-            tabmainrender: <section className="min-w-[55vw] md:max-w-[55vw] mx-auto min-h-screen  snap-start duration-100">
+            tabmainrender: <section className="min-w-[55vw] md:max-w-[55vw] mx-auto min-h-screen  snap-center duration-100">
                 <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />
             </section>
         },
         {
             tabmainindex: 1,
             tabmaintitle: 'Reading List',
-            tabmainrender: <section className="min-w-[55vw] md:max-w-[55vw] mx-auto min-h-screen  snap-start duration-100">
+            tabmainrender: <section className="min-w-[55vw] md:max-w-[55vw] mx-auto min-h-screen  snap-center duration-100">
                 <ZoomMain zoommainid={'favouriteinput'} zoommainslice={10} />
             </section>
         },
@@ -140,9 +140,9 @@ function TabMain({
                     </figure>
                 </div> */}
 
-                <div ref={tabmainref} onTouchStart={p => ll(p)} onTouchMove={p => kk(p)} onTouchEnd={() => jj()} className="overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth">
+                <figure ref={tabmainref} onTouchStart={p => ll(p)} onTouchMove={p => kk(p)} onTouchEnd={() => jj()} className="overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth">
                     {tabmainrendertwo && tabmainrendertwo}
-                </div>
+                </figure>
             </section>
         </main>
     </div> 

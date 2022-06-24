@@ -441,11 +441,11 @@ function PostIndex() {
             setpostindexstyle('')
         }
 
-        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 0.8)) && window.screen.width <= 1000) {
+        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 0.9)) && window.screen.width <= 1000) {
             setpostindexstyle('!min-h-[10vh] !grid-flow-row !bg-white !border !shadow')
             
         } 
-        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.5)) && window.screen.width <= 1000) {
+        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.6)) && window.screen.width <= 1000) {
             setpostindexstyle('')
         }
     }
@@ -543,7 +543,7 @@ function PostIndex() {
                 </section>
             </figcaption>
             {/* {<SnackbarMain snackbarmainid={'postfooter'} snackbarmaindata={postindexrender && postindexrender} snackbarmaindatatwo={postpostid && postpostid} snackbarmaindatathree={postindexthree && postindexthree} />} */}
-            <figcaption className={`col-span-12 sticky z-10 top-0 left-0 min-h-[35vh] grid grid-flow-row  duration-1000  ${postindexstyle}`}>
+            <figcaption className={`col-span-12 sticky z-10 top-0 left-0 min-h-[35vh] grid grid-flow-row  duration-1000 md:duration-100  ${postindexstyle}`}>
                 <section className="w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto">
                     <br />
                     {postindexstyle === '' && (<><br /></>)}

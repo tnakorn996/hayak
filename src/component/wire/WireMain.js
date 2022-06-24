@@ -98,7 +98,7 @@ function WireMain() {
   return (
     <div>
         <main className="">
-            <section className="grid grid-cols-2 gap-5">
+            <section className="grid grid-cols-2">
               {wiremainrender && wiremainrender}
             </section>
         </main>

@@ -130,7 +130,7 @@ function SlideMain({
                 // }
                 return empty?.map(data => (<>
                     <div className="w-screen  snap-center overflow-hidden">
-                        <figure className="h-[85vh] md:h-[65vh] relative flex justify-center items-center ">                            
+                        <figure className="h-[85vh] md:h-[75vh] relative flex justify-center items-center ">                            
                             <img loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-10 max-w-[200ch] min-h-full md:min-w-full md:min-h-fit`} />
                             <div className="absolute">
                             <LoadingMain />
@@ -207,10 +207,10 @@ function SlideMain({
     const kk = (first= this.props.first, second= this.props.second) => {
         const scrollleft = first.current.scrollLeft;
         const offsetwidth = first.current.offsetWidth;
-        if(scrollleft <= offsetwidth) {
+        if(scrollleft < offsetwidth) {
             first.current.scrollTo((scrollleft + slidemainscroll) * second, 0)
         } 
-        if(scrollleft > offsetwidth) {
+        if(scrollleft >= offsetwidth) {
             first.current.scrollTo(0, 0)
         }
     }
@@ -225,7 +225,7 @@ function SlideMain({
         <main className="">
             <section className="w-screen md:w-full relative group">
                 
-                <figure style={{transform: `translateY(${slidemaintransform && slidemainpageyoffset * (slidemaintransform || 0.5)}px)`}} ref={slidemainref} className={`relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth duration-100 md:duration-[0ms] ${slidemainstyle && slidemainstyle}`}>
+                <figure style={{transform: `translateY(${slidemaintransform && slidemainpageyoffset * (slidemaintransform || 0.5)}px)`}} ref={slidemainref} className={`relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col justify-start  overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth duration-100 md:duration-[0ms] ${slidemainstyle && slidemainstyle}`}>
                    {slidemainrender && slidemainrender}
                 </figure>
 

@@ -4,16 +4,6 @@ import { useContext } from 'react'
 import { useEffect } from 'react'
 import { ContextMain } from '../../context/contextmain'
 
-// const favouritespan = (state, action) => {
-//   switch (action.type) {
-//     case 0:
-//     return state
-    
-//     default:
-//     return state
-//   }
-// }
-
 function BadgeMain({
   badgemainid,
   badgemainindex,
@@ -21,33 +11,49 @@ function BadgeMain({
 }) {
   const {
     favouritedi,
-
+    
   } = useContext(ContextMain)
-  // const initialState = {
-  //     favouritedi: () => {
-  //         const empty = []
-  //         favouritedi.forEach(data => {
-  //           if(data.sheetmaindata && data.sheetmaindata.length > 0){
-  //             empty.push(data.sheetmaindata.length)
-  //           } 
-  //         })
-  //         return empty.reduce(function(a, b) { return a + b; }, 0)
-  //     }
-  // }
-  // const [state, dispatch] = useReducer(favouritespan, initialState.favouritedi());
-
   const [badgemainrender, setbadgemainrender] = useState()
+  
+  // const [favouritespanrender, favouritespan] = useReducer((state, action) => {
+  //   switch (action.type) {
+  //     case 0:
+  //     return [
+  //       {
+  //         badgemainrender: () => {
+  //           const empty = []
+  //             favouritedi.forEach(data => {
+  //               if(data.sheetmaindata && data.sheetmaindata.length > 0){
+  //                 empty.push(data.sheetmaindata.length)
+  //               } 
+  //             })
+  //             return empty.reduce(function(a, b) { return a + b; }, 0)
+  //         }
+  //       }
+  //     ]
+  
+  //     default:
+  //     return [
+  //       {
+  //         badgemainrender: () => {
+  //           return 0
+  //         }
+  //       }
+  //     ]
+  //   }
+  // }
+    
+  // , []);
 
   // useEffect(() => {
-  //     if(badgemainid === 'favouritespan') return dispatch({type: 0})
+  //     if(badgemainid === 'favouritespan') return favouritespan({type: badgemainindex})
   // }, [badgemainid, favouritedi])
-  
+
   const favouritespan = [
     {
       badgemainindex: 0,
       badgemainrender: () => {
         const empty = []
-        // console.log('favouritedibadge :>> ', favouritedi);
         favouritedi.forEach(data => {
           if(data.sheetmaindata && data.sheetmaindata.length > 0){
             empty.push(data.sheetmaindata.length)
@@ -79,6 +85,7 @@ function BadgeMain({
             <section className="">
               <figure className="py-[0.5px] px-[5px]  rounded-full  bg-black">
                 <h1 className="text-[9px]  m-h1 text-white">{badgemainrender && badgemainrender}</h1>
+                {/* <h1 className="text-[9px]  m-h1 text-white">{favouritespanrender && favouritespanrender[0]?.badgemainrender()}</h1> */}
               </figure>
             </section>
         </main>
