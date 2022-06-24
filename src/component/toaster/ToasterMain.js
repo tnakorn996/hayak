@@ -87,6 +87,7 @@ function ToasterMain() {
                             key={data.postid} 
                             postid={data.postid} 
                             posthero={data.posthero} 
+                            posticon={data.posticon} 
                             posttitle={data.posttitle} 
                             postsubtitle={data.postsubtitle}  
                             createdat={data._createdAt} 

@@ -117,7 +117,7 @@ function VerticleMain({
                           genreindexid: genreid,
                         })
                         navigate(`/category/${type}`)
-                      }} className="text-xs  uppercase m-button opacity-100">{verticlemainrendertwo}</button>
+                      }} className="text-xs  uppercase l-button opacity-100">{verticlemainrendertwo}</button>
                       </>)}
                     </div>
 
@@ -141,17 +141,6 @@ function VerticleMain({
                     }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} loading='lazy' src={urlFor(verticlemainimage)} alt="" className="max-h-[50ch] z-10 max-w-[150ch] duration-1000 hover:scale-110" />
                 </figure>
                 <figure className="h-[5vh] relative flex flex-row py-[7px] gap-2 justify-start items-center">
-                    {/* {placepostid && (<>
-                    <div className="z-20 absolute -top-11 left-3 w-[30px] h-[30px] flex items-center  bg-white rounded-full overflow-hidden shadow">
-                        <img src={placepostid?.posticon} alt="" className="" />
-                    </div>
-                    </>)}
-                    {posticon && (<>
-                    <div className="z-20 absolute -top-20 left-3 w-[100px] h-[100px] flex items-center  bg-white rounded-full overflow-hidden shadow">
-                        <img src={posticon} alt="" className="" />
-                    </div>
-                    </>)} */}
-
                     <div className="w-full">
                       <BarMain barmainid='postindextime' barmainindex={2} barmaindata={postindexthree} />
                     </div>

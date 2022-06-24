@@ -38,7 +38,6 @@ function SnackbarMain({
             snackbarmainrender: <figcaption className={`col-span-12 h-[50vh] flex flex-col`}>
                 <section className="w-full px-[20px] md:px-[60px] max-w-[900px] mx-auto min-h-[20vh] md:h-fit">
                 <br />
-                {/* <hr /> */}
                 <br />
                     <div className="flex flex-row justify-between">
                         <h1 className={`l-h2 uppercase tracking-[0.2em]`}>{snackbarmaindata && snackbarmaindata}</h1>
