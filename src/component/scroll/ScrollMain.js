@@ -16,7 +16,7 @@ function ScrollMain({
     }
 
   return (
-        <div style={{transform: `translateY(${scrollmainstatic && scrollmainoffset * (scrollmainstatic.scrollmaintransform || 0.5)}px)`}} className={`min-w-fit min-h-full md:min-w-full ${scrollmainstyle && scrollmainstyle}`}>
+        <div style={{transform: `translateY(${scrollmainstatic && scrollmainoffset * (scrollmainstatic.scrollmaintransform || 0.5)}px)`}} className={`min-w-fit min-h-full md:min-w-full  duration-100 md:duration-[0ms] scroll-smooth ${scrollmainstyle && scrollmainstyle}`}>
             {scrollmainstatic && scrollmainstatic?.scrollmaindata}
         </div>
   )

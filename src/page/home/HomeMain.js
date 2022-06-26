@@ -90,18 +90,9 @@ function HomeMain() {
             slidemainslice={12} />
             </section> */}
 
-            {/* <section className="">
+            <section className="">
                 {postplaceproduct?.slice(0, 5)?.map(data => (<>
-                <section onClick={() => {
-                        // window.history.replaceState(null, "" , postupdatedat[0]?.postid)
-                          setappmainstate({
-                            appmainid: 'postarticle',
-                            appmainidtwo: 'previewmain',
-                            appmainpage: 0,
-                            appmainparam: data.postid,
-                            appmainboolean: true,
-                          })
-                        }} className="relative w-screen h-screen flex flex-col justify-evenly gap-3   snap-center">
+                <section className="relative w-screen h-screen flex flex-col justify-evenly gap-3   snap-center">
                         <figure className="relative h-full flex items-center justify-center  overflow-hidden">
                             <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
                             <img src={urlFor(data.posthero)} alt="" className="min-w-[150ch] h-full md:w-full md:h-fit" />
@@ -111,11 +102,13 @@ function HomeMain() {
                                 <h1 className="text-3xl font-serif m-h6 text-white">{data.posttitle}</h1>
                                 <br />
                             </div>
-                            <button className="l-button">Read more →</button>
+                            <button onClick={() => {
+                                navigate(`/${data?.postid}`)
+                            }} className="z-20 l-button">Read more →</button>
                         </figcaption>
                     </section>
                 </>))}
-            </section> */}
+            </section>
 
             <section className=" w-[1200px] md:w-full group">
                 <br /><br /><br /><br />
