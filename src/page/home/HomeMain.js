@@ -15,6 +15,8 @@ import SlideMain from '../../component/slide/SlideMain'
 import JointMain from '../../component/joint/JointMain'
 import ListMain from '../../component/list/ListMain'
 import FabMain from '../../component/fab/FabMain'
+import ScrollMain from '../../component/scroll/ScrollMain'
+import { urlFor } from '../../lib/sanity'
 // import LandscapeMain from '../../component/place/LandscapeMain'
 
 function HomeMain() {
@@ -77,15 +79,7 @@ function HomeMain() {
     return (
     <div>
         <main className="w-screen  overflow-hidden duration-100">
-            <br />
-            <br />
-            <br />
-            <br />
-            
-            <br />
-            <br />
-            <br />
-            <section className="">
+            {/* <section className="">
             <SlideMain 
             slidemainid={'homemainth'} 
             slidemainindex={1} 
@@ -94,10 +88,37 @@ function HomeMain() {
             slidemainscroll={1200}
             slidemainstyle={'!p-0'}
             slidemainslice={12} />
-            </section>
-            <br />
-            <br />
+            </section> */}
+
+            {/* <section className="">
+                {postplaceproduct?.slice(0, 5)?.map(data => (<>
+                <section onClick={() => {
+                        // window.history.replaceState(null, "" , postupdatedat[0]?.postid)
+                          setappmainstate({
+                            appmainid: 'postarticle',
+                            appmainidtwo: 'previewmain',
+                            appmainpage: 0,
+                            appmainparam: data.postid,
+                            appmainboolean: true,
+                          })
+                        }} className="relative w-screen h-screen flex flex-col justify-evenly gap-3   snap-center">
+                        <figure className="relative h-full flex items-center justify-center  overflow-hidden">
+                            <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
+                            <img src={urlFor(data.posthero)} alt="" className="min-w-[150ch] h-full md:w-full md:h-fit" />
+                        </figure>
+                        <figcaption className="p-[20px] md:p-[60px] w-full absolute bottom-0 left-0 grid grid-flow-row justify-items-start items-center  bg-gradient-to-b from-transparent to-gray-900">
+                            <div className="">
+                                <h1 className="text-3xl font-serif m-h6 text-white">{data.posttitle}</h1>
+                                <br />
+                            </div>
+                            <button className="l-button">Read more →</button>
+                        </figcaption>
+                    </section>
+                </>))}
+            </section> */}
+
             <section className=" w-[1200px] md:w-full group">
+                <br /><br /><br /><br />
                 {homemainrender?.map(data => (<>
                 <br />
                 <figcaption className="px-[20px] md:px-[60px] w-screen md:w-full flex flex-row justify-between items-center">
@@ -106,7 +127,7 @@ function HomeMain() {
                         setbreadmainstate('')
                         setgenreindexstate('')
                         navigate(data?.spreadmaindirect)
-                    }} className="l-h6">→</button>
+                    }} className="m-h6">→</button>
                 </figcaption>
                 <br />
 
@@ -124,6 +145,7 @@ function HomeMain() {
                 </>))}
                 <br />
             </section>
+            
             {/* <br />
             <section className="px-[20px] md:px-[60px]">
                 <WireMain />

@@ -10,6 +10,7 @@ import { urlFor } from '../../lib/sanity'
 import GuideMain from '../guide/GuideMain'
 import LoadingMain from '../load/LoadingMain'
 import VerticleMain from '../post/VerticleMain'
+import ScrollMain from '../scroll/ScrollMain'
 
 function SlideMain({
     slidemainid,
@@ -69,7 +70,13 @@ function SlideMain({
                         </figcaption>
                         <figure className="relative h-[60vh] flex items-center justify-center  overflow-hidden border border-black">
                             <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
-                            <img src={urlFor(data.posthero)} alt="" className="min-w-[100ch] h-fit md:w-full md:h-fit" />
+                               <ScrollMain 
+                                scrollmainstatic={{
+                                    scrollmaindata: <img src={urlFor(data.posthero)} alt="" className="min-w-[100ch] h-fit md:w-full md:h-fit" />,
+                                    scrollmaintransform: 0.3,
+                                    }}
+                            />
+                            
                         </figure>
                         <div className="w-full  border-b border-black" />
                     </section>
@@ -130,11 +137,16 @@ function SlideMain({
                 // }
                 return empty?.map(data => (<>
                     <div className="w-screen  snap-center overflow-hidden">
-                        <figure className="h-[85vh] md:h-[75vh] relative flex justify-center items-center ">                            
-                            <img loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-10 max-w-[200ch] min-h-full md:min-w-full md:min-h-fit`} />
-                            <div className="absolute">
+                        <figure className="w-full h-[85vh] md:h-[75vh] relative flex justify-center items-center  ">                            
+                            <ScrollMain 
+                                scrollmainstatic={{
+                                    scrollmaindata: <img loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-20 min-w-[150ch] min-h-full md:min-w-full md:min-h-fit`} />,
+                                    scrollmaintransform: 0.5,
+                                }}
+                                />
+                            {/* <div className="absolute z-10">
                             <LoadingMain />
-                            </div>
+                            </div> */}
                             <div className="z-10 w-full h-full absolute top-0 left-0  bg-white opacity-10" />
                             <div onClick={() => {
                                 setappmainstate({
@@ -170,12 +182,6 @@ function SlideMain({
             slidemainref: postindexth,
         },
     ]
-
-    useEffect(() => {
-      window.addEventListener('scroll', jj)
-
-      return () => window.removeEventListener('scroll', jj)
-    }, [])
 
     // useEffect(() => {
     //   if(slidemainpageyoffset){
@@ -215,18 +221,15 @@ function SlideMain({
         }
     }
 
-    const jj = () => {
-        setslidemainpageyoffset(window.pageYOffset)
-    }
-    // console.log('slidemainpageyoffset :>> ', Math.floor(slidemainpageyoffset));
-
   return (
     <div>
         <main className="">
             <section className="w-screen md:w-full relative group">
                 
-                <figure style={{transform: `translateY(${slidemaintransform && slidemainpageyoffset * (slidemaintransform || 0.5)}px)`}} ref={slidemainref} className={`relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col justify-start  overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth duration-100 md:duration-[0ms] ${slidemainstyle && slidemainstyle}`}>
-                   {slidemainrender && slidemainrender}
+                {/* <figure style={{transform: `translateY(${slidemaintransform && slidemainpageyoffset * (slidemaintransform || 0.5)}px)`}} ref={slidemainref} className={`relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col justify-start  overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth duration-100 md:duration-[0ms] ${slidemainstyle && slidemainstyle}`}> */}
+
+                <figure ref={slidemainref} className={`relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col justify-start  overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth duration-100 md:duration-[0ms] ${slidemainstyle && slidemainstyle}`}>
+                    {slidemainrender && slidemainrender}
                 </figure>
 
                 {(!slidemainslice)  && (<>

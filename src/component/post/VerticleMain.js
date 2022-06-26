@@ -13,6 +13,7 @@ import { genreui } from '../../content/contentmantwo'
 import BarMain from '../bar/BarMain'
 import { urlFor } from '../../lib/sanity'
 import PtaMain from '../pta/PtaMain'
+import ScrollMain from '../scroll/ScrollMain'
 
 function VerticleMain({
   onlick, 
@@ -92,6 +93,7 @@ function VerticleMain({
     <div>
         <main className="">
           <article className="relative flex flex-col justify-center">
+                
                 <figure 
 
                     // onMouseEnter={() => {
@@ -122,15 +124,8 @@ function VerticleMain({
                     </div>
 
                     {/* <div className="z-20 w-full h-full absolute top-0 left-0  bg-black opacity-5" /> */}
+                    
                     <motion.img onClick={() => {
-                      // window.history.replaceState(null, "" , postid)
-                      // setappmainstate({
-                      //   appmainid: 'postarticle',
-                      //   appmainidtwo: 'previewmain',
-                      //   appmainpage: 2,
-                      //   appmainparam: param,
-                      //   appmainboolean: true,
-                      // })
                       setappmainstate({
                         appmainid: 'postarticle',
                         appmainidtwo: 'previewmain',
@@ -139,6 +134,7 @@ function VerticleMain({
                         appmainboolean: true,
                       })
                     }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} loading='lazy' src={urlFor(verticlemainimage)} alt="" className="max-h-full z-10 max-w-[150ch] duration-1000 hover:scale-110" />
+
                 </figure>
                 <figure className="h-[5vh] relative flex flex-row py-[7px] gap-2 justify-start items-center">
                     <div className="w-full">
@@ -155,8 +151,8 @@ function VerticleMain({
                         navigate(`/catagory/${verticledivstate?.verticledivtitle || null}`)
                       }} className="px-[7px]  text-gray-500 uppercase text-[8px] bg-gray-200 rounded-full">{verticledivstate?.verticledivtitle || null}</h1>}
                     </div> */}
-                    <a href={`/${postid}`} className="m-h2 uppercase font-serif font-normal  leading-loose text-black">{posttitle}</a>
-                    <h1 className=" l-h2">{postsubtitle}</h1>
+                    <a href={`/${postid}`} className="m-h3 uppercase font-serif font-normal  leading-loose text-black">{posttitle}</a>
+                    <h1 className="l-h2">{postsubtitle}</h1>
                     {/* {ll(data?.categoryid)} */}
                 </figcaption>
             </article>
