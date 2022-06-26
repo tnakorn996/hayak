@@ -166,14 +166,6 @@ function OpendeskMain() {
                 }} className=" w-full  l-button">Cancel</button>
             </section>
 
-            {/* <section className="">
-                {tabmainrendertwo?.map(data => (<>
-                <motion.article  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} onClick={data?.blemainaction} className="grid grid-cols-12 items-center p-[20px]">
-                    <h1 className="col-span-11  m-h2">{data?.blemaintitle}</h1>
-                </motion.article>
-                <hr />
-                </>))}
-            </section> */}
         </motion.main>
     </div>
   )

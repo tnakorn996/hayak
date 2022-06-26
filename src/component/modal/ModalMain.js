@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { useEffect } from 'react'
 import { RiContrastDropLine, RiFileCopyLine } from 'react-icons/ri'
 
+import '../modal/backdropmain.css'
 import { ContextMain } from '../../context/contextmain'
 import CategorySection from '../../page/catagory/CategorySection'
 import StackMain from '../Stack/StackMain'
@@ -14,6 +15,9 @@ import SocialMain from '../../page/social/SocialMain'
 import FeedbackSection from '../../page/feedback/FeedbackSection'
 import { useLocation } from 'react-router-dom'
 import ShareSection from '../../page/share/ShareSection'
+import PageMain from '../page/PageMain'
+import ZoomMain from '../zoom/ZoomMain'
+import TabMain from '../tab/TabMain'
 
 function ModalMain() {
     const {
@@ -45,16 +49,16 @@ function ModalMain() {
         },
     ]
 
-    const categorysection = [
-        {
-            modalmainindex: 0,
-            modalmaintitle: 'Choose Category',
-            modalmainrender: <CategorySection />,
-            modalmainaction: () => {
-                // setcategoryindextrigger()
-            },
-        },
-    ]
+    // const categorysection = [
+    //     {
+    //         modalmainindex: 0,
+    //         modalmaintitle: 'Choose Category',
+    //         modalmainrender: <CategorySection />,
+    //         modalmainaction: () => {
+    //             // setcategoryindextrigger()
+    //         },
+    //     },
+    // ]
 
     // const statesection = [
     //     {
@@ -71,7 +75,9 @@ function ModalMain() {
         {
             modalmainindex: 0,
             modalmaintitle: '',
-            modalmainrender: <StackMain />,
+            // modalmainrender: <PageMain pagemainstatic={{pagemainid: 'rtadataset', pagemainindex: 0}} />,
+            // modalmainrender: <ZoomMain zoommainid={'rtainput'} zoommainslice={10} />,
+            modalmainrender: <TabMain tabmainstatic={{tabmainid: 'rtalegend'}} />,
             modalmainaction: <button onClick={() => {
                     setappmainstate('')
                 }} className="m-button">Continue</button>,
@@ -86,23 +92,23 @@ function ModalMain() {
         }
     ]
 
-    const feedbacksection = [
-        {
-            modalmainindex: 0,
-            modalmaintitle: '',
-            modalmainrender: <FeedbackSection />,
-        }
-    ]
+    // const feedbacksection = [
+    //     {
+    //         modalmainindex: 0,
+    //         modalmaintitle: '',
+    //         modalmainrender: <FeedbackSection />,
+    //     }
+    // ]
 
     const modalmain = [
         {
             modalmainid: 'sharesection',
             modalmaindata: sharesection,
         },
-        {
-            modalmainid: 'categorysection',
-            modalmaindata: categorysection,
-        },
+        // {
+        //     modalmainid: 'categorysection',
+        //     modalmaindata: categorysection,
+        // },
         // {
         //     modalmainid: 'statesection',
         //     modalmaindata: statesection,
@@ -115,10 +121,10 @@ function ModalMain() {
             modalmainid: 'postsection',
             modalmaindata: postsection,
         },
-        {
-            modalmainid: 'feedbacksection',
-            modalmaindata: feedbacksection,
-        },
+        // {
+        //     modalmainid: 'feedbacksection',
+        //     modalmaindata: feedbacksection,
+        // },
     ]
 
     useEffect(() => {
@@ -140,9 +146,9 @@ function ModalMain() {
             <section className="p-[20px] text-center">
                 <h1 className="m-h4 font-serif">{modalmaintitle && modalmaintitle}</h1>
             </section>
-            <hr />
-            <section className="p-[20px]">
-                <h1 className="">{modalmainrender}</h1>
+            {/* <hr /> */}
+            <section className="max-h-[80vh]  overflow-y-auto no-scrollbar">
+                <div className="">{modalmainrender}</div>
             </section>
             <hr />
             <section className="p-[20px] grid grid-flow-col">

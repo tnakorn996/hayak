@@ -124,11 +124,11 @@ function HomeMain() {
                 </>))}
                 <br />
             </section>
-            <br />
+            {/* <br />
             <section className="px-[20px] md:px-[60px]">
                 <WireMain />
             </ section>
-            <br />
+            <br /> */}
             <br />
             <section className="">
                 <ListMain listmainid={'faqsummary'} listmainindex={0} />

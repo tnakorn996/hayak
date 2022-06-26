@@ -85,35 +85,7 @@ function NavMain() {
             </section>
 
             <section className="p-[20px] md:px-[60px] text-xs col-span-3 md:col-span-5 flex justify-end gap-5 md:gap-7">
-                    
-                    {/* <button onClick={() => {
-                        setappmainstate({
-                            appmainid: navmain[0]?.navmainid,
-                            appmainredirect: navmain[0]?.navmainredirect
-                        })
-                    }} className="hidden md:block l-button">{navmain[0].navmaintitle}</button>
-                    
-                    <button onClick={() => {
-                        setappmainstate({
-                            appmainid: navmain[1]?.navmainid,
-                            appmainredirect: navmain[1]?.navmainredirect
-                        })
-                    }} className="hidden md:block l-button">{navmain[1].navmaintitle}</button> */}
-
-                    {/* <button onClick={() => {
-                        setappmainstate({
-                            appmainid: navmain[2]?.navmainref,
-                            appmainredirect:  navmain[2]?.navmainredirect
-                        })
-                    }} className="hidden md:block l-button">{navmain[2].navmaintitle}</button> */}
-                    
-                    {/* <button onClick={() => {
-                        setappmainstate({
-                            appmainid: navmain[3]?.navmainref,
-                            appmainredirect:  navmain[3]?.navmainredirect
-                        })
-                    }} className="hidden md:block l-button ">{navmain[3].navmaintitle}</button> */}
-
+                 
                     <article onClick={() => {
                             setsearchmainstate({tabmainindex: 0})
                             setappmainstate(

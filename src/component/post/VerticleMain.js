@@ -138,7 +138,7 @@ function VerticleMain({
                         appmainparam: param,
                         appmainboolean: true,
                       })
-                    }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} loading='lazy' src={urlFor(verticlemainimage)} alt="" className="max-h-[50ch] z-10 max-w-[150ch] duration-1000 hover:scale-110" />
+                    }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} loading='lazy' src={urlFor(verticlemainimage)} alt="" className="max-h-full z-10 max-w-[150ch] duration-1000 hover:scale-110" />
                 </figure>
                 <figure className="h-[5vh] relative flex flex-row py-[7px] gap-2 justify-start items-center">
                     <div className="w-full">

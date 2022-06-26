@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
-import { RiBookOpenLine, RiChat3Line, RiEyeLine, RiH1, RiHeartFill, RiMore2Fill, RiMore2Line, RiTimeLine } from 'react-icons/ri'
+import { RiBookOpenLine, RiChat3Line, RiEyeLine, RiH1, RiHeartFill, RiMore2Fill, RiMore2Line, RiMoreLine, RiTimeLine } from 'react-icons/ri'
 
 import { ContextMain } from '../../context/contextmain'
 import SocialMain from '../../page/social/SocialMain'
@@ -93,7 +93,7 @@ function BarMain({
                                 })
                             }} className="">
                                 <article className="">
-                                    <RiMore2Fill className='m-h3' />
+                                    <RiMoreLine className='m-h3' />
                                 </article>
                         </figure>
                     }, 
@@ -132,37 +132,7 @@ function BarMain({
                     }, 
                     barmainrendertwo: () => {},
                 },
-
-                // {
-                //     barmainindex: 4,
-                //     barmainrender: () => {},
-                //     barmainrendertwo: () => {
-                //         const filter = barmaindata?.filter(data => data.postindexthreeid === 'moredi')
-                //         const ref = filter[0]?.postindexthreerender
-                //         return <figure onClick={() => {
-                //                 settabmainstate({
-                //                     tabmainid: 'postoption',
-                //                     tabmainparam: ref?.postid,
-                //                     // tabmainlocation: location.pathname,
-                //                     tabmainimage: ref?.posthero,
-                //                     tabmaintitle: ref?.posttitle,
-                //                 })
-                //                 setappmainstate({
-                //                     appmainid: 'postoption',
-                //                     appmainidtwo: 'opendeskmain',
-                //                     appmainparam: ref?.postid,
-                //                     appmainboolean: true,
-                //                 })
-                //                 setsharemainstate({
-                //                     sharemainparam: ref?.postid,
-                //                 })
-                //             }} className="">
-                //                 <article className="">
-                //                     <RiMore2Fill className='m-h3' />
-                //                 </article>
-                //         </figure>
-                //     }, 
-                // },
+            
             ]
         },
         {
@@ -193,7 +163,7 @@ function BarMain({
                                 })
                             }} className="">
                                 <article className="">
-                                    <RiMore2Fill className='m-h3' />
+                                    <RiMoreLine className='m-h3' />
                                 </article>
                         </figure>
                     }, 
@@ -303,21 +273,21 @@ function BarMain({
 
   return (
     <div>
-        <main className="w-full grid grid-flow-col gap-3 items-center">
-                <section className="flex flex-row gap-3 justify-start items-center">
+        <main className="w-full grid grid-cols-12 gap-3 items-center">
+                <section className="col-span-9 flex flex-row gap-3 justify-start items-center">
                 {barmainrender?.map(data => (<>
                     <article className="flex flex-row gap-1 items-center  m-h4">
                         <figure className="m-h3">
                             {data?.barmainicon}
                         </figure>
-                        <figcaption className="l-h3">
+                        <figcaption className=" l-h3">
                             <h1 className="">{data?.barmainrender()}</h1>
                         </figcaption>
                     </article>
                 </>))}
                 </section>
 
-                <section className="flex flex-row gap-2 justify-end items-center">
+                <section className="col-span-3 flex flex-row gap-2 justify-end items-center">
                 {barmainrender?.map(data => (<>
                 <article onClick={() => {
                     data?.barmainaction()

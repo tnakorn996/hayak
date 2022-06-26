@@ -14,6 +14,7 @@ export const Provider = ({ children }) => {
     const parsepost = JSON.parse(localpost);
     const location = useLocation()
     // const param = useParams()
+    // console.log('location :>> ', location);
 
     const [appmainstate, setappmainstate] = useState('appmain')
     // const [postindexstate, setpostindexstate] = useState()
@@ -47,9 +48,10 @@ export const Provider = ({ children }) => {
     const [favouritemainstate, setfavouritemainstate] = useState({favouritemaindata: []})
     const [ptamainstate, setptamainstate] = useState()
     const [toastermainstate, settoastermainstate] = useState()
-    const [searchmainstate, setsearchmainstate] = useState()
+    //should be tabmainstate but already taken :(
+    const [searchmainstate, setsearchmainstate] = useState({tabmainindex: 0})
 
-    const [userindex, setuserindex] = useState()
+    const [clientpost, setclientpost] = useState()
     const [postplaceproduct, setpostplaceproduct] = useState()
     const [postupdatedat, setpostupdatedat] = useState()
     const [placeupdatedat, setplaceupdatedat] = useState()
@@ -59,6 +61,7 @@ export const Provider = ({ children }) => {
 
     useEffect(() => {
         window.addEventListener('load', pp())
+        // window.addEventListener('load', oo())
         // pp()
         return window.removeEventListener('load', pp())
     }, [])
@@ -77,12 +80,14 @@ export const Provider = ({ children }) => {
         setrtamainstate('')
         setctamainstate('')
         setptamainstate('')
+        window.addEventListener('load', oo())
 
         // progress.start();
         // setTimeout(() => {
         //     progress.finish();
         // }, 5000);
 
+        return window.removeEventListener('load', oo())
     }, [location])
     
     const postselect = [
@@ -139,12 +144,13 @@ export const Provider = ({ children }) => {
                     tabmainid: 'feedback',
                     tabmainidtwo: 'ask',
                 })
-                setappmainstate({
-                    appmainid: 'feedbacksection',
-                    appmainidtwo: 'modalmain',
-                    appmainidthree: 0,
-                    appmainboolean: true,
-                })
+                setappmainstate(
+                    {
+                        appmainid: 'feedbackdialog',
+                        appmainidtwo: 'sideboardmain',
+                        appmainboolean: true,
+                    }
+                )
 
             },
 
@@ -158,12 +164,13 @@ export const Provider = ({ children }) => {
                     tabmainid: 'feedback',
                     tabmainidtwo: 'edit',
                 })
-                setappmainstate({
-                    appmainid: 'feedbacksection',
-                    appmainidtwo: 'modalmain',
-                    appmainidthree: 0,
-                    appmainboolean: true,
-                })
+                setappmainstate(
+                    {
+                        appmainid: 'feedbackdialog',
+                        appmainidtwo: 'sideboardmain',
+                        appmainboolean: true,
+                    }
+                )
 
             },
 
@@ -177,13 +184,13 @@ export const Provider = ({ children }) => {
                     tabmainid: 'feedback',
                     tabmainidtwo: 'request',
                 })
-                setappmainstate({
-                    appmainid: 'feedbacksection',
-                    appmainidtwo: 'modalmain',
-                    appmainidthree: 0,
-                    // appmainparam: param,
-                    appmainboolean: true,
-                })
+                setappmainstate(
+                    {
+                        appmainid: 'feedbackdialog',
+                        appmainidtwo: 'sideboardmain',
+                        appmainboolean: true,
+                    }
+                )
             },
 
             tabmainid: 'feedback',
@@ -637,13 +644,20 @@ export const Provider = ({ children }) => {
                     tabmainid: 'feedback',
                     tabmainidtwo: 'ask',
                 })
-                setappmainstate({
-                    appmainid: 'feedbacksection',
-                    appmainidtwo: 'modalmain',
-                    appmainidthree: 0,
-                    // appmainparam: param,
-                    appmainboolean: true,
-                })
+                // setappmainstate({
+                //     appmainid: 'feedbacksection',
+                //     appmainidtwo: 'modalmain',
+                //     appmainidthree: 0,
+                //     // appmainparam: param,
+                //     appmainboolean: true,
+                // })
+                setappmainstate(
+                    {
+                        appmainid: 'feedbackdialog',
+                        appmainidtwo: 'sideboardmain',
+                        appmainboolean: true,
+                    }
+                )
             },
 
             tabmainid: 'feedback',
@@ -657,13 +671,20 @@ export const Provider = ({ children }) => {
                     tabmainid: 'feedback',
                     tabmainidtwo: 'edit',
                 })
-                setappmainstate({
-                    appmainid: 'feedbacksection',
-                    appmainidtwo: 'modalmain',
-                    appmainidthree: 0,
-                    // appmainparam: param,
-                    appmainboolean: true,
-                })
+                // setappmainstate({
+                //     appmainid: 'feedbacksection',
+                //     appmainidtwo: 'modalmain',
+                //     appmainidthree: 0,
+                //     // appmainparam: param,
+                //     appmainboolean: true,
+                // })
+                setappmainstate(
+                    {
+                        appmainid: 'feedbackdialog',
+                        appmainidtwo: 'sideboardmain',
+                        appmainboolean: true,
+                    }
+                )
             },
 
             tabmainid: 'feedback',
@@ -677,13 +698,20 @@ export const Provider = ({ children }) => {
                     tabmainid: 'feedback',
                     tabmainidtwo: 'report',
                 })
-                setappmainstate({
-                    appmainid: 'feedbacksection',
-                    appmainidtwo: 'modalmain',
-                    appmainidthree: 0,
-                    // appmainparam: param,
-                    appmainboolean: true,
-                })
+                // setappmainstate({
+                //     appmainid: 'feedbacksection',
+                //     appmainidtwo: 'modalmain',
+                //     appmainidthree: 0,
+                //     // appmainparam: param,
+                //     appmainboolean: true,
+                // })
+                setappmainstate(
+                    {
+                        appmainid: 'feedbackdialog',
+                        appmainidtwo: 'sideboardmain',
+                        appmainboolean: true,
+                    }
+                )
             },
 
             tabmainid: 'feedback',
@@ -697,13 +725,20 @@ export const Provider = ({ children }) => {
                     tabmainid: 'feedback',
                     tabmainidtwo: 'request',
                 })
-                setappmainstate({
-                    appmainid: 'feedbacksection',
-                    appmainidtwo: 'modalmain',
-                    appmainidthree: 0,
-                    // appmainparam: param,
-                    appmainboolean: true,
-                })
+                // setappmainstate({
+                //     appmainid: 'feedbacksection',
+                //     appmainidtwo: 'modalmain',
+                //     appmainidthree: 0,
+                //     // appmainparam: param,
+                //     appmainboolean: true,
+                // })
+                setappmainstate(
+                    {
+                        appmainid: 'feedbackdialog',
+                        appmainidtwo: 'sideboardmain',
+                        appmainboolean: true,
+                    }
+                )
             },
 
             tabmainid: 'feedback',
@@ -884,6 +919,34 @@ export const Provider = ({ children }) => {
         },
     ]
 
+    const rtadi = [
+        {
+            sheetmainindex: 0,
+            sheetmaintitle: 'Place Location',
+            sheetmaindata:  clientpost?.placeplaceid,
+
+            spreadmainid: 'read',
+        },
+        {
+            sheetmainindex: 1,
+            sheetmaintitle: 'Related Blogs',
+            sheetmaindata:  clientpost?.postplaceid,
+
+        },
+        {
+            sheetmainindex: 2,
+            sheetmaintitle: 'Related Products',
+            sheetmaindata:  clientpost?.productplaceid,
+
+        },
+        {
+            sheetmainindex: 3,
+            sheetmaintitle: `What You'll Need`,
+            sheetmaindata:  clientpost?.productpostid,
+
+        },
+    ]
+
     const faqdl = [
         {
             spreadmainindex: 0,
@@ -956,7 +1019,6 @@ export const Provider = ({ children }) => {
               }[0]`;
               await client.fetch(query) 
               .then((data) => {
-                //   setuserindex(data)
                   setpostplaceproduct(data.postplaceproduct)
 
                   setpostupdatedat(data.postupdatedat);
@@ -966,6 +1028,21 @@ export const Provider = ({ children }) => {
                   setproductcreatedat(data.productcreatedat);
               })
         }
+
+    const oo = async () => {
+          const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${location && location?.pathname?.replace('/', '')}']{
+            ...,
+            'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] | order(_createdAt desc),
+            'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] | order(_createdAt desc) ,
+            'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] | order(_createdAt desc) ,
+            'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] | order(_createdAt desc) ,
+          }[0]`;
+          await client.fetch(query) 
+          .then((data) => {
+            setclientpost(data)
+          })
+    }
+
     // if(!postupdatedat) return <LoadMain />
 
     return (
@@ -984,6 +1061,7 @@ export const Provider = ({ children }) => {
           faqlink, faqselect,
           faqdl, faqdi, 
           favouritedl, favouritedi,
+          rtadi,
 
           appmainstate, setappmainstate,
           // postindexstate, setpostindexstate,
@@ -1019,7 +1097,6 @@ export const Provider = ({ children }) => {
           ptamainstate, setptamainstate,
           toastermainstate, settoastermainstate,
 
-          userindex,
           postplaceproduct,
           postupdatedat,
           placeupdatedat,

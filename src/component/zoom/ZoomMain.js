@@ -6,30 +6,32 @@ import { useContext } from 'react'
 import { MdShowChart } from 'react-icons/md'
 import { RiChat4Fill, RiChat4Line, RiHeartFill, RiLayoutGridFill, RiMapPin3Fill, RiMapPin3Line, RiNewspaperFill, RiNewspaperLine, RiSearch2Line, RiShoppingBag2Fill, RiShoppingBag2Line } from 'react-icons/ri'
 import { VscSearch } from 'react-icons/vsc'
+import { useLocation } from 'react-router-dom'
 // import { useNavigate } from 'react-router-dom'
 // import { categoryul } from '../../content/contentmantwo'
 
 import { ContextMain } from '../../context/contextmain'
-import BarMain from '../bar/BarMain'
-import CardMain from '../card/CardMain'
+import { client } from '../../lib/sanity'
 import PtaMain from '../pta/PtaMain'
 
 function ZoomMain({
-    zoommainid, zoommainslice,
+    zoommainid, 
+    zoommainslice,
 
     favouritemainstate,
-
 }) {
     const {
         localpost, parsepost,
         feedbacklink,
         searchdl,
         favouritedi,
+        rtadi,
 
         searchmainstate,
 
     } = useContext(ContextMain)
     // const navigate = useNavigate()
+    const location = useLocation()
     const [zoommainkey, setzoommainkey] = useState('')
     const [zoommainindex, setzoommainindex] = useState(0)
 
@@ -156,6 +158,123 @@ function ZoomMain({
         },
     ]
 
+    const rtainput = [
+        {
+            zoommainindex: 0,
+            zoommaindata: [
+                {
+                    zoommaintitle: 'Place Location',
+                    zoommainrender: rtadi[0]?.sheetmaindata?.sort((a, b) => b.postcount - a.postcount),
+                    zoommainicon: <RiMapPin3Fill />,
+                },
+                {
+                    zoommaintitle: `What You'll Need`,
+                    zoommainrender: rtadi[3]?.sheetmaindata?.sort((a, b) => b.postcount - a.postcount),
+                    zoommainicon: <RiShoppingBag2Fill />,
+                },
+                {
+                    zoommaintitle: 'Related Blogs',
+                    zoommainrender: rtadi[1]?.sheetmaindata?.sort((a, b) => b.postcount - a.postcount),
+                    zoommainicon: <RiNewspaperFill />,
+                },
+                {
+                    zoommaintitle: 'Related Products',
+                    zoommainrender: rtadi[2]?.sheetmaindata?.sort((a, b) => b.postcount - a.postcount),
+                    zoommainicon: <RiShoppingBag2Fill />,
+                },
+
+            ]
+        },
+        {
+            zoommainindex: 1,
+            zoommaindata: [
+                {
+                    zoommaintitle: 'Place Location',
+                    zoommainrender: rtadi[0]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
+                    zoommainicon: <RiMapPin3Fill />,
+
+                },
+                {
+                    zoommaintitle: `What You'll Need`,
+                    zoommainrender: rtadi[3]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
+                    zoommainicon: <RiShoppingBag2Fill />,
+                },
+                {
+                    zoommaintitle: 'Related Blogs',
+                    zoommainrender: rtadi[1]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
+                    zoommainicon: <RiNewspaperFill />,
+
+                },
+                {
+                    zoommaintitle: 'Related Products',
+                    zoommainrender: rtadi[2]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
+                    zoommainicon: <RiShoppingBag2Fill />,
+
+                },
+
+            ]
+        },
+    ]
+
+
+    const rtainputtwo = [
+        {
+            zoommainindex: 0,
+            zoommaindata: [
+                {
+                    zoommaintitle: 'Place Location',
+                    zoommainrender: rtadi[0]?.sheetmaindata,
+                    zoommainicon: <RiMapPin3Fill />,
+                },
+                {
+                    zoommaintitle: `What You'll Need`,
+                    zoommainrender: rtadi[3]?.sheetmaindata,
+                    zoommainicon: <RiShoppingBag2Fill />,
+                },
+                {
+                    zoommaintitle: 'Related Blogs',
+                    zoommainrender: rtadi[1]?.sheetmaindata,
+                    zoommainicon: <RiNewspaperFill />,
+                },
+                {
+                    zoommaintitle: 'Related Products',
+                    zoommainrender: rtadi[2]?.sheetmaindata,
+                    zoommainicon: <RiShoppingBag2Fill />,
+                },
+
+            ]
+        },
+        {
+            zoommainindex: 1,
+            zoommaindata: [
+                {
+                    zoommaintitle: 'Place Location',
+                    zoommainrender: rtadi[0]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
+                    zoommainicon: <RiMapPin3Fill />,
+
+                },
+                {
+                    zoommaintitle: `What You'll Need`,
+                    zoommainrender: rtadi[3]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
+                    zoommainicon: <RiShoppingBag2Fill />,
+                },
+                {
+                    zoommaintitle: 'Related Blogs',
+                    zoommainrender: rtadi[1]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
+                    zoommainicon: <RiNewspaperFill />,
+
+                },
+                {
+                    zoommaintitle: 'Related Products',
+                    zoommainrender: rtadi[2]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
+                    zoommainicon: <RiShoppingBag2Fill />,
+
+                },
+
+            ]
+        },
+    ]
+
     const zoommain = [
         {
             zoommainid: 'searchinput',
@@ -168,6 +287,14 @@ function ZoomMain({
         {
             zoommainid: 'favouriteinput',
             zoommainref: favouriteinput,
+        },
+        {
+            zoommainid: 'rtainput',
+            zoommainref: rtainput,
+        },
+        {
+            zoommainid: 'rtainputtwo',
+            zoommainref: rtainputtwo,
         },
     ]
 
@@ -193,12 +320,6 @@ function ZoomMain({
             setzoommainicon(filtertwo[0].zoommainicon)
         }
     }, [zoommainid, zoommainindex, zoommainkey])
-
-    // useEffect(() => {
-    //     if(searchmainstate && searchmainstate.tabmainindex){
-    //         setzoommaindata()
-    //     }
-    // }, [searchmainstate])
     
   return (
     <div>

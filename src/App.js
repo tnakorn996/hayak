@@ -1,11 +1,11 @@
 
 import React, { useEffect, useContext} from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom';
-import {AnimatePresence} from 'framer-motion'
+// import {AnimatePresence} from 'framer-motion'
 
 import './App.css';
-import NavMain from './component/nav/NavMain';
 import {ContextMain} from './context/contextmain'
+import NavMain from './component/nav/NavMain';
 import CategoryIndex from './page/catagory/CategoryIndex';
 import HomeMain from './page/home/HomeMain';
 import PostIndex from './page/post/PostIndex';
@@ -13,7 +13,6 @@ import PlanMain from './page/plan/PlanMain';
 import AboutMain from './page/about/AboutMain';
 import BackdropMain from './component/modal/BackdropMain';
 import Overlay from './component/overlay/Overlay';
-import PromoMain from './component/promo/PromoMain';
 import TopMain from './component/top/TopMain';
 import SearchMain from './page/search/SearchMain';
 import FeedbackMain from './page/feedback/FeedbackMain';
@@ -49,9 +48,6 @@ export default function App() {
         default: 
         return dashboard
 
-        // case 'extromain': 
-        // return <ExtroMain />
-
         case 'aboutmain': 
         return <AboutMain />
 
@@ -61,14 +57,8 @@ export default function App() {
         // case 'contactmain': 
         // return <ContactMain />
 
-        // case 'slidemain': 
-        // return <SlideMain />
-        
         // case 'sheetmain': 
         // return <SheetMain />
-
-        case 'promomain': 
-        return <PromoMain />
 
         case 'appmain': 
         return dashboard
@@ -93,8 +83,6 @@ export default function App() {
             <Route path='/:id' element={<PostIndex />} /> 
 
             <Route path='/category/:id' element={<CategoryIndex />} /> 
-
-            {/* <Route path='/about/aboutmain' element={<AboutMain />} />  */}
 
             <Route path='/search/searchmain' element={<SearchMain />} /> 
 

@@ -116,18 +116,19 @@ function RtaMain({
                   </div>
                   {data?.rtamainrender?.length > 0 && (<>
                     <article onClick={() => {
-                      setstackmainstate({
-                        stackmainid: 'rtatd',
-                        stackmainindex: 0,
-                        stackmaindata: data?.rtamainrender,
-                      })
+                      // setstackmainstate({
+                      //   stackmainid: 'rtatd',
+                      //   stackmainindex: 0,
+                      //   stackmaindata: data?.rtamainrender,
+                      // })
                       setappmainstate({
                               appmainid: 'rtasection',
                               appmainidtwo: 'modalmain',
                               appmainidthree: 0,
                               appmainboolean: true,
+                              appmaindata: data?.rtamainrender,
                           })
-                      }} className="col-span-2 text-right  l-h6">→</article>
+                      }} className="col-span-2 text-right  m-h6 font-serif">→</article>
                     </>)}
                   </section>
                   <br />

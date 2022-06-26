@@ -326,7 +326,6 @@ function PostIndex() {
     // }, [userindex, postpostid])
     
     const ll = async () => {
-
               const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${appmainstate?.appmainparam || param.id}']{
                   ...,
                   'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] | order(_createdAt desc),
@@ -467,8 +466,8 @@ function PostIndex() {
                     <meta name="description" content={postpostid?.postsubtitle} />
                     <meta name="image" property="og:image" content={postpostid?.posthero} />
                 </Helmet> */}
-                {/* <title>TOI NZ | {postpostid?.posttitle?.toUpperCase()}</title>
-                <meta property="og:type" content="article" />
+                {/* <title>TOI NZ | {postpostid?.posttitle?.toUpperCase()}</title> */}
+                {/* <meta property="og:type" content="article" />
                 <meta property="og:url" content="http://www.example.com/link" />
                 <meta property="og:image" content="" />
                 <meta property="og:image:alt" content="Alt Text for Image" />
@@ -478,7 +477,7 @@ function PostIndex() {
                 <meta property="og:contenttype" content="article_listing" />
                 <meta property="og:publishdt" content="Oct 5 , 2018" />
                 <meta property="og:uploadedby" content="" />
-                <meta property="fb:app_id" content="your app id" />  */}
+                <meta property="fb:app_id" content="your app id" />   */}
         </main>
         <main className="flex flex-col md:grid md:grid-cols-12   duration-100">
             <figure className="col-span-12 relative">
@@ -540,6 +539,7 @@ function PostIndex() {
                     cardmainidthree={'all'}
                     cardmainindex={0} 
                     />
+                    <br />
                 </section>
             </figcaption>
             {/* {<SnackbarMain snackbarmainid={'postfooter'} snackbarmaindata={postindexrender && postindexrender} snackbarmaindatatwo={postpostid && postpostid} snackbarmaindatathree={postindexthree && postindexthree} />} */}
@@ -577,7 +577,7 @@ function PostIndex() {
                 </section>
             </figcaption>
 
-            <figure layout className="col-span-12">
+            {/* <figure layout className="col-span-12">
                 <br />
                 <br />
                 <hr />
@@ -594,7 +594,7 @@ function PostIndex() {
                     slidemainslice={12}
                     />
                 </section>
-            </figure>
+            </figure> */}
             {/* <figure layout className="col-span-12">
                 <br />
                 <br />
@@ -609,6 +609,9 @@ function PostIndex() {
                 </section>
                 <br /><br />
             </figure> */}
+            {/* <figcaption className="max-w-[700px] mx-auto  col-span-12">
+                <ListMain listmainid={'faqsummary'} listmainindex={0} />
+            </figcaption> */}
             <figure className="z-20 fixed bottom-5 right-5 flex flex-col items-end gap-3  duration-100">
                 {/* <FabMain fabmainid={'posttfoot'} fabmainindex={1} /> */}
                 {(postindexstyle || !postindexaction) && (<>

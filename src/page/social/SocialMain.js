@@ -20,7 +20,7 @@ function SocialMain({param}) {
   
   return (
     <div>
-        <main className="">
+        <main className="px-[20px]">
           <section className="grid grid-flow-col justify-items-center justify-center gap-3 text-center">
                       <a href={`https://twitter.com/intent/tweet?url=${window.location.origin}${param}&text=${param}`} target="_blank" className="grid justify-items-center gap-3">
                           <RiTwitterFill className='m-h4' />

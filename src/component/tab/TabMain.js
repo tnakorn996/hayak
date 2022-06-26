@@ -56,6 +56,24 @@ function TabMain({
         },
     ]
 
+
+    const rtalegend = [
+        {
+            tabmainindex: 0,
+            tabmaintitle: 'Reader Pick',
+            tabmainrender: <section className="min-w-full md:max-w-full mx-auto  snap-center duration-100">
+                <ZoomMain zoommainid={'rtainput'} zoommainslice={10} />
+            </section>
+        },
+        {
+            tabmainindex: 1,
+            tabmaintitle: 'All',
+            tabmainrender: <section className="min-w-full md:max-w-full mx-auto  snap-center duration-100">
+                <ZoomMain zoommainid={'rtainputtwo'} zoommainslice={10} />
+            </section>
+        },
+    ]
+
     const tabmain = [
         // {
         //     tabmainid: 'searchlegend',
@@ -64,11 +82,15 @@ function TabMain({
         {
             tabmainid: 'favouritelegend',
             tabmainref: favouritelegend,
+        },
+        {
+            tabmainid: 'rtalegend',
+            tabmainref: rtalegend,
         }
     ]
 
     useEffect(() => {
-        if(tabmainstatic && searchmainstate){
+        if(tabmainstatic){
 
             const filter = tabmain.filter(data => data.tabmainid === tabmainstatic.tabmainid)
             const empty = []
@@ -78,12 +100,11 @@ function TabMain({
             settabmainrender(empty)
 
             const filtertwo = tabmain.filter(data => data.tabmainid === tabmainstatic.tabmainid)
-
             // settabmainrendertwo(filtertwo[0].tabmainref)
             const filterthree = filtertwo[0].tabmainref.filter(data => data.tabmainindex === searchmainstate.tabmainindex)
             settabmainrendertwo(filterthree[0].tabmainrender)
         }
-    }, [tabmainstatic])
+    }, [tabmainstatic, searchmainstate])
 
     useEffect(() => {
         if(searchmainstate && searchmainstate === null){
@@ -94,7 +115,7 @@ function TabMain({
             tabmainref?.current?.scrollTo(0, 0)
         }
         if(searchmainstate && searchmainstate.tabmainindex === 1){
-            tabmainref?.current?.scrollTo(5000, 0)
+            tabmainref?.current?.scrollTo(3000, 0)
         }
     }, [searchmainstate, tabmainrender])
 
@@ -132,14 +153,6 @@ function TabMain({
                 </>))}
             </section>
             <section className="w-screen md:w-full">
-                {/* <div ref={tabmainref} onTouchStart={p => ll(p)} onTouchMove={p => kk(p)} onTouchEnd={() => jj()} className="w-screen md:w-[55vw] overflow-x-scroll  no-scrollbar scroll-smooth md:scroll-auto duration-75">
-                    <figure className="flex flex-row w-fit">
-                            {tabmainrendertwo && tabmainrendertwo?.map(data => (<>
-                            {data?.tabmainrender}
-                            </>))}
-                    </figure>
-                </div> */}
-
                 <figure ref={tabmainref} onTouchStart={p => ll(p)} onTouchMove={p => kk(p)} onTouchEnd={() => jj()} className="overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth">
                     {tabmainrendertwo && tabmainrendertwo}
                 </figure>

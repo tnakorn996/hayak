@@ -14,6 +14,7 @@ import CommentDialog from '../../page/comment/CommentDialog'
 import ZoomMain from '../zoom/ZoomMain'
 import FavouriteDialog from '../../page/favourite/FavouriteDialog'
 import TabMain from '../tab/TabMain'
+import FeedbackSection from '../../page/feedback/FeedbackSection'
 
 function SideboardMain() {
   const {
@@ -113,6 +114,12 @@ function SideboardMain() {
       sideboardrender: postupdatedat && <FavouriteDialog />
     },
   ]
+
+  const feedbackdialog = [
+    {
+      sideboardrender: <FeedbackSection />
+    },
+  ]
     
   const sideboardmain = [
     {
@@ -130,6 +137,10 @@ function SideboardMain() {
     {
       sideboardmainid: 'favouritedialog',
       sideboardmainref: favouritedialog,
+    },
+    {
+      sideboardmainid: 'feedbackdialog',
+      sideboardmainref: feedbackdialog,
     },
   ]
 

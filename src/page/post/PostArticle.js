@@ -114,8 +114,8 @@ function PostArticle() {
                                         appmainboolean: false,
                                     })
                                     navigate(`/${postarticlestate?.postid}`)
-                                }} className="col-span-12 md:col-span-5 m-button m-h3">→ Read more</button>
-                                <figure className="col-span-12 md:col-span-7">
+                                }} className="col-span-12 md:col-span-4 m-button m-h3">→ Read more</button>
+                                <figure className="col-span-12 md:col-span-8">
                                     <BarMain barmainid={'postindextime'} barmainindex={1} barmaindata={postindexthree}/>
                                 </figure>
                             </div>

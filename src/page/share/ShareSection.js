@@ -30,7 +30,7 @@ function ShareSection({
 
   return (
     <div>
-        <main className="">
+        <main className="p-[20px]">
             <section className="flex justify-center ">
                     <figure className="h-[250px] w-[250px] flex justify-center items-center ">
                         <RiContrastDropLine className='absolute text-3xl w-[50px] h-[50px]  bg-white rounded-full' />
@@ -51,6 +51,7 @@ function ShareSection({
                         </figure>
                     </article>
                 </section>
+                <br />
                 <section className="">
                     <CardMain 
                     cardmainid={sharesectionstate?.sharesectionid} 

@@ -84,8 +84,8 @@ function BadgeMain({
         <main className="">
             <section className="">
               <figure className="py-[0.5px] px-[5px]  rounded-full  bg-black">
-                <h1 className="text-[9px]  m-h1 text-white">{badgemainrender && badgemainrender}</h1>
                 {/* <h1 className="text-[9px]  m-h1 text-white">{favouritespanrender && favouritespanrender[0]?.badgemainrender()}</h1> */}
+                <h1 className="text-[9px]  m-h1 text-white">{badgemainrender && badgemainrender}</h1>
               </figure>
             </section>
         </main>
