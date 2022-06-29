@@ -36,7 +36,7 @@ function ToasterMain() {
             cardmainid={'favouriteimg'} 
             cardmainidtwo={'success'} 
             cardmainidthree={'review'} 
-            cardmainmessage={[{'success': `Successfully added to Reading list`}]}
+            cardmainmessage={[{'success': `Successfully added to My Favourite`}]}
             cardmainindex={0}  />
         },
         {
@@ -45,7 +45,16 @@ function ToasterMain() {
             cardmainid={'favouriteimg'} 
             cardmainidtwo={'success'} 
             cardmainidthree={'review'} 
-            cardmainmessage={[{'error': `Remove from Reading list`}]}
+            cardmainmessage={[{'success': `Remove from My Favourite`}]}
+            cardmainindex={0}  />
+        },
+        {
+            toastermainindex: 3,
+            toastermainrender: <CardMain 
+            cardmainid={'favouriteimg'} 
+            cardmainidtwo={'success'} 
+            cardmainidthree={'review'} 
+            cardmainmessage={[{'success': `Remove from Search history`}]}
             cardmainindex={0}  />
         }
     ]

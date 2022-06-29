@@ -14,7 +14,7 @@ import AboutMain from './page/about/AboutMain';
 import BackdropMain from './component/modal/BackdropMain';
 import Overlay from './component/overlay/Overlay';
 import TopMain from './component/top/TopMain';
-import SearchMain from './page/search/SearchMain';
+// import SearchMain from './page/search/SearchMain';
 import FeedbackMain from './page/feedback/FeedbackMain';
 import FooterMain from './component/footer/FooterMain';
 import FaqMain from './page/faq/FaqMain';
@@ -84,7 +84,7 @@ export default function App() {
 
             <Route path='/category/:id' element={<CategoryIndex />} /> 
 
-            <Route path='/search/searchmain' element={<SearchMain />} /> 
+            {/* <Route path='/search/searchmain' element={<SearchMain />} />  */}
 
             <Route path='/feedback/feedbackmain' element={<FeedbackMain />} /> 
 

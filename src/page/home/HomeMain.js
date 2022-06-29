@@ -5,12 +5,11 @@ import { useContext } from 'react'
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 import {motion} from 'framer-motion'
+import { useRef } from 'react'
 
 import VerticleMain from '../../component/post/VerticleMain'
 import { ContextMain } from '../../context/contextmain'
 import '../home/homemain.css'
-import WireMain from '../../component/wire/WireMain'
-import { useRef } from 'react'
 import SlideMain from '../../component/slide/SlideMain'
 import JointMain from '../../component/joint/JointMain'
 import ListMain from '../../component/list/ListMain'
@@ -78,7 +77,7 @@ function HomeMain() {
 
     return (
     <div>
-        <main className="w-screen  overflow-hidden duration-100">
+        <main className="relative w-screen  overflow-hidden">
             {/* <section className="">
             <SlideMain 
             slidemainid={'homemainth'} 
@@ -91,11 +90,13 @@ function HomeMain() {
             </section> */}
 
             <section className="">
-                {postplaceproduct?.slice(0, 5)?.map(data => (<>
+                {postplaceproduct?.slice(0, 3)?.map(data => (<>
                 <section className="relative w-screen h-screen flex flex-col justify-evenly gap-3   snap-center">
                         <figure className="relative h-full flex items-center justify-center  overflow-hidden">
                             <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
-                            <img src={urlFor(data.posthero)} alt="" className="min-w-[150ch] h-full md:w-full md:h-fit" />
+                            <ScrollMain scrollmainstatic={{scrollmaintransform: 0.1}} >
+                            <img src={urlFor(data.posthero)} alt="" className="min-w-fit min-h-[150ch]  md:min-w-fit md:max-h-[150ch]" />
+                            </ScrollMain>
                         </figure>
                         <figcaption className="p-[20px] md:p-[60px] w-full absolute bottom-0 left-0 grid grid-flow-row justify-items-start items-center  bg-gradient-to-b from-transparent to-gray-900">
                             <div className="">
@@ -110,7 +111,7 @@ function HomeMain() {
                 </>))}
             </section>
 
-            <section className=" w-[1200px] md:w-full group">
+            <section className="h-fit w-[1200px] md:w-full group">
                 <br /><br /><br /><br />
                 {homemainrender?.map(data => (<>
                 <br />
@@ -153,8 +154,7 @@ function HomeMain() {
             <figure className="z-20 fixed bottom-5 right-5 flex flex-col items-end gap-3  duration-100">
                 <FabMain fabmainid={'posttfoot'} fabmainindex={1} />
             </figure>
-
-
+            
         </main>
     </div>
   )

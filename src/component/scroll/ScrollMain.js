@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
-function ScrollMain({
-    scrollmainstatic,
-    scrollmainstyle,
-}) {
+function ScrollMain(
+    scrollmainstatic
+) {
+  console.log('scrollmainstatic :>> ', scrollmainstatic);
     const [scrollmainoffset, setscrollmainoffset] = useState()
     useEffect(() => {
       window.addEventListener('scroll', hh)
@@ -16,8 +16,8 @@ function ScrollMain({
     }
 
   return (
-        <div style={{transform: `translateY(${scrollmainstatic && scrollmainoffset * (scrollmainstatic.scrollmaintransform || 0.5)}px)`}} className={`min-w-fit min-h-full md:min-w-full  duration-100 md:duration-[0ms] scroll-smooth ${scrollmainstyle && scrollmainstyle}`}>
-            {scrollmainstatic && scrollmainstatic?.scrollmaindata}
+        <div style={{transform: `translateY(${scrollmainoffset * (scrollmainstatic?.scrollmainstatic?.scrollmaintransform)}px)`}} className={`min-w-fit min-h-full md:min-w-full flex justify-center  duration-100 md:duration-[0ms] scroll-smooth `}>
+            {scrollmainstatic && scrollmainstatic?.children}
         </div>
   )
 }

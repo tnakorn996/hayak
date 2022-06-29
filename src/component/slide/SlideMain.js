@@ -70,12 +70,9 @@ function SlideMain({
                         </figcaption>
                         <figure className="relative h-[60vh] flex items-center justify-center  overflow-hidden border border-black">
                             <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
-                               <ScrollMain 
-                                scrollmainstatic={{
-                                    scrollmaindata: <img src={urlFor(data.posthero)} alt="" className="min-w-[100ch] h-fit md:w-full md:h-fit" />,
-                                    scrollmaintransform: 0.3,
-                                    }}
-                            />
+                            <ScrollMain scrollmainstatic={{scrollmaintransform: 0.3}} >
+                                <img src={urlFor(data.posthero)} alt="" className="min-w-[100ch] h-fit md:w-full md:h-fit" />
+                            </ScrollMain>
                             
                         </figure>
                         <div className="w-full  border-b border-black" />
@@ -140,10 +137,12 @@ function SlideMain({
                         <figure className="w-full h-[85vh] md:h-[75vh] relative flex justify-center items-center  ">                            
                             <ScrollMain 
                                 scrollmainstatic={{
-                                    scrollmaindata: <img loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-20 min-w-[150ch] min-h-full md:min-w-full md:min-h-fit`} />,
                                     scrollmaintransform: 0.5,
                                 }}
-                                />
+                                >
+                            <img loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-10 min-w-[150ch] min-h-full md:min-w-full md:min-h-fit`} />
+                            </ScrollMain>
+                            
                             {/* <div className="absolute z-10">
                             <LoadingMain />
                             </div> */}

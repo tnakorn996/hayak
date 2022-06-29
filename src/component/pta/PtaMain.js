@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useContext } from 'react';
 import { useEffect } from 'react';
-import { RiHeartFill, RiHeartLine } from 'react-icons/ri';
+import { RiCheckLine, RiCloseLine, RiHeartFill, RiHeartLine } from 'react-icons/ri';
 
 import '../pta/ptamain.css'
 import { ContextMain } from '../../context/contextmain';
@@ -17,6 +17,7 @@ function PtaMain({
     const {
         setappmainstate,
         ptamainstate, setptamainstate,
+        searchinputstate,
         favouritemainstate,
         settoastermainstate,
 
@@ -26,21 +27,41 @@ function PtaMain({
     const [ptamainindex, setptamainindex] = useState(0)
 
     const [ptamainrender, setptamainrender] = useState()
+    const [ptamainrendertwo, setptamainrendertwo] = useState()
 
     const postiframe = [
-                {
-                    ptamainindex: 0,
-                    ptamainicon: <RiHeartFill className='text-gray-200' />,
-                    ptamainaction: ll,
-                },
-                {
-                    ptamainindex: 1,
-                    ptamainicon: <motion.div initial={{scale: 0.5}} animate={{ scale:1}} className="duration-100">
-                        <RiHeartFill className='text-black' />
-                    </motion.div>,
-                    ptamainaction: kk,
-                }
-        
+        {
+            ptamainindex: 0,
+            ptamainicon: <RiHeartFill className='text-gray-200' />,
+            ptamaindata: (JSON.parse(window.localStorage.getItem("post")))?.favouritemaindata,
+            ptamainaction: ll,
+        },
+        {
+            ptamainindex: 1,
+            ptamainicon: <motion.div initial={{scale: 0.5}} animate={{ scale:1}} className="duration-100">
+                <RiHeartFill className='text-black' />
+            </motion.div>,
+            ptamaindata: (JSON.parse(window.localStorage.getItem("post")))?.favouritemaindata,
+            ptamainaction: kk,
+        }
+    ]
+
+    const searchiframe = [
+        {
+            ptamainindex: 0,
+            ptamainicon: <div className="m-h1 text-black" >→</div>,
+            // ptamainicon: <div className="absolute top-0 left-0 w-full h-full" />,
+            ptamaindata: (JSON.parse(window.localStorage.getItem("search")))?.searchmaindata,
+            ptamainaction: ll,
+        },
+        {
+            ptamainindex: 1,
+            ptamainicon: <motion.div initial={{scale: 0.5}} animate={{ scale:1}} className="duration-100">
+                <RiCloseLine className='text-black' />
+            </motion.div>,
+            ptamaindata: (JSON.parse(window.localStorage.getItem("search")))?.searchmaindata,
+            ptamainaction: kk,
+        }
     ]
 
     const ptamain = [
@@ -48,26 +69,39 @@ function PtaMain({
             ptamainid: 'postiframe',
             ptamainref: postiframe,
         },
+        {
+            ptamainid: 'searchiframe',
+            ptamainref: searchiframe,
+        },
     ]
 
     useEffect(() => {
         if(ptamainstatic && ptamainstatic.ptamaindata) {
             const parsepost = JSON.parse(window.localStorage.getItem("post"))
-            if(parsepost) {
-            const filter = parsepost?.favouritemaindata?.filter(data => data?.postid === ptamainstatic?.ptamaindata?.postid)
-                if(filter.length === 0){
-                    const filtertwo = ptamain.filter(data => data.ptamainid === ptamainstatic.ptamainid);
-                    const filterthree = filtertwo[0].ptamainref.filter(data => data.ptamainindex === 0);
-                    setptamainrender(filterthree)
+            const parsesearch = JSON.parse(window.localStorage.getItem("search"))
+            if(parsepost && parsesearch) {
+                // const filter = parsepost?.favouritemaindata?.filter(data => data?.postid === ptamainstatic?.ptamaindata?.postid)
+                const filter = ptamain?.filter(data => data?.ptamainid === ptamainstatic?.ptamainid)
+                const filtertwo = filter[0]?.ptamainref?.filter(data => data?.ptamainindex === 0)
+                const filterthree = filtertwo[0].ptamaindata?.filter(data => data?.postid === ptamainstatic?.ptamaindata?.postid)
+
+                if(filterthree.length === 0){
+                    const filterfour = ptamain.filter(data => data.ptamainid === ptamainstatic.ptamainid);
+                    const filterfive = filterfour[0].ptamainref.filter(data => data.ptamainindex === 0);
+                    setptamainrender(filterfive)
                 }
-                if(filter.length !== 0){
-                    const filtertwo = ptamain.filter(data => data.ptamainid === ptamainstatic.ptamainid);
-                    const filterthree = filtertwo[0].ptamainref.filter(data => data.ptamainindex === 1);
-                    setptamainrender(filterthree)
+                if(filterthree.length !== 0){
+                    const filterfour = ptamain.filter(data => data.ptamainid === ptamainstatic.ptamainid);
+                    const filterfive = filterfour[0].ptamainref.filter(data => data.ptamainindex === 1);
+                    setptamainrender(filterfive)
                 }
+
             } else {
                 window.localStorage.setItem("post", JSON.stringify({
                     favouritemaindata: favouritemainstate.favouritemaindata,
+                }))
+                window.localStorage.setItem("search", JSON.stringify({
+                    searchmaindata: searchinputstate.searchmaindata,
                 }))
             }
         }
@@ -99,6 +133,30 @@ function PtaMain({
                                 toastermaindata: ptamainstatic.ptamaindata.postid,
                         })
                 },
+            },
+            {
+                ptamainid: 'searchiframe',
+                ptamainindex: 0,
+                ptamainaction: () => {
+                    const parsesearch = JSON.parse(window.localStorage.getItem("search"))
+                    const ref = parsesearch?.searchmaindata || searchinputstate.searchmaindata
+                    ref.push(ptamainstatic.ptamaindata)
+                    window.localStorage.setItem("search", JSON.stringify({
+                        searchmaindata: ref.reverse().slice(0, 3),
+                    }))
+
+                        // setptamainindex(1)
+                        // setappmainstate({
+                        //     appmainid:'overlay',
+                        //     appmainidtwo:'toastermain',
+                        // })
+                        // settoastermainstate({
+                        //         toastermainid: 'postheader',
+                        //         toastermainindex: 1,
+                        //         // toastermaindata: [ptamainstatic.ptamaindata],
+                        //         toastermaindata: ptamainstatic.ptamaindata.postid,
+                        // })
+                },
             }
         ]
         const filter = ptamaindata.filter(data => data.ptamainid === ptamainstatic.ptamainid && data.ptamainindex === 0)
@@ -114,7 +172,8 @@ function PtaMain({
                 ptamainaction: () => {
                     const parsepost = JSON.parse(window.localStorage.getItem("post"))
                     const filter = parsepost.favouritemaindata.filter(data => data.postid !== ptamainstatic.ptamaindata.postid)
-                    window.localStorage.clear()
+                    // window.localStorage.clear()
+                    window.localStorage.removeItem("post")
                     window.localStorage.setItem("post", JSON.stringify({
                         favouritemaindata: filter,
                     }))
@@ -126,6 +185,30 @@ function PtaMain({
                         settoastermainstate({
                                 toastermainid: 'postheader',
                                 toastermainindex: 2,
+                                // toastermaindata: [ptamainstatic.ptamaindata],
+                                toastermaindata: ptamainstatic.ptamaindata.postid,
+                        })
+                },
+            },
+            {
+                ptamainid: 'searchiframe',
+                ptamainindex: 1,
+                ptamainaction: () => {
+                    const parsesearch = JSON.parse(window.localStorage.getItem("search"))
+                    const filter = parsesearch.searchmaindata.filter(data => data.postid !== ptamainstatic.ptamaindata.postid)
+                    // window.localStorage.clear()
+                    window.localStorage.removeItem("search")
+                    window.localStorage.setItem("search", JSON.stringify({
+                        searchmaindata: filter.reverse().slice(0, 3),
+                    }))
+                        setptamainindex(0)
+                        setappmainstate({
+                            appmainid:'overlay',
+                            appmainidtwo:'toastermain',
+                        })
+                        settoastermainstate({
+                                toastermainid: 'postheader',
+                                toastermainindex: 3,
                                 // toastermaindata: [ptamainstatic.ptamaindata],
                                 toastermaindata: ptamainstatic.ptamaindata.postid,
                         })
@@ -150,6 +233,7 @@ function PtaMain({
                     </article>
                 
                 </>))}
+
             </section>
         </main>
     </div>

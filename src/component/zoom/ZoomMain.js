@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { MdShowChart } from 'react-icons/md'
-import { RiChat4Fill, RiChat4Line, RiHeartFill, RiLayoutGridFill, RiMapPin3Fill, RiMapPin3Line, RiNewspaperFill, RiNewspaperLine, RiSearch2Line, RiShoppingBag2Fill, RiShoppingBag2Line } from 'react-icons/ri'
+import { RiChat4Fill, RiChat4Line, RiHeartFill, RiHistoryFill, RiLayoutGridFill, RiMapPin3Fill, RiMapPin3Line, RiNewspaperFill, RiNewspaperLine, RiSearch2Line, RiShoppingBag2Fill, RiShoppingBag2Line } from 'react-icons/ri'
 import { VscSearch } from 'react-icons/vsc'
 import { useLocation } from 'react-router-dom'
 // import { useNavigate } from 'react-router-dom'
@@ -27,7 +27,8 @@ function ZoomMain({
         favouritedi,
         rtadi,
 
-        searchmainstate,
+        searchinputstate,
+        // searchmainstate,
 
     } = useContext(ContextMain)
     // const navigate = useNavigate()
@@ -43,6 +44,12 @@ function ZoomMain({
         {
             zoommainindex: 0,
             zoommaindata: [
+                {
+                    zoommaintitle: 'Recent searches',
+                    zoommainrender: searchdl[3].spreadmaindata,
+                    zoommainicon: <RiHistoryFill />,
+
+                },
                 {
                     zoommaintitle: 'Trending blog',
                     zoommainrender: searchdl[0].spreadmaindata,
@@ -164,22 +171,22 @@ function ZoomMain({
             zoommaindata: [
                 {
                     zoommaintitle: 'Place Location',
-                    zoommainrender: rtadi[0]?.sheetmaindata?.sort((a, b) => b.postcount - a.postcount),
+                    zoommainrender: rtadi[0]?.sheetmaindata?.concat([])?.sort((a, b) => b.postcount - a.postcount),
                     zoommainicon: <RiMapPin3Fill />,
                 },
                 {
                     zoommaintitle: `What You'll Need`,
-                    zoommainrender: rtadi[3]?.sheetmaindata?.sort((a, b) => b.postcount - a.postcount),
+                    zoommainrender: rtadi[3]?.sheetmaindata?.concat([])?.sort((a, b) => b.postcount - a.postcount),
                     zoommainicon: <RiShoppingBag2Fill />,
                 },
                 {
                     zoommaintitle: 'Related Blogs',
-                    zoommainrender: rtadi[1]?.sheetmaindata?.sort((a, b) => b.postcount - a.postcount),
+                    zoommainrender: rtadi[1]?.sheetmaindata?.concat([])?.sort((a, b) => b.postcount - a.postcount),
                     zoommainicon: <RiNewspaperFill />,
                 },
                 {
                     zoommaintitle: 'Related Products',
-                    zoommainrender: rtadi[2]?.sheetmaindata?.sort((a, b) => b.postcount - a.postcount),
+                    zoommainrender: rtadi[2]?.sheetmaindata?.concat([])?.sort((a, b) => b.postcount - a.postcount),
                     zoommainicon: <RiShoppingBag2Fill />,
                 },
 
@@ -223,22 +230,22 @@ function ZoomMain({
             zoommaindata: [
                 {
                     zoommaintitle: 'Place Location',
-                    zoommainrender: rtadi[0]?.sheetmaindata,
+                    zoommainrender: rtadi[0]?.sheetmaindata?.concat([])?.sort((a, b) => new Date(b._updatedAt) - new Date(a._updatedAt)),
                     zoommainicon: <RiMapPin3Fill />,
                 },
                 {
                     zoommaintitle: `What You'll Need`,
-                    zoommainrender: rtadi[3]?.sheetmaindata,
+                    zoommainrender: rtadi[3]?.sheetmaindata?.concat([])?.sort((a, b) => new Date(b._updatedAt) - new Date(a._updatedAt)),
                     zoommainicon: <RiShoppingBag2Fill />,
                 },
                 {
                     zoommaintitle: 'Related Blogs',
-                    zoommainrender: rtadi[1]?.sheetmaindata,
+                    zoommainrender: rtadi[1]?.sheetmaindata?.concat([])?.sort((a, b) => new Date(b._updatedAt) - new Date(a._updatedAt)),
                     zoommainicon: <RiNewspaperFill />,
                 },
                 {
                     zoommaintitle: 'Related Products',
-                    zoommainrender: rtadi[2]?.sheetmaindata,
+                    zoommainrender: rtadi[2]?.sheetmaindata?.concat([])?.sort((a, b) => new Date(b._updatedAt) - new Date(a._updatedAt)),
                     zoommainicon: <RiShoppingBag2Fill />,
                 },
 
@@ -320,7 +327,7 @@ function ZoomMain({
             setzoommainicon(filtertwo[0].zoommainicon)
         }
     }, [zoommainid, zoommainindex, zoommainkey])
-    
+
   return (
     <div>
         <main className="px-[20px] md:px-[50px]">
@@ -340,7 +347,7 @@ function ZoomMain({
                 <h1 className="m-h2">{data?.zoommaintitle} ({data?.zoommainrender?.length})</h1>
                 <br />
                     {data?.zoommainrender?.slice(0, zoommainslice)?.map(dat => (<>
-                        <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full p-[10px] flex flex-row items-center justify-between  group">
+                        <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative w-full p-[10px] flex flex-row items-center justify-between  group">
                             <div className="grid grid-flow-col items-center justify-start gap-3">
                             <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white ">{data.zoommainicon}</span>
                             <figcaption className="flex flex-row items-center gap-1  truncate">
@@ -350,9 +357,13 @@ function ZoomMain({
                                 {/* <h1 className="l-h1 truncate">{dat?.postsubtitle}</h1> */}
                             </figcaption>
                             </div>
+
+                            <div className="flex flex-row items-center justify-end gap-3">
                             {/* <motion.div className="opacity-0 group-hover:opacity-100  duration-100"> */}
-                            {(zoommainid !== 'feedbackinput') && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
+                            {/* {(zoommainid === 'searchinput') && <PtaMain ptamainstatic={{ptamainid: 'searchiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />} */}
+                            {(zoommainid !== 'feedbackinput' && zoommainid !== 'searchinput' && data?.zoommaintitle !== 'Recent searches') && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
                             {/* </motion.div> */}
+                            </div>
 
                         </motion.figure>
                         <div className="w-full  border-b border-gray-200" />

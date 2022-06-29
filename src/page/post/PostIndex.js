@@ -432,16 +432,16 @@ function PostIndex() {
     // }
 
     window.onscroll = function (){
-        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.1)) && window.screen.width > 1000) {
-            setpostindexstyle('!min-h-[15vh] !grid-flow-col !bg-white !border !shadow')
+        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.2)) && window.screen.width > 1000) {
+            setpostindexstyle('!w-screen !min-h-[15vh] !grid-flow-col !bg-white !border-b !shadow')
             
         } 
-        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.7)) && window.screen.width > 1000) {
+        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.8)) && window.screen.width > 1000) {
             setpostindexstyle('')
         }
 
         if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 0.9)) && window.screen.width <= 1000) {
-            setpostindexstyle('!min-h-[10vh] !grid-flow-row !bg-white !border !shadow')
+            setpostindexstyle('!w-screen !min-h-[10vh] !grid-flow-row !bg-white !border-b !shadow')
             
         } 
         if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.6)) && window.screen.width <= 1000) {
@@ -543,7 +543,7 @@ function PostIndex() {
                 </section>
             </figcaption>
             {/* {<SnackbarMain snackbarmainid={'postfooter'} snackbarmaindata={postindexrender && postindexrender} snackbarmaindatatwo={postpostid && postpostid} snackbarmaindatathree={postindexthree && postindexthree} />} */}
-            <figcaption className={`col-span-12 sticky z-10 top-0 left-0 min-h-[35vh] grid grid-flow-row  duration-1000 md:duration-100  ${postindexstyle}`}>
+            <figcaption className={`w-full md:w-[750px] mx-auto col-span-12 sticky z-10 top-0 left-0 min-h-[35vh] grid grid-flow-row  duration-1000  ${postindexstyle}`}>
                 <section className="w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto">
                     <br />
                     {postindexstyle === '' && (<><br /></>)}
@@ -610,7 +610,7 @@ function PostIndex() {
                 </section>
                 <br /><br />
             </figure> */}
-            {/* <figcaption className="max-w-[700px] mx-auto  col-span-12">
+            {/* <figcaption className="block md:hidden max-w-[700px] mx-auto  col-span-12">
                 <ListMain listmainid={'faqsummary'} listmainindex={0} />
             </figcaption> */}
             <figure className="z-20 fixed bottom-5 right-5 flex flex-col items-end gap-3  duration-100">

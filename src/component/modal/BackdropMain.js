@@ -51,7 +51,7 @@ function BackdropMain() {
         <main className="">
           <AnimatePresence>
             {/* {backdropstate && (<> */}
-              <motion.section key='backdrop' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="z-20 w-screen h-screen top-0 left-0 fixed flex justify-center items-end md:items-start  bg-white bg-opacity-10 overflow-y-auto no-scrollbar duration-75">
+              <motion.section key='backdrop' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="z-20 w-screen h-screen top-0 left-0 fixed flex justify-center items-end md:items-start  bg-white bg-opacity-40 overflow-y-auto no-scrollbar duration-75 backdrop-blur-2xl">
                 {backdropmainrender && backdropmainrender}
               </motion.section>
             {/* </>)} */}

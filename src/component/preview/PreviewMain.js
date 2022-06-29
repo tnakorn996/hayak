@@ -121,11 +121,17 @@ function PreviewMain() {
     <div>
         <br />
         <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 0}}  className="relative w-screen md:w-[1000px] h-screen md:h-full  mx-auto border bg-white overflow-hidden shadow-2xl duration-100">
-            <RiCloseFill onClick={() => {
+            {/* <RiCloseFill onClick={() => {
                 setappmainstate({
                     appmainboolean: false
                 })
-            }} className="z-30 absolute top-5 right-5 text-4xl  text-white bg-black cursor-pointer" />
+            }} className="z-30 absolute top-5 right-5 text-4xl  text-white bg-black cursor-pointer" /> */}
+            <button 
+            onClick={() => {
+                setappmainstate({
+                    appmainboolean: false
+                })
+            }} className="z-30 absolute top-5 right-5  l-button">Close</button>
             {previewmainrender && previewmainrender}
         </motion.main>
     </div>

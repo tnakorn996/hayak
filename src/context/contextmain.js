@@ -12,13 +12,14 @@ export const ContextMain = createContext()
 export const Provider = ({ children }) => {
     const localpost = window.localStorage.getItem("post");
     const parsepost = JSON.parse(localpost);
+    const localsearch = window.localStorage.getItem("search");
+    const parsesearch = JSON.parse(localsearch);
     const location = useLocation()
     // const param = useParams()
     // console.log('location :>> ', location);
 
     const [appmainstate, setappmainstate] = useState('appmain')
     // const [postindexstate, setpostindexstate] = useState()
-    const [searchinputstate, setsearchinputstate] = useState('')
     const [planformstate, setplanformstate] = useState()
     const [ontromainstate, setontromainstate] = useState()
     const [extromainstate, setextromainstate] = useState()
@@ -45,6 +46,8 @@ export const Provider = ({ children }) => {
     const [landmainstate, setlandmainstate] = useState()
     const [barmainstate, setbarmainstate] = useState()
     const [guidemainstate, setguidemainstate] = useState()
+    //should be searchmainstate but already taken :(
+    const [searchinputstate, setsearchinputstate] = useState({searchmaindata: []})
     const [favouritemainstate, setfavouritemainstate] = useState({favouritemaindata: []})
     const [ptamainstate, setptamainstate] = useState()
     const [toastermainstate, settoastermainstate] = useState()
@@ -809,7 +812,7 @@ export const Provider = ({ children }) => {
         {
             blemainid: 'review',
             blemaintitle: 'review',
-            blemainentitle: 'See all Lists',
+            blemainentitle: 'See My Favourite',
             blemainaction:  () => {
                 setsearchmainstate({tabmainindex: 1})
                 setappmainstate(
@@ -882,6 +885,11 @@ export const Provider = ({ children }) => {
             spreadmainindex: 2,
             spreadmaintitle: 'Products',
             spreadmaindata: productupdatedat,
+        },
+        {
+            spreadmainindex: 3,
+            spreadmaintitle: 'History',
+            spreadmaindata: parsesearch?.searchmaindata,
         },
     ]
 

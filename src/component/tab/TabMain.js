@@ -42,14 +42,14 @@ function TabMain({
     const favouritelegend = [
         {
             tabmainindex: 0,
-            tabmaintitle: 'Search',
+            tabmaintitle: 'Search on TOI',
             tabmainrender: <section className="min-w-[55vw] md:max-w-[55vw] mx-auto min-h-screen  snap-center duration-100">
                 <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />
             </section>
         },
         {
             tabmainindex: 1,
-            tabmaintitle: 'Reading List',
+            tabmaintitle: 'My Favourite',
             tabmainrender: <section className="min-w-[55vw] md:max-w-[55vw] mx-auto min-h-screen  snap-center duration-100">
                 <ZoomMain zoommainid={'favouriteinput'} zoommainslice={10} />
             </section>
@@ -60,15 +60,15 @@ function TabMain({
     const rtalegend = [
         {
             tabmainindex: 0,
-            tabmaintitle: 'Reader Pick',
-            tabmainrender: <section className="min-w-full md:max-w-full mx-auto  snap-center duration-100">
+            tabmaintitle: 'Most Viewed',
+            tabmainrender: <section className="max-w-full mx-auto  snap-center duration-100">
                 <ZoomMain zoommainid={'rtainput'} zoommainslice={10} />
             </section>
         },
         {
             tabmainindex: 1,
-            tabmaintitle: 'All',
-            tabmainrender: <section className="min-w-full md:max-w-full mx-auto  snap-center duration-100">
+            tabmaintitle: 'Most Recent',
+            tabmainrender: <section className="max-w-full mx-auto  snap-center duration-100">
                 <ZoomMain zoommainid={'rtainputtwo'} zoommainslice={10} />
             </section>
         },

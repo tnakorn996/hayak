@@ -124,7 +124,7 @@ function VerticleMain({
                     </div>
 
                     {/* <div className="z-20 w-full h-full absolute top-0 left-0  bg-black opacity-5" /> */}
-                    
+
                     <motion.img onClick={() => {
                       setappmainstate({
                         appmainid: 'postarticle',
