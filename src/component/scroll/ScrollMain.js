@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 function ScrollMain(
     scrollmainstatic
 ) {
-  console.log('scrollmainstatic :>> ', scrollmainstatic);
     const [scrollmainoffset, setscrollmainoffset] = useState()
     useEffect(() => {
       window.addEventListener('scroll', hh)

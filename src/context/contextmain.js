@@ -10,9 +10,9 @@ import { RiFeedbackFill, RiShareFill } from 'react-icons/ri';
 export const ContextMain = createContext()
 
 export const Provider = ({ children }) => {
-    const localpost = window.localStorage.getItem("post");
+    const localpost = window.localStorage.getItem("postiframe");
     const parsepost = JSON.parse(localpost);
-    const localsearch = window.localStorage.getItem("search");
+    const localsearch = window.localStorage.getItem("searchiframe");
     const parsesearch = JSON.parse(localsearch);
     const location = useLocation()
     // const param = useParams()

@@ -361,7 +361,7 @@ function ZoomMain({
                             <div className="flex flex-row items-center justify-end gap-3">
                             {/* <motion.div className="opacity-0 group-hover:opacity-100  duration-100"> */}
                             {/* {(zoommainid === 'searchinput') && <PtaMain ptamainstatic={{ptamainid: 'searchiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />} */}
-                            {(zoommainid !== 'feedbackinput' && zoommainid !== 'searchinput' && data?.zoommaintitle !== 'Recent searches') && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
+                            {(zoommainid !== 'feedbackinput') && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
                             {/* </motion.div> */}
                             </div>
 
