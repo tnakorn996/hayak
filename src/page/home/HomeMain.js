@@ -91,7 +91,7 @@ function HomeMain() {
 
             <section className="">
                 {postplaceproduct?.slice(0, 3)?.map(data => (<>
-                <section className="relative w-screen h-[80vh] md:h-screen flex flex-col justify-evenly gap-3   snap-center">
+                <section className="relative w-screen h-[90vh] md:h-screen flex flex-col justify-evenly gap-3   snap-center">
                         <figure className="relative h-full flex items-center justify-center  overflow-hidden">
                             <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
                             <ScrollMain scrollmainstatic={{scrollmaintransform: 0.1}} >

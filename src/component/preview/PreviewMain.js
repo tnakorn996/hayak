@@ -131,7 +131,7 @@ function PreviewMain() {
                 setappmainstate({
                     appmainboolean: false
                 })
-            }} className="z-30 absolute top-0 right-0  l-button">Close</button>
+            }} className="z-30 absolute top-5 right-5  l-button opacity-100">Close</button>
             {previewmainrender && previewmainrender}
         </motion.main>
     </div>

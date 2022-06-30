@@ -933,7 +933,6 @@ export const Provider = ({ children }) => {
             sheetmaintitle: 'Place Location',
             sheetmaindata:  clientpost?.placeplaceid,
 
-            spreadmainid: 'read',
         },
         {
             sheetmainindex: 1,
