@@ -60,14 +60,14 @@ function BarMain({
                     }, 
                     barmainrendertwo: () => {},
                 },
-                {
-                    barmainindex: 3,
-                    barmainrender: () => {},
-                    barmainrendertwo: () => {
-                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
-                        return <SocialMain param={`/` + filter[0]?.postindexthreerender?.postid} />
-                    }, 
-                },
+                // {
+                //     barmainindex: 3,
+                //     barmainrender: () => {},
+                //     barmainrendertwo: () => {
+                //         const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
+                //         return <SocialMain param={`/` + filter[0]?.postindexthreerender?.postid} />
+                //     }, 
+                // },
                 {
                     barmainindex: 4,
                     barmainrender: () => {},
@@ -77,6 +77,7 @@ function BarMain({
                         return <figure onClick={() => {
                                 settabmainstate({
                                     tabmainid: 'postoption',
+                                    tabmaindata: ref,
                                     tabmainparam: ref?.postid,
                                     // tabmainlocation: location.pathname,
                                     tabmainimage: ref?.posthero,
@@ -147,6 +148,7 @@ function BarMain({
                         return <figure onClick={() => {
                                 settabmainstate({
                                     tabmainid: 'postoption',
+                                    tabmaindata: ref,
                                     tabmainparam: ref?.postid,
                                     // tabmainlocation: location.pathname,
                                     tabmainimage: ref?.posthero,
@@ -173,52 +175,45 @@ function BarMain({
     ]
 
 
-    const favouritetime = [
-        {
-            barmainindex: 0,
-            barmaindata: [
-                {
-                    barmainindex: 0,
-                    barmainrender: () => {},
-                    barmainrendertwo: () => {
-                        const filter = parsepost.favouritemaindata.filter(data => data.postid !== barmaindata.postid)
-                        return <RiHeartFill onClick={() => {
-                            window.localStorage.clear()
-                            window.localStorage.setItem("post", JSON.stringify({
-                                favouritemaindata: filter,
-                            }));
-                            // console.log('favouritedibar', favouritedi)
-
-                            // setptamainstate({
-                            //     ptamainid: 'postiframe',
-                            //     ptamainindex: 0,
-                            //     ptamaindata: barmaindata,
-                            // })
-                            setappmainstate({
-                                appmainid:'overlay',
-                                appmainidtwo:'toastermain',
-                            })
-                            settoastermainstate({
-                                    toastermainid: 'postheader',
-                                    toastermainindex: 2,
-                                    // toastermaindata: [ptamainstate.ptamaindata],
-                            })
-                        }} className='m-h2  text-rose-800' />
-                    }, 
-                },
-            ]
-        },
-    ]
+    // const favouritetime = [
+    //     {
+    //         barmainindex: 0,
+    //         barmaindata: [
+    //             {
+    //                 barmainindex: 0,
+    //                 barmainrender: () => {},
+    //                 barmainrendertwo: () => {
+    //                     const filter = parsepost.favouritemaindata.filter(data => data.postid !== barmaindata.postid)
+    //                     return <RiHeartFill onClick={() => {
+    //                         window.localStorage.clear()
+    //                         window.localStorage.setItem("post", JSON.stringify({
+    //                             favouritemaindata: filter,
+    //                         }));
+    //                         setappmainstate({
+    //                             appmainid:'overlay',
+    //                             appmainidtwo:'toastermain',
+    //                         })
+    //                         settoastermainstate({
+    //                                 toastermainid: 'postheader',
+    //                                 toastermainindex: 2,
+    //                                 // toastermaindata: [ptamainstate.ptamaindata],
+    //                         })
+    //                     }} className='m-h2  text-rose-800' />
+    //                 }, 
+    //             },
+    //         ]
+    //     },
+    // ]
 
     const barmain = [
         {
             barmainid: 'postindextime',
             barmainref: postindextime,
         },
-        {
-            barmainid: 'favouritetime',
-            barmainref: favouritetime,
-        },
+        // {
+        //     barmainid: 'favouritetime',
+        //     barmainref: favouritetime,
+        // },
     ]
 
     useEffect(() => {

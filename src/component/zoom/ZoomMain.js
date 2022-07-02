@@ -12,6 +12,7 @@ import { useLocation } from 'react-router-dom'
 
 import { ContextMain } from '../../context/contextmain'
 import { client } from '../../lib/sanity'
+import MtaMain from '../mta/MtaMain'
 import PtaMain from '../pta/PtaMain'
 
 function ZoomMain({
@@ -24,7 +25,7 @@ function ZoomMain({
         localpost, parsepost,
         feedbacklink,
         searchdl,
-        favouritedi,
+        postdi,
         rtadi,
 
         searchinputstate,
@@ -125,39 +126,39 @@ function ZoomMain({
             zoommaindata: [
                 {
                     zoommaintitle: 'Blog',
-                    zoommainrender: favouritedi[0]?.sheetmaindata,
+                    zoommainrender: postdi[0]?.sheetmaindata,
                     zoommainicon: <RiNewspaperFill />,
                 },
                 {
                     zoommaintitle: 'Places',
-                    zoommainrender: favouritedi[1]?.sheetmaindata,
+                    zoommainrender: postdi[1]?.sheetmaindata,
                     zoommainicon: <RiMapPin3Fill />,
                 },
                 {
                     zoommaintitle: 'Products',
-                    zoommainrender: favouritedi[2]?.sheetmaindata,
+                    zoommainrender: postdi[2]?.sheetmaindata,
                     zoommainicon: <RiShoppingBag2Fill />,
                 },
-            ]
+            ],
         },
         {
             zoommainindex: 1,
             zoommaindata: [
                 {
                     zoommaintitle: 'Blog',
-                    zoommainrender: favouritedi[0]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
+                    zoommainrender: postdi[0]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
                     zoommainicon: <RiNewspaperFill />,
 
                 },
                 {
                     zoommaintitle: 'Places',
-                    zoommainrender: favouritedi[1]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
+                    zoommainrender: postdi[1]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
                     zoommainicon: <RiMapPin3Fill />,
 
                 },
                 {
                     zoommaintitle: 'Products',
-                    zoommainrender: favouritedi[2]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
+                    zoommainrender: postdi[2]?.sheetmaindata?.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey)),
                     zoommainicon: <RiShoppingBag2Fill />,
 
                 },
@@ -335,9 +336,15 @@ function ZoomMain({
                 <br />
                 <div className="w-full relative flex items-center">
                     <VscSearch className='absolute left-4  l-h6' />
-                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[50px]  l-input border border-black" placeholder='Search TOIs' />
+                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[50px]  l-input border border-black" placeholder='Search places or products' />
                 </div>
             </section>
+            {(zoommainid === 'favouriteinput') && 
+            <section className="">
+                <br />
+                <MtaMain mtamainstatic={{mtamainid: 'favouritetable'}} mtamainstyle={'!text-xl'} />
+            </section>
+            }
 
             <section className="">
                 {zoommaindata?.map(data => (<>
@@ -347,7 +354,7 @@ function ZoomMain({
                 <h1 className="m-h2">{data?.zoommaintitle} ({data?.zoommainrender?.length})</h1>
                 <br />
                     {data?.zoommainrender?.slice(0, zoommainslice)?.map(dat => (<>
-                        <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative w-full p-[10px] flex flex-row items-center justify-between  group">
+                        <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative w-full py-[10px] flex flex-row items-center justify-between  group">
                             <div className="grid grid-flow-col items-center justify-start gap-3">
                             <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white ">{data.zoommainicon}</span>
                             <figcaption className="flex flex-row items-center gap-1  truncate">
@@ -361,7 +368,8 @@ function ZoomMain({
                             <div className="flex flex-row items-center justify-end gap-3">
                             {/* <motion.div className="opacity-0 group-hover:opacity-100  duration-100"> */}
                             {/* {(zoommainid === 'searchinput') && <PtaMain ptamainstatic={{ptamainid: 'searchiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />} */}
-                            {(zoommainid !== 'feedbackinput') && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
+                            {(zoommainid !== 'feedbackinput' && zoommainid !== 'favouriteinput') && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
+                            {(zoommainid === 'favouriteinput') && <PtaMain ptamainstatic={{ptamainid: 'favouriteiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
                             {/* </motion.div> */}
                             </div>
 

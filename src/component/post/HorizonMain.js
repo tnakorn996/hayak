@@ -23,7 +23,7 @@ function HorizonMain({onlick, postid, posticon, posthero, posttitle, postsubtitl
                 </section>
                 <section className="">
                     <figcaption className="grid grid-flow-row l-section">
-                        <a href={`/${postid}`} className="m-h3 truncate">{posttitle}</a>
+                        <a href={`/${postid}`} className="m-h3 truncate font-serif">{posttitle}</a>
                         <h1 className="l-h1 truncate">{postsubtitle}</h1>
                     </figcaption>
                     <figure className="flex flex-row justify-between items-center  l-section">

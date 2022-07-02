@@ -70,7 +70,8 @@ function ToasterMain() {
       if(toastermainstate){
         const filter = toastermain.filter(data => data.toastermainid === toastermainstate.toastermainid)
         const filtertwo = filter[0].toastermainref.filter(data => data.toastermainindex === toastermainstate.toastermainindex)
-        const filterthree = postplaceproduct.filter(data => data.postid === toastermainstate.toastermaindata)
+        // const filterthree = postplaceproduct.filter(data => data.postid === toastermainstate.toastermaindata)
+        const filterthree = postplaceproduct.filter(data => toastermainstate.toastermaindata.some(dat => dat.postid === data.postid))
         settoastermainrender(filtertwo[0].toastermainrender)
         settoastermainrendertwo(filterthree)
 
@@ -86,23 +87,22 @@ function ToasterMain() {
                             <h1 onClick={() => {
                                 setappmainstate('')
                             }} className="p-[20px]  l-h1 cursor-pointer font-serif">Close</h1>
-                            {/* <RiCloseFill onClick={() => {
-                                setappmainstate('')
-                            }} className='p-[10px] text-5xl  l-h6' /> */}
                         </section>
+                        <section className="max-h-[50vh] overflow-y-scroll">
                         {toastermainrendertwo?.length > 0 && toastermainrendertwo?.map(data => (<>
-                        <section className="p-[20px]">
-                            <HorizonMain 
-                            key={data.postid} 
-                            postid={data.postid} 
-                            posthero={data.posthero} 
-                            posticon={data.posticon} 
-                            posttitle={data.posttitle} 
-                            postsubtitle={data.postsubtitle}  
-                            createdat={data._createdAt} 
-                            param={data.postid} />
-                        </section>
+                            <div className="p-[20px]">
+                                <HorizonMain 
+                                key={data.postid} 
+                                postid={data.postid} 
+                                posthero={data.posthero} 
+                                posticon={data.posticon} 
+                                posttitle={data.posttitle} 
+                                postsubtitle={data.postsubtitle}  
+                                createdat={data._createdAt} 
+                                param={data.postid} />
+                            </div>
                         </>))}
+                        </section>
               
                         <section className="p-[20px] pt-0">
                             {toastermainrender && toastermainrender}

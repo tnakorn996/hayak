@@ -14,6 +14,8 @@ export const Provider = ({ children }) => {
     const parsepost = JSON.parse(localpost);
     const localsearch = window.localStorage.getItem("searchiframe");
     const parsesearch = JSON.parse(localsearch);
+    const localfavourite = window.localStorage.getItem("favouriteiframe");
+    const parsefavourite = JSON.parse(localfavourite);
     const location = useLocation()
     // const param = useParams()
     // console.log('location :>> ', location);
@@ -900,7 +902,7 @@ export const Provider = ({ children }) => {
         }
     ]
 
-    const favouritedi = [
+    const postdi = [
         {
             sheetmainindex: 0,
             sheetmaintitle: 'Blog',
@@ -924,6 +926,15 @@ export const Provider = ({ children }) => {
             sheetmaindata: parsepost?.favouritemaindata?.filter(data => data?._type === 'product'),
 
             spreadmainid: 'read',
+        },
+    ]
+
+    const favouritedi = [
+        {
+            sheetmainindex: 0,
+            // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'post'),
+            sheetmaindata: parsefavourite?.favouritemaindata,
+
         },
     ]
 
@@ -1035,21 +1046,22 @@ export const Provider = ({ children }) => {
                   setproductcreatedat(data.productcreatedat);
               })
         }
-
+console.log('clientpost', clientpost)
     const oo = async () => {
           const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${location && location?.pathname?.replace('/', '')}']{
             ...,
-            'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] | order(_createdAt desc),
-            'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] | order(_createdAt desc) ,
-            'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] | order(_createdAt desc) ,
-            'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] | order(_createdAt desc) ,
+            'postblock': null,
+            'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] {..., 'postblock': null} | order(_createdAt desc),
+            'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] {..., 'postblock': null} | order(_createdAt desc) ,
+            'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] {..., 'postblock': null} | order(_createdAt desc) ,
+            'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] {..., 'postblock': null} | order(_createdAt desc) ,
           }[0]`;
           await client.fetch(query) 
           .then((data) => {
             setclientpost(data)
           })
     }
-
+    
     // if(!postupdatedat) return <LoadMain />
 
     return (
@@ -1063,7 +1075,7 @@ export const Provider = ({ children }) => {
           termselect, termlink,
           favouritelink,
           homedl,
-          postdl,
+          postdl,postdi,
           searchdl,
           faqlink, faqselect,
           faqdl, faqdi, 

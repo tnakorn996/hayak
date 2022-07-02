@@ -7,6 +7,7 @@ import { RiFeedbackFill, RiShareFill } from 'react-icons/ri'
 
 import { ContextMain } from '../../context/contextmain'
 import HorizonMain from '../post/HorizonMain'
+import PtaMain from '../pta/PtaMain'
 import '../opendesk/opendesk.css'
 
 function OpendeskMain() {
@@ -22,6 +23,7 @@ function OpendeskMain() {
         genreindexstate,
 
     } = useContext(ContextMain)
+    const [opendeskmaindata, setopendeskmaindata] = useState()
     const [opendeskmainindex, setopendeskmainindex] = useState(0)
     const [opendeskmaintitle, setopendeskmaintitle] = useState()
     const [opendeskmainimage, setopendeskmainimage] = useState()
@@ -84,6 +86,7 @@ function OpendeskMain() {
 
     useEffect(() => {
       if(tabmainstate){
+          setopendeskmaindata(tabmainstate?.tabmaindata)
           setopendeskmainimage(tabmainstate?.tabmainimage)
           setopendeskmaintitle(tabmainstate?.tabmaintitle)
           setopendeskmainparam(tabmainstate?.tabmainparam)
@@ -106,11 +109,16 @@ function OpendeskMain() {
   return (
     <div>
         <motion.main key='opendeskmain' initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="fixed bottom-0 md:top-0 right-0 w-screen md:h-screen md:max-w-[500px] p-[20px]  border bg-white shadow-2xl overflow-hidden duration-100">
-            <section className="md:h-[10vh]">
+            <section className="md:h-[10vh] grid grid-cols-12">
+            <figure className="col-span-11">
             {(opendeskmainlocation || opendeskmainparam) && (<>
                 <HorizonMain
                 posthero={opendeskmainimage} postid={opendeskmainlocation || '/' + opendeskmainparam} posttitle={opendeskmaintitle} postsubtitle={`https://toifood.co.nz${opendeskmainlocation || '/' + opendeskmainparam}`} />
             </>)}
+            </figure>
+            <figcaption className="col-span-1 flex justify-end">
+                {opendeskmaindata && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: opendeskmaindata}} ptamainstyle={'!text-lg'} />}
+            </figcaption>
             </section>
 
             <section className="h-[50vh] md:h-[75vh]  overflow-hidden">
@@ -123,10 +131,10 @@ function OpendeskMain() {
                             tabmainidtwo: data?.tabmainid,
                         })
                         setopendeskmainindex(1)
-                    }} className="grid grid-cols-12 items-center p-[20px]">
+                    }} className="grid grid-cols-12 items-center  py-[20px]">
                         <h1 className="m-h3">{data?.tabmainicon}</h1>
-                        <h1 className="col-span-10  first-letter:uppercase m-h2">{data?.tabmaintitle || data?.blemaintitle}</h1>
-                        <h1 className="col-span-1  m-h2">→</h1>
+                        <h1 className="col-span-10  first-letter:uppercase m-h2 font-serif">{data?.tabmaintitle || data?.blemaintitle}</h1>
+                        <h1 className="col-span-1 text-right  m-h2 font-serif">→</h1>
                     </article>
                     <hr />
                 </div>
@@ -149,9 +157,9 @@ function OpendeskMain() {
 
                     <article onClick={() => {
                         data?.blemainaction()
-                    }} className={`grid grid-cols-12 items-center p-[20px] ${(data?.blemainid === genreindexstate?.genreindexid || data?.blemainid === breadmainstate?.breadmainidtwo) && '!bg-gray-900 text-white'}`}>
+                    }} className={`grid grid-cols-12 items-center py-[20px] ${(data?.blemainid === genreindexstate?.genreindexid || data?.blemainid === breadmainstate?.breadmainidtwo) && '!bg-gray-900 text-white'}`}>
                         <h1 className="m-h3">{data?.tabmainicon}</h1>
-                        <h1 className="col-span-10  first-letter:uppercase m-h2">{data?.tabmaintitle || data?.blemaintitle}</h1>
+                        <h1 className="col-span-10  first-letter:uppercase m-h2 font-serif">{data?.tabmaintitle || data?.blemaintitle}</h1>
                     </article>
                     <hr />
                     </>))}

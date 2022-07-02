@@ -10,7 +10,7 @@ function BadgeMain({
 
 }) {
   const {
-    favouritedi,
+    postdi,
     
   } = useContext(ContextMain)
   const [badgemainrender, setbadgemainrender] = useState()
@@ -54,7 +54,7 @@ function BadgeMain({
       badgemainindex: 0,
       badgemainrender: () => {
         const empty = []
-        favouritedi.forEach(data => {
+        postdi.forEach(data => {
           if(data.sheetmaindata && data.sheetmaindata.length > 0){
             empty.push(data.sheetmaindata.length)
           } 
@@ -77,7 +77,7 @@ function BadgeMain({
       const filtertwo = filter[0].badgemainref.filter(data => data.badgemainindex === badgemainindex)
       setbadgemainrender(filtertwo[0].badgemainrender)
     }
-  }, [badgemainid, favouritedi])
+  }, [badgemainid, postdi])
     
   return (
     <div>
