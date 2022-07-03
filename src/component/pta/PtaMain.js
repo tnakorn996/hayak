@@ -184,16 +184,18 @@ function PtaMain({
         
         setptamainindex(0)
         setptamainstate(!ptamainstate)
-        setappmainstate({
-            appmainid:'overlay',
-            appmainidtwo:'toastermain',
-        })
-        settoastermainstate({
-                toastermainid: 'postheader',
-                toastermainindex: 2,
-                // toastermaindata: [ptamainstatic.ptamaindata],
-                toastermaindata: [{postid: ptamainstatic.ptamaindata.postid}],
-        })
+        if(ptamainstatic?.ptamainid === 'postiframe'){
+            setappmainstate({
+                appmainid:'overlay',
+                appmainidtwo:'toastermain',
+            })
+            settoastermainstate({
+                    toastermainid: 'postheader',
+                    toastermainindex: 2,
+                    // toastermaindata: [ptamainstatic.ptamaindata],
+                    toastermaindata: [{postid: ptamainstatic.ptamaindata.postid}],
+            })
+        }
     }
 
     // function jj() {

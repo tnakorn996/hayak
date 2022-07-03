@@ -15,6 +15,7 @@ import ZoomMain from '../zoom/ZoomMain'
 import FavouriteDialog from '../../page/favourite/FavouriteDialog'
 import TabMain from '../tab/TabMain'
 import FeedbackSection from '../../page/feedback/FeedbackSection'
+import CheckMain from '../../layout/check/CheckMain'
 
 function SideboardMain() {
   const {
@@ -168,12 +169,9 @@ function SideboardMain() {
               </figure>
               <figcaption className="">
                 <article className="">
-                <RiCloseLine onClick={() => {
-                  // setsearchmainstate(null)
-                  setappmainstate({
-                    appmainboolean: false
-                  })
-                }} className="z-10 absolute top-5 right-5  l-h6 " />
+                  <CheckMain>
+                  <RiCloseLine className="z-10 absolute top-5 right-5  l-h6 " />
+                  </CheckMain>
                 </article> 
               </figcaption>
             </section>

@@ -66,18 +66,18 @@ export default function ChooseMain({
     <div>
         <main className="">
             <section onClick={() => {ll()}} className="grid grid-cols-12 items-center pr-[10px]  border">
-                <input value={choosemainrender && choosemainrender.map(data => (` ` + data.posttitle))} ref={choosemainref} className="col-span-11 w-full  l-input !border-0 truncate hover:cursor-pointer" placeholder='Choose posts' />
+                <input disabled={true} value={choosemainrender && choosemainrender.map(data => (` ` + data.posttitle))} ref={choosemainref} className="col-span-11 w-full  l-input !border-0 truncate hover:cursor-pointer" placeholder='Choose posts' />
                 <figure className="col-span-1 flex justify-center">
                     <RiArrowDropDownFill className='l-h6' />
                 </figure>
             </section>
-            <section className="relative">
-                {choosemainrendertwo && 
+            {choosemainrendertwo && 
+            <motion.section initial={{y: -100}} animate={{ y:0}} exit={{y: -100}} className="relative">
                 <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="w-full z-20 absolute top-3 left-0  bg-white shadow border duration-100">
                     {choosemainrendertwo}
                 </motion.figure>
-                }
-            </section>
+            </motion.section>
+            }
         </main>
     </div>
   )

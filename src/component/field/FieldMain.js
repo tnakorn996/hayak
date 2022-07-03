@@ -81,13 +81,13 @@ function FieldMain({
                 empty.push({'error': 'Require all fields'})
             }
             if(Object.values(doc).some(props => props === 'email') === true){
-                empty.push({'error': 'Email is incorrect'})
+                empty.push({'error': `Hmm… that email doesn't look valid`})
             }
             if(Object.values(doc).some(props => props === 'long') === true){
                 empty.push({'error': 'Message is too long (require maximum 500 characters)'})
             }
             if(Object.values(doc).some(props => props === 'short') === true){
-                empty.push({'error': 'Message is too short (require minimum 20 characters)'})
+                empty.push({'error': `Make sure it's at least 20 characters`})
             }
             if(empty.length === 0){
                 kk(doc)

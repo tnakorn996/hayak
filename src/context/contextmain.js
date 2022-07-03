@@ -1,8 +1,8 @@
 
 import React, { createContext, useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import LoadMain from '../component/load/LoadMain'
-import ProgressBar from "@badrap/bar-of-progress";
+// import LoadMain from '../component/load/LoadMain'
+// import ProgressBar from "@badrap/bar-of-progress";
 
 import { client } from '../lib/sanity'
 import { RiFeedbackFill, RiShareFill } from 'react-icons/ri';
@@ -10,11 +10,12 @@ import { RiFeedbackFill, RiShareFill } from 'react-icons/ri';
 export const ContextMain = createContext()
 
 export const Provider = ({ children }) => {
+    const location = useLocation()
+    // const param = useParams()
     const parsepost = JSON.parse(window.localStorage.getItem("postiframe"));
     const parsesearch = JSON.parse(window.localStorage.getItem("searchiframe"));
     const parsefavourite = JSON.parse(window.localStorage.getItem("favouriteiframe"));
     const parsefeedback = JSON.parse(window.localStorage.getItem("feedbackiframe"));
-    const location = useLocation()
     if(!parsepost || Object.getPrototypeOf(parsepost).isPrototypeOf(Object)) {
         window.localStorage.setItem("postiframe", JSON.stringify([]))
     }
@@ -27,8 +28,6 @@ export const Provider = ({ children }) => {
     if(!parsefeedback || Object.getPrototypeOf(parsefeedback).isPrototypeOf(Object)) {
         window.localStorage.setItem("feedbackiframe", JSON.stringify([]))
     }
-    // const param = useParams()
-    // console.log('location :>> ', location);
 
     const [appmainstate, setappmainstate] = useState('appmain')
     // const [postindexstate, setpostindexstate] = useState()
@@ -916,7 +915,7 @@ export const Provider = ({ children }) => {
             sheetmainindex: 0,
             sheetmaintitle: 'Blog',
             // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'post'),
-            sheetmaindata: parsepost?.filter(data => data?._type === 'post'),
+            sheetmaindata: parsepost && parsepost?.filter(data => data?._type === 'post'),
 
             spreadmainid: 'read',
         },
@@ -924,7 +923,7 @@ export const Provider = ({ children }) => {
             sheetmainindex: 1,
             sheetmaintitle: 'Places',
             // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'place'),
-            sheetmaindata: parsepost?.filter(data => data?._type === 'place'),
+            sheetmaindata: parsepost && parsepost?.filter(data => data?._type === 'place'),
 
             spreadmainid: 'read',
         },
@@ -932,7 +931,7 @@ export const Provider = ({ children }) => {
             sheetmainindex: 2,
             sheetmaintitle: 'Products',
             // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'product'),
-            sheetmaindata: parsepost?.filter(data => data?._type === 'product'),
+            sheetmaindata: parsepost && parsepost?.filter(data => data?._type === 'product'),
 
             spreadmainid: 'read',
         },
