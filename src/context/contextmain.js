@@ -10,13 +10,23 @@ import { RiFeedbackFill, RiShareFill } from 'react-icons/ri';
 export const ContextMain = createContext()
 
 export const Provider = ({ children }) => {
-    const localpost = window.localStorage.getItem("postiframe");
-    const parsepost = JSON.parse(localpost);
-    const localsearch = window.localStorage.getItem("searchiframe");
-    const parsesearch = JSON.parse(localsearch);
-    const localfavourite = window.localStorage.getItem("favouriteiframe");
-    const parsefavourite = JSON.parse(localfavourite);
+    const parsepost = JSON.parse(window.localStorage.getItem("postiframe"));
+    const parsesearch = JSON.parse(window.localStorage.getItem("searchiframe"));
+    const parsefavourite = JSON.parse(window.localStorage.getItem("favouriteiframe"));
+    const parsefeedback = JSON.parse(window.localStorage.getItem("feedbackiframe"));
     const location = useLocation()
+    if(!parsepost || Object.getPrototypeOf(parsepost).isPrototypeOf(Object)) {
+        window.localStorage.setItem("postiframe", JSON.stringify([]))
+    }
+    if(!parsesearch || Object.getPrototypeOf(parsesearch).isPrototypeOf(Object)) {
+        window.localStorage.setItem("searchiframe", JSON.stringify([]))
+    }
+    if(!parsefavourite || Object.getPrototypeOf(parsefavourite).isPrototypeOf(Object)) {
+        window.localStorage.setItem("favouriteiframe", JSON.stringify([]))
+    }
+    if(!parsefeedback || Object.getPrototypeOf(parsefeedback).isPrototypeOf(Object)) {
+        window.localStorage.setItem("feedbackiframe", JSON.stringify([]))
+    }
     // const param = useParams()
     // console.log('location :>> ', location);
 
@@ -51,7 +61,7 @@ export const Provider = ({ children }) => {
     //should be searchmainstate but already taken :(
     const [searchinputstate, setsearchinputstate] = useState({searchmaindata: []})
     const [favouritemainstate, setfavouritemainstate] = useState({favouritemaindata: []})
-    const [ptamainstate, setptamainstate] = useState()
+    const [ptamainstate, setptamainstate] = useState(true)
     const [toastermainstate, settoastermainstate] = useState()
     //should be tabmainstate but already taken :(
     const [searchmainstate, setsearchmainstate] = useState({tabmainindex: 0})
@@ -84,7 +94,6 @@ export const Provider = ({ children }) => {
         setsharemainstate('')
         setrtamainstate('')
         setctamainstate('')
-        setptamainstate('')
         window.addEventListener('load', oo())
 
         // progress.start();
@@ -907,7 +916,7 @@ export const Provider = ({ children }) => {
             sheetmainindex: 0,
             sheetmaintitle: 'Blog',
             // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'post'),
-            sheetmaindata: parsepost?.favouritemaindata?.filter(data => data?._type === 'post'),
+            sheetmaindata: parsepost?.filter(data => data?._type === 'post'),
 
             spreadmainid: 'read',
         },
@@ -915,7 +924,7 @@ export const Provider = ({ children }) => {
             sheetmainindex: 1,
             sheetmaintitle: 'Places',
             // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'place'),
-            sheetmaindata: parsepost?.favouritemaindata?.filter(data => data?._type === 'place'),
+            sheetmaindata: parsepost?.filter(data => data?._type === 'place'),
 
             spreadmainid: 'read',
         },
@@ -923,7 +932,7 @@ export const Provider = ({ children }) => {
             sheetmainindex: 2,
             sheetmaintitle: 'Products',
             // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'product'),
-            sheetmaindata: parsepost?.favouritemaindata?.filter(data => data?._type === 'product'),
+            sheetmaindata: parsepost?.filter(data => data?._type === 'product'),
 
             spreadmainid: 'read',
         },
@@ -932,9 +941,15 @@ export const Provider = ({ children }) => {
     const favouritedi = [
         {
             sheetmainindex: 0,
-            // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'post'),
-            sheetmaindata: parsefavourite?.favouritemaindata,
+            sheetmaindata: parsefavourite,
 
+        },
+    ]
+
+    const feedbackdi = [
+        {
+            sheetmainindex: 0,
+            sheetmaindata: parsefeedback,
         },
     ]
 
@@ -1046,7 +1061,7 @@ export const Provider = ({ children }) => {
                   setproductcreatedat(data.productcreatedat);
               })
         }
-console.log('clientpost', clientpost)
+
     const oo = async () => {
           const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${location && location?.pathname?.replace('/', '')}']{
             ...,
@@ -1081,6 +1096,7 @@ console.log('clientpost', clientpost)
           faqdl, faqdi, 
           favouritedl, favouritedi,
           rtadi,
+          feedbackdi,
 
           appmainstate, setappmainstate,
           // postindexstate, setpostindexstate,

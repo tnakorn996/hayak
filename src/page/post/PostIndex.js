@@ -44,7 +44,6 @@ function PostIndex() {
         setstepmainstate,
         setsharemainstate,
         setfavouritemainstate, favouritemainstate,
-        ptamainstate, setptamainstate,
 
         // parsepost,
         postplaceproduct,
@@ -65,7 +64,6 @@ function PostIndex() {
     const [postindexmessage, setpostindexmessage] = useState()
     const [postindexaction, setpostindexaction] = useState(false)
     const [postindexstyle, setpostindexstyle] = useState('')
-    const [ptamainstatic, setptamainstatic] = useState()
     const [postindexpageyoffset, setpostindexpageyoffset] = useState()
     // const [snackbarmainstatic, setsnackbarmainstatic] = useState()
 
@@ -251,13 +249,6 @@ function PostIndex() {
             //     breadmainid: postpostid?._type,
             //     breadmainidtwo: postpostid?.categoryid,
             //     breadmainidthree: postpostid?.posttitle,
-            // })
-            // setptamainstate({
-            //     ptamainid: 'postiframe',
-            //     ptamaindata: postpostid,
-            // })
-            // setptamainstatic({
-            //     ptamaindata: postpostid
             // })
             setwiremainstate({
                 wiremainid: 'blocktr',
@@ -613,12 +604,11 @@ function PostIndex() {
             {/* <figcaption className="block md:hidden max-w-[700px] mx-auto  col-span-12">
                 <ListMain listmainid={'faqsummary'} listmainindex={0} />
             </figcaption> */}
-            <figure className="z-20 fixed bottom-5 right-5 flex flex-col items-end gap-3  duration-100">
-                {/* <FabMain fabmainid={'posttfoot'} fabmainindex={1} /> */}
+            {/* <figure className="z-20 fixed bottom-5 right-5 flex flex-col items-end gap-3  duration-100">
                 {(postindexstyle || !postindexaction) && (<>
                 <FabMain fabmainid={'posttfoot'} fabmainindex={0} />
                 </>)}
-            </figure>
+            </figure> */}
         </main>
     </div>
   )

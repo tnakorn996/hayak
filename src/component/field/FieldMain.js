@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { client } from '../../lib/sanity'
 import ButtonMain from '../button/ButtonMain'
 import CardMain from '../card/CardMain'
+import ChooseMain from '../choose/ChooseMain'
 
 function FieldMain({
     fieldmainid,
@@ -21,6 +22,7 @@ function FieldMain({
     const refsix = useRef('')
     const refseven = useRef('')
     const refeight = useRef('')
+    const refnine = useRef('')
 
     const [fieldmainuuid, setfieldmainuuid] = useState(uuidv4())
     const [fieldmainload, setfieldmainload] = useState(false)
@@ -42,7 +44,7 @@ function FieldMain({
                     mailfullname: ref?.current?.value,
                     mailemail: jj(reftwo?.current?.value),
                     mailcity: refthree?.current?.value,
-                    mailmessage: reffour?.current?.value,
+                    mailmessage: hh(reffour?.current?.value),
                 }
             },
             {
@@ -53,7 +55,7 @@ function FieldMain({
                     _type: 'comment',
                     commentid:  fieldmainuuid,
                     commenttitle: reffive?.current?.value,
-                    commentsubtitle: refsix?.current?.value,
+                    commentsubtitle: hh(refsix?.current?.value),
                     commentboolean: false,
 
                     postid: fieldmainparam,
@@ -67,9 +69,8 @@ function FieldMain({
                     _type: 'feedback',
                     feedbackid: fieldmainuuid,
                     feedbacktitle: jj(refseven?.current?.value),
-                    feedbacksubtitle: refeight?.current?.value,
-
-                    postid: fieldmainparam,
+                    feedbacksubtitle: hh(refeight?.current?.value),
+                    feedbackdetail: refnine?.current?.value,
                 }
             },
             
@@ -82,9 +83,16 @@ function FieldMain({
             if(Object.values(doc).some(props => props === 'email') === true){
                 empty.push({'error': 'Email is incorrect'})
             }
+            if(Object.values(doc).some(props => props === 'long') === true){
+                empty.push({'error': 'Message is too long (require maximum 500 characters)'})
+            }
+            if(Object.values(doc).some(props => props === 'short') === true){
+                empty.push({'error': 'Message is too short (require minimum 20 characters)'})
+            }
             if(empty.length === 0){
                 kk(doc)
             } 
+            console.log('empty', empty)
             if(empty.length !== 0) {
                 setfieldmainload(false);
                 setcardmainstatic({
@@ -116,6 +124,17 @@ function FieldMain({
              return 'email';
         } else {
              return props;
+        }
+    }
+
+    function hh(props) {
+        if(props && props.length > 500) {
+            return 'long';
+        }
+        if(props && props.length < 20) {
+            return 'short';
+        } else {
+            return props && props;
         }
     }
 
@@ -175,6 +194,10 @@ function FieldMain({
             fieldmaindata: [
                 {
                     fieldmainsubtitle: '',
+                    fieldmainrender: <ChooseMain choosemainref={refnine} choosemainstatic={{choosemainid: 'feedbacktextarea'}} />,
+                },
+                {
+                    fieldmainsubtitle: '',
                     fieldmainrender: <input ref={refseven} type={'email'} className="w-full  l-input" placeholder={'johndoe@example.com'} />,
                 },
                 {
@@ -216,7 +239,7 @@ function FieldMain({
                     {data?.fieldmaintitle !== '' && (<>
                     <figure className="">
                     <br /><br />
-                    <h1 className="max-w-[300px]  m-h6 font-serif">{data?.fieldmaintitle}</h1>
+                    <h1 className="m-h6 font-serif">{data?.fieldmaintitle}</h1>
                     <br />
                     </figure>
                     </>)}
@@ -224,7 +247,7 @@ function FieldMain({
                     <figcaption className="">
                         <br />
                         <h1 className="l-h2">{dat?.fieldmainsubtitle !== '' && dat?.fieldmainsubtitle}</h1>
-                        <div className="w-full  border-b">
+                        <div className="w-full">
                         {dat?.fieldmainrender}
                         </div>
                     </figcaption>

@@ -97,28 +97,28 @@ function ZoomMain({
         },
     ]
 
-    const feedbackinput = [
-        {
-            zoommainindex: 0,
-            zoommaindata: [
-                {
-                    zoommaintitle: 'Give us feedback',
-                    zoommainrender: feedbacklink,
-                    zoommainicon: <RiChat4Fill />,
-                },
-            ]
-        },
-        {
-            zoommainindex: 1,
-            zoommaindata: [
-                {
-                    zoommaintitle: 'Give us feedback',
-                    zoommainrender: (feedbacklink.filter(data => data.blemaintitle.toLowerCase().includes(zoommainkey) || data.blemainid.toLowerCase().includes(zoommainkey))),
-                    zoommainicon: <RiChat4Fill />,
-                },
-            ]
-        },
-    ]
+    // const feedbackinput = [
+    //     {
+    //         zoommainindex: 0,
+    //         zoommaindata: [
+    //             {
+    //                 zoommaintitle: 'Give us feedback',
+    //                 zoommainrender: feedbacklink,
+    //                 zoommainicon: <RiChat4Fill />,
+    //             },
+    //         ]
+    //     },
+    //     {
+    //         zoommainindex: 1,
+    //         zoommaindata: [
+    //             {
+    //                 zoommaintitle: 'Give us feedback',
+    //                 zoommainrender: (feedbacklink.filter(data => data.blemaintitle.toLowerCase().includes(zoommainkey) || data.blemainid.toLowerCase().includes(zoommainkey))),
+    //                 zoommainicon: <RiChat4Fill />,
+    //             },
+    //         ]
+    //     },
+    // ]
 
     const favouriteinput = [
         {
@@ -283,15 +283,53 @@ function ZoomMain({
         },
     ]
 
+    const feedbackinput = [
+        {
+            zoommainindex: 0,
+            zoommaindata: [
+                {
+                    zoommaintitle: '',
+                    zoommainrender: [],
+                    zoommainicon: '',
+                },
+            ],
+        },
+        {
+            zoommainindex: 1,
+            zoommaindata: [
+                {
+                    zoommaintitle: 'Blog',
+                    zoommainrender: (searchdl[0].spreadmaindata.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey))),
+                    zoommainicon: <RiNewspaperFill />,
+                    // .filter(data => data._type === breadmainstate.breadmainidtwo),
+
+                },
+                {
+                    zoommaintitle: 'Places',
+                    zoommainrender: (searchdl[1].spreadmaindata.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey))),
+                    zoommainicon: <RiMapPin3Fill />,
+
+                },
+                {
+                    zoommaintitle: 'Products',
+                    zoommainrender: (searchdl[2].spreadmaindata.filter(data => data.posttitle.toLowerCase().includes(zoommainkey) || data.postsubtitle.toLowerCase().includes(zoommainkey))),
+                    zoommainicon: <RiShoppingBag2Fill />,
+
+                },
+               
+            ],
+        },
+    ]
+
     const zoommain = [
         {
             zoommainid: 'searchinput',
             zoommainref: searchinput,
         },
-        {
-            zoommainid: 'feedbackinput',
-            zoommainref: feedbackinput,
-        },
+        // {
+        //     zoommainid: 'feedbackinput',
+        //     zoommainref: feedbackinput,
+        // },
         {
             zoommainid: 'favouriteinput',
             zoommainref: favouriteinput,
@@ -303,6 +341,10 @@ function ZoomMain({
         {
             zoommainid: 'rtainputtwo',
             zoommainref: rtainputtwo,
+        },
+        {
+            zoommainid: 'feedbackinput',
+            zoommainref: feedbackinput,
         },
     ]
 
@@ -331,20 +373,19 @@ function ZoomMain({
 
   return (
     <div>
-        <main className="px-[20px] md:px-[50px]">
+        <main className="px-[20px]">
             <section autoFocus className="max-h-[20vh]">
                 <br />
                 <div className="w-full relative flex items-center">
                     <VscSearch className='absolute left-4  l-h6' />
-                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[50px]  l-input border border-black" placeholder='Search places or products' />
+                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[50px]  l-input" placeholder='Search places or products' />
                 </div>
             </section>
-            {(zoommainid === 'favouriteinput') && 
             <section className="">
-                <br />
-                <MtaMain mtamainstatic={{mtamainid: 'favouritetable'}} mtamainstyle={'!text-xl'} />
+            <br />
+            {(zoommainid === 'favouriteinput') && <MtaMain mtamainstatic={{mtamainid: 'favouritetable'}} mtamainstyle={'!text-xl'} />}
+            {(zoommainid === 'feedbackinput') && <MtaMain mtamainstatic={{mtamainid: 'feedbacktable'}} mtamainstyle={'!text-xl'} />}
             </section>
-            }
 
             <section className="">
                 {zoommaindata?.map(data => (<>
@@ -368,6 +409,7 @@ function ZoomMain({
                             <div className="flex flex-row items-center justify-end gap-3">
                             {/* <motion.div className="opacity-0 group-hover:opacity-100  duration-100"> */}
                             {/* {(zoommainid === 'searchinput') && <PtaMain ptamainstatic={{ptamainid: 'searchiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />} */}
+                            {(zoommainid === 'feedbackinput') && <PtaMain ptamainstatic={{ptamainid: 'feedbackiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
                             {(zoommainid !== 'feedbackinput' && zoommainid !== 'favouriteinput') && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
                             {(zoommainid === 'favouriteinput') && <PtaMain ptamainstatic={{ptamainid: 'favouriteiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
                             {/* </motion.div> */}

@@ -2,13 +2,12 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 
-import LandMain from '../../component/land/LandMain'
 import ZoomMain from '../../component/zoom/ZoomMain'
 import { ContextMain } from '../../context/contextmain'
 
 function FeedbackMain() {
   const {
-    setlandmainstate, landmainstate,
+    setlandmainstate,
 
     postupdatedat, placeupdatedat, productupdatedat
   } = useContext(ContextMain)
@@ -25,7 +24,6 @@ function FeedbackMain() {
     <div>
         <main className="max-w-[900px] mx-auto">
           <section className="absolute w-full">
-            {/* {landmainstate && <LandMain />} */}
           <br /><br /><br /><br />
           </section>
           <br /><br /><br /><br /><br /><br />

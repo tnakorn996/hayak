@@ -48,8 +48,6 @@ function VerticleMain({
   const [verticlemainrendertwo, setverticlemainrendertwo] = useState()
   const [verticlemainimage, setverticlemainimage] = useState(posthero)
 
-  const [ptamainstatic, setptamainstatic] = useState()
-  
   const postindexthree = [
         // {
         //     postindexthreeid: 'readdi',

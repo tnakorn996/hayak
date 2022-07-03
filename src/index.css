@@ -21,6 +21,10 @@
         @apply opacity-80 cursor-pointer hover:underline;
     }
 
+    input, textarea {
+        @apply bg-transparent border-b border-gray-300 font-extralight focus:outline-none font-serif;
+    }
+
     .m-section {
         @apply bg-black opacity-5;
     }
@@ -34,11 +38,11 @@
     }
 
     .m-input {
-        @apply text-base p-[10px]  bg-transparent border-b border-white focus:outline-none;
+        @apply text-base p-[10px];
     }
 
     .l-input {
-        @apply text-base p-[20px]  bg-transparent border-b border-white focus:outline-none;
+        @apply text-base p-[20px];
     }
 
     .m-h1 {
