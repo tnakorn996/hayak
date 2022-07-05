@@ -157,6 +157,21 @@ export const Provider = ({ children }) => {
 
             tabmainid: 'share',
         },
+        {
+            blemainid: 'url',
+            blemaintitle: 'Share via ...',
+            blemainaction:  () => {
+                if (navigator.share) {
+                navigator.share({url: location.pathname})
+                    .then(() => alert('Successful share'))
+                    .catch((error) => alert('Error sharing', error));
+                } else {
+                    alert(`This current device in not supported`)
+                }
+            },
+
+            tabmainid: 'share',
+        },
 
         {
             blemainid: 'ask',
