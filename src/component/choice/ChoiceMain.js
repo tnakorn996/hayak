@@ -1,11 +1,13 @@
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+
 import { userui } from '../../content/contentmantwo'
 import { client } from '../../lib/sanity'
-import ButtonMain from '../button/ButtonMain'
+import ButtonMain from '../../layout/button/ButtonMain'
+// import ButtonMain from '../../layout/button/ButtonMain'
 import CardMain from '../card/CardMain'
 
 function ChoiceMain({
@@ -160,33 +162,36 @@ function ChoiceMain({
         <main className="">
             {choicemainrender?.map((data, index) => (<>
             <section className='px-[20px] md:px-[60px]'>
-                <figure className="flex flex-row justify-start items-center gap-3">
+                <figure className="h-[10vh] md:h-[15vh] flex flex-row justify-start items-start">
                     {data?.choicemainpage !== 0 && (<>
+                    <div className="">
+                        <br />
                         <button onClick={() => {
                             // kk(data?.choicemainpage)
                             setchoicemainpage(data?.choicemainpage - 1)
-                        }} className="text-3xl  l-h6 font-sans text-black">←</button>
+                        }} className="pt-[20px]  l-h6 font-serif l-button">←</button>
+                    </div>
                     </>)}
                     <div className="">
                         <br />
                         <br />
-                        <h1 className="m-h5 md:m-h6 font-serif">{data?.choicemaintitle}</h1>
+                        <h1 className="m-h5 md:m-h6 max-w-[70vw] font-serif">{data?.choicemaintitle}</h1>
                         <br />
                         <br />
                     </div>
                 </figure>
-                <div className="flex flex-col justify-between items-stretch min-h-[75vh] md:min-h-[60vh]">
+                <div className="flex flex-col justify-between items-stretch h-[75vh] md:h-[60vh]">
                 <figcaption className={`grid grid-flow-row ${data?.choicemainrender[0]?.crummaindata?.length > 7 && '!flex !flex-wrap !gap-1'}`}>
                     {data?.choicemainrender[0]?.crummaindata?.map(dat => (<>
                         <button onClick={() => {
                             jj(data?.choicemainpage, dat?.crummainsubtitle)
-                        }} className={`p-[15px] flex flex-row justify-center items-center gap-2  m-h2 l-button border-b duration-1000 font-sans ${(
+                        }} className={`p-[15px] flex flex-row justify-center items-center gap-2  m-h1 l-button duration-1000 ${(
                             dat?.crummainsubtitle === choicemainvalue || 
                             dat?.crummainsubtitle === choicemainvaluetwo || 
                             dat?.crummainsubtitle === choicemainvaluethree ||
                             dat?.crummainsubtitle === choicemainvaluefour) && 'bg-gray-900 text-white'}`}>
                             {dat?.crummainicon && <h1 className="">{dat?.crummainicon}</h1>}
-                            <h1 className="first-letter:uppercase ">{dat?.crummainsubtitle}</h1>
+                            <h1 className="first-letter:uppercase font-serif">{dat?.crummainsubtitle}</h1>
                         </button>
                     </>))}
                 </figcaption>
@@ -200,8 +205,8 @@ function ChoiceMain({
                     cardmainindex={cardmainstatic?.cardmainindex} />
                 </figcaption>
                 </div>
-                <figure className="">
-                    <br />
+                <br />
+                <figure className="h-[15vh] md:h-[10vh] flex items-center justify-end">
                     {data?.choicemainpage < choicemainlength - 1 ? (<>
                         <button onClick={() => {
                             // ll(data?.choicemainpage)
@@ -211,11 +216,12 @@ function ChoiceMain({
                         </button>
                         <br />
                     </>) : (<>
-                        <ButtonMain onclick={() => {
-                            hh()
-                        }} load={buttonmainstatic} title={'Submit'} />
+                    <div className="w-full">
+                        <ButtonMain buttonmainstatic={{buttonmainonclick: () => {hh()}, buttonmainload: buttonmainstatic}}>
+                            {'Submit'}
+                        </ButtonMain>
+                    </div>
                     </>) }
-                    <br />
                 </figure>
             </section>
             </>))}

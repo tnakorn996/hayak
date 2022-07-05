@@ -4,7 +4,8 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { RiCloseCircleFill, RiCloseFill, RiContrastDropLine, RiEyeFill, RiEyeLine, RiMore2Fill, RiShareFill } from 'react-icons/ri'
-import { useNavigate } from 'react-router-dom'
+import {VscClose} from 'react-icons/vsc'
+// import { useNavigate } from 'react-router-dom'
 
 import { ContextMain } from '../../context/contextmain'
 import { urlFor } from '../../lib/sanity'
@@ -121,17 +122,17 @@ function PreviewMain() {
     <div>
         <br />
         <motion.main initial={{y: 100}} animate={{ y: 0}} exit={{y: 0}}  className="relative w-screen md:w-[1000px] h-screen md:h-full  mx-auto bg-white overflow-hidden shadow-2xl duration-100">
-            {/* <RiCloseFill onClick={() => {
+            <VscClose onClick={() => {
                 setappmainstate({
                     appmainboolean: false
                 })
-            }} className="z-30 absolute top-5 right-5 text-4xl  text-white bg-black cursor-pointer" /> */}
-            <button 
+            }} className="p-[15px] z-30 absolute top-0 right-0 text-5xl  text-black bg-white cursor-pointer" />
+            {/* <button 
             onClick={() => {
                 setappmainstate({
                     appmainboolean: false
                 })
-            }} className="z-30 absolute top-5 right-5  l-button opacity-100">Close</button>
+            }} className="z-30 absolute top-5 right-5  l-button opacity-100">╳</button> */}
             {previewmainrender && previewmainrender}
         </motion.main>
     </div>

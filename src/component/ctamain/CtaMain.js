@@ -38,14 +38,14 @@ function CtaMain() {
                         setsharemainstate({
                           sharemainparam: ctamainstate?.ctamainrender?.postid,
                         })
-            }} className="m-h3 w-full m-button">Share post</button>,
+            }} className="m-h3 w-full m-button border-[1.5px] border-black">Share post</button>,
             ctamainrendertwo: <button onClick={() => {
                 setappmainstate({
                             appmainid: 'commentdialog',
                             appmainidtwo: 'sideboardmain',
                             appmainboolean: true,
                 })
-            }} className="m-h3 w-full l-button  border border-black">Give your comment</button>,
+            }} className="m-h3 w-full l-button  border-[1.5px] border-black">Give your comment</button>,
         },
         {
             ctamainrender: <button onClick={() => {
@@ -65,14 +65,14 @@ function CtaMain() {
                         setsharemainstate({
                           sharemainparam: ctamainstate?.ctamainrender?.postid,
                         })
-            }} className="m-h3 w-full m-button">Share recipes</button>,
+            }} className="m-h3 w-full m-button border-[1.5px] border-black">Share recipes</button>,
             ctamainrendertwo: <button onClick={() => {
                 setappmainstate({
                             appmainid: 'commentdialog',
                             appmainidtwo: 'sideboardmain',
                             appmainboolean: true,
                 })
-            }} className="m-h3 w-full l-button  border border-black">Give your comment</button>,
+            }} className="m-h3 w-full l-button   border-[1.5px] border-black">Give your comment</button>,
         },
     ]
 
@@ -80,14 +80,14 @@ function CtaMain() {
         {
             ctamainrender: <button onClick={() => {
                 window.open(ctamainstate?.ctamainrender?.postplaceurl, '_blank').focus();
-            }} className="m-h3 w-full m-button">Owner website</button>,
+            }} className="m-h3 w-full m-button border-[1.5px] border-black">Owner website</button>,
             ctamainrendertwo: <button onClick={() => {
                 setappmainstate({
                             appmainid: 'commentdialog',
                             appmainidtwo: 'sideboardmain',
                             appmainboolean: true,
                 })
-            }} className="m-h3 w-full l-button  border border-black">Give your comment</button>,
+            }} className="m-h3 w-full l-button   border-[1.5px] border-black">Give your comment</button>,
         },
     ]
 
@@ -97,12 +97,12 @@ function CtaMain() {
 
                 return <button onClick={() => {
                     window.open(ctamainstate?.ctamainrender?.placeplaceid[1]?.postplaceurl || ctamainstate?.ctamainrender?.placeplaceid[0]?.postplaceurl, '_blank').focus();
-                }} className="flex flex-row justify-center gap-3 items-center m-h3 w-full m-button">Seller website</button>
+                }} className="flex flex-row justify-center gap-3 items-center m-h3 w-full m-button border-[1.5px] border-black">Seller website</button>
             },
             ctamainrendertwo: () => {
                 return <button onClick={() => {
                     window.open(ctamainstate?.ctamainrender?.postproducturl, '_blank').focus();
-                }} className="m-h3 w-full l-button  border border-black">Check avability product</button>
+                }} className="m-h3 w-full l-button   border-[1.5px] border-black">Check avability product</button>
             },
         },
     ]
@@ -145,9 +145,9 @@ function CtaMain() {
     
     <div>
         <main className="">
-            <section className="flex justify-center items-center gap-1 flex-col md:flex-row">
-                        {ctamainrender && ctamainrender}
-                        {ctamainrendertwo && ctamainrendertwo}
+            <section className="flex justify-center items-center gap-1 flex-col md:flex-row ">
+                {ctamainrender && ctamainrender}
+                {ctamainrendertwo && ctamainrendertwo}
             </section>
         </main>
     </div>

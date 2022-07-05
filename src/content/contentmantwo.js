@@ -503,51 +503,67 @@ import { RiCheckboxCircleFill, RiCheckboxCircleLine, RiCloseCircleLine, RiCloseL
             crummaintitle: 'Where in NZ you are from?',
             crummaindata: [
                 {
+                    crummainid: 'bop',
                     crummainsubtitle: 'Bay of Plenty'
                 },
                 {
+                    crummainid: 'auk',
                     crummainsubtitle: 'Auckland'
                 },
                 {
+                    crummainid: 'can',
                     crummainsubtitle: 'Canterbury'
                 },
                 {
+                    crummainid: 'hkb',
                     crummainsubtitle: `Hawke's Bay`
                 },
                 {
+                    crummainid: 'gis',
                     crummainsubtitle: 'Gisborne'
                 },
                 {
+                    crummainid: 'mbh',
                     crummainsubtitle: 'Marlborough'
                 },
                 {
+                    crummainid: 'mwt',
                     crummainsubtitle: 'Manawatu-Wanganui'
                 },
                 {
+                    crummainid: 'ntl',
                     crummainsubtitle: 'Northland'
                 },
                 {
+                    crummainid: 'nsn',
                     crummainsubtitle: 'Nelson'
                 },
                 {
+                    crummainid: 'stl',
                     crummainsubtitle: 'Southland'
                 },
                 {
+                    crummainid: 'ota',
                     crummainsubtitle: 'Otago'
                 },
                 {
+                    crummainid: 'tas',
                     crummainsubtitle: 'Tasman'
                 },
                 {
+                    crummainid: 'tki',
                     crummainsubtitle: 'Taranaki'
                 },
                 {
+                    crummainid: 'wko',
                     crummainsubtitle: 'Waikato'
                 },
                 {
+                    crummainid: 'wgn',
                     crummainsubtitle: 'Wellington'
                 },
                 {
+                    crummainid: 'wtc',
                     crummainsubtitle: 'West Coast'
                 }
             ]
@@ -562,21 +578,21 @@ import { RiCheckboxCircleFill, RiCheckboxCircleLine, RiCloseCircleLine, RiCloseL
             spreadmaintitle: 'Successfully', 
             spreadmainicon: <RiCheckboxCircleLine />,
             spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-emerald-50 !text-emerald-800',
+            spreadmainstyle: '!bg-emerald-50 !text-emerald-700 !border-emerald-200',
         },
         {
             spreadmainid: 'fail',
             spreadmaintitle: 'Oops 404', 
             spreadmainicon: <RiCloseCircleLine />,
             spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-red-50 !text-red-800',
+            spreadmainstyle: '!bg-rose-50 !text-rose-700 !border-rose-200',
         },
         {
             spreadmainid: 'break',
             spreadmaintitle: 'Apologies',
             spreadmainicon: <RiInformationLine />,
             spreadmainimage: 'https://images.blush.design/s2yr8bhiPi8Of7hQIWvR?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
+            spreadmainstyle: '!bg-gray-50 !text-gray-700 !border-gray-200',
 
         },
         {
@@ -584,22 +600,21 @@ import { RiCheckboxCircleFill, RiCheckboxCircleLine, RiCloseCircleLine, RiCloseL
             spreadmaintitle: 'This', 
             spreadmainicon: <RiInformationLine />,
             spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-gray-50 !text-gray-800',
+            spreadmainstyle: '!bg-gray-50 !text-gray-700 !border-gray-200',
         },
-        
         {
             spreadmainid: 'information',
             spreadmaintitle: 'This', 
             spreadmainicon: <RiLightbulbLine />,
             spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-blue-50 !text-blue-800 !border-blue-700',
+            spreadmainstyle: '!bg-blue-50 !text-blue-700 !border-blue-200',
         },
         {
             spreadmainid: 'credit',
             spreadmaintitle: 'This', 
             spreadmainicon: <RiInformationLine />,
             spreadmainimage: 'https://images.blush.design/a1C9qsbVAFkZdJPJN2Ft?w=500&auto=compress&cs=srgb',
-            spreadmainstyle: '!bg-gray-50 !text-gray-800 !border-gray-700',
+            spreadmainstyle: '!bg-gray-50 !text-gray-700 !border-gray-200',
         },
     ]
 

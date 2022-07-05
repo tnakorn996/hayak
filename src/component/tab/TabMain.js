@@ -43,14 +43,14 @@ function TabMain({
         {
             tabmainindex: 0,
             tabmaintitle: 'Search on TOI',
-            tabmainrender: <section className="min-w-[55vw] md:max-w-[55vw] mx-auto min-h-screen  snap-center duration-100">
+            tabmainrender: <section className="w-screen md:max-w-full mx-auto min-h-screen  snap-center duration-100">
                 <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />
             </section>
         },
         {
             tabmainindex: 1,
             tabmaintitle: 'My Favourite',
-            tabmainrender: <section className="min-w-[55vw] md:max-w-[55vw] mx-auto min-h-screen  snap-center duration-100">
+            tabmainrender: <section className="w-screen md:max-w-full mx-auto min-h-screen  snap-center duration-100">
                 <ZoomMain zoommainid={'favouriteinput'} zoommainslice={10} />
             </section>
         },
@@ -61,14 +61,14 @@ function TabMain({
         {
             tabmainindex: 0,
             tabmaintitle: 'Most Viewed',
-            tabmainrender: <section className="max-w-full mx-auto  snap-center duration-100">
+            tabmainrender: <section className="w-screen md:max-w-full mx-auto  snap-center duration-100">
                 <ZoomMain zoommainid={'rtainput'} zoommainslice={10} />
             </section>
         },
         {
             tabmainindex: 1,
             tabmaintitle: 'Most Recent',
-            tabmainrender: <section className="max-w-full mx-auto  snap-center duration-100">
+            tabmainrender: <section className="w-screen md:max-w-full mx-auto  snap-center duration-100">
                 <ZoomMain zoommainid={'rtainputtwo'} zoommainslice={10} />
             </section>
         },
@@ -145,14 +145,14 @@ function TabMain({
   return (
     <div className=''>
         <main className="">
-            <section className="w-full md:max-w-[55vw] mx-auto px-[20px] md:px-[50px] sticky z-10 top-0 left-0 flex flex-row  border-b bg-white">
+            <section className="w-full md:max-w-[55vw] mx-auto px-[20px] sticky z-10 top-0 left-0 flex flex-row  border-b-[1.5px] bg-white">
                 {tabmainrender && tabmainrender?.map(data => (<>
                 <button onClick={() => {
                     setsearchmainstate({tabmainindex: data?.tabmainindex})
-                }} className={`w-full md:w-fit l-button duration-100 ${searchmainstate?.tabmainindex === data?.tabmainindex && '!border-b !border-black'}`}>{data?.tabmaintitle}</button>
+                }} className={`w-full md:w-fit l-button duration-100 ${searchmainstate?.tabmainindex === data?.tabmainindex && '!border-b-[1.5px] !border-black'}`}>{data?.tabmaintitle}</button>
                 </>))}
             </section>
-            <section className="w-screen md:w-full">
+            <section className="w-full md:max-w-[55vw] mx-auto">
                 <figure ref={tabmainref} onTouchStart={p => ll(p)} onTouchMove={p => kk(p)} onTouchEnd={() => jj()} className="overflow-x-scroll overflow-y-clip no-scrollbar snap-x snap-mandatory scroll-smooth">
                     {tabmainrendertwo && tabmainrendertwo}
                 </figure>

@@ -162,15 +162,14 @@ function ModalMain() {
     <div>
         <br />
         <motion.main initial={{y: 200}} animate={{ y:0}} exit={{y: 200}} className="w-screen md:max-w-[700px] bg-white border shadow-2xl duration-100">
-            <section className="p-[20px] text-center">
+            <section className="h-[5vh] p-[20px] text-center">
                 <h1 className="m-h4 font-serif">{modalmaintitle && modalmaintitle}</h1>
             </section>
-            {/* <hr /> */}
-            <section className="md:max-h-[80vh]  overflow-y-auto no-scrollbar">
+            <section className="max-h-[85vh]  overflow-y-auto no-scrollbar">
                 <div className="">{modalmainrender}</div>
+                <hr />
             </section>
-            <hr />
-            <section className="p-[20px] grid grid-flow-col">
+            <section className="h-[10vh] px-[20px] grid grid-flow-col items-center">
                 <button onClick={() => {
                     setappmainstate({
                         appmainboolean: false,

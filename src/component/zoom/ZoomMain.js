@@ -7,11 +7,12 @@ import { MdShowChart } from 'react-icons/md'
 import { RiChat4Fill, RiChat4Line, RiHeartFill, RiHistoryFill, RiLayoutGridFill, RiMapPin3Fill, RiMapPin3Line, RiNewspaperFill, RiNewspaperLine, RiSearch2Line, RiShoppingBag2Fill, RiShoppingBag2Line } from 'react-icons/ri'
 import { VscSearch } from 'react-icons/vsc'
 import { useLocation } from 'react-router-dom'
+import { userui } from '../../content/contentmantwo'
 // import { useNavigate } from 'react-router-dom'
 // import { categoryul } from '../../content/contentmantwo'
 
 import { ContextMain } from '../../context/contextmain'
-import { client } from '../../lib/sanity'
+// import { client } from '../../lib/sanity'
 import MtaMain from '../mta/MtaMain'
 import PtaMain from '../pta/PtaMain'
 
@@ -33,12 +34,12 @@ function ZoomMain({
 
     } = useContext(ContextMain)
     // const navigate = useNavigate()
-    const location = useLocation()
+    // const location = useLocation()
     const [zoommainkey, setzoommainkey] = useState('')
     const [zoommainindex, setzoommainindex] = useState(0)
+    const [zoommainalert, setzoommainalert] = useState()
 
-    const [zoommaintitle, setzoommaintitle] = useState()
-    const [zoommainicon, setzoommainicon] = useState()
+    const [zoommainplaceholder, setzoommainplaceholder] = useState()
     const [zoommaindata, setzoommaindata] = useState()
 
     const searchinput = [
@@ -321,10 +322,34 @@ function ZoomMain({
         },
     ]
 
+    const contactinput = [
+        {
+            zoommainindex: 0,
+            zoommaindata: [
+                {
+                    zoommaintitle: '',
+                    zoommainrender: [],
+                    zoommainicon: '',
+                },
+            ],
+        },
+        {
+            zoommainindex: 1,
+            zoommaindata: [
+                {
+                    zoommaintitle: 'City or Region',
+                    zoommainrender: (userui[3].crummaindata.filter(data => data.crummainsubtitle.toLowerCase().includes(zoommainkey) || data.crummainid.toLowerCase().includes(zoommainkey) )),
+                    zoommainicon: <RiMapPin3Fill />,
+                },
+            ],
+        },
+    ]
+
     const zoommain = [
         {
             zoommainid: 'searchinput',
             zoommainref: searchinput,
+            zoommainplaceholder: `eg. coffee, lamb, red rabbit`,
         },
         // {
         //     zoommainid: 'feedbackinput',
@@ -333,18 +358,27 @@ function ZoomMain({
         {
             zoommainid: 'favouriteinput',
             zoommainref: favouriteinput,
+            zoommainplaceholder: `Find your favourite posts`,
         },
         {
             zoommainid: 'rtainput',
             zoommainref: rtainput,
+            zoommainplaceholder: ``,
         },
         {
             zoommainid: 'rtainputtwo',
             zoommainref: rtainputtwo,
+            zoommainplaceholder: ``,
         },
         {
             zoommainid: 'feedbackinput',
             zoommainref: feedbackinput,
+            zoommainplaceholder: `eg. coffee, lamb, red rabbit`,
+        },
+        {
+            zoommainid: 'contactinput',
+            zoommainref: contactinput,
+            zoommainplaceholder: `eg. Auckland, Wellington, Waikato`,
         },
     ]
 
@@ -357,34 +391,33 @@ function ZoomMain({
         if(zoommainid){
             const filter = zoommain.filter(data => data.zoommainid === zoommainid)
             const filtertwo = filter[0].zoommainref.filter(data => data.zoommainindex === zoommainindex)
-            setzoommaindata(filtertwo[0].zoommaindata)
-            // const empty = []
-            //     for(const data of filtertwo[0].zoommaindata){
-            //         if(data?.zoommainrender && data.zoommainrender.length !== 0){
-            //                 empty.push(data)
-            //                 setzoommaindata(empty)
-                            
-            //         } 
-            //     }
-            setzoommaintitle(filtertwo[0].zoommaintitle)
-            setzoommainicon(filtertwo[0].zoommainicon)
+            // setzoommaindata(filtertwo[0].zoommaindata)
+            const empty = []
+            for(const data of filtertwo[0].zoommaindata){
+                if(data?.zoommainrender && data.zoommainrender.length !== 0){
+                        empty.push(data)
+                        setzoommaindata(empty)
+                }
+            }
+            setzoommainplaceholder(filter[0].zoommainplaceholder)
         }
     }, [zoommainid, zoommainindex, zoommainkey])
 
   return (
     <div>
-        <main className="px-[20px]">
+        <main className="px-[20px] w-full">
             <section autoFocus className="max-h-[20vh]">
                 <br />
                 <div className="w-full relative flex items-center">
                     <VscSearch className='absolute left-4  l-h6' />
-                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[50px]  l-input" placeholder='Search places or products' />
+                    <input autoFocus onChange={(p) => setzoommainkey(p.target.value)} value={zoommainkey?.toLocaleLowerCase()} className="w-full pl-[50px]  l-input" placeholder={zoommainplaceholder} />
                 </div>
             </section>
             <section className="">
             <br />
             {(zoommainid === 'favouriteinput') && <MtaMain mtamainstatic={{mtamainid: 'favouritetable'}} mtamainstyle={'!text-xl'} />}
             {(zoommainid === 'feedbackinput') && <MtaMain mtamainstatic={{mtamainid: 'feedbacktable'}} mtamainstyle={'!text-xl'} />}
+            {(zoommainid === 'contactinput') && <MtaMain mtamainstatic={{mtamainid: 'contacttable'}} mtamainstyle={'!text-xl'} />}
             </section>
 
             <section className="">
@@ -392,9 +425,9 @@ function ZoomMain({
                 {data?.zoommainrender?.length > 0 && (<>
                 <figcaption className="">
                 <br /><br />
-                <h1 className="m-h2">{data?.zoommaintitle} ({data?.zoommainrender?.length})</h1>
+                <h1 className="m-h1">{data?.zoommaintitle} ({data?.zoommainrender?.length})</h1>
                 <br />
-                    {data?.zoommainrender?.slice(0, zoommainslice)?.map(dat => (<>
+                    {data?.zoommainrender?.length !== 0 && data?.zoommainrender?.slice(0, zoommainslice)?.map(dat => (<>
                         <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative w-full py-[10px] flex flex-row items-center justify-between  group">
                             <div className="grid grid-flow-col items-center justify-start gap-3">
                             <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white ">{data.zoommainicon}</span>
@@ -402,6 +435,7 @@ function ZoomMain({
                                 <a href={`/${dat?.postid}`} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.posttitle}</a>
                                 <h1 onClick={dat?.blemainaction} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.blemaintitle}</h1>
                                 <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-700 font-serif truncate">{dat?.breadmaintitle}</a>
+                                <p className=" leading-loose !text-gray-700 font-serif truncate">{dat?.crummainsubtitle}</p>
                                 {/* <h1 className="l-h1 truncate">{dat?.postsubtitle}</h1> */}
                             </figcaption>
                             </div>
@@ -409,14 +443,15 @@ function ZoomMain({
                             <div className="flex flex-row items-center justify-end gap-3">
                             {/* <motion.div className="opacity-0 group-hover:opacity-100  duration-100"> */}
                             {/* {(zoommainid === 'searchinput') && <PtaMain ptamainstatic={{ptamainid: 'searchiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />} */}
+                            {(zoommainid === 'contactinput') && <PtaMain ptamainstatic={{ptamainid: 'contactiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
                             {(zoommainid === 'feedbackinput') && <PtaMain ptamainstatic={{ptamainid: 'feedbackiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
-                            {(zoommainid !== 'feedbackinput' && zoommainid !== 'favouriteinput') && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
                             {(zoommainid === 'favouriteinput') && <PtaMain ptamainstatic={{ptamainid: 'favouriteiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
+                            {(zoommainid !== 'feedbackinput' && zoommainid !== 'favouriteinput' && zoommainid !== 'contactinput') && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
                             {/* </motion.div> */}
                             </div>
 
                         </motion.figure>
-                        <div className="w-full  border-b border-gray-200" />
+                        {/* <div className="w-full  border-b border-gray-200" /> */}
                     </>))}
                 </figcaption>
                 </>)}

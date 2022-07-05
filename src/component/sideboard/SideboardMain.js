@@ -52,7 +52,7 @@ function SideboardMain() {
   const navdialog = [
     {
       sideboardrender: () => {
-        return <main className="h-full flex flex-col">
+        return <main className="h-full px-[20px] w-screen md:w-[55vh]  flex flex-col">
           <section className="h-[75vh]">
             {categoryul?.map(data => (<>
               <article onClick={() => {
@@ -63,13 +63,13 @@ function SideboardMain() {
                             appmainboolean: true,
                 })
                 setsideboardmainpage(1)
-              }} className="p-[20px] flex flex-row items-start justify-between">
+              }} className="py-[10px] flex flex-row items-start justify-between">
                 <h1 className="m-h6 text-2xl  font-serif">{data?.breadmaintitle}</h1>
                 <h1 className="m-h6 text-2xl  font-serif">→</h1>
               </article>
             </>))}
           </section>
-          <section className="px-[20px] w-full h-[10vh] grid grid-cols-2 items-center justify-center text-center">
+          <section className="py-[10px] w-full h-[10vh] grid grid-cols-2 items-center justify-center text-center">
             {contactul?.map(data => (<>
               <a href={data?.breadmainaction} className={`font-serif ${data?.breadmainstyle}`}>{data?.breadmainentitle}</a>
             </>))}
@@ -80,11 +80,12 @@ function SideboardMain() {
     {
       sideboardrender: () => {
         const filter = categoryui.filter(data => data.breadmainid === appmainstate.appmainidthree)
-        return <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className=" duration-100">
+        return <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="px-[20px] w-screen md:w-[55vh] duration-100">
           <section className="">
             <button onClick={() => {
               setsideboardmainpage(0)
-            }} className='l-button'>← Main menu</button>
+            }} className=''>← Main menu</button>
+            <br /><br />
           </section>
           <section className="h-[70vh]">
             {filter.map(data => (<>
@@ -94,13 +95,13 @@ function SideboardMain() {
                   breadmainidtwo: data?.crummainid,
                 })
                 navigate(`/category/${data?.breadmainid}`)
-              }} className="p-[20px]">
+              }} className="py-[10px]">
               <h1 className="m-h6 text-2xl  font-serif">{data?.crummaintitle}</h1>
               <h1 className="l-h2">{data?.crummainsubtitle}</h1>
             </article>
             </>))}
           </section>
-          <section className="px-[20px] w-full h-[10vh] grid grid-cols-1 items-center">
+          <section className="py-[10px] w-full h-[10vh] grid grid-cols-1 items-center">
             {filter.slice(0, 1).map(data => (<>
               <a href={`/category/${data?.breadmainid}`} className='text-center m-button font-serif' >See all {data?.breadmainid}s</a>
             </>))}
@@ -156,7 +157,7 @@ function SideboardMain() {
   return (
     <div>
         <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="h-screen w-screen md:w-[55vw] fixed top-0 left-0 flex flex-col justify-start items-center  border bg-white shadow-2xl duration-100">
-            <section className="h-[10vh] px-[20px] md:px-[50px] w-full flex flex-row justify-between items-center  shadow">
+            <section className="h-[10vh] px-[20px] w-full flex flex-row justify-between items-center  shadow-md">
               <figure className="">
                 <article className=" flex flex-row gap-1 items-center">
                 <figure className="">
@@ -168,21 +169,15 @@ function SideboardMain() {
                 </article>
               </figure>
               <figcaption className="">
-                <article className="">
                   <CheckMain>
                   <RiCloseLine className="z-10 absolute top-5 right-5  l-h6 " />
                   </CheckMain>
-                </article> 
               </figcaption>
             </section>
-            <section className="h-[90vh] min-w-[90vw]  overflow-y-scroll no-scrollbar ">
+            <section className="h-[90vh]  overflow-y-scroll no-scrollbar">
             <br />
               {sideboardmainrender && sideboardmainrender}
             </section>
-            {/* <section className="h-[10vh] w-full p-[20px] grid grid-flow-col  border-t border-gray-700">
-              <button className="m-button">Our story</button>
-              <button className="l-button">List your business</button>
-            </section> */}
         </motion.main>
     </div>
   )

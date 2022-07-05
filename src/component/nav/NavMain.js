@@ -8,8 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { breadmain, categorymain, navmain } from '../../content/contentmain'
 import { contactul } from '../../content/contentmantwo'
 import { ContextMain } from '../../context/contextmain'
-import BadgeMain from '../badge/BadgeMain'
-import BrandMain from '../brand/BrandMain'
+import BadgeMain from '../../layout/badge/BadgeMain'
 import DropdownMain from '../dropdown/DropdownMain'
 
 function NavMain() {
@@ -20,6 +19,7 @@ function NavMain() {
         setsearchmainstate,
 
         postupdatedat,
+        postdi,
 
         
     } = useContext(ContextMain)
@@ -111,7 +111,10 @@ function NavMain() {
                         }} className="relative grid grid-flow-col gap-1 items-center">
                         <VscHeart className='m-h5' />
                         <div className="absolute -right-2 -top-2 md:top-0">
-                            <BadgeMain badgemainid={'favouritespan'} badgemainindex={0} />
+                            {/* <BadgeMain badgemainid={'favouritespan'} badgemainindex={0} /> */}
+                            <BadgeMain>
+                                {postdi}
+                            </BadgeMain>
                         </div>
                     </article>
 

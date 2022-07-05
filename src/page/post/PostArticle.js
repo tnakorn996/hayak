@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { RiContrastDropLine, RiEyeLine, RiShareFill, RiBookOpenLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 import BarMain from '../../component/bar/BarMain'
-import LoadingMain from '../../component/load/LoadingMain'
+import LoadMain from '../../layout/load/LoadMain'
 
 import HorizonMain from '../../component/post/HorizonMain'
 import PtaMain from '../../component/pta/PtaMain'
@@ -86,7 +86,7 @@ function PostArticle() {
                 <section className="z-0 sticky top-0 left-0">
                     <figure className="relative h-[65vh] w-full flex items-center justify-center overflow-hidden">
                         <div className="absolute">
-                            <LoadingMain />
+                            <LoadMain />
                         </div>
                         <figure className="h-full w-full flex justify-center items-center">
                         <img src={urlFor(postarticlestate?.posthero)} alt="" className=" z-0 max-w-[150ch] h-full md:h-fit md:w-full" />

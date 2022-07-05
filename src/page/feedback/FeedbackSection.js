@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import ButtonMain from '../../component/button/ButtonMain'
+import ButtonMain from '../../layout/button/ButtonMain'
 
 // import ChooseMain from '../../component/choose/ChooseMain'
 import FieldMain from '../../component/field/FieldMain'
@@ -38,8 +38,8 @@ function FeedbackSection() {
 
   return (
     <div>
-      <main className="px-[20px] md:px-[50px] w-full md:max-w-[55vw] mx-auto">
-        <section className="">
+      <main className="">
+        <section className="w-screen md:w-[55vw] px-[20px]">
           <h1 className="m-h6 font-serif">{feedbacksectionrender?.crummaintitle}</h1>
           <br />
         </section>
@@ -48,10 +48,9 @@ function FeedbackSection() {
           <HorizonMain key={feedbacksectionrendertwo?.postid} postid={feedbacksectionrendertwo?.postid} posticon={feedbacksectionrendertwo?.posticon} posthero={feedbacksectionrendertwo?.posthero} posttitle={feedbacksectionrendertwo?.posttitle} postsubtitle={feedbacksectionrendertwo?.postsubtitle}  createdat={feedbacksectionrendertwo?._createdAt} param={feedbacksectionrendertwo?.postid} />
         </section>
         </>)} */}
-        <section className="">
+        <section className="w-screen md:w-[55vw] px-[20px]">
           <FieldMain fieldmainid={'feedbackform'} fieldmainindex={0} fieldmainparam={feedbacksectionrendertwo?.postid} />
         </section>
-        <br />
       </main>
         
     </div>

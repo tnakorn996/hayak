@@ -5,7 +5,8 @@ import { useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 import { client } from '../../lib/sanity'
-import ButtonMain from '../button/ButtonMain'
+import ButtonMain from '../../layout/button/ButtonMain'
+// import ButtonMain from '../../layout/button/ButtonMain'
 import CardMain from '../card/CardMain'
 import ChooseMain from '../choose/ChooseMain'
 
@@ -142,23 +143,24 @@ function FieldMain({
         {
             fieldmainindex: 0,
             fieldmainaction: ll,
-            fieldmaintitle: 'Want to be part of TOI? Drop us a line!',
+            fieldmaintitle: 'Drop us a line!',
             fieldmainentitle: 'Submit form',
             fieldmaindata: [
                 {
-                    fieldmainsubtitle: 'Name',
+                    fieldmainsubtitle: 'Name*',
                     fieldmainrender: <input ref={ref} className="w-full  l-input" />,
                 },
                 {
-                    fieldmainsubtitle: 'Email',
+                    fieldmainsubtitle: 'Email*',
                     fieldmainrender: <input ref={reftwo} type={'email'} className="w-full  l-input" />,
                 },
                 {
-                    fieldmainsubtitle: 'City',
-                    fieldmainrender: <input ref={refthree} className="w-full  l-input" />,
+                    fieldmainsubtitle: 'City or Region*',
+                    // fieldmainrender: <input ref={refthree} className="w-full  l-input" />,
+                    fieldmainrender: <ChooseMain ref={refthree} choosemainstatic={{choosemainid:'contacttextarea'}} />,
                 },
                 {
-                    fieldmainsubtitle: 'Message',
+                    fieldmainsubtitle: 'Message*',
                     fieldmainrender: <textarea ref={reffour} rows={3} className="w-full  l-input" />,
                 },
             ],
@@ -193,15 +195,15 @@ function FieldMain({
             fieldmainentitle: 'Submit',
             fieldmaindata: [
                 {
-                    fieldmainsubtitle: '',
+                    fieldmainsubtitle: 'Posts, Places, Products*',
                     fieldmainrender: <ChooseMain choosemainref={refnine} choosemainstatic={{choosemainid: 'feedbacktextarea'}} />,
                 },
                 {
-                    fieldmainsubtitle: '',
+                    fieldmainsubtitle: 'Work email*',
                     fieldmainrender: <input ref={refseven} type={'email'} className="w-full  l-input" placeholder={'johndoe@example.com'} />,
                 },
                 {
-                    fieldmainsubtitle: '',
+                    fieldmainsubtitle: 'Message*',
                     fieldmainrender: <textarea ref={refeight} rows={3} className="w-full  l-input" placeholder='What are your thoughts?' />,
                 },
             ]
@@ -246,7 +248,7 @@ function FieldMain({
                     {data?.fieldmaindata?.map(dat => (<>
                     <figcaption className="">
                         <br />
-                        <h1 className="l-h2">{dat?.fieldmainsubtitle !== '' && dat?.fieldmainsubtitle}</h1>
+                        <h1 className="py-[7px]  m-h1">{dat?.fieldmainsubtitle !== '' && dat?.fieldmainsubtitle}</h1>
                         <div className="w-full">
                         {dat?.fieldmainrender}
                         </div>
@@ -273,14 +275,18 @@ function FieldMain({
                 </section>
                 <br />
                 <section className="">
-                    <ButtonMain 
+                    {/* <ButtonMain 
                     onclick={() => {
                         data?.fieldmainaction();
                     }}
                     load={fieldmainload === true ? fieldmainload : fieldmainload}
                     title={data?.fieldmainentitle}
-                    />
+                    /> */}
+                    <ButtonMain buttonmainstatic={{buttonmainonclick: () => {data?.fieldmainaction()}, buttonmainload: fieldmainload === true ? fieldmainload : fieldmainload}} >
+                        {data?.fieldmainentitle}
+                    </ButtonMain>
                 </section>
+                <br />
             </>))}            
         </main>
     </div>

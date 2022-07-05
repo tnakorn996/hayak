@@ -8,12 +8,12 @@ import { categorymain } from '../../content/contentmain'
 import { useContext } from 'react'
 import { ContextMain } from '../../context/contextmain'
 import { useLocation, useNavigate } from 'react-router-dom'
-import LoadingMain from '../load/LoadingMain'
 import { genreui } from '../../content/contentmantwo'
 import BarMain from '../bar/BarMain'
 import { urlFor } from '../../lib/sanity'
 import PtaMain from '../pta/PtaMain'
 import ScrollMain from '../scroll/ScrollMain'
+import LoadMain from '../../layout/load/LoadMain'
 
 function VerticleMain({
   onlick, 
@@ -104,7 +104,7 @@ function VerticleMain({
 
                     className="relative row-span-3 overflow-hidden h-[50vh] md:h-[60vh] flex justify-center items-center">
                     <div className="absolute">
-                    <LoadingMain />
+                    <LoadMain />
                     </div>
                     <div className="z-30 absolute top-3 right-3">
                     <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: data}} ptamainstyle={'!text-lg'} />

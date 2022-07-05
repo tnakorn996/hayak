@@ -15,20 +15,19 @@ import '../post/postindex.css'
 import CtaMain from '../../component/ctamain/CtaMain'
 import RtaMain from '../../component/rta/RtaMain'
 import SpreadMain from '../../component/spread/SpreadMain'
-import SocialMain from '../social/SocialMain'
-import CardMain from '../../component/card/CardMain'
-import LoadMain from '../../component/load/LoadMain'
+// import CardMain from '../../component/card/CardMain'
+// import LoadMain from '../../layout/load/LoadMain'
 import { genreui } from '../../content/contentmantwo'
 import AlertMain from '../../component/alert/AlertMain'
 import SlideMain from '../../component/slide/SlideMain'
 import BarMain from '../../component/bar/BarMain'
-import ListMain from '../../component/list/ListMain'
 import GuideMain from '../../component/guide/GuideMain'
 import PtaMain from '../../component/pta/PtaMain'
-import SnackbarMain from '../../component/snackbar/SnackbarMain'
 import JointMain from '../../component/joint/JointMain'
-import FabMain from '../../component/fab/FabMain'
-import HorizonMain from '../../component/post/HorizonMain'
+import ListMain from '../../component/list/ListMain'
+// import SnackbarMain from '../../component/snackbar/SnackbarMain'
+// import FabMain from '../../component/fab/FabMain'
+// import HorizonMain from '../../component/post/HorizonMain'
 
 function PostIndex() {
     const {
@@ -46,7 +45,7 @@ function PostIndex() {
         setfavouritemainstate, favouritemainstate,
 
         // parsepost,
-        postplaceproduct,
+        // postplaceproduct,
         postupdatedat,
         placeupdatedat,
         productupdatedat,
@@ -55,7 +54,7 @@ function PostIndex() {
     const param = useParams()
     // const navigate = useNavigate()
     const ref = useRef(null)
-    const reftwo = useRef(null)
+    // const reftwo = useRef(null)
 
     const [postindexrender, setpostindexrender] = useState()
     // const [postindexrendertwo, setpostindexrendertwo] = useState()
@@ -64,7 +63,6 @@ function PostIndex() {
     const [postindexmessage, setpostindexmessage] = useState()
     const [postindexaction, setpostindexaction] = useState(false)
     const [postindexstyle, setpostindexstyle] = useState('')
-    const [postindexpageyoffset, setpostindexpageyoffset] = useState()
     // const [snackbarmainstatic, setsnackbarmainstatic] = useState()
 
     const [postpostid, setpostpostid] = useState()
@@ -72,6 +70,7 @@ function PostIndex() {
     const [placeplaceid, setplaceplaceid] = useState()
     const [productplaceid, setproductplaceid] = useState()
     const [productpostid, setproductpostid] = useState()
+    const [commentpostid, setcommentpostid] = useState()
 
     const postfigcaption = [
         {
@@ -323,6 +322,7 @@ function PostIndex() {
                   'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] | order(_createdAt desc) ,
                   'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] | order(_createdAt desc) ,
                   'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] | order(_createdAt desc) ,
+                  'commentpostid': *[_type == 'comment' && postid == ^.postid ] | order(_createdAt desc) ,
               }[0]`;
               await client.fetch(query)
               .then((data) => {
@@ -332,6 +332,7 @@ function PostIndex() {
                     setplaceplaceid(data.placeplaceid)
                     setproductplaceid(data.productplaceid)
                     setproductpostid(data.productpostid)
+                    setcommentpostid(data.commentpostid)
                 }).catch((data) => {
                     setpostindexmessage(data.message)
                 })
@@ -423,16 +424,16 @@ function PostIndex() {
     // }
 
     window.onscroll = function (){
-        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.2)) && window.screen.width > 1000) {
-            setpostindexstyle('!w-screen !min-h-[15vh] !grid-flow-col !bg-white !border-b !shadow')
+        if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.1)) && window.screen.width > 1000) {
+            setpostindexstyle('!w-screen !min-h-[15vh] !grid-flow-col !bg-white !border-b !shadow-xl')
             
         } 
-        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.8)) && window.screen.width > 1000) {
+        if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.7)) && window.screen.width > 1000) {
             setpostindexstyle('')
         }
 
         if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 0.9)) && window.screen.width <= 1000) {
-            setpostindexstyle('!w-screen !min-h-[10vh] !grid-flow-row !bg-white !border-b !shadow')
+            setpostindexstyle('!w-screen !min-h-[10vh] !grid-flow-row !bg-white !border-b !shadow-xl')
             
         } 
         if (((window.innerHeight + document.documentElement.scrollTop) < window.innerHeight + (window.innerHeight * 0.6)) && window.screen.width <= 1000) {
@@ -523,17 +524,28 @@ function PostIndex() {
                     }} className='absolute md:hidden z-10 right-0 md:right-[70px] bottom-0  md:m-[10px] l-button '>{postindexaction ? 'Show more' : 'Show less'}</button>
                     <figure className={`p-[10px] absolute md:hidden w-full h-[80%] bottom-0 left-0 flex items-end justify-end   bg-gradient-to-b from-transparent to-white ${!postindexaction && '!hidden'}`} />
                 </section>
-                <section layout className="px-[20px] md:px-[60px] max-w-[800px] mx-auto">
-                    <CardMain     
-                    cardmainid={'commentimg'}
-                    cardmainidtwo={'inform'}
-                    cardmainidthree={'all'}
-                    cardmainindex={0} 
-                    />
+                <section layout className="px-[20px] md:px-[60px] max-w-[750px] mx-auto">
                     <br />
+                    <figure className="">
+                        {postpostid && <BarMain barmainid={'postindextime'} barmainindex={0} barmaindata={postindexthree} />}
+                    </figure>
+                    <br />   
                 </section>
+                {/* <section className="px-[20px] md:px-[60px] max-w-[750px] mx-auto">
+                    {commentpostid?.map(data => (<>
+                    <article className="border-b-[1.5px] border-gray-200">
+                        <br />
+                        <h1 className="m-h3 font-serif">{data?.commentsubtitle}</h1>
+                        <div className="flex flex-row justify-start items-center gap-1">
+                        <h1 className="m-h1  uppercase">{data?.commenttitle}</h1>
+                        <h1 className="">·</h1>
+                        <h1 className="m-h1  uppercase">{data?._createdAt?.slice(0, 10)}</h1>
+                        </div>
+                        <br />
+                    </article>
+                    </>))}
+                </section> */}
             </figcaption>
-            {/* {<SnackbarMain snackbarmainid={'postfooter'} snackbarmaindata={postindexrender && postindexrender} snackbarmaindatatwo={postpostid && postpostid} snackbarmaindatathree={postindexthree && postindexthree} />} */}
             <figcaption className={`w-full md:w-[750px] mx-auto col-span-12 sticky z-10 top-0 left-0 min-h-[35vh] grid grid-flow-row  duration-1000  ${postindexstyle}`}>
                 <section className="w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto">
                     <br />
@@ -545,17 +557,12 @@ function PostIndex() {
                     <h1 className={`md:max-w-[80%] text-3xl md:text-5xl m-h6 py-[10px] font-serif leading-normal  ${postindexstyle !== '' && '!text-xl !leading-none'}`}>{postpostid?.posttitle}</h1>
                     {postindexstyle === '' && (<>
                     <h1 className={`first-letter:uppercase  l-h6`}>{postpostid?.postsubtitle}</h1>
-                    <br /> 
-                    <figure className="">
-                        {postpostid && <BarMain barmainid={'postindextime'} barmainindex={0} barmaindata={postindexthree} />}
-                    </figure>
-                    <br />   
                     </>)}
                     <br />
                 </section>
                 <section className={`w-full px-[20px] md:px-[60px] max-w-[800px] mx-auto md:h-full grid grid-flow-col items-center ${postindexstyle !== '' && 'hidden md:grid'}`}>
-                        <CtaMain />
-                        {/* {postindexstyle === '' && <br />} */}
+                    <CtaMain />
+                    {/* {postindexstyle === '' && <br />} */}
                 </section>
             </figcaption>
             </div>
@@ -601,7 +608,7 @@ function PostIndex() {
                 </section>
                 <br /><br />
             </figure> */}
-            {/* <figcaption className="block md:hidden max-w-[700px] mx-auto  col-span-12">
+            {/* <figcaption className="max-w-[700px] mx-auto  col-span-12">
                 <ListMain listmainid={'faqsummary'} listmainindex={0} />
             </figcaption> */}
             {/* <figure className="z-20 fixed bottom-5 right-5 flex flex-col items-end gap-3  duration-100">

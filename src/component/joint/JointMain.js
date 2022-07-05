@@ -41,7 +41,7 @@ function JointMain({
     {
       jointmainindex: 0,
       jointmainrender: <main className="">
-        <section className="px-[20px] md:px-[50px]">
+        {/* <section className="px-[20px] md:px-[50px]">
           <figcaption className="">
             <br />
             <br />
@@ -56,6 +56,13 @@ function JointMain({
             <br />
           </figcaption>
           <figure className=" w-full h-[60vh]  m-section" />
+        </section> */}
+        <section className="relative h-[90vh] md:h-screen w-screen">
+          <div className="p-[20px] md:p-[50px] absolute bottom-0 left-0">
+          <figure className="w-[60vw] md:w-[40vh] h-[7vh]  m-section" />
+          <br />
+          <figure className="w-[40vw] md:w-[20vh] h-[7vh]  m-section" />
+          </div>
         </section>
       </main>,
     }

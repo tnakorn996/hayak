@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 
 import { ContextMain } from '../../context/contextmain';
 
-export default function CheckMain(checkmainstatic) {
+export default function CheckMain({checkmainstatic, children}) {
     const {
         setappmainstate,
 
@@ -55,7 +55,7 @@ export default function CheckMain(checkmainstatic) {
             <section onClick={() => {
                 ll()
             }} className="">
-                {checkmainstatic.children}
+                {children}
             </section>
         </main>
     </div>

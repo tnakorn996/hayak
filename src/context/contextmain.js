@@ -12,23 +12,7 @@ export const ContextMain = createContext()
 export const Provider = ({ children }) => {
     const location = useLocation()
     // const param = useParams()
-    const parsepost = JSON.parse(window.localStorage.getItem("postiframe"));
-    const parsesearch = JSON.parse(window.localStorage.getItem("searchiframe"));
-    const parsefavourite = JSON.parse(window.localStorage.getItem("favouriteiframe"));
-    const parsefeedback = JSON.parse(window.localStorage.getItem("feedbackiframe"));
-    if(!parsepost || Object.getPrototypeOf(parsepost).isPrototypeOf(Object)) {
-        window.localStorage.setItem("postiframe", JSON.stringify([]))
-    }
-    if(!parsesearch || Object.getPrototypeOf(parsesearch).isPrototypeOf(Object)) {
-        window.localStorage.setItem("searchiframe", JSON.stringify([]))
-    }
-    if(!parsefavourite || Object.getPrototypeOf(parsefavourite).isPrototypeOf(Object)) {
-        window.localStorage.setItem("favouriteiframe", JSON.stringify([]))
-    }
-    if(!parsefeedback || Object.getPrototypeOf(parsefeedback).isPrototypeOf(Object)) {
-        window.localStorage.setItem("feedbackiframe", JSON.stringify([]))
-    }
-
+   
     const [appmainstate, setappmainstate] = useState('appmain')
     // const [postindexstate, setpostindexstate] = useState()
     const [planformstate, setplanformstate] = useState()
@@ -87,6 +71,27 @@ export const Provider = ({ children }) => {
     //   delay: 100,
     // })
 
+    const parsepost = JSON.parse(window.localStorage.getItem("postiframe"));
+    const parsesearch = JSON.parse(window.localStorage.getItem("searchiframe"));
+    const parsefavourite = JSON.parse(window.localStorage.getItem("favouriteiframe"));
+    const parsefeedback = JSON.parse(window.localStorage.getItem("feedbackiframe"));
+    const parsecontact = JSON.parse(window.localStorage.getItem("contactiframe"));
+    if(!parsepost || Object.getPrototypeOf(parsepost).isPrototypeOf(Object)) {
+        window.localStorage.setItem("postiframe", JSON.stringify([]))
+    }
+    if(!parsesearch || Object.getPrototypeOf(parsesearch).isPrototypeOf(Object)) {
+        window.localStorage.setItem("searchiframe", JSON.stringify([]))
+    }
+    if(!parsefavourite || Object.getPrototypeOf(parsefavourite).isPrototypeOf(Object)) {
+        window.localStorage.setItem("favouriteiframe", JSON.stringify([]))
+    }
+    if(!parsefeedback || Object.getPrototypeOf(parsefeedback).isPrototypeOf(Object)) {
+        window.localStorage.setItem("feedbackiframe", JSON.stringify([]))
+    }
+    if(!parsecontact || Object.getPrototypeOf(parsefeedback).isPrototypeOf(Object)) {
+        window.localStorage.setItem("contactiframe", JSON.stringify([]))
+    }
+
     useEffect(() => {
         setappmainstate('')
         setspreadmainstate('')
@@ -94,6 +99,10 @@ export const Provider = ({ children }) => {
         setrtamainstate('')
         setctamainstate('')
         window.addEventListener('load', oo())
+
+        window.localStorage.setItem("favouriteiframe", JSON.stringify([]))
+        window.localStorage.setItem("feedbackiframe", JSON.stringify([]))
+        window.localStorage.setItem("contactiframe", JSON.stringify([]))
 
         // progress.start();
         // setTimeout(() => {
@@ -952,6 +961,13 @@ export const Provider = ({ children }) => {
         },
     ]
 
+    const contactdi = [
+        {
+            sheetmainindex: 0,
+            sheetmaindata: parsecontact,
+        },
+    ]
+
     const rtadi = [
         {
             sheetmainindex: 0,
@@ -1065,10 +1081,10 @@ export const Provider = ({ children }) => {
           const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${location && location?.pathname?.replace('/', '')}']{
             ...,
             'postblock': null,
-            'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] {..., 'postblock': null} | order(_createdAt desc),
-            'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] {..., 'postblock': null} | order(_createdAt desc) ,
-            'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] {..., 'postblock': null} | order(_createdAt desc) ,
-            'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] {..., 'postblock': null} | order(_createdAt desc) ,
+            'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] {..., 'postblock': null} | order(_updatedAt desc),
+            'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] {..., 'postblock': null} | order(_updatedAt desc) ,
+            'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] {..., 'postblock': null} | order(_updatedAt desc) ,
+            'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] {..., 'postblock': null} | order(_updatedAt desc) ,
           }[0]`;
           await client.fetch(query) 
           .then((data) => {
@@ -1096,6 +1112,7 @@ export const Provider = ({ children }) => {
           favouritedl, favouritedi,
           rtadi,
           feedbackdi,
+          contactdi,
 
           appmainstate, setappmainstate,
           // postindexstate, setpostindexstate,

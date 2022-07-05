@@ -100,7 +100,7 @@ function HomeMain() {
                         </figure>
                         <figcaption className="p-[20px] md:p-[60px] w-full absolute bottom-0 left-0 grid grid-flow-row justify-items-start items-center  bg-gradient-to-b from-transparent to-gray-900">
                             <div className="">
-                                <h1 className="text-3xl font-serif m-h6 text-white">{data.posttitle}</h1>
+                                <h1 className="text-3xl md:text-5xl font-serif m-h6 text-white">{data.posttitle}</h1>
                                 <br />
                             </div>
                             <button onClick={() => {

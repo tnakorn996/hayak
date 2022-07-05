@@ -70,7 +70,6 @@ function ToasterMain() {
       if(toastermainstate){
         const filter = toastermain.filter(data => data.toastermainid === toastermainstate.toastermainid)
         const filtertwo = filter[0].toastermainref.filter(data => data.toastermainindex === toastermainstate.toastermainindex)
-        // const filterthree = postplaceproduct.filter(data => data.postid === toastermainstate.toastermaindata)
         const filterthree = postplaceproduct.filter(data => toastermainstate.toastermaindata.some(dat => dat.postid === data.postid))
         settoastermainrender(filtertwo[0].toastermainrender)
         settoastermainrendertwo(filterthree)

@@ -59,14 +59,14 @@ function BarMain({
                     }, 
                     barmainrendertwo: () => {},
                 },
-                {
-                    barmainindex: 3,
-                    barmainrender: () => {},
-                    barmainrendertwo: () => {
-                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
-                        return <SocialMain param={`/` + filter[0]?.postindexthreerender?.postid} />
-                    }, 
-                },
+                // {
+                //     barmainindex: 3,
+                //     barmainrender: () => {},
+                //     barmainrendertwo: () => {
+                //         const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
+                //         return <SocialMain param={`/` + filter[0]?.postindexthreerender?.postid} />
+                //     }, 
+                // },
                 {
                     barmainindex: 4,
                     barmainrender: () => {},

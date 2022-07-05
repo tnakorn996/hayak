@@ -170,7 +170,7 @@ function SpreadMain({
     <div>
         <main className="h-full flex flex-col md:flex-row">
           {spreadmainrendertwo?.map(data => (<>
-          <div className="w-full px-0 md:px-[30px]  md:border">
+          <div className="w-full px-0 md:px-[30px]  md:border ">
             {data?.spreadmainrendertwo?.map(dat => (<>
             <br /><br />
             <h1 className="m-h5 md:m-h6 font-serif">{dat?.sheetmainsubtitle}</h1>
@@ -188,7 +188,7 @@ function SpreadMain({
                 setbreadmainstate('')
                 navigate(`${dat?.sheetmainaction}`)
               }} className="col-span-5 justify-center">
-                <button className="w-full  l-button">See more</button>
+                <button className="w-full  l-button  border">See more</button>
               </section>
             </figure>
             </>))}

@@ -10,19 +10,19 @@
     }
 
     article {
-        @apply opacity-80 hover:opacity-100 cursor-pointer duration-1000 border-black;
+        @apply cursor-pointer duration-1000 border-black;
     }
 
     button {
-        @apply opacity-80 cursor-pointer font-serif;
+        @apply cursor-pointer font-serif;
     }
 
     a {
-        @apply opacity-80 cursor-pointer hover:underline;
+        @apply cursor-pointer hover:underline;
     }
 
     input, textarea {
-        @apply bg-transparent border-b border-gray-300 font-extralight focus:outline-none font-serif;
+        @apply bg-transparent border-[1.5px] border-gray-200 focus:border-black font-extralight focus:outline-none font-serif duration-100;
     }
 
     .m-section {

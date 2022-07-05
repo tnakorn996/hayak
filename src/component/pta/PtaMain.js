@@ -93,11 +93,26 @@ function PtaMain({
         }
     ]
 
+    const contactiframe = [
+        {
+            ptamainindex: 0,
+            ptamainicon: <RiCheckboxBlankLine className='text-black' />,
+            ptamainaction: ll,
+        },
+        {
+            ptamainindex: 1,
+            ptamainicon: <motion.div initial={{scale: 0.5}} animate={{ scale:1}} className="duration-100">
+                <RiCheckFill className='text-black' />
+                </motion.div>,
+            ptamainaction: kk,
+        }
+    ]
+
     const ptamain = [
         {
             ptamainid: 'postiframe',
             ptamainref: postiframe,
-            ptamaindata: (JSON.parse(window.localStorage.getItem("postiframe"))),
+            ptamaindata: (JSON.parse(window.localStorage.getItem("postiframe"))).filter(data => data?.postid === ptamainstatic?.ptamaindata?.postid),
         },
         // {
         //     ptamainid: 'searchiframe',
@@ -106,21 +121,26 @@ function PtaMain({
         {
             ptamainid: 'favouriteiframe',
             ptamainref: favouriteiframe,
-            ptamaindata: (JSON.parse(window.localStorage.getItem("favouriteiframe"))),
+            ptamaindata: (JSON.parse(window.localStorage.getItem("favouriteiframe"))).filter(data => data?.postid === ptamainstatic?.ptamaindata?.postid),
         },
         {
             ptamainid: 'feedbackiframe',
             ptamainref: feedbackiframe,
-            ptamaindata: (JSON.parse(window.localStorage.getItem("feedbackiframe"))),
+            ptamaindata: (JSON.parse(window.localStorage.getItem("feedbackiframe"))).filter(data => data?.postid === ptamainstatic?.ptamaindata?.postid),
+        },
+        {
+            ptamainid: 'contactiframe',
+            ptamainref: contactiframe,
+            ptamaindata: (JSON.parse(window.localStorage.getItem("contactiframe"))).filter(data => data?.crummainid === ptamainstatic?.ptamaindata?.crummainid),
         },
     ]
 
     useEffect(() => {
         if(ptamainstatic && ptamainstatic.ptamaindata) {
-            const parsepost = JSON.parse(window.localStorage.getItem("postiframe"))
-            const parsesearch = JSON.parse(window.localStorage.getItem("searchiframe"))
-            const parsefavourite = JSON.parse(window.localStorage.getItem("favouriteiframe"))
-            const parsefeedback = JSON.parse(window.localStorage.getItem("feedbackiframe"))
+            // const parsepost = JSON.parse(window.localStorage.getItem("postiframe"))
+            // const parsesearch = JSON.parse(window.localStorage.getItem("searchiframe"))
+            // const parsefavourite = JSON.parse(window.localStorage.getItem("favouriteiframe"))
+            // const parsefeedback = JSON.parse(window.localStorage.getItem("feedbackiframe"))
             
             // if(!Array.isArray(parsepost) || !parsepost) {
             //     window.localStorage.setItem("postiframe", JSON.stringify([]))
@@ -134,23 +154,22 @@ function PtaMain({
             // if(!Array.isArray(parsefeedback) || !parsefeedback) {
             //     window.localStorage.setItem("feedbackiframe", JSON.stringify([]))
             // }
-            if(Array.isArray(parsepost)) {
-                const filter = ptamain?.filter(data => data?.ptamainid === ptamainstatic?.ptamainid)
-                const filtertwo = filter[0]?.ptamainref?.filter(data => data?.ptamainindex === 0)
-                const filterthree = filter[0]?.ptamaindata?.filter(data => data?.postid === ptamainstatic?.ptamaindata?.postid)
 
-                if(filterthree && filterthree.length === 0){
+            // if(Array.isArray(parsepost)) {
+                const filter = ptamain?.filter(data => data?.ptamainid === ptamainstatic?.ptamainid)
+                const filtertwo = filter[0]?.ptamaindata
+
+                if(filtertwo && filtertwo.length === 0){
                     const filterfour = ptamain.filter(data => data.ptamainid === ptamainstatic.ptamainid);
                     const filterfive = filterfour[0].ptamainref.filter(data => data.ptamainindex === 0);
                     setptamainrender(filterfive)
                 }
-                if(filterthree && filterthree.length !== 0){
+                if(filtertwo && filtertwo.length !== 0){
                     const filterfour = ptamain.filter(data => data.ptamainid === ptamainstatic.ptamainid);
                     const filterfive = filterfour[0].ptamainref.filter(data => data.ptamainindex === 1);
                     setptamainrender(filterfive)
                 }
-
-            } 
+            // } 
         }
     }, [ptamainindex, ptamainstatic])
 
@@ -178,7 +197,10 @@ function PtaMain({
 
     function kk() {
         const parse = (JSON.parse(window.localStorage.getItem(ptamainstatic?.ptamainid)))
-        const filter = parse.filter(data => data.postid !== ptamainstatic.ptamaindata.postid)
+        const filter = parse.filter(data => 
+            data.postid !== ptamainstatic.ptamaindata.postid
+            || data.crummainid !== ptamainstatic.ptamaindata.crummainid
+            )
         window.localStorage.removeItem(ptamainstatic?.ptamainid)
         window.localStorage.setItem(ptamainstatic?.ptamainid, JSON.stringify(filter))
         
@@ -197,24 +219,6 @@ function PtaMain({
             })
         }
     }
-
-    // function jj() {
-    //     if(favouritedi){
-    //         const empty = []
-    //         const emptytwo = []
-    //         for(const data of favouritedi){
-    //             empty.push(data.sheetmaindata.length)
-    //             emptytwo.push(data.sheetmaindata)
-    //         }
-    //         const reduce = empty.reduce(function(a, b) { return a + b; }, 0)
-    //         const filter = emptytwo.filter(data => data.)
-    //         if(reduce !== 0){
-    //             return <PtaMain ptamainstatic={{ptamainid: 'favouriteiframe', ptamaindata: }} />
-    //         } else {
-    //             return null
-    //         }
-    //     }
-    // }
 
   return (
     <div>

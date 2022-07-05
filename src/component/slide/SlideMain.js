@@ -7,8 +7,6 @@ import { RiArrowRightSLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 import { ContextMain } from '../../context/contextmain'
 import { urlFor } from '../../lib/sanity'
-import GuideMain from '../guide/GuideMain'
-import LoadingMain from '../load/LoadingMain'
 import VerticleMain from '../post/VerticleMain'
 import ScrollMain from '../scroll/ScrollMain'
 
@@ -20,7 +18,6 @@ function SlideMain({
     slidemainscroll,
     slidemainslice,
     slidemainstyle,
-    slidemaintransform,
 }) {
     const navigate = useNavigate()
     const {
@@ -127,11 +124,6 @@ function SlideMain({
                         postherosource: slidemaindata?.postherosourcetwo,
                     },
                 ]
-                // for(const data of ref){
-                //     if(Object.values(data).some(props => props !== undefined)) {
-                //         empty.push(data)
-                //     }
-                // }
                 return empty?.map(data => (<>
                     <div className="w-screen  snap-center overflow-hidden">
                         <figure className="w-full h-[85vh] md:h-[75vh] relative flex justify-center items-center  ">                            
@@ -140,7 +132,7 @@ function SlideMain({
                                     scrollmaintransform: 0.5,
                                 }}
                                 >
-                            <img loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-10 min-w-[150ch] min-h-full md:min-w-full md:min-h-fit`} />
+                            <img loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-10 max-w-[150ch] max-h-full md:min-w-full md:min-h-fit`} />
                             </ScrollMain>
                             
                             {/* <div className="absolute z-10">

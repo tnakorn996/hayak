@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { sheetmain, spreadmain } from '../../content/contentmain';
 import { ContextMain } from '../../context/contextmain'
+import TipMain from '../../layout/tip/TipMain';
 import HorizonMain from '../post/HorizonMain';
-import TooltipMain from '../tooltip/TooltipMain';
 
 function RtaMain({
   rtamainid,
@@ -105,14 +105,12 @@ function RtaMain({
             <div className="w-full px-0 md:px-[30px]  md:border">
                 <br /><br />
                 <section className="grid grid-cols-12 items-center justify-between">
-                  <div className=" col-span-10 flex flex-row items-start gap-1 ">
+                  <div className=" col-span-10 flex flex-row items-center gap-1 ">
                     <h1 className=" m-h5 md:m-h6 font-serif">{data?.rtamaintitle}</h1>
                     {/* <h1 className=" m-h5 md:l-h6">{data?.rtamainrenderthree?.length}</h1> */}
-                    <div className="hidden md:block relative">
-                    <TooltipMain title={data?.rtamaintitle}>
+                    <TipMain tipmainstatic={{tipmaindata: data?.rtamaintitle}}>
                     <RiQuestionFill className='l-h3' />
-                    </TooltipMain>
-                    </div>
+                    </TipMain>
                   </div>
                   {data?.rtamainrender?.length > 0 && (<>
                     <article onClick={() => {
