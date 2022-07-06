@@ -8,6 +8,7 @@ import {VscClose} from 'react-icons/vsc'
 // import { useNavigate } from 'react-router-dom'
 
 import { ContextMain } from '../../context/contextmain'
+import useApp from '../../hook/useApp'
 import { urlFor } from '../../lib/sanity'
 import ContactArticle from '../../page/contact/ContactArticle'
 // import MenuArticle from '../../page/menu/MenuArticle'
@@ -65,13 +66,6 @@ function PreviewMain() {
         }
     ]
 
-    // const menuarticle = [
-    //     {
-    //         previewmainindex: 0,
-    //         previewmainrender: <MenuArticle />,
-    //     }
-    // ]
-
     const userarticle = [
         {
             previewmainindex: 0,
@@ -110,13 +104,21 @@ function PreviewMain() {
 
     ]
 
+    const previewmainstatic = {
+            previewmain: previewmain,
+            previewmainid: appmainstate.appmainid,
+            previewmainindex: appmainstate.appmainpage,
+    }
+
+    const appstatic = useApp({previewmainstatic})
+
     useEffect(() => {
-        if(appmainstate.appmainidtwo === 'previewmain' || appmainstate.appmainredirect === 'previewmain'){
-        const filter = previewmain.filter(data => data.previewmainid === appmainstate.appmainid)
-        const filtertwo = filter[0].previewmaindata.filter(data => data.previewmainindex === appmainstate.appmainpage)
-        setpreviewmainrender(filtertwo[0].previewmainrender)
-      }
-    }, [appmainstate])
+        if(appstatic && appmainstate && appmainstate.appmainidtwo === 'previewmain' || appmainstate.appmainredirect === 'previewmain'){
+            // const filter = previewmain.filter(data => data.previewmainid === appmainstate.appmainid)
+            // const filtertwo = filter[0].previewmaindata.filter(data => data.previewmainindex === appmainstate.appmainpage)
+            setpreviewmainrender(appstatic[0].previewmainrender)
+        }
+    }, [appstatic, appmainstate])
 
   return (
     <div>

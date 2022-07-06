@@ -112,9 +112,10 @@ function NavMain() {
                         <VscHeart className='m-h5' />
                         <div className="absolute -right-2 -top-2 md:top-0">
                             {/* <BadgeMain badgemainid={'favouritespan'} badgemainindex={0} /> */}
-                            <BadgeMain>
+                            {/* <BadgeMain>
                                 {postdi}
-                            </BadgeMain>
+                            </BadgeMain> */}
+                            <BadgeMain badgemainstatic={{badgemainid: 'favouritespan', badgemainindex: 0}} />
                         </div>
                     </article>
 

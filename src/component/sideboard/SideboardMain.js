@@ -16,6 +16,7 @@ import FavouriteDialog from '../../page/favourite/FavouriteDialog'
 import TabMain from '../tab/TabMain'
 import FeedbackSection from '../../page/feedback/FeedbackSection'
 import CheckMain from '../../layout/check/CheckMain'
+import useApp from '../../hook/useApp'
 
 function SideboardMain() {
   const {
@@ -32,25 +33,23 @@ function SideboardMain() {
   const navigate = useNavigate()
 
   const searchdialog = [
-    // {
-    //   sideboardrender: postupdatedat && <section className="">
-    //       <TabMain tabmainstatic={{tabmainid: 'searchlegend'}} />
-    //       {/* <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />, */}
-    //     </section>,
-    // },
     {
+      sideboardindex: 0,
       sideboardrender: postupdatedat && <FavouriteDialog />
     },
   ]
 
   const commentdialog = [
     {
+      sideboardindex: 0,
+
       sideboardrender: <CommentDialog />,
     },
   ]
 
   const navdialog = [
     {
+      sideboardindex: 0,
       sideboardrender: () => {
         return <main className="h-full px-[20px] w-screen md:w-[55vh]  flex flex-col">
           <section className="h-[75vh]">
@@ -78,6 +77,7 @@ function SideboardMain() {
         }
     },
     {
+      sideboardindex: 1,
       sideboardrender: () => {
         const filter = categoryui.filter(data => data.breadmainid === appmainstate.appmainidthree)
         return <motion.main initial={{x: -100}} animate={{ x:0}} exit={{x: -100}} className="px-[20px] w-screen md:w-[55vh] duration-100">
@@ -113,12 +113,14 @@ function SideboardMain() {
 
   const favouritedialog = [
     {
+      sideboardindex: 0,
       sideboardrender: postupdatedat && <FavouriteDialog />
     },
   ]
 
   const feedbackdialog = [
     {
+      sideboardindex: 0,
       sideboardrender: <FeedbackSection />
     },
   ]
@@ -146,13 +148,21 @@ function SideboardMain() {
     },
   ]
 
+  // const appmainstatic = {
+  //   sideboardmain: sideboardmain,
+  //   sideboardmainid: appmainstate.appmainid,
+  //   sideboardmainindex: sideboardmainpage,
+  // }
+
+  // const appstatic = useApp({appmainstatic})
+
   useEffect(() => {
     if(appmainstate && appmainstate.appmainidtwo === 'sideboardmain'){
         const filter = sideboardmain.filter(data => data.sideboardmainid === appmainstate.appmainid)
-        const filtertwo = filter[0].sideboardmainref.filter(data => filter[0].sideboardmainref.indexOf(data) === sideboardmainpage)
+        const filtertwo = filter[0].sideboardmainref.filter(data => data.sideboardindex === sideboardmainpage)
         setsideboardmainrender(filtertwo[0].sideboardrender) 
     }
-  }, [appmainstate, sideboardmainpage])
+  }, [ appmainstate, sideboardmainpage])
 
   return (
     <div>

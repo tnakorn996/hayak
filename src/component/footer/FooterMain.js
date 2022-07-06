@@ -55,11 +55,6 @@ function FooterMain() {
 
   return (
     <div>
-        {/* <main className="">
-            <section className="">
-                {(postupdatedat && placeupdatedat && productupdatedat) && <SnackbarMain snackbarmainid={'categoryfooter'} />}
-            </section>
-        </main> */}
         <main className="w-screen text-center   bg-gray-900">
             <section className="relative w-full border-b border-gray-700  ">
                 <br />

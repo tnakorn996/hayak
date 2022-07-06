@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import useApp from '../../hook/useApp'
 
 function JointMain({
   jointmainid,
@@ -8,7 +9,6 @@ function JointMain({
 
 }) {
   const [jointmainrender, setjointmainrender] = useState()
-
   const posttemplate = [
     {
       jointmainindex: 0,
@@ -41,13 +41,24 @@ function JointMain({
     {
       jointmainindex: 0,
       jointmainrender: <main className="">
-        {/* <section className="px-[20px] md:px-[50px]">
+        <section className="relative h-[90vh] md:h-screen w-screen">
+          <div className="p-[20px] md:p-[50px] absolute bottom-0 left-0">
+          <figure className="w-[60vw] md:w-[40vh] h-[7vh]  m-section" />
+          <br />
+          <figure className="w-[40vw] md:w-[20vh] h-[7vh]  m-section" />
+          </div>
+        </section>
+      </main>,
+    },
+    {
+      jointmainindex: 1,
+      jointmainrender: <main className="">
+        <section className="px-[20px] md:px-[50px]">
           <figcaption className="">
             <br />
             <br />
             <br />
             <br />
-
             <br />
             <figure className="w-[30%] h-[20px] mx-auto  m-section" />
             <br />
@@ -56,13 +67,6 @@ function JointMain({
             <br />
           </figcaption>
           <figure className=" w-full h-[60vh]  m-section" />
-        </section> */}
-        <section className="relative h-[90vh] md:h-screen w-screen">
-          <div className="p-[20px] md:p-[50px] absolute bottom-0 left-0">
-          <figure className="w-[60vw] md:w-[40vh] h-[7vh]  m-section" />
-          <br />
-          <figure className="w-[40vw] md:w-[20vh] h-[7vh]  m-section" />
-          </div>
         </section>
       </main>,
     }
@@ -79,19 +83,19 @@ function JointMain({
     },
   ]
 
-    useEffect(() => {
-      if(jointmainid){
-        const filter = jointmain.filter(data => data.jointmainid === jointmainid)
-        const filtertwo = filter[0].jointmainref.filter(data => data.jointmainindex === jointmainindex)
-        setjointmainrender(filtertwo[0].jointmainrender)
-      }
-    }, [jointmainid])
+  const jointmainstatic ={
+    jointmain: jointmain,
+    jointmainid: jointmainid,
+    jointmainindex: jointmainindex,
+  }
+
+  const appstatic = useApp({jointmainstatic})
 
   return (
     <div>
         <main className="duration-100">
             <section className="">
-              {jointmainrender && jointmainrender}
+              {appstatic && appstatic[jointmainindex].jointmainrender}
             </section>
         </main>
     </div>

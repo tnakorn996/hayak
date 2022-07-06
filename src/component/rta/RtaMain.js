@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { sheetmain, spreadmain } from '../../content/contentmain';
 import { ContextMain } from '../../context/contextmain'
+import useApp from '../../hook/useApp';
 import TipMain from '../../layout/tip/TipMain';
 import HorizonMain from '../post/HorizonMain';
 
@@ -72,13 +73,19 @@ function RtaMain({
     }
   ]
 
+  const appmainstatic = {
+    rtamain: rtamain,
+    rtamainid: rtamainid,
+    rtamainindex: rtamainindex,
+  }
+
+  const appstatic = useApp({appmainstatic})
+
   useEffect(() => {
-    if(rtamainid && rtamaindata){
-      const filter = rtamain.filter(data => data.rtamainid === rtamainid)
-      const filtertwo = filter[0].rtamainref.filter(data => data.rtamainindex === rtamainindex)
-      setrtamainrender(filtertwo[0].rtamainrender)
+    if(appstatic && rtamainid && rtamaindata){
+      setrtamainrender(appstatic[0].rtamainrender)
     }
-  }, [rtamainid, rtamaindata])
+  }, [appstatic, rtamainid, rtamaindata])
 
   useEffect(() => {
     if(rtamainrender){

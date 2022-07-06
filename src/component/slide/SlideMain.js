@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 import { ContextMain } from '../../context/contextmain'
+import useApp from '../../hook/useApp'
 import { urlFor } from '../../lib/sanity'
 import VerticleMain from '../post/VerticleMain'
 import ScrollMain from '../scroll/ScrollMain'
@@ -179,12 +180,22 @@ function SlideMain({
     //     setslidemainpageyoffsetstyle(`hidden translate-y-[${Math.floor(slidemainpageyoffset * 0.5)}px]`)
     //   }
     // }, [slidemainpageyoffset])
+
+    // const appmainstatic = {
+    //     slidemain: slidemain,
+    //     slidemainid: slidemainid, 
+    //     slidemainindex: slidemainindex, 
+    // }
+
+    // const appstatic = useApp({appmainstatic})
     
     useEffect(() => {
       if(slidemainid) {
-          const filter = slidemain.filter(data => data.slidemainid === slidemainid)
-          const filtertwo = filter[0].slidemainref.filter(data => data.slidemainindex === slidemainindex)
-          setslidemainrender(filtertwo[0].slidemainrender)
+        const filter = slidemain.filter(data => data.slidemainid === slidemainid)
+        const filtertwo = filter[0].slidemainref.filter(data => data.slidemainindex === slidemainindex)
+        setslidemainrender(filtertwo[0].slidemainrender)
+
+        // setslidemainrender(appstatic[0].slidemainrender)
       }
     }, [slidemainid, slidemaindata, slidemainindex])
 

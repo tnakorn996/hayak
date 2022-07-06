@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import '../tab/tabmain.css';
 import { ContextMain } from '../../context/contextmain'
 import ZoomMain from '../zoom/ZoomMain'
+import BadgeMain from '../../layout/badge/BadgeMain';
 
 function TabMain({
     reftwo,
@@ -13,11 +14,14 @@ function TabMain({
     const {
         searchmainstate, setsearchmainstate,
 
+        postdi,
+
     } = useContext(ContextMain)
     const tabmainref = useRef()
     // const [tabmainindex, settabmainindex] = useState(1)
     const [tabmainpagetouchstart, settabmainpagetouchstart] = useState()
     const [tabmainpagetouchend, settabmainpagetouchend] = useState()
+    const [tabmainstyle, settabmainstyle] = useState(``)
 
     const [tabmainrender, settabmainrender] = useState()
     const [tabmainrendertwo, settabmainrendertwo] = useState()
@@ -43,6 +47,8 @@ function TabMain({
         {
             tabmainindex: 0,
             tabmaintitle: 'Search on TOI',
+            // tabmainnumber: <BadgeMain badgemainstatic={{badgemainid: 'searchspan', badgemainindex: 0}} badgemainstyle={`!px-[8px] shadow !bg-white !text-black`} />,
+            tabmainnumber: '',
             tabmainrender: <section className="w-screen md:max-w-full mx-auto min-h-screen  snap-center duration-100">
                 <ZoomMain zoommainid={'searchinput'} zoommainslice={3} />
             </section>
@@ -50,17 +56,18 @@ function TabMain({
         {
             tabmainindex: 1,
             tabmaintitle: 'My Favourite',
+            tabmainnumber: <BadgeMain badgemainstatic={{badgemainid: 'favouritespan', badgemainindex: 0}}  badgemainstyle={`!px-[8px] shadow !bg-white !text-black`} />,
             tabmainrender: <section className="w-screen md:max-w-full mx-auto min-h-screen  snap-center duration-100">
                 <ZoomMain zoommainid={'favouriteinput'} zoommainslice={10} />
             </section>
         },
     ]
 
-
     const rtalegend = [
         {
             tabmainindex: 0,
-            tabmaintitle: 'Most Viewed',
+            tabmaintitle: 'Hottest',
+            tabmainnumber: <BadgeMain badgemainstatic={{badgemainid: 'rtaspan', badgemainindex: 0}}  badgemainstyle={`!px-[8px] shadow !bg-white !text-black`} />,
             tabmainrender: <section className="w-screen md:max-w-full mx-auto  snap-center duration-100">
                 <ZoomMain zoommainid={'rtainput'} zoommainslice={10} />
             </section>
@@ -68,6 +75,7 @@ function TabMain({
         {
             tabmainindex: 1,
             tabmaintitle: 'Most Recent',
+            tabmainnumber: <BadgeMain badgemainstatic={{badgemainid: 'rtaspan', badgemainindex: 0}}  badgemainstyle={`!px-[8px] shadow !bg-white !text-black`} />,
             tabmainrender: <section className="w-screen md:max-w-full mx-auto  snap-center duration-100">
                 <ZoomMain zoommainid={'rtainputtwo'} zoommainslice={10} />
             </section>
@@ -95,7 +103,7 @@ function TabMain({
             const filter = tabmain.filter(data => data.tabmainid === tabmainstatic.tabmainid)
             const empty = []
             for(const data of filter[0].tabmainref) {
-                empty.push({tabmainindex: data.tabmainindex, tabmaintitle: data.tabmaintitle})
+                empty.push({tabmainindex: data.tabmainindex, tabmaintitle: data.tabmaintitle, tabmainnumber: data.tabmainnumber})
             }
             settabmainrender(empty)
 
@@ -149,7 +157,8 @@ function TabMain({
                 {tabmainrender && tabmainrender?.map(data => (<>
                 <button onClick={() => {
                     setsearchmainstate({tabmainindex: data?.tabmainindex})
-                }} className={`w-full md:w-fit l-button duration-100 ${searchmainstate?.tabmainindex === data?.tabmainindex && '!border-b-[1.5px] !border-black'}`}>{data?.tabmaintitle}</button>
+                }} className={`w-full md:w-fit flex flex-row items-center justify-center gap-2 l-button duration-100 ${searchmainstate?.tabmainindex === data?.tabmainindex && '!border-b-[1.5px] !border-black'}`}>{data?.tabmaintitle}{data?.tabmainnumber}</button>
+
                 </>))}
             </section>
             <section className="w-full md:max-w-[55vw] mx-auto">

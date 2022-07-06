@@ -25,7 +25,7 @@ function CategoryIndex() {
     } = useContext(ContextMain)
     const param = useParams()
     const location = useLocation()
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const ref = useRef(null)
     const reftwo = useRef(null)
     const refthree = useRef(null)
@@ -116,13 +116,6 @@ function CategoryIndex() {
             setpostcategoryidpostcount(emptythree)
 
         })
-
-        // const filter = postplaceproduct.filter(data => data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo)
-        // const filtertwo = postplaceproduct.filter(data => data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo)
-        // const filterthree = postplaceproduct.filter(data => data._type === param.id && data.categoryid === breadmainstate.breadmainidtwo)
-        // setpostcategoryidcreatedat(filter)
-        // setpostcategoryidupdatedat(filtertwo)
-        // setpostcategoryidpostcount(filterthree)
     }
 
     function hh() {
@@ -185,15 +178,6 @@ function CategoryIndex() {
                     </>)}
                 </button>
 
-                {/* <button onClick={() => {
-                    setappmainstate({
-                        appmainid: 'categorysection',
-                        appmainidtwo: 'modalmain',
-                        appmainidthree: 0,
-                        appmainparam: param.id,
-                        appmainboolean: true,
-                    })
-                }} className="flex flex-row items-center gap-2  l-button"><RiFilter3Fill /> Filter</button> */}
             </section>
             <hr />
             <section className="">
@@ -218,73 +202,6 @@ function CategoryIndex() {
 
                 </>))}
             </section>
-            {/* <section className="w-[1200px] md:w-full mx-auto relative group">
-
-
-                {categoryindexrender?.slice(0, 1)?.map(data => (<>
-                <br />
-                <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
-                    <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle}</h1>
-                </figcaption>
-                <br />
-                <figure ref={ref} className="relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
-                    {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
-                    <div className="w-[250px] md:w-[300px] snap-center">
-                        <VerticleMain onlick={() => {
-                            navigate(`/${dat?.postid}`)
-                        }} key={dat?.postid} type={dat?._type} createdat={dat?._createdAt} posticon={dat?.posticon} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid}  param={dat?.postid} />
-                    </div>
-                    </>))}
-                    <button onClick={() => hh(ref, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
-                    <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
-                    </button>
-                </figure>
-                <br />
-                </>))}
-
-                {categoryindexrender?.slice(1, 2)?.map(data => (<>
-                <br />
-                <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
-                    <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle}</h1>
-                </figcaption>
-                <br />
-                <figure ref={reftwo} className="relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
-                    {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
-                    <div className="w-[250px] md:w-[300px] snap-center">
-                        <VerticleMain onlick={() => {
-                            navigate(`/${dat?.postid}`)
-                        }} key={dat?.postid} type={dat?._type} createdat={dat?._createdAt} posticon={dat?.posticon} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid}  param={dat?.postid} />
-                    </div>
-                    </>))}
-                    <button onClick={() => hh(reftwo, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
-                    <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
-                    </button>
-                </figure>
-                <br />
-                </>))}
-
-                {categoryindexrender?.slice(2, 3)?.map(data => (<>
-                <br />
-                <figcaption className="px-[20px] md:px-[60px] flex flex-row justify-between items-center ">
-                    <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle}</h1>
-                </figcaption>
-                <br />
-                <figure ref={refthree} className="relative px-[20px] md:px-[60px] w-screen md:w-full grid grid-flow-col gap-5 justify-start  overflow-x-scroll no-scrollbar snap-x snap-mandatory scroll-smooth">
-                    {data?.categoryindexmap?.slice(categoryindexsliceone, categoryindexslicetwo).map(dat => (<>
-                    <div className="w-[250px] md:w-[300px] snap-center">
-                        <VerticleMain onlick={() => {
-                            navigate(`/${dat?.postid}`)
-                        }} key={dat?.postid} type={dat?._type} createdat={dat?._createdAt} posticon={dat?.posticon} posthero={dat?.posthero} posttitle={dat?.posttitle} postsubtitle={dat?.postsubtitle} categoryid={dat?.categoryid} genreid={dat?.genreid} priceid={dat?.priceid}  param={dat?.postid} />
-                    </div>
-                    </>))}
-                    <button onClick={() => hh(refthree, 1)} className="hidden group-hover:flex sticky z-20 top-0 -right-[60px] w-[7vw] h-full justify-center items-center !opacity-100">
-                    <RiArrowRightSLine className='text-7xl p-[10px]  l-h6 bg-white shadow-2xl rounded-full' />
-                    </button>
-                </figure>
-                <br />
-                </>))}
-
-            </section> */}
         </motion.main>
     </div>
   )

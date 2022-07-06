@@ -3,16 +3,18 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { ContextMain } from '../../context/contextmain'
+import useApp from '../../hook/useApp'
 
 import '../list/listmain.css'
 
 function ListMain({
-    listmainid,
-    listmainindex,
+    listmainstatic,
 
 }) {
     const {
-        faqdl, faqdi,
+        
+        faqdl, 
+        faqdi,
 
     } = useContext(ContextMain)
     const [listmainrender, setlistmainrender] = useState()
@@ -33,15 +35,19 @@ function ListMain({
         }
     ]
 
-    useEffect(() => {
-      if(listmainid) {
-          const filter = listmain.filter(data => data.listmainid === listmainid)
-          const filtertwo = filter[0].listmainref.filter(data => data.listmainindex === listmainindex)
-        setlistmainrender(filtertwo[0].listmainrender)
-        setlistmainrendertwo(filtertwo[0].listmainrendertwo)
+    const liststatic = {
+        listmain: listmain,
+        listmainid: listmainstatic.listmainid,
+        listmainindex: listmainstatic.listmainindex,
+    }
+    const appstatic = useApp({liststatic})
 
+    useEffect(() => {
+      if(appstatic) {
+        setlistmainrender(appstatic[0].listmainrender)
+        setlistmainrendertwo(appstatic[0].listmainrendertwo)
       }
-    }, [listmainid])
+    }, [appstatic])
     
   return (
     <div>

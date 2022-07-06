@@ -86,7 +86,7 @@ export default function ChooseMain({
                 setcardmainstatic({
                     cardmainid: 'commentimg',
                     cardmainidtwo: 'fail',
-                    cardmainidthree: 'feedback',
+                    // cardmainidthree: 'feedback',
                     cardmainmessage: [{error: `Require maximum ${filter[0].choosemainnumber} ${choosemainplaceholder}`}],
                     cardmainindex: 0 ,
                 })

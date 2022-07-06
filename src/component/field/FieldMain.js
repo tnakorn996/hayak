@@ -9,6 +9,7 @@ import ButtonMain from '../../layout/button/ButtonMain'
 // import ButtonMain from '../../layout/button/ButtonMain'
 import CardMain from '../card/CardMain'
 import ChooseMain from '../choose/ChooseMain'
+import useApp from '../../hook/useApp'
 
 function FieldMain({
     fieldmainid,
@@ -225,13 +226,19 @@ function FieldMain({
         }
     ]
 
+    const appmainstatic = {
+        fieldmain: fieldmain,
+        fieldmainid: fieldmainid,
+        fieldmainindex: fieldmainindex,
+    }
+
+    const appstatic = useApp({appmainstatic})
+
     useEffect(() => {
-      if(fieldmainid){
-          const filter = fieldmain.filter(data => data.fieldmainid === fieldmainid)
-          const filtertwo = filter[0].fieldmainref.filter(data => data.fieldmainindex === fieldmainindex)
-          setfieldmainrender(filtertwo)
+        if(appstatic){
+            setfieldmainrender(appstatic)
         }
-    }, [fieldmainid])
+    }, [appstatic])
 
   return (
     <div>
@@ -261,7 +268,7 @@ function FieldMain({
                     cardmainid={cardmainstatic?.cardmainid} 
                     cardmainidtwo={cardmainstatic?.cardmainidtwo} 
                     cardmainindex={cardmainstatic?.cardmainindex} 
-                    cardmainidthree={cardmainstatic?.cardmainidthree} 
+                    // cardmainidthree={cardmainstatic?.cardmainidthree} 
                     cardmainmessage={cardmainstatic?.cardmainmessage}
                     />
                     <br />

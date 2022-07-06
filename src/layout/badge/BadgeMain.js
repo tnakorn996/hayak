@@ -3,18 +3,23 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
 import { ContextMain } from '../../context/contextmain'
+import useApp from '../../hook/useApp'
 
 export default function BadgeMain({
   // badgemainid,
   // badgemainindex,
   badgemainstatic,
+  badgemainstyle,
   children,
 
 }) {
-  // const {
-  //   postdi,
+  const {
+
+    searchdl,
+    postdi,
+    rtadi,
     
-  // } = useContext(ContextMain)
+  } = useContext(ContextMain)
   const [badgemainrender, setbadgemainrender] = useState()
   
   // const [favouritespanrender, favouritespan] = useReducer((state, action) => {
@@ -52,42 +57,61 @@ export default function BadgeMain({
   // }, [badgemainid, favouritedi])
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////////
+  const searchspan = [
+    {
+      badgemainindex: 0,
+      badgemainrender: ll(searchdl)
+    }
+  ]
 
-  // const favouritespan = [
-  //   {
-  //     badgemainindex: 0,
-  //     badgemainrender: () => {
-  //       const empty = []
-  //       postdi.forEach(data => {
-  //         if(data.sheetmaindata && data.sheetmaindata.length > 0){
-  //           empty.push(data.sheetmaindata.length)
-  //         } 
-  //       })
-  //       return empty.reduce(function(a, b) { return a + b; }, 0)
-  //     } 
-  //   }
-  // ]
+  const favouritespan = [
+    {
+      badgemainindex: 0,
+      badgemainrender: ll(postdi)
+    }
+  ]
 
-  // const badgemain = [
-  //   {
-  //     badgemainid: 'favouritespan',
-  //     badgemainref: favouritespan,
-  //   }
-  // ]
+  const rtaspan = [
+    {
+      badgemainindex: 0,
+      badgemainrender: ll(rtadi)
+    }
+  ]
 
-  // useEffect(() => {
-  //   if(badgemainid) {
-  //     const filter = badgemain.filter(data => data.badgemainid === badgemainid)
-  //     const filtertwo = filter[0].badgemainref.filter(data => data.badgemainindex === badgemainindex)
-  //     setbadgemainrender(filtertwo[0].badgemainrender)
-  //   }
-  // }, [badgemainid, postdi])
+  const badgemain = [
+    {
+      badgemainid: 'searchspan',
+      badgemainref: searchspan,
+    },
+    {
+      badgemainid: 'favouritespan',
+      badgemainref: favouritespan,
+    },
+    {
+      badgemainid: 'rtaspan',
+      badgemainref: rtaspan,
+    },
+  ]
+
+  const appmainstatic = {
+    badgemain: badgemain,
+    badgemainid: badgemainstatic.badgemainid,
+    badgemainindex: badgemainstatic.badgemainindex,
+  }
+
+  const appstatic = useApp({appmainstatic})
+
+  useEffect(() => {
+    if(appstatic && badgemainstatic) {
+      setbadgemainrender(appstatic[0].badgemainrender)
+    }
+  }, [appstatic, badgemainstatic])
 
   function ll(first= this.props.first) {
     const empty = []
     first.forEach(data => {
-      if(data.sheetmaindata && data.sheetmaindata.length > 0){
-        empty.push(data.sheetmaindata.length)
+      if(Object.values(data)[2] && Object.values(data)[2].length > 0){
+        empty.push(Object.values(data)[2].length)
       } 
     })
     return empty.reduce(function(a, b) { return a + b; }, 0)
@@ -97,10 +121,10 @@ export default function BadgeMain({
     <div>
         <main className="">
             <section className="">
-              <figure className="py-[0.5px] px-[5px]  rounded-full  bg-black">
+              <figure className={`py-[0.5px] px-[6px]  rounded-full bg-black text-white ${badgemainstyle && badgemainstyle}`}>
                 {/* <h1 className="text-[9px]  m-h1 text-white">{favouritespanrender && favouritespanrender[0]?.badgemainrender()}</h1> */}
                 {/* <h1 className="text-[9px]  m-h1 text-white">{badgemainrender && badgemainrender}</h1> */}
-                <h1 className="text-[9px]  m-h1 text-white">{ll(children)}</h1>
+                <p className="text-[10px]  m-h1 font-serif">{badgemainrender && badgemainrender}</p>
               </figure>
             </section>
         </main>

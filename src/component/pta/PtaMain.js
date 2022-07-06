@@ -3,15 +3,16 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { RiCheckboxBlankLine, RiCheckboxLine, RiCheckFill, RiCheckLine, RiCloseLine, RiHeartFill, RiHeartLine } from 'react-icons/ri';
+import { VscHeart } from 'react-icons/vsc';
 
 import '../pta/ptamain.css'
 import { ContextMain } from '../../context/contextmain';
 import { motion } from 'framer-motion';
-import { VscHeart } from 'react-icons/vsc';
 
 function PtaMain({
     ptamainstatic,
     ptamainstyle,
+    children,
 
 }) {
     const {
@@ -45,23 +46,23 @@ function PtaMain({
         }
     ]
 
-    // const searchiframe = [
-    //     {
-    //         ptamainindex: 0,
-    //         ptamainicon: <div className="absolute top-0 left-0 w-full h-full  m-h1 text-black" >→</div>,
-    //         // ptamainicon: <div className="absolute top-0 left-0 w-full h-full" />,
-    //         ptamaindata: (JSON.parse(window.localStorage.getItem("searchiframe")))?.searchmaindata,
-    //         ptamainaction: ll,
-    //     },
-    //     {
-    //         ptamainindex: 1,
-    //         ptamainicon: <motion.div initial={{scale: 0.5}} animate={{ scale:1}} className="duration-100">
-    //             <RiCloseLine className='text-black' />
-    //         </motion.div>,
-    //         ptamaindata: (JSON.parse(window.localStorage.getItem("searchiframe")))?.searchmaindata,
-    //         ptamainaction: kk,
-    //     }
-    // ]
+    const searchiframe = [
+        {
+            ptamainindex: 0,
+            ptamainicon: <div className="absolute top-0 left-0 w-full h-full  m-h1 text-black" >→</div>,
+            // ptamainicon: <div className="absolute top-0 left-0 w-full h-full" />,
+            ptamaindata: (JSON.parse(window.localStorage.getItem("searchiframe")))?.searchmaindata,
+            ptamainaction: ll,
+        },
+        {
+            ptamainindex: 1,
+            ptamainicon: <motion.div initial={{scale: 0.5}} animate={{ scale:1}} className="duration-100">
+                <RiCloseLine className='text-black' />
+            </motion.div>,
+            ptamaindata: (JSON.parse(window.localStorage.getItem("searchiframe")))?.searchmaindata,
+            ptamainaction: kk,
+        }
+    ]
 
     const favouriteiframe = [
         {
@@ -114,10 +115,10 @@ function PtaMain({
             ptamainref: postiframe,
             ptamaindata: (JSON.parse(window.localStorage.getItem("postiframe"))).filter(data => data?.postid === ptamainstatic?.ptamaindata?.postid),
         },
-        // {
-        //     ptamainid: 'searchiframe',
-        //     ptamainref: searchiframe,
-        // },
+        {
+            ptamainid: 'searchiframe',
+            ptamainref: searchiframe,
+        },
         {
             ptamainid: 'favouriteiframe',
             ptamainref: favouriteiframe,
@@ -137,25 +138,6 @@ function PtaMain({
 
     useEffect(() => {
         if(ptamainstatic && ptamainstatic.ptamaindata) {
-            // const parsepost = JSON.parse(window.localStorage.getItem("postiframe"))
-            // const parsesearch = JSON.parse(window.localStorage.getItem("searchiframe"))
-            // const parsefavourite = JSON.parse(window.localStorage.getItem("favouriteiframe"))
-            // const parsefeedback = JSON.parse(window.localStorage.getItem("feedbackiframe"))
-            
-            // if(!Array.isArray(parsepost) || !parsepost) {
-            //     window.localStorage.setItem("postiframe", JSON.stringify([]))
-            // }
-            // if(!Array.isArray(parsesearch) || !parsesearch) {
-            //     window.localStorage.setItem("searchiframe", JSON.stringify([]))
-            // }
-            // if(!Array.isArray(parsefavourite) || !parsefavourite) {
-            //     window.localStorage.setItem("favouriteiframe", JSON.stringify([]))
-            // }
-            // if(!Array.isArray(parsefeedback) || !parsefeedback) {
-            //     window.localStorage.setItem("feedbackiframe", JSON.stringify([]))
-            // }
-
-            // if(Array.isArray(parsepost)) {
                 const filter = ptamain?.filter(data => data?.ptamainid === ptamainstatic?.ptamainid)
                 const filtertwo = filter[0]?.ptamaindata
 
@@ -169,7 +151,6 @@ function PtaMain({
                     const filterfive = filterfour[0].ptamainref.filter(data => data.ptamainindex === 1);
                     setptamainrender(filterfive)
                 }
-            // } 
         }
     }, [ptamainindex, ptamainstatic])
 
@@ -225,17 +206,15 @@ function PtaMain({
         <main className="">
             <section className="">
                 {ptamainrender?.map(data => (<>
-
                     <article onClick={() => {
                         data?.ptamainaction()
 
                     }} className="flex flex-row items-center gap-2">
-                        <h1 className={`text-5xl   m-h6 text-white duration-1000 ${ptamainstyle && ptamainstyle}`}>{data?.ptamainicon}</h1>
-                        {/* <h1 className={`font-serif ${ptamainstyle && ptamainstyle}`}>{data?.ptamaintitle}</h1> */}
+                        {!children && <h1 className={`text-5xl   m-h6 text-white duration-1000 ${ptamainstyle && ptamainstyle}`}>{data?.ptamainicon}</h1>}
+                        {children}
                     </article>
                 
                 </>))}
-
             </section>
         </main>
     </div>

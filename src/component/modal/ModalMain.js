@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
@@ -17,6 +17,7 @@ import ShareSection from '../../page/share/ShareSection'
 // import PageMain from '../page/PageMain'
 // import ZoomMain from '../zoom/ZoomMain'
 import TabMain from '../tab/TabMain'
+import useApp from '../../hook/useApp'
 
 function ModalMain() {
     const {
@@ -27,7 +28,6 @@ function ModalMain() {
         rtadi,
 
     } = useContext(ContextMain)
-    // const [modalmainindex, setmodalmainindex] = useState(0)
     const [modalmaintitle, setmodalmaintitle] = useState()
     const [modalmainrender, setmodalmainrender] = useState()
     // const [modalmainrendertwo, setmodalmainrendertwo] = useState()
@@ -129,17 +129,24 @@ function ModalMain() {
         // },
     ]
 
+    const modalmainstatic = {
+        modalmain: modalmain,
+        modalmainid: appmainstate.appmainid,
+        modalmainindex: appmainstate.appmainidthree,
+    }
+
+    const appstatic = useApp({modalmainstatic})
+
     useEffect(() => {
-        if(appmainstate && appmainstate.appmainidtwo === 'modalmain'){
-            const filter = modalmain.filter(data => data.modalmainid === appmainstate.appmainid)
-            const filtertwo = filter[0].modalmaindata.filter(data => data.modalmainindex === appmainstate.appmainidthree)
-            setmodalmaintitle(filtertwo[0].modalmaintitle)
-            setmodalmainrender(filtertwo[0].modalmainrender)
-            setmodalmainaction(filtertwo[0].modalmainaction)
-            setmodalmainentitle(filtertwo[0].modalmainentitle)
+        if(appstatic && appmainstate && appmainstate.appmainidtwo === 'modalmain'){
+            const ref = appstatic[0]
+            setmodalmaintitle(ref.modalmaintitle)
+            setmodalmainrender(ref.modalmainrender)
+            setmodalmainaction(ref.modalmainaction)
+            setmodalmainentitle(ref.modalmainentitle)
         }
       
-    }, [appmainstate])
+    }, [appstatic && appmainstate])
 
     function ll() {
 

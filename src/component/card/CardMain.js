@@ -3,6 +3,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
+import { RiCheckboxCircleLine, RiCloseCircleLine, RiInformationLine } from 'react-icons/ri';
 
 import { categorydi, categorydl, categoryui, commentdi, commentui, spreadmain, termdi } from '../../content/contentmantwo';
 import { ContextMain } from '../../context/contextmain'
@@ -35,7 +36,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = commentlink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</button>
+                    return <p onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</p>
                 }
             } 
         },
@@ -48,7 +49,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = termlink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</button>
+                    return <p onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</p>
                 }
             } 
         },
@@ -61,7 +62,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = feedbacklink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemaintitle} →</button>
+                    return <p onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemaintitle} →</p>
                 }
             } 
         },
@@ -74,7 +75,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = commentlink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</button>
+                    return <p onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</p>
                 }
             },
         },
@@ -87,7 +88,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = favouritelink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</button>
+                    return <p onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</p>
                 }
             },
         },
@@ -100,7 +101,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = faqlink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</button>
+                    return <p onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</p>
                 }
             },
         },
@@ -113,7 +114,7 @@ function CardMain({
             cardmainaction: () => {
                 if(cardmainidthree) {
                     const filter = faqlink.filter(data => data.blemainid === cardmainidthree);
-                    return <button onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</button>
+                    return <p onClick={filter[0].blemainaction} className=" w-full">{filter[0].blemainentitle} →</p>
                 }
             },
         },
@@ -161,11 +162,11 @@ function CardMain({
     <div className='h-full'>
         <main className="relative h-full">
             {cardmainrender?.map(data => (<>
-                <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className={`w-full h-full p-[20px] flex flex-col md:grid md:grid-flow-col gap-3 justify-between  border duration-100 ${data?.spreadmainstyle}`}>
+                <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className={`w-full h-full flex flex-col md:grid md:grid-flow-col gap-3 justify-between   duration-100 ${data?.spreadmainstyle} !bg-opacity-0`}>
                     <div className="flex flex-row items-start gap-3">
-                    <section className="col-span-1 pt-[1px]">
+                    {/* <section className="col-span-1 pt-[1px]">
                         <h1 className={`hidden md:flex justify-start  l-h3 ${data?.spreadmainstyle}`}>{data?.spreadmainicon}</h1>
-                    </section>
+                    </section> */}
                     <section className="col-span-8">
                         {cardmainrendertwo !== '' && cardmainrendertwo?.map(dat => (<>
                         {/* <h1 className="m-h2">{dat?.sheetmaintitle || dat?.blemaintitle}</h1> */}
@@ -174,14 +175,14 @@ function CardMain({
                         </>))}
                         <div className="flex flex-col">
                         {cardmainmessage && cardmainmessage?.map(da => (<>
-                         {da?.inform && <span className="text-[11px]">∙ {da?.inform}</span>}
-                         {da?.error && <span className="text-[11px]">∙ {da?.error}</span>}
-                         {da?.success && <span className="text-[11px]">∙ {da?.success}</span>}
+                        {da?.inform && <span className="flex flex-row items-center gap-2  text-[11px]"><RiInformationLine />{da?.inform}</span>}
+                        {da?.error && <span className="flex flex-row items-center gap-2  text-[11px]"><RiCloseCircleLine />{da?.error}</span>}  
+                        {da?.success && <span className="flex flex-row items-center gap-2  text-[11px]"><RiCheckboxCircleLine />{da?.success}</span>}
                         </>))}
                         </div>
                     </section>
                     </div>
-                    <section className="px-[10px] text-xs w-fit h-fit">
+                    <section className="px-[10px] text-xs w-fit h-fit font-serif cursor-pointer">
                         {cardmainaction && cardmainaction}
                     </section>
                 </motion.figure>

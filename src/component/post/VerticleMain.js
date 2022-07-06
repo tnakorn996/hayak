@@ -106,10 +106,10 @@ function VerticleMain({
                     <div className="absolute">
                     <LoadMain />
                     </div>
-                    <div className="z-30 absolute top-3 right-3">
+                    <div className="z-20 absolute top-3 right-3">
                     <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: data}} ptamainstyle={'!text-lg'} />
                     </div>
-                    <div className="z-30 absolute top-0 left-0">
+                    <div className="z-20 absolute top-0 left-0">
                       {verticlemainrendertwo && verticlemainrendertwo && (<>
                       <button onClick={() => {
                         setbreadmainstate('')

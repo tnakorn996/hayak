@@ -54,25 +54,6 @@ function HomeMain() {
         }
     }, [postupdatedat, placeupdatedat, productupdatedat])
 
-    const ll = (first= this.props.first, second= this.props.second) => {
-        first.current.scrollTo(first.current.scrollLeft + 250 * second, 0)
-    
-    }
-
-    // window.onscroll = function (){
-    //     if ((window.innerHeight + document.documentElement.scrollTop) > (document.documentElement.offsetHeight) * 50 /100) {
-    //         setappmainstate({
-    //             appmainid: 'overlay',
-    //             appmainidtwo: 'toastmain',
-    //             appmainidthree: 'planfigcaption',
-    //         })
-
-
-    //     } else {
-    //         setappmainstate('')
-    //     }
-    // }
-
     if(!postplaceproduct) return <JointMain jointmainid={'hometemplate'} jointmainindex={0} />
 
     return (
@@ -95,7 +76,7 @@ function HomeMain() {
                         <figure className="relative h-full flex items-center justify-center  overflow-hidden">
                             <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
                             <ScrollMain scrollmainstatic={{scrollmaintransform: 0.1}} >
-                            <img src={urlFor(data.posthero)} alt="" className="min-w-[200ch] min-h-[150ch]  md:min-w-full md:min-h-[100ch]" />
+                            <img src={urlFor(data.posthero)} alt="" className="max-w-[200ch] max-h-[150ch]  md:max-w-[200ch] md:max-h-[200ch]" />
                             </ScrollMain>
                         </figure>
                         <figcaption className="p-[20px] md:p-[60px] w-full absolute bottom-0 left-0 grid grid-flow-row justify-items-start items-center  bg-gradient-to-b from-transparent to-gray-900">
@@ -147,7 +128,7 @@ function HomeMain() {
             <br /> */}
             <br />
             <section className="">
-                <ListMain listmainid={'faqsummary'} listmainindex={0} />
+                <ListMain listmainstatic={{listmainid: 'faqsummary', listmainindex: 0}} />
             </section>
             <br />
 

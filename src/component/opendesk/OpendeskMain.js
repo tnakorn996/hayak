@@ -9,6 +9,7 @@ import { ContextMain } from '../../context/contextmain'
 import HorizonMain from '../post/HorizonMain'
 import PtaMain from '../pta/PtaMain'
 import '../opendesk/opendesk.css'
+import useApp from '../../hook/useApp'
 
 function OpendeskMain() {
     const {
@@ -32,9 +33,6 @@ function OpendeskMain() {
 
     const [opendeskmainrender, setopendeskmainrender] = useState()
     const [opendeskmainrendertwo, setopendeskmainrendertwo] = useState()
-
-    ////////////////////////////////
-
 
     const postoption = [
         {
@@ -94,6 +92,14 @@ function OpendeskMain() {
       }
     }, [])
 
+    // const opendeskmainstatic = {
+    //     opendeskmain: opendeskmain,
+    //     opendeskmainid: appmainstate.appmainid,
+    //     opendeskmainindex: opendeskmainindex,
+    // }
+
+    // const appstatic = useApp({opendeskmainstatic})
+
     useEffect(() => {
         if(appmainstate && appmainstate.appmainidtwo === 'opendeskmain'){
             const filter = opendeskmain.filter(data => data.opendeskmainid === appmainstate.appmainid)
@@ -104,7 +110,7 @@ function OpendeskMain() {
                 setopendeskmainrendertwo(filtertwo[0].opendeskmainrender)
             }
         }
-    }, [appmainstate, tabmainstate])
+    }, [ appmainstate, tabmainstate])
 
   return (
     <div>
@@ -157,6 +163,7 @@ function OpendeskMain() {
 
                     <article onClick={() => {
                         data?.blemainaction()
+
                     }} className={`grid grid-cols-12 items-center py-[20px] ${(data?.blemainid === genreindexstate?.genreindexid || data?.blemainid === breadmainstate?.breadmainidtwo) && '!bg-gray-900 text-white'}`}>
                         <h1 className="m-h3">{data?.tabmainicon}</h1>
                         <h1 className="col-span-10  first-letter:uppercase m-h2 font-serif">{data?.tabmaintitle || data?.blemaintitle}</h1>

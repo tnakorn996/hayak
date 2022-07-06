@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { RiExternalLinkLine, RiShareLine } from 'react-icons/ri'
 
 import { ContextMain } from '../../context/contextmain'
+import useApp from '../../hook/useApp'
 
 function CtaMain() {
     const {
@@ -20,6 +21,7 @@ function CtaMain() {
 
     const postembed = [
         {
+            ctamainindex: 0,
             ctamainrender: <button onClick={() => {
                         settabmainstate({
                           tabmainid: 'postoption',
@@ -48,6 +50,7 @@ function CtaMain() {
             }} className="m-h3 w-full l-button  border-[1.5px] border-black">Give your comment</button>,
         },
         {
+            ctamainindex: 1,
             ctamainrender: <button onClick={() => {
                         settabmainstate({
                           tabmainid: 'postoption',
@@ -78,6 +81,7 @@ function CtaMain() {
 
     const placeembed = [
         {
+            ctamainindex: 0,
             ctamainrender: <button onClick={() => {
                 window.open(ctamainstate?.ctamainrender?.postplaceurl, '_blank').focus();
             }} className="m-h3 w-full m-button border-[1.5px] border-black">Owner website</button>,
@@ -93,6 +97,7 @@ function CtaMain() {
 
     const productembed = [
         {
+            ctamainindex: 0,
             ctamainrender: () => {
 
                 return <button onClick={() => {
@@ -122,27 +127,35 @@ function CtaMain() {
         },
     ]
 
-    
+    const appmainstatic = {
+        ctamain: ctamain,
+        ctamainid: ctamainstate?.ctamainid,
+        ctamainindex: ctamainstate?.ctamainidtwo ? 1 : 0,
+    }
+    const appstatic = useApp({appmainstatic})
+
     useEffect(() => {
-        if(ctamainstate) {
-            if (ctamainstate.ctamainidtwo === true) {
-                const filter = ctamain.filter(data => data.ctamainid === ctamainstate.ctamainid)
-                const filtertwo = filter[0].ctamainref.filter(data => filter[0].ctamainref.indexOf(data) === 1)
-                setctamainrender(filtertwo[0].ctamainrender)
-                setctamainrendertwo(filtertwo[0].ctamainrendertwo)
-            } 
-            else {
-                const filter = ctamain.filter(data => data.ctamainid === ctamainstate.ctamainid)
-                const filtertwo = filter[0].ctamainref.filter(data => filter[0].ctamainref.indexOf(data) === 0)
-                setctamainrender(filtertwo[0].ctamainrender)
-                setctamainrendertwo(filtertwo[0].ctamainrendertwo)
-            }
+        // if(ctamainstate) {
+        //     if (ctamainstate.ctamainidtwo === true) {
+        //         const filter = ctamain.filter(data => data.ctamainid === ctamainstate.ctamainid)
+        //         const filtertwo = filter[0].ctamainref.filter(data => filter[0].ctamainref.indexOf(data) === 1)
+        //         setctamainrender(filtertwo[0].ctamainrender)
+        //         setctamainrendertwo(filtertwo[0].ctamainrendertwo)
+        //     } 
+        //     else {
+        //         const filter = ctamain.filter(data => data.ctamainid === ctamainstate.ctamainid)
+        //         const filtertwo = filter[0].ctamainref.filter(data => filter[0].ctamainref.indexOf(data) === 0)
+        //         setctamainrender(filtertwo[0].ctamainrender)
+        //         setctamainrendertwo(filtertwo[0].ctamainrendertwo)
+        //     }
+        // }
+        if(appstatic && ctamainstate) {
+                setctamainrender(appstatic[0].ctamainrender)
+                setctamainrendertwo(appstatic[0].ctamainrendertwo)
         }
-    }, [ctamainstate])
+    }, [appstatic, ctamainstate])
 
   return (
-
-    
     <div>
         <main className="">
             <section className="flex justify-center items-center gap-1 flex-col md:flex-row ">

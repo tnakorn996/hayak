@@ -152,7 +152,7 @@ function PostArticle() {
                     {postarticlestatetwo?.slice(0, 3).map(data => (<>
                         <HorizonMain onlick={() => {
                             navigate(`/${data?.postid}`)
-                        }} key={data?.postid} postid={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle}  createdat={data?._createdAt} param={data?.postid} />
+                        }} key={data?.postid} postid={data?.postid}  posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle}  createdat={data?._createdAt} param={data?.postid} />
                     </>))}
                     </div>
                 </section>

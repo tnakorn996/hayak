@@ -358,17 +358,17 @@ function ZoomMain({
         {
             zoommainid: 'favouriteinput',
             zoommainref: favouriteinput,
-            zoommainplaceholder: `Find your favourite posts`,
+            zoommainplaceholder: `find your saved posts`,
         },
         {
             zoommainid: 'rtainput',
             zoommainref: rtainput,
-            zoommainplaceholder: ``,
+            zoommainplaceholder: `find posts, places or products`,
         },
         {
             zoommainid: 'rtainputtwo',
             zoommainref: rtainputtwo,
-            zoommainplaceholder: ``,
+            zoommainplaceholder: `find posts, places or products`,
         },
         {
             zoommainid: 'feedbackinput',
@@ -391,12 +391,11 @@ function ZoomMain({
         if(zoommainid){
             const filter = zoommain.filter(data => data.zoommainid === zoommainid)
             const filtertwo = filter[0].zoommainref.filter(data => data.zoommainindex === zoommainindex)
-            // setzoommaindata(filtertwo[0].zoommaindata)
             const empty = []
             for(const data of filtertwo[0].zoommaindata){
                 if(data?.zoommainrender && data.zoommainrender.length !== 0){
-                        empty.push(data)
-                        setzoommaindata(empty)
+                    empty.push(data)
+                    setzoommaindata(empty)
                 }
             }
             setzoommainplaceholder(filter[0].zoommainplaceholder)
@@ -432,11 +431,13 @@ function ZoomMain({
                             <div className="grid grid-flow-col items-center justify-start gap-3">
                             <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white ">{data.zoommainicon}</span>
                             <figcaption className="flex flex-row items-center gap-1  truncate">
+                                {/* <PtaMain ptamainstatic={{ptamainid:'searchiframe', ptamaindata: dat}} >
+                                </PtaMain> */}
                                 <a href={`/${dat?.postid}`} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.posttitle}</a>
-                                <h1 onClick={dat?.blemainaction} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.blemaintitle}</h1>
+                                <p onClick={dat?.blemainaction} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.blemaintitle}</p>
                                 <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-700 font-serif truncate">{dat?.breadmaintitle}</a>
                                 <p className=" leading-loose !text-gray-700 font-serif truncate">{dat?.crummainsubtitle}</p>
-                                {/* <h1 className="l-h1 truncate">{dat?.postsubtitle}</h1> */}
+                                {/* <p className="l-h1 truncate">{dat?.postsubtitle}</p> */}
                             </figcaption>
                             </div>
 

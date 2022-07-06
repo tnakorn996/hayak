@@ -10,7 +10,6 @@ import CategoryIndex from './page/catagory/CategoryIndex';
 import HomeMain from './page/home/HomeMain';
 import PostIndex from './page/post/PostIndex';
 import PlanMain from './page/plan/PlanMain';
-import AboutMain from './page/about/AboutMain';
 import BackdropMain from './component/modal/BackdropMain';
 import Overlay from './component/overlay/Overlay';
 import TopMain from './component/top/TopMain';
@@ -25,40 +24,18 @@ import FabMain from './component/fab/FabMain';
 export default function App() {
   const {
     appmainstate, 
-    setportmainstate,
-    setsnackbarmainstate, snackbarmainstate,
   
   } = useContext(ContextMain)
   const location = useLocation()
   // const param = useParams()
-
-  useEffect(() => {
-    setportmainstate({
-      portmainid: 'posttfoot',
-      portmainidtwo: 'breadmain',
-      portmainidthree: 'place',
-    })
-    setsnackbarmainstate({
-      snackbarmainid: 'categoryfooter',
-    })
-  }, [])
 
     const app = (appmainstate)  => {
       switch(appmainstate.appmainredirect) {
         default: 
         return dashboard
 
-        case 'aboutmain': 
-        return <AboutMain />
-
         case 'planmain': 
         return <PlanMain />
-
-        // case 'contactmain': 
-        // return <ContactMain />
-
-        // case 'sheetmain': 
-        // return <SheetMain />
 
         case 'appmain': 
         return dashboard
@@ -122,5 +99,7 @@ export default function App() {
 
   );
 
-  return <div className="">{app(appmainstate)}</div>
+  return <div>
+    {app(appmainstate)}
+  </div>
 }

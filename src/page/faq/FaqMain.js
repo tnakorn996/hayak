@@ -7,7 +7,7 @@ function FaqMain() {
         <main className="">
             <section className="">
               <br /><br /><br /><br />
-                <ListMain listmainid={'faqsummary'} listmainindex={0} />
+                <ListMain listmainstatic={{listmainid: 'faqsummary', listmainindex: 0}} />
             </section>
         </main>
     </div>

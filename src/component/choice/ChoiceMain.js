@@ -9,6 +9,7 @@ import { client } from '../../lib/sanity'
 import ButtonMain from '../../layout/button/ButtonMain'
 // import ButtonMain from '../../layout/button/ButtonMain'
 import CardMain from '../card/CardMain'
+import useApp from '../../hook/useApp'
 
 function ChoiceMain({
     choicemainid,
@@ -147,15 +148,20 @@ function ChoiceMain({
         }
     ]
 
+    const appmainstatic = {
+        choicemain: choicemain,
+        choicemainid: choicemainid,
+        choicemainidex: choicemainindex,
+    }
+    const appstatic = useApp({appmainstatic})
+
     useEffect(() => {
-      if(choicemainid){
-          const filter = choicemain.filter(data => data.choicemainid === choicemainid)
-          const filtertwo = filter[0].choicemainref.filter(data => data.choicemainindex === choicemainindex)
-          const filterthree = filtertwo[0].choicemaindata.filter(data => data.choicemainpage === choicemainpage)
+        if(appstatic){
+          const filterthree = appstatic[choicemainindex].choicemaindata.filter(data => data.choicemainpage === choicemainpage)
           setchoicemainrender(filterthree)
-          setchoicemainlength(filtertwo[0].choicemaindata.length)
+          setchoicemainlength(appstatic[choicemainindex].choicemaindata.length)
       }
-    }, [choicemainid, choicemainpage])
+    }, [appstatic, choicemainid, choicemainpage])
 
   return (
     <div>
@@ -185,13 +191,13 @@ function ChoiceMain({
                     {data?.choicemainrender[0]?.crummaindata?.map(dat => (<>
                         <button onClick={() => {
                             jj(data?.choicemainpage, dat?.crummainsubtitle)
-                        }} className={`p-[15px] flex flex-row justify-center items-center gap-2  m-h1 l-button duration-1000 ${(
+                        }} className={`p-[10px] flex flex-row justify-center items-center gap-2  m-h1 l-button duration-1000 ${(
                             dat?.crummainsubtitle === choicemainvalue || 
                             dat?.crummainsubtitle === choicemainvaluetwo || 
                             dat?.crummainsubtitle === choicemainvaluethree ||
                             dat?.crummainsubtitle === choicemainvaluefour) && 'bg-gray-900 text-white'}`}>
                             {dat?.crummainicon && <h1 className="">{dat?.crummainicon}</h1>}
-                            <h1 className="first-letter:uppercase font-serif">{dat?.crummainsubtitle}</h1>
+                            <h1 className="m-h1 first-letter:uppercase font-serif">{dat?.crummainsubtitle}</h1>
                         </button>
                     </>))}
                 </figcaption>
