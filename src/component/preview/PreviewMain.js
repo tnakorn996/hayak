@@ -104,13 +104,7 @@ function PreviewMain() {
 
     ]
 
-    const previewmainstatic = {
-            previewmain: previewmain,
-            previewmainid: appmainstate.appmainid,
-            previewmainindex: appmainstate.appmainpage,
-    }
-
-    const appstatic = useApp({previewmainstatic})
+    const [appstatic, setappstatic] = useApp(previewmain, appmainstate.appmainid, appmainstate.appmainpage)
 
     useEffect(() => {
         if(appstatic && appmainstate && appmainstate.appmainidtwo === 'previewmain' || appmainstate.appmainredirect === 'previewmain'){

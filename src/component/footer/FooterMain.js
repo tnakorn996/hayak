@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom'
 import { categoryul, contactul, faqul, feedbackul, searchul } from '../../content/contentmantwo';
 import { ContextMain } from '../../context/contextmain';
 import BreadMain from '../bread/BreadMain'
-import SnackbarMain from '../snackbar/SnackbarMain';
 
 function FooterMain() {
     const {

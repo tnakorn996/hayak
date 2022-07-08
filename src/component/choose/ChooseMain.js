@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { RiArrowDropDownFill } from 'react-icons/ri'
 
 import { ContextMain } from '../../context/contextmain'
+import useApp from '../../hook/useApp'
 import CardMain from '../card/CardMain'
 import ZoomMain from '../zoom/ZoomMain'
 
@@ -53,7 +54,7 @@ export default function ChooseMain({
             choosemainref: feedbacktextarea,
             choosemaindata: feedbackdi[0]?.sheetmaindata,
             choosemainnumber: 3,
-            choosemainplaceholder: 'posts, places, products',
+            choosemainplaceholder: 'posts, places or products',
 
         },
         {
@@ -65,11 +66,13 @@ export default function ChooseMain({
         },
     ]
 
+    const [appstatic, setappstatic] = useApp(choosemain, choosemainstatic.choosemainid, choosemainindex)
+
     useEffect(() => {
-        if(choosemainstatic){
+        if(appstatic && choosemainstatic){
             const filter = choosemain.filter(data => data.choosemainid === choosemainstatic.choosemainid)
             const object =  filter[0]
-            const filtertwo = object.choosemainref.filter(data => data.choosemainindex === choosemainindex)
+            // const filtertwo = object.choosemainref.filter(data => data.choosemainindex === choosemainindex)
             const empty = []
             object.choosemaindata.forEach(data => {
                 if(data.posttitle || data?.crummainsubtitle){
@@ -77,7 +80,8 @@ export default function ChooseMain({
                 }
             })
             setchoosemainrender(empty)
-            setchoosemainrendertwo(filtertwo[0].choosemainrender)
+            // setchoosemainrendertwo(filtertwo[0].choosemainrender)
+            setchoosemainrendertwo(appstatic[0].choosemainrender)
             setchoosemainplaceholder(object.choosemainplaceholder)
 
             if(object.choosemaindata?.length <= object.choosemainnumber){
@@ -92,7 +96,7 @@ export default function ChooseMain({
                 })
             }
         }
-    }, [choosemainindex, ptamainstate])
+    }, [appstatic, choosemainindex, ptamainstate])
 
     function ll() {
         if(choosemainindex === 0){setchoosemainindex(1)}
@@ -103,7 +107,7 @@ export default function ChooseMain({
     <div>
         <main className="">
             <section onClick={() => {ll()}} className="grid grid-cols-12 items-center pr-[10px]  border-[1.5px]">
-                <input disabled={true} value={choosemainrender && choosemainrender.map(data => (` ` + data.title))} ref={choosemainref} className="col-span-11 w-full  l-input !border-0 truncate hover:cursor-default" placeholder={`Choose `+ choosemainplaceholder} />
+                <input ref={choosemainref} disabled={true} value={choosemainrender && choosemainrender.map(data => (` ` + data.title))} className="col-span-11 w-full  l-input !border-0 truncate hover:cursor-default" placeholder={`Choose `+ choosemainplaceholder} />
                 <figure className="col-span-1 flex justify-center  hover:cursor-pointer">
                     <RiArrowDropDownFill className='l-h6' />
                 </figure>

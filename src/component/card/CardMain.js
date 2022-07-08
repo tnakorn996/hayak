@@ -7,6 +7,7 @@ import { RiCheckboxCircleLine, RiCloseCircleLine, RiInformationLine } from 'reac
 
 import { categorydi, categorydl, categoryui, commentdi, commentui, spreadmain, termdi } from '../../content/contentmantwo';
 import { ContextMain } from '../../context/contextmain'
+import useApp from '../../hook/useApp';
 
 function CardMain({
     cardmainid,
@@ -147,16 +148,24 @@ function CardMain({
         }
     ]
 
+    const [appstatic, setappstatic] = useApp(cardmain, cardmainid, cardmainindex)
+
     useEffect(() => {
-        if(cardmainid){
+        if(appstatic && cardmainid){
             const filter = categorydi.filter(data => data.spreadmainid === cardmainidtwo);
-            const filtertwo = cardmain.filter(data => data.cardmainid === cardmainid);
-            const filterthree = filtertwo[0].cardmainref.filter(data => data.cardmainindex === cardmainindex);
             setcardmainrender(filter)
-            setcardmainrendertwo(filterthree[0].cardmainrender)
-            setcardmainaction(filterthree[0].cardmainaction)
+
+            setcardmainrendertwo(appstatic[0].cardmainrender)
+            setcardmainaction(appstatic[0].cardmainaction)
+
+            // const filter = categorydi.filter(data => data.spreadmainid === cardmainidtwo);
+            // const filtertwo = cardmain.filter(data => data.cardmainid === cardmainid);
+            // const filterthree = filtertwo[0].cardmainref.filter(data => data.cardmainindex === cardmainindex);
+            // setcardmainrender(filter)
+            // setcardmainrendertwo(filterthree[0].cardmainrender)
+            // setcardmainaction(filterthree[0].cardmainaction)
         }
-    }, [cardmainid, cardmainidtwo])
+    }, [appstatic, cardmainid, cardmainidtwo])
 
   return (
     <div className='h-full'>

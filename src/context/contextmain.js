@@ -124,7 +124,7 @@ export const Provider = ({ children }) => {
             tabmainicon: <RiFeedbackFill />,
         },
     ]
-
+    
     const postlink = [
         {
             blemainid: 'url',
@@ -832,15 +832,6 @@ export const Provider = ({ children }) => {
             tabmainid: 'all',
         },
     ]
-
-    // const favouriteselect = [
-    //     {
-    //         tabmainid: 'reader',
-    //         tabmaintitle: 'reader',
-    //         tabmainentitle: 'Reader Picks',
-    //         tabmainrender: ,
-    //     }
-    // ]
 
     const favouritelink = [
         {

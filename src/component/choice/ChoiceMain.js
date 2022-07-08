@@ -148,19 +148,14 @@ function ChoiceMain({
         }
     ]
 
-    const appmainstatic = {
-        choicemain: choicemain,
-        choicemainid: choicemainid,
-        choicemainidex: choicemainindex,
-    }
-    const appstatic = useApp({appmainstatic})
+    const [appstatic, setappstatic] = useApp(choicemain, choicemainid, choicemainindex)
 
     useEffect(() => {
         if(appstatic){
-          const filterthree = appstatic[choicemainindex].choicemaindata.filter(data => data.choicemainpage === choicemainpage)
+          const filterthree = appstatic[0].choicemaindata.filter(data => data.choicemainpage === choicemainpage)
           setchoicemainrender(filterthree)
-          setchoicemainlength(appstatic[choicemainindex].choicemaindata.length)
-      }
+          setchoicemainlength(appstatic[0].choicemaindata.length)
+        }
     }, [appstatic, choicemainid, choicemainpage])
 
   return (

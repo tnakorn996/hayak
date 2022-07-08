@@ -148,21 +148,17 @@ function SideboardMain() {
     },
   ]
 
-  // const appmainstatic = {
-  //   sideboardmain: sideboardmain,
-  //   sideboardmainid: appmainstate.appmainid,
-  //   sideboardmainindex: sideboardmainpage,
-  // }
-
-  // const appstatic = useApp({appmainstatic})
+  const [appstatic, setappstatic] = useApp(sideboardmain, appmainstate.appmainid, sideboardmainpage)
 
   useEffect(() => {
-    if(appmainstate && appmainstate.appmainidtwo === 'sideboardmain'){
-        const filter = sideboardmain.filter(data => data.sideboardmainid === appmainstate.appmainid)
-        const filtertwo = filter[0].sideboardmainref.filter(data => data.sideboardindex === sideboardmainpage)
-        setsideboardmainrender(filtertwo[0].sideboardrender) 
+    if(appstatic && appmainstate && appmainstate.appmainidtwo === 'sideboardmain'){
+        // const filter = sideboardmain.filter(data => data.sideboardmainid === appmainstate.appmainid)
+        // const filtertwo = filter[0].sideboardmainref.filter(data => data.sideboardindex === sideboardmainpage)
+        // setsideboardmainrender(filtertwo[0].sideboardrender) 
+
+        setsideboardmainrender(appstatic[0].sideboardrender) 
     }
-  }, [ appmainstate, sideboardmainpage])
+  }, [appstatic, appmainstate, sideboardmainpage])
 
   return (
     <div>

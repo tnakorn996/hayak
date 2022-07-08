@@ -4,9 +4,9 @@ import { useContext } from 'react'
 
 import { ContextMain } from '../../context/contextmain'
 import { useState } from 'react'
-import SnackbarMain from '../snackbar/SnackbarMain'
 import { motion } from 'framer-motion'
 import ToasterMain from '../toaster/ToasterMain'
+import useApp from '../../hook/useApp'
 
 function Overlay() {
     const {
@@ -21,6 +21,14 @@ function Overlay() {
             overlayrender: <ToasterMain />,
         },
     ]
+
+    // const [appstatic, setappstatic] = useApp(overlay, appmainstate.appmainidtwo, null)
+    
+    // useEffect(() => {
+    //   if(appstatic && appmainstate && appmainstate.appmainid === 'overlay'){
+    //       setoverlayrender(appstatic.overlayrender)
+    //   }
+    // }, [appstatic, appmainstate])
 
     useEffect(() => {
       if(appmainstate && appmainstate.appmainid === 'overlay'){

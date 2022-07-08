@@ -69,7 +69,7 @@ function SlideMain({
                         <figure className="relative h-[60vh] flex items-center justify-center  overflow-hidden border border-black">
                             <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
                             <ScrollMain scrollmainstatic={{scrollmaintransform: 0.3}} >
-                                <img src={urlFor(data.posthero)} alt="" className="min-w-[100ch] h-fit md:w-full md:h-fit" />
+                                <img src={urlFor(data.posthero)} alt="" className="min-w-[100ch] h-fit md:min-w-full md:min-h-fit" />
                             </ScrollMain>
                             
                         </figure>
@@ -181,23 +181,17 @@ function SlideMain({
     //   }
     // }, [slidemainpageyoffset])
 
-    // const appmainstatic = {
-    //     slidemain: slidemain,
-    //     slidemainid: slidemainid, 
-    //     slidemainindex: slidemainindex, 
-    // }
-
-    // const appstatic = useApp({appmainstatic})
+  const [appstatic, setappstatic] = useApp(slidemain, slidemainid, slidemainindex, slidemaindata)
     
     useEffect(() => {
-      if(slidemainid) {
-        const filter = slidemain.filter(data => data.slidemainid === slidemainid)
-        const filtertwo = filter[0].slidemainref.filter(data => data.slidemainindex === slidemainindex)
-        setslidemainrender(filtertwo[0].slidemainrender)
+      if(appstatic && slidemainid) {
+        // const filter = slidemain.filter(data => data.slidemainid === slidemainid)
+        // const filtertwo = filter[0].slidemainref.filter(data => data.slidemainindex === slidemainindex)
+        // setslidemainrender(filtertwo[0].slidemainrender)
 
-        // setslidemainrender(appstatic[0].slidemainrender)
+        setslidemainrender(appstatic[0].slidemainrender)
       }
-    }, [slidemainid, slidemaindata, slidemainindex])
+    }, [appstatic, slidemainid, slidemaindata, slidemainindex])
 
     // const scrollleft = slidemainref.current.scrollLeft;
     // const offsetwidth = slidemainref.current.offsetWidth;

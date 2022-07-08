@@ -14,6 +14,7 @@ export default function BadgeMain({
 
 }) {
   const {
+    ptamainstate,
 
     searchdl,
     postdi,
@@ -93,19 +94,21 @@ export default function BadgeMain({
     },
   ]
 
-  const appmainstatic = {
-    badgemain: badgemain,
-    badgemainid: badgemainstatic.badgemainid,
-    badgemainindex: badgemainstatic.badgemainindex,
-  }
-
-  const appstatic = useApp({appmainstatic})
-
+  const [appstatic, setappstatic] = useApp(badgemain, badgemainstatic.badgemainid, badgemainstatic.badgemainindex, badgemainstatic)
+  
   useEffect(() => {
     if(appstatic && badgemainstatic) {
       setbadgemainrender(appstatic[0].badgemainrender)
     }
-  }, [appstatic, badgemainstatic])
+  }, [appstatic,badgemainstatic])
+
+  // useEffect(() => {
+  //   if(badgemainstatic) {
+  //     const filter = badgemain.filter(data => data.badgemainid ===  badgemainstatic.badgemainid)
+  //     const filtertwo = filter[0].badgemainref.filter(data => data.badgemainindex === badgemainstatic.badgemainindex)
+  //     setbadgemainrender(filtertwo[0].badgemainrender)
+  //   }
+  // }, [badgemainstatic])
 
   function ll(first= this.props.first) {
     const empty = []
@@ -122,8 +125,6 @@ export default function BadgeMain({
         <main className="">
             <section className="">
               <figure className={`py-[0.5px] px-[6px]  rounded-full bg-black text-white ${badgemainstyle && badgemainstyle}`}>
-                {/* <h1 className="text-[9px]  m-h1 text-white">{favouritespanrender && favouritespanrender[0]?.badgemainrender()}</h1> */}
-                {/* <h1 className="text-[9px]  m-h1 text-white">{badgemainrender && badgemainrender}</h1> */}
                 <p className="text-[10px]  m-h1 font-serif">{badgemainrender && badgemainrender}</p>
               </figure>
             </section>

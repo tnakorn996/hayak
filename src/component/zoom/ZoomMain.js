@@ -12,6 +12,7 @@ import { userui } from '../../content/contentmantwo'
 // import { categoryul } from '../../content/contentmantwo'
 
 import { ContextMain } from '../../context/contextmain'
+import useApp from '../../hook/useApp'
 // import { client } from '../../lib/sanity'
 import MtaMain from '../mta/MtaMain'
 import PtaMain from '../pta/PtaMain'
@@ -387,20 +388,37 @@ function ZoomMain({
         if(zoommainkey === ''){setzoommainindex(0)}
     }, [zoommainkey])
 
+    const [appstatic, setappstatic] = useApp(zoommain, zoommainid, zoommainindex, zoommainkey)
+
     useEffect(() => {
-        if(zoommainid){
-            const filter = zoommain.filter(data => data.zoommainid === zoommainid)
-            const filtertwo = filter[0].zoommainref.filter(data => data.zoommainindex === zoommainindex)
+        if(appstatic){
             const empty = []
-            for(const data of filtertwo[0].zoommaindata){
+            for(const data of appstatic[0].zoommaindata){
                 if(data?.zoommainrender && data.zoommainrender.length !== 0){
                     empty.push(data)
                     setzoommaindata(empty)
                 }
             }
+
+            const filter = zoommain.filter(data => data.zoommainid === zoommainid)
             setzoommainplaceholder(filter[0].zoommainplaceholder)
         }
-    }, [zoommainid, zoommainindex, zoommainkey])
+    }, [appstatic])
+
+    // useEffect(() => {
+    //     if(zoommainid){
+    //         const filter = zoommain.filter(data => data.zoommainid === zoommainid)
+    //         const filtertwo = filter[0].zoommainref.filter(data => data.zoommainindex === zoommainindex)
+    //         const empty = []
+    //         for(const data of filtertwo[0].zoommaindata){
+    //             if(data?.zoommainrender && data.zoommainrender.length !== 0){
+    //                 empty.push(data)
+    //                 setzoommaindata(empty)
+    //             }
+    //         }
+    //         setzoommainplaceholder(filter[0].zoommainplaceholder)
+    //     }
+    // }, [zoommainid, zoommainindex, zoommainkey])
 
   return (
     <div>

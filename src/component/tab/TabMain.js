@@ -5,6 +5,7 @@ import '../tab/tabmain.css';
 import { ContextMain } from '../../context/contextmain'
 import ZoomMain from '../zoom/ZoomMain'
 import BadgeMain from '../../layout/badge/BadgeMain';
+import useApp from '../../hook/useApp';
 
 function TabMain({
     reftwo,
@@ -97,9 +98,10 @@ function TabMain({
         }
     ]
 
-    useEffect(() => {
-        if(tabmainstatic){
+    const [appstatic, setappstatic] = useApp(tabmain, tabmainstatic.tabmainid, searchmainstate.tabmainindex)
 
+    useEffect(() => {
+        if(appstatic && tabmainstatic){
             const filter = tabmain.filter(data => data.tabmainid === tabmainstatic.tabmainid)
             const empty = []
             for(const data of filter[0].tabmainref) {
@@ -107,12 +109,25 @@ function TabMain({
             }
             settabmainrender(empty)
 
-            const filtertwo = tabmain.filter(data => data.tabmainid === tabmainstatic.tabmainid)
-            // settabmainrendertwo(filtertwo[0].tabmainref)
-            const filterthree = filtertwo[0].tabmainref.filter(data => data.tabmainindex === searchmainstate.tabmainindex)
-            settabmainrendertwo(filterthree[0].tabmainrender)
+            settabmainrendertwo(appstatic[0].tabmainrender)
         }
-    }, [tabmainstatic, searchmainstate])
+    }, [appstatic, tabmainstatic, searchmainstate])
+
+    // useEffect(() => {
+    //     if(tabmainstatic){
+
+    //         const filter = tabmain.filter(data => data.tabmainid === tabmainstatic.tabmainid)
+    //         const empty = []
+    //         for(const data of filter[0].tabmainref) {
+    //             empty.push({tabmainindex: data.tabmainindex, tabmaintitle: data.tabmaintitle, tabmainnumber: data.tabmainnumber})
+    //         }
+    //         settabmainrender(empty)
+
+    //         const filtertwo = tabmain.filter(data => data.tabmainid === tabmainstatic.tabmainid)
+    //         const filterthree = filtertwo[0].tabmainref.filter(data => data.tabmainindex === searchmainstate.tabmainindex)
+    //         settabmainrendertwo(filterthree[0].tabmainrender)
+    //     }
+    // }, [tabmainstatic, searchmainstate])
 
     useEffect(() => {
         if(searchmainstate && searchmainstate === null){

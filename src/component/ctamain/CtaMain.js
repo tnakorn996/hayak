@@ -127,28 +127,9 @@ function CtaMain() {
         },
     ]
 
-    const appmainstatic = {
-        ctamain: ctamain,
-        ctamainid: ctamainstate?.ctamainid,
-        ctamainindex: ctamainstate?.ctamainidtwo ? 1 : 0,
-    }
-    const appstatic = useApp({appmainstatic})
+    const [appstatic, setappstatic] = useApp(ctamain, ctamainstate?.ctamainid, ctamainstate?.ctamainidtwo ? 1 : 0)
 
     useEffect(() => {
-        // if(ctamainstate) {
-        //     if (ctamainstate.ctamainidtwo === true) {
-        //         const filter = ctamain.filter(data => data.ctamainid === ctamainstate.ctamainid)
-        //         const filtertwo = filter[0].ctamainref.filter(data => filter[0].ctamainref.indexOf(data) === 1)
-        //         setctamainrender(filtertwo[0].ctamainrender)
-        //         setctamainrendertwo(filtertwo[0].ctamainrendertwo)
-        //     } 
-        //     else {
-        //         const filter = ctamain.filter(data => data.ctamainid === ctamainstate.ctamainid)
-        //         const filtertwo = filter[0].ctamainref.filter(data => filter[0].ctamainref.indexOf(data) === 0)
-        //         setctamainrender(filtertwo[0].ctamainrender)
-        //         setctamainrendertwo(filtertwo[0].ctamainrendertwo)
-        //     }
-        // }
         if(appstatic && ctamainstate) {
                 setctamainrender(appstatic[0].ctamainrender)
                 setctamainrendertwo(appstatic[0].ctamainrendertwo)

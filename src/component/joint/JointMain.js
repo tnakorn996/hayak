@@ -82,20 +82,14 @@ function JointMain({
       jointmainref: hometemplate,
     },
   ]
-
-  const jointmainstatic ={
-    jointmain: jointmain,
-    jointmainid: jointmainid,
-    jointmainindex: jointmainindex,
-  }
-
-  const appstatic = useApp({jointmainstatic})
+  
+  const [appstatic, setappstatic] = useApp(jointmain, jointmainid, jointmainindex)
 
   return (
     <div>
         <main className="duration-100">
             <section className="">
-              {appstatic && appstatic[jointmainindex].jointmainrender}
+              {appstatic && appstatic[0].jointmainrender}
             </section>
         </main>
     </div>

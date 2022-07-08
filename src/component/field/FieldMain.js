@@ -158,7 +158,7 @@ function FieldMain({
                 {
                     fieldmainsubtitle: 'City or Region*',
                     // fieldmainrender: <input ref={refthree} className="w-full  l-input" />,
-                    fieldmainrender: <ChooseMain ref={refthree} choosemainstatic={{choosemainid:'contacttextarea'}} />,
+                    fieldmainrender: <ChooseMain choosemainref={refthree} choosemainstatic={{choosemainid:'contacttextarea'}} />,
                 },
                 {
                     fieldmainsubtitle: 'Message*',
@@ -196,7 +196,7 @@ function FieldMain({
             fieldmainentitle: 'Submit',
             fieldmaindata: [
                 {
-                    fieldmainsubtitle: 'Posts, Places, Products*',
+                    fieldmainsubtitle: 'Posts, Places or Products*',
                     fieldmainrender: <ChooseMain choosemainref={refnine} choosemainstatic={{choosemainid: 'feedbacktextarea'}} />,
                 },
                 {
@@ -226,13 +226,7 @@ function FieldMain({
         }
     ]
 
-    const appmainstatic = {
-        fieldmain: fieldmain,
-        fieldmainid: fieldmainid,
-        fieldmainindex: fieldmainindex,
-    }
-
-    const appstatic = useApp({appmainstatic})
+    const [appstatic, setappstatic] = useApp(fieldmain, fieldmainid, fieldmainindex)
 
     useEffect(() => {
         if(appstatic){

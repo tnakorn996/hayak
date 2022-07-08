@@ -73,13 +73,7 @@ function RtaMain({
     }
   ]
 
-  const appmainstatic = {
-    rtamain: rtamain,
-    rtamainid: rtamainid,
-    rtamainindex: rtamainindex,
-  }
-
-  const appstatic = useApp({appmainstatic})
+  const [appstatic, setappstatic] = useApp(rtamain, rtamainid, rtamainindex)
 
   useEffect(() => {
     if(appstatic && rtamainid && rtamaindata){

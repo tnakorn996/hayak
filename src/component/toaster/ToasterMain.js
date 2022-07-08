@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { RiCloseFill } from 'react-icons/ri'
 import { ContextMain } from '../../context/contextmain'
+import useApp from '../../hook/useApp'
 
 import CardMain from '../card/CardMain'
 import HorizonMain from '../post/HorizonMain'
@@ -66,16 +67,22 @@ function ToasterMain() {
         }
     ]
 
+    const [appstatic, setappstatic] = useApp(toastermain, toastermainstate.toastermainid, toastermainstate.toastermainindex)
+
     useEffect(() => {
-      if(toastermainstate){
-        const filter = toastermain.filter(data => data.toastermainid === toastermainstate.toastermainid)
-        const filtertwo = filter[0].toastermainref.filter(data => data.toastermainindex === toastermainstate.toastermainindex)
+      if(appstatic && toastermainstate){
+        // const filter = toastermain.filter(data => data.toastermainid === toastermainstate.toastermainid)
+        // const filtertwo = filter[0].toastermainref.filter(data => data.toastermainindex === toastermainstate.toastermainindex)
+        // const filterthree = postplaceproduct.filter(data => toastermainstate.toastermaindata.some(dat => dat.postid === data.postid))
+        // settoastermainrender(filtertwo[0].toastermainrender)
+        // settoastermainrendertwo(filterthree)
+
         const filterthree = postplaceproduct.filter(data => toastermainstate.toastermaindata.some(dat => dat.postid === data.postid))
-        settoastermainrender(filtertwo[0].toastermainrender)
+        settoastermainrender(appstatic[0].toastermainrender)
         settoastermainrendertwo(filterthree)
 
       }
-    }, [toastermainstate])
+    }, [appstatic, toastermainstate])
     
   return (
     <div>

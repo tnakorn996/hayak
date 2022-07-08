@@ -7,7 +7,7 @@ import useApp from '../../hook/useApp'
 
 import '../list/listmain.css'
 
-function ListMain({
+export default function ListMain({
     listmainstatic,
 
 }) {
@@ -35,12 +35,7 @@ function ListMain({
         }
     ]
 
-    const liststatic = {
-        listmain: listmain,
-        listmainid: listmainstatic.listmainid,
-        listmainindex: listmainstatic.listmainindex,
-    }
-    const appstatic = useApp({liststatic})
+    const [appstatic, setappstatic] = useApp(listmain, listmainstatic?.listmainid, listmainstatic?.listmainindex)
 
     useEffect(() => {
       if(appstatic) {
@@ -69,5 +64,3 @@ function ListMain({
     </div>
   )
 }
-
-export default ListMain

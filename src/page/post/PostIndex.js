@@ -18,7 +18,6 @@ import SpreadMain from '../../component/spread/SpreadMain'
 // import CardMain from '../../component/card/CardMain'
 // import LoadMain from '../../layout/load/LoadMain'
 import { genreui } from '../../content/contentmantwo'
-import AlertMain from '../../component/alert/AlertMain'
 import SlideMain from '../../component/slide/SlideMain'
 import BarMain from '../../component/bar/BarMain'
 import GuideMain from '../../component/guide/GuideMain'
@@ -444,10 +443,6 @@ function PostIndex() {
     // if(!postpostid) return <LoadMain />
     // if(!postpostid) return null
     if(!postpostid) return <JointMain jointmainid={'posttemplate'} jointmainindex={0} />
-
-    if(postindexmessage) return <section className="w-screen h-screen flex justify-center items-center">
-        <AlertMain alertmainmessage={postindexmessage} />
-    </section> 
 
   return (
     <div>

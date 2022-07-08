@@ -39,13 +39,13 @@ function ModalMain() {
         {
             modalmainindex: 0,
             modalmaintitle: 'Share Post',
-            modalmainrender: <ShareSection param={appmainstate.appmainparam} />,
+            modalmainrender: <ShareSection param={appmainstate?.appmainparam} />,
             modalmainaction: '',
         },
         {
             modalmainindex: 1,
             modalmaintitle: 'Share Post',
-            modalmainrender: <SocialMain param={appmainstate.appmainparam} />,
+            modalmainrender: <SocialMain param={appmainstate?.appmainparam} />,
             modalmainaction: '',
         },
     ]
@@ -129,16 +129,28 @@ function ModalMain() {
         // },
     ]
 
-    const modalmainstatic = {
-        modalmain: modalmain,
-        modalmainid: appmainstate.appmainid,
-        modalmainindex: appmainstate.appmainidthree,
-    }
+    // const modalmainstatic = {
+    //     modalmain: modalmain,
+    //     modalmainid: appmainstate.appmainid,
+    //     modalmainindex: appmainstate.appmainidthree,
+    // }
 
-    const appstatic = useApp({modalmainstatic})
+    // const appstatic = useApp({modalmainstatic})
 
+    const [appstatic, setappstatic] = useApp(modalmain, appmainstate.appmainid, appmainstate.appmainidthree, appmainstate)
+    
     useEffect(() => {
         if(appstatic && appmainstate && appmainstate.appmainidtwo === 'modalmain'){
+        // const filter = modalmain.filter(data => data.modalmainid ===  appmainstate.appmainid)
+        // console.log('filter', filter)
+        // const filtertwo = filter[0].modalmaindata.filter(data => data.modalmainindex ===  appmainstate.appmainidthree)
+        // console.log('filtertwo', filtertwo)
+        //     const ref = filtertwo[0]
+        //     setmodalmaintitle(ref.modalmaintitle)
+        //     setmodalmainrender(ref.modalmainrender)
+        //     setmodalmainaction(ref.modalmainaction)
+        //     setmodalmainentitle(ref.modalmainentitle)
+
             const ref = appstatic[0]
             setmodalmaintitle(ref.modalmaintitle)
             setmodalmainrender(ref.modalmainrender)
@@ -146,7 +158,7 @@ function ModalMain() {
             setmodalmainentitle(ref.modalmainentitle)
         }
       
-    }, [appstatic && appmainstate])
+    }, [appstatic, appmainstate])
 
     function ll() {
 

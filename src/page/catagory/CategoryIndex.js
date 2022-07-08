@@ -148,7 +148,7 @@ function CategoryIndex() {
             <hr />
             <section className="px-[20px] md:px-[60px] h-[10vh] flex justify-end items-center">
                 {/* {breadmainstate?.breadmainidtwo && <button onClick={() => setbreadmainstate('')} className="flex flex-row items-center gap-3  l-button border border-black"> <span className="m-h2">╳</span>  {breadmainstate?.breadmainidtwo}</button>} */}
-                <ChipMain />
+                <ChipMain chipmainstatic={{chipmainid: 'categorythead', chipmainindex: null}} />
                 
                 <button onClick={() => {
                         settabmainstate({
