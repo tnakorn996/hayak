@@ -978,7 +978,7 @@ export const Provider = ({ children }) => {
         {
             spreadmainindex: 3,
             spreadmaintitle: 'History',
-            spreadmaindata: parsesearch?.searchmaindata,
+            spreadmaindata: parsesearch,
         },
     ]
 

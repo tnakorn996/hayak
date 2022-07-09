@@ -50,9 +50,7 @@ function PtaMain({
     const searchiframe = [
         {
             ptamainindex: 0,
-            ptamainicon: <div className="absolute top-0 left-0 w-full h-full  m-h1 text-black" >→</div>,
-            // ptamainicon: <div className="absolute top-0 left-0 w-full h-full" />,
-            ptamaindata: (JSON.parse(window.localStorage.getItem("searchiframe")))?.searchmaindata,
+            ptamainicon: '',
             ptamainaction: ll,
         },
         {
@@ -60,7 +58,6 @@ function PtaMain({
             ptamainicon: <motion.div initial={{scale: 0.5}} animate={{ scale:1}} className="duration-100">
                 <RiCloseLine className='text-black' />
             </motion.div>,
-            ptamaindata: (JSON.parse(window.localStorage.getItem("searchiframe")))?.searchmaindata,
             ptamainaction: kk,
         }
     ]
@@ -119,6 +116,7 @@ function PtaMain({
         {
             ptamainid: 'searchiframe',
             ptamainref: searchiframe,
+            ptamaindata: (JSON.parse(window.localStorage.getItem("searchiframe"))).filter(data => data?.postid === ptamainstatic?.ptamaindata?.postid),
         },
         {
             ptamainid: 'favouriteiframe',

@@ -24,12 +24,11 @@ function ZoomMain({
     favouritemainstate,
 }) {
     const {
-        localpost, parsepost,
-        feedbacklink,
         searchdl,
         postdi,
         rtadi,
 
+        ptamainstate,
         searchinputstate,
         // searchmainstate,
 
@@ -49,7 +48,7 @@ function ZoomMain({
             zoommaindata: [
                 {
                     zoommaintitle: 'Recent searches',
-                    zoommainrender: searchdl[3].spreadmaindata,
+                    zoommainrender: searchdl[3].spreadmaindata.reverse(),
                     zoommainicon: <RiHistoryFill />,
 
                 },
@@ -388,7 +387,7 @@ function ZoomMain({
         if(zoommainkey === ''){setzoommainindex(0)}
     }, [zoommainkey])
 
-    const [appstatic, setappstatic] = useApp(zoommain, zoommainid, zoommainindex, zoommainkey)
+    const [appstatic, setappstatic] = useApp(zoommain, zoommainid, zoommainindex, zoommainkey, ptamainstate)
 
     useEffect(() => {
         if(appstatic){
@@ -441,38 +440,36 @@ function ZoomMain({
                 {zoommaindata?.map(data => (<>
                 {data?.zoommainrender?.length > 0 && (<>
                 <figcaption className="">
-                <br /><br />
                 <h1 className="m-h1">{data?.zoommaintitle} ({data?.zoommainrender?.length})</h1>
                 <br />
                     {data?.zoommainrender?.length !== 0 && data?.zoommainrender?.slice(0, zoommainslice)?.map(dat => (<>
                         <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative w-full py-[10px] flex flex-row items-center justify-between  group">
                             <div className="grid grid-flow-col items-center justify-start gap-3">
-                            <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white ">{data.zoommainicon}</span>
-                            <figcaption className="flex flex-row items-center gap-1  truncate">
-                                {/* <PtaMain ptamainstatic={{ptamainid:'searchiframe', ptamaindata: dat}} >
-                                </PtaMain> */}
-                                <a href={`/${dat?.postid}`} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.posttitle}</a>
-                                <p onClick={dat?.blemainaction} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.blemaintitle}</p>
-                                <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-700 font-serif truncate">{dat?.breadmaintitle}</a>
-                                <p className=" leading-loose !text-gray-700 font-serif truncate">{dat?.crummainsubtitle}</p>
-                                {/* <p className="l-h1 truncate">{dat?.postsubtitle}</p> */}
-                            </figcaption>
+                                <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white ">{data.zoommainicon}</span>
+                                <figcaption className="flex flex-row items-center gap-1  truncate">
+                                    <PtaMain ptamainstatic={{ptamainid:'searchiframe', ptamaindata: dat}} >
+                                        <a href={`/${dat?.postid}`} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.posttitle}</a>
+                                        <p onClick={dat?.blemainaction} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.blemaintitle}</p>
+                                        <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-700 font-serif truncate">{dat?.breadmaintitle}</a>
+                                        <p className=" leading-loose !text-gray-700 font-serif truncate">{dat?.crummainsubtitle}</p>
+                                    </PtaMain>
+                                    {/* <p className="l-h1 truncate">{dat?.postsubtitle}</p> */}
+                                </figcaption>
                             </div>
 
                             <div className="flex flex-row items-center justify-end gap-3">
-                            {/* <motion.div className="opacity-0 group-hover:opacity-100  duration-100"> */}
-                            {/* {(zoommainid === 'searchinput') && <PtaMain ptamainstatic={{ptamainid: 'searchiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />} */}
-                            {(zoommainid === 'contactinput') && <PtaMain ptamainstatic={{ptamainid: 'contactiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
-                            {(zoommainid === 'feedbackinput') && <PtaMain ptamainstatic={{ptamainid: 'feedbackiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
-                            {(zoommainid === 'favouriteinput') && <PtaMain ptamainstatic={{ptamainid: 'favouriteiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
-                            {(zoommainid !== 'feedbackinput' && zoommainid !== 'favouriteinput' && zoommainid !== 'contactinput') && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
-                            {/* </motion.div> */}
+                                {(data?.zoommaintitle === 'Recent searches') && <PtaMain ptamainstatic={{ptamainid: 'searchiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
+                                {(zoommainid === 'contactinput') && <PtaMain ptamainstatic={{ptamainid: 'contactiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
+                                {(zoommainid === 'feedbackinput') && <PtaMain ptamainstatic={{ptamainid: 'feedbackiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
+                                {(zoommainid === 'favouriteinput') && <PtaMain ptamainstatic={{ptamainid: 'favouriteiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
+                                {(data?.zoommaintitle !== 'Recent searches' && zoommainid !== 'feedbackinput' && zoommainid !== 'favouriteinput' && zoommainid !== 'contactinput') && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: dat}} ptamainstyle={'!text-sm'} />}
                             </div>
 
                         </motion.figure>
                         {/* <div className="w-full  border-b border-gray-200" /> */}
                     </>))}
                 </figcaption>
+                <br /><br />
                 </>)}
                 </>))}
                 <br />
