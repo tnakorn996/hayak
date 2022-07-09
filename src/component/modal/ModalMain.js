@@ -185,7 +185,7 @@ function ModalMain() {
             <section className="h-[5vh] p-[20px] text-center">
                 <h1 className="m-h4 font-serif">{modalmaintitle && modalmaintitle}</h1>
             </section>
-            <section className="max-h-[85vh]  overflow-y-auto no-scrollbar">
+            <section className="max-h-[80vh]  overflow-y-auto no-scrollbar">
                 <div className="">{modalmainrender}</div>
                 <hr />
             </section>

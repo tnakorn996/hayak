@@ -52,7 +52,7 @@ function SlideMain({
             slidemainrender: () => {
 
                 return slidemaindata?.slice(0, slidemainslice)?.map(data => (<>
-                    <section onClick={() => {
+                    {/* <section onClick={() => {
                         // window.history.replaceState(null, "" , postupdatedat[0]?.postid)
                           setappmainstate({
                             appmainid: 'postarticle',
@@ -74,7 +74,7 @@ function SlideMain({
                             
                         </figure>
                         <div className="w-full  border-b border-black" />
-                    </section>
+                    </section> */}
                 </>))
             }
         }

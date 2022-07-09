@@ -116,36 +116,36 @@ export const Provider = ({ children }) => {
     const clientquery = `*[_type == 'user' && userid == 'hayaker']{
                 ...,
 
-                'postplaceproduct': *[_type == 'post' || _type == 'place' || _type == 'product'] {
+                'postplaceproduct': *[_type == 'post' && postpublish != false || _type == 'place' && postpublish != false || _type == 'product' && postpublish != false] {
                   ...,
                   'placepostid':  *[_type == 'place' && postid == lower(^.placeid) ][0],
                 } | order(_createdAt desc) ,
 
-                'postupdatedat': *[_type == 'post'] {
+                'postupdatedat': *[_type == 'post' && postpublish != false] {
                   ...,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_updatedAt desc) ,
-                'placeupdatedat': *[_type == 'place'] {
+                'placeupdatedat': *[_type == 'place' && postpublish != false] {
                   ...,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_updatedAt desc) ,
-                'productupdatedat': *[_type == 'product'] {
+                'productupdatedat': *[_type == 'product' && postpublish != false] {
                   ...,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_updatedAt desc) ,
 
-                'placecreatedat': *[_type == 'place'] {
+                'placecreatedat': *[_type == 'place' && postpublish != false] {
                   ...,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_createdAt desc),
-                'productcreatedat': *[_type == 'product'] {
+                'productcreatedat': *[_type == 'product' && postpublish != false] {
                   ...,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_createdAt desc),
                 
               }[0]`;
     
-    const clientquerytwo = `*[_type != 'comment' && _type != 'feedback' && postid == '${location && location?.pathname?.replace('/', '')}']{
+    const clientquerytwo = `*[_type != 'comment' && _type != 'feedback' && postid == '${location && location?.pathname?.replace('/', '')}' && postpublish != false]{
         ...,
         'postblock': null,
         'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] {..., 'postblock': null} | order(_updatedAt desc),

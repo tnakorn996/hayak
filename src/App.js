@@ -29,15 +29,15 @@ export default function App() {
   const location = useLocation()
   // const param = useParams()
 
-  const [appstyle, setappstyle] = useState(0)
+  // const [appstyle, setappstyle] = useState(0)
 
   // useEffect(() => {
   //   if(appmainstate){
   //     if(appmainstate.appmainidtwo === 'opendeskmain'){
-  //       setappstyle(-50)
+  //       setappstyle(1)
   //     }
   //     if(appmainstate.appmainidtwo === 'sideboardmain'){
-  //       setappstyle(50)
+  //       setappstyle(1)
   //     }
   //   } else {
   //     setappstyle(0)
@@ -93,7 +93,7 @@ export default function App() {
           <div className="z-30 sticky">
           {appmainstate?.appmainboolean === true && (<>
               <BackdropMain />
-          </>)}
+            </>)}
           </div>
 
           <div className="z-30 sticky">

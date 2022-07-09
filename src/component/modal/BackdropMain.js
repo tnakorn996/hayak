@@ -14,7 +14,7 @@ import useApp from '../../hook/useApp'
 
 function BackdropMain() {
   const {
-    appmainstate,
+    appmainstate, setappmainstate,
     backdropstate,
 
   } = useContext(ContextMain)
@@ -84,12 +84,17 @@ function BackdropMain() {
 
   return (
     <div>
-        <main className="">
-          <AnimatePresence>
-              <motion.section key='backdrop' initial={{scale: 0}} animate={{scale: 1}} exit={{scale: 0}} className="z-20 w-screen h-screen top-0 left-0 fixed flex justify-center items-end md:items-start  bg-opacity-40 overflow-y-auto no-scrollbar duration-75">
-                {backdropmainrender && backdropmainrender}
+        <main className="relative">
+          {/* <AnimatePresence> */}
+              <motion.section key='backdrop' initial={{scale: 0, opacity: 0}} animate={{scale: 1, opacity: 1}} exit={{scale: 0, opacity: 0}} className="z-20 w-screen h-screen top-0 left-0 fixed flex justify-center items-end md:items-start  bg-opacity-40 overflow-y-auto no-scrollbar duration-100">
+                {/* <div className="z-20"> */}
+                  {backdropmainrender && backdropmainrender}
+                {/* </div> */}
+                {/* <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} transition={{ delay: 0.5 }}  onClick={() => {
+                  setappmainstate('')
+                }} className="w-screen h-screen z-10 fixed top-0 left-0  bg-black duration-100" /> */}
               </motion.section>
-          </AnimatePresence>
+          {/* </AnimatePresence> */}
         </main>
     </div>
   )

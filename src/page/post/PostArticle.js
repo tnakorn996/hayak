@@ -99,21 +99,23 @@ function PostArticle() {
                         <div className="z-10 absolute bottom-0 left-8 md:left-14 max-w-[70%] md:max-w-[60%] ">
                             {postarticlerenderfour && <h1 className=" flex flex-row items-center gap-1  tracking-[0.2em] md:m-h3 uppercase"><RiContrastDropLine className='md:m-h3' /> {postarticlerenderfour}</h1>}
                             <h1 className="text-2xl md:text-5xl  m-h6 font-serif">{postarticlestate?.posttitle}</h1>
-                            {/* {postarticlestate && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: postarticlestate}} ptamainstyle={'!text-xl md:!text-3xl'} />} */}
                         </div>
                     </figure>
                 </section>
                 <section className="sticky z-10 p-[30px] md:p-[60px] flex flex-col md:grid md:grid-cols-12 gap-5  bg-white">
-                    <figure className="md:col-span-7">
+                    <figure className="md:col-span-8">
                         <figure className="grid grid-cols-12 items-center  ">
-                            <div className="col-span-12 grid grid-cols-12 items-center gap-5">
+                            <div className="col-span-12 grid grid-cols-12 items-center gap-3">
                                 <button onClick={() => {
                                     setappmainstate({
                                         appmainboolean: false,
                                     })
                                     navigate(`/${postarticlestate?.postid}`)
-                                }} className="col-span-12 md:col-span-4 m-button m-h3">→ Read more</button>
-                                <figure className="col-span-12 md:col-span-8">
+                                }} className="col-span-11 md:col-span-4 m-button m-h3 border">→ Read more</button>
+                                <figure className="col-span-1 h-full flex justify-center items-center  ">
+                                    {postarticlestate && <PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamaindata: postarticlestate}} ptamainstyle={'!text-xl md:!text-3xl'} />}
+                                </figure>
+                                <figure className="col-span-12 md:col-span-6">
                                     <BarMain barmainid={'postindextime'} barmainindex={1} barmaindata={postindexthree}/>
                                 </figure>
                             </div>
@@ -126,7 +128,7 @@ function PostArticle() {
                             <h1 className="l-h5">{postarticlestate?.postsubtitle}</h1>
                         </figcaption>
                     </figure>
-                    <figcaption className="md:col-span-5 grid grid-cols-2">
+                    <figcaption className="md:col-span-4 grid grid-cols-2">
                         <div className="col-span-2">
                                 <HorizonMain onlick={() => {
                                     navigate(`/${postarticlestate?.placepostid?.postid}`)

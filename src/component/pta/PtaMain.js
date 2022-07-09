@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useContext } from 'react';
 import { useEffect } from 'react';
-import { RiCheckboxBlankLine, RiCheckboxLine, RiCheckFill, RiCheckLine, RiCloseLine, RiHeartFill, RiHeartLine } from 'react-icons/ri';
+import { RiCheckboxBlankLine, RiCheckboxLine, RiCheckFill, RiCheckLine, RiCloseLine, RiHeart2Line, RiHeart3Fill, RiHeart3Line, RiHeartFill, RiHeartLine } from 'react-icons/ri';
 import { VscHeart } from 'react-icons/vsc';
 
 import '../pta/ptamain.css'
@@ -34,14 +34,14 @@ function PtaMain({
         {
             ptamainindex: 0,
             ptamaintitle: 'Like',
-            ptamainicon: <RiHeartFill className='text-gray-200' />,
+            ptamainicon: <RiHeart3Line className='text-gray-400' />,
             ptamainaction: ll,
         },
         {
             ptamainindex: 1,
             ptamaintitle: 'Liked',
             ptamainicon: <motion.div initial={{scale: 0.5}} animate={{ scale:1}} className="duration-100">
-                <RiHeartFill className='text-black' />
+                <RiHeart3Fill className='text-black' />
             </motion.div>,
             ptamainaction: kk,
         }
