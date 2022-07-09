@@ -24,6 +24,7 @@ import GuideMain from '../../component/guide/GuideMain'
 import PtaMain from '../../component/pta/PtaMain'
 import JointMain from '../../component/joint/JointMain'
 import ListMain from '../../component/list/ListMain'
+import useClient from '../../hook/useClient'
 // import SnackbarMain from '../../component/snackbar/SnackbarMain'
 // import FabMain from '../../component/fab/FabMain'
 // import HorizonMain from '../../component/post/HorizonMain'
@@ -234,10 +235,29 @@ function PostIndex() {
     //     },
     // ]
 
+    const clientquery = `*[_type != 'comment' && _type != 'feedback' && postid == '${appmainstate?.appmainparam || param.id}']{
+          ...,
+          'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] | order(_createdAt desc),
+          'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] | order(_createdAt desc) ,
+          'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] | order(_createdAt desc) ,
+          'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] | order(_createdAt desc) ,
+          'commentpostid': *[_type == 'comment' && postid == ^.postid ] | order(_createdAt desc) ,
+      }[0]`;
+
+    const [clientstatic, setclientstatic] = useClient(clientquery)
+
     useEffect(() => {
-        window.addEventListener('load', ll())
+        // window.addEventListener('load', ll())
         // ll()
-    }, [])
+        if(clientstatic) {
+            setpostpostid(clientstatic);
+            setpostplaceid(clientstatic.postplaceid)
+            setplaceplaceid(clientstatic.placeplaceid)
+            setproductplaceid(clientstatic.productplaceid)
+            setproductpostid(clientstatic.productpostid)
+            setcommentpostid(clientstatic.commentpostid)
+        }
+    }, [clientstatic])
 
     useEffect(() => {
         if(postpostid){
@@ -257,12 +277,6 @@ function PostIndex() {
                 portmainidtwo: 'breadmain',
                 portmainidthree: postpostid?._type,
             })
-            // settabmainstate({
-            //     tabmainid: 'blockselect',
-            //     tabmainidtwo: 'blocklink',
-            //     tabmainidthree: 'description',
-            //     tabmainparam: param.id,
-            // })
             setstepmainstate({
                 stepmainid: 'postdatalist',
                 stepmainrender: postpostid,
@@ -307,68 +321,7 @@ function PostIndex() {
             setpostindexrenderfour(filterfour)
       }
     }, [postpostid, postupdatedat, placeupdatedat, productupdatedat])
-    
-    // useEffect(() => {
-    //   if(postpostid && userindex){
-    //         hh()
-    //   }
-    // }, [userindex, postpostid])
-    
-    const ll = async () => {
-              const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${appmainstate?.appmainparam || param.id}']{
-                  ...,
-                  'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] | order(_createdAt desc),
-                  'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] | order(_createdAt desc) ,
-                  'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] | order(_createdAt desc) ,
-                  'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] | order(_createdAt desc) ,
-                  'commentpostid': *[_type == 'comment' && postid == ^.postid ] | order(_createdAt desc) ,
-              }[0]`;
-              await client.fetch(query)
-              .then((data) => {
-                    setpostpostid(data);
 
-                    setpostplaceid(data.postplaceid)
-                    setplaceplaceid(data.placeplaceid)
-                    setproductplaceid(data.productplaceid)
-                    setproductpostid(data.productpostid)
-                    setcommentpostid(data.commentpostid)
-                }).catch((data) => {
-                    setpostindexmessage(data.message)
-                })
-            }
-
-    // function kk() {
-    //     if(postpostid && postpostid.postblock){
-            
-    //         const ref = postpostid.postblock.map((data, dataindex) => {
-    //             const find = postfigcaption.find(dat => dat.postfigcaptionid === data.style)
-    //             const findfour = postdiv.find(dat => dat.postdivid === data.listItem)
-    //             return data.children.map((dat, datindex) => {
-    //                 const findtwo = data.markDefs.find(da => da._key === dat.marks[0])
-    //                 const findthree = posth1.find(da => da.posth1id === dat.marks[0])
-    //                 const target = (findtwo?.href || '').startsWith('http') ? '_blank' : undefined
-    //                 return (<>
-    //                     <figcaption className={`text-base inline-block font-serif`}  >
-                            
-    //                         {findfour !== undefined && (<>
-    //                         <div className=" inline-block pr-[7px]">
-    //                             {findfour.postdivid === 'number' && <h1 className="">{dataindex}</h1>}
-    //                             {findfour.postdivtitle}
-    //                         </div>
-    //                         </>)}
-
-    //                         <a href={findtwo && findtwo.href} target={target} rel={target === '_blank' && 'noindex nofollow'} className={`px-[3px] inline-block ${find.postfigcaptiontitle} ${findtwo && '!text-blue-500 !cursor-pointer'} ${findthree && findthree.posth1title} leading-relaxed`}>{dat.text}</a>
-    //                         {dat.text.length === 0 && (<>
-    //                             <h1 className="inline-block  bg-red-500">s<br /></h1>
-    //                         </>)}
-
-    //                     </figcaption>
-    //                 </>)
-    //             })
-    //         })
-    //         return ref
-    //     }
-    // }
 
     const component = {
         text: {
@@ -414,13 +367,6 @@ function PostIndex() {
             .set({postcount: postpostid.postcount + 1 || 0}) 
             .commit()
     }
-
-    // const  hh = async () => {
-    //         await client  
-    //         .patch(userindex._id)
-    //         .set({categoryid: postpostid.categoryid}) 
-    //         .commit()
-    // }
 
     window.onscroll = function (){
         if (((window.innerHeight + document.documentElement.scrollTop) >= window.innerHeight + (window.innerHeight * 1.1)) && window.screen.width > 1000) {
@@ -468,7 +414,7 @@ function PostIndex() {
         </main>
         <main className="flex flex-col md:grid md:grid-cols-12   duration-100">
             <figure className="col-span-12 relative">
-                <section className="overflow-hidden">
+                <section className="min-h-[75vh]  overflow-hidden">
                     <SlideMain 
                     slidemainid={'postindexth'} 
                     slidemainindex={0} 

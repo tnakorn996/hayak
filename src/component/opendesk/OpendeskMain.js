@@ -10,7 +10,6 @@ import HorizonMain from '../post/HorizonMain'
 import PtaMain from '../pta/PtaMain'
 import '../opendesk/opendesk.css'
 import useApp from '../../hook/useApp'
-import useAppTwo from '../../hook/useAppTwo'
 
 function OpendeskMain() {
     const {
@@ -118,7 +117,8 @@ function OpendeskMain() {
 
   return (
     <div>
-        <motion.main key='opendeskmain' initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="fixed bottom-0 md:top-0 right-0 w-screen md:h-screen md:max-w-[500px] p-[20px]  border bg-white shadow-2xl overflow-hidden duration-100">
+        {/* <motion.main key='opendeskmain' initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="fixed bottom-0 md:top-0 right-0 w-screen md:h-screen md:max-w-[500px] p-[20px]  border bg-white shadow-2xl overflow-hidden duration-100"> */}
+        <main className="fixed bottom-0 md:top-0 right-0 w-screen md:h-screen md:max-w-[500px] p-[20px]  border bg-white shadow-2xl overflow-hidden">
             <section className="md:h-[10vh] grid grid-cols-12">
             <figure className="col-span-11">
             {(opendeskmainlocation || opendeskmainparam) && (<>
@@ -184,7 +184,7 @@ function OpendeskMain() {
                 }} className=" w-full  l-button">Cancel</button>
             </section>
 
-        </motion.main>
+        </main>
     </div>
   )
 }

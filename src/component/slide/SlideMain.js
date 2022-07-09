@@ -133,7 +133,7 @@ function SlideMain({
                                     scrollmaintransform: 0.5,
                                 }}
                                 >
-                            <img loading='lazy' src={urlFor(data?.posthero)} alt="" className={`z-10 max-w-[150ch] max-h-full md:min-w-full md:min-h-fit`} />
+                            <img src={urlFor(data?.posthero)} alt="" className={`z-10 max-w-[150ch] max-h-full md:min-w-full md:min-h-fit`} />
                             </ScrollMain>
                             
                             {/* <div className="absolute z-10">

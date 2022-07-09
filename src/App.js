@@ -1,7 +1,7 @@
 
-import React, { useEffect, useContext} from 'react'
+import React, { useEffect, useContext, useState} from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom';
-// import {AnimatePresence} from 'framer-motion'
+import {AnimatePresence, motion} from 'framer-motion'
 
 import './App.css';
 import {ContextMain} from './context/contextmain'
@@ -9,7 +9,6 @@ import NavMain from './component/nav/NavMain';
 import CategoryIndex from './page/catagory/CategoryIndex';
 import HomeMain from './page/home/HomeMain';
 import PostIndex from './page/post/PostIndex';
-import PlanMain from './page/plan/PlanMain';
 import BackdropMain from './component/modal/BackdropMain';
 import Overlay from './component/overlay/Overlay';
 import TopMain from './component/top/TopMain';
@@ -21,21 +20,34 @@ import ContactMain from './page/contact/ContactMain';
 import ContactForm from './page/contact/ContactForm';
 import FabMain from './component/fab/FabMain';
 
+
 export default function App() {
   const {
     appmainstate, 
-  
+    
   } = useContext(ContextMain)
   const location = useLocation()
   // const param = useParams()
+
+  const [appstyle, setappstyle] = useState(0)
+
+  // useEffect(() => {
+  //   if(appmainstate){
+  //     if(appmainstate.appmainidtwo === 'opendeskmain'){
+  //       setappstyle(-50)
+  //     }
+  //     if(appmainstate.appmainidtwo === 'sideboardmain'){
+  //       setappstyle(50)
+  //     }
+  //   } else {
+  //     setappstyle(0)
+  //   }
+  // }, [appmainstate])
 
     const app = (appmainstate)  => {
       switch(appmainstate.appmainredirect) {
         default: 
         return dashboard
-
-        case 'planmain': 
-        return <PlanMain />
 
         case 'appmain': 
         return dashboard
@@ -45,11 +57,11 @@ export default function App() {
     const dashboard = (
     <div className="App">
       <main className="">
-        <section className="absolute z-30 top-0 left-0">
-        {/* <section className="duration-100"> */}
-          <NavMain />
-        </section>
 
+        <div className="absolute z-30 top-0 left-0">
+          <NavMain />
+        </div>
+        
         <section className="min-h-screen">
         <TopMain />
         {/* <AnimatePresence exitBeforeEnter > */}
@@ -74,25 +86,21 @@ export default function App() {
         {/* </AnimatePresence> */}
         </section>
 
-        {/* <section className="">
-        <PortMain />
-        </section> */}
+          <div className="">
+            <FooterMain />
+          </div>
 
-        <section className="">
-          <FooterMain />
-        </section>
+          <div className="z-30 sticky">
+          {appmainstate?.appmainboolean === true && (<>
+              <BackdropMain />
+          </>)}
+          </div>
 
-        <section className="z-30 sticky">
-        {appmainstate?.appmainboolean === true && (<>
-            <BackdropMain />
-        </>)}
-        </section>
-
-        <section className="z-30 sticky">
-        {appmainstate?.appmainid === 'overlay' && (<>
-            <Overlay />
-        </>)}
-        </section>
+          <div className="z-30 sticky">
+          {appmainstate?.appmainid === 'overlay' && (<>
+              <Overlay />
+          </>)}
+          </div>
 
       </main>
     </div>

@@ -126,7 +126,7 @@ export default function ChooseMain({
             </>)}
             {choosemainindex === 1 && 
             <motion.section initial={{y: -100}} animate={{ y:0}} exit={{y: -100}} className="relative">
-                <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="w-[90%] z-20 absolute top-3 right-0  bg-white shadow-md border duration-100">
+                <motion.figure initial={{scale: 0}} animate={{scale: 1}} className="w-[90%] z-20 absolute top-3 right-0  bg-white shadow-md border duration-100">
                     {choosemainrendertwo}
                 </motion.figure>
             </motion.section>

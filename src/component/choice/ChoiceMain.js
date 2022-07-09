@@ -176,7 +176,7 @@ function ChoiceMain({
                     <div className="">
                         <br />
                         <br />
-                        <h1 className="m-h5 md:m-h6 max-w-[70vw] font-serif">{data?.choicemaintitle}</h1>
+                        <h1 className="m-h6 max-w-[70vw] font-serif">{data?.choicemaintitle}</h1>
                         <br />
                         <br />
                     </div>
@@ -192,7 +192,7 @@ function ChoiceMain({
                             dat?.crummainsubtitle === choicemainvaluethree ||
                             dat?.crummainsubtitle === choicemainvaluefour) && 'bg-gray-900 text-white'}`}>
                             {dat?.crummainicon && <h1 className="">{dat?.crummainicon}</h1>}
-                            <h1 className="m-h1 first-letter:uppercase font-serif">{dat?.crummainsubtitle}</h1>
+                            <h1 className="m-h2 first-letter:uppercase font-serif">{dat?.crummainsubtitle}</h1>
                         </button>
                     </>))}
                 </figcaption>

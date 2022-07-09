@@ -6,6 +6,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 
 import { client } from '../lib/sanity'
 import { RiFeedbackFill, RiShareFill } from 'react-icons/ri';
+import useClient from '../hook/useClient';
 
 export const ContextMain = createContext()
 
@@ -57,12 +58,12 @@ export const Provider = ({ children }) => {
     const [productcreatedat, setproductcreatedat] = useState()
     const [placecreatedat, setplacecreatedat] = useState()
 
-    useEffect(() => {
-        window.addEventListener('load', pp())
-        // window.addEventListener('load', oo())
-        // pp()
-        return window.removeEventListener('load', pp())
-    }, [])
+    // useEffect(() => {
+    //     window.addEventListener('load', pp())
+    //     window.addEventListener('load', oo())
+    //     pp()
+    //     return window.removeEventListener('load', pp())
+    // }, [])
 
     // const progress = new ProgressBar({
     //   size: 4,
@@ -98,19 +99,82 @@ export const Provider = ({ children }) => {
         setsharemainstate('')
         setrtamainstate('')
         setctamainstate('')
-        window.addEventListener('load', oo())
-
         window.localStorage.setItem("favouriteiframe", JSON.stringify([]))
         window.localStorage.setItem("feedbackiframe", JSON.stringify([]))
         window.localStorage.setItem("contactiframe", JSON.stringify([]))
-
+        
         // progress.start();
         // setTimeout(() => {
-        //     progress.finish();
-        // }, 5000);
-
-        return window.removeEventListener('load', oo())
+            //     progress.finish();
+            // }, 5000);
+            
+        // window.addEventListener('load', oo())
+        // return window.removeEventListener('load', oo())
     }, [location])
+
+
+    const clientquery = `*[_type == 'user' && userid == 'hayaker']{
+                ...,
+
+                'postplaceproduct': *[_type == 'post' || _type == 'place' || _type == 'product'] {
+                  ...,
+                  'placepostid':  *[_type == 'place' && postid == lower(^.placeid) ][0],
+                } | order(_createdAt desc) ,
+
+                'postupdatedat': *[_type == 'post'] {
+                  ...,
+                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
+                } | order(_updatedAt desc) ,
+                'placeupdatedat': *[_type == 'place'] {
+                  ...,
+                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
+                } | order(_updatedAt desc) ,
+                'productupdatedat': *[_type == 'product'] {
+                  ...,
+                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
+                } | order(_updatedAt desc) ,
+
+                'placecreatedat': *[_type == 'place'] {
+                  ...,
+                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
+                } | order(_createdAt desc),
+                'productcreatedat': *[_type == 'product'] {
+                  ...,
+                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
+                } | order(_createdAt desc),
+                
+              }[0]`;
+    
+    const clientquerytwo = `*[_type != 'comment' && _type != 'feedback' && postid == '${location && location?.pathname?.replace('/', '')}']{
+        ...,
+        'postblock': null,
+        'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] {..., 'postblock': null} | order(_updatedAt desc),
+        'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] {..., 'postblock': null} | order(_updatedAt desc) ,
+        'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] {..., 'postblock': null} | order(_updatedAt desc) ,
+        'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] {..., 'postblock': null} | order(_updatedAt desc) ,
+    }[0]`;         
+
+    const [clientstatic, setclientstatic] = useClient(clientquery)
+    const [clientstatictwo, setclientstatictwo] = useClient(clientquerytwo)
+
+    useEffect(() => {
+        if(clientstatic){
+            const {postplaceproduct, postupdatedat, placeupdatedat, productupdatedat, placecreatedat, productcreatedat} = clientstatic
+            setpostplaceproduct(postplaceproduct)
+            setpostupdatedat(postupdatedat);
+            setplaceupdatedat(placeupdatedat);
+            setproductupdatedat(productupdatedat);
+            setplacecreatedat(placecreatedat);
+            setproductcreatedat(productcreatedat);
+        }
+        
+    }, [clientstatic])
+
+    useEffect(() => {
+        if(clientstatictwo) {
+            setclientpost(clientstatictwo)
+        }
+    }, [clientstatictwo])
     
     const postselect = [
         {
@@ -1039,65 +1103,6 @@ export const Provider = ({ children }) => {
         }
     ]
 
-    const pp = async () => {
-              const query = `*[_type == 'user' && userid == 'hayaker']{
-                ...,
-
-                'postplaceproduct': *[_type == 'post' || _type == 'place' || _type == 'product'] {
-                  ...,
-                  'placepostid':  *[_type == 'place' && postid == lower(^.placeid) ][0],
-                } | order(_createdAt desc) ,
-
-                'postupdatedat': *[_type == 'post'] {
-                  ...,
-                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
-                } | order(_updatedAt desc) ,
-                'placeupdatedat': *[_type == 'place'] {
-                  ...,
-                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
-                } | order(_updatedAt desc) ,
-                'productupdatedat': *[_type == 'product'] {
-                  ...,
-                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
-                } | order(_updatedAt desc) ,
-
-                'placecreatedat': *[_type == 'place'] {
-                  ...,
-                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
-                } | order(_createdAt desc),
-                'productcreatedat': *[_type == 'product'] {
-                  ...,
-                  'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
-                } | order(_createdAt desc),
-                
-              }[0]`;
-              await client.fetch(query) 
-              .then((data) => {
-                  setpostplaceproduct(data.postplaceproduct)
-
-                  setpostupdatedat(data.postupdatedat);
-                  setplaceupdatedat(data.placeupdatedat);
-                  setproductupdatedat(data.productupdatedat);
-                  setplacecreatedat(data.placecreatedat);
-                  setproductcreatedat(data.productcreatedat);
-              })
-        }
-
-    const oo = async () => {
-          const query = `*[_type != 'comment' && _type != 'feedback' && postid == '${location && location?.pathname?.replace('/', '')}']{
-            ...,
-            'postblock': null,
-            'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] {..., 'postblock': null} | order(_updatedAt desc),
-            'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] {..., 'postblock': null} | order(_updatedAt desc) ,
-            'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] {..., 'postblock': null} | order(_updatedAt desc) ,
-            'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] {..., 'postblock': null} | order(_updatedAt desc) ,
-          }[0]`;
-          await client.fetch(query) 
-          .then((data) => {
-            setclientpost(data)
-          })
-    }
-    
     // if(!postupdatedat) return <LoadMain />
 
     return (

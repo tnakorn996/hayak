@@ -180,7 +180,8 @@ function ModalMain() {
   return (
     <div>
         <br />
-        <motion.main initial={{y: 200}} animate={{ y:0}} exit={{y: 200}} className="w-screen md:max-w-[700px] bg-white border shadow-2xl duration-100">
+        {/* <motion.main initial={{y: 200}} animate={{ y:0}} exit={{y: 200}} className="w-screen md:max-w-[700px] bg-white border shadow-2xl duration-100"> */}
+        <main className="w-screen md:max-w-[700px] bg-white border shadow-2xl">
             <section className="h-[5vh] p-[20px] text-center">
                 <h1 className="m-h4 font-serif">{modalmaintitle && modalmaintitle}</h1>
             </section>
@@ -196,7 +197,7 @@ function ModalMain() {
                 }} className="l-button">Cancel</button>
                 {modalmainaction && modalmainaction}
             </section>
-        </motion.main>
+        </main>
     </div>
   )
 }

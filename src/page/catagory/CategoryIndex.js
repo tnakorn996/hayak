@@ -133,7 +133,8 @@ function CategoryIndex() {
 
   return (
     <div>
-        <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="overflow-hidden duration-100">
+        {/* <motion.main initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="overflow-hidden duration-100"> */}
+        <main className="overflow-hidden">
             <section className="px-[20px] md:px-[60px] w-full mx-auto h-[35vh] flex items-center">
                 <div className="">
                 <br />
@@ -202,7 +203,7 @@ function CategoryIndex() {
 
                 </>))}
             </section>
-        </motion.main>
+        </main>
     </div>
   )
 }

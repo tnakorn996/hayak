@@ -21,6 +21,7 @@ function PtaMain({
         searchinputstate,
         favouritemainstate,
         settoastermainstate,
+        toastermainstate,
 
         // favouritedi,
         
