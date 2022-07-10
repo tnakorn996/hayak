@@ -34,7 +34,7 @@
     }
 
     .l-button {
-        @apply text-sm py-[10px] px-[20px] bg-white text-black font-medium;
+        @apply text-sm py-[10px] px-[20px] bg-white text-black font-medium 
     }
 
     .m-input {

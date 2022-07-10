@@ -33,6 +33,7 @@ function BarMain({
                 {
                     barmainindex: 0,
                     barmainicon: <RiEyeLine />,
+                    barmaindescription: 'views',
                     barmainrender: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'viewdi')
                         return kk(filter[0]?.postindexthreerender?.postcount, 1)
@@ -43,6 +44,7 @@ function BarMain({
                 {
                     barmainindex: 1,
                     barmainicon: <RiBookOpenLine />,
+                    barmaindescription: 'read',
                     barmainrender: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'readdi')
                         return Math.floor(filter[0]?.postindexthreerender?.postblock?.length * 0.3) + ' min'
@@ -53,44 +55,23 @@ function BarMain({
                 {
                     barmainindex: 2,
                     barmainicon: <RiTimeLine />,
+                    barmaindescription: 'ago',
                     barmainrender: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
                         return ll(new Date(filter[0]?.postindexthreerender?._createdAt))
                     }, 
                     barmainrendertwo: () => {},
                 },
-                // {
-                //     barmainindex: 3,
-                //     barmainrender: () => {},
-                //     barmainrendertwo: () => {
-                //         const filter = barmaindata?.filter(data => data.postindexthreeid === 'timedi')
-                //         return <SocialMain param={`/` + filter[0]?.postindexthreerender?.postid} />
-                //     }, 
-                // },
+                
                 {
                     barmainindex: 4,
                     barmainrender: () => {},
+                    barmaindescription: 'More',
                     barmainrendertwo: () => {
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'moredi')
                         const ref = filter[0]?.postindexthreerender
                         return <figure onClick={() => {
-                                settabmainstate({
-                                    tabmainid: 'postoption',
-                                    tabmaindata: ref,
-                                    tabmainparam: ref?.postid,
-                                    // tabmainlocation: location.pathname,
-                                    tabmainimage: ref?.posthero,
-                                    tabmaintitle: ref?.posttitle,
-                                })
-                                setappmainstate({
-                                    appmainid: 'postoption',
-                                    appmainidtwo: 'opendeskmain',
-                                    appmainparam: ref?.postid,
-                                    appmainboolean: true,
-                                })
-                                setsharemainstate({
-                                    sharemainparam: ref?.postid,
-                                })
+                                jj(ref)
                             }} className="">
                                 <article className="">
                                     <RiMoreLine className='m-h3' />
@@ -145,23 +126,7 @@ function BarMain({
                         const filter = barmaindata?.filter(data => data.postindexthreeid === 'moredi')
                         const ref = filter[0]?.postindexthreerender
                         return <figure onClick={() => {
-                                settabmainstate({
-                                    tabmainid: 'postoption',
-                                    tabmaindata: ref,
-                                    tabmainparam: ref?.postid,
-                                    // tabmainlocation: location.pathname,
-                                    tabmainimage: ref?.posthero,
-                                    tabmaintitle: ref?.posttitle,
-                                })
-                                setappmainstate({
-                                    appmainid: 'postoption',
-                                    appmainidtwo: 'opendeskmain',
-                                    appmainparam: ref?.postid,
-                                    appmainboolean: true,
-                                })
-                                setsharemainstate({
-                                    sharemainparam: ref?.postid,
-                                })
+                                jj(ref)
                             }} className="">
                                 <article className="">
                                     <RiMoreLine className='m-h3' />
@@ -172,37 +137,6 @@ function BarMain({
             ]
         }
     ]
-
-
-    // const favouritetime = [
-    //     {
-    //         barmainindex: 0,
-    //         barmaindata: [
-    //             {
-    //                 barmainindex: 0,
-    //                 barmainrender: () => {},
-    //                 barmainrendertwo: () => {
-    //                     const filter = parsepost.favouritemaindata.filter(data => data.postid !== barmaindata.postid)
-    //                     return <RiHeartFill onClick={() => {
-    //                         window.localStorage.clear()
-    //                         window.localStorage.setItem("post", JSON.stringify({
-    //                             favouritemaindata: filter,
-    //                         }));
-    //                         setappmainstate({
-    //                             appmainid:'overlay',
-    //                             appmainidtwo:'toastermain',
-    //                         })
-    //                         settoastermainstate({
-    //                                 toastermainid: 'postheader',
-    //                                 toastermainindex: 2,
-    //                                 // toastermaindata: [ptamainstate.ptamaindata],
-    //                         })
-    //                     }} className='m-h2  text-rose-800' />
-    //                 }, 
-    //             },
-    //         ]
-    //     },
-    // ]
 
     const barmain = [
         {
@@ -265,23 +199,39 @@ function BarMain({
       return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
     }
 
+    function jj(first= this.props.first) {
+        settabmainstate({
+            tabmainid: 'postoption',
+            tabmaindata: first,
+            tabmainparam: first?.postid,
+            // tabmainlocation: location.pathname,
+            tabmainimage: first?.posthero,
+            tabmaintitle: first?.posttitle,
+        })
+        setappmainstate({
+            appmainid: 'postoption',
+            appmainidtwo: 'opendeskmain',
+            appmainparam: first?.postid,
+            appmainboolean: true,
+        })
+        setsharemainstate({
+            sharemainparam: first?.postid,
+        })
+    }
+
   return (
     <div>
         <main className="w-full grid grid-cols-12 gap-3 items-center">
                 <section className="col-span-9 flex flex-row gap-3 justify-start items-center">
                 {barmainrender?.map(data => (<>
-                    <article className="flex flex-row gap-1 items-center  m-h4">
-                        <figure className="m-h3">
-                            {data?.barmainicon}
-                        </figure>
-                        <figcaption className=" l-h3">
-                            <h1 className="">{data?.barmainrender()}</h1>
-                        </figcaption>
+                    <article className="flex flex-row gap-1 items-center  l-h4">
+                        {data?.barmainicon}
+                        {data?.barmainrender()}
                     </article>
                 </>))}
                 </section>
 
-                <section className="col-span-3 flex flex-row gap-2 justify-end items-center">
+                <section className="col-span-3 flex flex-row gap-2 justify-end items-center  l-h4">
                 {barmainrender?.map(data => (<>
                 <article onClick={() => {
                     data?.barmainaction()

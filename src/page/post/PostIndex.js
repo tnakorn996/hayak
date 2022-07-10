@@ -25,6 +25,7 @@ import PtaMain from '../../component/pta/PtaMain'
 import JointMain from '../../component/joint/JointMain'
 import ListMain from '../../component/list/ListMain'
 import useClient from '../../hook/useClient'
+import TipMain from '../../layout/tip/TipMain'
 // import SnackbarMain from '../../component/snackbar/SnackbarMain'
 // import FabMain from '../../component/fab/FabMain'
 // import HorizonMain from '../../component/post/HorizonMain'
@@ -492,8 +493,12 @@ function PostIndex() {
                     <br />
                     {postindexstyle === '' && (<><br /></>)}
                     <div className="flex flex-row justify-between">
-                        <h1 className={`flex flex-row items-center gap-1  l-h2 uppercase tracking-[0.2em]  ${postindexstyle !== '' && '!text-[12px]'}`}><RiContrastDropLine /> {postindexrender ? postindexrender : 'ORIGINAL'}</h1>
+                        <TipMain tipmainstatic={{tipmaindata: `Genre: ${postindexrender ? postindexrender : 'ORIGINAL'}`}}>
+                            <h1 className={`flex flex-row items-center gap-1  l-h2 uppercase tracking-[0.2em]  ${postindexstyle !== '' && '!text-[12px]'}`}><RiContrastDropLine /> {postindexrender ? postindexrender : 'ORIGINAL'}</h1>
+                        </TipMain>
+                        <TipMain tipmainstatic={{tipmaindata: `Favourite`}}>
                         {<PtaMain ptamainstatic={{ptamainid: 'postiframe', ptamainindex: 0, ptamaindata: postpostid}} ptamainstyle={'text-xl'} />}
+                        </TipMain>
                     </div>
                     <h1 className={`md:max-w-[80%] text-3xl md:text-5xl m-h6 py-[10px] font-serif leading-normal  ${postindexstyle !== '' && '!text-xl !leading-none'}`}>{postpostid?.posttitle}</h1>
                     {postindexstyle === '' && (<>

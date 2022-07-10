@@ -10,6 +10,8 @@ import ButtonMain from '../../layout/button/ButtonMain'
 import CardMain from '../card/CardMain'
 import ChooseMain from '../choose/ChooseMain'
 import useApp from '../../hook/useApp'
+import TipMain from '../../layout/tip/TipMain'
+import { RiQuestionFill } from 'react-icons/ri'
 
 function FieldMain({
     fieldmainid,
@@ -249,9 +251,16 @@ function FieldMain({
                     {data?.fieldmaindata?.map(dat => (<>
                     <figcaption className="">
                         <br />
-                        <h1 className="py-[7px]  m-h1">{dat?.fieldmainsubtitle !== '' && dat?.fieldmainsubtitle}</h1>
+                        <div className="flex flex-row items-center gap-1">
+                            <h1 className="py-[7px]  m-h1">{dat?.fieldmainsubtitle !== '' && dat?.fieldmainsubtitle}</h1>
+                            {dat?.fieldmainsubtitle !== '' && (<>
+                            <TipMain tipmainstatic={{tipmaindata: dat?.fieldmainsubtitle}}>
+                                <RiQuestionFill className='l-h1' />
+                            </TipMain>
+                            </>)}
+                        </div>
                         <div className="w-full">
-                        {dat?.fieldmainrender}
+                            {dat?.fieldmainrender}
                         </div>
                     </figcaption>
                     </>))}
