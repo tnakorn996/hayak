@@ -4,7 +4,6 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 // import LoadMain from '../component/load/LoadMain'
 // import ProgressBar from "@badrap/bar-of-progress";
 
-import { client } from '../lib/sanity'
 import { RiFeedbackFill, RiShareFill } from 'react-icons/ri';
 import useClient from '../hook/useClient';
 
@@ -14,7 +13,7 @@ export const Provider = ({ children }) => {
     const location = useLocation()
     // const param = useParams()
    
-    const [appmainstate, setappmainstate] = useState('appmain')
+    const [appmainstate, setappmainstate] = useState('')
     // const [postindexstate, setpostindexstate] = useState()
     const [planformstate, setplanformstate] = useState()
     const [ontromainstate, setontromainstate] = useState()
@@ -115,31 +114,37 @@ export const Provider = ({ children }) => {
 
     const clientquery = `*[_type == 'user' && userid == 'hayaker']{
                 ...,
-
                 'postplaceproduct': *[_type == 'post' && postpublish != false || _type == 'place' && postpublish != false || _type == 'product' && postpublish != false] {
                   ...,
+                  'postblock': null,
+
                   'placepostid':  *[_type == 'place' && postid == lower(^.placeid) ][0],
                 } | order(_createdAt desc) ,
 
                 'postupdatedat': *[_type == 'post' && postpublish != false] {
                   ...,
+                  'postblock': null,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_updatedAt desc) ,
                 'placeupdatedat': *[_type == 'place' && postpublish != false] {
                   ...,
+                  'postblock': null,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_updatedAt desc) ,
                 'productupdatedat': *[_type == 'product' && postpublish != false] {
                   ...,
+                  'postblock': null,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_updatedAt desc) ,
 
                 'placecreatedat': *[_type == 'place' && postpublish != false] {
                   ...,
+                  'postblock': null,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_createdAt desc),
                 'productcreatedat': *[_type == 'product' && postpublish != false] {
                   ...,
+                  'postblock': null,
                   'placepostid':  *[_type == 'place' && postid == ^.placeid ][0],
                 } | order(_createdAt desc),
                 
@@ -177,7 +182,7 @@ export const Provider = ({ children }) => {
     }, [clientstatictwo])
 
     useEffect(() => {
-        if( (appmainstate === '' || appmainstate.appmainboolean === false) && parsepost.length > 0 && window.screen.width < 1000){
+        if( (appmainstate === '' || appmainstate.appmainboolean === false) && parsepost && parsepost.length > 0 && window.screen.width < 1000){
             setappmainstate({
                 appmainid: 'overlay',
                 appmainidtwo: 'snackbarmain',
@@ -987,7 +992,7 @@ export const Provider = ({ children }) => {
         {
             spreadmainindex: 3,
             spreadmaintitle: 'History',
-            spreadmaindata: parsesearch,
+            spreadmaindata: parsesearch || [],
         },
     ]
 
@@ -1003,7 +1008,7 @@ export const Provider = ({ children }) => {
             sheetmainindex: 0,
             sheetmaintitle: 'Blog',
             // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'post'),
-            sheetmaindata: parsepost && parsepost?.filter(data => data?._type === 'post'),
+            sheetmaindata: parsepost?.filter(data => data?._type === 'post') || [],
 
             spreadmainid: 'read',
         },
@@ -1011,7 +1016,7 @@ export const Provider = ({ children }) => {
             sheetmainindex: 1,
             sheetmaintitle: 'Places',
             // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'place'),
-            sheetmaindata: parsepost && parsepost?.filter(data => data?._type === 'place'),
+            sheetmaindata: parsepost?.filter(data => data?._type === 'place') || [],
 
             spreadmainid: 'read',
         },
@@ -1019,7 +1024,7 @@ export const Provider = ({ children }) => {
             sheetmainindex: 2,
             sheetmaintitle: 'Products',
             // sheetmaindata: favouritemainstate?.favouritemaindata?.filter(data => data?._type === 'product'),
-            sheetmaindata: parsepost && parsepost?.filter(data => data?._type === 'product'),
+            sheetmaindata: parsepost?.filter(data => data?._type === 'product') || [],
 
             spreadmainid: 'read',
         },
@@ -1028,7 +1033,7 @@ export const Provider = ({ children }) => {
     const favouritedi = [
         {
             sheetmainindex: 0,
-            sheetmaindata: parsefavourite,
+            sheetmaindata: parsefavourite || [],
 
         },
     ]
@@ -1036,14 +1041,14 @@ export const Provider = ({ children }) => {
     const feedbackdi = [
         {
             sheetmainindex: 0,
-            sheetmaindata: parsefeedback,
+            sheetmaindata: parsefeedback || [],
         },
     ]
 
     const contactdi = [
         {
             sheetmainindex: 0,
-            sheetmaindata: parsecontact,
+            sheetmaindata: parsecontact || [],
         },
     ]
 

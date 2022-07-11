@@ -13,7 +13,7 @@ import SpreadMain from '../../component/spread/SpreadMain'
 import { categoryui, genreui } from '../../content/contentmantwo'
 import { ContextMain } from '../../context/contextmain'
 import { urlFor } from '../../lib/sanity'
-
+import '../../component/preview/previewmain.css'
 
 function PostArticle() {
     const {
@@ -82,7 +82,7 @@ function PostArticle() {
   
   return (
     <div>
-        <main className="h-screen md:h-full overflow-y-scroll">
+        <main className="h-screen md:h-full overflow-y-scroll  no-scrollbar">
                 <section className="z-0 sticky top-0 left-0">
                     <figure className="relative h-[65vh] w-full flex items-center justify-center overflow-hidden">
                         <div className="absolute">

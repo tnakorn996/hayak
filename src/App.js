@@ -43,15 +43,15 @@ export default function App() {
   //   }
   // }, [appmainstate])
 
-    const app = (appmainstate)  => {
-      switch(appmainstate.appmainredirect) {
-        default: 
-        return dashboard
+    // const app = (appmainstate)  => {
+    //   switch(appmainstate.appmainredirect) {
+    //     default: 
+    //     return dashboard
 
-        case 'appmain': 
-        return dashboard
-      }
-    }  
+    //     // case 'appmain': 
+    //     // return dashboard
+    //   }
+    // }  
 
     const dashboard = (
     <div className="App">
@@ -107,6 +107,7 @@ export default function App() {
   );
 
   return <div>
-    {app(appmainstate)}
+    {/* {app(appmainstate)} */}
+    {dashboard}
   </div>
 }

@@ -41,7 +41,7 @@ export default function  BioMain({
     },
   ]
 
-  const [appstatic, setappstatic] = useApp(biomain, biomainstatic.biomainid, biomainstatic.biomainindex)
+  const [appstatic, setappstatic] = useApp(biomain, biomainstatic.biomainid, biomainstatic.biomainindex, ptamainstate)
 
   useEffect(() => {
     if(appstatic){
@@ -66,9 +66,10 @@ export default function  BioMain({
         <main className="">
             <section className="">
               {biomainrendertwo && biomainrendertwo?.map(data => (<>
-              <div className="p-[20px]">
+              <div className="px-[20px] py-[15px]">
                 <HorizonMain 
                   key={data.postid} 
+                  data={data}
                   postid={data.postid} 
                   posthero={data.posthero} 
                   posticon={data.posticon} 

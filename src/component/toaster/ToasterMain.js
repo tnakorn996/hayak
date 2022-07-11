@@ -86,6 +86,7 @@ function ToasterMain() {
                     <section className="max-h-[70vh] overflow-y-auto">
                         <BioMain biomainstatic={{biomainid: 'postaddress', biomainindex: 0}} />
                     </section>
+                    <br />
                     <section className="p-[20px] pt-0">
                         {toastermainrender && toastermainrender}
                     </section>

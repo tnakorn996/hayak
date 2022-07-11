@@ -94,16 +94,16 @@ function BarMain({
                     barmainrendertwo: () => {},
 
                 },
-                {
-                    barmainindex: 1,
-                    barmainicon: <RiBookOpenLine />,
-                    barmainrender: () => {
-                        const filter = barmaindata?.filter(data => data.postindexthreeid === 'readdi')
-                        return Math.floor(filter[0]?.postindexthreerender?.postblock?.length * 0.3) + ' min'
-                    }, 
-                    barmainrendertwo: () => {},
+                // {
+                //     barmainindex: 1,
+                //     barmainicon: <RiBookOpenLine />,
+                //     barmainrender: () => {
+                //         const filter = barmaindata?.filter(data => data.postindexthreeid === 'readdi')
+                //         return Math.floor(filter[0]?.postindexthreerender?.postblock?.length * 0.3) + ' min'
+                //     }, 
+                //     barmainrendertwo: () => {},
 
-                },
+                // },
                 {
                     barmainindex: 2,
                     barmainicon: <RiTimeLine />,

@@ -16,6 +16,7 @@ import PostArticle from '../../page/post/PostArticle'
 import PostIndex from '../../page/post/PostIndex'
 import CardMain from '../card/CardMain'
 import ChoiceMain from '../choice/ChoiceMain'
+import '../preview/previewmain.css'
 
 function PreviewMain() {
     const {

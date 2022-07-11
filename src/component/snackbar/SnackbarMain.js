@@ -6,6 +6,7 @@ import { RiHeart3Line } from 'react-icons/ri'
 import useApp from '../../hook/useApp'
 import BadgeMain from '../../layout/badge/BadgeMain'
 import BioMain from '../bio/BioMain'
+import '../snackbar/snackbarmain.css'
 
 export default function SnackbarMain({
     snackbarmainstatic,
@@ -46,8 +47,8 @@ export default function SnackbarMain({
 
   return (
     <div>
-        <motion.main initial={{y: 100}} animate={{y: 0}} exit={{y: 100}} className={`w-screen fixed z-20 bottom-0 left-0  duration-500 bg-white border `}>
-            <section onClick={() => {setsnackbarboolean(!snackbarboolean)}} className="p-[20px] flex flex-row justify-between items-center  hover:cursor-pointer">
+        <motion.main initial={{y: 100}} animate={{y: 0}} exit={{y: 100}} className={`w-screen fixed z-20 bottom-0 left-0  duration-500 bg-white border`}>
+            <section onClick={() => {setsnackbarboolean(!snackbarboolean)}} className="p-[20px] flex flex-row justify-between items-center  hover:cursor-pointer shadow-md">
                 {/* <BsList className='l-h4' /> */}
                 <figcaption className="flex flex-row items-center gap-2">
                     <h1 className="h-h3  font-serif">{snackbarmaintitle}</h1>
@@ -55,7 +56,7 @@ export default function SnackbarMain({
                 </figcaption>
                 <h1 className='l-h4'>{snackbarboolean ? '↓' : '↑'}</h1>
             </section>
-            <section className={`h-0  duration-500 ${snackbarboolean && '!h-[70vh]'}`}>
+            <section className={`max-h-0  duration-500 ${snackbarboolean && '!max-h-[70vh]  overflow-y-scroll no-scrollbar'}`}>
                 {snackbarmainrender && snackbarmainrender}
             </section>
         </motion.main>
