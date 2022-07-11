@@ -252,10 +252,9 @@ function FieldMain({
                     <figcaption className="">
                         <br />
                         <div className="flex flex-row items-center gap-1">
-                            <h1 className="py-[7px]  m-h1">{dat?.fieldmainsubtitle !== '' && dat?.fieldmainsubtitle}</h1>
+                            <h1 className="py-[7px]  m-h2">{dat?.fieldmainsubtitle !== '' && dat?.fieldmainsubtitle}</h1>
                             {dat?.fieldmainsubtitle !== '' && (<>
                             <TipMain tipmainstatic={{tipmaindata: dat?.fieldmainsubtitle}}>
-                                <RiQuestionFill className='l-h1' />
                             </TipMain>
                             </>)}
                         </div>

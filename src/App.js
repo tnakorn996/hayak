@@ -22,7 +22,7 @@ import FabMain from './component/fab/FabMain';
 
 export default function App() {
   const {
-    appmainstate, 
+    appmainstate, setappmainstate,
     
   } = useContext(ContextMain)
   const location = useLocation()

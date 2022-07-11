@@ -110,7 +110,6 @@ function RtaMain({
                     <h1 className=" m-h5 md:m-h6 font-serif">{data?.rtamaintitle}</h1>
                     {/* <h1 className=" m-h5 md:l-h6">{data?.rtamainrenderthree?.length}</h1> */}
                     <TipMain tipmainstatic={{tipmaindata: data?.rtamaintitle}}>
-                    <RiQuestionFill className='l-h3' />
                     </TipMain>
                   </div>
                   {data?.rtamainrender?.length > 0 && (<>

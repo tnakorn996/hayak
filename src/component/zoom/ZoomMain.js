@@ -449,10 +449,10 @@ function ZoomMain({
                                 <figcaption className="flex flex-row items-center gap-1  truncate">
                                     <PtaMain ptamainstatic={{ptamainid:'searchiframe', ptamaindata: dat}} >
                                         <a href={`/${dat?.postid}`} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.posttitle}</a>
-                                        <p onClick={dat?.blemainaction} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.blemaintitle}</p>
-                                        <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-700 font-serif truncate">{dat?.breadmaintitle}</a>
-                                        <p className=" leading-loose !text-gray-700 font-serif truncate">{dat?.crummainsubtitle}</p>
                                     </PtaMain>
+                                        <a href={`${dat?.breadmainaction}`}  className=" leading-loose !text-gray-700 font-serif truncate">{dat?.breadmaintitle}</a>
+                                        <p onClick={dat?.blemainaction} className=" leading-loose !text-gray-700 font-serif truncate">{dat?.blemaintitle}</p>
+                                        <p className=" leading-loose !text-gray-700 font-serif truncate">{dat?.crummainsubtitle}</p>
                                     {/* <p className="l-h1 truncate">{dat?.postsubtitle}</p> */}
                                 </figcaption>
                             </div>

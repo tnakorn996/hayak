@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import { useState } from 'react'
+import { RiQuestionFill } from 'react-icons/ri'
 
 // import PortMain from './PortMain'
 
@@ -32,7 +33,7 @@ function TipMain({tipmainstatic, children}) {
   return (
     <div>
         <main className="relative z-10  cursor-pointer">
-            <section className="flex justify-center">
+            <section className="hidden md:flex justify-center">
                 <div className={`hidden justify-center absolute bottom-7 ${tooltipmainstyle}`}>
                     <motion.article animate={{ scale: tipmainstyletwo, opacity: tipmainstylethree}} className=" p-[15px]  shadow rounded bg-gray-50 duration-75">
                         {/* Lorem ipsum dolor sit amet. */}
@@ -43,7 +44,7 @@ function TipMain({tipmainstatic, children}) {
             </section>
             <section onMouseOver={() => {ll()}} onMouseOut={() => {kk()}} className="">
             {/* <section className=""> */}
-                {children}
+                {children ? children : <RiQuestionFill className='hidden md:block  l-h3' />}
             </section>
         </main>
     </div>

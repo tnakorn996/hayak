@@ -175,6 +175,15 @@ export const Provider = ({ children }) => {
             setclientpost(clientstatictwo)
         }
     }, [clientstatictwo])
+
+    useEffect(() => {
+        if( (appmainstate === '' || appmainstate.appmainboolean === false) && parsepost.length > 0 && window.screen.width < 1000){
+            setappmainstate({
+                appmainid: 'overlay',
+                appmainidtwo: 'snackbarmain',
+            })
+        }
+    }, [appmainstate])
     
     const postselect = [
         {

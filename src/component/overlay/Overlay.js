@@ -5,51 +5,69 @@ import { useContext } from 'react'
 import { ContextMain } from '../../context/contextmain'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+
 import ToasterMain from '../toaster/ToasterMain'
 import useApp from '../../hook/useApp'
+import SnackbarMain from '../snackbar/SnackbarMain'
 
-function Overlay() {
+export default function Overlay() {
     const {
-        appmainstate,
+        appmainstate, setappmainstate,
 
     } = useContext(ContextMain)
+    const [overlayoffset, setoverlayoffset] = useState()
+
     const [overlayrender, setoverlayrender] = useState()
 
-    const overlay = [
+    const toastermain = [
         {
-            overlayid: 'toastermain',
+            overlayindex: 0,
             overlayrender: <ToasterMain />,
         },
     ]
 
-    // const [appstatic, setappstatic] = useApp(overlay, appmainstate.appmainidtwo, null)
-    
-    // useEffect(() => {
-    //   if(appstatic && appmainstate && appmainstate.appmainid === 'overlay'){
-    //       setoverlayrender(appstatic.overlayrender)
-    //   }
-    // }, [appstatic, appmainstate])
+    const snackbarmain = [
+        {
+            overlayindex: 0,
+            overlayrender: <SnackbarMain snackbarmainstatic={{snackbarmainid: 'postfooter', snackbarmainindex: 0}} />,
+        },
+    ]
 
+    const overlay = [
+        {
+            overlayid: 'toastermain',
+            overlayref: toastermain,
+        },
+        {
+            overlayid: 'snackbarmain',
+            overlayref: snackbarmain,
+        },
+    ]
+    
+    const [appstatic, setappstatic] = useApp(overlay, appmainstate?.appmainidtwo, 0)
+    
     useEffect(() => {
-      if(appmainstate && appmainstate.appmainid === 'overlay'){
-          const filter = overlay.filter(data => data.overlayid === appmainstate.appmainidtwo)
-          setoverlayrender(filter[0].overlayrender)
-      }
-    }, [appmainstate])
+        if(appstatic && appmainstate && appmainstate.appmainid === 'overlay'){
+            setoverlayrender(appstatic[0].overlayrender)
+        }
+    }, [appstatic, appmainstate])
+    
+    useEffect(() => {
+        window.addEventListener('scroll', ll)
+        return () => window.removeEventListener('scroll', ll)
+    }, [])
+
+    const ll = () => {
+        setoverlayoffset(window.pageYOffset)
+    }
 
   return (
     <div>
         <main className="">
-            {/* <AnimatePresence> */}
-                {/* {overlayboolean && ( */}
-                <section className=" duration-100">
-                    {overlayrender && overlayrender}
-                </section>
-                {/* )} */}
-            {/* </AnimatePresence> */}
+            <section className="">
+                {overlayrender && overlayrender}
+            </section>
         </main>
     </div>
   )
 }
-
-export default Overlay

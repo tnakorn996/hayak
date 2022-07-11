@@ -127,7 +127,7 @@ function SlideMain({
                 ]
                 return empty?.map(data => (<>
                     <div className="w-screen  snap-center overflow-hidden">
-                        <figure className="w-full h-[85vh] md:h-[75vh] relative flex justify-center items-center  ">                            
+                        <figure className="w-full h-[75vh] relative flex justify-center items-center  ">                            
                             <ScrollMain 
                                 scrollmainstatic={{
                                     scrollmaintransform: 0.5,
