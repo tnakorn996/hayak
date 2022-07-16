@@ -21,8 +21,8 @@ function CtaMain() {
     const postembed = [
         {
             ctamainindex: 0,
-            ctamainentitle: 'Share post',
-            ctamainentitletwo: 'Give your comment',
+            ctamainentitle: '',
+            ctamainentitletwo: '',
             ctamainaction: ll,
             ctamainactiontwo: kk,
         },
@@ -118,12 +118,21 @@ function CtaMain() {
                 {ctamainrendertwo && ctamainrendertwo} */}
 
                 {ctamainrender && ctamainrender?.map(data => (<>
-                    <button onClick={() => {
-                        data?.ctamainaction()
-                    }} className="m-h3 w-full m-button border-[1.5px] border-black">{data?.ctamainentitle}</button>
-                    <button onClick={() => {
-                        data?.ctamainactiontwo()
-                    }} className="m-h3 w-full l-button  border-[1.5px] border-black">{data?.ctamainentitletwo}</button>
+                    {data?.ctamainentitle === '' ? (<>
+                        <figure className="w-full">
+                        <br />
+                        <iframe title='a' src={`https://open.spotify.com/embed/show/${ctamainstate?.ctamainrender?.postposturl?.slice(30, ctamainstate?.ctamainrender?.postposturl?.length)}?utm_source=generator`} width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        <br />
+                        </figure>
+                    </>) : (<>
+                        <button onClick={() => {
+                            data?.ctamainaction()
+                        }} className="m-h3 w-full m-button border-[1.5px] border-black">{data?.ctamainentitle}</button>
+                        <button onClick={() => {
+                            data?.ctamainactiontwo()
+                        }} className="m-h3 w-full l-button  border-[1.5px] border-black">{data?.ctamainentitletwo}</button>
+                    </>)}
+
                 </>))}
 
             </section>
