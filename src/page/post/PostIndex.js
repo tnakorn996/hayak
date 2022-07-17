@@ -7,7 +7,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {PortableText, PortableTextComponentsProvider} from '@portabletext/react'
 import { useRef } from 'react'
-// import {Helmet} from 'react-helmet'
+import {Helmet} from 'react-helmet'
 
 import { ContextMain } from '../../context/contextmain'
 import { client } from '../../lib/sanity'
@@ -72,73 +72,6 @@ function PostIndex() {
     const [productplaceid, setproductplaceid] = useState()
     const [productpostid, setproductpostid] = useState()
     const [commentpostid, setcommentpostid] = useState()
-
-    const postfigcaption = [
-        {
-            postfigcaptionid: 'normal',
-            postfigcaptiontitle: '!text-base',
-
-        },
-        {
-            postfigcaptionid: 'h1',
-            postfigcaptiontitle: 'py-[20px] text-4xl  !m-h1',
-        },
-        {
-            postfigcaptionid: 'h2',
-            postfigcaptiontitle: 'py-[20px] text-3xl  !m-h2',
-        },
-        {
-            postfigcaptionid: 'h3',
-            postfigcaptiontitle: 'py-[20px] text-2xl  !m-h3',
-        },
-        {
-            postfigcaptionid: 'h4',
-            postfigcaptiontitle: 'text-xl !m-h4',
-        },
-        {
-            postfigcaptionid: 'h5',
-            postfigcaptiontitle: 'text-lg  !m-h5',
-        },
-        {
-            postfigcaptionid: 'h6',
-            postfigcaptiontitle: 'text-md  !m-h6',
-        },
-        {
-            postfigcaptionid: 'blockquote',
-            postfigcaptiontitle: '!pl-[20px]  border-l-2 border-gray-600 italic',
-
-        },
-    ]
-
-    const postdiv = [
-        {
-            postdivid: 'bullet',
-            postdivtitle: '✔️'
-        },
-        {
-            postdivid: 'number',
-            postdivtitle: '.'
-        }
-    ]
-
-    const posth1 = [
-        {
-            posth1id: 'strong',
-            posth1title: 'font-bold',
-        },
-        {
-            posth1id: 'em',
-            posth1title: 'italic',
-        },
-        {
-            posth1id: 'underline',
-            posth1title: 'underline',
-        },
-        {
-            posth1id: 'strike-through',
-            posth1title: 'line-through',
-        }
-    ]
 
     const postindex = [
         {
@@ -394,12 +327,12 @@ function PostIndex() {
   return (
     <div>
         <main className="">
-                {/* <Helmet>
+                <Helmet>
                     <meta charSet="utf-8" />
-                    <title>TOI NZ | {postpostid?.posttitle?.toUpperCase()}</title>
+                    <title>TOI FOOD NZ | {postpostid?.posttitle?.toUpperCase()}</title>
                     <meta name="description" content={postpostid?.postsubtitle} />
                     <meta name="image" property="og:image" content={postpostid?.posthero} />
-                </Helmet> */}
+                </Helmet>
                 {/* <title>TOI NZ | {postpostid?.posttitle?.toUpperCase()}</title> */}
                 {/* <meta property="og:type" content="article" />
                 <meta property="og:url" content="http://www.example.com/link" />
@@ -412,6 +345,7 @@ function PostIndex() {
                 <meta property="og:publishdt" content="Oct 5 , 2018" />
                 <meta property="og:uploadedby" content="" />
                 <meta property="fb:app_id" content="your app id" />   */}
+
         </main>
         <main className="flex flex-col md:grid md:grid-cols-12   duration-100">
             <figure className="col-span-12 relative">
