@@ -48,10 +48,10 @@ export default function ListMain({
     <div>
         <main className="">
             <section className="">
-                {listmainrender?.map(data => (<>
-                    <details className="cursor-pointer border">
-                        {listmainrendertwo?.map(dat => (<>
-                            <h1 className="px-[40px] md:px-[60px]  l-h5">{data?.spreadmainindex === dat?.spreadmainindex && dat?.sheetmaintitle}</h1>
+                {listmainrender?.map((data, index) => (<>
+                    <details key={index} className="cursor-pointer border">
+                        {listmainrendertwo?.map((dat, inde) => (<>
+                            <h1 key={inde} className="px-[40px] md:px-[60px]  l-h5">{data?.spreadmainindex === dat?.spreadmainindex && dat?.sheetmaintitle}</h1>
                         </>))}
                         <br />
                         <summary className="p-[20px] md:px-[60px]">

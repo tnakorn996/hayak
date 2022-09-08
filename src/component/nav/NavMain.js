@@ -30,8 +30,9 @@ function NavMain() {
         <main className={`z-20 mx-auto grid grid-cols-11 items-center  duration-500 ${dropdownmainstate && '!bg-white'}`}>
             <section className="hidden p-[20px] md:px-[60px] md:py-[20px] col-span-5 md:flex flex-row justify-start gap-1">
                     <div className="flex flex-row gap-10">
-                        {breadmain?.map(data => (<>
+                        {breadmain?.map((data, index) => (<>
                         <button 
+                        key={index}
                         
                         onMouseEnter={() => {
                             setdropdownmainstate({

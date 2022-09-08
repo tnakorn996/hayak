@@ -71,13 +71,13 @@ function PostDiv() {
                 </article>
             </section>
             <section className="">
-                {postdivrender?.slice(1, 4)?.map(data => (<>
-                <HorizonMain onlick={() => {
+                {postdivrender?.slice(1, 4)?.map((data, index) => (<>
+                <HorizonMain key={index} onlick={() => {
                     navigate(`/${data?.postid}`)
                     setappmainstate({
                             appmainredirect: 'appmain'
                         })
-                    }} key={data?.postid} postid={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
+                    }} postid={data?.postid} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} />
                 </>))}
             </section>
             </>)}

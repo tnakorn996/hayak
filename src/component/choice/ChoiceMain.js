@@ -183,8 +183,8 @@ function ChoiceMain({
                 </figure>
                 <div className="flex flex-col justify-between items-stretch h-[75vh] md:h-[60vh]">
                 <figcaption className={`grid grid-flow-row ${data?.choicemainrender[0]?.crummaindata?.length > 7 && '!flex !flex-wrap !gap-1'}`}>
-                    {data?.choicemainrender[0]?.crummaindata?.map(dat => (<>
-                        <button onClick={() => {
+                    {data?.choicemainrender[0]?.crummaindata?.map((dat, index) => (<>
+                        <button key={index} onClick={() => {
                             jj(data?.choicemainpage, dat?.crummainsubtitle)
                         }} className={`p-[10px] flex flex-row justify-center items-center gap-2  m-h1 l-button duration-1000 ${(
                             dat?.crummainsubtitle === choicemainvalue || 

@@ -67,8 +67,8 @@ function FabMain({
     <div>
         <main className="">
             <section className="">
-                {fabmainrender?.map(data => (<>
-                <article onClick={() => {
+                {fabmainrender?.map((data, index) => (<>
+                <article key={index} onClick={() => {
                     data?.fabmainaction()
                 }} className="p-[10px] w-fit flex flex-row justify-center items-center  bg-white shadow">
                     <h1 className="font-serif">{data?.fabmaintitle}</h1>

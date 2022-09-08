@@ -169,8 +169,8 @@ function TabMain({
     <div className=''>
         <main className="">
             <section className="w-full md:max-w-[55vw] mx-auto px-[20px] sticky z-10 top-0 left-0 flex flex-row  border-b-[1.5px] bg-white">
-                {tabmainrender && tabmainrender?.map(data => (<>
-                <button onClick={() => {
+                {tabmainrender && tabmainrender?.map((data, index) => (<>
+                <button key={index} onClick={() => {
                     setsearchmainstate({tabmainindex: data?.tabmainindex})
                 }} className={`w-full md:w-fit flex flex-row items-center justify-center gap-2 l-button duration-100 ${searchmainstate?.tabmainindex === data?.tabmainindex && '!border-b-[1.5px] !border-black'}`}>{data?.tabmaintitle}{data?.tabmainnumber}</button>
 

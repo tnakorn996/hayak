@@ -65,8 +65,8 @@ export default function  BioMain({
     <div>
         <main className="">
             <section className="">
-              {biomainrendertwo && biomainrendertwo?.map(data => (<>
-              <div className="px-[20px] py-[15px]">
+              {biomainrendertwo && biomainrendertwo?.map((data, index) => (<>
+              <div key={index} className="px-[20px] py-[15px]">
                 <HorizonMain 
                   key={data.postid} 
                   data={data}

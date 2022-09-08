@@ -34,15 +34,15 @@ function BreadMain() {
   return (
     <div>
         <main className="grid grid-flow-col items-center gap-3">
-            {breadmaintitle?.map(data => (<>
-                <article onClick={() => {
+            {breadmaintitle?.map((data, index) => (<>
+                <article key={index} onClick={() => {
                     setgenreindexstate('')
                     setbreadmainstate('')
                     navigate(`/category/${data?.breadmainid}`)
                 }} className="">
                 <h1 className="truncate">{data?.breadmaintitle}</h1>
                 </article>
-                {breadmainsubtitle?.map(dat => (<>
+                {/* {breadmainsubtitle?.map((dat, inde) => (<>
                     <div className="">
                         <h1 className="">→</h1>
                     </div>
@@ -59,7 +59,7 @@ function BreadMain() {
                     <div className="">
                         <h1 className="">→</h1>
                     </div>
-                </>))}
+                </>))} */}
             <h1 className="truncate">{breadmainmoretitle}</h1>
             </>))}
         </main>

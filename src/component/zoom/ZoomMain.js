@@ -437,13 +437,13 @@ function ZoomMain({
             </section>
 
             <section className="">
-                {zoommaindata?.map(data => (<>
+                {zoommaindata?.map((data, index) => (<>
                 {data?.zoommainrender?.length > 0 && (<>
-                <figcaption className="">
+                <figcaption key={index} className="">
                 <h1 className="m-h1">{data?.zoommaintitle} ({data?.zoommainrender?.length})</h1>
                 <br />
-                    {data?.zoommainrender?.length !== 0 && data?.zoommainrender?.slice(0, zoommainslice)?.map(dat => (<>
-                        <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative w-full py-[10px] flex flex-row items-center justify-between  group">
+                    {data?.zoommainrender?.length !== 0 && data?.zoommainrender?.slice(0, zoommainslice)?.map((dat, inde) => (<>
+                        <motion.figure key={inde} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative w-full py-[10px] flex flex-row items-center justify-between  group">
                             <div className="grid grid-flow-col items-center justify-start gap-3">
                                 <span className="l-h2 h-[30px] w-[30px] flex justify-center items-center  bg-gray-700 rounded-full text-white ">{data.zoommainicon}</span>
                                 <figcaption className="flex flex-row items-center gap-1  truncate">

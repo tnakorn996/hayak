@@ -53,8 +53,8 @@ function SideboardMain() {
       sideboardrender: () => {
         return <main className="h-full px-[20px] w-screen md:w-[55vh]  flex flex-col">
           <section className="h-[75vh]">
-            {categoryul?.map(data => (<>
-              <article onClick={() => {
+            {categoryul?.map((data, index) => (<>
+              <article key={index} onClick={() => {
                 setappmainstate({
                             appmainid: 'navdialog',
                             appmainidtwo: 'sideboardmain',
@@ -69,8 +69,8 @@ function SideboardMain() {
             </>))}
           </section>
           <section className="py-[10px] w-full h-[10vh] grid grid-cols-2 items-center justify-center text-center">
-            {contactul?.map(data => (<>
-              <a href={data?.breadmainaction} className={`font-serif ${data?.breadmainstyle}`}>{data?.breadmainentitle}</a>
+            {contactul?.map((data, index) => (<>
+              <a key={index} href={data?.breadmainaction} className={`font-serif ${data?.breadmainstyle}`}>{data?.breadmainentitle}</a>
             </>))}
           </section>
         </main>
@@ -88,8 +88,8 @@ function SideboardMain() {
             <br /><br />
           </section>
           <section className="h-[70vh]">
-            {filter.map(data => (<>
-            <article onClick={() => {
+            {filter.map((data, index) => (<>
+            <article key={index} onClick={() => {
                 setbreadmainstate({
                   breadmainid: data?.breadmainid,
                   breadmainidtwo: data?.crummainid,
@@ -102,8 +102,8 @@ function SideboardMain() {
             </>))}
           </section>
           <section className="py-[10px] w-full h-[10vh] grid grid-cols-1 items-center">
-            {filter.slice(0, 1).map(data => (<>
-              <a href={`/category/${data?.breadmainid}`} className='text-center m-button font-serif' >See all {data?.breadmainid}s</a>
+            {filter.slice(0, 1).map((data, index) => (<>
+              <a key={index} href={`/category/${data?.breadmainid}`} className='text-center m-button font-serif' >See all {data?.breadmainid}s</a>
             </>))}
           </section>
         </motion.main>

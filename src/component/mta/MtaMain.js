@@ -138,9 +138,9 @@ export default function MtaMain({mtamainstatic, mtamainstyle}) {
                 </figcaption>
                 <figure className="">
                     <div className="flex flex-row items-center">
-                    {mtamainrender && mtamainrender?.map(data => (<>
-                        {data?.mtamainrender}
-                    </>))}
+                    {mtamainrender && mtamainrender?.map(data => (
+                        data?.mtamainrender
+                    ))}
                     </div>
                 </figure>
             </section>

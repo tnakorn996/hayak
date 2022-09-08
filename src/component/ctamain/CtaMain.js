@@ -117,9 +117,9 @@ function CtaMain() {
                 {/* {ctamainrender && ctamainrender}
                 {ctamainrendertwo && ctamainrendertwo} */}
 
-                {ctamainrender && ctamainrender?.map(data => (<>
+                {ctamainrender && ctamainrender?.map((data, index) => (<>
                     {data?.ctamainentitle === '' ? (<>
-                        <figure className="w-full">
+                        <figure key={index} className="w-full">
                         <br />
                         <iframe title='a' src={`https://open.spotify.com/embed/show/${ctamainstate?.ctamainrender?.postposturl?.slice(30, ctamainstate?.ctamainrender?.postposturl?.length)}?utm_source=generator`} width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                         <br />

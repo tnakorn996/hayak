@@ -133,8 +133,8 @@ function OpendeskMain() {
 
             <section className="h-[50vh] md:h-[75vh]  overflow-hidden">
                 <br />
-                {opendeskmainindex === 0 && opendeskmainrender?.map(data => (<>
-                <div className="">
+                {opendeskmainindex === 0 && opendeskmainrender?.map((data, index) => (<>
+                <div key={index} className="">
                     <article onClick={() => {
                         settabmainstate({
                             tabmainid: tabmainstate?.tabmainid,
@@ -163,9 +163,9 @@ function OpendeskMain() {
                     </div>
                     <br />
                     <motion.div initial={{x: 200}} animate={{ x:0}} exit={{x: 200}}  className="max-h-full  overflow-y-scroll no-scrollbar  duration-100">
-                    {opendeskmainrendertwo?.map(data => (<>
+                    {opendeskmainrendertwo?.map((data, index) => (<>
 
-                    <article onClick={() => {
+                    <article key={index} onClick={() => {
                         data?.blemainaction()
                     }} className={`grid grid-cols-12 items-center py-[20px] ${(data?.blemainid === genreindexstate?.genreindexid || data?.blemainid === breadmainstate?.breadmainidtwo) && '!bg-gray-900 text-white'}`}>
                         <h1 className="m-h3">{data?.tabmainicon}</h1>
