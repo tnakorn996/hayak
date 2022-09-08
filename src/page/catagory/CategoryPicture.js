@@ -29,8 +29,8 @@ useEffect(() => {
     <div>
         <main className="w-screen min-h-screen ">
             <section className="max-w-[500px] mx-auto min-h-screen grid grid-flow-row">
-              {categorypicturerender?.map(data => (<>
-              <summary onClick={() => {
+              {categorypicturerender?.map((data, index) => (<>
+              <summary key={index} onClick={() => {
                 setappmainstate({
                   appmainredirect: 'appmain',
 

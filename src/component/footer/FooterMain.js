@@ -62,10 +62,10 @@ function FooterMain() {
             </section>
             <br />
             <section className="px-[50px] flex flex-col md:grid md:grid-cols-3 items-center gap-10">
-                {(postupdatedat && placeupdatedat && productupdatedat) && footerdi?.map(data => (<>
-                <figcaption className="flex flex-col gap-3">
-                    {data?.sheetmainrender?.slice(0, 6)?.map(dat => (<>
-                    <article onClick={() => {
+                {(postupdatedat && placeupdatedat && productupdatedat) && footerdi?.map((data, index) => (<>
+                <figcaption key={index} className="flex flex-col gap-3">
+                    {data?.sheetmainrender?.slice(0, 6)?.map((dat, inde) => (<>
+                    <article key={inde} onClick={() => {
                     navigate(`/${dat?.postid}`)
                     }} className="l-h2 font-extralight text-white">{dat?.posttitle}</article>
                     </>))}
@@ -93,28 +93,23 @@ function FooterMain() {
             <section className="p-[20px] md:p-0 flex items-center text-white">
                 <div className="w-full flex flex-row flex-wrap justify-between gap-7">
                 
-                {categoryul?.map(data => (<>
-                <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
+                {categoryul?.map((data, index) => (<>
+                <a key={index} href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
                 </>
                 ))}
 
-                {faqul?.map(data => (<>
-                <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
+                {faqul?.map((data, index) => (<>
+                <a key={index} href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
                 </>
                 ))}
 
-                {/* {searchul?.map(data => (<>
-                <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
-                </>
-                ))} */}
-                
-                {feedbackul?.map(data => (<>
-                <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
+                {feedbackul?.map((data, index) => (<>
+                <a key={index} href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
                 </>
                 ))}
 
-                {contactul?.map(data => (<>
-                <a href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
+                {contactul?.map((data, index) => (<>
+                <a key={index} href={data?.breadmainaction} className="m-h2  font-normal font-serif first-letter:uppercase">{data?.breadmaintitle}</a>
                 </>
                 ))}
 

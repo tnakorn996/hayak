@@ -102,8 +102,8 @@ function RtaMain({
   return (
     <div>
        <main className="flex flex-col md:flex-row">
-          {rtamainrendertwo?.map(data => (<>
-            <div className="w-full px-0 md:px-[30px]  md:border">
+          {rtamainrendertwo?.map((data, index) => (<>
+            <div key={index} className="w-full px-0 md:px-[30px]  md:border">
                 <br /><br />
                 <section className="grid grid-cols-12 items-center justify-between">
                   <div className=" col-span-11 flex flex-row items-center gap-1 ">

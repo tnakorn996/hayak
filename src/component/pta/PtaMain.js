@@ -204,8 +204,8 @@ function PtaMain({
     <div>
         <main className="">
             <section className="">
-                {ptamainrender?.map(data => (<>
-                    <article onClick={() => {
+                {ptamainrender?.map((data, index) => (<>
+                    <article key={index} onClick={() => {
                         data?.ptamainaction()
 
                     }} className="flex flex-row items-center gap-2">

@@ -7,7 +7,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {PortableText, PortableTextComponentsProvider} from '@portabletext/react'
 import { useRef } from 'react'
-import {Helmet} from 'react-helmet'
+// import {Helmet} from 'react-helmet'
 
 import { ContextMain } from '../../context/contextmain'
 import { client } from '../../lib/sanity'
@@ -327,12 +327,12 @@ function PostIndex() {
   return (
     <div>
         <main className="">
-                <Helmet>
+                {/* <Helmet>
                     <meta charSet="utf-8" />
                     <title>TOI FOOD NZ | {postpostid?.posttitle?.toUpperCase()}</title>
                     <meta name="description" content={postpostid?.postsubtitle} />
                     <meta name="image" property="og:image" content={postpostid?.posthero} />
-                </Helmet>
+                </Helmet> */}
                 {/* <title>TOI NZ | {postpostid?.posttitle?.toUpperCase()}</title> */}
                 {/* <meta property="og:type" content="article" />
                 <meta property="og:url" content="http://www.example.com/link" />
@@ -388,8 +388,8 @@ function PostIndex() {
                     <br />
                     <figcaption className="text-lg md:text-xl relative  md:font-light font-serif">
                         <PortableTextComponentsProvider components={component}  >
-                            {postpostid?.postblock?.map(data => (<>
-                            <PortableText value={data} />
+                            {postpostid?.postblock?.map((data, index) => (<>
+                            <PortableText key={index} value={data} />
                             <br />
                             </>))}
                         </PortableTextComponentsProvider>

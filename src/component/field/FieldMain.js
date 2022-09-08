@@ -239,8 +239,8 @@ function FieldMain({
   return (
     <div>
         <main className="">
-            {fieldmainrender?.map(data => (<>
-                <section className="">
+            {fieldmainrender?.map((data, index) => (<>
+                <section key={index} className="">
                     {data?.fieldmaintitle !== '' && (<>
                     <figure className="">
                     <br /><br />
@@ -248,8 +248,8 @@ function FieldMain({
                     <br />
                     </figure>
                     </>)}
-                    {data?.fieldmaindata?.map(dat => (<>
-                    <figcaption className="">
+                    {data?.fieldmaindata?.map((dat, index) => (<>
+                    <figcaption key={index} className="">
                         <br />
                         <div className="flex flex-row items-center gap-1">
                             <h1 className="py-[7px]  m-h2">{dat?.fieldmainsubtitle !== '' && dat?.fieldmainsubtitle}</h1>

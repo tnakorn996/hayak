@@ -151,8 +151,8 @@ function PostArticle() {
                     <h1 className="m-h6 font-serif">More like this</h1>
                     <br />
                     <div className="flex flex-col gap-3">
-                    {postarticlestatetwo?.slice(0, 3).map(data => (<>
-                        <HorizonMain onlick={() => {
+                    {postarticlestatetwo?.slice(0, 3).map((data, index) => (<>
+                        <HorizonMain key={index} onlick={() => {
                             navigate(`/${data?.postid}`)
                         }} key={data?.postid} postid={data?.postid}  posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle}  createdat={data?._createdAt} param={data?.postid} />
                     </>))}

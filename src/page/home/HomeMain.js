@@ -71,8 +71,8 @@ function HomeMain() {
             </section> */}
 
             <section className="">
-                {postplaceproduct?.slice(0, 3)?.map(data => (<>
-                <section className="relative w-screen h-[90vh] md:h-screen flex flex-col justify-evenly gap-3   snap-center">
+                {postplaceproduct?.slice(0, 3)?.map((data, index) => (<>
+                <section key={index} className="relative w-screen h-[90vh] md:h-screen flex flex-col justify-evenly gap-3   snap-center">
                         <figure className="relative h-full flex items-center justify-center  overflow-hidden">
                             <div className="z-10 w-full h-full absolute top-0 left-0  bg-black opacity-5" />
                             <ScrollMain scrollmainstatic={{scrollmaintransform: 0.1}} >
@@ -94,7 +94,8 @@ function HomeMain() {
 
             <section className="h-fit w-[1200px] md:w-full group">
                 <br /><br /><br /><br />
-                {homemainrender?.map(data => (<>
+                {homemainrender?.map((data, index) => (<>
+                <div key={index} className="">
                 <br />
                 <figcaption className="px-[20px] md:px-[60px] w-screen md:w-full flex flex-row justify-between items-center">
                     <h1 className="m-h6  font-serif">{data?.spreadmaintitle}</h1>
@@ -117,6 +118,7 @@ function HomeMain() {
                         {data?.spreadmainid === 'productupdatedat' && (<>
                         <SlideMain slidemainid={'homemainth'} slidemainindex={0} slidemaindata={data?.spreadmainmap} slidemainref={refthree} slidemainscroll={500} slidemainslice={12} />
                         </>)}
+                </div>
                 </>))}
                 <br />
             </section>

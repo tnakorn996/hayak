@@ -82,8 +82,9 @@ function DropdownMain() {
                     <h1 className="m-h6  text-white">{dropdownmaintitle && dropdownmaintitle}</h1>
                     <br />
                     <div className="flex flex-col">
-                        {dropdownmainrender && dropdownmainrender?.map(data => (<>
+                        {dropdownmainrender && dropdownmainrender?.map((data, index) => (<>
                         <article
+                        key={index}
 
                         onMouseEnter={() => {
                             setdropdownmainimage(data?.crummainimage)

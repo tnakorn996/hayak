@@ -38,8 +38,8 @@ function SlideMain({
             slidemainindex: 0,
             slidemainrender: () => {
 
-                return  slidemaindata?.slice(0, slidemainslice)?.map(data => (<>
-                    <div className="w-[250px] md:min-w-fit snap-center">
+                return  slidemaindata?.slice(0, slidemainslice)?.map((data, index) => (<>
+                    <div key={index} className="w-[250px] md:min-w-fit snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
                         }} key={data?.postid} data={data} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid} param={data?.postid} placepostid={data?.placepostid} />
@@ -85,8 +85,8 @@ function SlideMain({
             slidemainindex: 0,
             slidemainrender: () => {
 
-                return  slidemaindata?.slice(0, slidemainslice)?.map(data => (<>
-                    <div className="w-[250px] md:w-[300px] snap-center">
+                return  slidemaindata?.slice(0, slidemainslice)?.map((data, index) => (<>
+                    <div key={index} className="w-[250px] md:w-[300px] snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
                         }} key={data?.postid} data={data} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} postherotwo={data?.postherotwo} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} placepostid={data?.placepostid} />
@@ -98,9 +98,9 @@ function SlideMain({
             slidemainindex: 1,
             slidemainrender: () => {
 
-                return  slidemaindata?.slice(0, slidemainslice)?.map(data => (<>
+                return  slidemaindata?.slice(0, slidemainslice)?.map((data, index) => (<>
                     {/* <div className="w-[250px] md:w-[300px] snap-center"> */}
-                    <div className="w-[250px] md:min-w-fit snap-center">
+                    <div key={index} className="w-[250px] md:min-w-fit snap-center">
                         <VerticleMain onlick={() => {
                             navigate(`/${data?.postid}`)
                         }} key={data?.postid} data={data} postid={data?.postid} type={data?._type} createdat={data?._createdAt} posticon={data?.posticon} posthero={data?.posthero} postherotwo={data?.postherotwo} posttitle={data?.posttitle} postsubtitle={data?.postsubtitle} categoryid={data?.categoryid} genreid={data?.genreid} priceid={data?.priceid}  param={data?.postid} placepostid={data?.placepostid} />
@@ -125,8 +125,8 @@ function SlideMain({
                         postherosource: slidemaindata?.postherosourcetwo,
                     },
                 ]
-                return empty?.map(data => (<>
-                    <div className="w-screen  snap-center overflow-hidden">
+                return empty?.map((data, index) => (<>
+                    <div key={index} className="w-screen  snap-center overflow-hidden">
                         <figure className="w-full h-[75vh] relative flex justify-center items-center  ">                            
                             <ScrollMain 
                                 scrollmainstatic={{

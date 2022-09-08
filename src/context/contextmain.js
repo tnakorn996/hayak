@@ -15,9 +15,6 @@ export const Provider = ({ children }) => {
    
     const [appmainstate, setappmainstate] = useState('')
     // const [postindexstate, setpostindexstate] = useState()
-    const [planformstate, setplanformstate] = useState()
-    const [ontromainstate, setontromainstate] = useState()
-    const [extromainstate, setextromainstate] = useState()
     const [slidemainpage, setslidemainpage] = useState(Math.random() * (0 - 99 + 1) + 99)
     const [sheetmainpage, setsheetmainpage] = useState(0)
     const [categorypicturestate, setcategorypicturestate] = useState()
@@ -1143,9 +1140,6 @@ export const Provider = ({ children }) => {
           // postindexstate, setpostindexstate,
           searchmainstate, setsearchmainstate,
           searchinputstate, setsearchinputstate,
-          planformstate, setplanformstate,
-          ontromainstate, setontromainstate,
-          extromainstate, setextromainstate,
           slidemainpage, setslidemainpage,
           sheetmainpage, setsheetmainpage,
           categorypicturestate, setcategorypicturestate,

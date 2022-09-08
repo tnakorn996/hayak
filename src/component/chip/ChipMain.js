@@ -57,13 +57,13 @@ function ChipMain({
     <div>
         <main className="">
             <section className="flex flex-row gap-1">
-                {chipmainrender && chipmainrender?.map(data => (<>
-                    <button onClick={() => {
+                {chipmainrender && chipmainrender?.map((data, index) => (<>
+                    <button key={index} onClick={() => {
                         setbreadmainstate('')
                     }} className="flex flex-row items-center gap-3  l-button border border-black"> <span className="m-h2">╳</span>{data?.crummaintitle}</button>
                 </>))}
-                {chipmainrendertwo && chipmainrendertwo?.map(data => (<>
-                    <button onClick={() => {
+                {chipmainrendertwo && chipmainrendertwo?.map((data, index) => (<>
+                    <button key={index} onClick={() => {
                         setgenreindexstate('')
                         }} className="flex flex-row items-center gap-3  l-button border border-black"> <span className="m-h2">╳</span>{data?.crummaintitle}</button>
                 </>))}

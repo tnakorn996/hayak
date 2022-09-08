@@ -181,8 +181,8 @@ function CategoryIndex() {
 
             </section>
             <hr />
-            <section className="">
-                {categoryindexrender?.map(data => (<>
+                {categoryindexrender?.map((data, index) => (<>
+            <section key={index} className="">
                 <br />
                 <figcaption className="mx-[20px] md:mx-[60px] flex flex-row justify-between items-center ">
                     <h1 className="m-h5 font-serif">{data?.categoryindextitle} {categoryindextitle && categoryindextitle}</h1>
@@ -201,8 +201,8 @@ function CategoryIndex() {
                 <SlideMain slidemainid={'categoryindexth'} slidemainindex={slidemainstate?.slidemainindex} slidemaindata={data?.categoryindexmap} slidemainref={refthree} slidemainscroll={slidemainstate?.slidemainscroll} slidemainslice={12} />
                 </>)}
 
-                </>))}
             </section>
+                </>))}
         </main>
     </div>
   )

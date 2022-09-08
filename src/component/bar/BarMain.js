@@ -223,8 +223,8 @@ function BarMain({
     <div>
         <main className="w-full grid grid-cols-12 gap-3 items-center">
                 <section className="col-span-9 flex flex-row gap-3 justify-start items-center">
-                {barmainrender?.map(data => (<>
-                    <article className="flex flex-row gap-1 items-center  l-h4">
+                {barmainrender?.map((data, index) => (<>
+                    <article key={index} className="flex flex-row gap-1 items-center  l-h4">
                         {data?.barmainicon}
                         {data?.barmainrender()}
                     </article>
@@ -232,8 +232,8 @@ function BarMain({
                 </section>
 
                 <section className="col-span-3 flex flex-row gap-2 justify-end items-center  l-h4">
-                {barmainrender?.map(data => (<>
-                <article onClick={() => {
+                {barmainrender?.map((data, index) => (<>
+                <article key={index} onClick={() => {
                     data?.barmainaction()
                 }} className="">
                     {data?.barmainrendertwo()}

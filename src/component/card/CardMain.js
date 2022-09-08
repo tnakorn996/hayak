@@ -170,18 +170,18 @@ function CardMain({
   return (
     <div className='h-full'>
         <main className="relative h-full">
-            {cardmainrender?.map(data => (<>
-                <motion.figure initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className={`w-full h-full flex flex-col md:grid md:grid-flow-col gap-3 justify-between   duration-100 ${data?.spreadmainstyle} !bg-opacity-0`}>
+            {cardmainrender?.map((data, index) => (<>
+                <motion.figure key={index} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className={`w-full h-full flex flex-col md:grid md:grid-flow-col gap-3 justify-between   duration-100 ${data?.spreadmainstyle} !bg-opacity-0`}>
                     <div className="flex flex-row items-start gap-3">
                     {/* <section className="col-span-1 pt-[1px]">
                         <h1 className={`hidden md:flex justify-start  l-h3 ${data?.spreadmainstyle}`}>{data?.spreadmainicon}</h1>
                     </section> */}
                     <section className="col-span-8">
-                        {cardmainrendertwo !== '' && cardmainrendertwo?.map(dat => (<>
-                        {/* <h1 className="m-h2">{dat?.sheetmaintitle || dat?.blemaintitle}</h1> */}
-                        {/* <div className="h-[10px]" /> */}
-                        {/* <h1 className="py-[10px] md:p-0  l-h1">{dat?.sheetmainsubtitle || dat?.blemainsubtitle}</h1> */}
-                        </>))}
+                        {/* {cardmainrendertwo !== '' && cardmainrendertwo?.map(dat => (<>
+                        <h1 className="m-h2">{dat?.sheetmaintitle || dat?.blemaintitle}</h1>
+                        <div className="h-[10px]" />
+                        <h1 className="py-[10px] md:p-0  l-h1">{dat?.sheetmainsubtitle || dat?.blemainsubtitle}</h1>
+                        </>))} */}
                         <div className="flex flex-col">
                         {cardmainmessage && cardmainmessage?.map(da => (<>
                         {da?.inform && <span className="flex flex-row items-center gap-2  text-[11px]"><RiInformationLine />{da?.inform}</span>}

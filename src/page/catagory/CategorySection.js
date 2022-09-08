@@ -36,8 +36,8 @@ function CategorySection() {
             <section className="">
                 <h1 className="l-h1">Filter {categorysectiontitle && categorysectiontitle} collection by:</h1>
                 <br />
-                {categorysectionrender?.map(data => (<>
-                    <article onClick={() => {
+                {categorysectionrender?.map((data, index) => (<>
+                    <article key={index} onClick={() => {
                         // setcategoryindextrigger(data?.crummainid)
                         setbreadmainstate({
                             // breadmainid: param?.id,

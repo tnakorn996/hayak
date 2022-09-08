@@ -7,11 +7,11 @@ function ContactMain() {
     <div>
         <br /><br /><br /><br />
         <main className="flex flex-col-reverse md:grid md:grid-cols-12">
-            {contactul?.slice(0, 1).map(data => (<>
-            <section className="md:col-span-7 flex flex-col md:grid md:grid-cols-2">
-                {contactui?.map(dat => (<>
-                    {dat?.crummaindata?.map(da => (<>
-                        <article className="">
+            {contactul?.slice(0, 1).map((data, index) => (<>
+            <section key={index} className="md:col-span-7 flex flex-col md:grid md:grid-cols-2">
+                {contactui?.map(dat => (
+                    dat?.crummaindata?.map((da, ind) => (<>
+                        <article key={ind}className="">
                             <figure className="h-[70vh] flex justify-center items-center overflow-hidden scale-75">
                                 <img src={da?.crummainimage} alt="" className="h-full max-w-[100ch]" />
                             </figure>
@@ -25,8 +25,8 @@ function ContactMain() {
                                 </>))}
                             </figcaption>
                         </article>
-                    </>))}
-                </>))}
+                    </>))
+                ))}
             </section>
             <section className="md:col-span-5 p-[20px] md:p-[50px]">
                 <figcaption className="">
