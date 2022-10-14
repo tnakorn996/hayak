@@ -150,8 +150,8 @@ export const Provider = ({ children }) => {
     const clientquerytwo = `*[_type != 'comment' && _type != 'feedback' && postid == '${location && location?.pathname?.replace('/', '')}' && postpublish != false]{
         ...,
         'postblock': null,
+        'postplaceid': *[_type == 'post' && postpublish != false && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postpublish != false && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postpublish != false && postid != ^.postid && productid match ^.postid || _type == 'post' && postpublish != false && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postpublish != false && postid != ^.postid && productidthree match ^.postid] {..., 'postblock': null} | order(_updatedAt desc) ,
         'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] {..., 'postblock': null} | order(_updatedAt desc),
-        'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] {..., 'postblock': null} | order(_updatedAt desc) ,
         'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] {..., 'postblock': null} | order(_updatedAt desc) ,
         'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] {..., 'postblock': null} | order(_updatedAt desc) ,
     }[0]`;         

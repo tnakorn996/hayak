@@ -169,10 +169,10 @@ function PostIndex() {
     //     },
     // ]
 
-    const clientquery = `*[_type != 'comment' && _type != 'feedback' && postid == '${appmainstate?.appmainparam || param.id}']{
+    const clientquery = `*[_type != 'comment' && _type != 'feedback' && postpublish != false && postid == '${appmainstate?.appmainparam || param.id}']{
           ...,
           'placeplaceid': *[_type == 'place' && postid match ^.placeid || _type == 'place' && postid match ^.placeidtwo] | order(_createdAt desc),
-          'postplaceid': *[_type == 'post' && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postid != ^.postid && productid match ^.postid || _type == 'post' && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postid != ^.postid && productidthree match ^.postid] | order(_createdAt desc) ,
+          'postplaceid': *[_type == 'post' && postpublish != false && postid != ^.postid && placeid match ^.placeid || _type == 'post' && postpublish != false && postid != ^.postid && placeid match ^.placeidtwo || _type == 'post' && postpublish != false && postid != ^.postid && productid match ^.postid || _type == 'post' && postpublish != false && postid != ^.postid && productidtwo match ^.postid || _type == 'post' && postpublish != false && postid != ^.postid && productidthree match ^.postid] | order(_createdAt desc) ,
           'productplaceid': *[_type == 'product' && postid != ^.postid && placeid match ^.placeid || _type == 'product' && postid != ^.postid && placeid match ^.placeidtwo || _type == 'product' && postid != ^.postid && placeidtwo match ^.placeid ] | order(_createdAt desc) ,
           'productpostid': *[_type == 'product' && postid match ^.productid || _type == 'product' && postid match ^.productidtwo || _type == 'product' && postid match ^.productidthree ] | order(_createdAt desc) ,
           'commentpostid': *[_type == 'comment' && postid == ^.postid ] | order(_createdAt desc) ,
